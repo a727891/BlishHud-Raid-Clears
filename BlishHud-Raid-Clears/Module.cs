@@ -96,7 +96,7 @@ namespace RaidClears
         };
         #endregion
 
-        #region LifeCycle
+        #region Setup/Teardown
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         protected override async Task LoadAsync()
 #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
@@ -106,7 +106,7 @@ namespace RaidClears
             _raidsPanel = new RaidsPanel(Logger, _settingService, _textureService, wingInfo);
 
 
-            _settingService.RaidPanelIsVisibleKeyBind.Value.Activated += OnRaidPanelDisplayKeybindActivated;// (s, e) => _settingService.ToggleRaidPanelVisibility();
+            _settingService.RaidPanelIsVisibleKeyBind.Value.Activated += OnRaidPanelDisplayKeybindActivated;
 
             _cornerIconService = new CornerIconService(
                 _settingService.ShowRaidsCornerIconSetting,
@@ -125,6 +125,8 @@ namespace RaidClears
         }
 
 
+
+        #endregion
         protected override void Update(GameTime gameTime)
         {
             //_logoutButton?.ShowOrHide();
@@ -132,7 +134,6 @@ namespace RaidClears
 
             //HideReminderWhenDurationEnds(gameTime);
         }
-        #endregion
 
         private void OnRaidPanelDisplayKeybindActivated(object sender, EventArgs e)
         {
@@ -140,17 +141,9 @@ namespace RaidClears
         }
 
 
-
-        private double _runningTime;
-        //private ToolSearchStandardWindow _toolSearchStandardWindow;
-        //private ReminderContainer _reminderContainer;
-        //private KeyBinding _escKeyBinding;
-        //private KeyBinding _enterKeyBinding;
         private SettingService _settingService;
         private TextureService _textureService;
         private CornerIconService _cornerIconService;
-        //private readonly List<GatheringTool> _allGatheringTools = new List<GatheringTool>();
-        //private LogoutButton _logoutButton;
         private RaidsPanel _raidsPanel;
     }
 }

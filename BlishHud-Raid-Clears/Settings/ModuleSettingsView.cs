@@ -37,12 +37,13 @@ namespace RaidClears.Settings
             ShowSettingWithViewContainer(_settingService.RaidPanelAllowTooltipsSetting, generalSettingFlowPanel, singleColumnWidth);
             ShowSettingWithViewContainer(_settingService.RaidPanelDragWithMouseIsEnabledSetting, generalSettingFlowPanel, singleColumnWidth);
 
-            var layoutFlowPanel = CreateSettingsGroupFlowPanel("Layout", _rootFlowPanel);
+            var layoutFlowPanel = CreateSettingsGroupFlowPanel("Layout and Visuals", _rootFlowPanel);
             ShowSettingWithViewContainer(_settingService.RaidPanelOrientationSetting, layoutFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.RaidPanelFontSizeSetting, layoutFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.RaidPanelWingLabelsSetting, layoutFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.RaidPanelWingLabelOpacity, layoutFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.RaidPanelEncounterOpacity, layoutFlowPanel, singleColumnWidth);
 
-            var miscOptionsFlowPanel = CreateSettingsGroupFlowPanel("Misc. Options", _rootFlowPanel);
-            ShowSettingWithViewContainer(_settingService.RaidPanelFontSizeSetting, miscOptionsFlowPanel, singleColumnWidth);
-            ShowSettingWithViewContainer(_settingService.RaidPanelWingLabelsSetting, miscOptionsFlowPanel, singleColumnWidth);
 
             var wingSelectionFlowPanel = CreateSettingsGroupFlowPanel("Wing Selection", _rootFlowPanel);
             ShowSettingWithViewContainer(_settingService.W1IsVisibleSetting, wingSelectionFlowPanel, singleColumnWidth);
@@ -54,21 +55,8 @@ namespace RaidClears.Settings
             ShowSettingWithViewContainer(_settingService.W7IsVisibleSetting, wingSelectionFlowPanel, singleColumnWidth);
 
 
-            //ShowOrHideLogoutButtonSettings(_settingService.LogoutButtonIsVisible.Value);
-            //_settingService.LogoutButtonIsVisible.SettingChanged += (s, e) => ShowOrHideLogoutButtonSettings(e.NewValue);
-
           
         }
-
-       /* private void ShowOrHideLogoutButtonSettings(bool isVisible)
-        {
-            _logoutSetting2.Visible = isVisible;
-            _logoutSetting3.Visible = isVisible;
-            _logoutSetting4.Visible = isVisible;
-            _logoutSetting5.Visible = isVisible;
-            _logoutSetting6.Visible = isVisible;
-        }*/
-
 
         private static FlowPanel CreateSettingsGroupFlowPanel(string title, Container parent)
         {
