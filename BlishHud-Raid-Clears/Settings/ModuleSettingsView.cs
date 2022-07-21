@@ -18,39 +18,40 @@ namespace RaidClears.Settings
         {
             _rootFlowPanel = new FlowPanel
             {
-                FlowDirection       = ControlFlowDirection.SingleTopToBottom,
-                CanScroll           = true,
+                FlowDirection = ControlFlowDirection.SingleTopToBottom,
+                CanScroll = true,
                 OuterControlPadding = new Vector2(10, 20),
-                ControlPadding      = new Vector2(0, 10),
-                WidthSizingMode     = SizingMode.Fill,
+                ControlPadding = new Vector2(0, 10),
+                Width = buildPanel.Width-10,
                 HeightSizingMode    = SizingMode.Fill,
                 Parent              = buildPanel
             };
 
+            var singleColumnWidth = buildPanel.Width - ((int)_rootFlowPanel.OuterControlPadding.X * 2);
             //CreatePatchNotesButton(_rootFlowPanel);
 
             var generalSettingFlowPanel = CreateSettingsGroupFlowPanel("General Options", _rootFlowPanel);
-            ShowSettingWithViewContainer(_settingService.RaidPanelIsVisibleKeyBind, generalSettingFlowPanel, buildPanel.Width);
-            ShowSettingWithViewContainer(_settingService.ShowRaidsCornerIconSetting, generalSettingFlowPanel, buildPanel.Width);
-            ShowSettingWithViewContainer(_settingService.RaidPanelIsVisible, generalSettingFlowPanel, buildPanel.Width);
-            ShowSettingWithViewContainer(_settingService.RaidPanelAllowTooltipsSetting, generalSettingFlowPanel, buildPanel.Width);
-            ShowSettingWithViewContainer(_settingService.RaidPanelDragWithMouseIsEnabledSetting, generalSettingFlowPanel, buildPanel.Width);
+            ShowSettingWithViewContainer(_settingService.RaidPanelIsVisibleKeyBind, generalSettingFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.ShowRaidsCornerIconSetting, generalSettingFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.RaidPanelIsVisible, generalSettingFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.RaidPanelAllowTooltipsSetting, generalSettingFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.RaidPanelDragWithMouseIsEnabledSetting, generalSettingFlowPanel, singleColumnWidth);
 
             var layoutFlowPanel = CreateSettingsGroupFlowPanel("Layout", _rootFlowPanel);
-            ShowSettingWithViewContainer(_settingService.RaidPanelOrientationSetting, layoutFlowPanel, buildPanel.Width);
+            ShowSettingWithViewContainer(_settingService.RaidPanelOrientationSetting, layoutFlowPanel, singleColumnWidth);
 
             var miscOptionsFlowPanel = CreateSettingsGroupFlowPanel("Misc. Options", _rootFlowPanel);
-            ShowSettingWithViewContainer(_settingService.RaidPanelFontSizeSetting, miscOptionsFlowPanel, buildPanel.Width);
-            ShowSettingWithViewContainer(_settingService.RaidPanelWingLabelsSetting, miscOptionsFlowPanel, buildPanel.Width);
+            ShowSettingWithViewContainer(_settingService.RaidPanelFontSizeSetting, miscOptionsFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.RaidPanelWingLabelsSetting, miscOptionsFlowPanel, singleColumnWidth);
 
             var wingSelectionFlowPanel = CreateSettingsGroupFlowPanel("Wing Selection", _rootFlowPanel);
-            ShowSettingWithViewContainer(_settingService.W1IsVisibleSetting, wingSelectionFlowPanel, buildPanel.Width);
-            ShowSettingWithViewContainer(_settingService.W2IsVisibleSetting, wingSelectionFlowPanel, buildPanel.Width);
-            ShowSettingWithViewContainer(_settingService.W3IsVisibleSetting, wingSelectionFlowPanel, buildPanel.Width);
-            ShowSettingWithViewContainer(_settingService.W4IsVisibleSetting, wingSelectionFlowPanel, buildPanel.Width);
-            ShowSettingWithViewContainer(_settingService.W5IsVisibleSetting, wingSelectionFlowPanel, buildPanel.Width);
-            ShowSettingWithViewContainer(_settingService.W6IsVisibleSetting, wingSelectionFlowPanel, buildPanel.Width);
-            ShowSettingWithViewContainer(_settingService.W7IsVisibleSetting, wingSelectionFlowPanel, buildPanel.Width);
+            ShowSettingWithViewContainer(_settingService.W1IsVisibleSetting, wingSelectionFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.W2IsVisibleSetting, wingSelectionFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.W3IsVisibleSetting, wingSelectionFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.W4IsVisibleSetting, wingSelectionFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.W5IsVisibleSetting, wingSelectionFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.W6IsVisibleSetting, wingSelectionFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.W7IsVisibleSetting, wingSelectionFlowPanel, singleColumnWidth);
 
 
             //ShowOrHideLogoutButtonSettings(_settingService.LogoutButtonIsVisible.Value);
@@ -77,7 +78,8 @@ namespace RaidClears.Settings
                 FlowDirection       = ControlFlowDirection.SingleTopToBottom,
                 OuterControlPadding = new Vector2(10, 10),
                 ShowBorder          = true,
-                WidthSizingMode     = SizingMode.Fill,
+                Width     = parent.Width-20,//width-2(padding.x)
+                //WidthSizingMode = SizingMode.Fill,
                 HeightSizingMode    = SizingMode.AutoSize,
                 Parent              = parent
             };

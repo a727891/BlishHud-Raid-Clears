@@ -30,7 +30,7 @@ namespace RaidClears.Settings
             RaidPanelDragWithMouseIsEnabledSetting = settings.DefineSetting("RCDrag",
                 false,
                 () => "Enable Dragging",
-                () => "Click and drag to reposition the display. (Overrides clickthrough)");
+                () => "Click and drag to reposition the clears window.");
 
             RaidPanelAllowTooltipsSetting = settings.DefineSetting("RCtooltips",
                 false,
@@ -51,6 +51,17 @@ namespace RaidClears.Settings
                 Orientation.Vertical,
                 () => "Orientation",
                 () => "Display the wings in a vertial column or horizontal row");
+
+            RaidPanelWingLabelOpacity = settings.DefineSetting("RCWingOpacity",
+                1f,
+                () => "Wing Opacity",
+                () => "Wing Label transparency, Hidden <--> Full Visible");
+            RaidPanelWingLabelOpacity.SetRange(0f, 1f);
+            RaidPanelEncounterOpacity = settings.DefineSetting("RCEncOpacity",
+                0.8f,
+                () => "Wing Opacity",
+                () => "Wing Label transparency, Hidden <--> Full Visible");
+            RaidPanelEncounterOpacity.SetRange(0f, 1f);
 
             #region WingVisibilitySettings
             W1IsVisibleSetting = settings.DefineSetting("RCw1",
@@ -108,6 +119,18 @@ namespace RaidClears.Settings
             RaidPanelIsVisible.Value = !RaidPanelIsVisible.Value;
         }
 
+        public bool[] GetWingVisibilitySettings()
+        {
+            return new bool[7] {
+                W1IsVisibleSetting.Value,
+                W2IsVisibleSetting.Value,
+                W3IsVisibleSetting.Value,
+                W4IsVisibleSetting.Value,
+                W5IsVisibleSetting.Value,
+                W6IsVisibleSetting.Value,
+                W7IsVisibleSetting.Value
+            };
+        }
         public SettingEntry<Point> RaidPanelLocationPoint { get; }
         public SettingEntry<bool> RaidPanelIsVisible { get; }
         public SettingEntry<bool> RaidPanelAllowTooltipsSetting { get; }
@@ -115,6 +138,8 @@ namespace RaidClears.Settings
         public SettingEntry<ContentService.FontSize> RaidPanelFontSizeSetting { get; }
         public SettingEntry<WingLabel> RaidPanelWingLabelsSetting { get; }
         public SettingEntry<Orientation> RaidPanelOrientationSetting { get; }
+        public SettingEntry<float> RaidPanelWingLabelOpacity { get; }
+        public SettingEntry<float> RaidPanelEncounterOpacity { get; }
         public SettingEntry<bool> W1IsVisibleSetting { get; }
         public SettingEntry<bool> W2IsVisibleSetting { get; }
         public SettingEntry<bool> W3IsVisibleSetting { get; }

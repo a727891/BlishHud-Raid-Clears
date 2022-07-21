@@ -121,11 +121,15 @@ namespace RaidClears.Raids.Controls
             _wingLabelObj.Text = GetWingLabelText();
             _wingLabelObj.HorizontalAlignment = WingLabelAlignment();
 
-            if(_wingLabelObj.Visible && !(label == WingLabel.NoLabel))
-            _wingLabelObj.Visible = !(label == WingLabel.NoLabel);
-            //@todo - find a better way to measure max wing label
-            _wingLabelObj.Width = (label == WingLabel.NoLabel? 0 : 40);
-            
+            if(label == WingLabel.NoLabel)
+            {
+                _wingLabelObj.Hide();
+            }
+            else
+            {
+                _wingLabelObj.Show();
+            }
+            Invalidate();
         }
 
         public void SetFontSize(ContentService.FontSize fontSize)
@@ -146,6 +150,29 @@ namespace RaidClears.Raids.Controls
             }
         }
 
+        public void SetWingLabelOpacity(float opacity)
+        {
+            _wingLabelObj.Opacity = opacity;
+        }
+
+        public void SetEncounterOpacity(float opacity)
+        {
+            foreach(var encounter in _wing.encounters)
+            {
+                encounter.GetLabelReference().Opacity = opacity;
+            }
+        }
+        public void ShowHide(bool shouldShow)
+        {
+            if(Visible==true && !shouldShow)
+            {
+                Hide();
+            }
+            if(Visible == false && shouldShow)
+            {
+                Show();
+            }
+        }
 
     }
 }

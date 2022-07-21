@@ -43,12 +43,44 @@ namespace RaidClears.Raids.Controls
             settingService.RaidPanelWingLabelsSetting.SettingChanged += (s, e) => WingLabelDisplayChanged(e.NewValue);
             settingService.RaidPanelFontSizeSetting.SettingChanged += (s, e) => FontSizeChanged(e.NewValue);
 
+            settingService.RaidPanelWingLabelOpacity.SettingChanged += (s, e) => WingLabelOpacityChanged(e.NewValue);
+            settingService.RaidPanelEncounterOpacity.SettingChanged += (s, e) => EncounterOpacityChanged(e.NewValue);
+
             settingService.RaidPanelDragWithMouseIsEnabledSetting.SettingChanged += (s, e) => IgnoreMouseInput = ShouldIgnoreMouse();
             settingService.RaidPanelAllowTooltipsSetting.SettingChanged += (s, e) => IgnoreMouseInput = ShouldIgnoreMouse();
+
+            settingService.W1IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(0, e.PreviousValue, e.NewValue);
+            settingService.W2IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(1, e.PreviousValue, e.NewValue);
+            settingService.W3IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(2, e.PreviousValue, e.NewValue);
+            settingService.W4IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(3, e.PreviousValue, e.NewValue);
+            settingService.W5IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(4, e.PreviousValue, e.NewValue);
+            settingService.W6IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(5, e.PreviousValue, e.NewValue);
+            settingService.W7IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(6, e.PreviousValue, e.NewValue);
+
 
             AddDragDelegates();
 
 
+        }
+
+        protected void WingVisibilityChanged(int wingIndex, bool was, bool now)
+        {
+            var shownIndex = 0;
+            var wingVis = _settingService.GetWingVisibilitySettings();
+
+            _wings[wingIndex].GetWingPanelReference().ShowHide(now);
+
+            Invalidate();
+            if(was && !now)
+            {
+                //remove a wingPanel from the children
+            }
+            if(now && !was)
+            {
+                //Add a wingPanel to the children
+            }
+            
+           
         }
        
 
@@ -97,10 +129,19 @@ namespace RaidClears.Raids.Controls
             }
         }
 
-        protected void WingDisplayChanged()
+        protected void WingLabelOpacityChanged(float opacity)
+        {
+            foreach (var wing in _wings)
+            {
+                wing.GetWingPanelReference().SetWingLabelOpacity(opacity);
+            }
+        }
+
+        protected void EncounterOpacityChanged(float opacity)
         {
 
         }
+
         #endregion
 
         protected override void DisposeControl()
@@ -192,6 +233,7 @@ namespace RaidClears.Raids.Controls
 
         protected void CreateWings(Wing[] wings)
         {
+            var wingVis = _settingService.GetWingVisibilitySettings();
             foreach(var wing in wings)
             {
                 var wingPanel = new WingPanel(
@@ -202,7 +244,9 @@ namespace RaidClears.Raids.Controls
                     _settingService.RaidPanelFontSizeSetting.Value
                     );
                 wing.SetWingPanelReference(wingPanel);
+                wingPanel.ShowHide(wingVis[wing.index - 1]);
                 AddChild(wingPanel);
+                
             }
 
         }
