@@ -1,0 +1,30 @@
+{
+  "name": "Raid Clears",
+  "version": "1.1.0",
+  "namespace": "Soeed.RaidClears",
+  "package": "BlishHud-Raid-Clears.dll",
+  "manifest_version": 1,
+  "description": "Display weekly raid clear progress.\nNote that clears data depends on the GW2 API and may take several minutes to update.\nHeavily inspired by the same feature in Gw2TacO",
+  "dependencies": {
+    "bh.blishhud": ">=0.11.7"
+  },
+  "url": "https://github.com/a727891/BlishHud-Raid-Clears",
+  "contributors": [
+    {
+      "name": "Soeed",
+      "username": "soeed.4160",
+      "url": "https://github.com/a727891"
+    }
+  ],
+  "enabled_without_gw2": false,
+  "api_permissions": {
+    "account": {
+      "optional": false,
+      "details": "Required for authenticated API access"
+    },
+    "progression": {
+      "optional": false,
+      "details": "Required for listing cleared encounters for the week"
+    }
+  }
+}
