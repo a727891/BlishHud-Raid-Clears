@@ -26,8 +26,7 @@ namespace RaidClears.Raids.Services
 
             try
             {
-                // Task.run because not just await but also a lot of cpu-bound look ups
-                return (await Task.Run(() => GetCurrentClearsFromApi(gw2ApiManager, logger)), false);
+                return (await  GetCurrentClearsFromApi(gw2ApiManager, logger), false);
             }
             catch (Exception e)
             {
@@ -40,17 +39,12 @@ namespace RaidClears.Raids.Services
                                                                     Logger logger)
         {
             var weeklyCleared = await gw2ApiManager.Gw2ApiClient.V2.Account.Raids.GetAsync();
-
-            var clears = ApiResponseToList(weeklyCleared);
-
-            return new ApiRaids(clears);
+      
+            return new ApiRaids(weeklyCleared.ToList());
 
         }
 
-        private static List<string> ApiResponseToList(IEnumerable<string> clears) => clears.ToList();
-
-
-        private static readonly List<TokenPermission> NECESSARY_API_TOKEN_PERMISSIONS = new List<TokenPermission>
+        public static readonly List<TokenPermission> NECESSARY_API_TOKEN_PERMISSIONS = new List<TokenPermission>
         {
             TokenPermission.Account,
             TokenPermission.Progression

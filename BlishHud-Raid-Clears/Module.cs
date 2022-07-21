@@ -10,6 +10,8 @@ using Blish_HUD.Modules;
 using Blish_HUD.Modules.Managers;
 using Blish_HUD.Settings;
 
+using Gw2Sharp.WebApi.V2.Models;
+
 using RaidClears.Settings;
 using RaidClears.Raids.Controls;
 using RaidClears.Raids.Model;
@@ -105,7 +107,6 @@ namespace RaidClears
     
             _raidsPanel = new RaidsPanel(Logger, _settingService, _textureService, wingInfo);
 
-
             _settingService.RaidPanelIsVisibleKeyBind.Value.Activated += OnRaidPanelDisplayKeybindActivated;
 
             _cornerIconService = new CornerIconService(
@@ -113,11 +114,23 @@ namespace RaidClears
                 "Click to show/hide the Raid Clears window.\nIcon can be hidden by module settings.",
                 (s, e) => _settingService.ToggleRaidPanelVisibility(),
                 _textureService);
+
+            Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
+
+            //Check if module was reloaded
+            if (Gw2ApiManager.HasPermissions(GetCurrentClearsService.NECESSARY_API_TOKEN_PERMISSIONS))
+            {
+                _lastApiCheck = API_QUERY_INTERVAL;
+
+            }
+
+
         }
 
         protected override void Unload()
         {
             _settingService.RaidPanelIsVisibleKeyBind.Value.Activated -= OnRaidPanelDisplayKeybindActivated;
+            Gw2ApiManager.SubtokenUpdated -= Gw2ApiManager_SubtokenUpdated;
 
             _raidsPanel?.Dispose();
             _textureService?.Dispose();
@@ -132,14 +145,41 @@ namespace RaidClears
             //_logoutButton?.ShowOrHide();
             _raidsPanel?.ShowOrHide();
 
-            //HideReminderWhenDurationEnds(gameTime);
+            if (_lastApiCheck >= 0)
+            {
+                _lastApiCheck += gameTime.ElapsedGameTime.TotalMilliseconds;
+                
+                if (_lastApiCheck >= API_QUERY_INTERVAL)
+                {
+                    _lastApiCheck = 0;
+                    Task.Run(async () =>
+                    {
+                        var (weeklyClears, apiAccessFailed) = await GetCurrentClearsService.GetClearsFromApi(Gw2ApiManager, Logger);
+                        if (apiAccessFailed)
+                        {
+                            return;
+                        }
+
+                        _raidsPanel.UpdateClearedStatus(weeklyClears);
+                    });
+                }
+            }
         }
+
+        private void Gw2ApiManager_SubtokenUpdated(object sender, ValueEventArgs<IEnumerable<TokenPermission>> e)
+        {
+            // _settingToggleKey check interval so that we check immediately now that we have a new token.
+            _lastApiCheck = API_QUERY_INTERVAL;
+        }
+
 
         private void OnRaidPanelDisplayKeybindActivated(object sender, EventArgs e)
         {
             _settingService.ToggleRaidPanelVisibility();
         }
 
+        private static double _lastApiCheck = -1;
+        private static readonly double API_QUERY_INTERVAL = 300100; // 300 seconds + 100ms
 
         private SettingService _settingService;
         private TextureService _textureService;

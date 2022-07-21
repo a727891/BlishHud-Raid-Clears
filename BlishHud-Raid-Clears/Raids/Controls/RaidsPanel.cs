@@ -1,4 +1,5 @@
-﻿using Blish_HUD;
+﻿using System.Collections.Generic;
+using Blish_HUD;
 using Blish_HUD.Controls;
 using Blish_HUD.Input;
 using RaidClears.Raids.Model;
@@ -23,7 +24,7 @@ namespace RaidClears.Raids.Controls
             _logger = logger;
             _wings = wings;
             _settingService = settingService;
-            
+            ControlPadding = new Vector2(2, 2);
             FlowDirection = GetFlowDirection();
             IgnoreMouseInput = ShouldIgnoreMouse();
             Location = settingService.RaidPanelLocationPoint.Value;
@@ -139,6 +140,10 @@ namespace RaidClears.Raids.Controls
 
         protected void EncounterOpacityChanged(float opacity)
         {
+            foreach(var wing in _wings)
+            {
+                wing.GetWingPanelReference().SetEncounterOpacity(opacity);
+            }
 
         }
 
@@ -251,8 +256,19 @@ namespace RaidClears.Raids.Controls
 
         }
 
-        public void UpdateClearedStatus(string[] clears)
+        public void UpdateClearedStatus(ApiRaids apiraids)
         {
+            _logger.Info(apiraids.Clears.ToString());
+            foreach(var wing in _wings)
+            {
+                foreach(var encounter in wing.encounters)
+                {
+                    var isCleared = apiraids.Clears.Contains(encounter.id);
+                    _logger.Info("'{0}' - '{1}'", encounter.id, isCleared.ToString());
+                    encounter.SetCleared(apiraids.Clears.Contains(encounter.id));
+                }
+            }
+            Invalidate();
 
         }
 

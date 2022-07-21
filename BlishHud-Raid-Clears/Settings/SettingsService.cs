@@ -26,6 +26,7 @@ namespace RaidClears.Settings
             RaidPanelIsVisibleKeyBind = settings.DefineSetting("RCkeybind", new KeyBinding(Keys.None),
                 () => "Display on screen keybind",
                 () => "Reveal or hide the display from key press.");
+            RaidPanelIsVisibleKeyBind.Value.Enabled = true;
 
             RaidPanelDragWithMouseIsEnabledSetting = settings.DefineSetting("RCDrag",
                 false,
@@ -54,13 +55,13 @@ namespace RaidClears.Settings
 
             RaidPanelWingLabelOpacity = settings.DefineSetting("RCWingOpacity",
                 1f,
-                () => "Wing Opacity",
-                () => "Wing Label transparency, Hidden <--> Full Visible");
+                () => "Wing Label Opacity",
+                () => "Wing label transparency, Hidden <--> Full Visible");
             RaidPanelWingLabelOpacity.SetRange(0f, 1f);
             RaidPanelEncounterOpacity = settings.DefineSetting("RCEncOpacity",
                 0.8f,
-                () => "Wing Opacity",
-                () => "Wing Label transparency, Hidden <--> Full Visible");
+                () => "Encounter Opacity",
+                () => "Encounter label transparency, Hidden <--> Full Visible");
             RaidPanelEncounterOpacity.SetRange(0f, 1f);
 
             #region WingVisibilitySettings

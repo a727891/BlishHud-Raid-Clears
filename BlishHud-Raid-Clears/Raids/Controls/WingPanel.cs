@@ -22,7 +22,7 @@ namespace RaidClears.Raids.Controls
         {
             _wing = wing;
 
-            ControlPadding = new Vector2(2);
+            ControlPadding = new Vector2(2, 2);
             HeightSizingMode = SizingMode.AutoSize;
             Parent = parent;
             WidthSizingMode = SizingMode.AutoSize;

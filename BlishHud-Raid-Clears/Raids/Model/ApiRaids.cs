@@ -12,7 +12,7 @@ namespace RaidClears.Raids.Model
         }
         public ApiRaids(List<string> clears)
         {
-
+            Clears = clears;
         }
 
         public List<string> Clears { get; } = new List<string>();
