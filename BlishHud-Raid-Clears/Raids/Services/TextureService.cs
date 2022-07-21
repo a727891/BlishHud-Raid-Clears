@@ -9,8 +9,8 @@ namespace RaidClears.Raids.Services
         public TextureService(ContentsManager contentsManager)
         {
             
-            CornerIconTexture = contentsManager.GetTexture(@"raids\textures\raidIcon.png");
-            CornerIconHoverTexture = contentsManager.GetTexture(@"raids\textures\raidIcon_hover.png");
+            CornerIconTexture = contentsManager.GetTexture(@"raids\textures\raidIconDark.png");
+            CornerIconHoverTexture = contentsManager.GetTexture(@"raids\textures\raidIconBright.png");
            
         }
 
