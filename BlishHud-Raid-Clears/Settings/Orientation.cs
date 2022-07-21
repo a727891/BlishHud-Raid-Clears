@@ -1,14 +1,15 @@
 ﻿using System.ComponentModel;
 
-namespace GatheringTools.Settings
+namespace RaidClears.Settings
 {
     public enum Orientation
     {
-        [Description("List Wings in a vertical column")]
+        [Description("Wings in a vertical column")]
         Vertical,
-        [Description("List wings in a horizontal row")]
-        Horizontal
-
+        [Description("Wings in a horizontal row")]
+        Horizontal,
+        [Description("A single row")]
+        SingleRow
 
     }
 }

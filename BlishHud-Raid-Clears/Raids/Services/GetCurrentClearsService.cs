@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Blish_HUD;
 using Blish_HUD.Modules.Managers;
 using Gw2Sharp.WebApi.V2.Models;
-using GatheringTools.Raids.Model;
+using RaidClears.Raids.Model;
 
-namespace GatheringTools.Raids.Services
+namespace RaidClears.Raids.Services
 {
     public static class GetCurrentClearsService
     {

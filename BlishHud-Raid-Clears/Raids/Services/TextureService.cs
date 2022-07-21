@@ -2,15 +2,15 @@
 using Blish_HUD.Modules.Managers;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace GatheringTools.Raids.Services
+namespace RaidClears.Raids.Services
 {
     public class TextureService : IDisposable
     {
         public TextureService(ContentsManager contentsManager)
         {
             
-            CornerIconTexture                = contentsManager.GetTexture(@"raids\textures\cornerIcon.png");
-            CornerIconHoverTexture           = contentsManager.GetTexture(@"raids\textures\cornerIcon_hover.png");
+            CornerIconTexture = contentsManager.GetTexture(@"raids\textures\raidIcon.png");
+            CornerIconHoverTexture = contentsManager.GetTexture(@"raids\textures\raidIcon_hover.png");
            
         }
 

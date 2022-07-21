@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using Blish_HUD.Controls;
 using System.Linq;
 
-namespace GatheringTools.Raids.Model
+namespace RaidClears.Raids.Model
 {
     public class Encounter
     {
@@ -10,11 +11,23 @@ namespace GatheringTools.Raids.Model
         public string short_name;
         public bool is_cleared = false;
 
+        private Label _label;
+
         public Encounter(string id, string name, string short_name)
         {
             this.id = id;
             this.name = name;
             this.short_name = short_name;
+        }
+
+        public void SetLabelReference(Label label)
+        {
+            _label = label;
+        }
+
+        public Label GetLabelReference()
+        {
+            return _label;
         }
     }
 }

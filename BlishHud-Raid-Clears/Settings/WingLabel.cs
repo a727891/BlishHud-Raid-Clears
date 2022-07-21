@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace GatheringTools.Settings
+namespace RaidClears.Settings
 {
     public enum WingLabel
     {

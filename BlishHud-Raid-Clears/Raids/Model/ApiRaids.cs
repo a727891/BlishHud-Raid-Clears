@@ -2,7 +2,7 @@
 using Gw2Sharp.WebApi.V2.Models;
 using System.Linq;
 
-namespace GatheringTools.Raids.Model
+namespace RaidClears.Raids.Model
 {
     public class ApiRaids
     {

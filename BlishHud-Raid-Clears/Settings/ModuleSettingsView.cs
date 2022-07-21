@@ -5,7 +5,7 @@ using Blish_HUD.Settings;
 using Blish_HUD.Settings.UI.Views;
 using Microsoft.Xna.Framework;
 
-namespace GatheringTools.Settings
+namespace RaidClears.Settings
 {
     public class ModuleSettingsView : View
     {
@@ -30,27 +30,27 @@ namespace GatheringTools.Settings
             //CreatePatchNotesButton(_rootFlowPanel);
 
             var generalSettingFlowPanel = CreateSettingsGroupFlowPanel("General Options", _rootFlowPanel);
+            ShowSettingWithViewContainer(_settingService.RaidPanelIsVisibleKeyBind, generalSettingFlowPanel, buildPanel.Width);
             ShowSettingWithViewContainer(_settingService.ShowRaidsCornerIconSetting, generalSettingFlowPanel, buildPanel.Width);
             ShowSettingWithViewContainer(_settingService.RaidPanelIsVisible, generalSettingFlowPanel, buildPanel.Width);
-            ShowSettingWithViewContainer(_settingService.RaidPanelIsVisibleKeyBind, generalSettingFlowPanel, buildPanel.Width);
             ShowSettingWithViewContainer(_settingService.RaidPanelAllowTooltipsSetting, generalSettingFlowPanel, buildPanel.Width);
             ShowSettingWithViewContainer(_settingService.RaidPanelDragWithMouseIsEnabledSetting, generalSettingFlowPanel, buildPanel.Width);
 
             var layoutFlowPanel = CreateSettingsGroupFlowPanel("Layout", _rootFlowPanel);
-            ShowSettingWithViewContainer(_settingService.RaidPanelOrientationSetting, generalSettingFlowPanel, buildPanel.Width);
+            ShowSettingWithViewContainer(_settingService.RaidPanelOrientationSetting, layoutFlowPanel, buildPanel.Width);
 
             var miscOptionsFlowPanel = CreateSettingsGroupFlowPanel("Misc. Options", _rootFlowPanel);
-            ShowSettingWithViewContainer(_settingService.RaidPanelFontSizeSetting, generalSettingFlowPanel, buildPanel.Width);
-            ShowSettingWithViewContainer(_settingService.RaidPanelWingLabelsSetting, generalSettingFlowPanel, buildPanel.Width);
+            ShowSettingWithViewContainer(_settingService.RaidPanelFontSizeSetting, miscOptionsFlowPanel, buildPanel.Width);
+            ShowSettingWithViewContainer(_settingService.RaidPanelWingLabelsSetting, miscOptionsFlowPanel, buildPanel.Width);
 
             var wingSelectionFlowPanel = CreateSettingsGroupFlowPanel("Wing Selection", _rootFlowPanel);
-            ShowSettingWithViewContainer(_settingService.W1IsVisibleSetting, generalSettingFlowPanel, buildPanel.Width);
-            ShowSettingWithViewContainer(_settingService.W2IsVisibleSetting, generalSettingFlowPanel, buildPanel.Width);
-            ShowSettingWithViewContainer(_settingService.W3IsVisibleSetting, generalSettingFlowPanel, buildPanel.Width);
-            ShowSettingWithViewContainer(_settingService.W4IsVisibleSetting, generalSettingFlowPanel, buildPanel.Width);
-            ShowSettingWithViewContainer(_settingService.W5IsVisibleSetting, generalSettingFlowPanel, buildPanel.Width);
-            ShowSettingWithViewContainer(_settingService.W6IsVisibleSetting, generalSettingFlowPanel, buildPanel.Width);
-            ShowSettingWithViewContainer(_settingService.W7IsVisibleSetting, generalSettingFlowPanel, buildPanel.Width);
+            ShowSettingWithViewContainer(_settingService.W1IsVisibleSetting, wingSelectionFlowPanel, buildPanel.Width);
+            ShowSettingWithViewContainer(_settingService.W2IsVisibleSetting, wingSelectionFlowPanel, buildPanel.Width);
+            ShowSettingWithViewContainer(_settingService.W3IsVisibleSetting, wingSelectionFlowPanel, buildPanel.Width);
+            ShowSettingWithViewContainer(_settingService.W4IsVisibleSetting, wingSelectionFlowPanel, buildPanel.Width);
+            ShowSettingWithViewContainer(_settingService.W5IsVisibleSetting, wingSelectionFlowPanel, buildPanel.Width);
+            ShowSettingWithViewContainer(_settingService.W6IsVisibleSetting, wingSelectionFlowPanel, buildPanel.Width);
+            ShowSettingWithViewContainer(_settingService.W7IsVisibleSetting, wingSelectionFlowPanel, buildPanel.Width);
 
 
             //ShowOrHideLogoutButtonSettings(_settingService.LogoutButtonIsVisible.Value);
@@ -86,7 +86,7 @@ namespace GatheringTools.Settings
         private static ViewContainer ShowSettingWithViewContainer(SettingEntry settingEntry, Container parent, int width)
         {
             var viewContainer = new ViewContainer { Parent = parent };
-            viewContainer.Show(SettingView.FromType(settingEntry, width));
+            viewContainer.Show(SettingView.FromType(settingEntry, parent.Width));
             return viewContainer;
         }
 

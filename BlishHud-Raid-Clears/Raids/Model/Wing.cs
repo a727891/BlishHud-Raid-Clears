@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using RaidClears.Raids.Controls;
 using System.Linq;
 
-namespace GatheringTools.Raids.Model
+namespace RaidClears.Raids.Model
 {
     public class Wing
     {
@@ -10,12 +11,24 @@ namespace GatheringTools.Raids.Model
         public string shortName;
         public Encounter[] encounters;
 
+        private WingPanel _wingPanel;
+
         public Wing(string name, int index, string shortName, Encounter[] encounters)
         {
             this.name = name;
             this.index = index;
             this.shortName = shortName;
             this.encounters = encounters;
+        }
+
+     
+        public void SetWingPanelReference(WingPanel panel)
+        {
+            _wingPanel= panel;
+        }
+        public WingPanel GetWingPanelReference()
+        {
+            return _wingPanel;
         }
     }
 }

@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Input;
 
 
 
-namespace GatheringTools.Settings
+namespace RaidClears.Settings
 {
     public class SettingService // singular because Setting"s"Service already exists in Blish
     {
@@ -38,7 +38,7 @@ namespace GatheringTools.Settings
                 () => "Hovering the mouse over an encounter will display the full name");
 
             RaidPanelFontSizeSetting = settings.DefineSetting("RCFontSize",
-                ContentService.FontSize.Size12,
+                ContentService.FontSize.Size11,
                 () => "Font Size",
                 () => "Change the size of the grid");
 
@@ -126,11 +126,5 @@ namespace GatheringTools.Settings
 
         public SettingEntry<bool> ShowRaidsCornerIconSetting { get; }
 
-        public SettingEntry<bool> LogoutButtonIsVisible { get; }
-        public SettingEntry<bool> LogoutButtonDragWithMouseIsEnabledSetting { get; }
-
-        public SettingEntry<KeyBinding> LogoutKeyBindingSetting { get; }
-
-        public const int DEFAULT_LOGOUT_BUTTON_POSITION_Y = 50;
     }
 }

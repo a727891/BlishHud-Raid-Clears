@@ -5,7 +5,7 @@ using Blish_HUD.Input;
 using Blish_HUD.Settings;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace GatheringTools.Raids.Services
+namespace RaidClears.Raids.Services
 {
     public class CornerIconService : IDisposable
     {

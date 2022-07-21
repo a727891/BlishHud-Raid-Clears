@@ -1,82 +1,154 @@
 ﻿using Blish_HUD;
 using Blish_HUD.Controls;
 using Blish_HUD.Input;
-using GatheringTools.Raids.Services;
-using GatheringTools.Settings;
+using RaidClears.Raids.Model;
+using RaidClears.Raids.Services;
+using RaidClears.Settings;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
 
-namespace GatheringTools.Raids.Controls
+namespace RaidClears.Raids.Controls
 {
     class RaidsPanel : FlowPanel
     {
+        private Logger _logger;
+        private Wing[] _wings;
         private readonly SettingService _settingService;
-        private bool _isDraggedByMouse;
-        private Point _mousePressedLocationInsideControl = Point.Zero;
+        private bool _isDraggedByMouse = false;
+        private Point _dragStart = Point.Zero;
 
-        public RaidsPanel(SettingService settingService, TextureService textureService)
+        public RaidsPanel(Logger logger, SettingService settingService, TextureService textureService, Wing[] wings)
         {
+            _logger = logger;
+            _wings = wings;
             _settingService = settingService;
+            
+            FlowDirection = GetFlowDirection();
+            IgnoreMouseInput = ShouldIgnoreMouse();
+            Location = settingService.RaidPanelLocationPoint.Value;
+            Visible = settingService.RaidPanelIsVisible.Value;
+            Parent = GameService.Graphics.SpriteScreen;
+            HeightSizingMode = SizingMode.AutoSize;
+            WidthSizingMode = SizingMode.AutoSize;
+
+
+
+            CreateWings(wings);
+
+            settingService.RaidPanelIsVisible.SettingChanged += (s, e) => Visible = e.NewValue;
+            settingService.RaidPanelLocationPoint.SettingChanged += (s, e) => Location = e.NewValue;
+
+            settingService.RaidPanelOrientationSetting.SettingChanged += (s, e) => OrientationChanged(e.NewValue);
+            settingService.RaidPanelWingLabelsSetting.SettingChanged += (s, e) => WingLabelDisplayChanged(e.NewValue);
+            settingService.RaidPanelFontSizeSetting.SettingChanged += (s, e) => FontSizeChanged(e.NewValue);
+
+            settingService.RaidPanelDragWithMouseIsEnabledSetting.SettingChanged += (s, e) => IgnoreMouseInput = ShouldIgnoreMouse();
+            settingService.RaidPanelAllowTooltipsSetting.SettingChanged += (s, e) => IgnoreMouseInput = ShouldIgnoreMouse();
+
+            AddDragDelegates();
+
+
+        }
+       
+
+        protected ControlFlowDirection GetFlowDirection()
+        {
             /**  FlowDirection based on Orientation 
              * V             H 1  2  3 L>R
              * T  1 B1 B2 B3   B1 B1 B1
              * v  2 B1 B2 B3   B2 B2 B2
              * B  3 B1 B2 B3   B3 B3 B3
              */
-            FlowDirection = settingService.RaidPanelOrientationSetting.Value == Orientation.Vertical ?
-                ControlFlowDirection.SingleTopToBottom : ControlFlowDirection.SingleLeftToRight;
-            IgnoreMouseInput = !(settingService.RaidPanelDragWithMouseIsEnabledSetting.Value || settingService.RaidPanelAllowTooltipsSetting.Value);
-            Location = settingService.RaidPanelLocationPoint.Value;
-            Visible = settingService.LogoutButtonIsVisible.Value;
-            Parent = GameService.Graphics.SpriteScreen;
-
-            settingService.RaidPanelIsVisible.SettingChanged += (s, e) => Visible = e.NewValue;
-            settingService.RaidPanelLocationPoint.SettingChanged += (s, e) => Location = e.NewValue;
-
-            GameService.Input.Mouse.LeftMouseButtonReleased += OnLeftMouseButtonReleased;
+            switch (_settingService.RaidPanelOrientationSetting.Value)
+            {
+                case Orientation.Horizontal: return ControlFlowDirection.SingleLeftToRight;
+                case Orientation.Vertical: return ControlFlowDirection.SingleTopToBottom;
+                case Orientation.SingleRow: return ControlFlowDirection.SingleLeftToRight;
+                default: return ControlFlowDirection.SingleTopToBottom;
+            }
         }
-        
+
+
+        #region Settings changed handlers
+        protected void OrientationChanged(Orientation orientation)
+        {
+            FlowDirection = GetFlowDirection();
+            foreach(var wing in _wings)
+            {
+                wing.GetWingPanelReference().SetOrientation(orientation);
+            }
+
+        }
+
+        protected void WingLabelDisplayChanged(WingLabel labelDisplay)
+        {
+            foreach (var wing in _wings)
+            {
+                wing.GetWingPanelReference().SetLabelDisplay(labelDisplay);
+            }
+        }
+
+        protected void FontSizeChanged(ContentService.FontSize fontSize)
+        {
+            foreach (var wing in _wings)
+            {
+                wing.GetWingPanelReference().SetFontSize(fontSize);
+            }
+        }
+
+        protected void WingDisplayChanged()
+        {
+
+        }
+        #endregion
 
         protected override void DisposeControl()
         {
-            GameService.Input.Mouse.LeftMouseButtonReleased -= OnLeftMouseButtonReleased;
             base.DisposeControl();
         }
 
-#pragma warning disable CS0114 // Member hides inherited member; missing override keyword
-        public virtual void DoUpdate(GameTime gameTime)
-#pragma warning restore CS0114 // Member hides inherited member; missing override keyword
+        #region Mouse Stuff
+        public virtual void DoUpdate()
+
         {
             if (_isDraggedByMouse && _settingService.RaidPanelDragWithMouseIsEnabledSetting.Value)
             {
-                // done via settings instead of directly updating location
-                // because otherwise the reset position button would stop working.
-                _settingService.RaidPanelLocationPoint.Value = Input.Mouse.Position - _mousePressedLocationInsideControl;
+                var nOffset = InputService.Input.Mouse.Position - _dragStart;
+                this.Location += nOffset;
+
+                _dragStart = InputService.Input.Mouse.Position;
             }
         }
-
-        protected override void OnLeftMouseButtonPressed(MouseEventArgs e)
+        private void AddDragDelegates()
         {
-            if (_settingService.RaidPanelDragWithMouseIsEnabledSetting.Value)
+            this.LeftMouseButtonPressed += delegate
             {
-                _isDraggedByMouse = true;
-                _mousePressedLocationInsideControl = Input.Mouse.Position - Location;
-            }
-
-            base.OnLeftMouseButtonPressed(e);
+                if (_settingService.RaidPanelDragWithMouseIsEnabledSetting.Value)
+                {
+                    _isDraggedByMouse = true;
+                    _dragStart = InputService.Input.Mouse.Position;
+                }
+            };
+            this.LeftMouseButtonReleased += delegate
+            {
+                if (_settingService.RaidPanelDragWithMouseIsEnabledSetting.Value)
+                {
+                    _isDraggedByMouse = false;
+                    _settingService.RaidPanelLocationPoint.Value = this.Location;
+                }
+            };
         }
 
-        // not using the override on purpose because it does not register the release when clicking fast (workaround suggested by freesnow)
-        private void OnLeftMouseButtonReleased(object sender, MouseEventArgs e)
+        protected bool ShouldIgnoreMouse()
         {
-            if (_settingService.LogoutButtonDragWithMouseIsEnabledSetting.Value)
-                _isDraggedByMouse = false;
+            return !(
+                _settingService.RaidPanelDragWithMouseIsEnabledSetting.Value ||
+                _settingService.RaidPanelAllowTooltipsSetting.Value
+            );
         }
 
-        #region MouseClickThrough
         private bool _ignoreMouseInput = false;
-  
         public bool IgnoreMouseInput
         {
             get
@@ -85,7 +157,7 @@ namespace GatheringTools.Raids.Controls
             }
             set
             {
-                SetProperty(ref _ignoreMouseInput, value, invalidateLayout: false, "IgnoreMouseInput");
+                SetProperty(ref _ignoreMouseInput, value, invalidateLayout: true, "IgnoreMouseInput");
             }
         }
 
@@ -111,20 +183,27 @@ namespace GatheringTools.Raids.Controls
                 _settingService.LogoutButtonIsVisibleOnCutScenesAndCharacterSelect.Value,
                 GameService.GameIntegration.Gw2Instance.IsInGame,
                 GameService.Gw2Mumble.UI.IsMapOpen == false);*/
-
+            DoUpdate();
            /* if (Visible == false && shouldBeVisible)
                 Show();
             else if (Visible && shouldBeVisible == false)
                 Hide();*/
         }
 
-        public void Reflow(Orientation orientation, WingLabel label)
+        protected void CreateWings(Wing[] wings)
         {
-
-        }
-
-        public void OpacityChange(float labelOpacity, float encounterOpacity)
-        {
+            foreach(var wing in wings)
+            {
+                var wingPanel = new WingPanel(
+                    this, 
+                    wing, 
+                    _settingService.RaidPanelOrientationSetting.Value, 
+                    _settingService.RaidPanelWingLabelsSetting.Value,
+                    _settingService.RaidPanelFontSizeSetting.Value
+                    );
+                wing.SetWingPanelReference(wingPanel);
+                AddChild(wingPanel);
+            }
 
         }
 
