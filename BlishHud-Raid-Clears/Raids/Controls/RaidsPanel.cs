@@ -66,21 +66,9 @@ namespace RaidClears.Raids.Controls
 
         protected void WingVisibilityChanged(int wingIndex, bool was, bool now)
         {
-            var shownIndex = 0;
-            var wingVis = _settingService.GetWingVisibilitySettings();
-
             _wings[wingIndex].GetWingPanelReference().ShowHide(now);
 
             Invalidate();
-            if(was && !now)
-            {
-                //remove a wingPanel from the children
-            }
-            if(now && !was)
-            {
-                //Add a wingPanel to the children
-            }
-            
            
         }
        
