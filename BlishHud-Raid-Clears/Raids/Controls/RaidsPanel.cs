@@ -24,6 +24,7 @@ namespace RaidClears.Raids.Controls
             _logger = logger;
             _wings = wings;
             _settingService = settingService;
+
             ControlPadding = new Vector2(2, 2);
             FlowDirection = GetFlowDirection();
             IgnoreMouseInput = ShouldIgnoreMouse();
@@ -34,10 +35,9 @@ namespace RaidClears.Raids.Controls
             WidthSizingMode = SizingMode.AutoSize;
 
 
-
             CreateWings(wings);
 
-            settingService.RaidPanelIsVisible.SettingChanged += (s, e) => Visible = e.NewValue;
+            //settingService.RaidPanelIsVisible.SettingChanged += (s, e) => Visible = e.NewValue;
             settingService.RaidPanelLocationPoint.SettingChanged += (s, e) => Location = e.NewValue;
 
             settingService.RaidPanelOrientationSetting.SettingChanged += (s, e) => OrientationChanged(e.NewValue);
@@ -211,17 +211,19 @@ namespace RaidClears.Raids.Controls
 
         public void ShowOrHide()
         {
-            /*var shouldBeVisible = VisibilityService.ShouldBeVisible(
-                _settingService.LogoutButtonIsVisible.Value,
-                _settingService.LogoutButtonIsVisibleOnWorldMap.Value,
-                _settingService.LogoutButtonIsVisibleOnCutScenesAndCharacterSelect.Value,
-                GameService.GameIntegration.Gw2Instance.IsInGame,
-                GameService.Gw2Mumble.UI.IsMapOpen == false);*/
-            DoUpdate();
-           /* if (Visible == false && shouldBeVisible)
+            /*var shouldBeVisible =
+                _settingService.RaidPanelIsVisible.Value &&
+                GameService.GameIntegration.Gw2Instance.IsInGame &&
+                !GameService.Gw2Mumble.UI.IsMapOpen;*/
+            var shouldBeVisible = _settingService.RaidPanelIsVisible.Value;
+
+            if(_settingService.RaidPanelDragWithMouseIsEnabledSetting.Value)
+                DoUpdate();
+
+            if (Visible == false && shouldBeVisible)
                 Show();
             else if (Visible && shouldBeVisible == false)
-                Hide();*/
+                Hide();
         }
 
         protected void CreateWings(Wing[] wings)

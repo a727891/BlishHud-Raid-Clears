@@ -31,6 +31,8 @@ namespace RaidClears.Settings
             //CreatePatchNotesButton(_rootFlowPanel);
 
             var generalSettingFlowPanel = CreateSettingsGroupFlowPanel("General Options", _rootFlowPanel);
+
+            ShowSettingWithViewContainer(_settingService.RaidPanelApiPollingPeriod, generalSettingFlowPanel, singleColumnWidth);
             ShowSettingWithViewContainer(_settingService.RaidPanelIsVisibleKeyBind, generalSettingFlowPanel, singleColumnWidth);
             ShowSettingWithViewContainer(_settingService.ShowRaidsCornerIconSetting, generalSettingFlowPanel, singleColumnWidth);
             ShowSettingWithViewContainer(_settingService.RaidPanelIsVisible, generalSettingFlowPanel, singleColumnWidth);

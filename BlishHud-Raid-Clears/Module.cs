@@ -142,7 +142,6 @@ namespace RaidClears
         #endregion
         protected override void Update(GameTime gameTime)
         {
-            //_logoutButton?.ShowOrHide();
             _raidsPanel?.ShowOrHide();
 
             if (_lastApiCheck >= 0)

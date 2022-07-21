@@ -12,7 +12,10 @@ namespace RaidClears.Settings
     {
         public SettingService(SettingCollection settings)
         {
-
+            RaidPanelApiPollingPeriod = settings.DefineSetting("RCPoll",
+                ApiPollPeriod.MINUTES_5,
+                () => "Api Poll Frequency",
+                () => "How often should the GW2 API be checked for updated information");
             ShowRaidsCornerIconSetting = settings.DefineSetting("RCCornerIcon",
                 false,
                 () => "Display top left toggle button",
@@ -132,6 +135,8 @@ namespace RaidClears.Settings
                 W7IsVisibleSetting.Value
             };
         }
+
+        public SettingEntry<ApiPollPeriod> RaidPanelApiPollingPeriod { get; }
         public SettingEntry<Point> RaidPanelLocationPoint { get; }
         public SettingEntry<bool> RaidPanelIsVisible { get; }
         public SettingEntry<bool> RaidPanelAllowTooltipsSetting { get; }
