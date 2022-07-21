@@ -2,9 +2,9 @@
   "profiles": {
     "powershell": {
       "commandName": "Executable",
-      "executablePath": "C:\\Users\\cfunk\\projects\\other\\Blish.HUD.0.11.7\\Blish HUD.exe",
+      "executablePath": "E:\\Games\\Guild Wars 2\\addons\\Blish.HUD.0.11.7\\Blish HUD.exe",
       "commandLineArgs": "--debug --process powershell --window ConsoleWindowClass --module \"$(ProjectDir)\\$(BaseOutputPath)\\$(Configuration)/$(TargetFramework)\\$(TargetName).bhm\" --settings \".\\Settings_$(TargetName)\"",
-      "workingDirectory": "C:\\Users\\cfunk\\projects\\other\\Blish.HUD.0.11.7\\"
+      "workingDirectory": "E:\\Games\\Guild Wars 2\\addons\\Blish.HUD.0.11.7"
     },
     "gw2": {
       "commandName": "Executable",
