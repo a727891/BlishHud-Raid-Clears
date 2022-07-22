@@ -213,13 +213,20 @@ namespace RaidClears.Raids.Controls
 
         public void ShowOrHide()
         {
-            /*var shouldBeVisible =
-                _settingService.RaidPanelIsVisible.Value &&
-                GameService.GameIntegration.Gw2Instance.IsInGame &&
-                !GameService.Gw2Mumble.UI.IsMapOpen;*/
-            var shouldBeVisible = _settingService.RaidPanelIsVisible.Value;
+            var shouldBeVisible =
+              _settingService.RaidPanelIsVisible.Value &&
+              GameService.GameIntegration.Gw2Instance.Gw2IsRunning &&
+              GameService.GameIntegration.Gw2Instance.IsInGame &&
+              GameService.Gw2Mumble.IsAvailable &&
+              !GameService.Gw2Mumble.UI.IsMapOpen;
+            /*var shouldBeVisible = VisibilityService.ShouldBeVisible(
+                _settingService.LogoutButtonIsVisible.Value,
+                _settingService.LogoutButtonIsVisibleOnWorldMap.Value,
+                _settingService.LogoutButtonIsVisibleOnCutScenesAndCharacterSelect.Value,
+                GameService.GameIntegration.Gw2Instance.IsInGame,
+                GameService.Gw2Mumble.UI.IsMapOpen == false);*/
 
-            if(_settingService.RaidPanelDragWithMouseIsEnabledSetting.Value)
+            if(shouldBeVisible && _settingService.RaidPanelDragWithMouseIsEnabledSetting.Value)
                 DoUpdate();
 
             if (Visible == false && shouldBeVisible)
@@ -250,13 +257,13 @@ namespace RaidClears.Raids.Controls
 
         public void UpdateClearedStatus(ApiRaids apiraids)
         {
-            _logger.Info(apiraids.Clears.ToString());
+            //_logger.Info(apiraids.Clears.ToString());
             foreach(var wing in _wings)
             {
                 foreach(var encounter in wing.encounters)
                 {
                     var isCleared = apiraids.Clears.Contains(encounter.id);
-                    _logger.Info("'{0}' - '{1}'", encounter.id, isCleared.ToString());
+                    //_logger.Info("'{0}' - '{1}'", encounter.id, isCleared.ToString());
                     encounter.SetCleared(apiraids.Clears.Contains(encounter.id));
                 }
             }
