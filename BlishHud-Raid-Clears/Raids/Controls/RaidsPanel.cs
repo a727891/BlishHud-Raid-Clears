@@ -58,6 +58,8 @@ namespace RaidClears.Raids.Controls
             settingService.W6IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(5, e.PreviousValue, e.NewValue);
             settingService.W7IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(6, e.PreviousValue, e.NewValue);
 
+            WingLabelOpacityChanged(settingService.RaidPanelWingLabelOpacity.Value);
+            EncounterOpacityChanged(settingService.RaidPanelEncounterOpacity.Value);
 
             AddDragDelegates();
 

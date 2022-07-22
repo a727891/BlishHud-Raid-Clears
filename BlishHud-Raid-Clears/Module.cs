@@ -42,7 +42,7 @@ namespace RaidClears
 
         public override IView GetSettingsView()
         {
-            return new ModuleSettingsView(_settingService);
+            return new ModuleSettingsView(_settingService, this);
         }
         #endregion
 
@@ -107,7 +107,10 @@ namespace RaidClears
     
             _raidsPanel = new RaidsPanel(Logger, _settingService, _textureService, wingInfo);
 
+            SetTimeoutValueInMinutes( (int)_settingService.RaidPanelApiPollingPeriod.Value);
+
             _settingService.RaidPanelIsVisibleKeyBind.Value.Activated += OnRaidPanelDisplayKeybindActivated;
+            _settingService.RaidPanelApiPollingPeriod.SettingChanged += (s,e) => SetTimeoutValueInMinutes((int)e.NewValue) ;
 
             _cornerIconService = new CornerIconService(
                 _settingService.ShowRaidsCornerIconSetting,
@@ -120,10 +123,8 @@ namespace RaidClears
             //Check if module was reloaded
             if (Gw2ApiManager.HasPermissions(GetCurrentClearsService.NECESSARY_API_TOKEN_PERMISSIONS))
             {
-                _lastApiCheck = API_QUERY_INTERVAL;
-
+                _lastApiCheck = _API_QUERY_INTERVAL;
             }
-
 
         }
 
@@ -140,15 +141,37 @@ namespace RaidClears
 
 
         #endregion
+
         protected override void Update(GameTime gameTime)
         {
             _raidsPanel?.ShowOrHide();
 
+            ApiPollTimeout(gameTime.ElapsedGameTime.TotalMilliseconds);
+
+            
+        }
+
+        private void SetTimeoutValueInMinutes(int minutes)
+        {
+            _API_QUERY_INTERVAL = ((minutes * MINUTE_MS) + BUFFER_MS);
+        }
+
+        public int GetTimeoutSecondsRemaining()
+        {
+            if(_lastApiCheck == -1)
+            {
+                return -1;
+            }
+            return (int) ((_API_QUERY_INTERVAL - _lastApiCheck) / 1000);
+        }
+
+        private void ApiPollTimeout(double elapsedTime)
+        {
             if (_lastApiCheck >= 0)
             {
-                _lastApiCheck += gameTime.ElapsedGameTime.TotalMilliseconds;
-                
-                if (_lastApiCheck >= API_QUERY_INTERVAL)
+                _lastApiCheck += elapsedTime;
+
+                if (_lastApiCheck >= _API_QUERY_INTERVAL)
                 {
                     _lastApiCheck = 0;
                     Task.Run(async () =>
@@ -168,7 +191,7 @@ namespace RaidClears
         private void Gw2ApiManager_SubtokenUpdated(object sender, ValueEventArgs<IEnumerable<TokenPermission>> e)
         {
             // _settingToggleKey check interval so that we check immediately now that we have a new token.
-            _lastApiCheck = API_QUERY_INTERVAL;
+            _lastApiCheck = _API_QUERY_INTERVAL;
         }
 
 
@@ -177,8 +200,11 @@ namespace RaidClears
             _settingService.ToggleRaidPanelVisibility();
         }
 
-        private static double _lastApiCheck = -1;
-        private static readonly double API_QUERY_INTERVAL = 300100; // 300 seconds + 100ms
+        private const int BUFFER_MS = 50;
+        private const int MINUTE_MS = 60000; 
+
+        private double _lastApiCheck = -1;
+        private double _API_QUERY_INTERVAL = 300100; // 300 seconds + 100ms
 
         private SettingService _settingService;
         private TextureService _textureService;

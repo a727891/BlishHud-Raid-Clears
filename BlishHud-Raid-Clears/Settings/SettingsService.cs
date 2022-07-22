@@ -43,8 +43,15 @@ namespace RaidClears.Settings
 
             RaidPanelFontSizeSetting = settings.DefineSetting("RCFontSize",
                 ContentService.FontSize.Size11,
-                () => "Font Size",
-                () => "Change the size of the grid");
+                () => "Font Size   ",
+                () => "Change the size of the grid (Weird sizes from available fonts)");
+            RaidPanelFontSizeSetting.SetExcluded( new ContentService.FontSize[] { 
+                ContentService.FontSize.Size12 ,
+                ContentService.FontSize.Size18 ,
+                ContentService.FontSize.Size22 ,
+                ContentService.FontSize.Size34 ,
+                ContentService.FontSize.Size36
+            } );
 
             RaidPanelWingLabelsSetting = settings.DefineSetting("RCLabelDisplay",
                 WingLabel.Abbreviation,
@@ -104,11 +111,6 @@ namespace RaidClears.Settings
                 () => "Enable The Key of Ahdashim on the main display"
                 );
             #endregion
-
-            RaidPanelLocationPoint = settings.DefineSetting("RCLocation",
-                    new Point(100, 100),
-                    () => "",
-                    () => "");
 
 
             var internalSettingSubCollection = settings.AddSubCollection("internal settings (not visible in UI)");
