@@ -211,17 +211,26 @@ namespace RaidClears.Raids.Controls
 
         public void ShowOrHide()
         {
+            var shouldBeVisible =
+              _settingService.RaidPanelIsVisible.Value &&
+              GameService.GameIntegration.Gw2Instance.Gw2IsRunning &&
+              GameService.GameIntegration.Gw2Instance.IsInGame &&
+              GameService.Gw2Mumble.IsAvailable &&
+              !GameService.Gw2Mumble.UI.IsMapOpen;
             /*var shouldBeVisible = VisibilityService.ShouldBeVisible(
                 _settingService.LogoutButtonIsVisible.Value,
                 _settingService.LogoutButtonIsVisibleOnWorldMap.Value,
                 _settingService.LogoutButtonIsVisibleOnCutScenesAndCharacterSelect.Value,
                 GameService.GameIntegration.Gw2Instance.IsInGame,
                 GameService.Gw2Mumble.UI.IsMapOpen == false);*/
-            DoUpdate();
-           /* if (Visible == false && shouldBeVisible)
+
+            if(shouldBeVisible && _settingService.RaidPanelDragWithMouseIsEnabledSetting.Value)
+                DoUpdate();
+
+            if (Visible == false && shouldBeVisible)
                 Show();
             else if (Visible && shouldBeVisible == false)
-                Hide();*/
+                Hide();
         }
 
         protected void CreateWings(Wing[] wings)
