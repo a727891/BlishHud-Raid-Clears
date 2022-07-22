@@ -255,13 +255,13 @@ namespace RaidClears.Raids.Controls
 
         public void UpdateClearedStatus(ApiRaids apiraids)
         {
-            _logger.Info(apiraids.Clears.ToString());
+            //_logger.Info(apiraids.Clears.ToString());
             foreach(var wing in _wings)
             {
                 foreach(var encounter in wing.encounters)
                 {
                     var isCleared = apiraids.Clears.Contains(encounter.id);
-                    _logger.Info("'{0}' - '{1}'", encounter.id, isCleared.ToString());
+                    //_logger.Info("'{0}' - '{1}'", encounter.id, isCleared.ToString());
                     encounter.SetCleared(apiraids.Clears.Contains(encounter.id));
                 }
             }
