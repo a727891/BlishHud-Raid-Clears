@@ -160,7 +160,7 @@ namespace RaidClears.Raids.Controls
                 case ContentService.FontSize.Size34:
                 case ContentService.FontSize.Size32:
                     return  80;
-                //case ContentService.FontSize.Size24:
+                case ContentService.FontSize.Size24:
                 //case ContentService.FontSize.Size22:
                 case ContentService.FontSize.Size20:
                     return  50;
