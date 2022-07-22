@@ -9,8 +9,9 @@ namespace RaidClears.Settings
 {
     public class ModuleSettingsView : View
     {
-        public ModuleSettingsView(SettingService settingService)
+        public ModuleSettingsView(SettingService settingService, RaidClears.Module m)
         {
+            _m = m;
             _settingService = settingService;
         }
 
@@ -28,9 +29,17 @@ namespace RaidClears.Settings
             };
 
             var singleColumnWidth = buildPanel.Width - ((int)_rootFlowPanel.OuterControlPadding.X * 2);
+            var doubleColWidth = (singleColumnWidth / 2) - 100;
             //CreatePatchNotesButton(_rootFlowPanel);
 
+
             var generalSettingFlowPanel = CreateSettingsGroupFlowPanel("General Options", _rootFlowPanel);
+            var col2 = CreateTwoColPanel(generalSettingFlowPanel);
+            
+
+            ShowSettingWithViewContainer(_settingService.RaidPanelApiPollingPeriod, col2, doubleColWidth);
+            _apiPollLabel = CreateApiPollRemainingLabel(col2, doubleColWidth);
+
             ShowSettingWithViewContainer(_settingService.RaidPanelIsVisibleKeyBind, generalSettingFlowPanel, singleColumnWidth);
             ShowSettingWithViewContainer(_settingService.ShowRaidsCornerIconSetting, generalSettingFlowPanel, singleColumnWidth);
             ShowSettingWithViewContainer(_settingService.RaidPanelIsVisible, generalSettingFlowPanel, singleColumnWidth);
@@ -55,9 +64,24 @@ namespace RaidClears.Settings
             ShowSettingWithViewContainer(_settingService.W7IsVisibleSetting, wingSelectionFlowPanel, singleColumnWidth);
 
 
-          
-        }
+            ReloadApiPollLabelText();
+            _settingService.RaidPanelApiPollingPeriod.SettingChanged += (s, e) => ReloadApiPollLabelText();
 
+
+        }
+        private static FlowPanel CreateTwoColPanel(Container parent)
+        {
+            return new FlowPanel
+            {
+
+                FlowDirection = ControlFlowDirection.LeftToRight,
+                //OuterControlPadding = new Vector2(10, 10),
+                ShowBorder = false,
+                Width = parent.Width - 20,//width-2(padding.x)
+                HeightSizingMode = SizingMode.AutoSize,
+                Parent = parent
+            };
+        }
         private static FlowPanel CreateSettingsGroupFlowPanel(string title, Container parent)
         {
             return new FlowPanel
@@ -80,6 +104,34 @@ namespace RaidClears.Settings
             return viewContainer;
         }
 
+        private Label CreateApiPollRemainingLabel(Container parent,int width)
+        {
+    
+            return new Label()
+            {
+                AutoSizeHeight = true,
+                Text = "",
+                Parent = parent,
+                Width = width,
+            };
+        }
+
+        private void ReloadApiPollLabelText()
+        {
+            if (_apiPollLabel != null)
+            {
+                var secondsRemaining = _m.GetTimeoutSecondsRemaining();
+                var labelText = $"Next Api call in ~{secondsRemaining.ToString()} seconds";
+                if (secondsRemaining < 0)
+                {
+                    labelText = $"Waiting for a valid API token";
+                }
+                _apiPollLabel.Text = labelText;
+            }
+        }
+
+        private RaidClears.Module _m;
+        private Label _apiPollLabel;
         private readonly SettingService _settingService;
         private FlowPanel _rootFlowPanel;
 

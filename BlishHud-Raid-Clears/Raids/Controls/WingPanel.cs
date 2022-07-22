@@ -32,7 +32,7 @@ namespace RaidClears.Raids.Controls
                 AutoSizeHeight = true,
                 BasicTooltipText = wing.name,
                 HorizontalAlignment = WingLabelAlignment(),
-                Opacity = (float)1f,
+                //Opacity = (float)1f,
                 Parent = this,
                 Text = GetWingLabelText()
             };
@@ -49,7 +49,7 @@ namespace RaidClears.Raids.Controls
                         _settingFontSize.Value,
                         ContentService.FontStyle.Regular),*/
                     HorizontalAlignment = HorizontalAlignment.Center,
-                    Opacity = (float)1f,// _settingEncounterLabelOpacity.Value / MAX_SLIDER_INT,
+                    //Opacity = (float)1f,// _settingEncounterLabelOpacity.Value / MAX_SLIDER_INT,
                     Parent = this,
                     Text = encounter.short_name,
                 };
@@ -141,12 +141,39 @@ namespace RaidClears.Raids.Controls
                 fontSize,
                 ContentService.FontStyle.Regular
                );
-
+            var width = GetLabelWidthForFontSize(fontSize);
 
             _wingLabelObj.Font = font;
+            _wingLabelObj.Width = width;
             foreach(var encounter in _wing.encounters)
             {
                 encounter.GetLabelReference().Font = font;
+                encounter.GetLabelReference().Width = width;
+            }
+        }
+
+        public int GetLabelWidthForFontSize(ContentService.FontSize size)
+        {
+            switch (size)
+            {
+                //case ContentService.FontSize.Size36:
+                case ContentService.FontSize.Size34:
+                case ContentService.FontSize.Size32:
+                    return  80;
+                //case ContentService.FontSize.Size24:
+                //case ContentService.FontSize.Size22:
+                case ContentService.FontSize.Size20:
+                    return  50;
+                //case ContentService.FontSize.Size18:
+                case ContentService.FontSize.Size16:
+                case ContentService.FontSize.Size14:
+                    return  40;
+                //case ContentService.FontSize.Size12:
+                case ContentService.FontSize.Size11:
+                    return 35;
+                case ContentService.FontSize.Size8:
+                    return 39;
+                default: return 40;
             }
         }
 

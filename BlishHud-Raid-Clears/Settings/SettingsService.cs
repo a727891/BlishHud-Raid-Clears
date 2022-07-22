@@ -12,7 +12,10 @@ namespace RaidClears.Settings
     {
         public SettingService(SettingCollection settings)
         {
-
+            RaidPanelApiPollingPeriod = settings.DefineSetting("RCPoll",
+                ApiPollPeriod.MINUTES_5,
+                () => "Api Poll Frequency",
+                () => "How often should the GW2 API be checked for updated information");
             ShowRaidsCornerIconSetting = settings.DefineSetting("RCCornerIcon",
                 false,
                 () => "Display top left toggle button",
@@ -40,8 +43,15 @@ namespace RaidClears.Settings
 
             RaidPanelFontSizeSetting = settings.DefineSetting("RCFontSize",
                 ContentService.FontSize.Size11,
-                () => "Font Size",
-                () => "Change the size of the grid");
+                () => "Font Size   ",
+                () => "Change the size of the grid (Weird sizes from available fonts)");
+            RaidPanelFontSizeSetting.SetExcluded( new ContentService.FontSize[] { 
+                ContentService.FontSize.Size12 ,
+                ContentService.FontSize.Size18 ,
+                ContentService.FontSize.Size22 ,
+                ContentService.FontSize.Size34 ,
+                ContentService.FontSize.Size36
+            } );
 
             RaidPanelWingLabelsSetting = settings.DefineSetting("RCLabelDisplay",
                 WingLabel.Abbreviation,
@@ -102,11 +112,6 @@ namespace RaidClears.Settings
                 );
             #endregion
 
-            RaidPanelLocationPoint = settings.DefineSetting("RCLocation",
-                    new Point(100, 100),
-                    () => "",
-                    () => "");
-
 
             var internalSettingSubCollection = settings.AddSubCollection("internal settings (not visible in UI)");
             RaidPanelLocationPoint = internalSettingSubCollection.DefineSetting("RCLocation", new Point(100, 100));
@@ -132,6 +137,8 @@ namespace RaidClears.Settings
                 W7IsVisibleSetting.Value
             };
         }
+
+        public SettingEntry<ApiPollPeriod> RaidPanelApiPollingPeriod { get; }
         public SettingEntry<Point> RaidPanelLocationPoint { get; }
         public SettingEntry<bool> RaidPanelIsVisible { get; }
         public SettingEntry<bool> RaidPanelAllowTooltipsSetting { get; }
