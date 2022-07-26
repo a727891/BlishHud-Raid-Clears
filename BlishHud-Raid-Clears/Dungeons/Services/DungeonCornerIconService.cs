@@ -3,17 +3,17 @@ using Blish_HUD;
 using Blish_HUD.Controls;
 using Blish_HUD.Input;
 using Blish_HUD.Settings;
-using RaidClears.Settings;
 using Microsoft.Xna.Framework.Graphics;
+using RaidClears.Settings;
 
-namespace RaidClears.Raids.Services
+namespace RaidClears.Dungeons.Services
 {
-    public class CornerIconService : IDisposable
+    public class DungeonCornerIconService : IDisposable
     {
-        public CornerIconService(SettingEntry<bool> cornerIconIsVisibleSetting,
+        public DungeonCornerIconService(SettingEntry<bool> cornerIconIsVisibleSetting,
                                  string tooltip,
                                  EventHandler<MouseEventArgs> cornerIconClickEventHandler,
-                                 RaidClears.Settings.TextureService textureService)
+                                 TextureService textureService)
         {
             _tooltip                     = tooltip;
             _cornerIconIsVisibleSetting  = cornerIconIsVisibleSetting;

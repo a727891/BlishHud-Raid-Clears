@@ -16,6 +16,18 @@ namespace RaidClears.Settings
                 ApiPollPeriod.MINUTES_5,
                 () => "Api Poll Frequency",
                 () => "How often should the GW2 API be checked for updated information");
+
+            DragWithMouseIsEnabledSetting = settings.DefineSetting("RCDrag",
+                false,
+                () => "Enable Dragging",
+                () => "Click and drag to reposition the clears window.");
+
+            AllowTooltipsSetting = settings.DefineSetting("RCtooltips",
+                false,
+                () => "Allow tooltips",
+                () => "Hovering the mouse over an encounter will display the full name");
+
+            #region RAIDS
             ShowRaidsCornerIconSetting = settings.DefineSetting("RCCornerIcon",
                 false,
                 () => "Display top left toggle button",
@@ -31,15 +43,7 @@ namespace RaidClears.Settings
                 () => "Reveal or hide the display from key press.");
             RaidPanelIsVisibleKeyBind.Value.Enabled = true;
 
-            RaidPanelDragWithMouseIsEnabledSetting = settings.DefineSetting("RCDrag",
-                false,
-                () => "Enable Dragging",
-                () => "Click and drag to reposition the clears window.");
-
-            RaidPanelAllowTooltipsSetting = settings.DefineSetting("RCtooltips",
-                false,
-                () => "Allow tooltips",
-                () => "Hovering the mouse over an encounter will display the full name");
+            
 
             RaidPanelFontSizeSetting = settings.DefineSetting("RCFontSize",
                 ContentService.FontSize.Size11,
@@ -74,7 +78,7 @@ namespace RaidClears.Settings
                 () => "Encounter label transparency, Hidden <--> Full Visible");
             RaidPanelEncounterOpacity.SetRange(0f, 1f);
 
-            #region WingVisibilitySettings
+            
             W1IsVisibleSetting = settings.DefineSetting("RCw1",
                 true,
                 () => "W1 / Spirit Vale",
@@ -112,17 +116,114 @@ namespace RaidClears.Settings
                 );
             #endregion
 
+            #region DUNGEONS
+            ShowDungeonCornerIconSetting = settings.DefineSetting("RCDungeonCornerIcon",
+                false,
+                () => "Display top left toggle button",
+                () => "Add a button next to Blish on the top left of screen that hides or shows the Raid Clears window.");
+
+            DungeonPanelIsVisible = settings.DefineSetting("RCDungeonActive",
+                false,
+                () => "Display on screen",
+                () => "Enable the Raid Clears grid.");
+
+            DungeonPanelIsVisibleKeyBind = settings.DefineSetting("RCDungeonkeybind", new KeyBinding(Keys.None),
+                () => "Display on screen keybind",
+                () => "Reveal or hide the display from key press.");
+            DungeonPanelIsVisibleKeyBind.Value.Enabled = true;
+
+
+            DungeonPanelFontSizeSetting = settings.DefineSetting("RCDungeonFontSize",
+                ContentService.FontSize.Size11,
+                () => "Font Size       ",
+                () => "Change the size of the grid (Weird sizes from available fonts)");
+            DungeonPanelFontSizeSetting.SetExcluded(new ContentService.FontSize[] {
+                ContentService.FontSize.Size12 ,
+                ContentService.FontSize.Size18 ,
+                ContentService.FontSize.Size22 ,
+                ContentService.FontSize.Size34 ,
+                ContentService.FontSize.Size36
+            });
+
+            DungeonPanelWingLabelsSetting = settings.DefineSetting("RCDungeonLabelDisplay",
+                DungeonLabel.Abbreviation,
+                () => "Dungeon Label",
+                () => "Display wing label as wing number or abbreviated name");
+
+            DungeonPanelOrientationSetting = settings.DefineSetting("RCDungeonOrientation",
+                DungeonOrientation.Vertical,
+                () => "Orientation     ",
+                () => "Display the dungeons in a vertial column or horizontal row");
+
+            DungeonPanelWingLabelOpacity = settings.DefineSetting("RCDungeonOpacity",
+                1f,
+                () => "Dungeon Name Opacity",
+                () => "Dungeon label transparency, Hidden <--> Full Visible");
+            DungeonPanelWingLabelOpacity.SetRange(0f, 1f);
+            DungeonPanelEncounterOpacity = settings.DefineSetting("RCPathOpacity",
+                0.8f,
+                () => "Path Opacity",
+                () => "Path label transparency, Hidden <--> Full Visible");
+            DungeonPanelEncounterOpacity.SetRange(0f, 1f);
+
+            
+            D1IsVisibleSetting = settings.DefineSetting("RCd1",
+                true,
+                () => "Ascalonian Catacombs",
+                () => "Enable Ascalonian Catacombs on the dungeon display"
+                );
+            D2IsVisibleSetting = settings.DefineSetting("RCd2",
+                true,
+                () => "Caudecus Manor",
+                () => "Enable Caudecus Manor on the dungeon display"
+                );
+            D3IsVisibleSetting = settings.DefineSetting("RCd3",
+                true,
+                () => "Twilight Arbor",
+                () => "Enable Twilight Arbor on the dungeon display"
+                );
+            D4IsVisibleSetting = settings.DefineSetting("RCd4",
+                true,
+                () => "Sorrows Embrace",
+                () => "Enable Sorrows Embrace on the dungeon display"
+                );
+            D5IsVisibleSetting = settings.DefineSetting("RCd5",
+                true,
+                () => "Citadel of Flame",
+                () => "Enable Citadel of Flame on the dungeon display"
+                );
+            D6IsVisibleSetting = settings.DefineSetting("RCd6",
+                true,
+                () => "Honor of the Waves",
+                () => "Enable Honor of the Waves on the dungeon display"
+                );
+            D7IsVisibleSetting = settings.DefineSetting("RCd7",
+                true,
+                () => "Crucible of Eternity",
+                () => "Enable Crucible of Eternity on the dungeon display"
+                );
+            D8IsVisibleSetting = settings.DefineSetting("RCd8",
+                true,
+                () => "Ruined City of Arah",
+                () => "Enable Ruined City of Arah on the dungeon display"
+                );
+
+            #endregion
 
             var internalSettingSubCollection = settings.AddSubCollection("internal settings (not visible in UI)");
             RaidPanelLocationPoint = internalSettingSubCollection.DefineSetting("RCLocation", new Point(100, 100));
-
-
+            DungeonPanelLocationPoint = internalSettingSubCollection.DefineSetting("RCDungeonLoc", new Point(200, 100));
 
         }
 
         public void ToggleRaidPanelVisibility()
         {
             RaidPanelIsVisible.Value = !RaidPanelIsVisible.Value;
+        }
+
+        public void ToggleDungeonPanelVisibility()
+        {
+            DungeonPanelIsVisible.Value = !DungeonPanelIsVisible.Value; 
         }
 
         public bool[] GetWingVisibilitySettings()
@@ -138,11 +239,25 @@ namespace RaidClears.Settings
             };
         }
 
+        public bool[] GetDungeonVisibilitySettings()
+        {
+            return new bool[8] {
+                D1IsVisibleSetting.Value,
+                D2IsVisibleSetting.Value,
+                D3IsVisibleSetting.Value,
+                D4IsVisibleSetting.Value,
+                D5IsVisibleSetting.Value,
+                D6IsVisibleSetting.Value,
+                D7IsVisibleSetting.Value,
+                D8IsVisibleSetting.Value
+            };
+        }
+
         public SettingEntry<ApiPollPeriod> RaidPanelApiPollingPeriod { get; }
         public SettingEntry<Point> RaidPanelLocationPoint { get; }
         public SettingEntry<bool> RaidPanelIsVisible { get; }
-        public SettingEntry<bool> RaidPanelAllowTooltipsSetting { get; }
-        public SettingEntry<bool> RaidPanelDragWithMouseIsEnabledSetting { get; }
+        public SettingEntry<bool> AllowTooltipsSetting { get; }
+        public SettingEntry<bool> DragWithMouseIsEnabledSetting { get; }
         public SettingEntry<ContentService.FontSize> RaidPanelFontSizeSetting { get; }
         public SettingEntry<WingLabel> RaidPanelWingLabelsSetting { get; }
         public SettingEntry<Orientation> RaidPanelOrientationSetting { get; }
@@ -158,6 +273,30 @@ namespace RaidClears.Settings
         public SettingEntry<KeyBinding> RaidPanelIsVisibleKeyBind { get; }
 
         public SettingEntry<bool> ShowRaidsCornerIconSetting { get; }
+
+        #region DUNGEONS
+        public SettingEntry<Point> DungeonPanelLocationPoint { get; }
+        public SettingEntry<bool> DungeonPanelIsVisible { get; }
+
+        public SettingEntry<ContentService.FontSize> DungeonPanelFontSizeSetting { get; }
+        public SettingEntry<DungeonLabel> DungeonPanelWingLabelsSetting { get; }
+        public SettingEntry<DungeonOrientation> DungeonPanelOrientationSetting { get; }
+        public SettingEntry<float> DungeonPanelWingLabelOpacity { get; }
+        public SettingEntry<float> DungeonPanelEncounterOpacity { get; }
+        public SettingEntry<bool> D1IsVisibleSetting { get; }
+        public SettingEntry<bool> D2IsVisibleSetting { get; }
+        public SettingEntry<bool> D3IsVisibleSetting { get; }
+        public SettingEntry<bool> D4IsVisibleSetting { get; }
+        public SettingEntry<bool> D5IsVisibleSetting { get; }
+        public SettingEntry<bool> D6IsVisibleSetting { get; }
+        public SettingEntry<bool> D7IsVisibleSetting { get; }
+
+        public SettingEntry<bool> D8IsVisibleSetting { get; }
+        public SettingEntry<KeyBinding> DungeonPanelIsVisibleKeyBind { get; }
+
+        public SettingEntry<bool> ShowDungeonCornerIconSetting { get; }
+
+        #endregion
 
     }
 }

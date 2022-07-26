@@ -1,18 +1,22 @@
 ﻿using System.Diagnostics;
 using Blish_HUD.Controls;
+using Blish_HUD.Content;
+using Blish_HUD;
 using Blish_HUD.Graphics.UI;
 using Blish_HUD.Settings;
 using Blish_HUD.Settings.UI.Views;
+using Blish_HUD.Modules.Managers;
 using Microsoft.Xna.Framework;
 
 namespace RaidClears.Settings
 {
     public class ModuleSettingsView : View
     {
-        public ModuleSettingsView(SettingService settingService, RaidClears.Module m)
+        public ModuleSettingsView(SettingService settingService, RaidClears.Module m, TextureService textureService)
         {
             _m = m;
             _settingService = settingService;
+            _textureService = textureService;
         }
 
         protected override void Build(Container buildPanel)
@@ -30,8 +34,6 @@ namespace RaidClears.Settings
 
             var singleColumnWidth = buildPanel.Width - ((int)_rootFlowPanel.OuterControlPadding.X * 2);
             var doubleColWidth = (singleColumnWidth / 2) - 100;
-            //CreatePatchNotesButton(_rootFlowPanel);
-
 
             var generalSettingFlowPanel = CreateSettingsGroupFlowPanel("General Options", _rootFlowPanel);
             var col2 = CreateTwoColPanel(generalSettingFlowPanel);
@@ -39,14 +41,20 @@ namespace RaidClears.Settings
 
             ShowSettingWithViewContainer(_settingService.RaidPanelApiPollingPeriod, col2, doubleColWidth);
             _apiPollLabel = CreateApiPollRemainingLabel(col2, doubleColWidth);
+            ShowSettingWithViewContainer(_settingService.AllowTooltipsSetting, generalSettingFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.DragWithMouseIsEnabledSetting, generalSettingFlowPanel, singleColumnWidth);
 
-            ShowSettingWithViewContainer(_settingService.RaidPanelIsVisibleKeyBind, generalSettingFlowPanel, singleColumnWidth);
-            ShowSettingWithViewContainer(_settingService.ShowRaidsCornerIconSetting, generalSettingFlowPanel, singleColumnWidth);
-            ShowSettingWithViewContainer(_settingService.RaidPanelIsVisible, generalSettingFlowPanel, singleColumnWidth);
-            ShowSettingWithViewContainer(_settingService.RaidPanelAllowTooltipsSetting, generalSettingFlowPanel, singleColumnWidth);
-            ShowSettingWithViewContainer(_settingService.RaidPanelDragWithMouseIsEnabledSetting, generalSettingFlowPanel, singleColumnWidth);
+            var raidsSettingFlowPanel = CreateSettingsGroupFlowPanel("Raid Settings", _rootFlowPanel);
+            raidsSettingFlowPanel.CanCollapse = true;
+            raidsSettingFlowPanel.Collapse();
+            raidsSettingFlowPanel.ShowTint = true;
 
-            var layoutFlowPanel = CreateSettingsGroupFlowPanel("Layout and Visuals", _rootFlowPanel);
+
+            ShowSettingWithViewContainer(_settingService.RaidPanelIsVisibleKeyBind, raidsSettingFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.ShowRaidsCornerIconSetting, raidsSettingFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.RaidPanelIsVisible, raidsSettingFlowPanel, singleColumnWidth);
+
+            var layoutFlowPanel = CreateSettingsGroupFlowPanel("Layout and Visuals", raidsSettingFlowPanel);
             ShowSettingWithViewContainer(_settingService.RaidPanelOrientationSetting, layoutFlowPanel, singleColumnWidth);
             ShowSettingWithViewContainer(_settingService.RaidPanelFontSizeSetting, layoutFlowPanel, singleColumnWidth);
             ShowSettingWithViewContainer(_settingService.RaidPanelWingLabelsSetting, layoutFlowPanel, singleColumnWidth);
@@ -54,7 +62,7 @@ namespace RaidClears.Settings
             ShowSettingWithViewContainer(_settingService.RaidPanelEncounterOpacity, layoutFlowPanel, singleColumnWidth);
 
 
-            var wingSelectionFlowPanel = CreateSettingsGroupFlowPanel("Wing Selection", _rootFlowPanel);
+            var wingSelectionFlowPanel = CreateSettingsGroupFlowPanel("Wing Selection", raidsSettingFlowPanel);
             ShowSettingWithViewContainer(_settingService.W1IsVisibleSetting, wingSelectionFlowPanel, singleColumnWidth);
             ShowSettingWithViewContainer(_settingService.W2IsVisibleSetting, wingSelectionFlowPanel, singleColumnWidth);
             ShowSettingWithViewContainer(_settingService.W3IsVisibleSetting, wingSelectionFlowPanel, singleColumnWidth);
@@ -64,11 +72,41 @@ namespace RaidClears.Settings
             ShowSettingWithViewContainer(_settingService.W7IsVisibleSetting, wingSelectionFlowPanel, singleColumnWidth);
 
 
+
+            var dungeonsSettingFlowPanel = CreateSettingsGroupFlowPanel("Dungeon Settings", _rootFlowPanel);
+            dungeonsSettingFlowPanel.CanCollapse = true;
+            dungeonsSettingFlowPanel.Collapse();
+            dungeonsSettingFlowPanel.ShowTint = true;
+
+            ShowSettingWithViewContainer(_settingService.DungeonPanelIsVisibleKeyBind, dungeonsSettingFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.ShowDungeonCornerIconSetting, dungeonsSettingFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.DungeonPanelIsVisible, dungeonsSettingFlowPanel, singleColumnWidth);
+
+            var dungeonLayoutFlowPanel = CreateSettingsGroupFlowPanel("Layout and Visuals", dungeonsSettingFlowPanel);
+            ShowSettingWithViewContainer(_settingService.DungeonPanelOrientationSetting, dungeonLayoutFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.DungeonPanelFontSizeSetting, dungeonLayoutFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.DungeonPanelWingLabelsSetting, dungeonLayoutFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.DungeonPanelWingLabelOpacity, dungeonLayoutFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.DungeonPanelEncounterOpacity, dungeonLayoutFlowPanel, singleColumnWidth);
+
+
+            var dungeonSelectionFlowPanel = CreateSettingsGroupFlowPanel("Dungeon Selection", dungeonsSettingFlowPanel);
+            ShowSettingWithViewContainer(_settingService.D1IsVisibleSetting, dungeonSelectionFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.D2IsVisibleSetting, dungeonSelectionFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.D3IsVisibleSetting, dungeonSelectionFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.D4IsVisibleSetting, dungeonSelectionFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.D5IsVisibleSetting, dungeonSelectionFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.D6IsVisibleSetting, dungeonSelectionFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.D7IsVisibleSetting, dungeonSelectionFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.D8IsVisibleSetting, dungeonSelectionFlowPanel, singleColumnWidth);
+
+
             ReloadApiPollLabelText();
             _settingService.RaidPanelApiPollingPeriod.SettingChanged += (s, e) => ReloadApiPollLabelText();
 
 
         }
+
         private static FlowPanel CreateTwoColPanel(Container parent)
         {
             return new FlowPanel
@@ -131,6 +169,7 @@ namespace RaidClears.Settings
         }
 
         private RaidClears.Module _m;
+        private TextureService _textureService;
         private Label _apiPollLabel;
         private readonly SettingService _settingService;
         private FlowPanel _rootFlowPanel;

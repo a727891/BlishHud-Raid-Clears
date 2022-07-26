@@ -2,72 +2,71 @@
 using Blish_HUD;
 using Blish_HUD.Controls;
 using Blish_HUD.Input;
-using RaidClears.Raids.Model;
+using RaidClears.Dungeons.Model;
 using RaidClears.Settings;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-
-namespace RaidClears.Raids.Controls
+namespace RaidClears.Dungeons.Controls
 {
-    class RaidsPanel : FlowPanel
+    class DungeonsPanel : FlowPanel
     {
         private Logger _logger;
-        private Wing[] _wings;
+        private Model.Dungeon[] _dungeons;
         private readonly SettingService _settingService;
         private bool _isDraggedByMouse = false;
         private Point _dragStart = Point.Zero;
 
-        public RaidsPanel(Logger logger, SettingService settingService, Wing[] wings)
+        public DungeonsPanel(Logger logger, SettingService settingService, Model.Dungeon[] dungeons)
         {
             _logger = logger;
-            _wings = wings;
+            _dungeons = dungeons;
             _settingService = settingService;
 
             ControlPadding = new Vector2(2, 2);
             FlowDirection = GetFlowDirection();
             IgnoreMouseInput = ShouldIgnoreMouse();
-            Location = settingService.RaidPanelLocationPoint.Value;
-            Visible = settingService.RaidPanelIsVisible.Value;
+            Location = settingService.DungeonPanelLocationPoint.Value;
+            Visible = settingService.DungeonPanelIsVisible.Value;
             Parent = GameService.Graphics.SpriteScreen;
             HeightSizingMode = SizingMode.AutoSize;
             WidthSizingMode = SizingMode.AutoSize;
 
 
-            CreateWings(wings);
+            CreateDungeons(dungeons);
 
-            //settingService.RaidPanelIsVisible.SettingChanged += (s, e) => Visible = e.NewValue;
-            settingService.RaidPanelLocationPoint.SettingChanged += (s, e) => Location = e.NewValue;
+            settingService.DungeonPanelLocationPoint.SettingChanged += (s, e) => Location = e.NewValue;
 
-            settingService.RaidPanelOrientationSetting.SettingChanged += (s, e) => OrientationChanged(e.NewValue);
-            settingService.RaidPanelWingLabelsSetting.SettingChanged += (s, e) => WingLabelDisplayChanged(e.NewValue);
-            settingService.RaidPanelFontSizeSetting.SettingChanged += (s, e) => FontSizeChanged(e.NewValue);
+            settingService.DungeonPanelOrientationSetting.SettingChanged += (s, e) => OrientationChanged(e.NewValue);
+            settingService.DungeonPanelWingLabelsSetting.SettingChanged += (s, e) => WingLabelDisplayChanged(e.NewValue);
+            settingService.DungeonPanelFontSizeSetting.SettingChanged += (s, e) => FontSizeChanged(e.NewValue);
 
-            settingService.RaidPanelWingLabelOpacity.SettingChanged += (s, e) => WingLabelOpacityChanged(e.NewValue);
-            settingService.RaidPanelEncounterOpacity.SettingChanged += (s, e) => EncounterOpacityChanged(e.NewValue);
+            settingService.DungeonPanelWingLabelOpacity.SettingChanged += (s, e) => WingLabelOpacityChanged(e.NewValue);
+            settingService.DungeonPanelEncounterOpacity.SettingChanged += (s, e) => EncounterOpacityChanged(e.NewValue);
 
             settingService.DragWithMouseIsEnabledSetting.SettingChanged += (s, e) => IgnoreMouseInput = ShouldIgnoreMouse();
             settingService.AllowTooltipsSetting.SettingChanged += (s, e) => IgnoreMouseInput = ShouldIgnoreMouse();
 
-            settingService.W1IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(0, e.PreviousValue, e.NewValue);
-            settingService.W2IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(1, e.PreviousValue, e.NewValue);
-            settingService.W3IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(2, e.PreviousValue, e.NewValue);
-            settingService.W4IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(3, e.PreviousValue, e.NewValue);
-            settingService.W5IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(4, e.PreviousValue, e.NewValue);
-            settingService.W6IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(5, e.PreviousValue, e.NewValue);
-            settingService.W7IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(6, e.PreviousValue, e.NewValue);
+            settingService.D1IsVisibleSetting.SettingChanged += (s, e) => DungeonVisibilityChanged(0, e.PreviousValue, e.NewValue);
+            settingService.D2IsVisibleSetting.SettingChanged += (s, e) => DungeonVisibilityChanged(1, e.PreviousValue, e.NewValue);
+            settingService.D3IsVisibleSetting.SettingChanged += (s, e) => DungeonVisibilityChanged(2, e.PreviousValue, e.NewValue);
+            settingService.D4IsVisibleSetting.SettingChanged += (s, e) => DungeonVisibilityChanged(3, e.PreviousValue, e.NewValue);
+            settingService.D5IsVisibleSetting.SettingChanged += (s, e) => DungeonVisibilityChanged(4, e.PreviousValue, e.NewValue);
+            settingService.D6IsVisibleSetting.SettingChanged += (s, e) => DungeonVisibilityChanged(5, e.PreviousValue, e.NewValue);
+            settingService.D7IsVisibleSetting.SettingChanged += (s, e) => DungeonVisibilityChanged(6, e.PreviousValue, e.NewValue);
+            settingService.D8IsVisibleSetting.SettingChanged += (s, e) => DungeonVisibilityChanged(7, e.PreviousValue, e.NewValue);
 
-            WingLabelOpacityChanged(settingService.RaidPanelWingLabelOpacity.Value);
-            EncounterOpacityChanged(settingService.RaidPanelEncounterOpacity.Value);
+            WingLabelOpacityChanged(settingService.DungeonPanelWingLabelOpacity.Value);
+            EncounterOpacityChanged(settingService.DungeonPanelEncounterOpacity.Value);
 
             AddDragDelegates();
 
 
         }
 
-        protected void WingVisibilityChanged(int wingIndex, bool was, bool now)
+        protected void DungeonVisibilityChanged(int wingIndex, bool was, bool now)
         {
-            _wings[wingIndex].GetWingPanelReference().ShowHide(now);
+            _dungeons[wingIndex].GetPanelReference().ShowHide(now);
 
             Invalidate();
            
@@ -82,56 +81,56 @@ namespace RaidClears.Raids.Controls
              * v  2 B1 B2 B3   B2 B2 B2
              * B  3 B1 B2 B3   B3 B3 B3
              */
-            switch (_settingService.RaidPanelOrientationSetting.Value)
+            switch (_settingService.DungeonPanelOrientationSetting.Value)
             {
-                case Orientation.Horizontal: return ControlFlowDirection.SingleLeftToRight;
-                case Orientation.Vertical: return ControlFlowDirection.SingleTopToBottom;
-                case Orientation.SingleRow: return ControlFlowDirection.SingleLeftToRight;
+                case DungeonOrientation.Horizontal: return ControlFlowDirection.SingleLeftToRight;
+                case DungeonOrientation.Vertical: return ControlFlowDirection.SingleTopToBottom;
+                case DungeonOrientation.SingleRow: return ControlFlowDirection.SingleLeftToRight;
                 default: return ControlFlowDirection.SingleTopToBottom;
             }
         }
 
 
         #region Settings changed handlers
-        protected void OrientationChanged(Orientation orientation)
+        protected void OrientationChanged(DungeonOrientation orientation)
         {
             FlowDirection = GetFlowDirection();
-            foreach(var wing in _wings)
+            foreach(var wing in _dungeons)
             {
-                wing.GetWingPanelReference().SetOrientation(orientation);
+                wing.GetPanelReference().SetOrientation(orientation);
             }
 
         }
 
-        protected void WingLabelDisplayChanged(WingLabel labelDisplay)
+        protected void WingLabelDisplayChanged(DungeonLabel labelDisplay)
         {
-            foreach (var wing in _wings)
+            foreach (var wing in _dungeons)
             {
-                wing.GetWingPanelReference().SetLabelDisplay(labelDisplay);
+                wing.GetPanelReference().SetLabelDisplay(labelDisplay);
             }
         }
 
         protected void FontSizeChanged(ContentService.FontSize fontSize)
         {
-            foreach (var wing in _wings)
+            foreach (var wing in _dungeons)
             {
-                wing.GetWingPanelReference().SetFontSize(fontSize);
+                wing.GetPanelReference().SetFontSize(fontSize);
             }
         }
 
         protected void WingLabelOpacityChanged(float opacity)
         {
-            foreach (var wing in _wings)
+            foreach (var wing in _dungeons)
             {
-                wing.GetWingPanelReference().SetWingLabelOpacity(opacity);
+                wing.GetPanelReference().SetWingLabelOpacity(opacity);
             }
         }
 
         protected void EncounterOpacityChanged(float opacity)
         {
-            foreach(var wing in _wings)
+            foreach(var wing in _dungeons)
             {
-                wing.GetWingPanelReference().SetEncounterOpacity(opacity);
+                wing.GetPanelReference().SetEncounterOpacity(opacity);
             }
 
         }
@@ -170,7 +169,7 @@ namespace RaidClears.Raids.Controls
                 if (_settingService.DragWithMouseIsEnabledSetting.Value)
                 {
                     _isDraggedByMouse = false;
-                    _settingService.RaidPanelLocationPoint.Value = this.Location;
+                    _settingService.DungeonPanelLocationPoint.Value = this.Location;
                 }
             };
         }
@@ -213,7 +212,7 @@ namespace RaidClears.Raids.Controls
         public void ShowOrHide()
         {
             var shouldBeVisible =
-              _settingService.RaidPanelIsVisible.Value &&
+              _settingService.DungeonPanelIsVisible.Value &&
               GameService.GameIntegration.Gw2Instance.Gw2IsRunning &&
               GameService.GameIntegration.Gw2Instance.IsInGame &&
               GameService.Gw2Mumble.IsAvailable &&
@@ -234,36 +233,36 @@ namespace RaidClears.Raids.Controls
                 Hide();
         }
 
-        protected void CreateWings(Wing[] wings)
+        protected void CreateDungeons(Dungeon[] dungeons)
         {
-            var wingVis = _settingService.GetWingVisibilitySettings();
-            foreach(var wing in wings)
+            var wingVis = _settingService.GetDungeonVisibilitySettings();
+            foreach(var dungeon in dungeons)
             {
-                var wingPanel = new WingPanel(
+                var wingPanel = new PathsPanel(
                     this, 
-                    wing, 
-                    _settingService.RaidPanelOrientationSetting.Value, 
-                    _settingService.RaidPanelWingLabelsSetting.Value,
-                    _settingService.RaidPanelFontSizeSetting.Value
+                    dungeon, 
+                    _settingService.DungeonPanelOrientationSetting.Value, 
+                    _settingService.DungeonPanelWingLabelsSetting.Value,
+                    _settingService.DungeonPanelFontSizeSetting.Value
                     );
-                wing.SetWingPanelReference(wingPanel);
-                wingPanel.ShowHide(wingVis[wing.index - 1]);
+                dungeon.SetPanelReference(wingPanel);
+                wingPanel.ShowHide(wingVis[dungeon.index - 1]);
                 AddChild(wingPanel);
                 
             }
 
         }
 
-        public void UpdateClearedStatus(ApiRaids apiraids)
+        public void UpdateClearedStatus(ApiDungeons apidungeons)
         {
-            //_logger.Info(apiraids.Clears.ToString());
-            foreach(var wing in _wings)
+            //_logger.Info(apidungeons.Clears.ToString());
+            foreach(var wing in _dungeons)
             {
-                foreach(var encounter in wing.encounters)
+                foreach(var encounter in wing.paths)
                 {
-                    var isCleared = apiraids.Clears.Contains(encounter.id);
+                    var isCleared = apidungeons.Clears.Contains(encounter.id);
                     //_logger.Info("'{0}' - '{1}'", encounter.id, isCleared.ToString());
-                    encounter.SetCleared(apiraids.Clears.Contains(encounter.id));
+                    encounter.SetCleared(apidungeons.Clears.Contains(encounter.id));
                 }
             }
             Invalidate();
