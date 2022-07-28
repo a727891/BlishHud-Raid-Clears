@@ -157,7 +157,7 @@ namespace RaidClears.Settings
 
             DungeonPanelWingLabelOpacity = settings.DefineSetting("RCDungeonOpacity",
                 1f,
-                () => "Dungeon Name Opacity",
+                () => "Dungeon Label Opacity",
                 () => "Dungeon label transparency, Hidden <--> Full Visible");
             DungeonPanelWingLabelOpacity.SetRange(0f, 1f);
             DungeonPanelEncounterOpacity = settings.DefineSetting("RCPathOpacity",

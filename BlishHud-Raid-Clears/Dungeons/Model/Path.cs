@@ -40,6 +40,12 @@ namespace RaidClears.Dungeons.Model
         {
             _label.BackgroundColor = cleared ? ColorCleared : ColorNotCleared;
         }
- 
+
+        public void SetFrequenter(bool done)
+        {
+            _label.TextColor = Microsoft.Xna.Framework.Color.White;
+            _label.TextColor = Microsoft.Xna.Framework.Color.Yellow;
+        }
+
     }
 }

@@ -62,6 +62,7 @@ namespace RaidClears
             _raidsPanel = new RaidsPanel(Logger, _settingService, Wing.GetWingMetaData());
             _dungeonsPanel = new DungeonsPanel(Logger, _settingService, Dungeons.Model.Dungeon.GetDungeonMetaData());
 
+            _dungeonsPanel.UpdateClearedStatus(new ApiDungeons());
             SetTimeoutValueInMinutes( (int)_settingService.RaidPanelApiPollingPeriod.Value);
 
             _settingService.RaidPanelIsVisibleKeyBind.Value.Activated += OnRaidPanelDisplayKeybindActivated;
@@ -101,6 +102,7 @@ namespace RaidClears
             _dungeonsPanel?.Dispose();
             _textureService?.Dispose();
             _cornerIconService?.Dispose();
+            _dungeonCornerIconService?.Dispose();
         }
 
 
@@ -149,6 +151,16 @@ namespace RaidClears
                         }
 
                         _raidsPanel.UpdateClearedStatus(weeklyClears);
+                    });
+                    Task.Run(async () =>
+                    {
+                        var (weeklyClears, apiAccessFailed) = await DungeonsClearsService.GetDungeonClearsFromApi(Gw2ApiManager, Logger);
+                        if (apiAccessFailed)
+                        {
+                            return;
+                        }
+
+                        _dungeonsPanel.UpdateClearedStatus(weeklyClears);
                     });
                 }
             }

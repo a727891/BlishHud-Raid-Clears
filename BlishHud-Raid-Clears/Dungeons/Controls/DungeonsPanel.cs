@@ -256,13 +256,14 @@ namespace RaidClears.Dungeons.Controls
         public void UpdateClearedStatus(ApiDungeons apidungeons)
         {
             //_logger.Info(apidungeons.Clears.ToString());
-            foreach(var wing in _dungeons)
+            foreach(var dungeon in _dungeons)
             {
-                foreach(var encounter in wing.paths)
+                foreach(var path in dungeon.paths)
                 {
-                    var isCleared = apidungeons.Clears.Contains(encounter.id);
-                    //_logger.Info("'{0}' - '{1}'", encounter.id, isCleared.ToString());
-                    encounter.SetCleared(apidungeons.Clears.Contains(encounter.id));
+                    //var isCleared = apidungeons.Clears.Contains(path.id);
+                    //_logger.Info("'{0}' - '{1}'", path.id, isCleared.ToString());
+                    path.SetCleared(apidungeons.Clears.Contains(path.id));
+                    path.SetFrequenter(apidungeons.Frequenter.Contains(path.id));
                 }
             }
             Invalidate();

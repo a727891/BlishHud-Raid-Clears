@@ -32,7 +32,8 @@ namespace RaidClears.Settings
                 Parent              = buildPanel
             };
 
-            var singleColumnWidth = buildPanel.Width - ((int)_rootFlowPanel.OuterControlPadding.X * 2);
+            //var singleColumnWidth = buildPanel.Width - ((int)_rootFlowPanel.OuterControlPadding.X * 2);
+            var singleColumnWidth = buildPanel.Width;
             var doubleColWidth = (singleColumnWidth / 2) - 100;
 
             var generalSettingFlowPanel = CreateSettingsGroupFlowPanel("General Options", _rootFlowPanel);

@@ -16,5 +16,6 @@ namespace RaidClears.Dungeons.Model
         }
 
         public List<string> Clears { get; } = new List<string>();
+        public List<string> Frequenter { get; } = new List<string>();
     }
 }

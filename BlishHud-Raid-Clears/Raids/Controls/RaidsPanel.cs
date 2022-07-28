@@ -261,7 +261,7 @@ namespace RaidClears.Raids.Controls
             {
                 foreach(var encounter in wing.encounters)
                 {
-                    var isCleared = apiraids.Clears.Contains(encounter.id);
+                    //var isCleared = apiraids.Clears.Contains(encounter.id);
                     //_logger.Info("'{0}' - '{1}'", encounter.id, isCleared.ToString());
                     encounter.SetCleared(apiraids.Clears.Contains(encounter.id));
                 }
