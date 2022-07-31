@@ -78,6 +78,7 @@ namespace RaidClears
 
             _dungeonCornerIconService = new DungeonCornerIconService(
                _settingService.ShowDungeonCornerIconSetting,
+               _settingService.DungeonsEnabled,
                "Click to show/hide the Dungeon Clears window.\nIcon can be hidden by module settings.",
                (s, e) => _settingService.ToggleDungeonPanelVisibility(),
                _textureService);
@@ -152,16 +153,19 @@ namespace RaidClears
 
                         _raidsPanel.UpdateClearedStatus(weeklyClears);
                     });
-                    Task.Run(async () =>
+                    if (_settingService.DungeonsEnabled.Value)
                     {
-                        var (weeklyClears, apiAccessFailed) = await DungeonsClearsService.GetDungeonClearsFromApi(Gw2ApiManager, Logger);
-                        if (apiAccessFailed)
+                        Task.Run(async () =>
                         {
-                            return;
-                        }
+                            var (weeklyClears, apiAccessFailed) = await DungeonsClearsService.GetDungeonClearsFromApi(Gw2ApiManager, Logger);
+                            if (apiAccessFailed)
+                            {
+                                return;
+                            }
 
-                        _dungeonsPanel.UpdateClearedStatus(weeklyClears);
-                    });
+                            _dungeonsPanel.UpdateClearedStatus(weeklyClears);
+                        });
+                    }
                 }
             }
         }

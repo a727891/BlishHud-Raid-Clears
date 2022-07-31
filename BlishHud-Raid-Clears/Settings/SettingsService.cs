@@ -3,8 +3,7 @@ using Blish_HUD.Input;
 using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-
-
+using Settings.Enums;
 
 namespace RaidClears.Settings
 {
@@ -116,6 +115,10 @@ namespace RaidClears.Settings
                 );
             #endregion
 
+            DungeonsEnabled = settings.DefineSetting("RCDungeonsEnabled",
+                false,
+                () => "Enable Dungeon Tracking Feature",
+                () => "Turn on the daily dungeon and dungeon frequenter feature.");
             #region DUNGEONS
             ShowDungeonCornerIconSetting = settings.DefineSetting("RCDungeonCornerIcon",
                 false,
@@ -123,7 +126,7 @@ namespace RaidClears.Settings
                 () => "Add a button next to Blish on the top left of screen that hides or shows the Raid Clears window.");
 
             DungeonPanelIsVisible = settings.DefineSetting("RCDungeonActive",
-                false,
+                true,
                 () => "Display on screen",
                 () => "Enable the Raid Clears grid.");
 
@@ -207,6 +210,11 @@ namespace RaidClears.Settings
                 () => "Ruined City of Arah",
                 () => "Enable Ruined City of Arah on the dungeon display"
                 );
+            DFIsVisibleSetting = settings.DefineSetting("RCdf",
+                true,
+                () => "Dungeon Frequenter Summary",
+                () => "Enable a dungeon frequenter achievement summary"
+                );
 
             #endregion
 
@@ -241,7 +249,7 @@ namespace RaidClears.Settings
 
         public bool[] GetDungeonVisibilitySettings()
         {
-            return new bool[8] {
+            return new bool[9] {
                 D1IsVisibleSetting.Value,
                 D2IsVisibleSetting.Value,
                 D3IsVisibleSetting.Value,
@@ -249,13 +257,15 @@ namespace RaidClears.Settings
                 D5IsVisibleSetting.Value,
                 D6IsVisibleSetting.Value,
                 D7IsVisibleSetting.Value,
-                D8IsVisibleSetting.Value
+                D8IsVisibleSetting.Value,
+                DFIsVisibleSetting.Value,
             };
         }
 
         public SettingEntry<ApiPollPeriod> RaidPanelApiPollingPeriod { get; }
         public SettingEntry<Point> RaidPanelLocationPoint { get; }
         public SettingEntry<bool> RaidPanelIsVisible { get; }
+        public SettingEntry<bool>  DungeonsEnabled { get; }
         public SettingEntry<bool> AllowTooltipsSetting { get; }
         public SettingEntry<bool> DragWithMouseIsEnabledSetting { get; }
         public SettingEntry<ContentService.FontSize> RaidPanelFontSizeSetting { get; }
@@ -290,8 +300,8 @@ namespace RaidClears.Settings
         public SettingEntry<bool> D5IsVisibleSetting { get; }
         public SettingEntry<bool> D6IsVisibleSetting { get; }
         public SettingEntry<bool> D7IsVisibleSetting { get; }
-
         public SettingEntry<bool> D8IsVisibleSetting { get; }
+        public SettingEntry<bool> DFIsVisibleSetting { get; }
         public SettingEntry<KeyBinding> DungeonPanelIsVisibleKeyBind { get; }
 
         public SettingEntry<bool> ShowDungeonCornerIconSetting { get; }

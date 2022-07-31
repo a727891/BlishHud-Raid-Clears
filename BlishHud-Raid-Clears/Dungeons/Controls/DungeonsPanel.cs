@@ -6,6 +6,7 @@ using RaidClears.Dungeons.Model;
 using RaidClears.Settings;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Settings.Enums;
 
 namespace RaidClears.Dungeons.Controls
 {
@@ -16,6 +17,8 @@ namespace RaidClears.Dungeons.Controls
         private readonly SettingService _settingService;
         private bool _isDraggedByMouse = false;
         private Point _dragStart = Point.Zero;
+        private PathsPanel _frequenterPanel;
+        private Dungeon _frequenterdungeon;
 
         public DungeonsPanel(Logger logger, SettingService settingService, Model.Dungeon[] dungeons)
         {
@@ -34,6 +37,7 @@ namespace RaidClears.Dungeons.Controls
 
 
             CreateDungeons(dungeons);
+            AddFrequenter();
 
             settingService.DungeonPanelLocationPoint.SettingChanged += (s, e) => Location = e.NewValue;
 
@@ -55,6 +59,7 @@ namespace RaidClears.Dungeons.Controls
             settingService.D6IsVisibleSetting.SettingChanged += (s, e) => DungeonVisibilityChanged(5, e.PreviousValue, e.NewValue);
             settingService.D7IsVisibleSetting.SettingChanged += (s, e) => DungeonVisibilityChanged(6, e.PreviousValue, e.NewValue);
             settingService.D8IsVisibleSetting.SettingChanged += (s, e) => DungeonVisibilityChanged(7, e.PreviousValue, e.NewValue);
+            settingService.DFIsVisibleSetting.SettingChanged += (s, e) => DungeonFrequenterVisibilityChanged(e.NewValue);
 
             WingLabelOpacityChanged(settingService.DungeonPanelWingLabelOpacity.Value);
             EncounterOpacityChanged(settingService.DungeonPanelEncounterOpacity.Value);
@@ -71,7 +76,14 @@ namespace RaidClears.Dungeons.Controls
             Invalidate();
            
         }
-       
+
+        protected void DungeonFrequenterVisibilityChanged(bool now)
+        {
+            _frequenterPanel.ShowHide(now);
+            Invalidate();
+        }
+
+
 
         protected ControlFlowDirection GetFlowDirection()
         {
@@ -99,6 +111,7 @@ namespace RaidClears.Dungeons.Controls
             {
                 wing.GetPanelReference().SetOrientation(orientation);
             }
+            _frequenterPanel.SetOrientation(orientation);
 
         }
 
@@ -108,6 +121,7 @@ namespace RaidClears.Dungeons.Controls
             {
                 wing.GetPanelReference().SetLabelDisplay(labelDisplay);
             }
+            _frequenterPanel.SetLabelDisplay(labelDisplay);
         }
 
         protected void FontSizeChanged(ContentService.FontSize fontSize)
@@ -116,6 +130,7 @@ namespace RaidClears.Dungeons.Controls
             {
                 wing.GetPanelReference().SetFontSize(fontSize);
             }
+            _frequenterPanel.SetFontSize(fontSize);
         }
 
         protected void WingLabelOpacityChanged(float opacity)
@@ -124,6 +139,7 @@ namespace RaidClears.Dungeons.Controls
             {
                 wing.GetPanelReference().SetWingLabelOpacity(opacity);
             }
+            _frequenterPanel.SetWingLabelOpacity(opacity);
         }
 
         protected void EncounterOpacityChanged(float opacity)
@@ -132,6 +148,7 @@ namespace RaidClears.Dungeons.Controls
             {
                 wing.GetPanelReference().SetEncounterOpacity(opacity);
             }
+            _frequenterPanel.SetEncounterOpacity(opacity);
 
         }
 
@@ -212,6 +229,7 @@ namespace RaidClears.Dungeons.Controls
         public void ShowOrHide()
         {
             var shouldBeVisible =
+              _settingService.DungeonsEnabled.Value &&
               _settingService.DungeonPanelIsVisible.Value &&
               GameService.GameIntegration.Gw2Instance.Gw2IsRunning &&
               GameService.GameIntegration.Gw2Instance.IsInGame &&
@@ -231,6 +249,24 @@ namespace RaidClears.Dungeons.Controls
                 Show();
             else if (Visible && shouldBeVisible == false)
                 Hide();
+        }
+
+        protected void AddFrequenter()
+        {
+            _frequenterdungeon = new Dungeon(9, "Frequenter Achievement Summary", 0, 0, "Freq", new Path[] {
+                    new Path("freq","Frequenter Achievement Paths Finished","0/8")
+              });
+
+            _frequenterPanel = new PathsPanel(
+                this,
+                _frequenterdungeon,
+                _settingService.DungeonPanelOrientationSetting.Value,
+                _settingService.DungeonPanelWingLabelsSetting.Value,
+                _settingService.DungeonPanelFontSizeSetting.Value
+
+            ) ;
+            _frequenterdungeon.SetPanelReference(_frequenterPanel);
+            AddChild(_frequenterPanel);
         }
 
         protected void CreateDungeons(Dungeon[] dungeons)
@@ -266,6 +302,8 @@ namespace RaidClears.Dungeons.Controls
                     path.SetFrequenter(apidungeons.Frequenter.Contains(path.id));
                 }
             }
+            _frequenterdungeon.paths[0].GetLabelReference().Text = $"{apidungeons.Frequenter.Count}/8";
+            _frequenterdungeon.paths[0].SetFrequenter(true);
             Invalidate();
 
         }

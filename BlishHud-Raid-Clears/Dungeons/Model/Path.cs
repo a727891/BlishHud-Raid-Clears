@@ -43,8 +43,9 @@ namespace RaidClears.Dungeons.Model
 
         public void SetFrequenter(bool done)
         {
-            _label.TextColor = Microsoft.Xna.Framework.Color.White;
-            _label.TextColor = Microsoft.Xna.Framework.Color.Yellow;
+            _label.TextColor = done ? Microsoft.Xna.Framework.Color.Yellow : Microsoft.Xna.Framework.Color.White;
+            //_label.TextColor = Microsoft.Xna.Framework.Color.White;
+            //_label.TextColor = Microsoft.Xna.Framework.Color.Yellow;
         }
 
     }

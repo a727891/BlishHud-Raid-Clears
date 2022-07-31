@@ -3,8 +3,8 @@ using Blish_HUD;
 using Blish_HUD.Controls;
 using Blish_HUD.Input;
 using Blish_HUD.Settings;
-using RaidClears.Settings;
 using Microsoft.Xna.Framework;
+using Settings.Enums;
 
 namespace RaidClears.Raids.Services
 {

@@ -13,8 +13,8 @@ namespace RaidClears.Settings
             CornerIconHoverTexture = contentsManager.GetTexture(@"raids\textures\raidIconBright.png");
 
 
-            DungeonsCornerIconTexture = contentsManager.GetTexture(@"raids\textures\raidIconDark.png");
-            DungeonsCornerIconHoverTexture = contentsManager.GetTexture(@"raids\textures\raidIconBright.png");
+            DungeonsCornerIconTexture = contentsManager.GetTexture(@"raids\textures\dungeonIconDark.png");
+            DungeonsCornerIconHoverTexture = contentsManager.GetTexture(@"raids\textures\dungeonIconBright.png");
 
         }
 

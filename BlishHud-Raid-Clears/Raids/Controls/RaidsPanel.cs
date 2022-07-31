@@ -6,7 +6,7 @@ using RaidClears.Raids.Model;
 using RaidClears.Settings;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-
+using Settings.Enums;
 
 namespace RaidClears.Raids.Controls
 {

@@ -1,9 +1,8 @@
 ﻿using Blish_HUD;
 using Blish_HUD.Controls;
 using RaidClears.Dungeons.Model;
-using RaidClears.Settings;
 using Microsoft.Xna.Framework;
-
+using Settings.Enums;
 
 namespace RaidClears.Dungeons.Controls
 {

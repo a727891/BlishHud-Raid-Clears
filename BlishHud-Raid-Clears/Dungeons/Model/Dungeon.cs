@@ -87,7 +87,7 @@ namespace RaidClears.Dungeons.Model
                     {
                         new Path("ta_story","Story", "S"),
                         new Path("leurent","leurent (Up)", "Up"),
-                        new Path("vevina","vevina (down)", "Fwd"),
+                        new Path("vevina","vevina (Forward)", "Fwd"),
                         new Path("aetherpath","aetherpath", "Ae"),
                     }
                 ),

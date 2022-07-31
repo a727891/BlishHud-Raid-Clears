@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace RaidClears.Settings
+namespace Settings.Enums
 {
     public enum DungeonLabel
     {
