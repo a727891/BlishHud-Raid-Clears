@@ -3,11 +3,10 @@ using Blish_HUD;
 using Blish_HUD.Controls;
 using Blish_HUD.Input;
 using RaidClears.Raids.Model;
-using RaidClears.Raids.Services;
 using RaidClears.Settings;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-
+using Settings.Enums;
 
 namespace RaidClears.Raids.Controls
 {
@@ -19,7 +18,7 @@ namespace RaidClears.Raids.Controls
         private bool _isDraggedByMouse = false;
         private Point _dragStart = Point.Zero;
 
-        public RaidsPanel(Logger logger, SettingService settingService, TextureService textureService, Wing[] wings)
+        public RaidsPanel(Logger logger, SettingService settingService, Wing[] wings)
         {
             _logger = logger;
             _wings = wings;
@@ -47,8 +46,8 @@ namespace RaidClears.Raids.Controls
             settingService.RaidPanelWingLabelOpacity.SettingChanged += (s, e) => WingLabelOpacityChanged(e.NewValue);
             settingService.RaidPanelEncounterOpacity.SettingChanged += (s, e) => EncounterOpacityChanged(e.NewValue);
 
-            settingService.RaidPanelDragWithMouseIsEnabledSetting.SettingChanged += (s, e) => IgnoreMouseInput = ShouldIgnoreMouse();
-            settingService.RaidPanelAllowTooltipsSetting.SettingChanged += (s, e) => IgnoreMouseInput = ShouldIgnoreMouse();
+            settingService.DragWithMouseIsEnabledSetting.SettingChanged += (s, e) => IgnoreMouseInput = ShouldIgnoreMouse();
+            settingService.AllowTooltipsSetting.SettingChanged += (s, e) => IgnoreMouseInput = ShouldIgnoreMouse();
 
             settingService.W1IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(0, e.PreviousValue, e.NewValue);
             settingService.W2IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(1, e.PreviousValue, e.NewValue);
@@ -148,7 +147,7 @@ namespace RaidClears.Raids.Controls
         public virtual void DoUpdate()
 
         {
-            if (_isDraggedByMouse && _settingService.RaidPanelDragWithMouseIsEnabledSetting.Value)
+            if (_isDraggedByMouse && _settingService.DragWithMouseIsEnabledSetting.Value)
             {
                 var nOffset = InputService.Input.Mouse.Position - _dragStart;
                 this.Location += nOffset;
@@ -160,7 +159,7 @@ namespace RaidClears.Raids.Controls
         {
             this.LeftMouseButtonPressed += delegate
             {
-                if (_settingService.RaidPanelDragWithMouseIsEnabledSetting.Value)
+                if (_settingService.DragWithMouseIsEnabledSetting.Value)
                 {
                     _isDraggedByMouse = true;
                     _dragStart = InputService.Input.Mouse.Position;
@@ -168,7 +167,7 @@ namespace RaidClears.Raids.Controls
             };
             this.LeftMouseButtonReleased += delegate
             {
-                if (_settingService.RaidPanelDragWithMouseIsEnabledSetting.Value)
+                if (_settingService.DragWithMouseIsEnabledSetting.Value)
                 {
                     _isDraggedByMouse = false;
                     _settingService.RaidPanelLocationPoint.Value = this.Location;
@@ -179,8 +178,8 @@ namespace RaidClears.Raids.Controls
         protected bool ShouldIgnoreMouse()
         {
             return !(
-                _settingService.RaidPanelDragWithMouseIsEnabledSetting.Value ||
-                _settingService.RaidPanelAllowTooltipsSetting.Value
+                _settingService.DragWithMouseIsEnabledSetting.Value ||
+                _settingService.AllowTooltipsSetting.Value
             );
         }
 
@@ -226,7 +225,7 @@ namespace RaidClears.Raids.Controls
                 GameService.GameIntegration.Gw2Instance.IsInGame,
                 GameService.Gw2Mumble.UI.IsMapOpen == false);*/
 
-            if(shouldBeVisible && _settingService.RaidPanelDragWithMouseIsEnabledSetting.Value)
+            if(shouldBeVisible && _settingService.DragWithMouseIsEnabledSetting.Value)
                 DoUpdate();
 
             if (Visible == false && shouldBeVisible)
@@ -262,7 +261,7 @@ namespace RaidClears.Raids.Controls
             {
                 foreach(var encounter in wing.encounters)
                 {
-                    var isCleared = apiraids.Clears.Contains(encounter.id);
+                    //var isCleared = apiraids.Clears.Contains(encounter.id);
                     //_logger.Info("'{0}' - '{1}'", encounter.id, isCleared.ToString());
                     encounter.SetCleared(apiraids.Clears.Contains(encounter.id));
                 }

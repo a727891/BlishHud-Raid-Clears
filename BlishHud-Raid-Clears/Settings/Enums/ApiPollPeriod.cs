@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace RaidClears.Settings
+namespace Settings.Enums
 {
-    public enum ApiPollPeriod: int
+    public enum ApiPollPeriod : int
     {
         [Description("3 minutes")]
         MINUTES_3 = 3,

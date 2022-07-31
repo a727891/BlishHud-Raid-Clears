@@ -1,10 +1,10 @@
 {
   "name": "Raid Clears",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "namespace": "Soeed.RaidClears",
   "package": "BlishHud-Raid-Clears.dll",
   "manifest_version": 1,
-  "description": "Display weekly raid clear progress.\nNote that clears data depends on the GW2 API and may take several minutes to update.\nHeavily inspired by the same feature in Gw2TacO",
+  "description": "Display weekly Raid clear and daily Dungeon progress. \nNote that clears data depends on the GW2 API and may take several minutes to update.",
   "dependencies": {
     "bh.blishhud": ">=0.11.7"
   },

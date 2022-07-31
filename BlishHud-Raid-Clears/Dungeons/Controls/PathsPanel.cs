@@ -1,60 +1,52 @@
 ﻿using Blish_HUD;
 using Blish_HUD.Controls;
-using RaidClears.Raids.Model;
+using RaidClears.Dungeons.Model;
 using Microsoft.Xna.Framework;
 using Settings.Enums;
 
-namespace RaidClears.Raids.Controls
+namespace RaidClears.Dungeons.Controls
 {
-    public class WingPanel : FlowPanel
+    public class PathsPanel : FlowPanel
     {
-        private Wing _wing;
+        private Model.Dungeon _dungeon;
 
-        private Orientation _orientation;
-        private WingLabel _labelDisplay;
-
-
-        private Label _wingLabelObj;
+        private DungeonOrientation _orientation;
+        private DungeonLabel _labelDisplay;
 
 
+        private Label _dungeonLabel;
 
 
-        public WingPanel(Container parent, Wing wing, Orientation orientation, WingLabel label, ContentService.FontSize fontSize)
+
+
+        public PathsPanel(Container parent, Model.Dungeon dungeon, DungeonOrientation orientation, DungeonLabel label, ContentService.FontSize fontSize)
         {
-            _wing = wing;
+            _dungeon = dungeon;
 
             ControlPadding = new Vector2(2, 2);
             HeightSizingMode = SizingMode.AutoSize;
             Parent = parent;
             WidthSizingMode = SizingMode.AutoSize;
 
-            _wingLabelObj = new Label()
+            _dungeonLabel = new Label()
             {
                 AutoSizeHeight = true,
-                BasicTooltipText = wing.name,
-                HorizontalAlignment = WingLabelAlignment(),
-                //Opacity = (float)1f,
+                BasicTooltipText = dungeon.GetTooltip(),
+                HorizontalAlignment = DungeonLabelAlignment(),
                 Parent = this,
                 Text = GetWingLabelText()
             };
-            foreach(var encounter in _wing.encounters)
+            foreach(var path in _dungeon.paths)
             {
-                var encounterLabel = new Label()
+                var pathLabel = new Label()
                 {
                     AutoSizeHeight = true,
-                    //BackgroundColor = GetClearedState(encounter.id),
-                    BasicTooltipText = encounter.name,
-                    /*Font = GameService
-                        .Content
-                        .GetFont(ContentService.FontFace.Menomonia,
-                        _settingFontSize.Value,
-                        ContentService.FontStyle.Regular),*/
+                    BasicTooltipText = path.name,
                     HorizontalAlignment = HorizontalAlignment.Center,
-                    //Opacity = (float)1f,// _settingEncounterLabelOpacity.Value / MAX_SLIDER_INT,
                     Parent = this,
-                    Text = encounter.short_name,
+                    Text = path.short_name,
                 };
-                encounter.SetLabelReference(encounterLabel);
+                path.SetLabelReference(pathLabel);
             }
 
             SetOrientation(orientation);
@@ -66,33 +58,25 @@ namespace RaidClears.Raids.Controls
         {
             switch (_labelDisplay)
             {
-                case WingLabel.NoLabel: return "";
-                case WingLabel.WingNumber: return _wing.index.ToString();
-                case WingLabel.Abbreviation: return _wing.shortName;
+                case DungeonLabel.NoLabel: return "";
+                case DungeonLabel.Abbreviation: return _dungeon.shortName;
                 default: return "-";
             }
             
         }
 
-        private HorizontalAlignment WingLabelAlignment()
+        private HorizontalAlignment DungeonLabelAlignment()
         {
-            if (_orientation == Orientation.Vertical)
+            if (_orientation == DungeonOrientation.Vertical)
             {
-                if (_labelDisplay == WingLabel.WingNumber)
-                {
-                    return HorizontalAlignment.Center;
-                }
-                else
-                {
-                    return HorizontalAlignment.Right;
-                }
+                return HorizontalAlignment.Right;
             }
 
             return HorizontalAlignment.Center;
 
         }
 
-        public void SetOrientation(Orientation orientation)
+        public void SetOrientation(DungeonOrientation orientation)
         {
            /**  FlowDirection based on WingOrientation 
             * V L>R          H   1  2  3
@@ -102,33 +86,33 @@ namespace RaidClears.Raids.Controls
             */
             _orientation = orientation;
             FlowDirection = GetFlowDirection(orientation);
-            _wingLabelObj.HorizontalAlignment = WingLabelAlignment();
+            _dungeonLabel.HorizontalAlignment = DungeonLabelAlignment();
         }
 
-        private ControlFlowDirection GetFlowDirection(Orientation orientation)
+        private ControlFlowDirection GetFlowDirection(DungeonOrientation orientation)
         {
             switch (orientation)
             {
-                case Orientation.Horizontal: return ControlFlowDirection.SingleTopToBottom;
-                case Orientation.Vertical: return ControlFlowDirection.SingleLeftToRight;
-                case Orientation.SingleRow: return ControlFlowDirection.SingleLeftToRight;
+                case DungeonOrientation.Horizontal: return ControlFlowDirection.SingleTopToBottom;
+                case DungeonOrientation.Vertical: return ControlFlowDirection.SingleLeftToRight;
+                case DungeonOrientation.SingleRow: return ControlFlowDirection.SingleLeftToRight;
                 default: return ControlFlowDirection.SingleLeftToRight;
             }
         }
 
-        public void SetLabelDisplay(WingLabel label)
+        public void SetLabelDisplay(DungeonLabel label)
         {
             _labelDisplay = label;
-            _wingLabelObj.Text = GetWingLabelText();
-            _wingLabelObj.HorizontalAlignment = WingLabelAlignment();
+            _dungeonLabel.Text = GetWingLabelText();
+            _dungeonLabel.HorizontalAlignment = DungeonLabelAlignment();
 
-            if(label == WingLabel.NoLabel)
+            if(label == DungeonLabel.NoLabel)
             {
-                _wingLabelObj.Hide();
+                _dungeonLabel.Hide();
             }
             else
             {
-                _wingLabelObj.Show();
+                _dungeonLabel.Show();
             }
             Invalidate();
         }
@@ -144,9 +128,9 @@ namespace RaidClears.Raids.Controls
                );
             var width = GetLabelWidthForFontSize(fontSize);
 
-            _wingLabelObj.Font = font;
-            _wingLabelObj.Width = width;
-            foreach(var encounter in _wing.encounters)
+            _dungeonLabel.Font = font;
+            _dungeonLabel.Width = width;
+            foreach(var encounter in _dungeon.paths)
             {
                 encounter.GetLabelReference().Font = font;
                 encounter.GetLabelReference().Width = width;
@@ -180,12 +164,12 @@ namespace RaidClears.Raids.Controls
 
         public void SetWingLabelOpacity(float opacity)
         {
-            _wingLabelObj.Opacity = opacity;
+            _dungeonLabel.Opacity = opacity;
         }
 
         public void SetEncounterOpacity(float opacity)
         {
-            foreach(var encounter in _wing.encounters)
+            foreach(var encounter in _dungeon.paths)
             {
                 encounter.GetLabelReference().Opacity = opacity;
             }
