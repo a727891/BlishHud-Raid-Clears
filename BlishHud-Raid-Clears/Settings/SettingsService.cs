@@ -77,7 +77,16 @@ namespace RaidClears.Settings
                 () => "Encounter label transparency, Hidden <--> Full Visible");
             RaidPanelEncounterOpacity.SetRange(0f, 1f);
 
-            
+            RaidPanelHighlightEmbolden = settings.DefineSetting("RCEmbolden",
+                true,
+                () => "Highlight the weekly 'Emboldened' raid wing",
+                () => "Colors the text blue for the weekly Emboldened raid wing\nEmbolden mode increases player health, damage, and healing for each stack.");
+            RaidPanelHighlightCotM = settings.DefineSetting("RCCotM",
+               true,
+               () => "Highlight the weekly 'Call of the Mist' raid wing",
+               () => "Colors the text golden for the weekly Call of the Mists raid wing\nCall of the Mists doubles all gold in the boss loot chest");
+
+
             W1IsVisibleSetting = settings.DefineSetting("RCw1",
                 true,
                 () => "W1 / Spirit Vale",
@@ -273,6 +282,8 @@ namespace RaidClears.Settings
         public SettingEntry<Orientation> RaidPanelOrientationSetting { get; }
         public SettingEntry<float> RaidPanelWingLabelOpacity { get; }
         public SettingEntry<float> RaidPanelEncounterOpacity { get; }
+        public SettingEntry<bool> RaidPanelHighlightEmbolden { get; }
+        public SettingEntry<bool> RaidPanelHighlightCotM{ get; }
         public SettingEntry<bool> W1IsVisibleSetting { get; }
         public SettingEntry<bool> W2IsVisibleSetting { get; }
         public SettingEntry<bool> W3IsVisibleSetting { get; }

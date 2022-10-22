@@ -16,9 +16,6 @@ namespace RaidClears.Raids.Controls
 
         private Label _wingLabelObj;
 
-
-
-
         public WingPanel(Container parent, Wing wing, Orientation orientation, WingLabel label, ContentService.FontSize fontSize)
         {
             _wing = wing;
@@ -31,7 +28,7 @@ namespace RaidClears.Raids.Controls
             _wingLabelObj = new Label()
             {
                 AutoSizeHeight = true,
-                BasicTooltipText = wing.name,
+                BasicTooltipText = GetWingTooltip(),
                 HorizontalAlignment = WingLabelAlignment(),
                 //Opacity = (float)1f,
                 Parent = this,
@@ -52,7 +49,7 @@ namespace RaidClears.Raids.Controls
                     HorizontalAlignment = HorizontalAlignment.Center,
                     //Opacity = (float)1f,// _settingEncounterLabelOpacity.Value / MAX_SLIDER_INT,
                     Parent = this,
-                    Text = encounter.short_name,
+                    Text = encounter.short_name
                 };
                 encounter.SetLabelReference(encounterLabel);
             }
@@ -62,6 +59,19 @@ namespace RaidClears.Raids.Controls
             SetFontSize(fontSize);
         }
 
+        public string GetWingTooltip()
+        {
+            if (_wing.isCallOfTheMist)
+            {
+                return "(Call of the Mists) " + _wing.name;
+            }
+            if (_wing.isEmboldened)
+            {
+                return "(Emboldened) " + _wing.name;
+            }
+
+            return _wing.name;
+        }
         public string GetWingLabelText()
         {
             switch (_labelDisplay)
@@ -131,6 +141,17 @@ namespace RaidClears.Raids.Controls
                 _wingLabelObj.Show();
             }
             Invalidate();
+        }
+
+        public void SetHighlightColor(Color color)
+        {
+            this.Children.ToList().ForEach(elem =>
+            {
+                if (elem is Label label)
+                {
+                    label.TextColor = color;
+                }
+            });
         }
 
         public void SetFontSize(ContentService.FontSize fontSize)
