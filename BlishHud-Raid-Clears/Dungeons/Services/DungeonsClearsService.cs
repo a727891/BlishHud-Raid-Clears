@@ -33,7 +33,7 @@ namespace RaidClears.Dungeons.Services
             }
             catch (Exception e)
             {
-                logger.Error(e, "Could not get current clears from API");
+                logger.Warn(e, "Could not get current clears from API");
                 return (new ApiDungeons(), true);
             }
         }
