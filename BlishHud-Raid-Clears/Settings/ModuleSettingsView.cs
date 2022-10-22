@@ -63,6 +63,8 @@ namespace RaidClears.Settings
             ShowSettingWithViewContainer(_settingService.RaidPanelWingLabelsSetting, layoutFlowPanel, singleColumnWidth);
             ShowSettingWithViewContainer(_settingService.RaidPanelWingLabelOpacity, layoutFlowPanel, singleColumnWidth);
             ShowSettingWithViewContainer(_settingService.RaidPanelEncounterOpacity, layoutFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.RaidPanelHighlightEmbolden, layoutFlowPanel, singleColumnWidth);
+            ShowSettingWithViewContainer(_settingService.RaidPanelHighlightCotM, layoutFlowPanel, singleColumnWidth);
 
 
             var wingSelectionFlowPanel = CreateSettingsGroupFlowPanel("Wing Selection", raidsSettingFlowPanel);

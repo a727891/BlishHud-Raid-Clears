@@ -58,8 +58,11 @@ namespace RaidClears
 #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             _textureService = new TextureService(ContentsManager);
-    
-            _raidsPanel = new RaidsPanel(Logger, _settingService, Wing.GetWingMetaData());
+
+            _wingRotationService = new WingRotationService();
+
+            _raidsPanel = new RaidsPanel(Logger, _settingService, Wing.GetWingMetaData(), _wingRotationService);
+
             _dungeonsPanel = new DungeonsPanel(Logger, _settingService, Dungeons.Model.Dungeon.GetDungeonMetaData());
 
             _dungeonsPanel.UpdateClearedStatus(new ApiDungeons());
@@ -194,6 +197,7 @@ namespace RaidClears
         private double _API_QUERY_INTERVAL = 300100; // 300 seconds + 100ms
 
         private TextureService _textureService;
+        private WingRotationService _wingRotationService;
         private SettingService _settingService;
         private CornerIconService _cornerIconService;
         private DungeonCornerIconService _dungeonCornerIconService;

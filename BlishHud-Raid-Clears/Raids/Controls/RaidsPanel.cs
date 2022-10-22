@@ -7,6 +7,7 @@ using RaidClears.Settings;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Settings.Enums;
+using RaidClears.Raids.Services;
 
 namespace RaidClears.Raids.Controls
 {
@@ -18,7 +19,10 @@ namespace RaidClears.Raids.Controls
         private bool _isDraggedByMouse = false;
         private Point _dragStart = Point.Zero;
 
-        public RaidsPanel(Logger logger, SettingService settingService, Wing[] wings)
+        private Color CallOfTheMistColor = new Color(243, 245, 39, 10);
+        private Color EmboldenColor = new Color(80, 80, 255, 10);
+
+        public RaidsPanel(Logger logger, SettingService settingService, Wing[] wings, WingRotationService wingRotation)
         {
             _logger = logger;
             _wings = wings;
@@ -33,6 +37,9 @@ namespace RaidClears.Raids.Controls
             HeightSizingMode = SizingMode.AutoSize;
             WidthSizingMode = SizingMode.AutoSize;
 
+            (int embolden, int callOfMist) = wingRotation.getHighlightedWingIndices();
+            wings[embolden].setEmboldened(true);
+            wings[callOfMist].setCallOfTheMist(true);
 
             CreateWings(wings);
 
@@ -57,8 +64,14 @@ namespace RaidClears.Raids.Controls
             settingService.W6IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(5, e.PreviousValue, e.NewValue);
             settingService.W7IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(6, e.PreviousValue, e.NewValue);
 
+            settingService.RaidPanelHighlightEmbolden.SettingChanged += (s, e) => EmboldenChanged(embolden, e.NewValue);
+            settingService.RaidPanelHighlightCotM.SettingChanged += (s, e) => CotMChanged(callOfMist, e.NewValue);
+
             WingLabelOpacityChanged(settingService.RaidPanelWingLabelOpacity.Value);
             EncounterOpacityChanged(settingService.RaidPanelEncounterOpacity.Value);
+
+            EmboldenChanged(embolden, settingService.RaidPanelHighlightEmbolden.Value);
+            CotMChanged(callOfMist, settingService.RaidPanelHighlightCotM.Value);
 
             AddDragDelegates();
 
@@ -71,6 +84,20 @@ namespace RaidClears.Raids.Controls
 
             Invalidate();
            
+        }
+
+        protected void EmboldenChanged(int wingIndex, bool highlight)
+        {
+            _wings[wingIndex].GetWingPanelReference().SetHighlightColor(highlight ?
+                EmboldenColor : Color.White
+            );
+        }
+
+        protected void CotMChanged(int wingIndex, bool highlight)
+        {
+            _wings[wingIndex].GetWingPanelReference().SetHighlightColor(highlight ?
+               CallOfTheMistColor : Color.White
+           );
         }
        
 
