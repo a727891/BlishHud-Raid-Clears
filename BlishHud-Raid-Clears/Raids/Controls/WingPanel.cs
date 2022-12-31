@@ -16,7 +16,7 @@ namespace RaidClears.Raids.Controls
 
         private Label _wingLabelObj;
 
-        public WingPanel(Container parent, Wing wing, Orientation orientation, WingLabel label, ContentService.FontSize fontSize)
+        public WingPanel(Container parent, Wing wing, Orientation orientation, WingLabel label, ContentService.FontSize fontSize, Color clearedColor, Color notClearedColor)
         {
             _wing = wing;
 
@@ -36,6 +36,7 @@ namespace RaidClears.Raids.Controls
             };
             foreach(var encounter in _wing.encounters)
             {
+                encounter.SetClearColors(clearedColor, notClearedColor);
                 var encounterLabel = new Label()
                 {
                     AutoSizeHeight = true,
@@ -152,6 +153,14 @@ namespace RaidClears.Raids.Controls
                     label.TextColor = color;
                 }
             });
+        }
+
+        public void UpdateEncounterColors(Color cleared, Color notCleared)
+        {
+            for(var i=0; i<_wing.encounters.Length; i++)
+            {
+                _wing.encounters[i].UpdateColors(cleared, notCleared);
+            }
         }
 
         public void SetFontSize(ContentService.FontSize fontSize)

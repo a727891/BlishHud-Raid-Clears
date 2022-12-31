@@ -15,18 +15,29 @@ namespace RaidClears.Raids.Controls
     {
         private Logger _logger;
         private Wing[] _wings;
+
+        //private WingPanel _fractalT4Panel;
+
         private readonly SettingService _settingService;
+        private readonly WingRotationService _wingRotation;
         private bool _isDraggedByMouse = false;
         private Point _dragStart = Point.Zero;
 
-        private Color CallOfTheMistColor = new Color(243, 245, 39, 10);
-        private Color EmboldenColor = new Color(80, 80, 255, 10);
+        private Color CallOfTheMistColor = new Color(243, 245, 39);
+        private Color EmboldenColor = new Color(80, 80, 255);
+        private Color TextColor = Color.White;
+        private Color NotClearedColor = new Color(120, 20, 20);
+        private Color ClearedColor = new Color(20, 120, 20);
+
+        private int _cotmIndex = 0;
+        private int _emboldenIndex = 0;
 
         public RaidsPanel(Logger logger, SettingService settingService, Wing[] wings, WingRotationService wingRotation)
         {
             _logger = logger;
             _wings = wings;
             _settingService = settingService;
+            _wingRotation = wingRotation;
 
             ControlPadding = new Vector2(2, 2);
             FlowDirection = GetFlowDirection();
@@ -37,9 +48,11 @@ namespace RaidClears.Raids.Controls
             HeightSizingMode = SizingMode.AutoSize;
             WidthSizingMode = SizingMode.AutoSize;
 
-            (int embolden, int callOfMist) = wingRotation.getHighlightedWingIndices();
-            wings[embolden].setEmboldened(true);
-            wings[callOfMist].setCallOfTheMist(true);
+            (_emboldenIndex, _cotmIndex) = wingRotation.getHighlightedWingIndices();
+            wings[_emboldenIndex].setEmboldened(true);
+            wings[_cotmIndex].setCallOfTheMist(true);
+
+            InitColors(settingService);
 
             CreateWings(wings);
 
@@ -63,19 +76,94 @@ namespace RaidClears.Raids.Controls
             settingService.W5IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(4, e.PreviousValue, e.NewValue);
             settingService.W6IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(5, e.PreviousValue, e.NewValue);
             settingService.W7IsVisibleSetting.SettingChanged += (s, e) => WingVisibilityChanged(6, e.PreviousValue, e.NewValue);
+            //settingService.FrIsVisibleSetting.SettingChanged += (s, e) => _fractalT4Panel.ShowHide(e.NewValue);
 
-            settingService.RaidPanelHighlightEmbolden.SettingChanged += (s, e) => EmboldenChanged(embolden, e.NewValue);
-            settingService.RaidPanelHighlightCotM.SettingChanged += (s, e) => CotMChanged(callOfMist, e.NewValue);
+            settingService.RaidPanelHighlightEmbolden.SettingChanged += (s, e) => EmboldenChanged(_emboldenIndex, e.NewValue);
+            settingService.RaidPanelHighlightCotM.SettingChanged += (s, e) => CotMChanged(_cotmIndex, e.NewValue);
+
+            //settingService.RaidPanelColorUnknown.SettingChanged     += (s, e) => ColorChanged("unknown", e.NewValue);
+            settingService.RaidPanelColorCleared.SettingChanged     += (s, e) => ColorChanged("cleared", e.NewValue);
+            settingService.RaidPanelColorNotCleared.SettingChanged  += (s, e) => ColorChanged("notCleared", e.NewValue);
+            settingService.RaidPanelColorText.SettingChanged        += (s, e) => ColorChanged("text", e.NewValue);
+            settingService.RaidPanelColorCotm.SettingChanged        += (s, e) => ColorChanged("cotm", e.NewValue);
+            settingService.RaidPanelColorEmbolden.SettingChanged    += (s, e) => ColorChanged("embolden", e.NewValue);
+
 
             WingLabelOpacityChanged(settingService.RaidPanelWingLabelOpacity.Value);
             EncounterOpacityChanged(settingService.RaidPanelEncounterOpacity.Value);
 
-            EmboldenChanged(embolden, settingService.RaidPanelHighlightEmbolden.Value);
-            CotMChanged(callOfMist, settingService.RaidPanelHighlightCotM.Value);
+            EmboldenChanged(_emboldenIndex, settingService.RaidPanelHighlightEmbolden.Value);
+            CotMChanged(_cotmIndex, settingService.RaidPanelHighlightCotM.Value);
 
             AddDragDelegates();
 
 
+        }
+
+        private void InitColors(SettingService _settings)
+        {
+            var emboldenColor = new ColorHelper(_settings.RaidPanelColorEmbolden.Value);
+            EmboldenColor = emboldenColor.XnaColor;
+
+            var cotmColor = new ColorHelper(_settings.RaidPanelColorCotm.Value);
+            CallOfTheMistColor = cotmColor.XnaColor;
+
+            var textColor = new ColorHelper(_settings.RaidPanelColorText.Value);
+            TextColor = textColor.XnaColor;
+
+            var clearedColor = new ColorHelper(_settings.RaidPanelColorCleared.Value);
+            ClearedColor = clearedColor.XnaColor;
+
+            var notClearedColor = new ColorHelper(_settings.RaidPanelColorNotCleared.Value);
+            NotClearedColor = notClearedColor.XnaColor;
+        }
+
+        protected void ColorChanged(string type, string hexCode)
+        {
+            var _colorHelper = new ColorHelper(hexCode);
+            switch (type)
+            {
+                case "unknown":
+                    break;
+                case "cleared":
+                    ClearedColor = _colorHelper.XnaColor;
+                    break;
+                case "notCleared":
+                    NotClearedColor = _colorHelper.XnaColor;
+                    break;
+                case "text":
+                    TextColor = _colorHelper.XnaColor;
+                    break;
+                case "cotm":
+                    CallOfTheMistColor = _colorHelper.XnaColor;
+                    break;
+                case "embolden":
+                    EmboldenColor = _colorHelper.XnaColor;
+                    break;
+                default: break;
+            }
+
+            for(var i=0; i < _wings.Length; i++)
+            {
+                var textColor = TextColor;
+
+                var wing =_wings[i];
+                if (wing.isEmboldened && _settingService.RaidPanelHighlightEmbolden.Value)
+                {
+                    textColor = EmboldenColor;
+                }
+                if (wing.isCallOfTheMist && _settingService.RaidPanelHighlightCotM.Value)
+                {
+                    textColor = CallOfTheMistColor;
+                }
+                wing.GetWingPanelReference().UpdateEncounterColors(ClearedColor, NotClearedColor);
+                wing.GetWingPanelReference().SetHighlightColor(textColor);
+
+                foreach( var encounter in wing.encounters)
+                {
+                    encounter.UpdateColors(ClearedColor, NotClearedColor);
+                }
+            }
         }
 
         protected void WingVisibilityChanged(int wingIndex, bool was, bool now)
@@ -89,14 +177,14 @@ namespace RaidClears.Raids.Controls
         protected void EmboldenChanged(int wingIndex, bool highlight)
         {
             _wings[wingIndex].GetWingPanelReference().SetHighlightColor(highlight ?
-                EmboldenColor : Color.White
+                EmboldenColor : TextColor
             );
         }
 
         protected void CotMChanged(int wingIndex, bool highlight)
         {
             _wings[wingIndex].GetWingPanelReference().SetHighlightColor(highlight ?
-               CallOfTheMistColor : Color.White
+               CallOfTheMistColor : TextColor
            );
         }
        
@@ -271,13 +359,33 @@ namespace RaidClears.Raids.Controls
                     wing, 
                     _settingService.RaidPanelOrientationSetting.Value, 
                     _settingService.RaidPanelWingLabelsSetting.Value,
-                    _settingService.RaidPanelFontSizeSetting.Value
+                    _settingService.RaidPanelFontSizeSetting.Value,
+                    ClearedColor,
+                    NotClearedColor
                     );
                 wing.SetWingPanelReference(wingPanel);
+                wing.GetWingPanelReference().SetHighlightColor(TextColor);
                 wingPanel.ShowHide(wingVis[wing.index - 1]);
                 AddChild(wingPanel);
                 
             }
+
+            /*_fractalT4Panel = new WingPanel(
+                this,
+                new Wing("Tier 4 Fractals", 0, "T4s", new[]{
+                    new Encounter("","","aeth"),
+                    new Encounter("","","mai"),
+                    new Encounter("","","volc"),
+                    }
+                ),
+                _settingService.RaidPanelOrientationSetting.Value,
+                _settingService.RaidPanelWingLabelsSetting.Value,
+                _settingService.RaidPanelFontSizeSetting.Value,
+                NotClearedColor,
+                NotClearedColor
+                );
+            _fractalT4Panel.ShowHide(_settingService.FrIsVisibleSetting.Value);
+            AddChild(_fractalT4Panel);*/
 
         }
 

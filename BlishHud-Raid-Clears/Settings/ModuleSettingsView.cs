@@ -7,6 +7,8 @@ using Blish_HUD.Settings;
 using Blish_HUD.Settings.UI.Views;
 using Blish_HUD.Modules.Managers;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+using System.Configuration;
 
 namespace RaidClears.Settings
 {
@@ -66,6 +68,20 @@ namespace RaidClears.Settings
             ShowSettingWithViewContainer(_settingService.RaidPanelHighlightEmbolden, layoutFlowPanel, singleColumnWidth);
             ShowSettingWithViewContainer(_settingService.RaidPanelHighlightCotM, layoutFlowPanel, singleColumnWidth);
 
+            //ShowColorSettingWithViewContainer(_settingService.RaidPanelColorUnknown, layoutFlowPanel, singleColumnWidth);
+            new Label
+            {
+                AutoSizeHeight = true,
+                Parent = layoutFlowPanel,
+                Text = "Customize the colors by entering a Hex color code. (Tip: Google 'color picker' for help)",
+                Width = singleColumnWidth
+            };
+            ShowColorSettingWithViewContainer(_settingService.RaidPanelColorNotCleared, layoutFlowPanel, singleColumnWidth);
+            ShowColorSettingWithViewContainer(_settingService.RaidPanelColorCleared, layoutFlowPanel, singleColumnWidth);
+            ShowColorSettingWithViewContainer(_settingService.RaidPanelColorCotm, layoutFlowPanel, singleColumnWidth);
+            ShowColorSettingWithViewContainer(_settingService.RaidPanelColorEmbolden, layoutFlowPanel, singleColumnWidth);
+            ShowColorSettingWithViewContainer(_settingService.RaidPanelColorText, layoutFlowPanel, singleColumnWidth);
+
 
             var wingSelectionFlowPanel = CreateSettingsGroupFlowPanel("Wing Selection", raidsSettingFlowPanel);
             wingSelectionFlowPanel.CanCollapse = true;  
@@ -76,6 +92,7 @@ namespace RaidClears.Settings
             ShowSettingWithViewContainer(_settingService.W5IsVisibleSetting, wingSelectionFlowPanel, singleColumnWidth);
             ShowSettingWithViewContainer(_settingService.W6IsVisibleSetting, wingSelectionFlowPanel, singleColumnWidth);
             ShowSettingWithViewContainer(_settingService.W7IsVisibleSetting, wingSelectionFlowPanel, singleColumnWidth);
+            //ShowSettingWithViewContainer(_settingService.FrIsVisibleSetting, wingSelectionFlowPanel, singleColumnWidth);
 
 
 
@@ -165,6 +182,12 @@ namespace RaidClears.Settings
         {
             var viewContainer = new ViewContainer { Parent = parent };
             viewContainer.Show(SettingView.FromType(settingEntry, parent.Width));
+            return viewContainer;
+        }
+        private static ViewContainer ShowColorSettingWithViewContainer(SettingEntry<string> settingEntry, Container parent, int width)
+        {
+            var viewContainer = new ViewContainer { Parent = parent };
+            viewContainer.Show(new ColorSettingView(settingEntry, parent.Width));
             return viewContainer;
         }
 

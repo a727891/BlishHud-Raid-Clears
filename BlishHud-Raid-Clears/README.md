@@ -30,8 +30,14 @@ Key Features
 ### 1.1.0 (2022-07-21)
 * Rewrote using Eksofa's SDK style repo.
 
+### 1.2.0 (2022-07-31)
+* Added Dunegon tracking
 
+### 1.3.0 (2022-10-23)
+* Added Call of the Mists and Emboldened
 
+### 1.4.0 (2022-12-31)
+* Added color customization
 
 ---
 Heavily inspired by the same feature bundled with Gw2TaCO.

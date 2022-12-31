@@ -11,6 +11,38 @@ namespace RaidClears.Settings
     {
         public SettingService(SettingCollection settings)
         {
+           /* RaidPanelColorUnknown = settings.DefineSetting("colUnknown",
+                "#404040",
+                () => "Default encounter color",
+                () => "Hex color code (#rrggbb) when encounter cleared state is unknown");*/
+
+            RaidPanelColorNotCleared = settings.DefineSetting("colNotCleared",
+                "#781414",
+                () => "Non-cleared encounter color",
+                () => "Hex color code (#rrggbb) for Encounters that have not been cleared this week");
+
+            RaidPanelColorCleared = settings.DefineSetting("colCleared",
+                "#147814",
+                () => "Cleared encounter color",
+                () => "Hex color code (#rrggbb) for Encounters that have been cleared this week");
+
+            RaidPanelColorText = settings.DefineSetting("colText",
+                "#ffffff",
+                () => "Wing and Encounter text color",
+                () => "Hex color code (#rrggbb) for Wing and Encounter text");
+
+            RaidPanelColorCotm = settings.DefineSetting("colCotm",
+                "#f3f527",
+                () => "Call of the Mists text color",
+                () => "Hex color code (#rrggbb) for Wing and Encounters text during the Call of the Mists week");
+
+            RaidPanelColorEmbolden = settings.DefineSetting("colEmbolden",
+                "#5050ff",
+                () => "Emboldened text color",
+                () => "Hex color code (#rrggbb) for Wing and Encounters text during the Emboldened week");
+
+
+
             RaidPanelApiPollingPeriod = settings.DefineSetting("RCPoll",
                 ApiPollPeriod.MINUTES_5,
                 () => "Api Poll Frequency",
@@ -18,7 +50,7 @@ namespace RaidClears.Settings
 
             DragWithMouseIsEnabledSetting = settings.DefineSetting("RCDrag",
                 false,
-                () => "Enable Dragging",
+                () => "Unlock position (allows overlays to be dragged)",
                 () => "Click and drag to reposition the clears window.");
 
             AllowTooltipsSetting = settings.DefineSetting("RCtooltips",
@@ -34,12 +66,12 @@ namespace RaidClears.Settings
 
             RaidPanelIsVisible = settings.DefineSetting("RCActive",
                 true,
-                () => "Display on screen",
-                () => "Enable the Raid Clears grid.");
+                () => "Show the overlay on screen",
+                () => "Enable the Raid Clears grid");
 
             RaidPanelIsVisibleKeyBind = settings.DefineSetting("RCkeybind", new KeyBinding(Keys.None),
                 () => "Display on screen keybind",
-                () => "Reveal or hide the display from key press.");
+                () => "Reveal or hide the display from key press");
             RaidPanelIsVisibleKeyBind.Value.Enabled = true;
 
             
@@ -70,17 +102,17 @@ namespace RaidClears.Settings
                 1f,
                 () => "Wing Label Opacity",
                 () => "Wing label transparency, Hidden <--> Full Visible");
-            RaidPanelWingLabelOpacity.SetRange(0f, 1f);
+            RaidPanelWingLabelOpacity.SetRange(0.1f, 1f);
             RaidPanelEncounterOpacity = settings.DefineSetting("RCEncOpacity",
                 0.8f,
                 () => "Encounter Opacity",
                 () => "Encounter label transparency, Hidden <--> Full Visible");
-            RaidPanelEncounterOpacity.SetRange(0f, 1f);
+            RaidPanelEncounterOpacity.SetRange(0.1f, 1f);
 
             RaidPanelHighlightEmbolden = settings.DefineSetting("RCEmbolden",
                 true,
                 () => "Highlight the weekly 'Emboldened' raid wing",
-                () => "Colors the text blue for the weekly Emboldened raid wing\nEmbolden mode increases player health, damage, and healing for each stack.");
+                () => "Colors the text blue for the weekly Emboldened raid wing\nEmbolden mode increases player health, damage, and healing for each stack");
             RaidPanelHighlightCotM = settings.DefineSetting("RCCotM",
                true,
                () => "Highlight the weekly 'Call of the Mist' raid wing",
@@ -122,6 +154,11 @@ namespace RaidClears.Settings
                 () => "W7 / The Key of Ahdashim",
                 () => "Enable The Key of Ahdashim on the main display"
                 );
+            /*FrIsVisibleSetting = settings.DefineSetting("RCfr",
+                true,
+                () => "T4s / Tier 4 Fractals",
+                () => "Enable Tier 4 Fractals on the main display"
+                );*/
             #endregion
 
             DungeonsEnabled = settings.DefineSetting("RCDungeonsEnabled",
@@ -171,12 +208,12 @@ namespace RaidClears.Settings
                 1f,
                 () => "Dungeon Label Opacity",
                 () => "Dungeon label transparency, Hidden <--> Full Visible");
-            DungeonPanelWingLabelOpacity.SetRange(0f, 1f);
+            DungeonPanelWingLabelOpacity.SetRange(0.1f, 1f);
             DungeonPanelEncounterOpacity = settings.DefineSetting("RCPathOpacity",
                 0.8f,
                 () => "Path Opacity",
                 () => "Path label transparency, Hidden <--> Full Visible");
-            DungeonPanelEncounterOpacity.SetRange(0f, 1f);
+            DungeonPanelEncounterOpacity.SetRange(0.1f, 1f);
 
             
             D1IsVisibleSetting = settings.DefineSetting("RCd1",
@@ -227,6 +264,7 @@ namespace RaidClears.Settings
 
             #endregion
 
+            
             var internalSettingSubCollection = settings.AddSubCollection("internal settings (not visible in UI)");
             RaidPanelLocationPoint = internalSettingSubCollection.DefineSetting("RCLocation", new Point(100, 100));
             DungeonPanelLocationPoint = internalSettingSubCollection.DefineSetting("RCDungeonLoc", new Point(200, 100));
@@ -270,7 +308,7 @@ namespace RaidClears.Settings
                 DFIsVisibleSetting.Value,
             };
         }
-
+        public SettingEntry<Color> colorTest { get; }
         public SettingEntry<ApiPollPeriod> RaidPanelApiPollingPeriod { get; }
         public SettingEntry<Point> RaidPanelLocationPoint { get; }
         public SettingEntry<bool> RaidPanelIsVisible { get; }
@@ -291,7 +329,15 @@ namespace RaidClears.Settings
         public SettingEntry<bool> W5IsVisibleSetting { get; }
         public SettingEntry<bool> W6IsVisibleSetting { get; }
         public SettingEntry<bool> W7IsVisibleSetting { get; }
+        //public SettingEntry<bool> FrIsVisibleSetting { get; }
         public SettingEntry<KeyBinding> RaidPanelIsVisibleKeyBind { get; }
+
+        public SettingEntry<string> RaidPanelColorUnknown { get; }
+        public SettingEntry<string> RaidPanelColorNotCleared { get; }
+        public SettingEntry<string> RaidPanelColorCleared { get; }
+        public SettingEntry<string> RaidPanelColorText { get; }
+        public SettingEntry<string> RaidPanelColorCotm { get; }
+        public SettingEntry<string> RaidPanelColorEmbolden { get; }
 
         public SettingEntry<bool> ShowRaidsCornerIconSetting { get; }
 
