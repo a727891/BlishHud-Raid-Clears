@@ -50,7 +50,7 @@ namespace RaidClears.Settings
 
             var raidsSettingFlowPanel = CreateSettingsGroupFlowPanel("Raid Settings", _rootFlowPanel);
             raidsSettingFlowPanel.CanCollapse = true;
-            raidsSettingFlowPanel.Collapse();
+            //raidsSettingFlowPanel.Collapse();
             raidsSettingFlowPanel.ShowTint = true;
 
 
@@ -99,7 +99,7 @@ namespace RaidClears.Settings
             ShowSettingWithViewContainer(_settingService.DungeonsEnabled, _rootFlowPanel, singleColumnWidth);
             _dungeonsSettingFlowPanel = CreateSettingsGroupFlowPanel("Dungeon Settings", _rootFlowPanel);
             _dungeonsSettingFlowPanel.CanCollapse = true;
-            _dungeonsSettingFlowPanel.Collapse();
+            //_dungeonsSettingFlowPanel.Collapse();
             _dungeonsSettingFlowPanel.ShowTint = true;
             
 

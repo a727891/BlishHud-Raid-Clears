@@ -1,6 +1,6 @@
 {
   "name": "Raid Clears",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "namespace": "Soeed.RaidClears",
   "package": "BlishHud-Raid-Clears.dll",
   "manifest_version": 1,
