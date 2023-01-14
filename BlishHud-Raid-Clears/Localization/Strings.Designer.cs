@@ -70,6 +70,15 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open Settings.
+        /// </summary>
+        internal static string ModuleSettings_OpenSettings {
+            get {
+                return ResourceManager.GetString("ModuleSettings_OpenSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enable raid overlay.
         /// </summary>
         internal static string Raid_OverlayEnable {

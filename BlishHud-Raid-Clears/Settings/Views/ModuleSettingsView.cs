@@ -1,6 +1,7 @@
 ﻿
 using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
+using RaidClears.Localization;
 
 namespace RaidClears.Settings.Views
 {
@@ -18,7 +19,7 @@ namespace RaidClears.Settings.Views
             StandardButton button = new StandardButton()
             {
                 Parent = buildPanel,
-                Text = "Open Settings",
+                Text = Strings.ModuleSettings_OpenSettings,
 
             };
 
