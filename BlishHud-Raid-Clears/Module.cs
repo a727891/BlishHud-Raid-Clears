@@ -9,14 +9,10 @@ using Blish_HUD.Input;
 using Blish_HUD.Modules;
 using Blish_HUD.Modules.Managers;
 using Blish_HUD.Settings;
-
 using Gw2Sharp.WebApi.V2.Models;
-
-
 using Microsoft.Xna.Framework;
-using Rectangle = Microsoft.Xna.Framework.Rectangle;
 using Color = Microsoft.Xna.Framework.Color;
-using Microsoft.Xna.Framework.Graphics;
+using RaidClears.Settings.Controls;
 
 namespace RaidClears
 {
@@ -30,6 +26,8 @@ namespace RaidClears
         internal Gw2ApiManager Gw2ApiManager => ModuleParameters.Gw2ApiManager;
 
         internal static Module ModuleInstance;
+
+        internal SettingsPanel SettingsWindow { get; private set; }
 
         [ImportingConstructor]
         public Module([Import("ModuleParameters")] ModuleParameters moduleParameters) : base(moduleParameters)
@@ -60,15 +58,15 @@ namespace RaidClears
         protected override async Task LoadAsync()
         #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
-            
+            SettingsWindow = SettingPanelFactory.Create();
 
-            
+
         }
 
         protected override void Unload()
         {
-           
-           
+            SettingsWindow?.Dispose();
+
         }
 
 

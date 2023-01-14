@@ -14,7 +14,6 @@ namespace RaidClears.Settings.Views
 
         protected override void Build(Container buildPanel)
         {
-           
 
             StandardButton button = new StandardButton()
             {
@@ -23,7 +22,10 @@ namespace RaidClears.Settings.Views
 
             };
 
-            //button.Click += (s, e) => Module.ModuleInstance.SettingsWindow.Show();
+            button.Left = (buildPanel.Width /2) - (button.Width/ 2);
+            button.Top = (buildPanel.Height / 2) - (button.Height / 2);
+
+            button.Click += (s, e) => Module.ModuleInstance.SettingsWindow.Show();
 
 
         }
