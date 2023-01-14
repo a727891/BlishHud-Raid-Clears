@@ -13,6 +13,7 @@ using Gw2Sharp.WebApi.V2.Models;
 using Microsoft.Xna.Framework;
 using Color = Microsoft.Xna.Framework.Color;
 using RaidClears.Settings.Controls;
+using RaidClears.Settings;
 
 namespace RaidClears
 {
@@ -29,6 +30,11 @@ namespace RaidClears
 
         internal SettingsPanel SettingsWindow { get; private set; }
 
+        public SettingService SettingsService { get; private set; }
+
+
+
+
         [ImportingConstructor]
         public Module([Import("ModuleParameters")] ModuleParameters moduleParameters) : base(moduleParameters)
         {
@@ -38,7 +44,7 @@ namespace RaidClears
         #region Settings
         protected override void DefineSettings(SettingCollection settings)
         {
-            //SettingsService = new SettingService(settings);
+            SettingsService = new SettingService(settings);
         }
 
         public override IView GetSettingsView()

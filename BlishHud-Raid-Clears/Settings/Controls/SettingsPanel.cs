@@ -4,12 +4,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using RaidClears.Localization;
 using Blish_HUD;
-using RaidClears.Settings.Views;
 using Blish_HUD.Overlay;
-using Blish_HUD.Content;
-using Blish_HUD.Overlay.UI.Views;
-using RaidClears.Settings.Services;
 using Blish_HUD.Settings.UI.Views;
+using RaidClears.Settings.Services;
+using RaidClears.Settings.Views;
 
 namespace RaidClears.Settings.Controls
 {
@@ -58,7 +56,7 @@ namespace RaidClears.Settings.Controls
             Point windowSize,
             Container parent,
             ContentsManager contentManager
-        ): base(background, windowRegion, contentRegion)
+        ): base(background, windowRegion, contentRegion, windowSize)
         {
             Id = $"{nameof(Module)}_96b38a83-4163-4d97-b894-282406b29a48";
             Emblem = contentManager.GetTexture(@"module_profile_hero_icon.png");
@@ -72,12 +70,12 @@ namespace RaidClears.Settings.Controls
             MenuService raidsMenu = new MenuService();
             raidsMenu.RegisterSettingMenu(
                 new MenuItem(Strings.SettingsPanel_Raids_Heading_General),
-                (m) => new ModuleSettingsView(),
+                (m) => new RaidGeneralView(),
                 int.MinValue
             );
             raidsMenu.RegisterSettingMenu(
                 new MenuItem(Strings.SettingsPanel_Raids_Heading_Layout),
-                (m) => new ModuleSettingsView(),
+                (m) => new RaidVisualsView(),
                 int.MinValue
             );
             raidsMenu.RegisterSettingMenu(
@@ -108,14 +106,14 @@ namespace RaidClears.Settings.Controls
                 new Tab(
                     contentManager.GetTexture(@"controls/tab_icons/raid.png"),
                     //() => new Views.RaidSettingsView(Module.ModuleInstance.SettingsService),
-                    () => new SettingsMenuView(raidsMenu),
+                    () => new Views.SettingsMenuView(raidsMenu),
                     Strings.SettingsPanel_Tab_Raids
                 ));
             Tabs.Add(
                 new Tab(
                     contentManager.GetTexture(@"controls/tab_icons/dungeon.png"),
                     //() => new Views.DungeonSettingsView(Module.ModuleInstance.SettingsService),
-                    () => new SettingsMenuView(dungeonsMenu),
+                    () => new Views.SettingsMenuView(dungeonsMenu),
                     Strings.SettingsPanel_Tab_Dunegons
                 ));
             Tabs.Add(
