@@ -12,17 +12,11 @@ using Blish_HUD.Settings;
 
 using Gw2Sharp.WebApi.V2.Models;
 
-using RaidClears.Settings;
-using RaidClears.Raids.Controls;
-using RaidClears.Raids.Model;
-using RaidClears.Raids.Services;
-
-using RaidClears.Dungeons.Controls;
-using RaidClears.Dungeons.Model;
-using RaidClears.Dungeons.Services;
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
+using Color = Microsoft.Xna.Framework.Color;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace RaidClears
 {
@@ -35,78 +29,46 @@ namespace RaidClears
         internal DirectoriesManager DirectoriesManager => ModuleParameters.DirectoriesManager;
         internal Gw2ApiManager Gw2ApiManager => ModuleParameters.Gw2ApiManager;
 
+        internal static Module ModuleInstance;
+
         [ImportingConstructor]
         public Module([Import("ModuleParameters")] ModuleParameters moduleParameters) : base(moduleParameters)
         {
+            ModuleInstance = this;
         }
+
         #region Settings
         protected override void DefineSettings(SettingCollection settings)
         {
-            _settingService = new SettingService(settings);
+            //SettingsService = new SettingService(settings);
         }
 
         public override IView GetSettingsView()
+        { 
+            return new Settings.Views.ModuleSettingsView();
+        }
+
+        public void OpenFullSettingsPanel()
         {
-            return new ModuleSettingsView(_settingService, this, _textureService);
+
         }
         #endregion
 
 
         #region Setup/Teardown
-#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
+        #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         protected override async Task LoadAsync()
-#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
+        #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
-            _textureService = new TextureService(ContentsManager);
+            
 
-            _wingRotationService = new WingRotationService();
-
-            _raidsPanel = new RaidsPanel(Logger, _settingService, Wing.GetWingMetaData(), _wingRotationService);
-
-            _dungeonsPanel = new DungeonsPanel(Logger, _settingService, Dungeons.Model.Dungeon.GetDungeonMetaData());
-
-            _dungeonsPanel.UpdateClearedStatus(new ApiDungeons());
-            SetTimeoutValueInMinutes( (int)_settingService.RaidPanelApiPollingPeriod.Value);
-
-            _settingService.RaidPanelIsVisibleKeyBind.Value.Activated += OnRaidPanelDisplayKeybindActivated;
-            _settingService.DungeonPanelIsVisibleKeyBind.Value.Activated += OnDungeonPanelDisplayKeybindActivated;
-
-            _settingService.RaidPanelApiPollingPeriod.SettingChanged += (s,e) => SetTimeoutValueInMinutes((int)e.NewValue) ;
-
-            _cornerIconService = new CornerIconService(
-                _settingService.ShowRaidsCornerIconSetting,
-                "Click to show/hide the Raid Clears window.\nIcon can be hidden by module settings.",
-                (s, e) => _settingService.ToggleRaidPanelVisibility(),
-                _textureService);
-
-            _dungeonCornerIconService = new DungeonCornerIconService(
-               _settingService.ShowDungeonCornerIconSetting,
-               _settingService.DungeonsEnabled,
-               "Click to show/hide the Dungeon Clears window.\nIcon can be hidden by module settings.",
-               (s, e) => _settingService.ToggleDungeonPanelVisibility(),
-               _textureService);
-
-            Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
-
-            //Check if module was reloaded
-            if (Gw2ApiManager.HasPermissions(GetCurrentClearsService.NECESSARY_API_TOKEN_PERMISSIONS))
-            {
-                _lastApiCheck = _API_QUERY_INTERVAL;
-            }
-
+            
         }
 
         protected override void Unload()
         {
-            _settingService.RaidPanelIsVisibleKeyBind.Value.Activated -= OnRaidPanelDisplayKeybindActivated;
-            _settingService.DungeonPanelIsVisibleKeyBind.Value.Activated -= OnDungeonPanelDisplayKeybindActivated;
-            Gw2ApiManager.SubtokenUpdated -= Gw2ApiManager_SubtokenUpdated;
-
-            _raidsPanel?.Dispose();
-            _dungeonsPanel?.Dispose();
-            _textureService?.Dispose();
-            _cornerIconService?.Dispose();
-            _dungeonCornerIconService?.Dispose();
+           
+           
         }
 
 
@@ -115,93 +77,18 @@ namespace RaidClears
 
         protected override void Update(GameTime gameTime)
         {
-            _raidsPanel?.ShowOrHide();
-            _dungeonsPanel?.ShowOrHide();
-
-            ApiPollTimeout(gameTime.ElapsedGameTime.TotalMilliseconds);
+           
 
             
         }
 
-        private void SetTimeoutValueInMinutes(int minutes)
-        {
-            _API_QUERY_INTERVAL = ((minutes * MINUTE_MS) + BUFFER_MS);
-        }
-
-        public int GetTimeoutSecondsRemaining()
-        {
-            if(_lastApiCheck == -1)
-            {
-                return -1;
-            }
-            return (int) ((_API_QUERY_INTERVAL - _lastApiCheck) / 1000);
-        }
-
-        private void ApiPollTimeout(double elapsedTime)
-        {
-            if (_lastApiCheck >= 0)
-            {
-                _lastApiCheck += elapsedTime;
-
-                if (_lastApiCheck >= _API_QUERY_INTERVAL)
-                {
-                    _lastApiCheck = 0;
-                    Task.Run(async () =>
-                    {
-                        var (weeklyClears, apiAccessFailed) = await GetCurrentClearsService.GetClearsFromApi(Gw2ApiManager, Logger);
-                        if (apiAccessFailed)
-                        {
-                            return;
-                        }
-
-                        _raidsPanel.UpdateClearedStatus(weeklyClears);
-                    });
-                    if (_settingService.DungeonsEnabled.Value)
-                    {
-                        Task.Run(async () =>
-                        {
-                            var (weeklyClears, apiAccessFailed) = await DungeonsClearsService.GetDungeonClearsFromApi(Gw2ApiManager, Logger);
-                            if (apiAccessFailed)
-                            {
-                                return;
-                            }
-
-                            _dungeonsPanel.UpdateClearedStatus(weeklyClears);
-                        });
-                    }
-                }
-            }
-        }
-
+ 
         private void Gw2ApiManager_SubtokenUpdated(object sender, ValueEventArgs<IEnumerable<TokenPermission>> e)
         {
             // _settingToggleKey check interval so that we check immediately now that we have a new token.
-            _lastApiCheck = _API_QUERY_INTERVAL;
+            //_lastApiCheck = _API_QUERY_INTERVAL;
         }
 
 
-        private void OnRaidPanelDisplayKeybindActivated(object sender, EventArgs e)
-        {
-            _settingService.ToggleRaidPanelVisibility();
-        }
-
-        private void OnDungeonPanelDisplayKeybindActivated(object sender, EventArgs e)
-        {
-            _settingService.ToggleDungeonPanelVisibility();
-        }
-
-        private const int BUFFER_MS = 50;
-        private const int MINUTE_MS = 60000; 
-
-        private double _lastApiCheck = -1;
-        private double _API_QUERY_INTERVAL = 300100; // 300 seconds + 100ms
-
-        private TextureService _textureService;
-        private WingRotationService _wingRotationService;
-        private SettingService _settingService;
-        private CornerIconService _cornerIconService;
-        private DungeonCornerIconService _dungeonCornerIconService;
-        private RaidsPanel _raidsPanel;
-        private DungeonsPanel _dungeonsPanel;
     }
 }
