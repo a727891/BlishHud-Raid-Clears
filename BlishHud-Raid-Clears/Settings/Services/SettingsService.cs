@@ -4,6 +4,7 @@ using Blish_HUD.Settings;
 using RaidClears.Localization;
 using Microsoft.Xna.Framework.Input;
 using Settings.Enums;
+using Microsoft.Xna.Framework;
 
 namespace RaidClears.Settings
 {
@@ -12,6 +13,7 @@ namespace RaidClears.Settings
         public SettingEntry<ApiPollPeriod> ApiPollingPeriod { get; }
 
         #region Raid Setting Variables
+        public SettingEntry<Point> RaidPanelLocationPoint { get; }
         public SettingEntry<bool> RaidPanelDragWithMouseIsEnabled { get; }
         public SettingEntry<bool> RaidPanelAllowTooltips { get; }
         public SettingEntry<bool> RaidCornerIconEnabled { get; }
@@ -44,6 +46,8 @@ namespace RaidClears.Settings
         {
 
             #region ModuleGeneral
+            var internalSettingSubCollection = settings.AddSubCollection("internal settings (not visible in UI)");
+
             ApiPollingPeriod = settings.DefineSetting("RCPoll",
                 ApiPollPeriod.MINUTES_5,
                 () => Strings.Setting_APIPoll_Label,
@@ -53,6 +57,9 @@ namespace RaidClears.Settings
 
             #region RaidPanel
             #region Raid_General
+
+            RaidPanelLocationPoint = internalSettingSubCollection.DefineSetting("RCLocation", new Point(600, 250));
+
             RaidPanelDragWithMouseIsEnabled = settings.DefineSetting("RCDrag",
                true,
                () => Strings.Setting_Raid_Drag_Label,

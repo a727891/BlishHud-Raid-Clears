@@ -33,6 +33,7 @@ namespace RaidClears
         public SettingService SettingsService { get; private set; }
 
 
+        public TextureService TexturesService { get; private set; }
 
 
         [ImportingConstructor]
@@ -64,6 +65,8 @@ namespace RaidClears
         protected override async Task LoadAsync()
         #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
+            TexturesService = new TextureService(ContentsManager);
+
             SettingsWindow = SettingPanelFactory.Create();
 
 
@@ -72,6 +75,7 @@ namespace RaidClears
         protected override void Unload()
         {
             SettingsWindow?.Dispose();
+            TexturesService?.Dispose(); 
 
         }
 

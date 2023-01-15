@@ -19,8 +19,6 @@ namespace RaidClears.Settings.Controls
         public static SettingsPanel Create()
         {
 
-            Texture2D windowBackground = Module.ModuleInstance.ContentsManager.GetTexture(@"controls/window/background.png");
-
             Point windowLocation = new Point(36, 26); //magic numbers stolen from EventTable
             Point windowWidth = new Point(1100, 714);
 
@@ -37,7 +35,7 @@ namespace RaidClears.Settings.Controls
             );
 
             return new SettingsPanel(
-                windowBackground,
+                Module.ModuleInstance.TexturesService.SettingWindowBackground,
                 settingsWindowSize,
                 contentRegion,
                 windowSize,
@@ -61,7 +59,7 @@ namespace RaidClears.Settings.Controls
         ): base(background, windowRegion, contentRegion, windowSize)
         {
             Id = $"{nameof(Module)}_96b38a83-4163-4d97-b894-282406b29a48";
-            Emblem = contentManager.GetTexture(@"module_profile_hero_icon.png");
+            Emblem = Module.ModuleInstance.TexturesService.SettingWindowEmblem;
             Parent = parent;
             Title = Strings.Module_Title;
             Subtitle = Strings.SettingsPanel_Subtitle;
@@ -87,7 +85,7 @@ namespace RaidClears.Settings.Controls
 
             Tabs.Add(
                new Tab(
-                   contentManager.GetTexture(@"controls/tab_icons/raid.png"),
+                   Module.ModuleInstance.TexturesService.SettingTabRaid,
                    //() => new Views.RaidSettingsView(Module.ModuleInstance.SettingsService),
                    () => new Views.SettingsMenuView(raidsMenu),
                    Strings.SettingsPanel_Tab_Raids
@@ -114,7 +112,7 @@ namespace RaidClears.Settings.Controls
            
             Tabs.Add(
                 new Tab(
-                    contentManager.GetTexture(@"controls/tab_icons/dungeon.png"),
+                    Module.ModuleInstance.TexturesService.SettingTabDungeon,
                     //() => new Views.DungeonSettingsView(Module.ModuleInstance.SettingsService),
                     () => new Views.SettingsMenuView(dungeonsMenu),
                     Strings.SettingsPanel_Tab_Dunegons
@@ -124,7 +122,7 @@ namespace RaidClears.Settings.Controls
             #region GeneralModuleSettings
             Tabs.Add(
                 new Tab(
-                    contentManager.GetTexture(@"controls/tab_icons/cog.png"),
+                    Module.ModuleInstance.TexturesService.SettingTabGeneral,
                     //() => new Views.GlobalSettingsView(Module.ModuleInstance.SettingsService),
                     () => new ModuleGeneralSettingView(),
                     Strings.SettingsPanel_Tab_General

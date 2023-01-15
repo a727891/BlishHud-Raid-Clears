@@ -13,7 +13,10 @@ namespace RaidClears.Settings.Views
         {
             base.Build(buildPanel);
             ShowSettingWithViewContainer(_settingsService.RaidPanelDragWithMouseIsEnabled);
+            AddVerticalSpacer();
             ShowSettingWithViewContainer(_settingsService.RaidPanelIsVisible);
+            ShowSettingWithViewContainer(_settingsService.RaidPanelAllowTooltips);
+            AddVerticalSpacer();
             ShowSettingWithViewContainer(_settingsService.RaidCornerIconEnabled);
             AddVerticalSpacer();
             ShowSettingWithViewContainer(_settingsService.RaidPanelIsVisibleKeyBind);
