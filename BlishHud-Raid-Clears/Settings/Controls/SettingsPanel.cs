@@ -81,7 +81,7 @@ namespace RaidClears.Settings.Controls
             );
             raidsMenu.RegisterSettingMenu(
                 new MenuItem(Strings.SettingsPanel_Raids_Heading_WingSelection),
-                (m) => new ModuleSettingsView(),
+                (m) => new RaidWingSelectionView(),
                 int.MinValue
             );
 

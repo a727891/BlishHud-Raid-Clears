@@ -146,6 +146,13 @@
   <data name="SettingsPanel_Raids_Heading_WingSelection" xml:space="preserve">
     <value>Wing Selection</value>
   </data>
+  <data name="SettingsPanel_Raid_Visual_Colors" xml:space="preserve">
+    <value>Customize the colors by entering a Hex color code.</value>
+    <comment>On the raids visual page, help text explaining the color pickers</comment>
+  </data>
+  <data name="SettingsPanel_Raid_Visual_ColorsTip" xml:space="preserve">
+    <value> (Tip: Google 'color picker' for help)</value>
+  </data>
   <data name="SettingsPanel_Subtitle" xml:space="preserve">
     <value>customization options</value>
     <comment>Subtitle on the settings panel header</comment>

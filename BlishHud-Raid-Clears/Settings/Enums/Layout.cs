@@ -4,9 +4,9 @@ namespace Settings.Enums
 {
     public enum Layout
     {
-        [Description("Stacked in a vertical column")]
+        [Description("Vertical")]
         Vertical,
-        [Description("Listed in a horizontal row")]
+        [Description("Horizontal")]
         Horizontal,
         [Description("A single row")]
         SingleRow,

@@ -69,13 +69,13 @@ namespace RaidClears.Settings.Views.Tabs
             };
         }
 
-        protected void ShowText(string text)
+        protected Label ShowText(string text)
         {
-            ShowText(text, _rootFlowPanel);
+            return ShowText(text, _rootFlowPanel);
         }
-        protected void ShowText(string text, FlowPanel panel)
+        protected Label ShowText(string text, FlowPanel panel)
         {
-            new Label()
+            return new Label()
             {
                 Parent = panel,
                 AutoSizeWidth= true,

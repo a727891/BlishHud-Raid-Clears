@@ -1,5 +1,6 @@
 ﻿using Blish_HUD;
 using Blish_HUD.Controls;
+using RaidClears.Localization;
 using RaidClears.Settings.Views.Tabs;
 
 namespace RaidClears.Settings.Views
@@ -18,18 +19,18 @@ namespace RaidClears.Settings.Views
             ShowEnumSettingWithViewContainer(_settingsService.RaidPanelLabelDisplay);
             ShowSettingWithViewContainer(_settingsService.RaidPanelLabelOpacity);
             ShowSettingWithViewContainer(_settingsService.RaidPanelGridOpacity);
+            AddVerticalSpacer();
             ShowSettingWithViewContainer(_settingsService.RaidPanelHighlightEmbolden);
             ShowSettingWithViewContainer(_settingsService.RaidPanelHighlightCotM);
 
-            //ShowColorSettingWithViewContainer(SettingsService.RaidPanelColorUnknown);
-            new Label
-            {
-                AutoSizeHeight = true,
-                Parent = _rootFlowPanel,
-                Text = "Customize the colors by entering a Hex color code. (Tip: Google 'color picker' for help)",
-                Width = _singleColWidth,
-                WrapText = true,
-            };
+            AddVerticalSpacer();
+
+            Label helpText = ShowText(Strings.SettingsPanel_Raid_Visual_Colors);
+            helpText.AutoSizeHeight = false;
+            helpText.WrapText= false;
+
+            ShowText(Strings.SettingsPanel_Raid_Visual_ColorsTip);
+
             ShowColorSettingWithViewContainer(_settingsService.RaidPanelColorNotCleared);
             ShowColorSettingWithViewContainer(_settingsService.RaidPanelColorCleared);
             ShowColorSettingWithViewContainer(_settingsService.RaidPanelColorCotm);

@@ -547,6 +547,24 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Customize the colors by entering a Hex color code..
+        /// </summary>
+        internal static string SettingsPanel_Raid_Visual_Colors {
+            get {
+                return ResourceManager.GetString("SettingsPanel_Raid_Visual_Colors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  (Tip: Google &apos;color picker&apos; for help).
+        /// </summary>
+        internal static string SettingsPanel_Raid_Visual_ColorsTip {
+            get {
+                return ResourceManager.GetString("SettingsPanel_Raid_Visual_ColorsTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Options / Keybind.
         /// </summary>
         internal static string SettingsPanel_Raids_Heading_General {
