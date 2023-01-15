@@ -56,8 +56,8 @@ namespace RaidClears.Features.Raids
 
     public class RaidPanel : GridPanel
     {
-        private Wing[] Wings;
-        private GetCurrentClearsService CurrentClearsService;
+        private readonly Wing[] Wings;
+        private readonly GetCurrentClearsService CurrentClearsService;
         
         public RaidPanel(
             SettingEntry<Point> locationSetting, 
