@@ -9,6 +9,12 @@ using RaidClears.Utils;
 using RaidClears.Features.Shared.Controls;
 using RaidClears.Settings.Models;
 using RaidClears.Features.Shared.Services;
+using RaidClears.Raids.Services;
+using RaidClears.Features.Raids.Models;
+using System.Threading.Tasks;
+using Blish_HUD.Modules.Managers;
+using Blish_HUD;
+using RaidClears.Fearures.Raids.Services;
 
 namespace RaidClears.Features.Raids
 {
@@ -50,6 +56,9 @@ namespace RaidClears.Features.Raids
 
     public class RaidPanel : GridPanel
     {
+        private Wing[] Wings;
+        private GetCurrentClearsService CurrentClearsService;
+        
         public RaidPanel(
             SettingEntry<Point> locationSetting, 
             SettingEntry<bool> visibleSetting,
@@ -58,70 +67,29 @@ namespace RaidClears.Features.Raids
         ) : base(locationSetting, visibleSetting, allowMouseDragSetting, allowTooltipSetting)
         {
 
+            CurrentClearsService = new GetCurrentClearsService();
             //BackgroundColor = Color.Orange;
+            WeeklyWings weeklyWings = WingRotationService.GetWeeklyWings();
+           
+            Wings =  WingFactory.Create(this, weeklyWings);
 
+            Module.ModuleInstance.ApiPollingService.ApiPollingTrigger += (s, e) =>
+            {
+                Task.Run(async () =>
+                {
+                    var weeklyClears = await CurrentClearsService.GetClearsFromApi();
 
-            var settings = Module.ModuleInstance.SettingsService;
-
-            var wing1 = new GridGroup(this, settings.RaidPanelLayout);
-
-            var l0 = new GridBox(
-                wing1,
-                "test",
-                "tooltip",
-                settings.RaidPanelLabelOpacity,
-                settings.RaidPanelLayout,
-                settings.RaidPanelFontSize
-                );
-            l0.LabelDisplayChange(settings.RaidPanelLabelDisplay, "T", "test");
-            var l1 = new GridBox(
-                wing1,
-                "xera",
-                "tooltip",
-                settings.RaidPanelGridOpacity,
-                settings.RaidPanelLayout,
-                settings.RaidPanelFontSize
-                );
-            l1.TextColorSetting(settings.RaidPanelColorText);
-
-            var l2 = new GridBox(
-                wing1,
-                "mat",
-                "tooltip",
-                settings.RaidPanelGridOpacity,
-                settings.RaidPanelLayout,
-                settings.RaidPanelFontSize
-                );
-            l2.ConditionalTextColorSetting(settings.RaidPanelHighlightCotM, settings.RaidPanelColorCotm, settings.RaidPanelColorText);
-
-            var wing2 = new GridGroup(this, settings.RaidPanelLayout);
-
-            var l3 = new GridBox(
-                wing2,
-                "test",
-                "tooltip",
-                settings.RaidPanelLabelOpacity,
-                settings.RaidPanelLayout,
-                settings.RaidPanelFontSize
-                );
-            l3.LabelDisplayChange(settings.RaidPanelLabelDisplay, "T", "test");
-            l3.ConditionalTextColorSetting(settings.RaidPanelHighlightEmbolden, settings.RaidPanelColorEmbolden, settings.RaidPanelColorText);
-            new GridBox(
-                wing2,
-                "tc",
-                "tooltip",
-                settings.RaidPanelGridOpacity,
-                settings.RaidPanelLayout,
-                settings.RaidPanelFontSize
-                );
-            new GridBox(
-                wing2,
-                "ca",
-                "tooltip",
-                settings.RaidPanelGridOpacity,
-                settings.RaidPanelLayout,
-                settings.RaidPanelFontSize
-                );
+                    foreach (var wing in Wings)
+                    {
+                        foreach (var encounter in wing.boxes)
+                        {
+                            encounter.SetCleared(weeklyClears.Contains(encounter.id));
+                        }
+                    }
+                    Invalidate();
+                });
+            };
         }
+
     }
 }

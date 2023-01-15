@@ -1,10 +1,11 @@
 ﻿
 using RaidClears.Features.Shared.Controls;
+using SharpDX.Direct3D9;
 using System.Net.NetworkInformation;
 
 namespace RaidClears.Features.Raids.Models
 {
-    internal class GroupModel
+    public class GroupModel
     {
         public string name;
         public int index;
@@ -12,7 +13,10 @@ namespace RaidClears.Features.Raids.Models
         public BoxModel[] boxes;
         public bool highlightColor;
 
-        public GroupModel(string name, int index, string shortName, GridBox label,  BoxModel[] boxes)
+        public GridGroup GridGroup { get; private set; }
+        public GridBox GroupLabel { get; private set; }
+
+        public GroupModel(string name, int index, string shortName, BoxModel[] boxes)
         {
             this.name = name;
             this.index = index;
@@ -22,6 +26,16 @@ namespace RaidClears.Features.Raids.Models
             this.highlightColor = false;
         }
 
+
+        public void SetGridGroupReference(GridGroup group)
+        {
+           GridGroup = group;
+
+        }
+        public void SetGroupLabelReference(GridBox box)
+        {
+            GroupLabel = box;
+        }
 
     }
 }

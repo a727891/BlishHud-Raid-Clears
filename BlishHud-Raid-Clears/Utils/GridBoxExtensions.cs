@@ -31,7 +31,7 @@ namespace RaidClears.Utils
                     box.Text = GetLabelText(e.NewValue, shortText, longText);
                 }
 
-                box.Invalidate();
+                box.Parent.Invalidate();
             };
 
             if (labelDisplay.Value == LabelDisplay.NoLabel)
@@ -43,7 +43,7 @@ namespace RaidClears.Utils
                 box.Show();
                 box.Text = GetLabelText(labelDisplay.Value, shortText, longText);
             }
-            box.Invalidate();
+            box.Parent.Invalidate();
 
         }
         public static string GetLabelText(LabelDisplay labelDisplay, string shortText, string longText)
@@ -61,6 +61,7 @@ namespace RaidClears.Utils
 
         #endregion
 
+        #region TextColor changes
         public static void TextColorSetting(this GridBox box, SettingEntry<string> textColor)
         {
             textColor.SettingChanged += (s, e) => box.TextColor = e.NewValue.HexToXNAColor();
@@ -90,6 +91,8 @@ namespace RaidClears.Utils
             }
 
         }
+
+        #endregion
 
 
     }

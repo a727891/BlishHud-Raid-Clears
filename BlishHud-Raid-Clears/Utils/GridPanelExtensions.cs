@@ -11,6 +11,18 @@ namespace RaidClears.Utils
 {
     internal static class GridPanelExtensions
     {
+
+        public static void VisiblityChanged(this FlowPanel panel, SettingEntry<bool> setting)
+        {
+            setting.SettingChanged += (s, e) =>
+            {
+                panel.Visible = e.NewValue;
+                panel.Parent?.Invalidate();
+            };
+            panel.Visible = setting.Value;
+            panel.Parent?.Invalidate();
+        }
+
         #region Layout change
         public static void LayoutChange(this FlowPanel panel, SettingEntry<Layout> setting, int nestingLevel = 0)
         {

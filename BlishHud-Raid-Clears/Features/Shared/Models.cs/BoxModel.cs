@@ -29,15 +29,8 @@ namespace RaidClears.Features.Raids.Models
             ColorCleared = cleared;
             ColorNotCleared = notCleared;
 
-        }
-
-        public void UpdateColors(Color cleared, Color notCleared)
-        {
-            ColorNotCleared = notCleared;
-            ColorCleared = cleared;
-
             Box.BackgroundColor = is_cleared ? ColorCleared : ColorNotCleared;
-
+            Box.Invalidate();
         }
 
         public void SetGridBoxReference(GridBox box)
