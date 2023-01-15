@@ -167,7 +167,7 @@
     <value>Raids</value>
   </data>
   <data name="Setting_APIPoll_Label" xml:space="preserve">
-    <value>Api Poll Frequency</value>
+    <value>Refresh data every </value>
   </data>
   <data name="Setting_APIPoll_Tooltip" xml:space="preserve">
     <value>How often should the GW2 API be checked for updated information</value>

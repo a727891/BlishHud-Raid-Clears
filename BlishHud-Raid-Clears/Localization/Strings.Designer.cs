@@ -88,7 +88,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Api Poll Frequency.
+        ///   Looks up a localized string similar to Refresh data every .
         /// </summary>
         internal static string Setting_APIPoll_Label {
             get {

@@ -95,7 +95,7 @@ namespace RaidClears.Settings.Controls
             #endregion
 
             #region DungeonPanelSettings
-            MenuService dungeonsMenu = new MenuService();
+            /*MenuService dungeonsMenu = new MenuService();
             dungeonsMenu.RegisterSettingMenu(
                 new MenuItem(Strings.SettingsPanel_Dun_Heading_General),
                 (m) => new ModuleSettingsView(),
@@ -118,7 +118,7 @@ namespace RaidClears.Settings.Controls
                     //() => new Views.DungeonSettingsView(Module.ModuleInstance.SettingsService),
                     () => new Views.SettingsMenuView(dungeonsMenu),
                     Strings.SettingsPanel_Tab_Dunegons
-                ));
+                ));*/
             #endregion
 
             #region GeneralModuleSettings
@@ -126,7 +126,7 @@ namespace RaidClears.Settings.Controls
                 new Tab(
                     contentManager.GetTexture(@"controls/tab_icons/cog.png"),
                     //() => new Views.GlobalSettingsView(Module.ModuleInstance.SettingsService),
-                    () => new ModuleSettingsView(),
+                    () => new ModuleGeneralSettingView(),
                     Strings.SettingsPanel_Tab_General
                 ));
 
