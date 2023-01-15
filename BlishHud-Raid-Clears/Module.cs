@@ -42,7 +42,6 @@ namespace RaidClears
         public ApiPollService ApiPollingService { get; private set; }
 
 
-
         [ImportingConstructor]
         public Module([Import("ModuleParameters")] ModuleParameters moduleParameters) : base(moduleParameters)
         {
@@ -79,6 +78,11 @@ namespace RaidClears
             RaidsPanel = RaidPanelFactory.Create();
 
             Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
+           
+            /*GameService.Overlay.UserLocaleChanged += (s, e) =>
+            {
+               //todo: refresh views
+            };*/
         }
 
         protected override void Unload()
@@ -92,8 +96,6 @@ namespace RaidClears
 
         }
 
-
-
         #endregion
 
         protected override void Update(GameTime gameTime)
@@ -101,7 +103,6 @@ namespace RaidClears
             ApiPollingService?.Update(gameTime);
             RaidsPanel?.Update();
 
-            
         }
 
         private void Gw2ApiManager_SubtokenUpdated(object sender, ValueEventArgs<IEnumerable<TokenPermission>> e)
