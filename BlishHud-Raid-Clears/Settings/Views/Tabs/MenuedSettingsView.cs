@@ -88,7 +88,7 @@ namespace RaidClears.Settings.Views.Tabs
         {
             AddVerticalSpacer(_rootFlowPanel);
         }
-        protected void AddVericalSpacer(int height)
+        protected void AddVerticalSpacer(int height)
         {
             AddVerticalSpacer(_rootFlowPanel, height);
         }

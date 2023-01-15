@@ -88,6 +88,465 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Api Poll Frequency.
+        /// </summary>
+        internal static string Setting_APIPoll_Label {
+            get {
+                return ResourceManager.GetString("Setting_APIPoll_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How often should the GW2 API be checked for updated information.
+        /// </summary>
+        internal static string Setting_APIPoll_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_APIPoll_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cleared encounter color.
+        /// </summary>
+        internal static string Setting_Raid_ColClear_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_ColClear_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hex color code (#rrggbb) for Encounters that have been cleared this week.
+        /// </summary>
+        internal static string Setting_Raid_ColClear_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_ColClear_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Call of the Mists text color.
+        /// </summary>
+        internal static string Setting_Raid_ColCotm_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_ColCotm_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hex color code (#rrggbb) for Wing and Encounters text during the Call of the Mists week.
+        /// </summary>
+        internal static string Setting_Raid_ColCotm_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_ColCotm_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Emboldened text color.
+        /// </summary>
+        internal static string Setting_Raid_ColEmbolden_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_ColEmbolden_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hex color code (#rrggbb) for Wing and Encounters text during the Emboldened week.
+        /// </summary>
+        internal static string Setting_Raid_ColEmbolden_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_ColEmbolden_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Non-cleared encounter color.
+        /// </summary>
+        internal static string Setting_Raid_ColNotClear_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_ColNotClear_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hex color code (#rrggbb) for Encounters that have not been cleared this week.
+        /// </summary>
+        internal static string Setting_Raid_ColNotClear_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_ColNotClear_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Label and Grid text color.
+        /// </summary>
+        internal static string Setting_Raid_ColText_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_ColText_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hex color code (#rrggbb) for label and grid text.
+        /// </summary>
+        internal static string Setting_Raid_ColText_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_ColText_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Highlight the weekly &apos;Call of the Mist&apos; raid wing.
+        /// </summary>
+        internal static string Setting_Raid_Cotm_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_Cotm_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Colors the text for the weekly Call of the Mists raid wing\nCall of the Mists doubles all gold in the boss loot chest.
+        /// </summary>
+        internal static string Setting_Raid_Cotm_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_Cotm_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unlock Raid overlay position.
+        /// </summary>
+        internal static string Setting_Raid_Drag_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_Drag_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click and drag to reposition the overlay windows.
+        /// </summary>
+        internal static string Setting_Raid_Drag_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_Drag_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Highlight the weekly &apos;Emboldened&apos; raid wing.
+        /// </summary>
+        internal static string Setting_Raid_Embolden_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_Embolden_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Colors the text for the weekly Emboldened raid wing\nEmbolden mode increases player health, damage, and healing for each stack.
+        /// </summary>
+        internal static string Setting_Raid_Embolden_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_Embolden_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grid size.
+        /// </summary>
+        internal static string Setting_Raid_Font_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_Font_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change the size of the grid.
+        /// </summary>
+        internal static string Setting_Raid_Font_Tooptip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_Font_Tooptip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grid opacity.
+        /// </summary>
+        internal static string Setting_Raid_GridOpactiy_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_GridOpactiy_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hidden &lt;---&gt; Fully Visible.
+        /// </summary>
+        internal static string Setting_Raid_GridOpactiy_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_GridOpactiy_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable raid toolbar button.
+        /// </summary>
+        internal static string Setting_Raid_Icon_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_Icon_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add a button next to Blish on the top left of screen that Shows/Hides the raid overlay.
+        /// </summary>
+        internal static string Setting_Raid_Icon_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_Icon_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show/Hide keybind.
+        /// </summary>
+        internal static string Setting_Raid_Keybind_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_Keybind_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Raid_Keybind_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_Keybind_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hidden &lt;---&gt; Fully Visible.
+        /// </summary>
+        internal static string Setting_Raid_LabelOpacity_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_LabelOpacity_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Label opacity.
+        /// </summary>
+        internal static string Setting_Raid_LabelOpactiy_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_LabelOpactiy_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grid layout.
+        /// </summary>
+        internal static string Setting_Raid_Layout_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_Layout_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Raid_Layout_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_Layout_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable mouse hover tooltips on overlay.
+        /// </summary>
+        internal static string Setting_Raid_Tooltips_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_Tooltips_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hovering the mouse over an encounter will display the full name.
+        /// </summary>
+        internal static string Setting_Raid_Tooltips_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_Tooltips_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable raid overlay.
+        /// </summary>
+        internal static string Setting_Raid_Visible_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_Visible_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show the raid overlay on screen.
+        /// </summary>
+        internal static string Setting_Raid_Visible_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_Visible_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to W1 / Spirit Vale.
+        /// </summary>
+        internal static string Setting_Raid_W1_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_W1_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable Spirit Vale on the raid overlay.
+        /// </summary>
+        internal static string Setting_Raid_W1_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_W1_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to W2 / Salvation Pass.
+        /// </summary>
+        internal static string Setting_Raid_W2_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_W2_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable Salvation Pass on the raid overlay.
+        /// </summary>
+        internal static string Setting_Raid_W2_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_W2_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to W3 / Stronghold of the Faithful.
+        /// </summary>
+        internal static string Setting_Raid_W3_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_W3_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable Stronghold of the Faithful on the raid overlay.
+        /// </summary>
+        internal static string Setting_Raid_W3_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_W3_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to W4 / Bastion of the Penitent.
+        /// </summary>
+        internal static string Setting_Raid_W4_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_W4_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable Bastion of the Penitent on the raid overlay.
+        /// </summary>
+        internal static string Setting_Raid_W4_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_W4_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to W5 / Hall of Chains.
+        /// </summary>
+        internal static string Setting_Raid_W5_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_W5_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable Hall of Chains on the raid overlay.
+        /// </summary>
+        internal static string Setting_Raid_W5_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_W5_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to W6 / Mythwright Gambit.
+        /// </summary>
+        internal static string Setting_Raid_W6_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_W6_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable Mythwright Gambit on the raid overlay.
+        /// </summary>
+        internal static string Setting_Raid_W6_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_W6_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to W7 / The Key of Ahdashim.
+        /// </summary>
+        internal static string Setting_Raid_W7_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_W7_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable The Key of Ahdashim on the raid overlay.
+        /// </summary>
+        internal static string Setting_Raid_W7_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_W7_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Options / Keybind.
+        /// </summary>
+        internal static string SettingsPanel_Dun_Heading_General {
+            get {
+                return ResourceManager.GetString("SettingsPanel_Dun_Heading_General", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Layout.
+        /// </summary>
+        internal static string SettingsPanel_Dun_Heading_Layout {
+            get {
+                return ResourceManager.GetString("SettingsPanel_Dun_Heading_Layout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path Selection.
+        /// </summary>
+        internal static string SettingsPanel_Dun_Heading_PathSelection {
+            get {
+                return ResourceManager.GetString("SettingsPanel_Dun_Heading_PathSelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Options / Keybind.
         /// </summary>
         internal static string SettingsPanel_Raids_Heading_General {

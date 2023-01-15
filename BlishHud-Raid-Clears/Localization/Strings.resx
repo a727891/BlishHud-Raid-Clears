@@ -128,6 +128,15 @@
     <value>Enable raid overlay</value>
     <comment>Setting label for making the raid overlay visible</comment>
   </data>
+  <data name="SettingsPanel_Dun_Heading_General" xml:space="preserve">
+    <value>Options / Keybind</value>
+  </data>
+  <data name="SettingsPanel_Dun_Heading_Layout" xml:space="preserve">
+    <value>Layout</value>
+  </data>
+  <data name="SettingsPanel_Dun_Heading_PathSelection" xml:space="preserve">
+    <value>Path Selection</value>
+  </data>
   <data name="SettingsPanel_Raids_Heading_General" xml:space="preserve">
     <value>Options / Keybind</value>
   </data>
@@ -149,5 +158,149 @@
   </data>
   <data name="SettingsPanel_Tab_Raids" xml:space="preserve">
     <value>Raids</value>
+  </data>
+  <data name="Setting_APIPoll_Label" xml:space="preserve">
+    <value>Api Poll Frequency</value>
+  </data>
+  <data name="Setting_APIPoll_Tooltip" xml:space="preserve">
+    <value>How often should the GW2 API be checked for updated information</value>
+  </data>
+  <data name="Setting_Raid_ColClear_Label" xml:space="preserve">
+    <value>Cleared encounter color</value>
+  </data>
+  <data name="Setting_Raid_ColClear_Tooltip" xml:space="preserve">
+    <value>Hex color code (#rrggbb) for Encounters that have been cleared this week</value>
+  </data>
+  <data name="Setting_Raid_ColCotm_Label" xml:space="preserve">
+    <value>Call of the Mists text color</value>
+  </data>
+  <data name="Setting_Raid_ColCotm_Tooltip" xml:space="preserve">
+    <value>Hex color code (#rrggbb) for Wing and Encounters text during the Call of the Mists week</value>
+  </data>
+  <data name="Setting_Raid_ColEmbolden_Label" xml:space="preserve">
+    <value>Emboldened text color</value>
+  </data>
+  <data name="Setting_Raid_ColEmbolden_Tooltip" xml:space="preserve">
+    <value>Hex color code (#rrggbb) for Wing and Encounters text during the Emboldened week</value>
+  </data>
+  <data name="Setting_Raid_ColNotClear_Label" xml:space="preserve">
+    <value>Non-cleared encounter color</value>
+  </data>
+  <data name="Setting_Raid_ColNotClear_Tooltip" xml:space="preserve">
+    <value>Hex color code (#rrggbb) for Encounters that have not been cleared this week</value>
+  </data>
+  <data name="Setting_Raid_ColText_Label" xml:space="preserve">
+    <value>Label and Grid text color</value>
+  </data>
+  <data name="Setting_Raid_ColText_Tooltip" xml:space="preserve">
+    <value>Hex color code (#rrggbb) for label and grid text</value>
+  </data>
+  <data name="Setting_Raid_Cotm_Label" xml:space="preserve">
+    <value>Highlight the weekly 'Call of the Mist' raid wing</value>
+  </data>
+  <data name="Setting_Raid_Cotm_Tooltip" xml:space="preserve">
+    <value>Colors the text for the weekly Call of the Mists raid wing\nCall of the Mists doubles all gold in the boss loot chest</value>
+  </data>
+  <data name="Setting_Raid_Drag_Label" xml:space="preserve">
+    <value>Unlock Raid overlay position</value>
+  </data>
+  <data name="Setting_Raid_Drag_Tooltip" xml:space="preserve">
+    <value>Click and drag to reposition the overlay windows</value>
+  </data>
+  <data name="Setting_Raid_Embolden_Label" xml:space="preserve">
+    <value>Highlight the weekly 'Emboldened' raid wing</value>
+  </data>
+  <data name="Setting_Raid_Embolden_Tooltip" xml:space="preserve">
+    <value>Colors the text for the weekly Emboldened raid wing\nEmbolden mode increases player health, damage, and healing for each stack</value>
+  </data>
+  <data name="Setting_Raid_Font_Label" xml:space="preserve">
+    <value>Grid size</value>
+  </data>
+  <data name="Setting_Raid_Font_Tooptip" xml:space="preserve">
+    <value>Change the size of the grid</value>
+  </data>
+  <data name="Setting_Raid_GridOpactiy_Label" xml:space="preserve">
+    <value>Grid opacity</value>
+  </data>
+  <data name="Setting_Raid_GridOpactiy_Tooltip" xml:space="preserve">
+    <value>Hidden &lt;---&gt; Fully Visible</value>
+  </data>
+  <data name="Setting_Raid_Icon_Label" xml:space="preserve">
+    <value>Enable raid toolbar button</value>
+  </data>
+  <data name="Setting_Raid_Icon_Tooltip" xml:space="preserve">
+    <value>Add a button next to Blish on the top left of screen that Shows/Hides the raid overlay</value>
+  </data>
+  <data name="Setting_Raid_Keybind_Label" xml:space="preserve">
+    <value>Show/Hide keybind</value>
+  </data>
+  <data name="Setting_Raid_Keybind_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Raid_LabelOpacity_Tooltip" xml:space="preserve">
+    <value>Hidden &lt;---&gt; Fully Visible</value>
+  </data>
+  <data name="Setting_Raid_LabelOpactiy_Label" xml:space="preserve">
+    <value>Label opacity</value>
+  </data>
+  <data name="Setting_Raid_Layout_Label" xml:space="preserve">
+    <value>Grid layout</value>
+  </data>
+  <data name="Setting_Raid_Layout_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Raid_Tooltips_Label" xml:space="preserve">
+    <value>Enable mouse hover tooltips on overlay</value>
+  </data>
+  <data name="Setting_Raid_Tooltips_Tooltip" xml:space="preserve">
+    <value>Hovering the mouse over an encounter will display the full name</value>
+  </data>
+  <data name="Setting_Raid_Visible_Label" xml:space="preserve">
+    <value>Enable raid overlay</value>
+  </data>
+  <data name="Setting_Raid_Visible_Tooltip" xml:space="preserve">
+    <value>Show the raid overlay on screen</value>
+  </data>
+  <data name="Setting_Raid_W1_Label" xml:space="preserve">
+    <value>W1 / Spirit Vale</value>
+  </data>
+  <data name="Setting_Raid_W1_Tooltip" xml:space="preserve">
+    <value>Enable Spirit Vale on the raid overlay</value>
+  </data>
+  <data name="Setting_Raid_W2_Label" xml:space="preserve">
+    <value>W2 / Salvation Pass</value>
+  </data>
+  <data name="Setting_Raid_W2_Tooltip" xml:space="preserve">
+    <value>Enable Salvation Pass on the raid overlay</value>
+  </data>
+  <data name="Setting_Raid_W3_Label" xml:space="preserve">
+    <value>W3 / Stronghold of the Faithful</value>
+  </data>
+  <data name="Setting_Raid_W3_Tooltip" xml:space="preserve">
+    <value>Enable Stronghold of the Faithful on the raid overlay</value>
+  </data>
+  <data name="Setting_Raid_W4_Label" xml:space="preserve">
+    <value>W4 / Bastion of the Penitent</value>
+  </data>
+  <data name="Setting_Raid_W4_Tooltip" xml:space="preserve">
+    <value>Enable Bastion of the Penitent on the raid overlay</value>
+  </data>
+  <data name="Setting_Raid_W5_Label" xml:space="preserve">
+    <value>W5 / Hall of Chains</value>
+  </data>
+  <data name="Setting_Raid_W5_Tooltip" xml:space="preserve">
+    <value>Enable Hall of Chains on the raid overlay</value>
+  </data>
+  <data name="Setting_Raid_W6_Label" xml:space="preserve">
+    <value>W6 / Mythwright Gambit</value>
+  </data>
+  <data name="Setting_Raid_W6_Tooltip" xml:space="preserve">
+    <value>Enable Mythwright Gambit on the raid overlay</value>
+  </data>
+  <data name="Setting_Raid_W7_Label" xml:space="preserve">
+    <value>W7 / The Key of Ahdashim</value>
+  </data>
+  <data name="Setting_Raid_W7_Tooltip" xml:space="preserve">
+    <value>Enable The Key of Ahdashim on the raid overlay</value>
   </data>
 </root>

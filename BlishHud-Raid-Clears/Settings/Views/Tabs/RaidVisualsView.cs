@@ -13,13 +13,13 @@ namespace RaidClears.Settings.Views
         protected override void Build(Container buildPanel)
         {
             base.Build(buildPanel);
-            //ShowEnumSettingWithViewContainer(_settingsService.RaidPanelOrientationSetting);
-           // ShowEnumSettingWithViewContainer(_settingsService.RaidPanelFontSizeSetting);
-            //ShowEnumSettingWithViewContainer(_settingsService.RaidPanelWingLabelsSetting);
-            //ShowSettingWithViewContainer(_settingsService.RaidPanelWingLabelOpacity);
-            //ShowSettingWithViewContainer(_settingsService.RaidPanelEncounterOpacity);
-            //ShowSettingWithViewContainer(_settingsService.RaidPanelHighlightEmbolden);
-           // ShowSettingWithViewContainer(_settingsService.RaidPanelHighlightCotM);
+            ShowEnumSettingWithViewContainer(_settingsService.RaidPanelLayout);
+            ShowEnumSettingWithViewContainer(_settingsService.RaidPanelFontSize);
+            ShowEnumSettingWithViewContainer(_settingsService.RaidPanelLabelDisplay);
+            ShowSettingWithViewContainer(_settingsService.RaidPanelLabelOpacity);
+            ShowSettingWithViewContainer(_settingsService.RaidPanelGridOpacity);
+            ShowSettingWithViewContainer(_settingsService.RaidPanelHighlightEmbolden);
+            ShowSettingWithViewContainer(_settingsService.RaidPanelHighlightCotM);
 
             //ShowColorSettingWithViewContainer(SettingsService.RaidPanelColorUnknown);
             new Label
@@ -30,13 +30,12 @@ namespace RaidClears.Settings.Views
                 Width = _singleColWidth,
                 WrapText = true,
             };
-            //ShowColorSettingWithViewContainer(_settingsService.RaidPanelColorNotCleared);
-            //ShowColorSettingWithViewContainer(_settingsService.RaidPanelColorCleared);
-            //ShowColorSettingWithViewContainer(_settingsService.RaidPanelColorCotm);
-            //ShowColorSettingWithViewContainer(_settingsService.RaidPanelColorEmbolden);
-           // ShowColorSettingWithViewContainer(_settingsService.RaidPanelColorText);
+            ShowColorSettingWithViewContainer(_settingsService.RaidPanelColorNotCleared);
+            ShowColorSettingWithViewContainer(_settingsService.RaidPanelColorCleared);
+            ShowColorSettingWithViewContainer(_settingsService.RaidPanelColorCotm);
+            ShowColorSettingWithViewContainer(_settingsService.RaidPanelColorEmbolden);
+            ShowColorSettingWithViewContainer(_settingsService.RaidPanelColorText);
 
-            //AddMenuItem(new ModuleSettingsMenuItem(Strings.SettingsPanel_Raids_Heading_Layout, layoutFlowPanel));
 
         }
 

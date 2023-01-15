@@ -8,6 +8,8 @@ using Blish_HUD.Overlay;
 using Blish_HUD.Settings.UI.Views;
 using RaidClears.Settings.Services;
 using RaidClears.Settings.Views;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace RaidClears.Settings.Controls
 {
@@ -64,9 +66,8 @@ namespace RaidClears.Settings.Controls
             Title = Strings.Module_Title;
             Subtitle = Strings.SettingsPanel_Subtitle;
             SavesPosition = true;
-            //CanResize = true;
-            //BackgroundColor = Color.Violet;
 
+            #region RaidPanelSettings
             MenuService raidsMenu = new MenuService();
             raidsMenu.RegisterSettingMenu(
                 new MenuItem(Strings.SettingsPanel_Raids_Heading_General),
@@ -84,31 +85,33 @@ namespace RaidClears.Settings.Controls
                 int.MinValue
             );
 
+            Tabs.Add(
+               new Tab(
+                   contentManager.GetTexture(@"controls/tab_icons/raid.png"),
+                   //() => new Views.RaidSettingsView(Module.ModuleInstance.SettingsService),
+                   () => new Views.SettingsMenuView(raidsMenu),
+                   Strings.SettingsPanel_Tab_Raids
+               ));
+            #endregion
+
+            #region DungeonPanelSettings
             MenuService dungeonsMenu = new MenuService();
             dungeonsMenu.RegisterSettingMenu(
-                new MenuItem(Strings.SettingsPanel_Raids_Heading_General),
+                new MenuItem(Strings.SettingsPanel_Dun_Heading_General),
                 (m) => new ModuleSettingsView(),
                 int.MinValue
             );
             dungeonsMenu.RegisterSettingMenu(
-                new MenuItem(Strings.SettingsPanel_Raids_Heading_Layout),
+                new MenuItem(Strings.SettingsPanel_Dun_Heading_Layout),
                 (m) => new ModuleSettingsView(),
                 int.MinValue
             );
             dungeonsMenu.RegisterSettingMenu(
-                new MenuItem(Strings.SettingsPanel_Raids_Heading_WingSelection),
+                new MenuItem(Strings.SettingsPanel_Dun_Heading_PathSelection),
                 (m) => new ModuleSettingsView(),
                 int.MinValue
             );
-
-
-            Tabs.Add(
-                new Tab(
-                    contentManager.GetTexture(@"controls/tab_icons/raid.png"),
-                    //() => new Views.RaidSettingsView(Module.ModuleInstance.SettingsService),
-                    () => new Views.SettingsMenuView(raidsMenu),
-                    Strings.SettingsPanel_Tab_Raids
-                ));
+           
             Tabs.Add(
                 new Tab(
                     contentManager.GetTexture(@"controls/tab_icons/dungeon.png"),
@@ -116,6 +119,9 @@ namespace RaidClears.Settings.Controls
                     () => new Views.SettingsMenuView(dungeonsMenu),
                     Strings.SettingsPanel_Tab_Dunegons
                 ));
+            #endregion
+
+            #region GeneralModuleSettings
             Tabs.Add(
                 new Tab(
                     contentManager.GetTexture(@"controls/tab_icons/cog.png"),
@@ -124,7 +130,27 @@ namespace RaidClears.Settings.Controls
                     Strings.SettingsPanel_Tab_General
                 ));
 
+            #endregion
 
+            //Make Menuviews rerender the first tab on Tabbed panel change
+            this.TabChanged += (s, e) =>
+            {
+                if (e.NewValue.Name == Strings.SettingsPanel_Tab_Raids)
+                {
+                    raidsMenu.RefreshMenuView();
+                }
+                else if (e.NewValue.Name == Strings.SettingsPanel_Tab_Dunegons)
+                {
+                    raidsMenu.RefreshMenuView();
+                }
+                else if (e.NewValue.Name == Strings.SettingsPanel_Tab_General)
+                {
+
+                }
+            };
+
+            
+            //TODO: disable for release
             Show();
 
         }

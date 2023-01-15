@@ -12,13 +12,11 @@ namespace RaidClears.Settings.Views
         protected override void Build(Container buildPanel)
         {
             base.Build(buildPanel);
-
-            ShowText("This is the the raids general options and keybind panel");
-            //ShowSettingWithViewContainer(_settingsService.DragWithMouseIsEnabledSetting, _rootFlowPanel);
-           // ShowSettingWithViewContainer(_settingsService.RaidPanelIsVisible, _rootFlowPanel);
-           // ShowSettingWithViewContainer(_settingsService.ShowRaidsCornerIconSetting, _rootFlowPanel);
-           // AddVerticalSpacer();
-           // ShowSettingWithViewContainer(_settingsService.RaidPanelIsVisibleKeyBind, _rootFlowPanel, _singleColWidth);
+            ShowSettingWithViewContainer(_settingsService.RaidPanelDragWithMouseIsEnabled);
+            ShowSettingWithViewContainer(_settingsService.RaidPanelIsVisible);
+            ShowSettingWithViewContainer(_settingsService.RaidCornerIconEnabled);
+            AddVerticalSpacer();
+            ShowSettingWithViewContainer(_settingsService.RaidPanelIsVisibleKeyBind);
 
         }
 

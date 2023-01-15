@@ -7,6 +7,7 @@ using Blish_HUD.Graphics.UI;
 using Blish_HUD.Settings;
 using Blish_HUD.Settings.UI.Presenters;
 using Microsoft.Xna.Framework;
+using RaidClears.Settings.Services;
 
 namespace RaidClears.Settings.Views
 {
@@ -31,6 +32,7 @@ namespace RaidClears.Settings.Views
             this.View.SetSettingView(this.Model.GetMenuItemView(e.ActivatedControl as MenuItem));
         }
 
+
         protected override void UpdateView()
         {
             this.View.SetMenuItems(this.Model.GetSettingMenus());
@@ -49,9 +51,10 @@ namespace RaidClears.Settings.Views
         private Menu _menuSettingsList;
         private ViewContainer _settingViewContainer;
 
-        public SettingsMenuView(ISettingsMenuRegistrar settingsMenuRegistrar)
+        public SettingsMenuView(MenuService settingsMenuRegistrar)
         {
             this.WithPresenter(new SettingsMenuPresenter(this, settingsMenuRegistrar));
+            settingsMenuRegistrar.SetSettingMenuView(this);
         }
 
         protected override void Build(Container buildPanel)
