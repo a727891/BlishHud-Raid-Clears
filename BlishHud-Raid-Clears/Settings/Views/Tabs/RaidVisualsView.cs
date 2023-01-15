@@ -19,15 +19,16 @@ namespace RaidClears.Settings.Views
             ShowEnumSettingWithViewContainer(_settingsService.RaidPanelLabelDisplay);
             ShowSettingWithViewContainer(_settingsService.RaidPanelLabelOpacity);
             ShowSettingWithViewContainer(_settingsService.RaidPanelGridOpacity);
+            ShowSettingWithViewContainer(_settingsService.RaidPanelBgOpacity);
+
             AddVerticalSpacer();
             ShowSettingWithViewContainer(_settingsService.RaidPanelHighlightEmbolden);
             ShowSettingWithViewContainer(_settingsService.RaidPanelHighlightCotM);
 
             AddVerticalSpacer();
 
-            Label helpText = ShowText(Strings.SettingsPanel_Raid_Visual_Colors);
-            helpText.AutoSizeHeight = false;
-            helpText.WrapText= false;
+            ShowText(Strings.SettingsPanel_Raid_Visual_Colors);
+
 
             ShowText(Strings.SettingsPanel_Raid_Visual_ColorsTip);
 
@@ -36,7 +37,6 @@ namespace RaidClears.Settings.Views
             ShowColorSettingWithViewContainer(_settingsService.RaidPanelColorCotm);
             ShowColorSettingWithViewContainer(_settingsService.RaidPanelColorEmbolden);
             ShowColorSettingWithViewContainer(_settingsService.RaidPanelColorText);
-
 
         }
 

@@ -81,7 +81,7 @@ namespace RaidClears.Settings.Views.Tabs
                 AutoSizeWidth= true,
                 AutoSizeHeight= true,
                 Text= text,
-                WrapText= true,
+                WrapText= false,
             };
         }
         protected void AddVerticalSpacer()

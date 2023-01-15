@@ -1,4 +1,5 @@
 ﻿using Blish_HUD.Controls;
+using RaidClears.Localization;
 using RaidClears.Settings.Views.Tabs;
 
 namespace RaidClears.Settings.Views
@@ -20,6 +21,7 @@ namespace RaidClears.Settings.Views
             ShowSettingWithViewContainer(_settingsService.RaidCornerIconEnabled);
             AddVerticalSpacer();
             ShowSettingWithViewContainer(_settingsService.RaidPanelIsVisibleKeyBind);
+            ShowText(Strings.SharedKeybind);
 
         }
 

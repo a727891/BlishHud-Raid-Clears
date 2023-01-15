@@ -97,6 +97,600 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Spirit Vale.
+        /// </summary>
+        internal static string Raid_Wing_1 {
+            get {
+                return ResourceManager.GetString("Raid_Wing_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vale Guardian.
+        /// </summary>
+        internal static string Raid_Wing_1_1_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_1_1_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VG.
+        /// </summary>
+        internal static string Raid_Wing_1_1_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_1_1_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spirit Run.
+        /// </summary>
+        internal static string Raid_Wing_1_2_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_1_2_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SR.
+        /// </summary>
+        internal static string Raid_Wing_1_2_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_1_2_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gorseval.
+        /// </summary>
+        internal static string Raid_Wing_1_3_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_1_3_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to G.
+        /// </summary>
+        internal static string Raid_Wing_1_3_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_1_3_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sabetha.
+        /// </summary>
+        internal static string Raid_Wing_1_4_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_1_4_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to S.
+        /// </summary>
+        internal static string Raid_Wing_1_4_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_1_4_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SV.
+        /// </summary>
+        internal static string Raid_Wing_1_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_1_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Salvation Pass.
+        /// </summary>
+        internal static string Raid_Wing_2 {
+            get {
+                return ResourceManager.GetString("Raid_Wing_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slothasor.
+        /// </summary>
+        internal static string Raid_Wing_2_1_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_2_1_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to S.
+        /// </summary>
+        internal static string Raid_Wing_2_1_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_2_1_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bandit Trio.
+        /// </summary>
+        internal static string Raid_Wing_2_2_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_2_2_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to B3.
+        /// </summary>
+        internal static string Raid_Wing_2_2_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_2_2_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Matthias Gabrel.
+        /// </summary>
+        internal static string Raid_Wing_2_3_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_2_3_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to M.
+        /// </summary>
+        internal static string Raid_Wing_2_3_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_2_3_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SP.
+        /// </summary>
+        internal static string Raid_Wing_2_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_2_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stonghold of the Falthful.
+        /// </summary>
+        internal static string Raid_Wing_3 {
+            get {
+                return ResourceManager.GetString("Raid_Wing_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Escort.
+        /// </summary>
+        internal static string Raid_Wing_3_1_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_3_1_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E.
+        /// </summary>
+        internal static string Raid_Wing_3_1_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_3_1_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep Construct.
+        /// </summary>
+        internal static string Raid_Wing_3_2_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_3_2_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to KC.
+        /// </summary>
+        internal static string Raid_Wing_3_2_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_3_2_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twisted Castle.
+        /// </summary>
+        internal static string Raid_Wing_3_3_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_3_3_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TC.
+        /// </summary>
+        internal static string Raid_Wing_3_3_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_3_3_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xera.
+        /// </summary>
+        internal static string Raid_Wing_3_4_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_3_4_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to X.
+        /// </summary>
+        internal static string Raid_Wing_3_4_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_3_4_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SofF.
+        /// </summary>
+        internal static string Raid_Wing_3_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_3_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bastion of the Penitent.
+        /// </summary>
+        internal static string Raid_Wing_4 {
+            get {
+                return ResourceManager.GetString("Raid_Wing_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cairn the Indominable.
+        /// </summary>
+        internal static string Raid_Wing_4_1_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_4_1_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to C.
+        /// </summary>
+        internal static string Raid_Wing_4_1_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_4_1_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mursaat Overseer.
+        /// </summary>
+        internal static string Raid_Wing_4_2_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_4_2_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MO.
+        /// </summary>
+        internal static string Raid_Wing_4_2_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_4_2_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Samarog.
+        /// </summary>
+        internal static string Raid_Wing_4_3_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_4_3_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to S.
+        /// </summary>
+        internal static string Raid_Wing_4_3_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_4_3_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deimos.
+        /// </summary>
+        internal static string Raid_Wing_4_4_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_4_4_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to D.
+        /// </summary>
+        internal static string Raid_Wing_4_4_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_4_4_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BotP.
+        /// </summary>
+        internal static string Raid_Wing_4_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_4_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hall of Chains.
+        /// </summary>
+        internal static string Raid_Wing_5 {
+            get {
+                return ResourceManager.GetString("Raid_Wing_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Soulless Horror.
+        /// </summary>
+        internal static string Raid_Wing_5_1_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_5_1_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SH.
+        /// </summary>
+        internal static string Raid_Wing_5_1_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_5_1_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to River of Souls.
+        /// </summary>
+        internal static string Raid_Wing_5_2_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_5_2_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to R.
+        /// </summary>
+        internal static string Raid_Wing_5_2_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_5_2_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statues of Grenth.
+        /// </summary>
+        internal static string Raid_Wing_5_3_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_5_3_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to S.
+        /// </summary>
+        internal static string Raid_Wing_5_3_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_5_3_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dhuum.
+        /// </summary>
+        internal static string Raid_Wing_5_4_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_5_4_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to D.
+        /// </summary>
+        internal static string Raid_Wing_5_4_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_5_4_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HoC.
+        /// </summary>
+        internal static string Raid_Wing_5_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_5_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mythwright Gambit.
+        /// </summary>
+        internal static string Raid_Wing_6 {
+            get {
+                return ResourceManager.GetString("Raid_Wing_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Conjured Amalgamate.
+        /// </summary>
+        internal static string Raid_Wing_6_1_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_6_1_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CA.
+        /// </summary>
+        internal static string Raid_Wing_6_1_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_6_1_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twin Largos.
+        /// </summary>
+        internal static string Raid_Wing_6_2_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_6_2_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TL.
+        /// </summary>
+        internal static string Raid_Wing_6_2_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_6_2_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Qadim.
+        /// </summary>
+        internal static string Raid_Wing_6_3_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_6_3_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Q1.
+        /// </summary>
+        internal static string Raid_Wing_6_3_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_6_3_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MG.
+        /// </summary>
+        internal static string Raid_Wing_6_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_6_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Key of Ahdashim.
+        /// </summary>
+        internal static string Raid_Wing_7 {
+            get {
+                return ResourceManager.GetString("Raid_Wing_7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gate.
+        /// </summary>
+        internal static string Raid_Wing_7_1_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_7_1_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to G.
+        /// </summary>
+        internal static string Raid_Wing_7_1_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_7_1_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cardinal Adina.
+        /// </summary>
+        internal static string Raid_Wing_7_2_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_7_2_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A.
+        /// </summary>
+        internal static string Raid_Wing_7_2_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_7_2_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cardinal Sabir.
+        /// </summary>
+        internal static string Raid_Wing_7_3_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_7_3_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to S.
+        /// </summary>
+        internal static string Raid_Wing_7_3_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_7_3_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Qadim the Peerless.
+        /// </summary>
+        internal static string Raid_Wing_7_4_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_7_4_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Q2.
+        /// </summary>
+        internal static string Raid_Wing_7_4_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_7_4_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TKoA.
+        /// </summary>
+        internal static string Raid_Wing_7_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_7_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Refresh data every .
         /// </summary>
         internal static string Setting_APIPoll_Label {
@@ -111,6 +705,24 @@ namespace RaidClears.Localization {
         internal static string Setting_APIPoll_Tooltip {
             get {
                 return ResourceManager.GetString("Setting_APIPoll_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overlay background color.
+        /// </summary>
+        internal static string Setting_Raid_ColBG_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_ColBG_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Raid overlay background color.
+        /// </summary>
+        internal static string Setting_Raid_ColBG_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_ColBG_Tooltip", resourceCulture);
             }
         }
         
@@ -279,9 +891,9 @@ namespace RaidClears.Localization {
         /// <summary>
         ///   Looks up a localized string similar to Grid opacity.
         /// </summary>
-        internal static string Setting_Raid_GridOpactiy_Label {
+        internal static string Setting_Raid_GridOpacity_Label {
             get {
-                return ResourceManager.GetString("Setting_Raid_GridOpactiy_Label", resourceCulture);
+                return ResourceManager.GetString("Setting_Raid_GridOpacity_Label", resourceCulture);
             }
         }
         
@@ -363,6 +975,24 @@ namespace RaidClears.Localization {
         internal static string Setting_Raid_Layout_Tooltip {
             get {
                 return ResourceManager.GetString("Setting_Raid_Layout_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grid background opacity.
+        /// </summary>
+        internal static string Setting_Raid_PanelOpacity_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_PanelOpacity_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hidden &lt;---&gt; Fully Visible.
+        /// </summary>
+        internal static string Setting_Raid_PanelOpacity_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_PanelOpacity_Tooltip", resourceCulture);
             }
         }
         
@@ -633,6 +1263,15 @@ namespace RaidClears.Localization {
         internal static string SettingsPanel_Tab_Raids {
             get {
                 return ResourceManager.GetString("SettingsPanel_Tab_Raids", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overlays can use the same keybind.
+        /// </summary>
+        internal static string SharedKeybind {
+            get {
+                return ResourceManager.GetString("SharedKeybind", resourceCulture);
             }
         }
     }

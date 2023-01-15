@@ -7,6 +7,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Blish_HUD.Settings;
 using RaidClears.Features.Shared.Services;
+using System.Drawing.Printing;
+using System.Security.Cryptography;
 
 namespace RaidClears.Raids.Controls
 {
@@ -41,6 +43,7 @@ namespace RaidClears.Raids.Controls
             
 
             ControlPadding = new Vector2(2, 2);
+            
             IgnoreMouseInput = ShouldIgnoreMouse();
             Location = _locationSetting.Value;
             Visible = _visibleSetting.Value;

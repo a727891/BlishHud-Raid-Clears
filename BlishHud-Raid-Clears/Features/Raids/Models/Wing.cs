@@ -2,6 +2,7 @@
 using Blish_HUD.Controls;
 using Blish_HUD.Settings;
 using RaidClears.Features.Shared.Controls;
+using RaidClears.Localization;
 using RaidClears.Raids.Services;
 using RaidClears.Settings;
 using RaidClears.Utils;
@@ -84,52 +85,52 @@ namespace RaidClears.Features.Raids.Models
         public static Wing[] GetWingMetaData()
         {
             return new Wing[] {
-                new Wing("Spirit Vale", 0, "SV",
+                new Wing(Strings.Raid_Wing_1, 0, Strings.Raid_Wing_1_Short,
                     new Encounter[] {
-                        new Encounter("vale_guardian", "Vale Guardian", "VG"),
-                        new Encounter("spirit_woods", "Spirit Run", "SR"),
-                        new Encounter("gorseval", "Gorseval", "G"),
-                        new Encounter("sabetha", "Sabetha", "S"),
+                        new Encounter("vale_guardian",Strings.Raid_Wing_1_1_Name, Strings.Raid_Wing_1_1_Short),
+                        new Encounter("spirit_woods", Strings.Raid_Wing_1_2_Name, Strings.Raid_Wing_1_2_Short),
+                        new Encounter("gorseval", Strings.Raid_Wing_1_3_Name, Strings.Raid_Wing_1_3_Short),
+                        new Encounter("sabetha", Strings.Raid_Wing_1_4_Name, Strings.Raid_Wing_1_4_Short),
                     }),
-                new Wing("Salvation Pass", 1, "SP",
+                new Wing(Strings.Raid_Wing_2, 1, Strings.Raid_Wing_2_Short,
                     new Encounter[] {
-                        new Encounter("slothasor", "Slothasor", "S"),
-                        new Encounter("bandit_trio", "Bandit Trio", "B3"),
-                        new Encounter("matthias", "Matthias Gabrel", "M"),
+                        new Encounter("slothasor", Strings.Raid_Wing_2_1_Name, Strings.Raid_Wing_2_1_Short),
+                        new Encounter("bandit_trio", Strings.Raid_Wing_2_2_Name, Strings.Raid_Wing_2_2_Short),
+                        new Encounter("matthias", Strings.Raid_Wing_2_3_Name, Strings.Raid_Wing_2_3_Short),
                     }),
-                new Wing("Stronghold of the Faithful", 2, "SotF",
+                new Wing(Strings.Raid_Wing_3, 2, Strings.Raid_Wing_3_Short,
                     new Encounter[] {
-                        new Encounter("escort", "Escort", "E"),
-                        new Encounter("keep_construct", "Keep Construct", "KC"),
-                        new Encounter("twisted_castle", "Twisted Castel", "TC"),
-                        new Encounter("xera", "Xera", "X"),
+                        new Encounter("escort", Strings.Raid_Wing_3_1_Name, Strings.Raid_Wing_3_1_Short),
+                        new Encounter("keep_construct", Strings.Raid_Wing_3_2_Name, Strings.Raid_Wing_3_2_Short),
+                        new Encounter("twisted_castle", Strings.Raid_Wing_3_3_Name, Strings.Raid_Wing_3_3_Short),
+                        new Encounter("xera", Strings.Raid_Wing_3_4_Name, Strings.Raid_Wing_3_4_Short),
                     }),
-                new Wing("Bastion of the Penitent", 3, "BotP",
+                new Wing(Strings.Raid_Wing_4, 3, Strings.Raid_Wing_4_Short,
                     new Encounter[] {
-                        new Encounter("cairn", "Cairn the Indominable", "C"),
-                        new Encounter("mursaat_overseer", "Mursaat Overseer", "MO"),
-                        new Encounter("samarog", "Samarog", "S"),
-                        new Encounter("deimos", "Deimos", "D"),
+                        new Encounter("cairn", Strings.Raid_Wing_4_1_Name, Strings.Raid_Wing_4_1_Short),
+                        new Encounter("mursaat_overseer", Strings.Raid_Wing_4_2_Name, Strings.Raid_Wing_4_2_Short),
+                        new Encounter("samarog", Strings.Raid_Wing_4_3_Name, Strings.Raid_Wing_4_3_Short),
+                        new Encounter("deimos", Strings.Raid_Wing_4_4_Name, Strings.Raid_Wing_4_4_Short),
                     }),
-                new Wing("Hall of Chains", 4, "HoC",
+                new Wing(Strings.Raid_Wing_5, 4, Strings.Raid_Wing_5_Short,
                     new Encounter[] {
-                        new Encounter("soulless_horror", "Soulless Horror", "SH"),
-                        new Encounter("river_of_souls", "River of Souls", "R"),
-                        new Encounter("statues_of_grenth", "Statues of Grenth", "S"),
-                        new Encounter("voice_in_the_void", "Dhuum", "D"),
+                        new Encounter("soulless_horror", Strings.Raid_Wing_5_1_Name, Strings.Raid_Wing_5_1_Short),
+                        new Encounter("river_of_souls", Strings.Raid_Wing_5_2_Name, Strings.Raid_Wing_5_2_Short),
+                        new Encounter("statues_of_grenth", Strings.Raid_Wing_5_3_Name, Strings.Raid_Wing_5_3_Short),
+                        new Encounter("voice_in_the_void", Strings.Raid_Wing_5_4_Name, Strings.Raid_Wing_5_4_Short),
                     }),
-                new Wing("Mythwright Gambit", 5, "MG",
+                new Wing(Strings.Raid_Wing_6, 5, Strings.Raid_Wing_6_Short,
                     new Encounter[] {
-                        new Encounter("conjured_amalgamate", "Conjured Amalgamate", "CA"),
-                        new Encounter("twin_largos", "Twin Largos", "TL"),
-                        new Encounter("qadim", "Qadim", "Q1"),
+                        new Encounter("conjured_amalgamate", Strings.Raid_Wing_6_1_Name, Strings.Raid_Wing_6_1_Short),
+                        new Encounter("twin_largos", Strings.Raid_Wing_6_2_Name, Strings.Raid_Wing_6_2_Short),
+                        new Encounter("qadim", Strings.Raid_Wing_6_3_Name, Strings.Raid_Wing_6_3_Short),
                     }),
-                new Wing("The Key of Ahdashim", 6, "TKoA",
+                new Wing(Strings.Raid_Wing_7, 6, Strings.Raid_Wing_7_Short,
                     new Encounter[] {
-                        new Encounter("gate", "Gate", "G"),
-                        new Encounter("adina", "Cardinal Adina", "A"),
-                        new Encounter("sabir", "Cardinal Sabir", "S"),
-                        new Encounter("qadim_the_peerless", "Qadim the Peerless", "Q2"),
+                        new Encounter("gate", Strings.Raid_Wing_7_1_Name, Strings.Raid_Wing_7_1_Short),
+                        new Encounter("adina", Strings.Raid_Wing_7_2_Name, Strings.Raid_Wing_7_2_Short),
+                        new Encounter("sabir", Strings.Raid_Wing_7_3_Name, Strings.Raid_Wing_7_3_Short),
+                        new Encounter("qadim_the_peerless", Strings.Raid_Wing_7_4_Name, Strings.Raid_Wing_7_4_Short),
                     })
             };
         }

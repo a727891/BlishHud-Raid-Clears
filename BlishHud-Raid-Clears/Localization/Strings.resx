@@ -131,6 +131,204 @@
     <value>Enable raid overlay</value>
     <comment>Setting label for making the raid overlay visible</comment>
   </data>
+  <data name="Raid_Wing_1" xml:space="preserve">
+    <value>Spirit Vale</value>
+  </data>
+  <data name="Raid_Wing_1_1_Name" xml:space="preserve">
+    <value>Vale Guardian</value>
+  </data>
+  <data name="Raid_Wing_1_1_Short" xml:space="preserve">
+    <value>VG</value>
+  </data>
+  <data name="Raid_Wing_1_2_Name" xml:space="preserve">
+    <value>Spirit Run</value>
+  </data>
+  <data name="Raid_Wing_1_2_Short" xml:space="preserve">
+    <value>SR</value>
+  </data>
+  <data name="Raid_Wing_1_3_Name" xml:space="preserve">
+    <value>Gorseval</value>
+  </data>
+  <data name="Raid_Wing_1_3_Short" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="Raid_Wing_1_4_Name" xml:space="preserve">
+    <value>Sabetha</value>
+  </data>
+  <data name="Raid_Wing_1_4_Short" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="Raid_Wing_1_Short" xml:space="preserve">
+    <value>SV</value>
+  </data>
+  <data name="Raid_Wing_2" xml:space="preserve">
+    <value>Salvation Pass</value>
+  </data>
+  <data name="Raid_Wing_2_1_Name" xml:space="preserve">
+    <value>Slothasor</value>
+  </data>
+  <data name="Raid_Wing_2_1_Short" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="Raid_Wing_2_2_Name" xml:space="preserve">
+    <value>Bandit Trio</value>
+  </data>
+  <data name="Raid_Wing_2_2_Short" xml:space="preserve">
+    <value>B3</value>
+  </data>
+  <data name="Raid_Wing_2_3_Name" xml:space="preserve">
+    <value>Matthias Gabrel</value>
+  </data>
+  <data name="Raid_Wing_2_3_Short" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="Raid_Wing_2_Short" xml:space="preserve">
+    <value>SP</value>
+  </data>
+  <data name="Raid_Wing_3" xml:space="preserve">
+    <value>Stonghold of the Falthful</value>
+  </data>
+  <data name="Raid_Wing_3_1_Name" xml:space="preserve">
+    <value>Escort</value>
+  </data>
+  <data name="Raid_Wing_3_1_Short" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="Raid_Wing_3_2_Name" xml:space="preserve">
+    <value>Keep Construct</value>
+  </data>
+  <data name="Raid_Wing_3_2_Short" xml:space="preserve">
+    <value>KC</value>
+  </data>
+  <data name="Raid_Wing_3_3_Name" xml:space="preserve">
+    <value>Twisted Castle</value>
+  </data>
+  <data name="Raid_Wing_3_3_Short" xml:space="preserve">
+    <value>TC</value>
+  </data>
+  <data name="Raid_Wing_3_4_Name" xml:space="preserve">
+    <value>Xera</value>
+  </data>
+  <data name="Raid_Wing_3_4_Short" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="Raid_Wing_3_Short" xml:space="preserve">
+    <value>SofF</value>
+  </data>
+  <data name="Raid_Wing_4" xml:space="preserve">
+    <value>Bastion of the Penitent</value>
+  </data>
+  <data name="Raid_Wing_4_1_Name" xml:space="preserve">
+    <value>Cairn the Indominable</value>
+  </data>
+  <data name="Raid_Wing_4_1_Short" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="Raid_Wing_4_2_Name" xml:space="preserve">
+    <value>Mursaat Overseer</value>
+  </data>
+  <data name="Raid_Wing_4_2_Short" xml:space="preserve">
+    <value>MO</value>
+  </data>
+  <data name="Raid_Wing_4_3_Name" xml:space="preserve">
+    <value>Samarog</value>
+  </data>
+  <data name="Raid_Wing_4_3_Short" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="Raid_Wing_4_4_Name" xml:space="preserve">
+    <value>Deimos</value>
+  </data>
+  <data name="Raid_Wing_4_4_Short" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="Raid_Wing_4_Short" xml:space="preserve">
+    <value>BotP</value>
+  </data>
+  <data name="Raid_Wing_5" xml:space="preserve">
+    <value>Hall of Chains</value>
+  </data>
+  <data name="Raid_Wing_5_1_Name" xml:space="preserve">
+    <value>Soulless Horror</value>
+  </data>
+  <data name="Raid_Wing_5_1_Short" xml:space="preserve">
+    <value>SH</value>
+  </data>
+  <data name="Raid_Wing_5_2_Name" xml:space="preserve">
+    <value>River of Souls</value>
+  </data>
+  <data name="Raid_Wing_5_2_Short" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="Raid_Wing_5_3_Name" xml:space="preserve">
+    <value>Statues of Grenth</value>
+  </data>
+  <data name="Raid_Wing_5_3_Short" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="Raid_Wing_5_4_Name" xml:space="preserve">
+    <value>Dhuum</value>
+  </data>
+  <data name="Raid_Wing_5_4_Short" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="Raid_Wing_5_Short" xml:space="preserve">
+    <value>HoC</value>
+  </data>
+  <data name="Raid_Wing_6" xml:space="preserve">
+    <value>Mythwright Gambit</value>
+  </data>
+  <data name="Raid_Wing_6_1_Name" xml:space="preserve">
+    <value>Conjured Amalgamate</value>
+  </data>
+  <data name="Raid_Wing_6_1_Short" xml:space="preserve">
+    <value>CA</value>
+  </data>
+  <data name="Raid_Wing_6_2_Name" xml:space="preserve">
+    <value>Twin Largos</value>
+  </data>
+  <data name="Raid_Wing_6_2_Short" xml:space="preserve">
+    <value>TL</value>
+  </data>
+  <data name="Raid_Wing_6_3_Name" xml:space="preserve">
+    <value>Qadim</value>
+  </data>
+  <data name="Raid_Wing_6_3_Short" xml:space="preserve">
+    <value>Q1</value>
+  </data>
+  <data name="Raid_Wing_6_Short" xml:space="preserve">
+    <value>MG</value>
+  </data>
+  <data name="Raid_Wing_7" xml:space="preserve">
+    <value>The Key of Ahdashim</value>
+  </data>
+  <data name="Raid_Wing_7_1_Name" xml:space="preserve">
+    <value>Gate</value>
+  </data>
+  <data name="Raid_Wing_7_1_Short" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="Raid_Wing_7_2_Name" xml:space="preserve">
+    <value>Cardinal Adina</value>
+  </data>
+  <data name="Raid_Wing_7_2_Short" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="Raid_Wing_7_3_Name" xml:space="preserve">
+    <value>Cardinal Sabir</value>
+  </data>
+  <data name="Raid_Wing_7_3_Short" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="Raid_Wing_7_4_Name" xml:space="preserve">
+    <value>Qadim the Peerless</value>
+  </data>
+  <data name="Raid_Wing_7_4_Short" xml:space="preserve">
+    <value>Q2</value>
+  </data>
+  <data name="Raid_Wing_7_Short" xml:space="preserve">
+    <value>TKoA</value>
+  </data>
   <data name="SettingsPanel_Dun_Heading_General" xml:space="preserve">
     <value>Options / Keybind</value>
   </data>
@@ -174,6 +372,12 @@
   </data>
   <data name="Setting_APIPoll_Tooltip" xml:space="preserve">
     <value>How often should the GW2 API be checked for updated information</value>
+  </data>
+  <data name="Setting_Raid_ColBG_Label" xml:space="preserve">
+    <value>Overlay background color</value>
+  </data>
+  <data name="Setting_Raid_ColBG_Tooltip" xml:space="preserve">
+    <value>Raid overlay background color</value>
   </data>
   <data name="Setting_Raid_ColClear_Label" xml:space="preserve">
     <value>Cleared encounter color</value>
@@ -229,7 +433,7 @@
   <data name="Setting_Raid_Font_Tooptip" xml:space="preserve">
     <value>Change the size of the grid</value>
   </data>
-  <data name="Setting_Raid_GridOpactiy_Label" xml:space="preserve">
+  <data name="Setting_Raid_GridOpacity_Label" xml:space="preserve">
     <value>Grid opacity</value>
   </data>
   <data name="Setting_Raid_GridOpactiy_Tooltip" xml:space="preserve">
@@ -258,6 +462,12 @@
   </data>
   <data name="Setting_Raid_Layout_Tooltip" xml:space="preserve">
     <value />
+  </data>
+  <data name="Setting_Raid_PanelOpacity_Label" xml:space="preserve">
+    <value>Grid background opacity</value>
+  </data>
+  <data name="Setting_Raid_PanelOpacity_Tooltip" xml:space="preserve">
+    <value>Hidden &lt;---&gt; Fully Visible</value>
   </data>
   <data name="Setting_Raid_Tooltips_Label" xml:space="preserve">
     <value>Enable mouse hover tooltips on overlay</value>
@@ -312,5 +522,8 @@
   </data>
   <data name="Setting_Raid_W7_Tooltip" xml:space="preserve">
     <value>Enable The Key of Ahdashim on the raid overlay</value>
+  </data>
+  <data name="SharedKeybind" xml:space="preserve">
+    <value>Overlays can use the same keybind</value>
   </data>
 </root>

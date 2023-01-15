@@ -25,6 +25,8 @@ namespace RaidClears.Settings
 
         public SettingEntry<float> RaidPanelLabelOpacity { get; }
         public SettingEntry<float> RaidPanelGridOpacity { get; }
+        public SettingEntry<float> RaidPanelBgOpacity { get; }
+        
         public SettingEntry<bool> RaidPanelHighlightEmbolden { get; }
         public SettingEntry<bool> RaidPanelHighlightCotM { get; }
         public SettingEntry<bool> W1IsVisible { get; }
@@ -40,6 +42,7 @@ namespace RaidClears.Settings
         public SettingEntry<string> RaidPanelColorText { get; }
         public SettingEntry<string> RaidPanelColorCotm { get; }
         public SettingEntry<string> RaidPanelColorEmbolden { get; }
+        public SettingEntry<string> RaidPanelColorBG { get; }
         #endregion
 
         public SettingService(SettingCollection settings)
@@ -74,7 +77,7 @@ namespace RaidClears.Settings
 
             #region Raid Layout
             RaidCornerIconEnabled = settings.DefineSetting("RCCornerIcon",
-               false,
+               true,
                () => Strings.Setting_Raid_Icon_Label,
                () => Strings.Setting_Raid_Icon_Tooltip);
 
@@ -112,9 +115,15 @@ namespace RaidClears.Settings
 
             RaidPanelGridOpacity = settings.DefineSetting("RCEncOpacity",
                 0.8f,
-                () => Strings.Setting_Raid_GridOpactiy_Label,
+                () => Strings.Setting_Raid_GridOpacity_Label,
                 () => Strings.Setting_Raid_GridOpactiy_Tooltip);
             RaidPanelGridOpacity.SetRange(0.1f, 1f);
+
+            RaidPanelBgOpacity = settings.DefineSetting("RCRaidBgOpacity",
+                0.0f,
+                () => Strings.Setting_Raid_PanelOpacity_Label,
+                () => Strings.Setting_Raid_PanelOpacity_Tooltip);
+            RaidPanelBgOpacity.SetRange(0.0f, 1f);
 
             RaidPanelHighlightEmbolden = settings.DefineSetting("RCEmbolden",
                 true,
@@ -191,6 +200,10 @@ namespace RaidClears.Settings
                 "#5050ff",
                 () => Strings.Setting_Raid_ColEmbolden_Label,
                 () => Strings.Setting_Raid_ColEmbolden_Tooltip);
+            RaidPanelColorBG = settings.DefineSetting("colRaidBG",
+                "#000000",
+                () => Strings.Setting_Raid_ColBG_Label,
+                () => Strings.Setting_Raid_ColBG_Tooltip);
             #endregion
             #endregion
 

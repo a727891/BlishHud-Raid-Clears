@@ -32,6 +32,7 @@ namespace RaidClears.Features.Raids
             );
 
             panel.LayoutChange(_settings.RaidPanelLayout);
+            panel.BackgroundColorChange(_settings.RaidPanelBgOpacity, _settings.RaidPanelColorBG);
 
             panel.RegisterCornerIconService(
                 new CornerIconService(

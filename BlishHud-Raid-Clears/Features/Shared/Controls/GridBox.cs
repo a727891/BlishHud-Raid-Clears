@@ -28,8 +28,10 @@ namespace RaidClears.Features.Shared.Controls
             Text = title;
             BasicTooltipText = tooltip;
 
+            AutoSizeHeight = true;
+
             OpacityChange(opacity);
-            LayoutChange(layout);
+            //LayoutChange(layout);
             FontSizeChange(fontSize);
 
 
