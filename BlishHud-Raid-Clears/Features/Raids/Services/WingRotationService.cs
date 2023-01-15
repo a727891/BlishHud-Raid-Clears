@@ -1,28 +1,27 @@
 ﻿using System;
-using Blish_HUD;
-using Blish_HUD.Controls;
-using Blish_HUD.Input;
-using Blish_HUD.Settings;
-using Microsoft.Xna.Framework;
-using Settings.Enums;
 
 namespace RaidClears.Raids.Services
 {
-    public class WingRotationService : IDisposable
+    public class WeeklyWings
+    {
+        public int Emboldened { get; private set; } = 0;
+        public int CallOfTheMist { get; private set; } = 1;
+        public WeeklyWings(int emboldened, int callOfTheMist)
+        {
+            Emboldened = emboldened;
+            CallOfTheMist = callOfTheMist;
+        }
+    }
+
+    public class WingRotationService
     {
 
-        private const int EMBOLDEN_START_TIMESTAMP = 1656315000;
-        private const int WEEKLY_SECONDS = 604800;
-        private const int NUMBER_OF_WINGS = 7;
+        private readonly static int EMBOLDEN_START_TIMESTAMP = 1656315000;
+        private readonly static int WEEKLY_SECONDS = 604800;
+        private readonly static int NUMBER_OF_WINGS = 7;
 
 
-        public WingRotationService()
-        {
-
-
-        }
-
-        public (int,int) getHighlightedWingIndices()
+        public static WeeklyWings GetWeeklyWings()
         {
 
             DateTimeOffset now = (DateTimeOffset)DateTime.UtcNow;
@@ -31,14 +30,8 @@ namespace RaidClears.Raids.Services
 
             var wing = (int) Math.Floor((decimal) (duration / WEEKLY_SECONDS)) % NUMBER_OF_WINGS;
 
-            return (wing, (wing + 1) % NUMBER_OF_WINGS);
+            return new WeeklyWings(wing , (wing + 1) % NUMBER_OF_WINGS);
             
-        }
-
-        public void Dispose()
-        {
-            
-
         }
 
     }
