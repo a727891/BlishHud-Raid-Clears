@@ -6,6 +6,7 @@ using RaidClears.Settings;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Blish_HUD.Settings;
+using RaidClears.Features.Shared.Services;
 
 namespace RaidClears.Raids.Controls
 {
@@ -20,6 +21,11 @@ namespace RaidClears.Raids.Controls
         protected SettingEntry<bool> _visibleSetting;
         protected SettingEntry<bool> _allowMouseDragSetting;
         protected SettingEntry<bool> _allowTooltipSetting;
+
+
+        protected CornerIconService _cornerIconService;
+        protected KeybindHandlerService _keybindService;
+        
 
         public GridPanel(
             SettingEntry<Point> locationSetting,
@@ -43,6 +49,9 @@ namespace RaidClears.Raids.Controls
             WidthSizingMode = SizingMode.AutoSize;
             
             AddDragDelegates();
+            _locationSetting.SettingChanged += (s, e) => Location = e.NewValue;
+            _allowMouseDragSetting.SettingChanged += (s, e) => IgnoreMouseInput = ShouldIgnoreMouse();
+            _allowTooltipSetting.SettingChanged += (s, e) => IgnoreMouseInput = ShouldIgnoreMouse();
 
 
         }
@@ -50,6 +59,8 @@ namespace RaidClears.Raids.Controls
         protected override void DisposeControl()
         {
             base.DisposeControl();
+            _cornerIconService?.Dispose();
+            _keybindService?.Dispose();
         }
 
         #region Mouse Stuff
@@ -116,6 +127,18 @@ namespace RaidClears.Raids.Controls
                 return base.TriggerMouseInput(mouseEventType, ms);
 
             }
+        }
+        #endregion
+
+
+        #region event handlers
+        public void RegisterCornerIconService(CornerIconService service)
+        {
+            _cornerIconService = service;
+        }
+        public void RegisterKeybindService(KeybindHandlerService service)
+        {
+            _keybindService= service;
         }
         #endregion
 

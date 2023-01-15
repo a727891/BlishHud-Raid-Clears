@@ -14,13 +14,16 @@ using Microsoft.Xna.Framework;
 using Color = Microsoft.Xna.Framework.Color;
 using RaidClears.Settings.Controls;
 using RaidClears.Settings;
+using RaidClears.Features.Raids;
+using RaidClears.Fearures.Shared.Services;
+using RaidClears.Raids.Services;
 
 namespace RaidClears
 {
     [Export(typeof(Blish_HUD.Modules.Module))]
     public class Module : Blish_HUD.Modules.Module
     {
-        private static readonly Logger Logger = Logger.GetLogger<Module>();
+        internal static readonly Logger Logger = Logger.GetLogger<Module>();
         internal SettingsManager SettingsManager => ModuleParameters.SettingsManager;
         internal ContentsManager ContentsManager => ModuleParameters.ContentsManager;
         internal DirectoriesManager DirectoriesManager => ModuleParameters.DirectoriesManager;
@@ -32,8 +35,12 @@ namespace RaidClears
 
         public SettingService SettingsService { get; private set; }
 
+        public RaidPanel RaidsPanel { get; private set; }
 
         public TextureService TexturesService { get; private set; }
+
+        public ApiPollService ApiPollingService { get; private set; }
+
 
 
         [ImportingConstructor]
@@ -65,17 +72,23 @@ namespace RaidClears
         protected override async Task LoadAsync()
         #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
+            ApiPollingService = new ApiPollService(SettingsService.ApiPollingPeriod);
             TexturesService = new TextureService(ContentsManager);
 
             SettingsWindow = SettingPanelFactory.Create();
+            RaidsPanel = RaidPanelFactory.Create();
 
-
+            Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
         }
 
         protected override void Unload()
         {
+            Gw2ApiManager.SubtokenUpdated -= Gw2ApiManager_SubtokenUpdated;
+
+            RaidsPanel?.Dispose();
             SettingsWindow?.Dispose();
-            TexturesService?.Dispose(); 
+            TexturesService?.Dispose();
+            ApiPollingService?.Dispose();
 
         }
 
@@ -85,16 +98,16 @@ namespace RaidClears
 
         protected override void Update(GameTime gameTime)
         {
-           
+            ApiPollingService?.Update(gameTime);
+            RaidsPanel?.Update();
 
             
         }
 
- 
         private void Gw2ApiManager_SubtokenUpdated(object sender, ValueEventArgs<IEnumerable<TokenPermission>> e)
         {
             // _settingToggleKey check interval so that we check immediately now that we have a new token.
-            //_lastApiCheck = _API_QUERY_INTERVAL;
+            ApiPollingService.Invoke();
         }
 
 

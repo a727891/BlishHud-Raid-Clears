@@ -61,6 +61,15 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Click to show/hide the Raids overlay.
+        /// </summary>
+        internal static string CornerIcon_Raid {
+            get {
+                return ResourceManager.GetString("CornerIcon_Raid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Raid Clears.
         /// </summary>
         internal static string Module_Title {

@@ -3,7 +3,7 @@ using Blish_HUD.Modules.Managers;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace RaidClears.Settings
+namespace RaidClears.Fearures.Shared.Services
 {
     public class TextureService : IDisposable
     {
