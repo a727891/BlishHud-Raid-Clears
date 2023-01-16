@@ -1177,6 +1177,24 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Settings window keybind.
+        /// </summary>
+        internal static string Settings_Keybind_Label {
+            get {
+                return ResourceManager.GetString("Settings_Keybind_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show/Hide this window with a keybind.
+        /// </summary>
+        internal static string Settings_Keybind_tooltip {
+            get {
+                return ResourceManager.GetString("Settings_Keybind_tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Refresh now.
         /// </summary>
         internal static string Settings_RefreshNow {

@@ -10,6 +10,7 @@ using RaidClears.Settings.Services;
 using RaidClears.Settings.Views;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace RaidClears.Settings.Controls
 {
@@ -44,7 +45,7 @@ namespace RaidClears.Settings.Controls
             );
         }
     }
-    public class SettingsPanel : TabbedWindow2
+    public class SettingsPanel : TabbedWindow2, IDisposable
     {
 
         public OverlaySettingsTab SettingsTab { get; private set; }
@@ -64,6 +65,8 @@ namespace RaidClears.Settings.Controls
             Title = Strings.Module_Title;
             Subtitle = Strings.SettingsPanel_Subtitle;
             SavesPosition = true;
+
+            Module.ModuleInstance.SettingsService.SettingsPanelKeyBind.Value.Activated += (s, e) => ToggleWindow();
 
             #region RaidPanelSettings
             MenuService raidsMenu = new MenuService();
@@ -152,8 +155,6 @@ namespace RaidClears.Settings.Controls
             Show();
 
         }
-
-       
 
     }
 }

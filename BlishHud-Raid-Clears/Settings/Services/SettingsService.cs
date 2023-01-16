@@ -12,6 +12,7 @@ namespace RaidClears.Settings
     public class SettingService // singular because Setting"s"Service already exists in Blish
     {
         public SettingEntry<ApiPollPeriod> ApiPollingPeriod { get; }
+        public SettingEntry<KeyBinding> SettingsPanelKeyBind { get; }
 
         #region Raid Setting Variables
         public SettingEntry<Point> RaidPanelLocationPoint { get; }
@@ -88,6 +89,11 @@ namespace RaidClears.Settings
                 ApiPollPeriod.MINUTES_5,
                 () => Strings.Setting_APIPoll_Label,
                 () => Strings.Setting_APIPoll_Tooltip);
+
+            SettingsPanelKeyBind = settings.DefineSetting("RCsettingsKeybind", new KeyBinding(Keys.None),
+            () => Strings.Settings_Keybind_Label,
+            () => Strings.Settings_Keybind_tooltip);
+            SettingsPanelKeyBind.Value.Enabled = true;
 
             #endregion
 

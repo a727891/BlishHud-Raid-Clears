@@ -367,6 +367,12 @@
   <data name="SettingsPanel_Tab_Raids" xml:space="preserve">
     <value>Raids</value>
   </data>
+  <data name="Settings_Keybind_Label" xml:space="preserve">
+    <value>Settings window keybind</value>
+  </data>
+  <data name="Settings_Keybind_tooltip" xml:space="preserve">
+    <value>Show/Hide this window with a keybind</value>
+  </data>
   <data name="Settings_RefreshNow" xml:space="preserve">
     <value>Refresh now</value>
   </data>
