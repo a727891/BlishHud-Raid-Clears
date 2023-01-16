@@ -15,10 +15,19 @@ namespace RaidClears.Settings.Views
         {
             base.Build(buildPanel);
 
-            ShowEnumSettingWithViewContainer(_settingsService.ApiPollingPeriod);
-            
-           
 
+            ShowEnumSettingWithViewContainer(_settingsService.ApiPollingPeriod);
+
+            StandardButton refreshButton = new StandardButton()
+            {
+                Parent = _rootFlowPanel,
+                Text = Strings.Settings_RefreshNow
+            };
+            refreshButton.Click += (s, e) =>
+            {
+                Module.ModuleInstance?.ApiPollingService?.Invoke();
+                refreshButton.Enabled = false;
+            };
 
         }
 

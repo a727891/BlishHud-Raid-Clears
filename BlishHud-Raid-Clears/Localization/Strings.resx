@@ -333,7 +333,7 @@
     <value>Options / Keybind</value>
   </data>
   <data name="SettingsPanel_Dun_Heading_Layout" xml:space="preserve">
-    <value>Layout</value>
+    <value>Layout / Colors</value>
   </data>
   <data name="SettingsPanel_Dun_Heading_PathSelection" xml:space="preserve">
     <value>Path Selection</value>
@@ -366,6 +366,9 @@
   </data>
   <data name="SettingsPanel_Tab_Raids" xml:space="preserve">
     <value>Raids</value>
+  </data>
+  <data name="Settings_RefreshNow" xml:space="preserve">
+    <value>Refresh now</value>
   </data>
   <data name="Setting_APIPoll_Label" xml:space="preserve">
     <value>Refresh data every </value>

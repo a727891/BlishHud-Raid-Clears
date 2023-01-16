@@ -12,9 +12,11 @@ using RaidClears.Utils;
 
 namespace RaidClears.Features.Dungeons.Models
 {
-
+    
     public static class DungeonFactory
     {
+        public static int FREQUENTER_INDEX = 8;
+        public static string FREQUENTER_ID = "freq";
         public static Dungeon[] Create(DungeonPanel panel)
         {
             SettingService settings = Module.ModuleInstance.SettingsService;
@@ -32,8 +34,9 @@ namespace RaidClears.Features.Dungeons.Models
                 GridBox labelBox = new GridBox(
                     group,
                     dungeon.shortName, dungeon.name,
-                    settings.DungeonPanelLabelOpacity, settings.DungeonPanelLayout, settings.DungeonPanelFontSize
+                    settings.DungeonPanelLabelOpacity, settings.DungeonPanelFontSize
                 );
+                labelBox.LayoutChange(settings.DungeonPanelLayout);
                 dungeon.SetGroupLabelReference(labelBox);
                 //ApplyConditionalTextColoring(labelBox, dungeon.index, weekly, settings);
                 labelBox.LabelDisplayChange(settings.DungeonPanelLabelDisplay, (dungeon.index + 1).ToString(), dungeon.shortName);
@@ -43,7 +46,7 @@ namespace RaidClears.Features.Dungeons.Models
                     GridBox encounterBox = new GridBox(
                         group,
                         encounter.short_name, encounter.name,
-                        settings.DungeonPanelGridOpacity, settings.DungeonPanelLayout, settings.DungeonPanelFontSize
+                        settings.DungeonPanelGridOpacity, settings.DungeonPanelFontSize
                     );
                     encounter.SetGridBoxReference(encounterBox);
                     encounter.WatchColorSettings(settings.DungeonPanelColorCleared, settings.DungeonPanelColorNotCleared);
@@ -56,11 +59,7 @@ namespace RaidClears.Features.Dungeons.Models
 
             return dungeons;
         }
-        /*        public static void ApplyConditionalTextColoring(GridBox box, int index, WeeklyWings weekly, SettingService settings)
-                {
 
-                    box.TextColorSetting(settings.DungeonPanelColorText);
-                }*/
         public static SettingEntry<bool> GetDungeonSelectionByIndex(int index, SettingService settings)
         {
             switch (index)
@@ -73,6 +72,7 @@ namespace RaidClears.Features.Dungeons.Models
                 case 5: return settings.D6IsVisible;
                 case 6: return settings.D7IsVisible;
                 case 7: return settings.D8IsVisible;
+                case 8: return settings.DFIsVisible;
                 default: return settings.D1IsVisible;
             }
         }
@@ -178,11 +178,22 @@ namespace RaidClears.Features.Dungeons.Models
                         new Path("seer","seer", "E4"),
                     }
                 ),
+                new Dungeon(
+                    $"Frequenter Achievement Summary",
+                    FREQUENTER_INDEX,
+                    "Freq",
+                    new Path[]
+                    {
+                        //new Path("arah_story","Story", "S"),
+                        new Path(FREQUENTER_ID,"Frequenter Achievement Paths Finished", "0/8"),
+                    }
+                )
             };
         }
     }
     public class Dungeon : GroupModel
     {
+
         public Dungeon(string name, int index, string shortName, BoxModel[] boxes) : base(name, index, shortName, boxes)
         {
         }

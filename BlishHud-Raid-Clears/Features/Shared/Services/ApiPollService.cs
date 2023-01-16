@@ -14,7 +14,7 @@ namespace RaidClears.Raids.Services
         protected static int MINUTE_MS = 60000;
 
         protected bool _running = true;
-        protected double _runningTimer = 0;
+        protected double _runningTimer = -20000;
         protected double _timeoutValue = 0;
 
         public event EventHandler<bool> ApiPollingTrigger;

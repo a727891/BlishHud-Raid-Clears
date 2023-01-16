@@ -1177,6 +1177,15 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Refresh now.
+        /// </summary>
+        internal static string Settings_RefreshNow {
+            get {
+                return ResourceManager.GetString("Settings_RefreshNow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Options / Keybind.
         /// </summary>
         internal static string SettingsPanel_Dun_Heading_General {
@@ -1186,7 +1195,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Layout.
+        ///   Looks up a localized string similar to Layout / Colors.
         /// </summary>
         internal static string SettingsPanel_Dun_Heading_Layout {
             get {

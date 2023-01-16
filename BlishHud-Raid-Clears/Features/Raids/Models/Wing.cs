@@ -29,9 +29,10 @@ namespace RaidClears.Features.Raids.Models
                 GridBox labelBox = new GridBox(
                     group,
                     wing.shortName, wing.name,
-                    settings.RaidPanelLabelOpacity, settings.RaidPanelLayout, settings.RaidPanelFontSize
+                    settings.RaidPanelLabelOpacity, settings.RaidPanelFontSize
                 );
                 wing.SetGroupLabelReference(labelBox);
+                labelBox.LayoutChange(settings.RaidPanelLayout);
                 ApplyConditionalTextColoring(labelBox, wing.index, weekly, settings);
                 labelBox.LabelDisplayChange(settings.RaidPanelLabelDisplay, (wing.index + 1).ToString(), wing.shortName);
                 
@@ -40,7 +41,7 @@ namespace RaidClears.Features.Raids.Models
                     GridBox encounterBox = new GridBox(
                         group,
                         encounter.short_name, encounter.name,
-                        settings.RaidPanelGridOpacity, settings.RaidPanelLayout, settings.RaidPanelFontSize
+                        settings.RaidPanelGridOpacity, settings.RaidPanelFontSize
                     );
                     encounter.SetGridBoxReference(encounterBox);
                     encounter.WatchColorSettings(settings.RaidPanelColorCleared, settings.RaidPanelColorNotCleared);

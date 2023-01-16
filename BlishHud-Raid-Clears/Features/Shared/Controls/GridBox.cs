@@ -17,7 +17,6 @@ namespace RaidClears.Features.Shared.Controls
             string title,
             string tooltip,
             SettingEntry<float> opacity,
-            SettingEntry<Layout> layout,
             SettingEntry<ContentService.FontSize> fontSize
         )
         {
@@ -26,11 +25,10 @@ namespace RaidClears.Features.Shared.Controls
 
             Text = title;
             BasicTooltipText = tooltip;
-
+            HorizontalAlignment = HorizontalAlignment.Center;
             AutoSizeHeight = true;
 
             OpacityChange(opacity);
-            //LayoutChange(layout);
             FontSizeChange(fontSize);
 
 
@@ -52,7 +50,7 @@ namespace RaidClears.Features.Shared.Controls
             };
             this.Opacity = opacity.Value;
         }
-        protected void LayoutChange(SettingEntry<Layout> layout)
+        public void LayoutChange(SettingEntry<Layout> layout)
         {
             layout.SettingChanged += (s, e) =>
             {

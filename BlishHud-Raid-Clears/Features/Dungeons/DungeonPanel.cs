@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using RaidClears.Fearures.Raids.Services;
 using RaidClears.Features.Dungeons.Models;
 using RaidClears.Fearures.Dungeons.Services;
+using System.Linq;
 
 namespace RaidClears.Features.Dungeons
 {
@@ -37,8 +38,8 @@ namespace RaidClears.Features.Dungeons
                     _settings.DungeonCornerIconEnabled,
                     _settings.DungeonPanelIsVisible, 
                     Strings.CornerIcon_Raid, 
-                    Module.ModuleInstance.TexturesService.CornerIconTexture,
-                    Module.ModuleInstance.TexturesService.CornerIconHoverTexture
+                    Module.ModuleInstance.TexturesService.DungeonsCornerIconTexture,
+                    Module.ModuleInstance.TexturesService.DungeonsCornerIconHoverTexture
                 )
             );
             panel.RegisterKeybindService(
@@ -81,10 +82,17 @@ namespace RaidClears.Features.Dungeons
 
                     foreach (var dungeon in Dungeons)
                     {
+                        
                         foreach (var encounter in dungeon.boxes as Path[])
                         {
                             encounter.SetCleared(weeklyClears.Contains(encounter.id));
                             encounter.SetFrequenter(freqPaths.Contains(encounter.id));
+                            if (dungeon.index == DungeonFactory.FREQUENTER_INDEX && encounter.id.Equals(DungeonFactory.FREQUENTER_ID))
+                            {
+                                encounter.SetFrequenter(true);
+                                encounter.Box.Text = $"{freqPaths.Count()}/8";
+                                encounter.ApplyTextColor();
+                            }
                             
                         }
                     }
