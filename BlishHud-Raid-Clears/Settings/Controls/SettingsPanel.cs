@@ -151,8 +151,7 @@ namespace RaidClears.Settings.Controls
             };
 
             
-            //TODO: disable for release
-            Show();
+            //Show();
 
         }
 

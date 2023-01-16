@@ -17,7 +17,6 @@ namespace RaidClears.Settings.Views
             AddVerticalSpacer();
             ShowSettingWithViewContainer(_settingsService.DungeonPanelIsVisible);
             ShowSettingWithViewContainer(_settingsService.DungeonPanelAllowTooltips);
-            AddVerticalSpacer();
             ShowSettingWithViewContainer(_settingsService.DungeonCornerIconEnabled);
             AddVerticalSpacer();
             ShowSettingWithViewContainer(_settingsService.DungeonPanelIsVisibleKeyBind);

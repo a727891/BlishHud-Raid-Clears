@@ -107,10 +107,12 @@ namespace RaidClears.Features.Shared.Controls
                 case ContentService.FontSize.Size32:
                     return 80;
                 case ContentService.FontSize.Size24:
+                    return 55;
                 case ContentService.FontSize.Size22:
                 case ContentService.FontSize.Size20:
                     return 50;
                 case ContentService.FontSize.Size18:
+                    return 45;
                 case ContentService.FontSize.Size16:
                 case ContentService.FontSize.Size14:
                     return 40;

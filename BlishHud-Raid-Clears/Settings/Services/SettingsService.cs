@@ -99,7 +99,7 @@ namespace RaidClears.Settings
             #region RaidPanel
             #region Raid_General
 
-            RaidPanelLocationPoint = internalSettingSubCollection.DefineSetting("RCLocation", new Point(600, 250));
+            RaidPanelLocationPoint = internalSettingSubCollection.DefineSetting("RCLocation", new Point(250, 250));
 
             RaidPanelDragWithMouseIsEnabled = settings.DefineSetting("RCDrag",
                true,
@@ -131,7 +131,7 @@ namespace RaidClears.Settings
 
 
             RaidPanelFontSize = settings.DefineSetting("RCFontSize",
-                ContentService.FontSize.Size24,
+                ContentService.FontSize.Size18,
                 () => Strings.Setting_Raid_Font_Label,
                 () => Strings.Setting_Raid_Font_Tooptip);
 
@@ -248,7 +248,7 @@ namespace RaidClears.Settings
             #region DungeonPanel
             #region DUNGEONS
 
-            DungeonPanelLocationPoint = internalSettingSubCollection.DefineSetting("RCDungeonLoc", new Point(600, 250));
+            DungeonPanelLocationPoint = internalSettingSubCollection.DefineSetting("RCDungeonLoc", new Point(250, 410));
             DungeonPanelDragWithMouseIsEnabled = settings.DefineSetting("RCDunDrag",
                true,
                () => Strings.Setting_Dun_Drag_Label,
@@ -276,7 +276,7 @@ namespace RaidClears.Settings
 
 
             DungeonPanelFontSize = settings.DefineSetting("RCDungeonFontSize",
-                ContentService.FontSize.Size24,
+                ContentService.FontSize.Size18,
                 () => Strings.Setting_Raid_Font_Label,
                 () => Strings.Setting_Raid_Font_Tooptip);
 
