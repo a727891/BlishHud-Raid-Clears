@@ -1,12 +1,11 @@
-﻿
-using Blish_HUD.Controls;
-using Blish_HUD.Settings;
+﻿using Blish_HUD.Settings;
 using RaidClears.Features.Shared.Controls;
+using RaidClears.Features.Shared.Models;
 using RaidClears.Localization;
 using RaidClears.Raids.Services;
 using RaidClears.Settings;
 using RaidClears.Utils;
-using System.Net.NetworkInformation;
+
 
 namespace RaidClears.Features.Raids.Models
 {

@@ -17,6 +17,7 @@ using RaidClears.Settings;
 using RaidClears.Features.Raids;
 using RaidClears.Fearures.Shared.Services;
 using RaidClears.Raids.Services;
+using RaidClears.Features.Dungeons;
 
 namespace RaidClears
 {
@@ -36,6 +37,7 @@ namespace RaidClears
         public SettingService SettingsService { get; private set; }
 
         public RaidPanel RaidsPanel { get; private set; }
+        public DungeonPanel DungeonsPanel { get; private set; }
 
         public TextureService TexturesService { get; private set; }
 
@@ -76,6 +78,7 @@ namespace RaidClears
 
             SettingsWindow = SettingPanelFactory.Create();
             RaidsPanel = RaidPanelFactory.Create();
+            DungeonsPanel = DungeonPanelFactory.Create();
 
             Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
            
@@ -88,7 +91,7 @@ namespace RaidClears
         protected override void Unload()
         {
             Gw2ApiManager.SubtokenUpdated -= Gw2ApiManager_SubtokenUpdated;
-
+            DungeonsPanel?.Dispose();
             RaidsPanel?.Dispose();
             SettingsWindow?.Dispose();
             TexturesService?.Dispose();
@@ -102,6 +105,7 @@ namespace RaidClears
         {
             ApiPollingService?.Update(gameTime);
             RaidsPanel?.Update();
+            DungeonsPanel?.Update();
 
         }
 

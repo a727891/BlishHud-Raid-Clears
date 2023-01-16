@@ -373,6 +373,12 @@
   <data name="Setting_APIPoll_Tooltip" xml:space="preserve">
     <value>How often should the GW2 API be checked for updated information</value>
   </data>
+  <data name="Setting_Dun_ColFreqText_Label" xml:space="preserve">
+    <value>Frequenter text color</value>
+  </data>
+  <data name="Setting_Dun_ColFreqText_Tooltip" xml:space="preserve">
+    <value>Hex color code (#rrggbb) for Paths that count for dungeon frequenter achievement</value>
+  </data>
   <data name="Setting_Raid_ColBG_Label" xml:space="preserve">
     <value>Overlay background color</value>
   </data>

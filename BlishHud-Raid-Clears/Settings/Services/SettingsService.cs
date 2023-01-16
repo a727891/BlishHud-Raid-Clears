@@ -5,6 +5,7 @@ using RaidClears.Localization;
 using Microsoft.Xna.Framework.Input;
 using Settings.Enums;
 using Microsoft.Xna.Framework;
+using RaidClears.Features.Dungeons;
 
 namespace RaidClears.Settings
 {
@@ -43,6 +44,38 @@ namespace RaidClears.Settings
         public SettingEntry<string> RaidPanelColorCotm { get; }
         public SettingEntry<string> RaidPanelColorEmbolden { get; }
         public SettingEntry<string> RaidPanelColorBG { get; }
+        #endregion
+
+        #region Dungeon Setting Variables
+        public SettingEntry<Point> DungeonPanelLocationPoint { get; }
+        public SettingEntry<bool> DungeonPanelDragWithMouseIsEnabled { get; }
+        public SettingEntry<bool> DungeonPanelAllowTooltips { get; }
+        public SettingEntry<bool> DungeonCornerIconEnabled { get; }
+        public SettingEntry<bool> DungeonPanelIsVisible { get; }
+        public SettingEntry<KeyBinding> DungeonPanelIsVisibleKeyBind { get; }
+        public SettingEntry<ContentService.FontSize> DungeonPanelFontSize { get; }
+        public SettingEntry<LabelDisplay> DungeonPanelLabelDisplay { get; }
+        public SettingEntry<Layout> DungeonPanelLayout { get; }
+        public SettingEntry<float> DungeonPanelLabelOpacity { get; }
+        public SettingEntry<float> DungeonPanelGridOpacity { get; }
+        public SettingEntry<float> DungeonPanelBgOpacity { get; }
+        public SettingEntry<bool> dungeonHighlightFrequenter { get; }
+        public SettingEntry<bool> D1IsVisible { get; }
+        public SettingEntry<bool> D2IsVisible { get; }
+        public SettingEntry<bool> D3IsVisible { get; }
+        public SettingEntry<bool> D4IsVisible { get; }
+        public SettingEntry<bool> D5IsVisible { get; }
+        public SettingEntry<bool> D6IsVisible { get; }
+        public SettingEntry<bool> D7IsVisible { get; }
+        public SettingEntry<bool> D8IsVisible { get; }
+        public SettingEntry<bool> DFIsVisible { get; }
+        
+
+        public SettingEntry<string> DungeonPanelColorNotCleared { get; }
+        public SettingEntry<string> DungeonPanelColorCleared { get; }
+        public SettingEntry<string> DungeonPanelColorText { get; }
+        public SettingEntry<string> DungeonPanelColorFreq { get; }
+        public SettingEntry<string> DungeonPanelColorBG { get; }
         #endregion
 
         public SettingService(SettingCollection settings)
@@ -208,6 +241,150 @@ namespace RaidClears.Settings
             #endregion
 
             #region DungeonPanel
+            #region DUNGEONS
+
+            DungeonPanelLocationPoint = internalSettingSubCollection.DefineSetting("RCDungeonLoc", new Point(600, 250));
+            DungeonPanelDragWithMouseIsEnabled = settings.DefineSetting("RCDunDrag",
+               true,
+               () => Strings.Setting_Raid_Drag_Label,
+               () => Strings.Setting_Raid_Drag_Tooltip);
+
+            DungeonPanelAllowTooltips = settings.DefineSetting("RCDuntooltips",
+                true,
+               () => Strings.Setting_Raid_Tooltips_Label,
+               () => Strings.Setting_Raid_Tooltips_Tooltip);
+
+            DungeonCornerIconEnabled = settings.DefineSetting("RCDungeonCornerIcon",
+                true,
+                () => "Display top left toggle button",
+                () => "Add a button next to Blish on the top left of screen that hides or shows the dungeon window.");
+
+            DungeonPanelIsVisible = settings.DefineSetting("RCDungeonActive",
+                true,
+                () => "Display on screen",
+                () => "Enable the Raid Clears grid.");
+
+            DungeonPanelIsVisibleKeyBind = settings.DefineSetting("RCDungeonkeybind", new KeyBinding(Keys.None),
+                () => "Display on screen keybind",
+                () => "Reveal or hide the display from key press.");
+            DungeonPanelIsVisibleKeyBind.Value.Enabled = true;
+
+
+            DungeonPanelFontSize = settings.DefineSetting("RCDungeonFontSize",
+                ContentService.FontSize.Size24,
+                () => "Font Size",
+                () => "Change the size of the grid (Weird sizes from available fonts)");
+
+
+            DungeonPanelLabelDisplay = settings.DefineSetting("RCDungeonLabelDisplay",
+                LabelDisplay.Abbreviation,
+                () => "Dungeon Label",
+                () => "Display wing label as wing number or abbreviated name");
+            DungeonPanelLabelDisplay.SetExcluded(new LabelDisplay[]
+            {
+                LabelDisplay.WingNumber
+            });
+
+            DungeonPanelLayout = settings.DefineSetting("RCDungeonOrientation",
+                Layout.Vertical,
+                () => "Orientation",
+                () => "Display the dungeons in a vertial column or horizontal row");
+
+            DungeonPanelLabelOpacity = settings.DefineSetting("RCDungeonOpacity",
+                1f,
+                () => "Dungeon Label Opacity",
+                () => "Dungeon label transparency, Hidden <--> Full Visible");
+            DungeonPanelLabelOpacity.SetRange(0.1f, 1f);
+
+            DungeonPanelGridOpacity = settings.DefineSetting("RCPathOpacity",
+                0.8f,
+                () => "Path Opacity",
+                () => "Path label transparency, Hidden <--> Full Visible");
+            DungeonPanelGridOpacity.SetRange(0.1f, 1f);
+            DungeonPanelBgOpacity = settings.DefineSetting("RCDunBGOpacity",
+                0.0f,
+                () => "Background Opacity",
+                () => "Hidden <--> Full Visible");
+            DungeonPanelBgOpacity.SetRange(0.0f, 1f);
+
+            dungeonHighlightFrequenter = settings.DefineSetting("RCDunFreqHighlight",
+                true,
+                () => "Hightlight Frequenter Paths",
+                () => "");
+
+            D1IsVisible = settings.DefineSetting("RCd1",
+                true,
+                () => "Ascalonian Catacombs",
+                () => "Enable Ascalonian Catacombs on the dungeon display"
+                );
+            D2IsVisible = settings.DefineSetting("RCd2",
+                true,
+                () => "Caudecus Manor",
+                () => "Enable Caudecus Manor on the dungeon display"
+                );
+            D3IsVisible = settings.DefineSetting("RCd3",
+                true,
+                () => "Twilight Arbor",
+                () => "Enable Twilight Arbor on the dungeon display"
+                );
+            D4IsVisible = settings.DefineSetting("RCd4",
+                true,
+                () => "Sorrows Embrace",
+                () => "Enable Sorrows Embrace on the dungeon display"
+                );
+            D5IsVisible = settings.DefineSetting("RCd5",
+                true,
+                () => "Citadel of Flame",
+                () => "Enable Citadel of Flame on the dungeon display"
+                );
+            D6IsVisible = settings.DefineSetting("RCd6",
+                true,
+                () => "Honor of the Waves",
+                () => "Enable Honor of the Waves on the dungeon display"
+                );
+            D7IsVisible = settings.DefineSetting("RCd7",
+                true,
+                () => "Crucible of Eternity",
+                () => "Enable Crucible of Eternity on the dungeon display"
+                );
+            D8IsVisible = settings.DefineSetting("RCd8",
+                true,
+                () => "Ruined City of Arah",
+                () => "Enable Ruined City of Arah on the dungeon display"
+                );
+            DFIsVisible = settings.DefineSetting("RCdf",
+                true,
+                () => "Dungeon Frequenter Summary",
+                () => "Enable a dungeon frequenter achievement summary"
+                );
+
+            #endregion
+            #region Dungeon Colors
+            DungeonPanelColorNotCleared = settings.DefineSetting("DunColNotCleared",
+               "#781414",
+               () => Strings.Setting_Raid_ColNotClear_Label,
+               () => Strings.Setting_Raid_ColNotClear_Tooltip);
+
+            DungeonPanelColorCleared = settings.DefineSetting("DunColCleared",
+                "#147814",
+                () => Strings.Setting_Raid_ColClear_Label,
+                () => Strings.Setting_Raid_ColClear_Tooltip);
+
+            DungeonPanelColorText = settings.DefineSetting("DunColText",
+                "#ffffff",
+                () => Strings.Setting_Raid_ColText_Label,
+                () => Strings.Setting_Raid_ColText_Tooltip);
+
+            DungeonPanelColorFreq = settings.DefineSetting("DunColFreq",
+                "#f3f527",
+                () => Strings.Setting_Dun_ColFreqText_Label,
+                () => Strings.Setting_Dun_ColFreqText_Tooltip);
+
+            DungeonPanelColorBG = settings.DefineSetting("DunColBG",
+                "#000000",
+                () => Strings.Setting_Raid_ColBG_Label,
+                () => Strings.Setting_Raid_ColBG_Tooltip);
+            #endregion
 
             #endregion
 

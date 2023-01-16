@@ -709,6 +709,24 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Frequenter text color.
+        /// </summary>
+        internal static string Setting_Dun_ColFreqText_Label {
+            get {
+                return ResourceManager.GetString("Setting_Dun_ColFreqText_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hex color code (#rrggbb) for Paths that count for dungeon frequenter achievement.
+        /// </summary>
+        internal static string Setting_Dun_ColFreqText_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Dun_ColFreqText_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Overlay background color.
         /// </summary>
         internal static string Setting_Raid_ColBG_Label {

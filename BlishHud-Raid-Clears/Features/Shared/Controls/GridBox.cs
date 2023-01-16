@@ -2,8 +2,7 @@
 using Blish_HUD.Controls;
 using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
-using RaidClears.Features.Raids.Models;
-using RaidClears.Utils;
+using RaidClears.Features.Shared.Models;
 using Settings.Enums;
 using System;
 

@@ -93,30 +93,30 @@ namespace RaidClears.Settings.Controls
             #endregion
 
             #region DungeonPanelSettings
-            /*MenuService dungeonsMenu = new MenuService();
+            MenuService dungeonsMenu = new MenuService();
             dungeonsMenu.RegisterSettingMenu(
                 new MenuItem(Strings.SettingsPanel_Dun_Heading_General),
-                (m) => new ModuleSettingsView(),
+                (m) => new DungeonGeneralView(),
                 int.MinValue
             );
             dungeonsMenu.RegisterSettingMenu(
                 new MenuItem(Strings.SettingsPanel_Dun_Heading_Layout),
-                (m) => new ModuleSettingsView(),
+                (m) => new DungeonVisualsView(),
                 int.MinValue
             );
             dungeonsMenu.RegisterSettingMenu(
                 new MenuItem(Strings.SettingsPanel_Dun_Heading_PathSelection),
-                (m) => new ModuleSettingsView(),
+                (m) => new DungeonPathSelectionView(),
                 int.MinValue
             );
-           
+
             Tabs.Add(
                 new Tab(
                     Module.ModuleInstance.TexturesService.SettingTabDungeon,
                     //() => new Views.DungeonSettingsView(Module.ModuleInstance.SettingsService),
                     () => new Views.SettingsMenuView(dungeonsMenu),
                     Strings.SettingsPanel_Tab_Dunegons
-                ));*/
+                ));
             #endregion
 
             #region GeneralModuleSettings

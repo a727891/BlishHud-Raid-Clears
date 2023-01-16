@@ -1,7 +1,6 @@
 ﻿
 using Blish_HUD.Settings;
-using RaidClears.Features.Raids.Models;
-
+using RaidClears.Features.Shared.Models;
 
 namespace RaidClears.Utils
 {

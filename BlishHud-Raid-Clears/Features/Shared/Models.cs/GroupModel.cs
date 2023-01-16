@@ -1,9 +1,7 @@
 ﻿
 using RaidClears.Features.Shared.Controls;
-using SharpDX.Direct3D9;
-using System.Net.NetworkInformation;
 
-namespace RaidClears.Features.Raids.Models
+namespace RaidClears.Features.Shared.Models
 {
     public class GroupModel
     {

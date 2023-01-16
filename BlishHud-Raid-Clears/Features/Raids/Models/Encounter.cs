@@ -1,6 +1,4 @@
-﻿using Blish_HUD.Controls;
-using Microsoft.Xna.Framework;
-using RaidClears.Features.Shared.Controls;
+﻿using RaidClears.Features.Shared.Models;
 
 namespace RaidClears.Features.Raids.Models
 {

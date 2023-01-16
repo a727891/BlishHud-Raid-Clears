@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using RaidClears.Features.Shared.Controls;
 
-namespace RaidClears.Features.Raids.Models
+namespace RaidClears.Features.Shared.Models
 {
     public class BoxModel
     {
