@@ -27,6 +27,7 @@ namespace RaidClears.Fearures.Shared.Services
             SettingTabRaid = contentsManager.GetTexture(@"controls/tab_icons/raid.png");
             SettingTabDungeon = contentsManager.GetTexture(@"controls/tab_icons/dungeon.png");
             SettingTabGeneral = contentsManager.GetTexture(@"controls/tab_icons/cog.png");
+            SettingTabStrikes = contentsManager.GetTexture(@"controls/tab_icons/strikes.png");
         }
 
         public void Dispose()
@@ -40,6 +41,7 @@ namespace RaidClears.Fearures.Shared.Services
             SettingTabRaid?.Dispose();
             SettingTabDungeon?.Dispose();
             SettingTabGeneral?.Dispose();
+            SettingTabStrikes?.Dispose();
 
         }
 
@@ -48,7 +50,7 @@ namespace RaidClears.Fearures.Shared.Services
         public Texture2D SettingTabRaid { get; }
         public Texture2D SettingTabDungeon { get; }
         public Texture2D SettingTabGeneral { get; }
-
+        public Texture2D SettingTabStrikes { get; }
         public Texture2D CornerIconTexture { get; }
         public Texture2D CornerIconHoverTexture { get; }
 

@@ -370,6 +370,9 @@
   <data name="SettingsPanel_Tab_Raids" xml:space="preserve">
     <value>Raids</value>
   </data>
+  <data name="SettingsPanel_Tab_Strikes" xml:space="preserve">
+    <value>Strikes</value>
+  </data>
   <data name="Settings_Keybind_Label" xml:space="preserve">
     <value>Settings window keybind</value>
   </data>
@@ -576,6 +579,105 @@
   </data>
   <data name="Setting_Raid_W7_Tooltip" xml:space="preserve">
     <value>Enable The Key of Ahdashim on the raid overlay</value>
+  </data>
+  <data name="Setting_Strike_AppendToRaid_Label" xml:space="preserve">
+    <value>Add Strikes to Raid overlay</value>
+  </data>
+  <data name="Setting_Strike_AppendToRaid_Tooltip" xml:space="preserve">
+    <value>append the stikes to the end of the raids overlay</value>
+  </data>
+  <data name="Setting_Strike_ColBG_Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_ColBG_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_ColClear_Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_ColClear_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_ColNotClear_Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_ColNotClear_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_ColText_Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_ColText_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_CopyRaids" xml:space="preserve">
+    <value>Copy Settings From Raids</value>
+  </data>
+  <data name="Setting_Strike_Drag_Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_Drag_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_Font_Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_Font_Tooptip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_GridOpacity_Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_GridOpactiy_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_Icon_Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_Icon_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_Keybind_Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_Keybind_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_LabelDisplay_Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_LabelDisplay_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_LabelOpacity_Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_LabelOpacity_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_Layout_Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_Layout_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_PanelOpacity_Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_PanelOpacity_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_Tooltips_Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_Tooltips_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_Visible_Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Strike_Visible_Tooltip" xml:space="preserve">
+    <value />
   </data>
   <data name="SharedKeybind" xml:space="preserve">
     <value>Overlays can use the same keybind</value>

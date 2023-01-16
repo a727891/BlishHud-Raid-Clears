@@ -53,6 +53,46 @@ namespace RaidClears.Features.Raids.Models
 
             return wings;
         }
+        public static Wing[] CreateStrikes(RaidPanel panel)
+        {
+            SettingService settings = Module.ModuleInstance.SettingsService;
+            Wing[] wings = GetWingMetaData();
+            foreach (var wing in wings)
+            {
+                GridGroup group = new GridGroup(
+                    panel,
+                    settings.RaidPanelLayout
+                );
+                group.VisiblityChanged(GetWingSelectionByIndex(wing.index, settings));
+                wing.SetGridGroupReference(group);
+
+
+                GridBox labelBox = new GridBox(
+                    group,
+                    wing.shortName, wing.name,
+                    settings.RaidPanelLabelOpacity, settings.RaidPanelFontSize
+                );
+                wing.SetGroupLabelReference(labelBox);
+                labelBox.LayoutChange(settings.RaidPanelLayout);
+                labelBox.LabelDisplayChange(settings.RaidPanelLabelDisplay, (wing.index + 1).ToString(), wing.shortName);
+
+                foreach (var encounter in wing.boxes)
+                {
+                    GridBox encounterBox = new GridBox(
+                        group,
+                        encounter.short_name, encounter.name,
+                        settings.RaidPanelGridOpacity, settings.RaidPanelFontSize
+                    );
+                    encounter.SetGridBoxReference(encounterBox);
+                    encounter.WatchColorSettings(settings.RaidPanelColorCleared, settings.RaidPanelColorNotCleared);
+
+                }
+
+            }
+
+            return wings;
+        }
+
         public static void ApplyConditionalTextColoring(GridBox box,int index, WeeklyWings weekly, SettingService settings)
         {
             if (index == weekly.Emboldened)

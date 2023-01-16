@@ -1,37 +1,37 @@
-﻿using Blish_HUD.Settings;
+﻿
+using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
 using RaidClears.Settings;
 using RaidClears.Localization;
 using RaidClears.Utils;
-using RaidClears.Features.Shared.Controls;
 using RaidClears.Features.Shared.Services;
-using RaidClears.Raids.Services;
 using RaidClears.Features.Raids.Models;
-using System.Threading.Tasks;
 using RaidClears.Fearures.Raids.Services;
+using RaidClears.Features.Shared.Controls;
+using System.Threading.Tasks;
 
-namespace RaidClears.Features.Raids
+namespace RaidClears.Features.Strikes
 {
 
-    public static class RaidPanelFactory
+    public static class StrikesPanelFactory
     {
-        public static RaidPanel Create()
+        public static StrikesPanel Create()
         {
             SettingService _settings = Module.ModuleInstance.SettingsService;
-            RaidPanel panel = new RaidPanel(
-                _settings.RaidPanelLocationPoint,
-                _settings.RaidPanelIsVisible,
-                _settings.RaidPanelDragWithMouseIsEnabled,
-                _settings.RaidPanelAllowTooltips
+            StrikesPanel panel = new StrikesPanel(
+                _settings.StrikePanelLocationPoint,
+                _settings.StrikePanelIsVisible,
+                _settings.StrikePanelDragWithMouseIsEnabled,
+                _settings.StrikePanelAllowTooltips
             );
 
-            panel.LayoutChange(_settings.RaidPanelLayout);
-            panel.BackgroundColorChange(_settings.RaidPanelBgOpacity, _settings.RaidPanelColorBG);
+            panel.LayoutChange(_settings.StrikePanelLayout);
+            panel.BackgroundColorChange(_settings.StrikePanelBgOpacity, _settings.StrikePanelColorBG);
 
             panel.RegisterCornerIconService(
                 new CornerIconService(
-                    _settings.RaidCornerIconEnabled,
-                    _settings.RaidPanelIsVisible, 
+                    _settings.StrikeCornerIconEnabled,
+                    _settings.StrikePanelIsVisible, 
                     Strings.CornerIcon_Raid, 
                     Module.ModuleInstance.TexturesService.CornerIconTexture,
                     Module.ModuleInstance.TexturesService.CornerIconHoverTexture
@@ -39,8 +39,8 @@ namespace RaidClears.Features.Raids
             );
             panel.RegisterKeybindService(
                 new KeybindHandlerService(
-                    _settings.RaidPanelIsVisibleKeyBind,
-                    _settings.RaidPanelIsVisible
+                    _settings.StrikePanelIsVisibleKeyBind,
+                    _settings.StrikePanelIsVisible
                 )
             );
 
@@ -49,12 +49,12 @@ namespace RaidClears.Features.Raids
         
     }
 
-    public class RaidPanel : GridPanel
+    public class StrikesPanel : GridPanel
     {
-        private readonly Wing[] Wings;
-        private readonly GetCurrentClearsService CurrentClearsService;
+        private readonly Strike[] Strikes;
+        //private readonly GetCurrentClearsService CurrentClearsService;
         
-        public RaidPanel(
+        public StrikesPanel(
             SettingEntry<Point> locationSetting, 
             SettingEntry<bool> visibleSetting,
             SettingEntry<bool> allowMouseDragSetting, 
@@ -62,17 +62,18 @@ namespace RaidClears.Features.Raids
         ) : base(locationSetting, visibleSetting, allowMouseDragSetting, allowTooltipSetting)
         {
 
-            CurrentClearsService = new GetCurrentClearsService();
+            //CurrentClearsService = new GetCurrentClearsService();
             //BackgroundColor = Color.Orange;
-            WeeklyWings weeklyWings = WingRotationService.GetWeeklyWings();
-           
-            Wings =  WingFactory.Create(this, weeklyWings);
+            //WeeklyWings weeklyWings = WingRotationService.GetWeeklyWings();
+
+            //Wings =  WingFactory.Create(this, weeklyWings);
+            Strikes = StrikeFactory.Create(this);
 
             Module.ModuleInstance.ApiPollingService.ApiPollingTrigger += (s, e) =>
             {
                 Task.Run(async () =>
                 {
-                    var weeklyClears = await CurrentClearsService.GetClearsFromApi();
+                    /*var weeklyClears = await CurrentClearsService.GetClearsFromApi();
 
                     foreach (var wing in Wings)
                     {
@@ -80,20 +81,10 @@ namespace RaidClears.Features.Raids
                         {
                             encounter.SetCleared(weeklyClears.Contains(encounter.id));
                         }
-                    }
+                    }*/
                     Invalidate();
                 });
             };
-        }
-
-        public void AddStrikes()
-        {
-
-        }
-
-        public void RemoveStrikes()
-        {
-
         }
 
     }

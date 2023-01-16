@@ -122,6 +122,32 @@ namespace RaidClears.Settings.Controls
                 ));
             #endregion
 
+            #region StrikesPanelSettings
+            MenuService strikesMenu = new MenuService();
+            strikesMenu.RegisterSettingMenu(
+                new MenuItem(Strings.SettingsPanel_Raids_Heading_General),
+                (m) => new StrikesGeneralView(),
+                int.MinValue
+            );
+            strikesMenu.RegisterSettingMenu(
+                new MenuItem(Strings.SettingsPanel_Raids_Heading_Layout),
+                (m) => new StrikesVisualsView(),
+                int.MinValue
+            );
+            /*strikesMenu.RegisterSettingMenu(
+                new MenuItem(Strings.SettingsPanel_Raids_Heading_WingSelection),
+                (m) => new RaidWingSelectionView(),
+                int.MinValue
+            );*/
+
+            Tabs.Add(
+               new Tab(
+                   Module.ModuleInstance.TexturesService.SettingTabStrikes,
+                   //() => new Views.RaidSettingsView(Module.ModuleInstance.SettingsService),
+                   () => new Views.SettingsMenuView(strikesMenu),
+                   Strings.SettingsPanel_Tab_Strikes
+               ));
+            #endregion
             #region GeneralModuleSettings
             Tabs.Add(
                 new Tab(
@@ -144,6 +170,10 @@ namespace RaidClears.Settings.Controls
                 {
                     raidsMenu.RefreshMenuView();
                 }
+                else if (e.NewValue.Name == Strings.SettingsPanel_Tab_Strikes)
+                {
+                    strikesMenu.RefreshMenuView();
+                }
                 else if (e.NewValue.Name == Strings.SettingsPanel_Tab_General)
                 {
 
@@ -151,7 +181,7 @@ namespace RaidClears.Settings.Controls
             };
 
             
-            //Show();
+            Show();
 
         }
 

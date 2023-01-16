@@ -1294,6 +1294,303 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Strikes to Raid overlay.
+        /// </summary>
+        internal static string Setting_Strike_AppendToRaid_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_AppendToRaid_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to append the stikes to the end of the raids overlay.
+        /// </summary>
+        internal static string Setting_Strike_AppendToRaid_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Strike_AppendToRaid_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_ColBG_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_ColBG_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_ColBG_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Strike_ColBG_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_ColClear_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_ColClear_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_ColClear_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Strike_ColClear_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_ColNotClear_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_ColNotClear_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_ColNotClear_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Strike_ColNotClear_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_ColText_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_ColText_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_ColText_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Strike_ColText_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy Settings From Raids.
+        /// </summary>
+        internal static string Setting_Strike_CopyRaids {
+            get {
+                return ResourceManager.GetString("Setting_Strike_CopyRaids", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_Drag_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_Drag_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_Drag_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Strike_Drag_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_Font_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_Font_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_Font_Tooptip {
+            get {
+                return ResourceManager.GetString("Setting_Strike_Font_Tooptip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_GridOpacity_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_GridOpacity_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_GridOpactiy_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Strike_GridOpactiy_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_Icon_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_Icon_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_Icon_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Strike_Icon_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_Keybind_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_Keybind_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_Keybind_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Strike_Keybind_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_LabelDisplay_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_LabelDisplay_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_LabelDisplay_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Strike_LabelDisplay_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_LabelOpacity_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_LabelOpacity_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_LabelOpacity_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Strike_LabelOpacity_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_Layout_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_Layout_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_Layout_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Strike_Layout_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_PanelOpacity_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_PanelOpacity_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_PanelOpacity_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Strike_PanelOpacity_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_Tooltips_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_Tooltips_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_Tooltips_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Strike_Tooltips_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_Visible_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_Visible_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Strike_Visible_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Strike_Visible_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings window keybind.
         /// </summary>
         internal static string Settings_Keybind_Label {
@@ -1425,6 +1722,15 @@ namespace RaidClears.Localization {
         internal static string SettingsPanel_Tab_Raids {
             get {
                 return ResourceManager.GetString("SettingsPanel_Tab_Raids", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Strikes.
+        /// </summary>
+        internal static string SettingsPanel_Tab_Strikes {
+            get {
+                return ResourceManager.GetString("SettingsPanel_Tab_Strikes", resourceCulture);
             }
         }
         

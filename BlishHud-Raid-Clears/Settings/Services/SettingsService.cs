@@ -78,6 +78,32 @@ namespace RaidClears.Settings
         public SettingEntry<string> DungeonPanelColorBG { get; }
         #endregion
 
+        #region Strike Setting Variables
+        public SettingEntry<bool> StrikeAppendToRaids { get; }
+        public SettingEntry<Point> StrikePanelLocationPoint { get; }
+        public SettingEntry<bool> StrikePanelDragWithMouseIsEnabled { get; }
+        public SettingEntry<bool> StrikePanelAllowTooltips { get; }
+        public SettingEntry<bool> StrikeCornerIconEnabled { get; }
+        public SettingEntry<bool> StrikePanelIsVisible { get; }
+        public SettingEntry<KeyBinding> StrikePanelIsVisibleKeyBind { get; }
+        public SettingEntry<ContentService.FontSize> StrikePanelFontSize { get; }
+        public SettingEntry<LabelDisplay> StrikePanelLabelDisplay { get; }
+        public SettingEntry<Layout> StrikePanelLayout { get; }
+
+        public SettingEntry<float> StrikePanelLabelOpacity { get; }
+        public SettingEntry<float> StrikePanelGridOpacity { get; }
+        public SettingEntry<float> StrikePanelBgOpacity { get; }
+
+        public SettingEntry<bool> StrikePanelHighlightEmbolden { get; }
+        public SettingEntry<bool> StrikePanelHighlightCotM { get; }
+
+
+        public SettingEntry<string> StrikePanelColorNotCleared { get; }
+        public SettingEntry<string> StrikePanelColorCleared { get; }
+        public SettingEntry<string> StrikePanelColorText { get; }
+        public SettingEntry<string> StrikePanelColorBG { get; }
+        #endregion
+
         public SettingService(SettingCollection settings)
         {
 
@@ -393,9 +419,128 @@ namespace RaidClears.Settings
 
             #endregion
 
+            #region StrikePanel
+            StrikeAppendToRaids = settings.DefineSetting("RCStkAppendToRaid",
+                false,
+                () => Strings.Setting_Strike_AppendToRaid_Label,
+                () => Strings.Setting_Strike_AppendToRaid_Tooltip);
+            #region Strike_General
 
+            StrikePanelLocationPoint = internalSettingSubCollection.DefineSetting("RCStrikeLoc", new Point(250, 150));
+
+            StrikePanelDragWithMouseIsEnabled = settings.DefineSetting("RCStkDrag",
+               true,
+               () => Strings.Setting_Strike_Drag_Label,
+               () => Strings.Setting_Strike_Drag_Tooltip);
+
+            StrikePanelAllowTooltips = settings.DefineSetting("RCStktooltips",
+                true,
+               () => Strings.Setting_Strike_Tooltips_Label,
+               () => Strings.Setting_Strike_Tooltips_Tooltip);
+
+            #endregion
+
+            #region Strike Layout
+            StrikeCornerIconEnabled = settings.DefineSetting("RCStkCornerIcon",
+               true,
+               () => Strings.Setting_Strike_Icon_Label,
+               () => Strings.Setting_Strike_Icon_Tooltip);
+
+            StrikePanelIsVisible = settings.DefineSetting("RCStkActive",
+                true,
+                () => Strings.Setting_Strike_Visible_Label,
+                () => Strings.Setting_Strike_Visible_Tooltip);
+
+            StrikePanelIsVisibleKeyBind = settings.DefineSetting("RCStkkeybind", new KeyBinding(Keys.None),
+                () => Strings.Setting_Strike_Keybind_Label,
+                () => Strings.Setting_Strike_Keybind_Tooltip);
+            StrikePanelIsVisibleKeyBind.Value.Enabled = true;
+
+
+            StrikePanelFontSize = settings.DefineSetting("RCStkFontSize",
+                ContentService.FontSize.Size18,
+                () => Strings.Setting_Strike_Font_Label,
+                () => Strings.Setting_Strike_Font_Tooptip);
+
+            StrikePanelLabelDisplay = settings.DefineSetting("RCStkLabelDisplay",
+                LabelDisplay.Abbreviation,
+                () => Strings.Setting_Strike_LabelDisplay_Label,
+                () => Strings.Setting_Strike_LabelDisplay_Tooltip);
+
+            StrikePanelLayout = settings.DefineSetting("RCStkOrientation",
+                Layout.Vertical,
+                () => Strings.Setting_Strike_Layout_Label,
+                () => Strings.Setting_Strike_Layout_Tooltip);
+
+            StrikePanelLabelOpacity = settings.DefineSetting("RCStkLabelOpacity",
+                1f,
+                () => Strings.Setting_Strike_LabelOpacity_Label,
+                () => Strings.Setting_Strike_LabelOpacity_Tooltip);
+            StrikePanelLabelOpacity.SetRange(0.1f, 1f);
+
+            StrikePanelGridOpacity = settings.DefineSetting("RCStkOpacity",
+                0.8f,
+                () => Strings.Setting_Strike_GridOpacity_Label,
+                () => Strings.Setting_Strike_GridOpactiy_Tooltip);
+            StrikePanelGridOpacity.SetRange(0.1f, 1f);
+
+            StrikePanelBgOpacity = settings.DefineSetting("RCStrikeBgOpacity",
+                0.0f,
+                () => Strings.Setting_Strike_PanelOpacity_Label,
+                () => Strings.Setting_Strike_PanelOpacity_Tooltip);
+            StrikePanelBgOpacity.SetRange(0.0f, 1f);
+
+            #endregion
+
+            #region Strike WingSelection
+
+
+            #endregion
+
+            #region Strike Colors
+            StrikePanelColorNotCleared = settings.DefineSetting("StkcolNotCleared",
+               "#781414",
+               () => Strings.Setting_Strike_ColNotClear_Label,
+               () => Strings.Setting_Strike_ColNotClear_Tooltip);
+
+            StrikePanelColorCleared = settings.DefineSetting("StkColCleared",
+                "#147814",
+                () => Strings.Setting_Strike_ColClear_Label,
+                () => Strings.Setting_Strike_ColClear_Tooltip);
+
+            StrikePanelColorText = settings.DefineSetting("StkColText",
+                "#ffffff",
+                () => Strings.Setting_Strike_ColText_Label,
+                () => Strings.Setting_Strike_ColText_Tooltip);
+
+            StrikePanelColorBG = settings.DefineSetting("colStrikeBG",
+                "#000000",
+                () => Strings.Setting_Strike_ColBG_Label,
+                () => Strings.Setting_Strike_ColBG_Tooltip);
+            #endregion
+            #endregion
 
         }
 
+
+        public void CopyRaidVisualsToStrikes()
+        {
+            //StrikePanelLocationPoint.Value = RaidPanelLocationPoint.Value;
+            //StrikePanelDragWithMouseIsEnabled.Value = RaidPanelDragWithMouseIsEnabled.Value;
+            //StrikePanelAllowTooltips.Value = RaidPanelAllowTooltips.Value;
+            //StrikeCornerIconEnabled.Value = RaidCornerIconEnabled.Value;
+            //StrikePanelIsVisible.Value = RaidPanelIsVisible.Value;
+            //StrikePanelIsVisibleKeyBind.Value = RaidPanelIsVisibleKeyBind.Value;
+            StrikePanelFontSize.Value = RaidPanelFontSize.Value;
+            StrikePanelLabelDisplay.Value = RaidPanelLabelDisplay.Value;
+            StrikePanelLayout.Value = RaidPanelLayout.Value;
+            StrikePanelLabelOpacity.Value = RaidPanelLabelOpacity.Value;
+            StrikePanelGridOpacity.Value = RaidPanelGridOpacity.Value;
+            StrikePanelBgOpacity.Value = RaidPanelBgOpacity.Value;
+            StrikePanelColorNotCleared.Value = RaidPanelColorNotCleared.Value;
+            StrikePanelColorCleared.Value = RaidPanelColorCleared.Value;
+            StrikePanelColorText.Value = RaidPanelColorText.Value;
+            StrikePanelColorBG.Value = RaidPanelColorBG.Value;
+        }
     }
 }

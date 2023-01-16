@@ -1,16 +1,12 @@
 ﻿using Blish_HUD;
 using Blish_HUD.Controls;
 using Blish_HUD.Input;
-
-using RaidClears.Settings;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Blish_HUD.Settings;
 using RaidClears.Features.Shared.Services;
-using System.Drawing.Printing;
-using System.Security.Cryptography;
 
-namespace RaidClears.Raids.Controls
+namespace RaidClears.Features.Shared.Controls
 {
 
     public class GridPanel : FlowPanel

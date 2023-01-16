@@ -1,7 +1,6 @@
 ﻿using Blish_HUD.Controls;
 using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
-using RaidClears.Raids.Controls;
 using RaidClears.Settings;
 using RaidClears.Localization;
 using RaidClears.Utils;
@@ -14,6 +13,7 @@ using RaidClears.Fearures.Raids.Services;
 using RaidClears.Features.Dungeons.Models;
 using RaidClears.Fearures.Dungeons.Services;
 using System.Linq;
+using RaidClears.Features.Shared.Controls;
 
 namespace RaidClears.Features.Dungeons
 {
