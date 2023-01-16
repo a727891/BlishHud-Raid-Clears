@@ -5,7 +5,6 @@ using RaidClears.Localization;
 using Microsoft.Xna.Framework.Input;
 using Settings.Enums;
 using Microsoft.Xna.Framework;
-using RaidClears.Features.Dungeons;
 
 namespace RaidClears.Settings
 {
@@ -138,8 +137,8 @@ namespace RaidClears.Settings
 
             RaidPanelLabelDisplay = settings.DefineSetting("RCLabelDisplay",
                 LabelDisplay.Abbreviation,
-                () => "Label style",
-                () => "Display wing label as wing number or abbreviated name");
+                () => Strings.Setting_Raid_LabelDisplay_Label,
+                () => Strings.Setting_Raid_LabelDisplay_Tooltip);
 
             RaidPanelLayout = settings.DefineSetting("RCOrientation",
                 Layout.Vertical,
@@ -148,7 +147,7 @@ namespace RaidClears.Settings
 
             RaidPanelLabelOpacity = settings.DefineSetting("RCWingOpacity",
                 1f,
-                () =>Strings.Setting_Raid_LabelOpactiy_Label,
+                () =>Strings.Setting_Raid_LabelOpacity_Label,
                 () => Strings.Setting_Raid_LabelOpacity_Tooltip);
             RaidPanelLabelOpacity.SetRange(0.1f, 1f);
 
@@ -252,40 +251,40 @@ namespace RaidClears.Settings
             DungeonPanelLocationPoint = internalSettingSubCollection.DefineSetting("RCDungeonLoc", new Point(600, 250));
             DungeonPanelDragWithMouseIsEnabled = settings.DefineSetting("RCDunDrag",
                true,
-               () => Strings.Setting_Raid_Drag_Label,
-               () => Strings.Setting_Raid_Drag_Tooltip);
+               () => Strings.Setting_Dun_Drag_Label,
+               () => Strings.Setting_Dun_Drag_Tooltip);
 
             DungeonPanelAllowTooltips = settings.DefineSetting("RCDuntooltips",
                 true,
-               () => Strings.Setting_Raid_Tooltips_Label,
-               () => Strings.Setting_Raid_Tooltips_Tooltip);
+               () => Strings.Setting_Dun_Tooltips_Label,
+               () => Strings.Setting_Dun_Tooltips_Tooltip);
 
             DungeonCornerIconEnabled = settings.DefineSetting("RCDungeonCornerIcon",
                 true,
-                () => "Display top left toggle button",
-                () => "Add a button next to Blish on the top left of screen that hides or shows the dungeon window.");
+                () => Strings.Setting_Dun_Icon_Label,
+                () => Strings.Setting_Dun_Icon_Tooltip);
 
             DungeonPanelIsVisible = settings.DefineSetting("RCDungeonActive",
                 true,
-                () => "Display on screen",
-                () => "Enable the Raid Clears grid.");
+                () => Strings.Setting_Dun_Visible_Label,
+                () => Strings.Setting_Dun_Visible_Tooltip);
 
             DungeonPanelIsVisibleKeyBind = settings.DefineSetting("RCDungeonkeybind", new KeyBinding(Keys.None),
-                () => "Display on screen keybind",
-                () => "Reveal or hide the display from key press.");
+                () => Strings.Setting_Dun_Keybind_Label,
+                () => Strings.Setting_Dun_Keybind_Tooltip);
             DungeonPanelIsVisibleKeyBind.Value.Enabled = true;
 
 
             DungeonPanelFontSize = settings.DefineSetting("RCDungeonFontSize",
                 ContentService.FontSize.Size24,
-                () => "Font Size",
-                () => "Change the size of the grid (Weird sizes from available fonts)");
+                () => Strings.Setting_Raid_Font_Label,
+                () => Strings.Setting_Raid_Font_Tooptip);
 
 
             DungeonPanelLabelDisplay = settings.DefineSetting("RCDungeonLabelDisplay",
                 LabelDisplay.Abbreviation,
-                () => "Dungeon Label",
-                () => "Display wing label as wing number or abbreviated name");
+                () => Strings.Setting_Raid_LabelDisplay_Label,
+                () => Strings.Setting_Raid_LabelDisplay_Tooltip);
             DungeonPanelLabelDisplay.SetExcluded(new LabelDisplay[]
             {
                 LabelDisplay.WingNumber
@@ -293,24 +292,24 @@ namespace RaidClears.Settings
 
             DungeonPanelLayout = settings.DefineSetting("RCDungeonOrientation",
                 Layout.Vertical,
-                () => "Orientation",
-                () => "Display the dungeons in a vertial column or horizontal row");
+                () => Strings.Setting_Raid_Layout_Label,
+                () => "");
 
             DungeonPanelLabelOpacity = settings.DefineSetting("RCDungeonOpacity",
                 1f,
-                () => "Dungeon Label Opacity",
-                () => "Dungeon label transparency, Hidden <--> Full Visible");
+                () => Strings.Setting_Raid_LabelOpacity_Label,
+                () => Strings.Setting_Raid_LabelOpacity_Tooltip);
             DungeonPanelLabelOpacity.SetRange(0.1f, 1f);
 
             DungeonPanelGridOpacity = settings.DefineSetting("RCPathOpacity",
                 0.8f,
-                () => "Path Opacity",
-                () => "Path label transparency, Hidden <--> Full Visible");
+                () => Strings.Setting_Raid_GridOpacity_Label,
+                () => Strings.Setting_Raid_GridOpactiy_Tooltip);
             DungeonPanelGridOpacity.SetRange(0.1f, 1f);
             DungeonPanelBgOpacity = settings.DefineSetting("RCDunBGOpacity",
                 0.0f,
-                () => "Background Opacity",
-                () => "Hidden <--> Full Visible");
+                () => Strings.Setting_Raid_PanelOpacity_Label,
+                () => Strings.Setting_Raid_PanelOpacity_Tooltip);
             DungeonPanelBgOpacity.SetRange(0.0f, 1f);
 
             dungeonHighlightFrequenter = settings.DefineSetting("RCDunFreqHighlight",

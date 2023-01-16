@@ -61,6 +61,15 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Click to show/hide the Dungeons overlay.
+        /// </summary>
+        internal static string CornerIcon_Dungeon {
+            get {
+                return ResourceManager.GetString("CornerIcon_Dungeon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Click to show/hide the Raids overlay.
         /// </summary>
         internal static string CornerIcon_Raid {
@@ -727,6 +736,96 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unlock Dungeon overlay position.
+        /// </summary>
+        internal static string Setting_Dun_Drag_Label {
+            get {
+                return ResourceManager.GetString("Setting_Dun_Drag_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click and drag to reposition the overlay window.
+        /// </summary>
+        internal static string Setting_Dun_Drag_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Dun_Drag_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable dungeon toolbar button.
+        /// </summary>
+        internal static string Setting_Dun_Icon_Label {
+            get {
+                return ResourceManager.GetString("Setting_Dun_Icon_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add a button next to Blish on the top left of screen that Shows/Hides the dungeon overlay.
+        /// </summary>
+        internal static string Setting_Dun_Icon_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Dun_Icon_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show/Hide keybind.
+        /// </summary>
+        internal static string Setting_Dun_Keybind_Label {
+            get {
+                return ResourceManager.GetString("Setting_Dun_Keybind_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Dun_Keybind_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Dun_Keybind_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable mouse hover tooltips on overlay.
+        /// </summary>
+        internal static string Setting_Dun_Tooltips_Label {
+            get {
+                return ResourceManager.GetString("Setting_Dun_Tooltips_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hovering the mouse over an path will display the full name.
+        /// </summary>
+        internal static string Setting_Dun_Tooltips_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Dun_Tooltips_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable dungeons overlay.
+        /// </summary>
+        internal static string Setting_Dun_Visible_Label {
+            get {
+                return ResourceManager.GetString("Setting_Dun_Visible_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show the dungeons overlay on screen.
+        /// </summary>
+        internal static string Setting_Dun_Visible_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Dun_Visible_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Overlay background color.
         /// </summary>
         internal static string Setting_Raid_ColBG_Label {
@@ -961,20 +1060,38 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hidden &lt;---&gt; Fully Visible.
+        ///   Looks up a localized string similar to Label style.
         /// </summary>
-        internal static string Setting_Raid_LabelOpacity_Tooltip {
+        internal static string Setting_Raid_LabelDisplay_Label {
             get {
-                return ResourceManager.GetString("Setting_Raid_LabelOpacity_Tooltip", resourceCulture);
+                return ResourceManager.GetString("Setting_Raid_LabelDisplay_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Raid_LabelDisplay_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_LabelDisplay_Tooltip", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Label opacity.
         /// </summary>
-        internal static string Setting_Raid_LabelOpactiy_Label {
+        internal static string Setting_Raid_LabelOpacity_Label {
             get {
-                return ResourceManager.GetString("Setting_Raid_LabelOpactiy_Label", resourceCulture);
+                return ResourceManager.GetString("Setting_Raid_LabelOpacity_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hidden &lt;---&gt; Fully Visible.
+        /// </summary>
+        internal static string Setting_Raid_LabelOpacity_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_LabelOpacity_Tooltip", resourceCulture);
             }
         }
         

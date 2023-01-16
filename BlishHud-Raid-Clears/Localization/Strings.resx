@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CornerIcon_Dungeon" xml:space="preserve">
+    <value>Click to show/hide the Dungeons overlay</value>
+  </data>
   <data name="CornerIcon_Raid" xml:space="preserve">
     <value>Click to show/hide the Raids overlay</value>
   </data>
@@ -388,6 +391,36 @@
   <data name="Setting_Dun_ColFreqText_Tooltip" xml:space="preserve">
     <value>Hex color code (#rrggbb) for Paths that count for dungeon frequenter achievement</value>
   </data>
+  <data name="Setting_Dun_Drag_Label" xml:space="preserve">
+    <value>Unlock Dungeon overlay position</value>
+  </data>
+  <data name="Setting_Dun_Drag_Tooltip" xml:space="preserve">
+    <value>Click and drag to reposition the overlay window</value>
+  </data>
+  <data name="Setting_Dun_Icon_Label" xml:space="preserve">
+    <value>Enable dungeon toolbar button</value>
+  </data>
+  <data name="Setting_Dun_Icon_Tooltip" xml:space="preserve">
+    <value>Add a button next to Blish on the top left of screen that Shows/Hides the dungeon overlay</value>
+  </data>
+  <data name="Setting_Dun_Keybind_Label" xml:space="preserve">
+    <value>Show/Hide keybind</value>
+  </data>
+  <data name="Setting_Dun_Keybind_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Dun_Tooltips_Label" xml:space="preserve">
+    <value>Enable mouse hover tooltips on overlay</value>
+  </data>
+  <data name="Setting_Dun_Tooltips_Tooltip" xml:space="preserve">
+    <value>Hovering the mouse over an path will display the full name</value>
+  </data>
+  <data name="Setting_Dun_Visible_Label" xml:space="preserve">
+    <value>Enable dungeons overlay</value>
+  </data>
+  <data name="Setting_Dun_Visible_Tooltip" xml:space="preserve">
+    <value>Show the dungeons overlay on screen</value>
+  </data>
   <data name="Setting_Raid_ColBG_Label" xml:space="preserve">
     <value>Overlay background color</value>
   </data>
@@ -466,11 +499,17 @@
   <data name="Setting_Raid_Keybind_Tooltip" xml:space="preserve">
     <value />
   </data>
+  <data name="Setting_Raid_LabelDisplay_Label" xml:space="preserve">
+    <value>Label style</value>
+  </data>
+  <data name="Setting_Raid_LabelDisplay_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Raid_LabelOpacity_Label" xml:space="preserve">
+    <value>Label opacity</value>
+  </data>
   <data name="Setting_Raid_LabelOpacity_Tooltip" xml:space="preserve">
     <value>Hidden &lt;---&gt; Fully Visible</value>
-  </data>
-  <data name="Setting_Raid_LabelOpactiy_Label" xml:space="preserve">
-    <value>Label opacity</value>
   </data>
   <data name="Setting_Raid_Layout_Label" xml:space="preserve">
     <value>Grid layout</value>
