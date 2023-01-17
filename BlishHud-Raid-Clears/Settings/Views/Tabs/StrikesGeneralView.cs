@@ -5,49 +5,45 @@ namespace RaidClears.Settings.Views.Tabs;
 
 public class StrikesGeneralView : MenuedSettingsView
 {
-    public StrikesGeneralView()
-    {
-    }
-
     protected override void Build(Container buildPanel)
     {
         base.Build(buildPanel);
-        ShowSettingWithViewContainer(_settingsService.StrikePanelDragWithMouseIsEnabled);
+        ShowSettingWithViewContainer(settingsService.StrikePanelDragWithMouseIsEnabled);
         AddVerticalSpacer();
-        ShowSettingWithViewContainer(_settingsService.StrikePanelIsVisible);
-        ShowSettingWithViewContainer(_settingsService.StrikePanelAllowTooltips);
-        ShowSettingWithViewContainer(_settingsService.StrikeCornerIconEnabled);
+        ShowSettingWithViewContainer(settingsService.StrikePanelIsVisible);
+        ShowSettingWithViewContainer(settingsService.StrikePanelAllowTooltips);
+        ShowSettingWithViewContainer(settingsService.StrikeCornerIconEnabled);
         AddVerticalSpacer();
-        ShowSettingWithViewContainer(_settingsService.StrikePanelIsVisibleKeyBind);
+        ShowSettingWithViewContainer(settingsService.StrikePanelIsVisibleKeyBind);
         ShowText(Strings.SharedKeybind);
         AddVerticalSpacer();
         AddVerticalSpacer();
 
-        StandardButton alignButton = new StandardButton()
+        var alignButton = new StandardButton
         {
-            Parent = _rootFlowPanel,
+            Parent = rootFlowPanel,
             Text = Strings.Setting_Strike_AlignWithRaids,
             Width = 200
 
         };
-        alignButton.Click += (s, e) =>
+        
+        alignButton.Click += (_, _) =>
         {
-            _settingsService.AlignStrikesWithRaidPanel();
+            settingsService.AlignStrikesWithRaidPanel();
         };
-        StandardButton copyButton = new StandardButton()
+        
+        var copyButton = new StandardButton
         {
-            Parent = _rootFlowPanel,
+            Parent = rootFlowPanel,
             Text = Strings.Setting_Strike_CopyRaids,
             Width = 200
 
         };
-        copyButton.Click += (s, e) =>
+        
+        copyButton.Click += (_, _) =>
         {
             copyButton.Enabled = false;
-            _settingsService.CopyRaidVisualsToStrikes();
+            settingsService.CopyRaidVisualsToStrikes();
         };
-
     }
-
-
 }

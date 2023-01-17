@@ -18,8 +18,8 @@ public static class DungeonPanelFactory
 {
     public static DungeonPanel Create()
     {
-        SettingService _settings = Module.ModuleInstance.SettingsService;
-        DungeonPanel panel = new DungeonPanel(
+        var _settings = Module.ModuleInstance.SettingsService;
+        var panel = new DungeonPanel(
             _settings.DungeonPanelLocationPoint,
             _settings.DungeonPanelIsVisible,
             _settings.DungeonPanelDragWithMouseIsEnabled,
@@ -65,11 +65,11 @@ public class DungeonPanel : GridPanel
 
         DungeonClearsService = new DungeonsClearsService();
         //BackgroundColor = Color.Orange
-        WeeklyWings weeklyWings = WingRotationService.GetWeeklyWings();
+        var weeklyWings = WingRotationService.GetWeeklyWings();
        
         Dungeons =  DungeonFactory.Create(this);
 
-        Module.ModuleInstance.ApiPollingService.ApiPollingTrigger += (s, e) =>
+        Module.ModuleInstance.ApiPollingService.ApiPollingTrigger += (_, _) =>
         {
             Task.Run(async () =>
             {

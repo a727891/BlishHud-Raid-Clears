@@ -1,5 +1,4 @@
-﻿
-using Blish_HUD.Controls;
+﻿using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using Blish_HUD.Settings;
 using Blish_HUD.Settings.UI.Views;
@@ -9,24 +8,23 @@ using SettingsService = RaidClears.Settings.Services.SettingService;
 
 namespace RaidClears.Settings.Views.Tabs;
 
+// todo: this seems super scuffed?
+// There's a bunch of function chains that create objects, and then don't return them??
 
 public class MenuedSettingsView : View
 {
-    protected SettingsService _settingsService;
-    protected FlowPanel _rootFlowPanel;
-    protected int _singleColWidth;
+    protected SettingsService settingsService;
+    protected FlowPanel rootFlowPanel;
+    private int _singleColWidth;
 
-    public MenuedSettingsView()
+    protected MenuedSettingsView()
     {
-        _settingsService = Module.ModuleInstance.SettingsService ;
-
-
+        settingsService = Module.ModuleInstance.SettingsService ;
     }
 
     protected override void Build(Container buildPanel)
     {
-
-        _rootFlowPanel = new FlowPanel()
+        rootFlowPanel = new FlowPanel
         {
             Parent = buildPanel,
             FlowDirection = ControlFlowDirection.SingleTopToBottom,
@@ -34,29 +32,18 @@ public class MenuedSettingsView : View
             Height = buildPanel.ContentRegion.Height,
             //BackgroundColor = new Color(20,20,100,20)
         };
-        _singleColWidth = _rootFlowPanel.ContentRegion.Width;
-                    
+        
+        _singleColWidth = rootFlowPanel.ContentRegion.Width;
     }
 
-
-    protected override void Unload()
+    protected static FlowPanel CreateTwoColPanel(Container parent) => new()
     {
-        base.Unload();
+        FlowDirection = ControlFlowDirection.LeftToRight,
+        Width = parent.Width,//width-2(padding.x)
+        HeightSizingMode = SizingMode.AutoSize,
+        Parent = parent
+    };
 
-    }
-
-
-    protected static FlowPanel CreateTwoColPanel(Container parent)
-    {
-        return new FlowPanel
-        {
-
-            FlowDirection = ControlFlowDirection.LeftToRight,
-            Width = parent.Width,//width-2(padding.x)
-            HeightSizingMode = SizingMode.AutoSize,
-            Parent = parent
-        };
-    }
     protected static FlowPanel CreateSettingsGroupFlowPanel(string title, Container parent)
     {
         return new FlowPanel
@@ -70,38 +57,43 @@ public class MenuedSettingsView : View
         };
     }
     
-    protected static FlowPanel VisibibilitySettingsFlowPanel(Container parent, SettingEntry<bool> setting)
+    protected static FlowPanel VisibilitySettingsFlowPanel(Container parent, SettingEntry<bool> setting)
     {
-        FlowPanel panel =  new FlowPanel
+        var panel =  new FlowPanel
         {
             FlowDirection = ControlFlowDirection.SingleTopToBottom,
             Width = parent.Width,
             HeightSizingMode = SizingMode.AutoSize,
             Parent = parent
         };
+        
         panel.VisiblityChanged(setting);
         return panel;
     }
-    protected static FlowPanel VisibibilityInvertedSettingsFlowPanel(Container parent, SettingEntry<bool> setting)
+    
+    protected static FlowPanel VisibilityInvertedSettingsFlowPanel(Container parent, SettingEntry<bool> setting)
     {
-        FlowPanel panel = new FlowPanel
+        var panel = new FlowPanel
         {
             FlowDirection = ControlFlowDirection.SingleTopToBottom,
             Width = parent.Width,
             HeightSizingMode = SizingMode.AutoSize,
             Parent = parent
         };
+        
         panel.InvertedVisiblityChanged(setting);
         return panel;
     }
 
-    protected Label ShowText(string text)
+    // todo: this is probably super wrong
+    protected void ShowText(string text)
     {
-        return ShowText(text, _rootFlowPanel);
+        ShowText(text, rootFlowPanel);
     }
+    
     protected Label ShowText(string text, FlowPanel panel)
     {
-        return new Label()
+        return new Label
         {
             Parent = panel,
             AutoSizeWidth= true,
@@ -110,48 +102,39 @@ public class MenuedSettingsView : View
             WrapText= false,
         };
     }
-    protected void AddVerticalSpacer()
-    {
-        AddVerticalSpacer(_rootFlowPanel);
-    }
-    protected void AddVerticalSpacer(int height)
-    {
-        AddVerticalSpacer(_rootFlowPanel, height);
-    }
+    
+    protected void AddVerticalSpacer() => AddVerticalSpacer(rootFlowPanel);
+
+    protected void AddVerticalSpacer(int height) => AddVerticalSpacer(rootFlowPanel, height);
+
     protected void AddVerticalSpacer(FlowPanel panel)
     {
-        new Label()
+        new Label
         {
             Parent = panel,
         };
     }
-    protected void AddVerticalSpacer(FlowPanel panel, int height)
+
+    private void AddVerticalSpacer(Container panel, int height)
     {
-        new Label()
+        new Label
         {
             Parent = panel,
             Height = height,
         };
     }
 
-    protected  ViewContainer ShowSettingWithViewContainer(SettingEntry settingEntry)
-    {
-        return ShowSettingWithViewContainer(settingEntry, _rootFlowPanel, _rootFlowPanel.Width);
-    }
-    protected  ViewContainer ShowSettingWithViewContainer(SettingEntry settingEntry, Container parent)
-    {
-        return ShowSettingWithViewContainer(settingEntry, parent, parent.Width);
-    }
-    protected ViewContainer ShowSettingWithViewContainer(SettingEntry settingEntry, Container parent, int width)
+    protected void ShowSettingWithViewContainer(SettingEntry settingEntry) => ShowSettingWithViewContainer(settingEntry, rootFlowPanel, rootFlowPanel.Width);
+    protected static void ShowSettingWithViewContainer(SettingEntry settingEntry, Container parent) => ShowSettingWithViewContainer(settingEntry, parent, parent.Width);
+    private static void ShowSettingWithViewContainer(SettingEntry settingEntry, Container parent, int width)
     {
         var viewContainer = new ViewContainer { Parent = parent };
         viewContainer.Show(SettingView.FromType(settingEntry, width));
-        return viewContainer;
     }
 
     protected ViewContainer ShowColorSettingWithViewContainer(SettingEntry<string> settingEntry)
     {
-        return ShowColorSettingWithViewContainer(settingEntry, _rootFlowPanel, _rootFlowPanel.Width);
+        return ShowColorSettingWithViewContainer(settingEntry, rootFlowPanel, rootFlowPanel.Width);
     }
     protected ViewContainer ShowColorSettingWithViewContainer(SettingEntry<string> settingEntry, Container parent)
     {
@@ -166,7 +149,7 @@ public class MenuedSettingsView : View
 
     protected ViewContainer ShowEnumSettingWithViewContainer(SettingEntry settingEntry)
     {
-        return ShowEnumSettingWithViewContainer(settingEntry, _rootFlowPanel, _rootFlowPanel.Width);
+        return ShowEnumSettingWithViewContainer(settingEntry, rootFlowPanel, rootFlowPanel.Width);
     }
     protected ViewContainer ShowEnumSettingWithViewContainer(SettingEntry settingEntry, Container parent)
     {

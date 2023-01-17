@@ -12,11 +12,11 @@ public static class StrikeFactory
 {
     public static Strike[] Create(StrikesPanel panel)
     {
-        SettingService settings = Module.ModuleInstance.SettingsService;
-        Strike[] strikes = GetStrikeMetaData();
+        var settings = Module.ModuleInstance.SettingsService;
+        var strikes = GetStrikeMetaData();
         foreach(var strike in strikes)
         {
-            GridGroup group = new GridGroup(
+            var group = new GridGroup(
                 panel,
                 settings.StrikePanelLayout
             );
@@ -24,7 +24,7 @@ public static class StrikeFactory
             strike.SetGridGroupReference(group);
 
 
-            GridBox labelBox = new GridBox(
+            var labelBox = new GridBox(
                 group,
                 strike.shortName, strike.name,
                 settings.StrikePanelLabelOpacity, settings.StrikePanelFontSize
@@ -35,7 +35,7 @@ public static class StrikeFactory
             
             foreach (var encounter in strike.boxes)
             {
-                GridBox encounterBox = new GridBox(
+                var encounterBox = new GridBox(
                     group,
                     encounter.short_name, encounter.name,
                     settings.StrikePanelGridOpacity, settings.StrikePanelFontSize

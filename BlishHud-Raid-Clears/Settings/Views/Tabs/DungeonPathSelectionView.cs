@@ -9,22 +9,18 @@ public class DungeonPathSelectionView : MenuedSettingsView
     {
         base.Build(buildPanel);
 
-        FlowPanel dungeonOffPanel = VisibibilityInvertedSettingsFlowPanel(_rootFlowPanel, _settingsService.DungeonEnable);
+        var dungeonOffPanel = VisibilityInvertedSettingsFlowPanel(rootFlowPanel, settingsService.DungeonEnable);
         ShowText(Strings.Setting_Dun_DisabledWarning, dungeonOffPanel);
 
-        FlowPanel dungeonSettings = VisibibilitySettingsFlowPanel(_rootFlowPanel, _settingsService.DungeonEnable);
-        ShowSettingWithViewContainer(_settingsService.D1IsVisible, dungeonSettings);
-        ShowSettingWithViewContainer(_settingsService.D2IsVisible, dungeonSettings);
-        ShowSettingWithViewContainer(_settingsService.D3IsVisible, dungeonSettings);
-        ShowSettingWithViewContainer(_settingsService.D4IsVisible, dungeonSettings);
-        ShowSettingWithViewContainer(_settingsService.D5IsVisible, dungeonSettings);
-        ShowSettingWithViewContainer(_settingsService.D6IsVisible, dungeonSettings);
-        ShowSettingWithViewContainer(_settingsService.D7IsVisible, dungeonSettings);
-        ShowSettingWithViewContainer(_settingsService.D8IsVisible, dungeonSettings);
-        ShowSettingWithViewContainer(_settingsService.DFIsVisible, dungeonSettings);
-
-
+        var dungeonSettings = VisibilitySettingsFlowPanel(rootFlowPanel, settingsService.DungeonEnable);
+        ShowSettingWithViewContainer(settingsService.D1IsVisible, dungeonSettings);
+        ShowSettingWithViewContainer(settingsService.D2IsVisible, dungeonSettings);
+        ShowSettingWithViewContainer(settingsService.D3IsVisible, dungeonSettings);
+        ShowSettingWithViewContainer(settingsService.D4IsVisible, dungeonSettings);
+        ShowSettingWithViewContainer(settingsService.D5IsVisible, dungeonSettings);
+        ShowSettingWithViewContainer(settingsService.D6IsVisible, dungeonSettings);
+        ShowSettingWithViewContainer(settingsService.D7IsVisible, dungeonSettings);
+        ShowSettingWithViewContainer(settingsService.D8IsVisible, dungeonSettings);
+        ShowSettingWithViewContainer(settingsService.DFIsVisible, dungeonSettings);
     }
-
-
 }

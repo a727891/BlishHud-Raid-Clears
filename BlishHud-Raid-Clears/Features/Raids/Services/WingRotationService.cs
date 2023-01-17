@@ -24,7 +24,7 @@ public class WingRotationService
     public static WeeklyWings GetWeeklyWings()
     {
 
-        DateTimeOffset now = (DateTimeOffset)DateTime.UtcNow;
+        var now = (DateTimeOffset)DateTime.UtcNow;
 
         var duration = now.ToUnixTimeSeconds() - EMBOLDEN_START_TIMESTAMP;
 

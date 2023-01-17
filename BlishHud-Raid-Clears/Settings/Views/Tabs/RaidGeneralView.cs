@@ -8,16 +8,13 @@ public class RaidGeneralView : MenuedSettingsView
     protected override void Build(Container buildPanel)
     {
         base.Build(buildPanel);
-        ShowSettingWithViewContainer(_settingsService.RaidPanelDragWithMouseIsEnabled);
+        ShowSettingWithViewContainer(settingsService.RaidPanelDragWithMouseIsEnabled);
         AddVerticalSpacer();
-        ShowSettingWithViewContainer(_settingsService.RaidPanelIsVisible);
-        ShowSettingWithViewContainer(_settingsService.RaidPanelAllowTooltips);
-        ShowSettingWithViewContainer(_settingsService.RaidCornerIconEnabled);
+        ShowSettingWithViewContainer(settingsService.RaidPanelIsVisible);
+        ShowSettingWithViewContainer(settingsService.RaidPanelAllowTooltips);
+        ShowSettingWithViewContainer(settingsService.RaidCornerIconEnabled);
         AddVerticalSpacer();
-        ShowSettingWithViewContainer(_settingsService.RaidPanelIsVisibleKeyBind);
+        ShowSettingWithViewContainer(settingsService.RaidPanelIsVisibleKeyBind);
         ShowText(Strings.SharedKeybind);
-
     }
-
-
 }

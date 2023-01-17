@@ -39,17 +39,17 @@ public class Path : BoxModel
                freqColor.Value.HexToXnaColor():
                normalTextColor.Value.HexToXnaColor();
         ApplyTextColor();
-        freqColor.SettingChanged += (s, e) =>
+        freqColor.SettingChanged += (_, e) =>
         {
             FreqColor = e.NewValue.HexToXnaColor();
             ApplyTextColor();
         };
-        normalTextColor.SettingChanged += (s, e) =>
+        normalTextColor.SettingChanged += (_, e) =>
         {
             NormalTextColor = e.NewValue.HexToXnaColor();
             ApplyTextColor();
         };
-        highlightFreq.SettingChanged += (s, e) =>
+        highlightFreq.SettingChanged += (_, e) =>
         {
             if (e.NewValue)
             {

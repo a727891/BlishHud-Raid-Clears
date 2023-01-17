@@ -13,11 +13,11 @@ public static class DungeonFactory
     public static string FREQUENTER_ID = "freq";
     public static Dungeon[] Create(DungeonPanel panel)
     {
-        SettingService settings = Module.ModuleInstance.SettingsService;
-        Dungeon[] dungeons = GetDungeonMetaData();
+        var settings = Module.ModuleInstance.SettingsService;
+        var dungeons = GetDungeonMetaData();
         foreach (var dungeon in dungeons)
         {
-            GridGroup group = new GridGroup(
+            var group = new GridGroup(
                 panel,
                 settings.DungeonPanelLayout
             );
@@ -25,7 +25,7 @@ public static class DungeonFactory
             dungeon.SetGridGroupReference(group);
 
 
-            GridBox labelBox = new GridBox(
+            var labelBox = new GridBox(
                 group,
                 dungeon.shortName, dungeon.name,
                 settings.DungeonPanelLabelOpacity, settings.DungeonPanelFontSize
@@ -37,7 +37,7 @@ public static class DungeonFactory
 
             foreach (var encounter in dungeon.boxes as Path[])
             {
-                GridBox encounterBox = new GridBox(
+                var encounterBox = new GridBox(
                     group,
                     encounter.short_name, encounter.name,
                     settings.DungeonPanelGridOpacity, settings.DungeonPanelFontSize

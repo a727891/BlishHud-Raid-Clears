@@ -8,24 +8,24 @@ public class ModuleGeneralSettingView : MenuedSettingsView
     protected override void Build(Container buildPanel)
     {
         base.Build(buildPanel);
+        
         AddVerticalSpacer();
         AddVerticalSpacer();
-        ShowSettingWithViewContainer(_settingsService.SettingsPanelKeyBind);
+        ShowSettingWithViewContainer(settingsService.SettingsPanelKeyBind);
         AddVerticalSpacer();
-        ShowEnumSettingWithViewContainer(_settingsService.ApiPollingPeriod);
-        StandardButton refreshButton = new StandardButton()
+        ShowEnumSettingWithViewContainer(settingsService.ApiPollingPeriod);
+        
+        var refreshButton = new StandardButton
         {
-            Parent = _rootFlowPanel,
+            Parent = rootFlowPanel,
             Text = Strings.Settings_RefreshNow
 
         };
-        refreshButton.Click += (s, e) =>
+        
+        refreshButton.Click += (_, _) =>
         {
             Module.ModuleInstance?.ApiPollingService?.Invoke();
             refreshButton.Enabled = false;
         };
-
     }
-
-
 }

@@ -43,7 +43,7 @@ public class GridBox : Label
 
     protected void OpacityChange(SettingEntry<float> opacity )
     {
-        opacity.SettingChanged += (s, e) =>
+        opacity.SettingChanged += (_, e) =>
         {
             this.Opacity = e.NewValue;
         };
@@ -51,7 +51,7 @@ public class GridBox : Label
     }
     public void LayoutChange(SettingEntry<Layout> layout)
     {
-        layout.SettingChanged += (s, e) =>
+        layout.SettingChanged += (_, e) =>
         {
             HorizontalAlignment = LabelAlignment(e.NewValue);
         };
@@ -71,7 +71,7 @@ public class GridBox : Label
 
     protected void FontSizeChange(SettingEntry<ContentService.FontSize> fontSize)
     {
-        fontSize.SettingChanged += (s, e) =>
+        fontSize.SettingChanged += (_, e) =>
         {
             SetFontSize(e.NewValue, this);
         };

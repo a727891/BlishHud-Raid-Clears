@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Blish_HUD;
@@ -19,9 +18,9 @@ public static class EnumSettingView
         return Activator.CreateInstance(typeof(EnumSettingView<>).MakeGenericType(setting.SettingType), setting, definedWidth) as IView;
     }
 }
+
 public class EnumSettingView<TEnum> : SettingView<TEnum> where TEnum : struct, Enum
 {
-
     private const int CONTROL_PADDING = 5;
 
     private const int DROPDOWN_WIDTH = 277;
@@ -45,7 +44,7 @@ public class EnumSettingView<TEnum> : SettingView<TEnum> where TEnum : struct, E
 
     protected override void BuildSetting(Container buildPanel)
     {
-        _displayNameLabel = new Label()
+        _displayNameLabel = new Label
         {
             AutoSizeWidth = false,
             Width = 175,//Aligns with Numeric Trackbar
@@ -53,7 +52,7 @@ public class EnumSettingView<TEnum> : SettingView<TEnum> where TEnum : struct, E
             Parent = buildPanel
         };
 
-        _enumDropdown = new Dropdown()
+        _enumDropdown = new Dropdown
         {
             Size = new Point(DROPDOWN_WIDTH, DROPDOWN_HEIGHT),
             Parent = buildPanel
@@ -69,7 +68,7 @@ public class EnumSettingView<TEnum> : SettingView<TEnum> where TEnum : struct, E
         switch (complianceRequisite)
         {
             case EnumInclusionComplianceRequisite<TEnum> enumInclusionRequisite:
-                IEnumerable<TEnum> toRemove = _enumValues.Except(enumInclusionRequisite.IncludedValues);
+                var toRemove = _enumValues.Except(enumInclusionRequisite.IncludedValues);
 
                 foreach (var value in toRemove)
                 {
@@ -88,10 +87,7 @@ public class EnumSettingView<TEnum> : SettingView<TEnum> where TEnum : struct, E
         return true;
     }
 
-    private void EnumDropdownOnValueChanged(object sender, ValueChangedEventArgs e)
-    {
-        OnValueChanged(new ValueEventArgs<TEnum>(e.CurrentValue.DehumanizeTo<TEnum>()));
-    }
+    private void EnumDropdownOnValueChanged(object sender, ValueChangedEventArgs e) => OnValueChanged(new ValueEventArgs<TEnum>(e.CurrentValue.DehumanizeTo<TEnum>()));
 
     private void UpdateSizeAndLayout()
     {
@@ -122,10 +118,7 @@ public class EnumSettingView<TEnum> : SettingView<TEnum> where TEnum : struct, E
         _enumDropdown.BasicTooltipText = description;
     }
 
-    protected override void RefreshValue(TEnum value)
-    {
-        _enumDropdown.SelectedItem = value.Humanize(LetterCasing.Title);
-    }
+    protected override void RefreshValue(TEnum value) => _enumDropdown.SelectedItem = value.Humanize(LetterCasing.Title);
 
     protected override void Unload()
     {
@@ -134,5 +127,4 @@ public class EnumSettingView<TEnum> : SettingView<TEnum> where TEnum : struct, E
             _enumDropdown.ValueChanged -= EnumDropdownOnValueChanged;
         }
     }
-
 }

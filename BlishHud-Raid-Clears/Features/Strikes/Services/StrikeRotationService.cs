@@ -38,7 +38,7 @@ public class StrikeRotationService : IDisposable
     public (int IBS_INDEX, int EOD_INDEX) GetPriorityStikeIndex()
     {
 
-        DateTimeOffset now = (DateTimeOffset)DateTime.UtcNow;
+        var now = (DateTimeOffset)DateTime.UtcNow;
 
         var duration = now.ToUnixTimeSeconds() - BOTH_AT_INDEX_0_TIMESTAMP;
 

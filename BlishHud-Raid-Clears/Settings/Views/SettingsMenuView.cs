@@ -1,50 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
-using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
 using RaidClears.Settings.Services;
 
 namespace RaidClears.Settings.Views;
 
-public class SettingsMenuPresenter : Presenter<SettingsMenuView, ISettingsMenuRegistrar>
-{
-
-    public SettingsMenuPresenter(SettingsMenuView view, ISettingsMenuRegistrar model) : base(view, model) { }
-
-    protected override Task<bool> Load(IProgress<string> progress)
-    {
-        this.View.MenuItemSelected += OnMenuItemSelected;
-
-        this.Model.RegistrarListChanged += OnRegistrarListChanged;
-
-        return base.Load(progress);
-    }
-
-    private void OnRegistrarListChanged(object sender, EventArgs e) => UpdateView();
-
-    private void OnMenuItemSelected(object sender, ControlActivatedEventArgs e)
-    {
-        this.View.SetSettingView(this.Model.GetMenuItemView(e.ActivatedControl as MenuItem));
-    }
-
-
-    protected override void UpdateView()
-    {
-        this.View.SetMenuItems(this.Model.GetSettingMenus());
-    }
-
-} 
-/// <summary>
-/// Typically used with a <see cref="Presenters.SettingsMenuPresenter"/> to create
-/// a settings tab view where menu items can be registered.
-/// </summary>
 public class SettingsMenuView : View
 {
-
     public event EventHandler<ControlActivatedEventArgs> MenuItemSelected;
 
     private Menu _menuSettingsList;
@@ -52,13 +17,13 @@ public class SettingsMenuView : View
 
     public SettingsMenuView(MenuService settingsMenuRegistrar)
     {
-        this.WithPresenter(new SettingsMenuPresenter(this, settingsMenuRegistrar));
+        WithPresenter(new SettingsMenuPresenter(this, settingsMenuRegistrar));
         settingsMenuRegistrar.SetSettingMenuView(this);
     }
 
     protected override void Build(Container buildPanel)
     {
-        FlowPanel _menuFlow = new FlowPanel()
+        var menuFlow = new FlowPanel
         {
             Location = new Point(10, 10),
             Parent = buildPanel,
@@ -68,16 +33,16 @@ public class SettingsMenuView : View
             ControlPadding = new Vector2(5,5)
         };
 
-        var settingsMenuSection = new Panel()
+        var settingsMenuSection = new Panel
         {
             ShowBorder = true,
-            Size = new Point(250, _menuFlow.Height),
+            Size = new Point(250, menuFlow.Height),
             Title = "",
-            Parent = _menuFlow,
+            Parent = menuFlow,
             CanScroll = true,
         };
 
-        _menuSettingsList = new Menu()
+        _menuSettingsList = new Menu
         {
             Size = settingsMenuSection.ContentRegion.Size,
             MenuItemHeight = 40,
@@ -87,19 +52,16 @@ public class SettingsMenuView : View
 
         _menuSettingsList.ItemSelected += SettingsListMenuOnItemSelected;
 
-        _settingViewContainer = new ViewContainer()
+        _settingViewContainer = new ViewContainer
         {
             ShowBorder= true,
             FadeView = true,
-            Size = new Point(_menuFlow.Width - settingsMenuSection.Width - 10, _menuFlow.Height),
-            Parent = _menuFlow
+            Size = new Point(menuFlow.Width - settingsMenuSection.Width - 10, menuFlow.Height),
+            Parent = menuFlow
         };
     }
 
-    public void SetSettingView(IView view)
-    {
-        _settingViewContainer.Show(view);
-    }
+    public void SetSettingView(IView view) => _settingViewContainer.Show(view);
 
     public void SetMenuItems(IEnumerable<MenuItem> menuItems)
     {
@@ -120,10 +82,7 @@ public class SettingsMenuView : View
         }
     }
 
-    private void SettingsListMenuOnItemSelected(object sender, ControlActivatedEventArgs e)
-    {
-        this.MenuItemSelected?.Invoke(this, e);
-    }
+    private void SettingsListMenuOnItemSelected(object sender, ControlActivatedEventArgs e) => MenuItemSelected?.Invoke(this, e);
 
     protected override void Unload()
     {
@@ -131,5 +90,4 @@ public class SettingsMenuView : View
 
         _menuSettingsList.ItemSelected -= SettingsListMenuOnItemSelected;
     }
-
 }

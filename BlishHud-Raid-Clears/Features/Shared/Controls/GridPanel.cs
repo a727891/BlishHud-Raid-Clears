@@ -48,9 +48,9 @@ public class GridPanel : FlowPanel
         WidthSizingMode = SizingMode.AutoSize;
         
         AddDragDelegates();
-        _locationSetting.SettingChanged += (s, e) => Location = e.NewValue;
-        _allowMouseDragSetting.SettingChanged += (s, e) => IgnoreMouseInput = ShouldIgnoreMouse();
-        _allowTooltipSetting.SettingChanged += (s, e) => IgnoreMouseInput = ShouldIgnoreMouse();
+        _locationSetting.SettingChanged += (_, e) => Location = e.NewValue;
+        _allowMouseDragSetting.SettingChanged += (_, _) => IgnoreMouseInput = ShouldIgnoreMouse();
+        _allowTooltipSetting.SettingChanged += (_, _) => IgnoreMouseInput = ShouldIgnoreMouse();
 
 
     }

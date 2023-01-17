@@ -324,7 +324,7 @@ public class SettingService // singular because Setting"s"Service already exists
             () => Strings.Setting_Dun_Keybind_Tooltip);
         DungeonPanelIsVisibleKeyBind.Value.Enabled = DungeonEnable.Value;
 
-        DungeonEnable.SettingChanged += (s, e) =>
+        DungeonEnable.SettingChanged += (_, e) =>
         {
             DungeonPanelIsVisibleKeyBind.Value.Enabled = e.NewValue;
             DungeonPanelIsVisible.Value = e.NewValue;
@@ -644,7 +644,7 @@ public class SettingService // singular because Setting"s"Service already exists
         var raidPanel = Module.ModuleInstance?.RaidsPanel;
         var strikeLoc = StrikePanelLocationPoint;
 
-        Point padding = raidPanel.ControlPadding.ToPoint();
+        var padding = raidPanel.ControlPadding.ToPoint();
 
         switch (RaidPanelLayout.Value)
         {

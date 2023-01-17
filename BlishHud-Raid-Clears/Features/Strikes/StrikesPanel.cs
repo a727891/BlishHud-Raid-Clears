@@ -16,8 +16,8 @@ public static class StrikesPanelFactory
 {
     public static StrikesPanel Create()
     {
-        SettingService _settings = Module.ModuleInstance.SettingsService;
-        StrikesPanel panel = new StrikesPanel(
+        var _settings = Module.ModuleInstance.SettingsService;
+        var panel = new StrikesPanel(
             _settings.StrikePanelLocationPoint,
             _settings.StrikePanelIsVisible,
             _settings.StrikePanelDragWithMouseIsEnabled,
@@ -68,7 +68,7 @@ public class StrikesPanel : GridPanel
         //Wings =  WingFactory.Create(this, weeklyWings);
         Strikes = StrikeFactory.Create(this);
 
-        Module.ModuleInstance.ApiPollingService.ApiPollingTrigger += (s, e) =>
+        Module.ModuleInstance.ApiPollingService.ApiPollingTrigger += (_, _) =>
         {
             Task.Run(async () =>
             {

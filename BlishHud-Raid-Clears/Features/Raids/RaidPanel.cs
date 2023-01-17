@@ -16,8 +16,8 @@ public static class RaidPanelFactory
 {
     public static RaidPanel Create()
     {
-        SettingService _settings = Module.ModuleInstance.SettingsService;
-        RaidPanel panel = new RaidPanel(
+        var _settings = Module.ModuleInstance.SettingsService;
+        var panel = new RaidPanel(
             _settings.RaidPanelLocationPoint,
             _settings.RaidPanelIsVisible,
             _settings.RaidPanelDragWithMouseIsEnabled,
@@ -60,11 +60,11 @@ public class RaidPanel : GridPanel
     ) : base(locationSetting, visibleSetting, allowMouseDragSetting, allowTooltipSetting)
     {
         //BackgroundColor = Color.Orange;
-        WeeklyWings weeklyWings = WingRotationService.GetWeeklyWings();
+        var weeklyWings = WingRotationService.GetWeeklyWings();
        
         Wings =  WingFactory.Create(this, weeklyWings);
 
-        Module.ModuleInstance.ApiPollingService.ApiPollingTrigger += (s, e) =>
+        Module.ModuleInstance.ApiPollingService.ApiPollingTrigger += (_, _) =>
         {
             Task.Run(async () =>
             {

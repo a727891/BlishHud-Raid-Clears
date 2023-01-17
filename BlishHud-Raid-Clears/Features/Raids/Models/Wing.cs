@@ -15,11 +15,11 @@ public static class WingFactory
 {
     public static Wing[] Create(RaidPanel panel, WeeklyWings weekly)
     {
-        SettingService settings = Module.ModuleInstance.SettingsService;
-        Wing[] wings = GetWingMetaData();
+        var settings = Module.ModuleInstance.SettingsService;
+        var wings = GetWingMetaData();
         foreach(var wing in wings)
         {
-            GridGroup group = new GridGroup(
+            var group = new GridGroup(
                 panel,
                 settings.RaidPanelLayout
             );
@@ -27,7 +27,7 @@ public static class WingFactory
             wing.SetGridGroupReference(group);
 
 
-            GridBox labelBox = new GridBox(
+            var labelBox = new GridBox(
                 group,
                 wing.shortName, wing.name,
                 settings.RaidPanelLabelOpacity, settings.RaidPanelFontSize
@@ -39,7 +39,7 @@ public static class WingFactory
             
             foreach (var encounter in wing.boxes)
             {
-                GridBox encounterBox = new GridBox(
+                var encounterBox = new GridBox(
                     group,
                     encounter.short_name, encounter.name,
                     settings.RaidPanelGridOpacity, settings.RaidPanelFontSize
@@ -56,11 +56,11 @@ public static class WingFactory
     }
     public static Wing[] CreateStrikes(RaidPanel panel)
     {
-        SettingService settings = Module.ModuleInstance.SettingsService;
-        Wing[] wings = GetWingMetaData();
+        var settings = Module.ModuleInstance.SettingsService;
+        var wings = GetWingMetaData();
         foreach (var wing in wings)
         {
-            GridGroup group = new GridGroup(
+            var group = new GridGroup(
                 panel,
                 settings.RaidPanelLayout
             );
@@ -68,7 +68,7 @@ public static class WingFactory
             wing.SetGridGroupReference(group);
 
 
-            GridBox labelBox = new GridBox(
+            var labelBox = new GridBox(
                 group,
                 wing.shortName, wing.name,
                 settings.RaidPanelLabelOpacity, settings.RaidPanelFontSize
@@ -79,7 +79,7 @@ public static class WingFactory
 
             foreach (var encounter in wing.boxes)
             {
-                GridBox encounterBox = new GridBox(
+                var encounterBox = new GridBox(
                     group,
                     encounter.short_name, encounter.name,
                     settings.RaidPanelGridOpacity, settings.RaidPanelFontSize

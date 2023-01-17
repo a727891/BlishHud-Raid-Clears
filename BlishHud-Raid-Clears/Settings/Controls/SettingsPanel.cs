@@ -17,15 +17,15 @@ public static class SettingPanelFactory
     public static SettingsPanel Create()
     {
 
-        Point windowLocation = new Point(36, 26); //magic numbers stolen from EventTable
-        Point windowWidth = new Point(1100, 714);
+        var windowLocation = new Point(36, 26); //magic numbers stolen from EventTable
+        var windowWidth = new Point(1100, 714);
 
-        Point windowSize = new Point(800, 600); //Resize window to desired value
+        var windowSize = new Point(800, 600); //Resize window to desired value
 
-        Rectangle settingsWindowSize = new Rectangle(windowLocation, windowWidth);
-        int contentRegionPaddingY = settingsWindowSize.Y - 15; //More EventTable magic numbers
-        int contentRegionPaddingX = settingsWindowSize.X + 46;
-        Rectangle contentRegion = new Rectangle(
+        var settingsWindowSize = new Rectangle(windowLocation, windowWidth);
+        var contentRegionPaddingY = settingsWindowSize.Y - 15; //More EventTable magic numbers
+        var contentRegionPaddingX = settingsWindowSize.X + 46;
+        var contentRegion = new Rectangle(
             contentRegionPaddingX,
             contentRegionPaddingY,
             settingsWindowSize.Width - 52,
@@ -63,23 +63,23 @@ public class SettingsPanel : TabbedWindow2, IDisposable
         Subtitle = Strings.SettingsPanel_Subtitle;
         SavesPosition = true;
 
-        Module.ModuleInstance.SettingsService.SettingsPanelKeyBind.Value.Activated += (s, e) => ToggleWindow();
+        Module.ModuleInstance.SettingsService.SettingsPanelKeyBind.Value.Activated += (_, _) => ToggleWindow();
 
         #region RaidPanelSettings
-        MenuService raidsMenu = new MenuService();
+        var raidsMenu = new MenuService();
         raidsMenu.RegisterSettingMenu(
             new MenuItem(Strings.SettingsPanel_Raids_Heading_General),
-            (m) => new RaidGeneralView(),
+            (_) => new RaidGeneralView(),
             int.MinValue
         );
         raidsMenu.RegisterSettingMenu(
             new MenuItem(Strings.SettingsPanel_Raids_Heading_Layout),
-            (m) => new RaidVisualsView(),
+            (_) => new RaidVisualsView(),
             int.MinValue
         );
         raidsMenu.RegisterSettingMenu(
             new MenuItem(Strings.SettingsPanel_Raids_Heading_WingSelection),
-            (m) => new RaidWingSelectionView(),
+            (_) => new RaidWingSelectionView(),
             int.MinValue
         );
 
@@ -93,20 +93,20 @@ public class SettingsPanel : TabbedWindow2, IDisposable
         #endregion
 
         #region DungeonPanelSettings
-        MenuService dungeonsMenu = new MenuService();
+        var dungeonsMenu = new MenuService();
         dungeonsMenu.RegisterSettingMenu(
             new MenuItem(Strings.SettingsPanel_Dun_Heading_General),
-            (m) => new DungeonGeneralView(),
+            (_) => new DungeonGeneralView(),
             int.MinValue
         );
         dungeonsMenu.RegisterSettingMenu(
             new MenuItem(Strings.SettingsPanel_Dun_Heading_Layout),
-            (m) => new DungeonVisualsView(),
+            (_) => new DungeonVisualsView(),
             int.MinValue
         );
         dungeonsMenu.RegisterSettingMenu(
             new MenuItem(Strings.SettingsPanel_Dun_Heading_PathSelection),
-            (m) => new DungeonPathSelectionView(),
+            (_) => new DungeonPathSelectionView(),
             int.MinValue
         );
 
@@ -120,20 +120,20 @@ public class SettingsPanel : TabbedWindow2, IDisposable
         #endregion
 
         #region StrikesPanelSettings
-        MenuService strikesMenu = new MenuService();
+        var strikesMenu = new MenuService();
         strikesMenu.RegisterSettingMenu(
             new MenuItem(Strings.SettingsPanel_Raids_Heading_General),
-            (m) => new StrikesGeneralView(),
+            (_) => new StrikesGeneralView(),
             int.MinValue
         );
         strikesMenu.RegisterSettingMenu(
             new MenuItem(Strings.SettingsPanel_Raids_Heading_Layout),
-            (m) => new StrikesVisualsView(),
+            (_) => new StrikesVisualsView(),
             int.MinValue
         );
         strikesMenu.RegisterSettingMenu(
             new MenuItem(Strings.SettingsPanel_Strikes_Heading_Selection),
-            (m) => new StrikesSelectionView(),
+            (_) => new StrikesSelectionView(),
             int.MinValue
         );
 
@@ -157,7 +157,7 @@ public class SettingsPanel : TabbedWindow2, IDisposable
         #endregion
 
         //Make Menuviews rerender the first tab on Tabbed panel change
-        this.TabChanged += (s, e) =>
+        this.TabChanged += (_, e) =>
         {
             if (e.NewValue.Name == Strings.SettingsPanel_Tab_Raids)
             {

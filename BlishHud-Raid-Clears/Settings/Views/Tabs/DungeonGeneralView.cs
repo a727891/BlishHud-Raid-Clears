@@ -9,22 +9,19 @@ public class DungeonGeneralView : MenuedSettingsView
     protected override void Build(Container buildPanel)
     {
         base.Build(buildPanel);
-        ShowSettingWithViewContainer(_settingsService.DungeonEnable,_rootFlowPanel);
-        AddVerticalSpacer(_rootFlowPanel);
+        ShowSettingWithViewContainer(settingsService.DungeonEnable,rootFlowPanel);
+        AddVerticalSpacer(rootFlowPanel);
 
-        FlowPanel dungeonOffPanel = VisibibilityInvertedSettingsFlowPanel(_rootFlowPanel, _settingsService.DungeonEnable);
+        var dungeonOffPanel = VisibilityInvertedSettingsFlowPanel(rootFlowPanel, settingsService.DungeonEnable);
         ShowText(Strings.Setting_Dun_DisabledWarning, dungeonOffPanel);
 
-        FlowPanel dungeonSettings = VisibibilitySettingsFlowPanel(_rootFlowPanel, _settingsService.DungeonEnable);
-        ShowSettingWithViewContainer(_settingsService.DungeonPanelDragWithMouseIsEnabled, dungeonSettings);
-        ShowSettingWithViewContainer(_settingsService.DungeonPanelIsVisible, dungeonSettings);
-        ShowSettingWithViewContainer(_settingsService.DungeonPanelAllowTooltips, dungeonSettings);
-        ShowSettingWithViewContainer(_settingsService.DungeonCornerIconEnabled, dungeonSettings);
+        var dungeonSettings = VisibilitySettingsFlowPanel(rootFlowPanel, settingsService.DungeonEnable);
+        ShowSettingWithViewContainer(settingsService.DungeonPanelDragWithMouseIsEnabled, dungeonSettings);
+        ShowSettingWithViewContainer(settingsService.DungeonPanelIsVisible, dungeonSettings);
+        ShowSettingWithViewContainer(settingsService.DungeonPanelAllowTooltips, dungeonSettings);
+        ShowSettingWithViewContainer(settingsService.DungeonCornerIconEnabled, dungeonSettings);
         AddVerticalSpacer(dungeonSettings);
-        ShowSettingWithViewContainer(_settingsService.DungeonPanelIsVisibleKeyBind,dungeonSettings);
+        ShowSettingWithViewContainer(settingsService.DungeonPanelIsVisibleKeyBind,dungeonSettings);
         ShowText(Strings.SharedKeybind, dungeonSettings);
-
     }
-
-
 }

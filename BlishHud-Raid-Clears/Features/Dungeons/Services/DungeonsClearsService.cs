@@ -18,8 +18,8 @@ public class DungeonsClearsService
     }
     public async Task<List<string>> GetFrequenterPaths()
     {
-        Gw2ApiManager gw2ApiManager = Module.ModuleInstance.Gw2ApiManager;
-        Logger logger = Logger.GetLogger<Module>();
+        var gw2ApiManager = Module.ModuleInstance.Gw2ApiManager;
+        var logger = Logger.GetLogger<Module>();
 
         if (gw2ApiManager.HasPermissions(NECESSARY_API_TOKEN_PERMISSIONS) == false)
         {
@@ -28,7 +28,8 @@ public class DungeonsClearsService
                         $"{string.Join(", ", NECESSARY_API_TOKEN_PERMISSIONS)}. " +
                         $"Or module did not get API subToken from Blish yet. Or API key is missing.");
 
-            return new List<string>() { };
+            return new List<string>
+                { };
         }
 
         try
@@ -36,7 +37,8 @@ public class DungeonsClearsService
             var f = await gw2ApiManager.Gw2ApiClient.V2.Account.Achievements.GetAsync();
             var frequenter = f.ToList().Find(x => x.Id == FREQUENTER_ACHIEVEMENT_ID);
 
-            var list = new List<string>() { };
+            var list = new List<string>
+                { };
             if (frequenter != null)
             {
                 list = ConvertFrequenterToPathId(frequenter.Bits.ToList());
@@ -52,8 +54,8 @@ public class DungeonsClearsService
 
     public async Task<List<string>> GetClearsFromApi()
     {
-        Gw2ApiManager gw2ApiManager = Module.ModuleInstance.Gw2ApiManager;
-        Logger logger = Logger.GetLogger<Module>();
+        var gw2ApiManager = Module.ModuleInstance.Gw2ApiManager;
+        var logger = Logger.GetLogger<Module>();
 
         if (gw2ApiManager.HasPermissions(NECESSARY_API_TOKEN_PERMISSIONS) == false)
         {
@@ -62,7 +64,8 @@ public class DungeonsClearsService
                         $"{string.Join(", ", NECESSARY_API_TOKEN_PERMISSIONS)}. " +
                         $"Or module did not get API subToken from Blish yet. Or API key is missing.");
 
-            return new List<string>() { };
+            return new List<string>
+                { };
         }
 
         try
@@ -73,7 +76,8 @@ public class DungeonsClearsService
         catch (Exception e)
         {
             logger.Warn(e, "Could not get current clears from API");
-            return new List<string>() { };
+            return new List<string>
+                { };
         }
     }
 
