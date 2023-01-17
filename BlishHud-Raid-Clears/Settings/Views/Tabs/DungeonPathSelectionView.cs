@@ -1,16 +1,9 @@
-﻿using Blish_HUD;
-using Blish_HUD.Controls;
-using RaidClears.Localization;
-using RaidClears.Settings.Views.Tabs;
+﻿using Blish_HUD.Controls;
 
-namespace RaidClears.Settings.Views
+namespace RaidClears.Settings.Views.Tabs
 {
     public class DungeonPathSelectionView : MenuedSettingsView
     {
-        public DungeonPathSelectionView()
-        { 
-        }
-
         protected override void Build(Container buildPanel)
         {
             base.Build(buildPanel);

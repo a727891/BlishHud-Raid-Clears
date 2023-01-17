@@ -3,10 +3,10 @@ using Blish_HUD;
 using Blish_HUD.Settings;
 using RaidClears.Localization;
 using Microsoft.Xna.Framework.Input;
-using Settings.Enums;
 using Microsoft.Xna.Framework;
+using RaidClears.Settings.Enums;
 
-namespace RaidClears.Settings
+namespace RaidClears.Settings.Services
 {
     public class SettingService // singular because Setting"s"Service already exists in Blish
     {
@@ -27,7 +27,7 @@ namespace RaidClears.Settings
         public SettingEntry<float> RaidPanelLabelOpacity { get; }
         public SettingEntry<float> RaidPanelGridOpacity { get; }
         public SettingEntry<float> RaidPanelBgOpacity { get; }
-        
+
         public SettingEntry<bool> RaidPanelHighlightEmbolden { get; }
         public SettingEntry<bool> RaidPanelHighlightCotM { get; }
         public SettingEntry<bool> W1IsVisible { get; }
@@ -59,7 +59,7 @@ namespace RaidClears.Settings
         public SettingEntry<float> DungeonPanelLabelOpacity { get; }
         public SettingEntry<float> DungeonPanelGridOpacity { get; }
         public SettingEntry<float> DungeonPanelBgOpacity { get; }
-        public SettingEntry<bool> dungeonHighlightFrequenter { get; }
+        public SettingEntry<bool> DungeonHighlightFrequenter { get; }
         public SettingEntry<bool> D1IsVisible { get; }
         public SettingEntry<bool> D2IsVisible { get; }
         public SettingEntry<bool> D3IsVisible { get; }
@@ -69,7 +69,7 @@ namespace RaidClears.Settings
         public SettingEntry<bool> D7IsVisible { get; }
         public SettingEntry<bool> D8IsVisible { get; }
         public SettingEntry<bool> DFIsVisible { get; }
-        
+
 
         public SettingEntry<string> DungeonPanelColorNotCleared { get; }
         public SettingEntry<string> DungeonPanelColorCleared { get; }
@@ -102,6 +102,24 @@ namespace RaidClears.Settings
         public SettingEntry<string> StrikePanelColorCleared { get; }
         public SettingEntry<string> StrikePanelColorText { get; }
         public SettingEntry<string> StrikePanelColorBG { get; }
+
+        #region Strike Visible
+        public SettingEntry<bool> StrikeVisible_IBS { get; }
+        public SettingEntry<bool> StrikeVisible_EOD { get; }
+        public SettingEntry<bool> StrikeVisible_Priority { get; }
+        public SettingEntry<bool> StrikeVisible_CW { get; }
+        public SettingEntry<bool> StrikeVisible_FoJ { get; }
+        public SettingEntry<bool> StrikeVisible_SP { get; }
+        public SettingEntry<bool> StrikeVisible_VandC { get; }
+        public SettingEntry<bool> StrikeVisible_WoJ { get; }
+        public SettingEntry<bool> StrikeVisible_BS { get; }
+        public SettingEntry<bool> StrikeVisible_AH { get; }
+        public SettingEntry<bool> StrikeVisible_XJJ { get; }
+        public SettingEntry<bool> StrikeVisible_KO { get; }
+        public SettingEntry<bool> StrikeVisible_HT { get; }
+        public SettingEntry<bool> StrikeVisible_OLC { get; }
+        #endregion
+
         #endregion
 
         public SettingService(SettingCollection settings)
@@ -173,7 +191,7 @@ namespace RaidClears.Settings
 
             RaidPanelLabelOpacity = settings.DefineSetting("RCWingOpacity",
                 1f,
-                () =>Strings.Setting_Raid_LabelOpacity_Label,
+                () => Strings.Setting_Raid_LabelOpacity_Label,
                 () => Strings.Setting_Raid_LabelOpacity_Tooltip);
             RaidPanelLabelOpacity.SetRange(0.1f, 1f);
 
@@ -338,7 +356,7 @@ namespace RaidClears.Settings
                 () => Strings.Setting_Raid_PanelOpacity_Tooltip);
             DungeonPanelBgOpacity.SetRange(0.0f, 1f);
 
-            dungeonHighlightFrequenter = settings.DefineSetting("RCDunFreqHighlight",
+            DungeonHighlightFrequenter = settings.DefineSetting("RCDunFreqHighlight",
                 true,
                 () => "Hightlight Frequenter Paths",
                 () => "");
@@ -492,8 +510,63 @@ namespace RaidClears.Settings
 
             #endregion
 
-            #region Strike WingSelection
-
+            #region Strike Selection
+            StrikeVisible_IBS = settings.DefineSetting("StrikeVis_ibs",
+                true,
+                () => Strings.Setting_Strike_IBS,
+                () => "");
+            StrikeVisible_EOD = settings.DefineSetting("StrikeVis_eod",
+                true,
+                () => Strings.Setting_Strike_Eod,
+                () => "");
+            StrikeVisible_Priority = settings.DefineSetting("StrikeVis_priority",
+                true,
+                () => Strings.Setting_Stike_Priority,
+                () => "");
+            StrikeVisible_CW = settings.DefineSetting("StrikeVis_cold_war",
+                true,
+                () => Strings.Setting_Strike_CW_Label,
+                () => "");
+            StrikeVisible_FoJ = settings.DefineSetting("StrikeVis_fraenir_of_jormag",
+                true,
+                () => Strings.Setting_Strike_FoJ_Label,
+                () => "");
+            StrikeVisible_SP = settings.DefineSetting("StrikeVis_shiverpeak_pass",
+                true,
+                () => Strings.Setting_Strike_SP_Label,
+                () => "");
+            StrikeVisible_VandC = settings.DefineSetting("StrikeVis_voice_and_claw",
+                true,
+                () => Strings.Setting_Strike_VandC_Label,
+                () => "");
+            StrikeVisible_WoJ = settings.DefineSetting("StrikeVis_whisper_of_jormag",
+                true,
+                () => Strings.Setting_Strike_WoJ_Label,
+                () => "");
+            StrikeVisible_BS = settings.DefineSetting("StrikeVis_boneskinner",
+                true,
+                () => Strings.Setting_Strike_BS_Label,
+                () => "");
+            StrikeVisible_AH = settings.DefineSetting("StrikeVis_aetherblade_hideout",
+                true,
+                () => Strings.Setting_Strike_AH_Label,
+                () => "");
+            StrikeVisible_XJJ = settings.DefineSetting("StrikeVis_xunlai_jade_junkyard",
+                true,
+                () => Strings.Setting_Strike_XJJ_Label,
+                () => "");
+            StrikeVisible_KO = settings.DefineSetting("StrikeVis_kaineng_overlook",
+                true,
+                () => Strings.Setting_Strike_KO_Label,
+                () => "");
+            StrikeVisible_HT = settings.DefineSetting("StrikeVis_harvest_temple",
+                true,
+                () => Strings.Setting_Strike_HT_Label,
+                () => "");
+            StrikeVisible_OLC = settings.DefineSetting("StrikeVis_old_lion_court",
+                true,
+                () => Strings.Setting_Strike_OLC_Label,
+                () => "");
 
             #endregion
 
@@ -522,15 +595,24 @@ namespace RaidClears.Settings
 
         }
 
+        public void CopyRaidVisualsToDungeons()
+        {
+            DungeonPanelFontSize.Value = RaidPanelFontSize.Value;
+            DungeonPanelLabelDisplay.Value = RaidPanelLabelDisplay.Value;
+            DungeonPanelLayout.Value = RaidPanelLayout.Value;
+            DungeonPanelLabelOpacity.Value = RaidPanelLabelOpacity.Value;
+            DungeonPanelGridOpacity.Value = RaidPanelGridOpacity.Value;
+            DungeonPanelBgOpacity.Value = RaidPanelBgOpacity.Value;
+            DungeonPanelColorNotCleared.Value = RaidPanelColorNotCleared.Value;
+            DungeonPanelColorCleared.Value = RaidPanelColorCleared.Value;
+            DungeonPanelColorText.Value = RaidPanelColorText.Value;
+            DungeonPanelColorBG.Value = RaidPanelColorBG.Value;
+
+            Module.ModuleInstance?.StrikesPanel?.ForceInvalidate();
+        }
 
         public void CopyRaidVisualsToStrikes()
         {
-            //StrikePanelLocationPoint.Value = RaidPanelLocationPoint.Value;
-            //StrikePanelDragWithMouseIsEnabled.Value = RaidPanelDragWithMouseIsEnabled.Value;
-            //StrikePanelAllowTooltips.Value = RaidPanelAllowTooltips.Value;
-            //StrikeCornerIconEnabled.Value = RaidCornerIconEnabled.Value;
-            //StrikePanelIsVisible.Value = RaidPanelIsVisible.Value;
-            //StrikePanelIsVisibleKeyBind.Value = RaidPanelIsVisibleKeyBind.Value;
             StrikePanelFontSize.Value = RaidPanelFontSize.Value;
             StrikePanelLabelDisplay.Value = RaidPanelLabelDisplay.Value;
             StrikePanelLayout.Value = RaidPanelLayout.Value;
@@ -538,9 +620,32 @@ namespace RaidClears.Settings
             StrikePanelGridOpacity.Value = RaidPanelGridOpacity.Value;
             StrikePanelBgOpacity.Value = RaidPanelBgOpacity.Value;
             StrikePanelColorNotCleared.Value = RaidPanelColorNotCleared.Value;
-            StrikePanelColorCleared.Value = RaidPanelColorCleared.Value;
+            //StrikePanelColorCleared.Value = RaidPanelColorCleared.Value;
             StrikePanelColorText.Value = RaidPanelColorText.Value;
             StrikePanelColorBG.Value = RaidPanelColorBG.Value;
+
+            Module.ModuleInstance?.StrikesPanel?.ForceInvalidate();
+        }
+
+        public void AlignStrikesWithRaidPanel()
+        {
+            var raidPanel = Module.ModuleInstance?.RaidsPanel;
+            var strikeLoc = StrikePanelLocationPoint;
+
+            Point padding = raidPanel.ControlPadding.ToPoint();
+
+            switch (RaidPanelLayout.Value)
+            {
+                case Layout.Horizontal:
+                case Layout.SingleRow:
+                    strikeLoc.Value = raidPanel.Location + new Point(raidPanel.Size.X + padding.X, 0);
+                    break;
+                case Layout.Vertical:
+                case Layout.SingleColumn:
+                    strikeLoc.Value = raidPanel.Location + new Point(0, raidPanel.Size.Y + padding.Y);
+                    break;
+                default: break;
+            }
         }
     }
 }

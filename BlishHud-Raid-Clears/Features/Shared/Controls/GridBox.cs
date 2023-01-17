@@ -3,8 +3,7 @@ using Blish_HUD.Controls;
 using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
 using RaidClears.Features.Shared.Models;
-using Settings.Enums;
-using System;
+using RaidClears.Settings.Enums;
 
 
 namespace RaidClears.Features.Shared.Controls
@@ -61,16 +60,12 @@ namespace RaidClears.Features.Shared.Controls
 
         protected HorizontalAlignment LabelAlignment(Layout layout)
         {
-            switch (layout)
+            return layout switch
             {
-                case Layout.Vertical:
-                case Layout.SingleRow:
-                    return HorizontalAlignment.Right;
-                case Layout.Horizontal:
-                case Layout.SingleColumn:
-                default:
-                    return HorizontalAlignment.Center;
-            }
+                Layout.Vertical or Layout.SingleRow => HorizontalAlignment.Right,
+                Layout.Horizontal or Layout.SingleColumn => HorizontalAlignment.Center,
+                _ => HorizontalAlignment.Center,
+            };
         }
 
 

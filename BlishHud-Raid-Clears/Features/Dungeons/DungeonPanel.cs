@@ -1,19 +1,15 @@
-﻿using Blish_HUD.Controls;
-using Blish_HUD.Settings;
+﻿using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
-using RaidClears.Settings;
 using RaidClears.Localization;
 using RaidClears.Utils;
 using RaidClears.Features.Shared.Services;
-using RaidClears.Raids.Services;
-using RaidClears.Features.Raids.Models;
 using System.Threading.Tasks;
-
-using RaidClears.Fearures.Raids.Services;
 using RaidClears.Features.Dungeons.Models;
-using RaidClears.Fearures.Dungeons.Services;
 using System.Linq;
 using RaidClears.Features.Shared.Controls;
+using RaidClears.Settings.Services;
+using RaidClears.Features.Dungeons.Services;
+using RaidClears.Features.Raids.Services;
 
 namespace RaidClears.Features.Dungeons
 {
@@ -37,7 +33,7 @@ namespace RaidClears.Features.Dungeons
                 new CornerIconService(
                     _settings.DungeonCornerIconEnabled,
                     _settings.DungeonPanelIsVisible, 
-                    Strings.CornerIcon_Raid, 
+                    Strings.CornerIcon_Dungeon, 
                     Module.ModuleInstance.TexturesService.DungeonsCornerIconTexture,
                     Module.ModuleInstance.TexturesService.DungeonsCornerIconHoverTexture
                 )

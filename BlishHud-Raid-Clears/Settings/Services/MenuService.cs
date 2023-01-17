@@ -2,7 +2,6 @@
 using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using Blish_HUD.Settings;
-using Blish_HUD.Settings.UI.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;

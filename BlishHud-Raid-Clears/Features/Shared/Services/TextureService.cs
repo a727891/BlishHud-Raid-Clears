@@ -1,9 +1,8 @@
 ﻿using System;
 using Blish_HUD.Modules.Managers;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace RaidClears.Fearures.Shared.Services
+namespace RaidClears.Features.Shared.Services
 {
     public class TextureService : IDisposable
     {
@@ -19,6 +18,10 @@ namespace RaidClears.Fearures.Shared.Services
 
             DungeonsCornerIconTexture = contentsManager.GetTexture(@"raids\textures\dungeonIconDark.png");
             DungeonsCornerIconHoverTexture = contentsManager.GetTexture(@"raids\textures\dungeonIconBright.png");
+
+            StrikesCornerIconTexture = contentsManager.GetTexture(@"raids\textures\strikes_dark.png");
+            StrikesCornerIconHoverTexture = contentsManager.GetTexture(@"raids\textures\strikes_bright.png");
+
 
 
             SettingWindowBackground = contentsManager.GetTexture(@"controls/window/background.png");
@@ -56,6 +59,9 @@ namespace RaidClears.Fearures.Shared.Services
 
         public Texture2D DungeonsCornerIconTexture { get; }
         public Texture2D DungeonsCornerIconHoverTexture { get; }
+
+        public Texture2D StrikesCornerIconTexture { get; }
+        public Texture2D StrikesCornerIconHoverTexture { get; }
 
     }
 }

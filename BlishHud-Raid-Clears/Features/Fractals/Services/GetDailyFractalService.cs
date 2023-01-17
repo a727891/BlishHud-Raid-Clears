@@ -58,32 +58,31 @@ namespace RaidClears.Features.Fractals.Services
             var name = Regex.Match(achievementName, "Daily Tier 4 (.+)");
             if (name.Captures.Count > 0)
             {
-                var shortName = "";
-                switch (name.Captures[0].Value)
+                var shortName = name.Captures[0].Value switch
                 {
-                    case "Aetherblade": shortName = "aeth"; break;
-                    case "Aquatic Ruins": shortName = "aqua"; break;
-                    case "Captain Mai Trin Boss": shortName = "mai"; break;
-                    case "Chaos": shortName = "chaos"; break;
-                    case "Cliffside": shortName = "cliff"; break;
-                    case "Deepstone": shortName = "deep"; break;
-                    case "Molten Boss": shortName = "m boss"; break;
-                    case "Molten Furnace": shortName = "m furn"; break;
-                    case "Nightmare": shortName = "night"; break;
-                    case "Shattered Observatory": shortName = "s-obs"; break;
-                    case "Siren's Reef": shortName = "siren"; break;
-                    case "Snowblind": shortName = "snow"; break;
-                    case "Sunqua Peak": shortName = "sun"; break;
-                    case "Solid Ocean": shortName = "solid"; break;
-                    case "Swampland": shortName = "swamp";  break;
-                    case "Thaumanova Reactor": shortName = "thau"; break;
-                    case "Twilight Oasis": shortName = "twili"; break;
-                    case "Uncategorized": shortName = "uncat"; break;
-                    case "Underground Facility": shortName = "under"; break;
-                    case "Urban Battleground": shortName = "urban"; break;
-                    case "Volcanic": shortName = "volc"; break;
-                    default: shortName = "???";break;
-                }
+                    "Aetherblade" => "aeth",
+                    "Aquatic Ruins" => "aqua",
+                    "Captain Mai Trin Boss" => "mai",
+                    "Chaos" => "chaos",
+                    "Cliffside" => "cliff",
+                    "Deepstone" => "deep",
+                    "Molten Boss" => "m boss",
+                    "Molten Furnace" => "m furn",
+                    "Nightmare" => "night",
+                    "Shattered Observatory" => "s-obs",
+                    "Siren's Reef" => "siren",
+                    "Snowblind" => "snow",
+                    "Sunqua Peak" => "sun",
+                    "Solid Ocean" => "solid",
+                    "Swampland" => "swamp",
+                    "Thaumanova Reactor" => "thau",
+                    "Twilight Oasis" => "twili",
+                    "Uncategorized" => "uncat",
+                    "Underground Facility" => "under",
+                    "Urban Battleground" => "urban",
+                    "Volcanic" => "volc",
+                    _ => "???",
+                };
                 return (shortName, name.Captures[0].Value);
             }
             else

@@ -123,6 +123,9 @@
   <data name="CornerIcon_Raid" xml:space="preserve">
     <value>Click to show/hide the Raids overlay</value>
   </data>
+  <data name="CornerIcon_Strike" xml:space="preserve">
+    <value>Click to show/hide the Strikes overlay</value>
+  </data>
   <data name="ModuleSettings_OpenSettings" xml:space="preserve">
     <value>Open Settings</value>
     <comment>Open Settings panel button text in the Blish module settings</comment>
@@ -357,6 +360,9 @@
   <data name="SettingsPanel_Raid_Visual_ColorsTip" xml:space="preserve">
     <value> (Tip: Google 'color picker' for help)</value>
   </data>
+  <data name="SettingsPanel_Strikes_Heading_Selection" xml:space="preserve">
+    <value>Strikes Selection</value>
+  </data>
   <data name="SettingsPanel_Subtitle" xml:space="preserve">
     <value>customization options</value>
     <comment>Subtitle on the settings panel header</comment>
@@ -381,6 +387,12 @@
   </data>
   <data name="Settings_RefreshNow" xml:space="preserve">
     <value>Refresh now</value>
+  </data>
+  <data name="Settings_Strike_EOD_Heading" xml:space="preserve">
+    <value>Enable individual End of Dragons strikes</value>
+  </data>
+  <data name="Settings_Strike_IBS_Heading" xml:space="preserve">
+    <value>Enable individual Icebrood Saga strikes</value>
   </data>
   <data name="Setting_APIPoll_Label" xml:space="preserve">
     <value>Refresh data every </value>
@@ -580,11 +592,23 @@
   <data name="Setting_Raid_W7_Tooltip" xml:space="preserve">
     <value>Enable The Key of Ahdashim on the raid overlay</value>
   </data>
+  <data name="Setting_Stike_Priority" xml:space="preserve">
+    <value>Enable priority stike missions (daily)</value>
+  </data>
+  <data name="Setting_Strike_AH_Label" xml:space="preserve">
+    <value>Aetherblade Hideout</value>
+  </data>
+  <data name="Setting_Strike_AlignWithRaids" xml:space="preserve">
+    <value>Align with raids overlay</value>
+  </data>
   <data name="Setting_Strike_AppendToRaid_Label" xml:space="preserve">
     <value>Add Strikes to Raid overlay</value>
   </data>
   <data name="Setting_Strike_AppendToRaid_Tooltip" xml:space="preserve">
     <value>append the stikes to the end of the raids overlay</value>
+  </data>
+  <data name="Setting_Strike_BS_Label" xml:space="preserve">
+    <value>Boneskinner</value>
   </data>
   <data name="Setting_Strike_ColBG_Label" xml:space="preserve">
     <value />
@@ -611,13 +635,22 @@
     <value />
   </data>
   <data name="Setting_Strike_CopyRaids" xml:space="preserve">
-    <value>Copy Settings From Raids</value>
+    <value>Copy layout from raids</value>
+  </data>
+  <data name="Setting_Strike_CW_Label" xml:space="preserve">
+    <value>Cold War</value>
   </data>
   <data name="Setting_Strike_Drag_Label" xml:space="preserve">
     <value />
   </data>
   <data name="Setting_Strike_Drag_Tooltip" xml:space="preserve">
     <value />
+  </data>
+  <data name="Setting_Strike_Eod" xml:space="preserve">
+    <value>Enable End of Dragons</value>
+  </data>
+  <data name="Setting_Strike_FoJ_Label" xml:space="preserve">
+    <value>Fraenir of Jormag</value>
   </data>
   <data name="Setting_Strike_Font_Label" xml:space="preserve">
     <value />
@@ -631,6 +664,12 @@
   <data name="Setting_Strike_GridOpactiy_Tooltip" xml:space="preserve">
     <value />
   </data>
+  <data name="Setting_Strike_HT_Label" xml:space="preserve">
+    <value>Harvest Temple</value>
+  </data>
+  <data name="Setting_Strike_IBS" xml:space="preserve">
+    <value>Enable Icebrood Saga</value>
+  </data>
   <data name="Setting_Strike_Icon_Label" xml:space="preserve">
     <value />
   </data>
@@ -642,6 +681,9 @@
   </data>
   <data name="Setting_Strike_Keybind_Tooltip" xml:space="preserve">
     <value />
+  </data>
+  <data name="Setting_Strike_KO_Label" xml:space="preserve">
+    <value>Kaineng Overlook</value>
   </data>
   <data name="Setting_Strike_LabelDisplay_Label" xml:space="preserve">
     <value />
@@ -661,11 +703,17 @@
   <data name="Setting_Strike_Layout_Tooltip" xml:space="preserve">
     <value />
   </data>
+  <data name="Setting_Strike_OLC_Label" xml:space="preserve">
+    <value>Old Lion's Court</value>
+  </data>
   <data name="Setting_Strike_PanelOpacity_Label" xml:space="preserve">
     <value />
   </data>
   <data name="Setting_Strike_PanelOpacity_Tooltip" xml:space="preserve">
     <value />
+  </data>
+  <data name="Setting_Strike_SP_Label" xml:space="preserve">
+    <value>Shiverpeaks Pass</value>
   </data>
   <data name="Setting_Strike_Tooltips_Label" xml:space="preserve">
     <value />
@@ -673,11 +721,20 @@
   <data name="Setting_Strike_Tooltips_Tooltip" xml:space="preserve">
     <value />
   </data>
+  <data name="Setting_Strike_VandC_Label" xml:space="preserve">
+    <value>Voice and Claw of the Fallen</value>
+  </data>
   <data name="Setting_Strike_Visible_Label" xml:space="preserve">
     <value />
   </data>
   <data name="Setting_Strike_Visible_Tooltip" xml:space="preserve">
     <value />
+  </data>
+  <data name="Setting_Strike_WoJ_Label" xml:space="preserve">
+    <value>Whisper of Jormag</value>
+  </data>
+  <data name="Setting_Strike_XJJ_Label" xml:space="preserve">
+    <value>Xunlai Jade Junkyard</value>
   </data>
   <data name="SharedKeybind" xml:space="preserve">
     <value>Overlays can use the same keybind</value>

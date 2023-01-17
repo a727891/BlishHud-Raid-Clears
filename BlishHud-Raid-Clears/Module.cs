@@ -1,24 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Threading.Tasks;
 using Blish_HUD;
-using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
-using Blish_HUD.Input;
 using Blish_HUD.Modules;
 using Blish_HUD.Modules.Managers;
 using Blish_HUD.Settings;
 using Gw2Sharp.WebApi.V2.Models;
 using Microsoft.Xna.Framework;
-using Color = Microsoft.Xna.Framework.Color;
 using RaidClears.Settings.Controls;
-using RaidClears.Settings;
 using RaidClears.Features.Raids;
-using RaidClears.Fearures.Shared.Services;
-using RaidClears.Raids.Services;
 using RaidClears.Features.Dungeons;
 using RaidClears.Features.Strikes;
+using RaidClears.Settings.Services;
+using RaidClears.Features.Shared.Services;
 
 namespace RaidClears
 {
@@ -52,26 +47,12 @@ namespace RaidClears
             ModuleInstance = this;
         }
 
-        #region Settings
-        protected override void DefineSettings(SettingCollection settings)
-        {
-            SettingsService = new SettingService(settings);
-        }
+        protected override void DefineSettings(SettingCollection settings) => SettingsService = new SettingService(settings);
 
-        public override IView GetSettingsView()
-        { 
-            return new Settings.Views.ModuleSettingsView();
-        }
-
-        public void OpenFullSettingsPanel()
-        {
-
-        }
-        #endregion
-
+        public override IView GetSettingsView() => new Settings.Views.ModuleSettingsView();
 
         #region Setup/Teardown
-        #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         protected override async Task LoadAsync()
         #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
@@ -114,11 +95,7 @@ namespace RaidClears
 
         }
 
-        private void Gw2ApiManager_SubtokenUpdated(object sender, ValueEventArgs<IEnumerable<TokenPermission>> e)
-        {
-            // _settingToggleKey check interval so that we check immediately now that we have a new token.
-            ApiPollingService.Invoke();
-        }
+        private void Gw2ApiManager_SubtokenUpdated(object sender, ValueEventArgs<IEnumerable<TokenPermission>> e) => ApiPollingService?.Invoke();
 
 
     }

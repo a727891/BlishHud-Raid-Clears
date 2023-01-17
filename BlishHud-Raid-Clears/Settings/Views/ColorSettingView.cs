@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using RaidClears.Settings.Models;
 using System.Text.RegularExpressions;
 
-namespace RaidClears.Settings
+namespace RaidClears.Settings.Views
 {
     public class ColorSettingView : SettingView<string>
     {
@@ -69,7 +69,7 @@ namespace RaidClears.Settings
                 Location = new Point(130, 0),
                 Parent = buildPanel
             };
-           
+
             _stringTextbox.InputFocusChanged += StringTextboxOnInputFocusChanged;
             _stringTextbox.TextChanged += TextChangedEventHandler;
         }
@@ -105,7 +105,7 @@ namespace RaidClears.Settings
         }
         private void UpdateSizeAndLayout()
         {
-            base.ViewTarget.Height = _stringTextbox.Bottom;
+            ViewTarget.Height = _stringTextbox.Bottom;
             _displayNameLabel.Height = _stringTextbox.Bottom;
         }
 

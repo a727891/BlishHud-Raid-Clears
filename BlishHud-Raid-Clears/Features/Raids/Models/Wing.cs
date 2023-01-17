@@ -1,9 +1,10 @@
 ﻿using Blish_HUD.Settings;
+using RaidClears.Features.Raids.Services;
 using RaidClears.Features.Shared.Controls;
+using RaidClears.Features.Shared.Enums;
 using RaidClears.Features.Shared.Models;
 using RaidClears.Localization;
-using RaidClears.Raids.Services;
-using RaidClears.Settings;
+using RaidClears.Settings.Services;
 using RaidClears.Utils;
 
 
@@ -127,7 +128,7 @@ namespace RaidClears.Features.Raids.Models
             return new Wing[] {
                 new Wing(Strings.Raid_Wing_1, 0, Strings.Raid_Wing_1_Short,
                     new Encounter[] {
-                        new Encounter("vale_guardian",Strings.Raid_Wing_1_1_Name, Strings.Raid_Wing_1_1_Short),
+                        new Encounter(Encounters.RaidBosses.ValeGuardian),
                         new Encounter("spirit_woods", Strings.Raid_Wing_1_2_Name, Strings.Raid_Wing_1_2_Short),
                         new Encounter("gorseval", Strings.Raid_Wing_1_3_Name, Strings.Raid_Wing_1_3_Short),
                         new Encounter("sabetha", Strings.Raid_Wing_1_4_Name, Strings.Raid_Wing_1_4_Short),

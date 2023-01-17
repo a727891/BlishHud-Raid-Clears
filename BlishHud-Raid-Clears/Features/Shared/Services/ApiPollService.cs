@@ -1,12 +1,10 @@
 ﻿using System;
 using Blish_HUD;
-using Blish_HUD.Controls;
-using Blish_HUD.Input;
 using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
-using Settings.Enums;
+using RaidClears.Settings.Enums;
 
-namespace RaidClears.Raids.Services
+namespace RaidClears.Features.Shared.Services
 {
     public class ApiPollService : IDisposable
     {
@@ -42,7 +40,7 @@ namespace RaidClears.Raids.Services
             {
                 _runningTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
 
-                if(_runningTimer >= _timeoutValue)
+                if (_runningTimer >= _timeoutValue)
                 {
                     ApiPollingTrigger?.Invoke(this, true);
                     _runningTimer = 0;
@@ -57,14 +55,11 @@ namespace RaidClears.Raids.Services
             ApiPollingTrigger?.Invoke(this, true);
         }
 
-        private void OnSettingUpdate(object sender, ValueChangedEventArgs<ApiPollPeriod> e)
-        {
-            SetTimeoutValueInMinutes((int)e.NewValue);         
-        }
+        private void OnSettingUpdate(object sender, ValueChangedEventArgs<ApiPollPeriod> e) => SetTimeoutValueInMinutes((int)e.NewValue);
 
         private void SetTimeoutValueInMinutes(int minutes)
         {
-            _timeoutValue = (minutes * MINUTE_MS) + BUFFER_MS;
+            _timeoutValue = minutes * MINUTE_MS + BUFFER_MS;
         }
 
 

@@ -1,14 +1,12 @@
-﻿using Blish_HUD;
-using Blish_HUD.Controls;
+﻿using Blish_HUD.Controls;
 using RaidClears.Localization;
-using RaidClears.Settings.Views.Tabs;
 
-namespace RaidClears.Settings.Views
+namespace RaidClears.Settings.Views.Tabs
 {
     public class StrikesVisualsView : MenuedSettingsView
     {
         public StrikesVisualsView()
-        { 
+        {
         }
 
         protected override void Build(Container buildPanel)
@@ -26,6 +24,7 @@ namespace RaidClears.Settings.Views
                 copyButton.Enabled = false;
                 _settingsService.CopyRaidVisualsToStrikes();
             };
+
             ShowEnumSettingWithViewContainer(_settingsService.StrikePanelLayout);
             ShowEnumSettingWithViewContainer(_settingsService.StrikePanelFontSize);
             ShowEnumSettingWithViewContainer(_settingsService.StrikePanelLabelDisplay);

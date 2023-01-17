@@ -79,6 +79,15 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Click to show/hide the Strikes overlay.
+        /// </summary>
+        internal static string CornerIcon_Strike {
+            get {
+                return ResourceManager.GetString("CornerIcon_Strike", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Raid Clears.
         /// </summary>
         internal static string Module_Title {
@@ -1294,6 +1303,33 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enable priority stike missions (daily).
+        /// </summary>
+        internal static string Setting_Stike_Priority {
+            get {
+                return ResourceManager.GetString("Setting_Stike_Priority", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aetherblade Hideout.
+        /// </summary>
+        internal static string Setting_Strike_AH_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_AH_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Align with raids overlay.
+        /// </summary>
+        internal static string Setting_Strike_AlignWithRaids {
+            get {
+                return ResourceManager.GetString("Setting_Strike_AlignWithRaids", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Strikes to Raid overlay.
         /// </summary>
         internal static string Setting_Strike_AppendToRaid_Label {
@@ -1308,6 +1344,15 @@ namespace RaidClears.Localization {
         internal static string Setting_Strike_AppendToRaid_Tooltip {
             get {
                 return ResourceManager.GetString("Setting_Strike_AppendToRaid_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Boneskinner.
+        /// </summary>
+        internal static string Setting_Strike_BS_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_BS_Label", resourceCulture);
             }
         }
         
@@ -1384,11 +1429,20 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copy Settings From Raids.
+        ///   Looks up a localized string similar to Copy layout from raids.
         /// </summary>
         internal static string Setting_Strike_CopyRaids {
             get {
                 return ResourceManager.GetString("Setting_Strike_CopyRaids", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cold War.
+        /// </summary>
+        internal static string Setting_Strike_CW_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_CW_Label", resourceCulture);
             }
         }
         
@@ -1407,6 +1461,24 @@ namespace RaidClears.Localization {
         internal static string Setting_Strike_Drag_Tooltip {
             get {
                 return ResourceManager.GetString("Setting_Strike_Drag_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable End of Dragons.
+        /// </summary>
+        internal static string Setting_Strike_Eod {
+            get {
+                return ResourceManager.GetString("Setting_Strike_Eod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fraenir of Jormag.
+        /// </summary>
+        internal static string Setting_Strike_FoJ_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_FoJ_Label", resourceCulture);
             }
         }
         
@@ -1447,6 +1519,24 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Harvest Temple.
+        /// </summary>
+        internal static string Setting_Strike_HT_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_HT_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable Icebrood Saga.
+        /// </summary>
+        internal static string Setting_Strike_IBS {
+            get {
+                return ResourceManager.GetString("Setting_Strike_IBS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         internal static string Setting_Strike_Icon_Label {
@@ -1479,6 +1569,15 @@ namespace RaidClears.Localization {
         internal static string Setting_Strike_Keybind_Tooltip {
             get {
                 return ResourceManager.GetString("Setting_Strike_Keybind_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kaineng Overlook.
+        /// </summary>
+        internal static string Setting_Strike_KO_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_KO_Label", resourceCulture);
             }
         }
         
@@ -1537,6 +1636,15 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Old Lion&apos;s Court.
+        /// </summary>
+        internal static string Setting_Strike_OLC_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_OLC_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         internal static string Setting_Strike_PanelOpacity_Label {
@@ -1551,6 +1659,15 @@ namespace RaidClears.Localization {
         internal static string Setting_Strike_PanelOpacity_Tooltip {
             get {
                 return ResourceManager.GetString("Setting_Strike_PanelOpacity_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shiverpeaks Pass.
+        /// </summary>
+        internal static string Setting_Strike_SP_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_SP_Label", resourceCulture);
             }
         }
         
@@ -1573,6 +1690,15 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Voice and Claw of the Fallen.
+        /// </summary>
+        internal static string Setting_Strike_VandC_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_VandC_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         internal static string Setting_Strike_Visible_Label {
@@ -1587,6 +1713,24 @@ namespace RaidClears.Localization {
         internal static string Setting_Strike_Visible_Tooltip {
             get {
                 return ResourceManager.GetString("Setting_Strike_Visible_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Whisper of Jormag.
+        /// </summary>
+        internal static string Setting_Strike_WoJ_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_WoJ_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xunlai Jade Junkyard.
+        /// </summary>
+        internal static string Setting_Strike_XJJ_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_XJJ_Label", resourceCulture);
             }
         }
         
@@ -1614,6 +1758,24 @@ namespace RaidClears.Localization {
         internal static string Settings_RefreshNow {
             get {
                 return ResourceManager.GetString("Settings_RefreshNow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable individual End of Dragons strikes.
+        /// </summary>
+        internal static string Settings_Strike_EOD_Heading {
+            get {
+                return ResourceManager.GetString("Settings_Strike_EOD_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable individual Icebrood Saga strikes.
+        /// </summary>
+        internal static string Settings_Strike_IBS_Heading {
+            get {
+                return ResourceManager.GetString("Settings_Strike_IBS_Heading", resourceCulture);
             }
         }
         
@@ -1686,6 +1848,15 @@ namespace RaidClears.Localization {
         internal static string SettingsPanel_Raids_Heading_WingSelection {
             get {
                 return ResourceManager.GetString("SettingsPanel_Raids_Heading_WingSelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Strikes Selection.
+        /// </summary>
+        internal static string SettingsPanel_Strikes_Heading_Selection {
+            get {
+                return ResourceManager.GetString("SettingsPanel_Strikes_Heading_Selection", resourceCulture);
             }
         }
         

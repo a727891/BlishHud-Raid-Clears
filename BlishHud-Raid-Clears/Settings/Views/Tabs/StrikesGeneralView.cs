@@ -1,13 +1,12 @@
 ﻿using Blish_HUD.Controls;
 using RaidClears.Localization;
-using RaidClears.Settings.Views.Tabs;
 
-namespace RaidClears.Settings.Views
+namespace RaidClears.Settings.Views.Tabs
 {
     public class StrikesGeneralView : MenuedSettingsView
     {
         public StrikesGeneralView()
-        { 
+        {
         }
 
         protected override void Build(Container buildPanel)
@@ -21,6 +20,32 @@ namespace RaidClears.Settings.Views
             AddVerticalSpacer();
             ShowSettingWithViewContainer(_settingsService.StrikePanelIsVisibleKeyBind);
             ShowText(Strings.SharedKeybind);
+            AddVerticalSpacer();
+            AddVerticalSpacer();
+
+            StandardButton alignButton = new StandardButton()
+            {
+                Parent = _rootFlowPanel,
+                Text = Strings.Setting_Strike_AlignWithRaids,
+                Width = 200
+
+            };
+            alignButton.Click += (s, e) =>
+            {
+                _settingsService.AlignStrikesWithRaidPanel();
+            };
+            StandardButton copyButton = new StandardButton()
+            {
+                Parent = _rootFlowPanel,
+                Text = Strings.Setting_Strike_CopyRaids,
+                Width = 200
+
+            };
+            copyButton.Click += (s, e) =>
+            {
+                copyButton.Enabled = false;
+                _settingsService.CopyRaidVisualsToStrikes();
+            };
 
         }
 

@@ -1,14 +1,13 @@
 ﻿
 using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
-using RaidClears.Settings;
 using RaidClears.Localization;
 using RaidClears.Utils;
 using RaidClears.Features.Shared.Services;
-using RaidClears.Features.Raids.Models;
-using RaidClears.Fearures.Raids.Services;
 using RaidClears.Features.Shared.Controls;
 using System.Threading.Tasks;
+using RaidClears.Features.Strikes.Models;
+using RaidClears.Settings.Services;
 
 namespace RaidClears.Features.Strikes
 {
@@ -32,9 +31,9 @@ namespace RaidClears.Features.Strikes
                 new CornerIconService(
                     _settings.StrikeCornerIconEnabled,
                     _settings.StrikePanelIsVisible, 
-                    Strings.CornerIcon_Raid, 
-                    Module.ModuleInstance.TexturesService.CornerIconTexture,
-                    Module.ModuleInstance.TexturesService.CornerIconHoverTexture
+                    Strings.CornerIcon_Strike, 
+                    Module.ModuleInstance.TexturesService.StrikesCornerIconTexture,
+                    Module.ModuleInstance.TexturesService.StrikesCornerIconHoverTexture
                 )
             );
             panel.RegisterKeybindService(
@@ -86,6 +85,18 @@ namespace RaidClears.Features.Strikes
                 });
             };
         }
+
+        public void ForceInvalidate()
+        {
+            foreach(var strike in Strikes)
+            {
+                if(strike.boxes.Length> 0)
+                {
+                    strike.boxes[0].Box?.Parent.Invalidate();
+                }
+            }
+        }
+
 
     }
 }

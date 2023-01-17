@@ -1,12 +1,6 @@
-﻿
-using Blish_HUD;
-using Blish_HUD.Controls;
-using Blish_HUD.Settings;
-using Microsoft.Xna.Framework;
+﻿using Blish_HUD.Settings;
 using RaidClears.Features.Shared.Controls;
-using Settings.Enums;
-
-using Label = Blish_HUD.Controls.Label;
+using RaidClears.Settings.Enums;
 
 namespace RaidClears.Utils
 {
@@ -94,7 +88,16 @@ namespace RaidClears.Utils
 
         #endregion
 
-
+        public static void VisiblityChanged(this GridBox panel, SettingEntry<bool> setting)
+        {
+            setting.SettingChanged += (s, e) =>
+            {
+                panel.Visible = e.NewValue;
+                panel.Parent?.Invalidate();
+            };
+            panel.Visible = setting.Value;
+            panel.Parent?.Invalidate();
+        }
     }
 
 }

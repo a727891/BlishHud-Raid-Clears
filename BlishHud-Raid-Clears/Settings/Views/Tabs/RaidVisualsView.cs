@@ -1,14 +1,12 @@
-﻿using Blish_HUD;
-using Blish_HUD.Controls;
+﻿using Blish_HUD.Controls;
 using RaidClears.Localization;
-using RaidClears.Settings.Views.Tabs;
 
-namespace RaidClears.Settings.Views
+namespace RaidClears.Settings.Views.Tabs
 {
     public class RaidVisualsView : MenuedSettingsView
     {
         public RaidVisualsView()
-        { 
+        {
         }
 
         protected override void Build(Container buildPanel)

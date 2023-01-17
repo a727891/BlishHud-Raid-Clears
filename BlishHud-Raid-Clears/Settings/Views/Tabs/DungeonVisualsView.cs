@@ -1,19 +1,25 @@
-﻿using Blish_HUD;
-using Blish_HUD.Controls;
+﻿using Blish_HUD.Controls;
 using RaidClears.Localization;
-using RaidClears.Settings.Views.Tabs;
 
-namespace RaidClears.Settings.Views
+namespace RaidClears.Settings.Views.Tabs
 {
     public class DungeonVisualsView : MenuedSettingsView
     {
-        public DungeonVisualsView()
-        { 
-        }
-
         protected override void Build(Container buildPanel)
         {
             base.Build(buildPanel);
+            StandardButton copyButton = new StandardButton()
+            {
+                Parent = _rootFlowPanel,
+                Text = Strings.Setting_Strike_CopyRaids,
+                Width = 200
+
+            };
+            copyButton.Click += (s, e) =>
+            {
+                copyButton.Enabled = false;
+                _settingsService.CopyRaidVisualsToDungeons();
+            };
             ShowEnumSettingWithViewContainer(_settingsService.DungeonPanelLayout);
             ShowEnumSettingWithViewContainer(_settingsService.DungeonPanelFontSize);
             ShowEnumSettingWithViewContainer(_settingsService.DungeonPanelLabelDisplay);
@@ -23,7 +29,7 @@ namespace RaidClears.Settings.Views
 
             AddVerticalSpacer();
 
-            ShowSettingWithViewContainer(_settingsService.dungeonHighlightFrequenter);
+            ShowSettingWithViewContainer(_settingsService.DungeonHighlightFrequenter);
 
             AddVerticalSpacer();
 

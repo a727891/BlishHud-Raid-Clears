@@ -5,12 +5,9 @@ using Microsoft.Xna.Framework;
 using RaidClears.Localization;
 using Blish_HUD;
 using Blish_HUD.Overlay;
-using Blish_HUD.Settings.UI.Views;
 using RaidClears.Settings.Services;
-using RaidClears.Settings.Views;
-using System.Collections.Generic;
-using System.Linq;
 using System;
+using RaidClears.Settings.Views.Tabs;
 
 namespace RaidClears.Settings.Controls
 {
@@ -134,11 +131,11 @@ namespace RaidClears.Settings.Controls
                 (m) => new StrikesVisualsView(),
                 int.MinValue
             );
-            /*strikesMenu.RegisterSettingMenu(
-                new MenuItem(Strings.SettingsPanel_Raids_Heading_WingSelection),
-                (m) => new RaidWingSelectionView(),
+            strikesMenu.RegisterSettingMenu(
+                new MenuItem(Strings.SettingsPanel_Strikes_Heading_Selection),
+                (m) => new StrikesSelectionView(),
                 int.MinValue
-            );*/
+            );
 
             Tabs.Add(
                new Tab(
@@ -168,7 +165,7 @@ namespace RaidClears.Settings.Controls
                 }
                 else if (e.NewValue.Name == Strings.SettingsPanel_Tab_Dunegons)
                 {
-                    raidsMenu.RefreshMenuView();
+                    dungeonsMenu?.RefreshMenuView();
                 }
                 else if (e.NewValue.Name == Strings.SettingsPanel_Tab_Strikes)
                 {
@@ -180,8 +177,8 @@ namespace RaidClears.Settings.Controls
                 }
             };
 
-            
-            Show();
+
+            //Show();
 
         }
 

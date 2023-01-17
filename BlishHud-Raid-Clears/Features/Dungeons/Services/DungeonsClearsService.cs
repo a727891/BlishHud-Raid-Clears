@@ -7,7 +7,7 @@ using Blish_HUD.Modules.Managers;
 using Gw2Sharp.WebApi.V2.Models;
 
 
-namespace RaidClears.Fearures.Dungeons.Services
+namespace RaidClears.Features.Dungeons.Services
 {
     public class DungeonsClearsService
     {
@@ -25,7 +25,7 @@ namespace RaidClears.Fearures.Dungeons.Services
             {
                 logger.Warn("HasPermissions() returned false. Possible reasons: " +
                             "API subToken does not have the necessary permissions: " +
-                            $"{String.Join(", ", NECESSARY_API_TOKEN_PERMISSIONS)}. " +
+                            $"{string.Join(", ", NECESSARY_API_TOKEN_PERMISSIONS)}. " +
                             $"Or module did not get API subToken from Blish yet. Or API key is missing.");
 
                 return new List<string>() { };
@@ -59,7 +59,7 @@ namespace RaidClears.Fearures.Dungeons.Services
             {
                 logger.Warn("HasPermissions() returned false. Possible reasons: " +
                             "API subToken does not have the necessary permissions: " +
-                            $"{String.Join(", ", NECESSARY_API_TOKEN_PERMISSIONS)}. " +
+                            $"{string.Join(", ", NECESSARY_API_TOKEN_PERMISSIONS)}. " +
                             $"Or module did not get API subToken from Blish yet. Or API key is missing.");
 
                 return new List<string>() { };
@@ -68,7 +68,7 @@ namespace RaidClears.Fearures.Dungeons.Services
             try
             {
                 var weeklyCleared = await gw2ApiManager.Gw2ApiClient.V2.Account.Dungeons.GetAsync();
-               return weeklyCleared.ToList();
+                return weeklyCleared.ToList();
             }
             catch (Exception e)
             {
@@ -90,42 +90,42 @@ namespace RaidClears.Fearures.Dungeons.Services
         }
         private static string FrequentIdToPathString(int id)
         {
-            switch (id)
+            return id switch
             {
-                case 0: return "coe_story";
-                case 1: return "submarine";
-                case 2: return "teleporter";
-                case 3: return "front_door";
-                case 4: return "ac_story";
-                case 5: return "hodgins";
-                case 6: return "detha";
-                case 7: return "tzark";
-                case 8: return "jotun";
-                case 9: return "mursaat";
-                case 10: return "forgotten";
-                case 11: return "seer";
-                case 12: return "cm_story";
-                case 13: return "asura";
-                case 14: return "seraph";
-                case 15: return "butler";
-                case 16: return "se_story";
-                case 17: return "fergg";
-                case 18: return "rasalov";
-                case 19: return "koptev";
-                case 20: return "ta_story";
-                case 21: return "leurent";
-                case 22: return "vevina";
-                case 23: return "aetherpath";
-                case 24: return "hotw_story";
-                case 25: return "butcher";
-                case 26: return "plunderer";
-                case 27: return "zealot";
-                case 28: return "cof_story";
-                case 29: return "ferrah";
-                case 30: return "magg";
-                case 31: return "rhiannon";
-                default: return null;
-            }
+                0 => "coe_story",
+                1 => "submarine",
+                2 => "teleporter",
+                3 => "front_door",
+                4 => "ac_story",
+                5 => "hodgins",
+                6 => "detha",
+                7 => "tzark",
+                8 => "jotun",
+                9 => "mursaat",
+                10 => "forgotten",
+                11 => "seer",
+                12 => "cm_story",
+                13 => "asura",
+                14 => "seraph",
+                15 => "butler",
+                16 => "se_story",
+                17 => "fergg",
+                18 => "rasalov",
+                19 => "koptev",
+                20 => "ta_story",
+                21 => "leurent",
+                22 => "vevina",
+                23 => "aetherpath",
+                24 => "hotw_story",
+                25 => "butcher",
+                26 => "plunderer",
+                27 => "zealot",
+                28 => "cof_story",
+                29 => "ferrah",
+                30 => "magg",
+                31 => "rhiannon",
+                _ => null,
+            };
         }
 
         public readonly List<TokenPermission> NECESSARY_API_TOKEN_PERMISSIONS = new List<TokenPermission>

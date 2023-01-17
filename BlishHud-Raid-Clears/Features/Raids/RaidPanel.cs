@@ -1,14 +1,13 @@
 ﻿using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
-using RaidClears.Settings;
 using RaidClears.Localization;
 using RaidClears.Utils;
 using RaidClears.Features.Shared.Controls;
 using RaidClears.Features.Shared.Services;
-using RaidClears.Raids.Services;
 using RaidClears.Features.Raids.Models;
 using System.Threading.Tasks;
-using RaidClears.Fearures.Raids.Services;
+using RaidClears.Settings.Services;
+using RaidClears.Features.Raids.Services;
 
 namespace RaidClears.Features.Raids
 {

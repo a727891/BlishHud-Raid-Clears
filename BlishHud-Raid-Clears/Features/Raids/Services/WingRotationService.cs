@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RaidClears.Raids.Services
+namespace RaidClears.Features.Raids.Services
 {
     public class WeeklyWings
     {
@@ -28,10 +28,10 @@ namespace RaidClears.Raids.Services
 
             var duration = now.ToUnixTimeSeconds() - EMBOLDEN_START_TIMESTAMP;
 
-            var wing = (int) Math.Floor((decimal) (duration / WEEKLY_SECONDS)) % NUMBER_OF_WINGS;
+            var wing = (int)Math.Floor((decimal)(duration / WEEKLY_SECONDS)) % NUMBER_OF_WINGS;
 
-            return new WeeklyWings(wing , (wing + 1) % NUMBER_OF_WINGS);
-            
+            return new WeeklyWings(wing, (wing + 1) % NUMBER_OF_WINGS);
+
         }
 
     }

@@ -33,28 +33,19 @@ namespace RaidClears.Utils
         }
         public static int GetLabelWidthForFontSize(ContentService.FontSize size)
         {
-            switch (size)
+            return (int)size switch
             {
-                case ContentService.FontSize.Size36:
-                    return 100;
-                case ContentService.FontSize.Size34:
-                case ContentService.FontSize.Size32:
-                    return 80;
-                case ContentService.FontSize.Size24:
-                case ContentService.FontSize.Size22:
-                case ContentService.FontSize.Size20:
-                    return 50;
-                case ContentService.FontSize.Size18:
-                case ContentService.FontSize.Size16:
-                case ContentService.FontSize.Size14:
-                    return 40;
-                case ContentService.FontSize.Size12:
-                case ContentService.FontSize.Size11:
-                    return 35;
-                case ContentService.FontSize.Size8:
-                    return 39;
-                default: return 40;
-            }
+                >=36 => 100,
+                >=32 => 80,
+                >=20 => 50,
+               /* ContentService.FontSize.Size36 => 100,
+                ContentService.FontSize.Size34 or ContentService.FontSize.Size32 => 80,
+                ContentService.FontSize.Size24 or ContentService.FontSize.Size22 or ContentService.FontSize.Size20 => 50,
+                ContentService.FontSize.Size18 or ContentService.FontSize.Size16 or ContentService.FontSize.Size14 => 40,
+                ContentService.FontSize.Size12 or ContentService.FontSize.Size11 => 35,
+                ContentService.FontSize.Size8 => 39,*/
+                _ => 40,
+            };
         }
         #endregion
 

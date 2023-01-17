@@ -1,18 +1,12 @@
-﻿
-using Blish_HUD.Controls;
-using Blish_HUD.Settings;
-using RaidClears.Features.Dungeons;
-using RaidClears.Features.Raids.Models;
+﻿using Blish_HUD.Settings;
 using RaidClears.Features.Shared.Controls;
 using RaidClears.Features.Shared.Models;
-using RaidClears.Localization;
-using RaidClears.Raids.Services;
-using RaidClears.Settings;
+using RaidClears.Settings.Services;
 using RaidClears.Utils;
 
 namespace RaidClears.Features.Dungeons.Models
 {
-    
+
     public static class DungeonFactory
     {
         public static int FREQUENTER_INDEX = 8;
@@ -50,7 +44,7 @@ namespace RaidClears.Features.Dungeons.Models
                     );
                     encounter.SetGridBoxReference(encounterBox);
                     encounter.WatchColorSettings(settings.DungeonPanelColorCleared, settings.DungeonPanelColorNotCleared);
-                    encounter.RegisterFrequenterSettings(settings.dungeonHighlightFrequenter, settings.DungeonPanelColorFreq, settings.DungeonPanelColorText);
+                    encounter.RegisterFrequenterSettings(settings.DungeonHighlightFrequenter, settings.DungeonPanelColorFreq, settings.DungeonPanelColorText);
                     //ApplyConditionalTextColoring(encounterBox, dungeon.index, weekly, settings);
 
                 }
@@ -62,19 +56,19 @@ namespace RaidClears.Features.Dungeons.Models
 
         public static SettingEntry<bool> GetDungeonSelectionByIndex(int index, SettingService settings)
         {
-            switch (index)
+            return index switch
             {
-                case 0: return settings.D1IsVisible;
-                case 1: return settings.D2IsVisible;
-                case 2: return settings.D3IsVisible;
-                case 3: return settings.D4IsVisible;
-                case 4: return settings.D5IsVisible;
-                case 5: return settings.D6IsVisible;
-                case 6: return settings.D7IsVisible;
-                case 7: return settings.D8IsVisible;
-                case 8: return settings.DFIsVisible;
-                default: return settings.D1IsVisible;
-            }
+                0 => settings.D1IsVisible,
+                1 => settings.D2IsVisible,
+                2 => settings.D3IsVisible,
+                3 => settings.D4IsVisible,
+                4 => settings.D5IsVisible,
+                5 => settings.D6IsVisible,
+                6 => settings.D7IsVisible,
+                7 => settings.D8IsVisible,
+                8 => settings.DFIsVisible,
+                _ => settings.D1IsVisible,
+            };
         }
 
         public static Dungeon[] GetDungeonMetaData()

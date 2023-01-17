@@ -1,55 +1,63 @@
 ﻿using System;
 using System.Collections.Generic;
+using Blish_HUD.Settings;
+using RaidClears.Settings.Services;
 
 namespace RaidClears.Features.Strikes.Services
 {
-    public class StrikeInfo
-    {
-        public string name;
-        public string shorwName;
-        public string expansion;
-        public List<int> mapIds;
-
-        public StrikeInfo(string name, string shortName, string expansion, List<int> maps)
-        {
-            this.name = name;
-            this.expansion = expansion;
-            this.shorwName = shortName;
-            this.mapIds = maps;
-        }
-
-
-    }
-    public class StrikeRotationService : IDisposable
+    public class StrikeSettingService : IDisposable
     {
 
-        private const int BOTH_AT_INDEX_0_TIMESTAMP = 1672617600; //Mon Jan 02 2023 00:00:00 GMT+0000
-        private const int DAILY_SECONDS = 86400;
-        private const int NUMBER_OF_IBS_STRIKES = 6;
-        private const int NUMBER_OF_EOD_STRIKES = 5;
-
-
-        public StrikeRotationService()
+        private SettingService settings;
+        
+        public StrikeSettingService()
         {
-
+            settings = Module.ModuleInstance.SettingsService;
 
         }
 
-        public (int IBS_INDEX, int EOD_INDEX) GetPriorityStikeIndex()
+        public static SettingEntry<bool> GetStrikeVisibleFromEncounterId(string id)
         {
-
-            DateTimeOffset now = (DateTimeOffset)DateTime.UtcNow;
-
-            var duration = now.ToUnixTimeSeconds() - BOTH_AT_INDEX_0_TIMESTAMP;
-
-            var daysElapsed = (int)Math.Floor((decimal)(duration / DAILY_SECONDS));
-
-            var ibs_index = daysElapsed % NUMBER_OF_IBS_STRIKES;
-            var eod_index = daysElapsed % NUMBER_OF_EOD_STRIKES;
-
-            return (ibs_index, eod_index);
-
+            var setting = Module.ModuleInstance.SettingsService;
+            switch (id) {
+                case "cold_war":
+                    return setting.StrikeVisible_CW;
+                case "fraenir_of_jormag":
+                    return setting.StrikeVisible_FoJ;
+                case "shiverpeak_pass":
+                    return setting.StrikeVisible_SP;
+                case "voice_and_claw":
+                    return setting.StrikeVisible_VandC;
+                case "whisper_of_jormag":
+                    return setting.StrikeVisible_WoJ;
+                case "boneskinner":
+                    return setting.StrikeVisible_BS;
+                case "aetherblade_hideout":
+                    return setting.StrikeVisible_AH;
+                case "xunlai_jade_junkyard":
+                    return setting.StrikeVisible_XJJ;
+                case "kaineng_overlook":
+                    return setting.StrikeVisible_KO;
+                case "harvest_temple":
+                    return setting.StrikeVisible_HT;
+                case "old_lion_court":
+                    return setting.StrikeVisible_OLC;
+                default: return setting.StrikeVisible_CW; 
+            }
         }
+
+        public static SettingEntry<bool> GetStrikeGroupVisibleSettingByIndex(int id)
+        {
+            var setting = Module.ModuleInstance.SettingsService;
+            switch (id)
+            {
+                case 8: return setting.StrikeVisible_IBS;
+                case 9: return setting.StrikeVisible_EOD;
+                case 10: return setting.StrikeVisible_Priority;
+                default: return setting.StrikeVisible_Priority;
+            }
+        }
+
 
         public StrikeInfo IcebroodStrikeInfo(int index)
         {

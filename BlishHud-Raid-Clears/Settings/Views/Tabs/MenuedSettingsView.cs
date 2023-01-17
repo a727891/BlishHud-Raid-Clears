@@ -4,11 +4,11 @@ using Blish_HUD.Graphics.UI;
 using Blish_HUD.Settings;
 using Blish_HUD.Settings.UI.Views;
 using Microsoft.Xna.Framework;
-using SettingsService = RaidClears.Settings.SettingService;
+using SettingsService = RaidClears.Settings.Services.SettingService;
 
 namespace RaidClears.Settings.Views.Tabs
 {
-  
+
     public class MenuedSettingsView : View
     {
         protected SettingsService _settingsService;

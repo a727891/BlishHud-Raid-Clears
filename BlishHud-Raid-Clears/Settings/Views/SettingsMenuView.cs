@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using Blish_HUD.Settings;
-using Blish_HUD.Settings.UI.Presenters;
 using Microsoft.Xna.Framework;
 using RaidClears.Settings.Services;
 
@@ -90,6 +89,7 @@ namespace RaidClears.Settings.Views
 
             _settingViewContainer = new ViewContainer()
             {
+                ShowBorder= true,
                 FadeView = true,
                 Size = new Point(_menuFlow.Width - settingsMenuSection.Width - 10, _menuFlow.Height),
                 Parent = _menuFlow

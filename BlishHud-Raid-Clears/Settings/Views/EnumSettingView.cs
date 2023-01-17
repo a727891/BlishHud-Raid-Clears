@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
 using Blish_HUD;
@@ -11,7 +10,7 @@ using Blish_HUD.Settings.UI.Views;
 using Humanizer;
 using Microsoft.Xna.Framework;
 
-namespace RaidClears.Settings
+namespace RaidClears.Settings.Views
 {
     public static class EnumSettingView
     {
@@ -91,22 +90,22 @@ namespace RaidClears.Settings
 
         private void EnumDropdownOnValueChanged(object sender, ValueChangedEventArgs e)
         {
-            this.OnValueChanged(new ValueEventArgs<TEnum>(e.CurrentValue.DehumanizeTo<TEnum>()));
+            OnValueChanged(new ValueEventArgs<TEnum>(e.CurrentValue.DehumanizeTo<TEnum>()));
         }
 
         private void UpdateSizeAndLayout()
         {
-            this.ViewTarget.Height = _enumDropdown.Bottom;
-            _displayNameLabel.Height = this.ViewTarget.Height;
+            ViewTarget.Height = _enumDropdown.Bottom;
+            _displayNameLabel.Height = ViewTarget.Height;
 
-            if (this.DefinedWidth > 0)
+            if (DefinedWidth > 0)
             {
                 _enumDropdown.Left = _displayNameLabel.Right + CONTROL_PADDING;
-                this.ViewTarget.Width = _enumDropdown.Right + CONTROL_PADDING;
+                ViewTarget.Width = _enumDropdown.Right + CONTROL_PADDING;
             }
             else
             {
-                _enumDropdown.Location = new Point(this.ViewTarget.Width - CONTROL_PADDING - DROPDOWN_WIDTH, 0);
+                _enumDropdown.Location = new Point(ViewTarget.Width - CONTROL_PADDING - DROPDOWN_WIDTH, 0);
             }
         }
 

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Settings.Enums
+namespace RaidClears.Settings.Enums
 {
     public enum LabelDisplay
     {

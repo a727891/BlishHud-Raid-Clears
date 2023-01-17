@@ -1,14 +1,11 @@
-﻿using Blish_HUD.Settings;
+﻿using RaidClears.Features.Raids.Models;
 using RaidClears.Features.Shared.Controls;
-using RaidClears.Features.Shared.Models;
-using RaidClears.Features.Strikes;
-using RaidClears.Localization;
-using RaidClears.Raids.Services;
-using RaidClears.Settings;
+using RaidClears.Features.Strikes.Services;
+using RaidClears.Settings.Services;
 using RaidClears.Utils;
 
 
-namespace RaidClears.Features.Raids.Models
+namespace RaidClears.Features.Strikes.Models
 {
 
     public static class StrikeFactory
@@ -23,7 +20,7 @@ namespace RaidClears.Features.Raids.Models
                     panel,
                     settings.StrikePanelLayout
                 );
-                //group.VisiblityChanged(GetWingSelectionByIndex(strike.index, settings));
+                group.VisiblityChanged(StrikeSettingService.GetStrikeGroupVisibleSettingByIndex(strike.index));
                 strike.SetGridGroupReference(group);
 
 
@@ -34,7 +31,7 @@ namespace RaidClears.Features.Raids.Models
                 );
                 strike.SetGroupLabelReference(labelBox);
                 labelBox.LayoutChange(settings.StrikePanelLayout);
-                labelBox.LabelDisplayChange(settings.StrikePanelLabelDisplay, (strike.index + 1).ToString(), strike.shortName);
+                labelBox.LabelDisplayChange(settings.StrikePanelLabelDisplay, strike.shortName, strike.shortName);
                 
                 foreach (var encounter in strike.boxes)
                 {
@@ -43,6 +40,8 @@ namespace RaidClears.Features.Raids.Models
                         encounter.short_name, encounter.name,
                         settings.StrikePanelGridOpacity, settings.StrikePanelFontSize
                     );
+                    encounterBox.VisiblityChanged(StrikeSettingService.GetStrikeVisibleFromEncounterId(encounter.id)) ;
+                    encounterBox.TextColorSetting(settings.StrikePanelColorText);
                     encounter.SetGridBoxReference(encounterBox);
                     encounter.WatchColorSettings(settings.StrikePanelColorCleared, settings.StrikePanelColorNotCleared);
                     
