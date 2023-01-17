@@ -4,6 +4,7 @@ using Blish_HUD.Graphics.UI;
 using Blish_HUD.Settings;
 using Blish_HUD.Settings.UI.Views;
 using Microsoft.Xna.Framework;
+using RaidClears.Utils;
 using SettingsService = RaidClears.Settings.Services.SettingService;
 
 namespace RaidClears.Settings.Views.Tabs;
@@ -63,10 +64,35 @@ public class MenuedSettingsView : View
             Title = title,
             FlowDirection = ControlFlowDirection.SingleTopToBottom,
             OuterControlPadding = new Vector2(10, 10),
-            Width = parent.Width - 20,
+            Width = parent.Width,
             HeightSizingMode = SizingMode.AutoSize,
             Parent = parent
         };
+    }
+    
+    protected static FlowPanel VisibibilitySettingsFlowPanel(Container parent, SettingEntry<bool> setting)
+    {
+        FlowPanel panel =  new FlowPanel
+        {
+            FlowDirection = ControlFlowDirection.SingleTopToBottom,
+            Width = parent.Width,
+            HeightSizingMode = SizingMode.AutoSize,
+            Parent = parent
+        };
+        panel.VisiblityChanged(setting);
+        return panel;
+    }
+    protected static FlowPanel VisibibilityInvertedSettingsFlowPanel(Container parent, SettingEntry<bool> setting)
+    {
+        FlowPanel panel = new FlowPanel
+        {
+            FlowDirection = ControlFlowDirection.SingleTopToBottom,
+            Width = parent.Width,
+            HeightSizingMode = SizingMode.AutoSize,
+            Parent = parent
+        };
+        panel.InvertedVisiblityChanged(setting);
+        return panel;
     }
 
     protected Label ShowText(string text)

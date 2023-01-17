@@ -47,6 +47,7 @@ public class SettingService // singular because Setting"s"Service already exists
     #endregion
 
     #region Dungeon Setting Variables
+    public SettingEntry<bool> DungeonEnable { get; }
     public SettingEntry<Point> DungeonPanelLocationPoint { get; }
     public SettingEntry<bool> DungeonPanelDragWithMouseIsEnabled { get; }
     public SettingEntry<bool> DungeonPanelAllowTooltips { get; }
@@ -291,6 +292,11 @@ public class SettingService // singular because Setting"s"Service already exists
 
         #region DungeonPanel
         #region DUNGEONS
+        DungeonEnable = settings.DefineSetting("RCDungeonEnable",
+            true,
+            () => Strings.Setting_Dun_Enabled,
+            () => Strings.Setting_Dun_Enabled_Tooltip);
+        
 
         DungeonPanelLocationPoint = internalSettingSubCollection.DefineSetting("RCDungeonLoc", new Point(250, 410));
         DungeonPanelDragWithMouseIsEnabled = settings.DefineSetting("RCDunDrag",
@@ -316,7 +322,13 @@ public class SettingService // singular because Setting"s"Service already exists
         DungeonPanelIsVisibleKeyBind = settings.DefineSetting("RCDungeonkeybind", new KeyBinding(Keys.None),
             () => Strings.Setting_Dun_Keybind_Label,
             () => Strings.Setting_Dun_Keybind_Tooltip);
-        DungeonPanelIsVisibleKeyBind.Value.Enabled = true;
+        DungeonPanelIsVisibleKeyBind.Value.Enabled = DungeonEnable.Value;
+
+        DungeonEnable.SettingChanged += (s, e) =>
+        {
+            DungeonPanelIsVisibleKeyBind.Value.Enabled = e.NewValue;
+            DungeonPanelIsVisible.Value = e.NewValue;
+        };
 
 
         DungeonPanelFontSize = settings.DefineSetting("RCDungeonFontSize",

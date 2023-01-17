@@ -406,11 +406,20 @@
   <data name="Setting_Dun_ColFreqText_Tooltip" xml:space="preserve">
     <value>Hex color code (#rrggbb) for Paths that count for dungeon frequenter achievement</value>
   </data>
+  <data name="Setting_Dun_DisabledWarning" xml:space="preserve">
+    <value>Dungeon feature is currently disabled</value>
+  </data>
   <data name="Setting_Dun_Drag_Label" xml:space="preserve">
     <value>Unlock Dungeon overlay position</value>
   </data>
   <data name="Setting_Dun_Drag_Tooltip" xml:space="preserve">
     <value>Click and drag to reposition the overlay window</value>
+  </data>
+  <data name="Setting_Dun_Enabled" xml:space="preserve">
+    <value>Enable dungeons feature</value>
+  </data>
+  <data name="Setting_Dun_Enabled_Tooltip" xml:space="preserve">
+    <value>Enable/Disable all dungeon features</value>
   </data>
   <data name="Setting_Dun_Icon_Label" xml:space="preserve">
     <value>Enable dungeon toolbar button</value>
@@ -431,7 +440,7 @@
     <value>Hovering the mouse over an path will display the full name</value>
   </data>
   <data name="Setting_Dun_Visible_Label" xml:space="preserve">
-    <value>Enable dungeons overlay</value>
+    <value>Show dungeons overlay</value>
   </data>
   <data name="Setting_Dun_Visible_Tooltip" xml:space="preserve">
     <value>Show the dungeons overlay on screen</value>
