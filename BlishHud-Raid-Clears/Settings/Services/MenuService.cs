@@ -6,57 +6,56 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RaidClears.Settings.Services
+namespace RaidClears.Settings.Services;
+
+public class MenuService : ISettingsMenuRegistrar
 {
-    public class MenuService : ISettingsMenuRegistrar
+    public Views.SettingsMenuView View { get; private set; }
+
+    public event EventHandler<EventArgs> RegistrarListChanged;
+
+    private readonly List<(MenuItem MenuItem, Func<MenuItem, IView> ViewFunc, int Index)> _registeredMenuItems = new List<(MenuItem MenuItem, Func<MenuItem, IView> ViewFunc, int Index)>();
+
+    public void SetSettingMenuView(Views.SettingsMenuView v)
     {
-        public Views.SettingsMenuView View { get; private set; }
+        View = v;
+    }
 
-        public event EventHandler<EventArgs> RegistrarListChanged;
-
-        private readonly List<(MenuItem MenuItem, Func<MenuItem, IView> ViewFunc, int Index)> _registeredMenuItems = new List<(MenuItem MenuItem, Func<MenuItem, IView> ViewFunc, int Index)>();
-
-        public void SetSettingMenuView(Views.SettingsMenuView v)
+    public IView GetMenuItemView(MenuItem selectedMenuItem)
+    {
+        foreach (var (menuItem, viewFunc, _) in _registeredMenuItems)
         {
-            View = v;
-        }
-
-        public IView GetMenuItemView(MenuItem selectedMenuItem)
-        {
-            foreach (var (menuItem, viewFunc, _) in _registeredMenuItems)
+            if (menuItem == selectedMenuItem || menuItem.GetDescendants().Contains(selectedMenuItem))
             {
-                if (menuItem == selectedMenuItem || menuItem.GetDescendants().Contains(selectedMenuItem))
-                {
-                    return viewFunc(selectedMenuItem);
-                }
+                return viewFunc(selectedMenuItem);
             }
-
-            return null;
         }
 
-        public void RefreshMenuView()
-        {
-            if (_registeredMenuItems.Count() < 1) return;
+        return null;
+    }
 
-            View.SetSettingView(GetMenuItemView(_registeredMenuItems.First().MenuItem));
-        }
+    public void RefreshMenuView()
+    {
+        if (_registeredMenuItems.Count() < 1) return;
+
+        View.SetSettingView(GetMenuItemView(_registeredMenuItems.First().MenuItem));
+    }
 
 
 
-        public IEnumerable<MenuItem> GetSettingMenus() => _registeredMenuItems.OrderBy(mi => mi.Index).Select(mi => mi.MenuItem);
+    public IEnumerable<MenuItem> GetSettingMenus() => _registeredMenuItems.OrderBy(mi => mi.Index).Select(mi => mi.MenuItem);
 
-        public void RegisterSettingMenu(MenuItem menuItem, Func<MenuItem, IView> viewFunc, int index = 0)
-        {
-            _registeredMenuItems.Add((menuItem, viewFunc, index));
+    public void RegisterSettingMenu(MenuItem menuItem, Func<MenuItem, IView> viewFunc, int index = 0)
+    {
+        _registeredMenuItems.Add((menuItem, viewFunc, index));
 
-            this.RegistrarListChanged?.Invoke(this, EventArgs.Empty);
-        }
+        this.RegistrarListChanged?.Invoke(this, EventArgs.Empty);
+    }
 
-        public void RemoveSettingMenu(MenuItem menuItem)
-        {
-            _registeredMenuItems.RemoveAll(r => r.MenuItem == menuItem);
+    public void RemoveSettingMenu(MenuItem menuItem)
+    {
+        _registeredMenuItems.RemoveAll(r => r.MenuItem == menuItem);
 
-            this.RegistrarListChanged?.Invoke(this, EventArgs.Empty);
-        }
+        this.RegistrarListChanged?.Invoke(this, EventArgs.Empty);
     }
 }

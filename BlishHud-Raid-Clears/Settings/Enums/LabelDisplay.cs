@@ -1,16 +1,15 @@
 ﻿using System.ComponentModel;
 
-namespace RaidClears.Settings.Enums
+namespace RaidClears.Settings.Enums;
+
+public enum LabelDisplay
 {
-    public enum LabelDisplay
-    {
-        [Description("Show numbers")]
-        WingNumber,
+    [Description("Show numbers")]
+    WingNumber,
 
-        [Description("Abbreviate the names")]
-        Abbreviation,
+    [Description("Abbreviate the names")]
+    Abbreviation,
 
-        [Description("Hide the names")]
-        NoLabel
-    }
+    [Description("Hide the names")]
+    NoLabel
 }
