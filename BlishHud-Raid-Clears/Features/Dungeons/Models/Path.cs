@@ -36,28 +36,28 @@ public class Path : BoxModel
         SettingEntry<string> normalTextColor)
     {
         FreqColor = highlightFreq.Value ?
-               freqColor.Value.HexToXNAColor():
-               normalTextColor.Value.HexToXNAColor();
+               freqColor.Value.HexToXnaColor():
+               normalTextColor.Value.HexToXnaColor();
         ApplyTextColor();
         freqColor.SettingChanged += (s, e) =>
         {
-            FreqColor = e.NewValue.HexToXNAColor();
+            FreqColor = e.NewValue.HexToXnaColor();
             ApplyTextColor();
         };
         normalTextColor.SettingChanged += (s, e) =>
         {
-            NormalTextColor = e.NewValue.HexToXNAColor();
+            NormalTextColor = e.NewValue.HexToXnaColor();
             ApplyTextColor();
         };
         highlightFreq.SettingChanged += (s, e) =>
         {
             if (e.NewValue)
             {
-                FreqColor = freqColor.Value.HexToXNAColor();
+                FreqColor = freqColor.Value.HexToXnaColor();
             }
             else
             {
-                FreqColor = normalTextColor.Value.HexToXNAColor();
+                FreqColor = normalTextColor.Value.HexToXnaColor();
 
             }
             ApplyTextColor();

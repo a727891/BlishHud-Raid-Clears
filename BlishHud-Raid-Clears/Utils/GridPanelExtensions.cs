@@ -11,9 +11,9 @@ internal static class GridPanelExtensions
 
     public static void BackgroundColorChange(this GridPanel panel, SettingEntry<float> opacity, SettingEntry<string> bgColor)
     {
-        opacity.SettingChanged += (s, e) => panel.BackgroundColor = AddAlphaToColor(bgColor.Value.HexToXNAColor(), e.NewValue);
-        bgColor.SettingChanged += (s, e) => panel.BackgroundColor = AddAlphaToColor(e.NewValue.HexToXNAColor(), opacity.Value);
-        panel.BackgroundColor = AddAlphaToColor(bgColor.Value.HexToXNAColor(), opacity.Value);            
+        opacity.SettingChanged += (s, e) => panel.BackgroundColor = AddAlphaToColor(bgColor.Value.HexToXnaColor(), e.NewValue);
+        bgColor.SettingChanged += (s, e) => panel.BackgroundColor = AddAlphaToColor(e.NewValue.HexToXnaColor(), opacity.Value);
+        panel.BackgroundColor = AddAlphaToColor(bgColor.Value.HexToXnaColor(), opacity.Value);            
     }
     public static Color AddAlphaToColor(Color color, float opacity)
     {

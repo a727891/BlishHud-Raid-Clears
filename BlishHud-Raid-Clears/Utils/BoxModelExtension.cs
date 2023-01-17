@@ -12,9 +12,9 @@ internal static class BoxModelExtension
         SettingEntry<string> notClearedColor
     )
     {
-        box.SetClearColors(clearedColor.Value.HexToXNAColor(), notClearedColor.Value.HexToXNAColor());
-        clearedColor.SettingChanged += (s,e)=> box.SetClearColors(e.NewValue.HexToXNAColor(), notClearedColor.Value.HexToXNAColor());
-        notClearedColor.SettingChanged += (s, e) => box.SetClearColors(clearedColor.Value.HexToXNAColor(), e.NewValue.HexToXNAColor());
+        box.SetClearColors(clearedColor.Value.HexToXnaColor(), notClearedColor.Value.HexToXnaColor());
+        clearedColor.SettingChanged += (s,e)=> box.SetClearColors(e.NewValue.HexToXnaColor(), notClearedColor.Value.HexToXnaColor());
+        notClearedColor.SettingChanged += (s, e) => box.SetClearColors(clearedColor.Value.HexToXnaColor(), e.NewValue.HexToXnaColor());
     }
 
 

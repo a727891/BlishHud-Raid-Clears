@@ -58,8 +58,8 @@ internal static class GridBoxExtensions
     #region TextColor changes
     public static void TextColorSetting(this GridBox box, SettingEntry<string> textColor)
     {
-        textColor.SettingChanged += (s, e) => box.TextColor = e.NewValue.HexToXNAColor();
-        box.TextColor = textColor.Value.HexToXNAColor();
+        textColor.SettingChanged += (s, e) => box.TextColor = e.NewValue.HexToXnaColor();
+        box.TextColor = textColor.Value.HexToXnaColor();
     }
 
     public static void ConditionalTextColorSetting(
@@ -77,11 +77,11 @@ internal static class GridBoxExtensions
     {
         if (condition)
         {
-            box.TextColor = trueColor.HexToXNAColor();
+            box.TextColor = trueColor.HexToXnaColor();
         }
         else
         {
-            box.TextColor = falseColor.HexToXNAColor();
+            box.TextColor = falseColor.HexToXnaColor();
         }
 
     }
