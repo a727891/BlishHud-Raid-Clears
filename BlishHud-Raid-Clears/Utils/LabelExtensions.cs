@@ -1,52 +1,49 @@
-﻿
-using Blish_HUD;
+﻿using Blish_HUD;
+using Blish_HUD.Controls;
 using Blish_HUD.Settings;
-using Label = Blish_HUD.Controls.Label;
 
 namespace RaidClears.Utils;
 
-internal static class LabelExtensions
+public static class LabelExtensions
 {
-    #region Font Size change
     public static void FontSizeChange(this Label label, SettingEntry<ContentService.FontSize> setting)
     {
-        setting.SettingChanged += (s, e) =>
+        setting.SettingChanged += (_, e) =>
         {
             SetFontSize(e.NewValue, label);
         };
+        
         SetFontSize(setting.Value, label);
-
     }
-    public static void SetFontSize(ContentService.FontSize fontSize, Label label)
+    
+    private static void SetFontSize(ContentService.FontSize fontSize, Label label)
     {
-        var font = GameService
+        label.Font = GameService
             .Content
             .GetFont(
                 ContentService.FontFace.Menomonia,
                 fontSize,
                 ContentService.FontStyle.Regular
-           );
-        var width = GetLabelWidthForFontSize(fontSize);
-
-        label.Font = font;
-        label.Width = width;
+            );
+        
+        label.Width = GetLabelWidthForFontSize(fontSize);
     }
-    public static int GetLabelWidthForFontSize(ContentService.FontSize size)
+    
+    private static int GetLabelWidthForFontSize(ContentService.FontSize size)
     {
+        // ContentService.FontSize.Size36 => 100,
+        // ContentService.FontSize.Size34 or ContentService.FontSize.Size32 => 80,
+        // ContentService.FontSize.Size24 or ContentService.FontSize.Size22 or ContentService.FontSize.Size20 => 50,
+        // ContentService.FontSize.Size18 or ContentService.FontSize.Size16 or ContentService.FontSize.Size14 => 40,
+        // ContentService.FontSize.Size12 or ContentService.FontSize.Size11 => 35,
+        // ContentService.FontSize.Size8 => 39,
+        
         return (int)size switch
         {
-            >=36 => 100,
-            >=32 => 80,
-            >=20 => 50,
-           /* ContentService.FontSize.Size36 => 100,
-            ContentService.FontSize.Size34 or ContentService.FontSize.Size32 => 80,
-            ContentService.FontSize.Size24 or ContentService.FontSize.Size22 or ContentService.FontSize.Size20 => 50,
-            ContentService.FontSize.Size18 or ContentService.FontSize.Size16 or ContentService.FontSize.Size14 => 40,
-            ContentService.FontSize.Size12 or ContentService.FontSize.Size11 => 35,
-            ContentService.FontSize.Size8 => 39,*/
+            >= 36 => 100,
+            >= 32 => 80,
+            >= 20 => 50,
             _ => 40,
         };
     }
-    #endregion
-
 }
