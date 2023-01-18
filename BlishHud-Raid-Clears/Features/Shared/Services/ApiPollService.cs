@@ -8,12 +8,12 @@ namespace RaidClears.Features.Shared.Services;
 
 public class ApiPollService : IDisposable
 {
-    protected static int BUFFER_MS = 50;
-    protected static int MINUTE_MS = 60000;
+    protected static int bufferMs = 50;
+    protected static int minuteMs = 60000;
 
-    protected bool _running = true;
-    protected double _runningTimer = -20000;
-    protected double _timeoutValue = 0;
+    protected bool running = true;
+    protected double runningTimer = -20000;
+    protected double timeoutValue;
 
     public event EventHandler<bool> ApiPollingTrigger;
 
@@ -36,14 +36,14 @@ public class ApiPollService : IDisposable
 
     public void Update(GameTime gameTime)
     {
-        if (_running)
+        if (running)
         {
-            _runningTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
+            runningTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            if (_runningTimer >= _timeoutValue)
+            if (runningTimer >= timeoutValue)
             {
-                ApiPollingTrigger?.Invoke(this, true);
-                _runningTimer = 0;
+                ApiPollingTrigger.Invoke(this, true);
+                runningTimer = 0;
             }
 
         }
@@ -51,15 +51,15 @@ public class ApiPollService : IDisposable
 
     public void Invoke()
     {
-        _runningTimer = 0;
-        ApiPollingTrigger?.Invoke(this, true);
+        runningTimer = 0;
+        ApiPollingTrigger.Invoke(this, true);
     }
 
     private void OnSettingUpdate(object sender, ValueChangedEventArgs<ApiPollPeriod> e) => SetTimeoutValueInMinutes((int)e.NewValue);
 
     private void SetTimeoutValueInMinutes(int minutes)
     {
-        _timeoutValue = minutes * MINUTE_MS + BUFFER_MS;
+        timeoutValue = minutes * minuteMs + bufferMs;
     }
 
 

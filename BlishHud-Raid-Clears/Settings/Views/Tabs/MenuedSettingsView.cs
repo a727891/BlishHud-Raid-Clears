@@ -8,19 +8,10 @@ using SettingsService = RaidClears.Settings.Services.SettingService;
 
 namespace RaidClears.Settings.Views.Tabs;
 
-// todo: this seems super scuffed?
-// There's a bunch of function chains that create objects, and then don't return them??
-
-public class MenuedSettingsView : View
+public class MenuedSettingsView : View // warning
 {
     protected SettingsService settingsService;
     protected FlowPanel rootFlowPanel;
-    private int _singleColWidth;
-
-    protected MenuedSettingsView()
-    {
-        settingsService = Module.ModuleInstance.SettingsService;
-    }
 
     protected override void Build(Container buildPanel)
     {
@@ -32,8 +23,6 @@ public class MenuedSettingsView : View
             Height = buildPanel.ContentRegion.Height,
             //BackgroundColor = new Color(20,20,100,20)
         };
-        
-        _singleColWidth = rootFlowPanel.ContentRegion.Width;
     }
 
     protected static FlowPanel CreateTwoColPanel(Container parent) => new()
@@ -85,13 +74,12 @@ public class MenuedSettingsView : View
         return panel;
     }
 
-    // todo: this is probably super wrong
     protected void ShowText(string text)
     {
         ShowText(text, rootFlowPanel);
     }
     
-    protected Label ShowText(string text, FlowPanel panel)
+    protected static Label ShowText(string text, FlowPanel panel) // warning still doesn't like this
     {
         return new Label
         {
@@ -107,9 +95,9 @@ public class MenuedSettingsView : View
 
     protected void AddVerticalSpacer(int height) => AddVerticalSpacer(rootFlowPanel, height);
 
-    protected void AddVerticalSpacer(FlowPanel panel)
+    protected static void AddVerticalSpacer(FlowPanel panel)
     {
-        new Label
+        var _ = new Label
         {
             Parent = panel,
         };
@@ -117,7 +105,7 @@ public class MenuedSettingsView : View
 
     private void AddVerticalSpacer(Container panel, int height)
     {
-        new Label
+        var _ = new Label
         {
             Parent = panel,
             Height = height,

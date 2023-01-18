@@ -17,6 +17,6 @@ public class ModuleSettingsView: View
         button.Left = (buildPanel.Width /2) - (button.Width/ 2);
         button.Top = (buildPanel.Height / 2) - (button.Height / 2);
 
-        button.Click += (_, _) => Module.ModuleInstance.SettingsWindow.Show();
+        button.Click += (_, _) => Module.moduleInstance.SettingsWindow.Show();
     }
 }

@@ -8,23 +8,20 @@ using RaidClears.Features.Shared.Services;
 
 namespace RaidClears.Features.Shared.Controls;
 
-
 public class GridPanel : FlowPanel
 {
+    private bool _isDraggedByMouse;
+    private Point _dragStart = Point.Zero;
 
-    protected bool _isDraggedByMouse = false;
-    protected Point _dragStart = Point.Zero;
+    private readonly SettingEntry<Point> _locationSetting;
+    private readonly SettingEntry<bool> _visibleSetting;
+    private readonly SettingEntry<bool> _allowMouseDragSetting;
+    private readonly SettingEntry<bool> _allowTooltipSetting;
 
-    protected SettingEntry<Point> _locationSetting;
-    protected SettingEntry<bool> _visibleSetting;
-    protected SettingEntry<bool> _allowMouseDragSetting;
-    protected SettingEntry<bool> _allowTooltipSetting;
+    private CornerIconService? _cornerIconService;
+    private KeybindHandlerService? _keyBindService;
 
-
-    protected CornerIconService _cornerIconService;
-    protected KeybindHandlerService _keybindService;
-
-    public GridPanel(
+    protected GridPanel(
         SettingEntry<Point> locationSetting,
         SettingEntry<bool> visibleSetting,
         SettingEntry<bool> allowMouseDragSetting,
@@ -35,7 +32,6 @@ public class GridPanel : FlowPanel
         _visibleSetting = visibleSetting;
         _allowMouseDragSetting = allowMouseDragSetting;
         _allowTooltipSetting = allowTooltipSetting;
-        
 
         ControlPadding = new Vector2(2, 2);
         
@@ -43,8 +39,8 @@ public class GridPanel : FlowPanel
         Location = _locationSetting.Value;
         Visible = _visibleSetting.Value;
         Parent = GameService.Graphics.SpriteScreen;
-        HeightSizingMode = SizingMode.AutoSize;
-        WidthSizingMode = SizingMode.AutoSize;
+        HeightSizingMode = SizingMode.AutoSize; //warning
+        WidthSizingMode = SizingMode.AutoSize; //warning
         
         AddDragDelegates();
         _locationSetting.SettingChanged += (_, e) => Location = e.NewValue;
@@ -56,11 +52,11 @@ public class GridPanel : FlowPanel
     {
         base.DisposeControl();
         _cornerIconService?.Dispose();
-        _keybindService?.Dispose();
+        _keyBindService?.Dispose();
     }
 
     #region Mouse Stuff
-    public virtual void DoUpdate()
+    private void DoUpdate()
     {
         if (_isDraggedByMouse && _allowMouseDragSetting.Value)
         {
@@ -70,8 +66,8 @@ public class GridPanel : FlowPanel
             _dragStart = GameService.Input.Mouse.Position;
         }
     }
-    
-    protected void AddDragDelegates()
+
+    private void AddDragDelegates()
     {
         LeftMouseButtonPressed += delegate
         {
@@ -91,7 +87,7 @@ public class GridPanel : FlowPanel
         };
     }
 
-    protected bool ShouldIgnoreMouse()
+    private bool ShouldIgnoreMouse()
     {
         return !(
             _allowMouseDragSetting.Value ||
@@ -99,41 +95,25 @@ public class GridPanel : FlowPanel
         );
     }
 
-    protected bool _ignoreMouseInput = false;
-    public bool IgnoreMouseInput
+    private bool _ignoreMouseInput;
+
+    private bool IgnoreMouseInput
     {
-        get
-        {
-            return _ignoreMouseInput;
-        }
-        set
-        {
-            SetProperty(ref _ignoreMouseInput, value, invalidateLayout: true, "IgnoreMouseInput");
-        }
+        set => SetProperty(ref _ignoreMouseInput, value, invalidateLayout: true);
     }
 
-    public override Control TriggerMouseInput(MouseEventType mouseEventType, MouseState ms)
-    {
-        if (_ignoreMouseInput)
-        {
-            return null;
-        }
-        else
-        {
-            return base.TriggerMouseInput(mouseEventType, ms);
-
-        }
-    }
+    public override Control? TriggerMouseInput(MouseEventType mouseEventType, MouseState ms) => _ignoreMouseInput ? null : base.TriggerMouseInput(mouseEventType, ms);
     #endregion
 
     #region event handlers
-    public void RegisterCornerIconService(CornerIconService service)
+    public void RegisterCornerIconService(CornerIconService? service)
     {
         _cornerIconService = service;
     }
-    public void RegisterKeybindService(KeybindHandlerService service)
+    
+    public void RegisterKeyBindService(KeybindHandlerService? service)
     {
-        _keybindService= service;
+        _keyBindService= service;
     }
     #endregion
 

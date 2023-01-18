@@ -1,10 +1,8 @@
 ﻿using Blish_HUD.Controls;
-using Blish_HUD.Modules.Managers;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using RaidClears.Localization;
 using Blish_HUD;
-using Blish_HUD.Overlay;
 using RaidClears.Settings.Services;
 using RaidClears.Settings.Views.Tabs;
 
@@ -31,36 +29,32 @@ public static class SettingPanelFactory
         );
 
         return new SettingsPanel(
-            Module.ModuleInstance.TexturesService.SettingWindowBackground,
+            Module.moduleInstance.TexturesService.SettingWindowBackground,
             settingsWindowSize,
             contentRegion,
             windowSize,
-            GameService.Graphics.SpriteScreen,
-            Module.ModuleInstance.ContentsManager
+            GameService.Graphics.SpriteScreen
         );
     }
 }
 public class SettingsPanel : TabbedWindow2
 {
-    public OverlaySettingsTab SettingsTab { get; private set; }
-
     public SettingsPanel(
         Texture2D background, 
         Rectangle windowRegion, 
         Rectangle contentRegion, 
         Point windowSize,
-        Container parent,
-        ContentsManager contentManager
+        Container parent
     ): base(background, windowRegion, contentRegion, windowSize)
     {
         Id = $"{nameof(Module)}_96b38a83-4163-4d97-b894-282406b29a48";
-        Emblem = Module.ModuleInstance.TexturesService.SettingWindowEmblem;
+        Emblem = Module.moduleInstance.TexturesService.SettingWindowEmblem;
         Parent = parent;
         Title = Strings.Module_Title;
         Subtitle = Strings.SettingsPanel_Subtitle;
         SavesPosition = true;
 
-        Module.ModuleInstance.SettingsService.SettingsPanelKeyBind.Value.Activated += (_, _) => ToggleWindow();
+        Module.moduleInstance.SettingsService.SettingsPanelKeyBind.Value.Activated += (_, _) => ToggleWindow();
 
         #region RaidPanelSettings
         var raidsMenu = new MenuService();
@@ -82,7 +76,7 @@ public class SettingsPanel : TabbedWindow2
 
         Tabs.Add(
            new Tab(
-               Module.ModuleInstance.TexturesService.SettingTabRaid,
+               Module.moduleInstance.TexturesService.SettingTabRaid,
                //() => new Views.RaidSettingsView(Module.ModuleInstance.SettingsService),
                () => new Views.SettingsMenuView(raidsMenu),
                Strings.SettingsPanel_Tab_Raids
@@ -111,7 +105,7 @@ public class SettingsPanel : TabbedWindow2
 
         Tabs.Add(
             new Tab(
-                Module.ModuleInstance.TexturesService.SettingTabDungeon,
+                Module.moduleInstance.TexturesService.SettingTabDungeon,
                 //() => new Views.DungeonSettingsView(Module.ModuleInstance.SettingsService),
                 () => new Views.SettingsMenuView(dungeonsMenu),
                 Strings.SettingsPanel_Tab_Dunegons
@@ -138,7 +132,7 @@ public class SettingsPanel : TabbedWindow2
 
         Tabs.Add(
            new Tab(
-               Module.ModuleInstance.TexturesService.SettingTabStrikes,
+               Module.moduleInstance.TexturesService.SettingTabStrikes,
                //() => new Views.RaidSettingsView(Module.ModuleInstance.SettingsService),
                () => new Views.SettingsMenuView(strikesMenu),
                Strings.SettingsPanel_Tab_Strikes
@@ -147,7 +141,7 @@ public class SettingsPanel : TabbedWindow2
         #region GeneralModuleSettings
         Tabs.Add(
             new Tab(
-                Module.ModuleInstance.TexturesService.SettingTabGeneral,
+                Module.moduleInstance.TexturesService.SettingTabGeneral,
                 //() => new Views.GlobalSettingsView(Module.ModuleInstance.SettingsService),
                 () => new ModuleGeneralSettingView(),
                 Strings.SettingsPanel_Tab_General
@@ -164,7 +158,7 @@ public class SettingsPanel : TabbedWindow2
             }
             else if (e.NewValue.Name == Strings.SettingsPanel_Tab_Dunegons)
             {
-                dungeonsMenu?.RefreshMenuView();
+                dungeonsMenu.RefreshMenuView();
             }
             else if (e.NewValue.Name == Strings.SettingsPanel_Tab_Strikes)
             {

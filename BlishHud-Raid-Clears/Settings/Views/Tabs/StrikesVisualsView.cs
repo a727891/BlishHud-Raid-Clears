@@ -6,7 +6,7 @@ namespace RaidClears.Settings.Views.Tabs;
 
 public class StrikesVisualsView : MenuedSettingsView
 {
-    private static StrikeSettings StrikeSettings => Module.ModuleInstance.SettingsService.StrikeSettings;
+    private static StrikeSettings StrikeSettings => Module.moduleInstance.SettingsService.StrikeSettings;
     
     protected override void Build(Container buildPanel)
     {

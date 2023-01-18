@@ -15,7 +15,7 @@ public class SettingsMenuView : View
     private Menu _menuSettingsList;
     private ViewContainer _settingViewContainer;
 
-    public SettingsMenuView(MenuService settingsMenuRegistrar)
+    public SettingsMenuView(MenuService settingsMenuRegistrar) // warning
     {
         WithPresenter(new SettingsMenuPresenter(this, settingsMenuRegistrar));
         settingsMenuRegistrar.SetSettingMenuView(this);
@@ -61,12 +61,10 @@ public class SettingsMenuView : View
         };
     }
 
-    public void SetSettingView(IView view) => _settingViewContainer.Show(view);
+    public void SetSettingView(IView? view) => _settingViewContainer.Show(view);
 
     public void SetMenuItems(IEnumerable<MenuItem> menuItems)
     {
-        if (_menuSettingsList == null) return;
-
         var selectedMenuItem = _menuSettingsList.SelectedMenuItem;
 
         _menuSettingsList.ClearChildren();
@@ -82,7 +80,7 @@ public class SettingsMenuView : View
         }
     }
 
-    private void SettingsListMenuOnItemSelected(object sender, ControlActivatedEventArgs e) => MenuItemSelected?.Invoke(this, e);
+    private void SettingsListMenuOnItemSelected(object sender, ControlActivatedEventArgs e) => MenuItemSelected.Invoke(this, e);
 
     protected override void Unload()
     {

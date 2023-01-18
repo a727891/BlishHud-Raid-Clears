@@ -66,18 +66,18 @@ public static class StrikeMissionExtensions
     {
         return value switch
         {
-            Encounters.StrikeMission.ShiverpeaksPass => StrikeMissionType.IBS,
-            Encounters.StrikeMission.ColdWar => StrikeMissionType.IBS,
-            Encounters.StrikeMission.Fraenir => StrikeMissionType.IBS,
-            Encounters.StrikeMission.VoiceAndClaw => StrikeMissionType.IBS,
-            Encounters.StrikeMission.Whisper => StrikeMissionType.IBS,
-            Encounters.StrikeMission.Boneskinner => StrikeMissionType.IBS,
+            Encounters.StrikeMission.ShiverpeaksPass => StrikeMissionType.Ibs,
+            Encounters.StrikeMission.ColdWar => StrikeMissionType.Ibs,
+            Encounters.StrikeMission.Fraenir => StrikeMissionType.Ibs,
+            Encounters.StrikeMission.VoiceAndClaw => StrikeMissionType.Ibs,
+            Encounters.StrikeMission.Whisper => StrikeMissionType.Ibs,
+            Encounters.StrikeMission.Boneskinner => StrikeMissionType.Ibs,
             
-            Encounters.StrikeMission.AetherbladeHideout => StrikeMissionType.EOD,
-            Encounters.StrikeMission.Junkyard => StrikeMissionType.EOD,
-            Encounters.StrikeMission.Overlook => StrikeMissionType.EOD,
-            Encounters.StrikeMission.HarvestTemple => StrikeMissionType.EOD,
-            Encounters.StrikeMission.OldLionsCourt => StrikeMissionType.EOD,
+            Encounters.StrikeMission.AetherbladeHideout => StrikeMissionType.Eod,
+            Encounters.StrikeMission.Junkyard => StrikeMissionType.Eod,
+            Encounters.StrikeMission.Overlook => StrikeMissionType.Eod,
+            Encounters.StrikeMission.HarvestTemple => StrikeMissionType.Eod,
+            Encounters.StrikeMission.OldLionsCourt => StrikeMissionType.Eod,
             _ => throw new ArgumentOutOfRangeException(nameof(value), value, null)
         };
     }

@@ -9,17 +9,12 @@ namespace RaidClears.Features.Shared.Controls;
 
 public class GridGroup : FlowPanel
 {
-    public GridGroup(
-        Container parent,
-        SettingEntry<Layout> layout
-    )
+    public GridGroup(Container parent, SettingEntry<Layout> layout)
     { 
         Parent = parent;
         ControlPadding = new Vector2(2, 2);
-        HeightSizingMode = SizingMode.AutoSize;
-        WidthSizingMode = SizingMode.AutoSize;
+        HeightSizingMode = SizingMode.AutoSize; // warning
+        WidthSizingMode = SizingMode.AutoSize; // warning
         this.LayoutChange(layout,1);
     }
-
-
 }

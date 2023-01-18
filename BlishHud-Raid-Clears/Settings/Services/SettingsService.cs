@@ -37,24 +37,23 @@ public class SettingService // singular because Setting"s"Service already exists
     {
         DungeonSettings.Style = RaidSettings.Style;
         
-        Module.ModuleInstance?.StrikesPanel?.ForceInvalidate();
+        Module.moduleInstance.StrikesPanel.ForceInvalidate();
     }
 
     public void CopyRaidVisualsToStrikes()
     {
         StrikeSettings.Style = RaidSettings.Style; 
 
-        Module.ModuleInstance?.StrikesPanel?.ForceInvalidate();
+        Module.moduleInstance.StrikesPanel.ForceInvalidate();
     }
 
     public void AlignStrikesWithRaidPanel()
     {
-        var raidPanel = Module.ModuleInstance?.RaidsPanel;
+        var raidPanel = Module.moduleInstance.RaidsPanel;
         var strikeLoc = StrikeSettings.Generic.Location;
 
-        var padding = raidPanel?.ControlPadding.ToPoint() ?? new Point(2, 2);
+        var padding = raidPanel.ControlPadding.ToPoint();
 
-        if (raidPanel is null) return;
         strikeLoc.Value = RaidSettings.Style.Layout switch
         {
             { Value: Layout.Horizontal or Layout.SingleRow } => raidPanel.Location + new Point(raidPanel.Size.X + padding.X, 0),

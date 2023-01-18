@@ -10,25 +10,21 @@ namespace RaidClears.Features.Dungeons.Services;
 
 public class DungeonsClearsService
 {
-    const int FREQUENTER_ACHIEVEMENT_ID = 2963;
-    public DungeonsClearsService()
-    {
-
-    }
+    private const int FREQUENTER_ACHIEVEMENT_ID = 2963;
+    
     public async Task<List<string>> GetFrequenterPaths()
     {
-        var gw2ApiManager = Module.ModuleInstance.Gw2ApiManager;
+        var gw2ApiManager = Module.moduleInstance.Gw2ApiManager;
         var logger = Logger.GetLogger<Module>();
 
-        if (gw2ApiManager.HasPermissions(NECESSARY_API_TOKEN_PERMISSIONS) == false)
+        if (gw2ApiManager.HasPermissions(_necessaryApiTokenPermissions) == false)
         {
             logger.Warn("HasPermissions() returned false. Possible reasons: " +
                         "API subToken does not have the necessary permissions: " +
-                        $"{string.Join(", ", NECESSARY_API_TOKEN_PERMISSIONS)}. " +
-                        $"Or module did not get API subToken from Blish yet. Or API key is missing.");
+                        $"{string.Join(", ", _necessaryApiTokenPermissions)}. " +
+                        "Or module did not get API subToken from Blish yet. Or API key is missing.");
 
-            return new List<string>
-                { };
+            return new List<string>();
         }
 
         try
@@ -36,11 +32,11 @@ public class DungeonsClearsService
             var f = await gw2ApiManager.Gw2ApiClient.V2.Account.Achievements.GetAsync();
             var frequenter = f.ToList().Find(x => x.Id == FREQUENTER_ACHIEVEMENT_ID);
 
-            var list = new List<string>
-                { };
+            var list = new List<string>();
+            
             if (frequenter != null)
             {
-                list = ConvertFrequenterToPathId(frequenter.Bits.ToList());
+                list = ConvertFrequenterToPathId(frequenter.Bits).ToList();
             }
             return list;
         }
@@ -53,18 +49,17 @@ public class DungeonsClearsService
 
     public async Task<List<string>> GetClearsFromApi()
     {
-        var gw2ApiManager = Module.ModuleInstance.Gw2ApiManager;
+        var gw2ApiManager = Module.moduleInstance.Gw2ApiManager;
         var logger = Logger.GetLogger<Module>();
 
-        if (gw2ApiManager.HasPermissions(NECESSARY_API_TOKEN_PERMISSIONS) == false)
+        if (gw2ApiManager.HasPermissions(_necessaryApiTokenPermissions) == false)
         {
             logger.Warn("HasPermissions() returned false. Possible reasons: " +
                         "API subToken does not have the necessary permissions: " +
-                        $"{string.Join(", ", NECESSARY_API_TOKEN_PERMISSIONS)}. " +
+                        $"{string.Join(", ", _necessaryApiTokenPermissions)}. " +
                         $"Or module did not get API subToken from Blish yet. Or API key is missing.");
 
-            return new List<string>
-                { };
+            return new List<string>();
         }
 
         try
@@ -75,22 +70,15 @@ public class DungeonsClearsService
         catch (Exception e)
         {
             logger.Warn(e, "Could not get current clears from API");
-            return new List<string>
-                { };
+            return new List<string>();
         }
     }
 
-    public static List<string> ConvertFrequenterToPathId(List<int> frequentedPaths)
+    private static IEnumerable<string> ConvertFrequenterToPathId(IEnumerable<int>? frequentedPaths)
     {
-        var list = new List<string> { };
-
-        foreach (var path in frequentedPaths)
-        {
-            list.Add(FrequentIdToPathString(path));
-        }
-
-        return list;
+        return frequentedPaths?.Select(FrequentIdToPathString) ?? new List<string>();
     }
+    
     private static string FrequentIdToPathString(int id)
     {
         return id switch
@@ -127,11 +115,11 @@ public class DungeonsClearsService
             29 => "ferrah",
             30 => "magg",
             31 => "rhiannon",
-            _ => null,
+            _ => string.Empty,
         };
     }
 
-    public readonly List<TokenPermission> NECESSARY_API_TOKEN_PERMISSIONS = new List<TokenPermission>
+    private readonly List<TokenPermission> _necessaryApiTokenPermissions = new()
     {
         TokenPermission.Account,
         TokenPermission.Progression

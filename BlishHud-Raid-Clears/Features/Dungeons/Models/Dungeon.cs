@@ -1,62 +1,62 @@
-﻿using Blish_HUD.Settings;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Blish_HUD.Settings;
 using RaidClears.Features.Shared.Controls;
 using RaidClears.Features.Shared.Models;
-using RaidClears.Settings.Services;
+using RaidClears.Settings.Models;
 using RaidClears.Utils;
 
 namespace RaidClears.Features.Dungeons.Models;
 
-
 public static class DungeonFactory
 {
-    public const int FREQUENTER_INDEX = 8;
-    public const string FREQUENTER_ID = "freq";
-    public static Dungeon[] Create(DungeonPanel panel)
+    private static DungeonSettings Settings => Module.moduleInstance.SettingsService.DungeonSettings;
+    
+    public const int FrequenterIndex = 8;
+    public const string FrequenterID = "freq";
+    
+    public static IEnumerable<Dungeon> Create(DungeonPanel panel)
     {
-        var settings = Module.ModuleInstance.SettingsService;
         var dungeons = GetDungeonMetaData();
         foreach (var dungeon in dungeons)
         {
             var group = new GridGroup(
                 panel,
-                settings.DungeonPanelLayout
+                Settings.Style.Layout
             );
-            group.VisiblityChanged(GetDungeonSelectionByIndex(dungeon.index, settings));
+            group.VisiblityChanged(GetDungeonSelectionByIndex(dungeon.index, Settings));
             dungeon.SetGridGroupReference(group);
-
 
             var labelBox = new GridBox(
                 group,
                 dungeon.shortName, dungeon.name,
-                settings.DungeonPanelLabelOpacity, settings.DungeonPanelFontSize
+                Settings.Style.LabelOpacity, Settings.Style.FontSize
             );
-            labelBox.LayoutChange(settings.DungeonPanelLayout);
+            labelBox.LayoutChange(Settings.Style.Layout);
             dungeon.SetGroupLabelReference(labelBox);
             //ApplyConditionalTextColoring(labelBox, dungeon.index, weekly, settings);
-            labelBox.LabelDisplayChange(settings.DungeonPanelLabelDisplay, (dungeon.index + 1).ToString(), dungeon.shortName);
+            labelBox.LabelDisplayChange(Settings.Style.LabelDisplay, (dungeon.index + 1).ToString(), dungeon.shortName);
 
-            foreach (var encounter in dungeon.boxes as Path[])
+            foreach (var encounter in dungeon.boxes.OfType<Path>())
             {
                 var encounterBox = new GridBox(
                     group,
-                    encounter.short_name, encounter.name,
-                    settings.DungeonPanelGridOpacity, settings.DungeonPanelFontSize
+                    encounter.shortName, encounter.name,
+                    Settings.Style.GridOpacity, Settings.Style.FontSize
                 );
                 encounter.SetGridBoxReference(encounterBox);
-                encounter.WatchColorSettings(settings.DungeonPanelColorCleared, settings.DungeonPanelColorNotCleared);
-                encounter.RegisterFrequenterSettings(settings.DungeonHighlightFrequenter, settings.DungeonPanelColorFreq, settings.DungeonPanelColorText);
+                encounter.WatchColorSettings(Settings.Style.Color.Cleared, Settings.Style.Color.NotCleared);
+                encounter.RegisterFrequenterSettings(Settings.DungeonHighlightFrequenter, Settings.DungeonPanelColorFreq, Settings.Style.Color.Text);
                 //ApplyConditionalTextColoring(encounterBox, dungeon.index, weekly, settings);
-
             }
-
         }
 
         return dungeons;
     }
 
-    private static SettingEntry<bool> GetDungeonSelectionByIndex(int index, SettingService settings) => settings.DungeonSettings.DungeonPaths[index];
+    private static SettingEntry<bool> GetDungeonSelectionByIndex(int index, DungeonSettings settings) => settings.DungeonPaths.ElementAt(index);
 
-    public static Dungeon[] GetDungeonMetaData()
+    private static Dungeon[] GetDungeonMetaData()
     {
         return new[]
         {
@@ -64,7 +64,7 @@ public static class DungeonFactory
                 $"Ascalonian Catacombs\nStory {30}, Explore {35}",
                 0,
                 "AC",
-                new[]
+                new BoxModel[]
                 {
                     new Path("ac_story","Story", "S"),
                     new Path("hodgins","hodgins", "E1"),
@@ -76,7 +76,7 @@ public static class DungeonFactory
                 $"Caudecus Manor\nStory {40}, Explore {45}",
                 1,
                 "CM",
-                new[]
+                new BoxModel[]
                 {
                     new Path("cm_story","Story", "S"),
                     new Path("asura","asura", "E1"),
@@ -88,7 +88,7 @@ public static class DungeonFactory
                 $"Twilight Arbor\nStory {50}, Explore {55}",
                 2,
                 "TA",
-                new[]
+                new BoxModel[]
                 {
                     new Path("ta_story","Story", "S"),
                     new Path("leurent","leurent (Up)", "Up"),
@@ -100,7 +100,7 @@ public static class DungeonFactory
                 $"Sorrows Embrace\nStory {60}, Explore {65}",
                 3,
                 "SE",
-                new[]
+                new BoxModel[]
                 {
                     new Path("se_story","Story", "S"),
                     new Path("fergg","fergg", "E1"),
@@ -112,7 +112,7 @@ public static class DungeonFactory
                 $"Citadel of Flame\nStory {70}, Explore {75}",
                 4,
                 "CoF",
-                new[]
+                new BoxModel[]
                 {
                     new Path("cof_story","Story", "S"),
                     new Path("ferrah","ferrah", "E1"),
@@ -124,7 +124,7 @@ public static class DungeonFactory
                 $"Honor of the Waves\nStory {76}, Explore {80}",
                 5,
                 "HW",
-                new[]
+                new BoxModel[]
                 {
                     new Path("hotw_story","Story", "S"),
                     new Path("butcher","butcher", "E1"),
@@ -136,7 +136,7 @@ public static class DungeonFactory
                 $"Crucible of Eternity\nStory {78}, Explore {80}",
                 6,
                 "CoE",
-                new[]
+                new BoxModel[]
                 {
                     new Path("coe_story","Story", "S"),
                     new Path("submarine","submarine", "E1"),
@@ -148,7 +148,7 @@ public static class DungeonFactory
                 $"Ruined City of Arah\nExplore {80}",
                 7,
                 "Arah",
-                new[]
+                new BoxModel[]
                 {
                     //new Path("arah_story","Story", "S"),
                     new Path("jotun","jotun", "E1"),
@@ -159,12 +159,12 @@ public static class DungeonFactory
             ),
             new Dungeon(
                 $"Frequenter Achievement Summary",
-                FREQUENTER_INDEX,
+                FrequenterIndex,
                 "Freq",
-                new[]
+                new BoxModel[]
                 {
                     //new Path("arah_story","Story", "S"),
-                    new Path(FREQUENTER_ID,"Frequenter Achievement Paths Finished", "0/8"),
+                    new Path(FrequenterID,"Frequenter Achievement Paths Finished", "0/8"),
                 }
             )
         };
@@ -172,10 +172,7 @@ public static class DungeonFactory
 }
 public class Dungeon : GroupModel
 {
-
     public Dungeon(string name, int index, string shortName, BoxModel[] boxes) : base(name, index, shortName, boxes)
     {
     }
-
-
 }

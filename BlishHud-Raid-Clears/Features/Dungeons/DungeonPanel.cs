@@ -9,51 +9,48 @@ using System.Linq;
 using RaidClears.Features.Shared.Controls;
 using RaidClears.Features.Dungeons.Services;
 using RaidClears.Features.Raids.Services;
+using RaidClears.Settings.Models;
 
 namespace RaidClears.Features.Dungeons;
 
-
 public static class DungeonPanelFactory
 {
+    private static DungeonSettings Settings => Module.moduleInstance.SettingsService.DungeonSettings;
+    
     public static DungeonPanel Create()
     {
-        var _settings = Module.ModuleInstance.SettingsService;
         var panel = new DungeonPanel(
-            _settings.DungeonPanelLocationPoint,
-            _settings.DungeonPanelIsVisible,
-            _settings.DungeonPanelDragWithMouseIsEnabled,
-            _settings.DungeonPanelAllowTooltips
+            Settings.Generic.Location,
+            Settings.Generic.Visible,
+            Settings.Generic.PositionLock,
+            Settings.Generic.Tooltips
         );
 
-        panel.LayoutChange(_settings.DungeonPanelLayout);
-        panel.BackgroundColorChange(_settings.DungeonPanelBgOpacity, _settings.DungeonPanelColorBG);
+        panel.LayoutChange(Settings.Style.Layout);
+        panel.BackgroundColorChange(Settings.Style.BgOpacity, Settings.Style.Color.Background);
 
         panel.RegisterCornerIconService(
             new CornerIconService(
-                _settings.DungeonCornerIconEnabled,
-                _settings.DungeonPanelIsVisible, 
+                Settings.Generic.ToolbarIcon,
+                Settings.Generic.Visible, 
                 Strings.CornerIcon_Dungeon, 
-                Module.ModuleInstance.TexturesService.DungeonsCornerIconTexture,
-                Module.ModuleInstance.TexturesService.DungeonsCornerIconHoverTexture
+                Module.moduleInstance.TexturesService.DungeonsCornerIconTexture,
+                Module.moduleInstance.TexturesService.DungeonsCornerIconHoverTexture
             )
         );
-        panel.RegisterKeybindService(
+        panel.RegisterKeyBindService(
             new KeybindHandlerService(
-                _settings.DungeonPanelIsVisibleKeyBind,
-                _settings.DungeonPanelIsVisible
+                Settings.Generic.ShowHideKeyBind,
+                Settings.Generic.Visible
             )
         );
 
         return panel;
     }
-    
 }
 
 public class DungeonPanel : GridPanel
 {
-    private readonly Dungeon[] Dungeons;
-    private readonly DungeonsClearsService DungeonClearsService;
-    
     public DungeonPanel(
         SettingEntry<Point> locationSetting, 
         SettingEntry<bool> visibleSetting,
@@ -62,27 +59,27 @@ public class DungeonPanel : GridPanel
     ) : base(locationSetting, visibleSetting, allowMouseDragSetting, allowTooltipSetting)
     {
 
-        DungeonClearsService = new DungeonsClearsService();
+        var dungeonClearsService = new DungeonsClearsService();
         //BackgroundColor = Color.Orange
-        var weeklyWings = WingRotationService.GetWeeklyWings();
+        WingRotationService.GetWeeklyWings();
        
-        Dungeons =  DungeonFactory.Create(this);
+        var dungeons = DungeonFactory.Create(this);
 
-        Module.ModuleInstance.ApiPollingService.ApiPollingTrigger += (_, _) =>
+        Module.moduleInstance.ApiPollingService.ApiPollingTrigger += (_, _) =>
         {
             Task.Run(async () =>
             {
-                var weeklyClears = await DungeonClearsService.GetClearsFromApi();
-                var freqPaths = await DungeonClearsService.GetFrequenterPaths();
+                var weeklyClears = await dungeonClearsService.GetClearsFromApi();
+                var freqPaths = await dungeonClearsService.GetFrequenterPaths();
 
-                foreach (var dungeon in Dungeons)
+                foreach (var dungeon in dungeons)
                 {
                     
-                    foreach (var encounter in dungeon.boxes as Path[])
+                    foreach (var encounter in dungeon.boxes.OfType<Path>())
                     {
                         encounter.SetCleared(weeklyClears.Contains(encounter.id));
                         encounter.SetFrequenter(freqPaths.Contains(encounter.id));
-                        if (dungeon.index == DungeonFactory.FREQUENTER_INDEX && encounter.id.Equals(DungeonFactory.FREQUENTER_ID))
+                        if (dungeon.index == DungeonFactory.FrequenterIndex && encounter.id.Equals(DungeonFactory.FrequenterID))
                         {
                             encounter.SetFrequenter(true);
                             encounter.Box.Text = $"{freqPaths.Count()}/8";
@@ -96,5 +93,4 @@ public class DungeonPanel : GridPanel
             });
         };
     }
-
 }

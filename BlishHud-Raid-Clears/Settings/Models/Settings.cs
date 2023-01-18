@@ -118,13 +118,13 @@ public static class Settings
             public static Setting<bool> highlightCotm = new("RCCotM", true, () => Strings.Setting_Raid_Cotm_Label, () => Strings.Setting_Raid_Cotm_Tooltip);
             
             public static Setting<bool>[] raidWings = {
-                new Setting<bool>("RCw1",true,() => Strings.Setting_Raid_W1_Label,() => Strings.Setting_Raid_W1_Tooltip),
-                new Setting<bool>("RCw2",true,() => Strings.Setting_Raid_W2_Label,() => Strings.Setting_Raid_W2_Tooltip),
-                new Setting<bool>("RCw3",true,() => Strings.Setting_Raid_W3_Label,() => Strings.Setting_Raid_W3_Tooltip),
-                new Setting<bool>("RCw4",true,() => Strings.Setting_Raid_W4_Label,() => Strings.Setting_Raid_W4_Tooltip),
-                new Setting<bool>("RCw5",true,() => Strings.Setting_Raid_W5_Label,() => Strings.Setting_Raid_W5_Tooltip),
-                new Setting<bool>("RCw6",true,() => Strings.Setting_Raid_W6_Label,() => Strings.Setting_Raid_W6_Tooltip),
-                new Setting<bool>("RCw7",true,() => Strings.Setting_Raid_W7_Label,() => Strings.Setting_Raid_W7_Tooltip),
+                new("RCw1",true,() => Strings.Setting_Raid_W1_Label,() => Strings.Setting_Raid_W1_Tooltip),
+                new("RCw2",true,() => Strings.Setting_Raid_W2_Label,() => Strings.Setting_Raid_W2_Tooltip),
+                new("RCw3",true,() => Strings.Setting_Raid_W3_Label,() => Strings.Setting_Raid_W3_Tooltip),
+                new("RCw4",true,() => Strings.Setting_Raid_W4_Label,() => Strings.Setting_Raid_W4_Tooltip),
+                new("RCw5",true,() => Strings.Setting_Raid_W5_Label,() => Strings.Setting_Raid_W5_Tooltip),
+                new("RCw6",true,() => Strings.Setting_Raid_W6_Label,() => Strings.Setting_Raid_W6_Tooltip),
+                new("RCw7",true,() => Strings.Setting_Raid_W7_Label,() => Strings.Setting_Raid_W7_Tooltip),
             };
         }
     }

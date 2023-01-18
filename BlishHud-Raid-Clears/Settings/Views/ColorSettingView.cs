@@ -108,10 +108,7 @@ public class ColorSettingView : SettingView<string>
 
     protected override void Unload()
     {
-        if (_stringTextBox != null)
-        {
-            _stringTextBox.InputFocusChanged -= StringTextBoxOnInputFocusChanged;
-            _stringTextBox.TextChanged -= TextChangedEventHandler;
-        }
+        _stringTextBox.InputFocusChanged -= StringTextBoxOnInputFocusChanged;
+        _stringTextBox.TextChanged -= TextChangedEventHandler;
     }
 }

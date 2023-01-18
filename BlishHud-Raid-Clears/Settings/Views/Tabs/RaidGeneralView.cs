@@ -6,7 +6,7 @@ namespace RaidClears.Settings.Views.Tabs;
 
 public class RaidGeneralView : MenuedSettingsView
 {
-    private static RaidSettings Settings => Module.ModuleInstance.SettingsService.RaidSettings;
+    private static RaidSettings Settings => Module.moduleInstance.SettingsService.RaidSettings;
     
     protected override void Build(Container buildPanel)
     {

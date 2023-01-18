@@ -3,7 +3,7 @@
 
 namespace RaidClears.Settings.Enums;
 
-public enum ApiPollPeriod : int
+public enum ApiPollPeriod
 {
     [Description("3 minutes")]
     MINUTES_3 = 3,

@@ -7,11 +7,11 @@ namespace RaidClears.Features.Shared.Services;
 public class TextureService : IDisposable
 {
 
-    public static TextureService Instance;
+    public static TextureService instance;
 
     public TextureService(ContentsManager contentsManager)
     {
-        Instance = this;
+        instance = this;
 
         CornerIconTexture = contentsManager.GetTexture(@"raids\textures\raidIconDark.png");
         CornerIconHoverTexture = contentsManager.GetTexture(@"raids\textures\raidIconBright.png");
@@ -35,16 +35,16 @@ public class TextureService : IDisposable
 
     public void Dispose()
     {
-        CornerIconTexture?.Dispose();
-        CornerIconHoverTexture?.Dispose();
-        DungeonsCornerIconTexture?.Dispose();
-        DungeonsCornerIconHoverTexture?.Dispose();
-        SettingWindowBackground?.Dispose();
-        SettingWindowEmblem?.Dispose();
-        SettingTabRaid?.Dispose();
-        SettingTabDungeon?.Dispose();
-        SettingTabGeneral?.Dispose();
-        SettingTabStrikes?.Dispose();
+        CornerIconTexture.Dispose();
+        CornerIconHoverTexture.Dispose();
+        DungeonsCornerIconTexture.Dispose();
+        DungeonsCornerIconHoverTexture.Dispose();
+        SettingWindowBackground.Dispose();
+        SettingWindowEmblem.Dispose();
+        SettingTabRaid.Dispose();
+        SettingTabDungeon.Dispose();
+        SettingTabGeneral.Dispose();
+        SettingTabStrikes.Dispose();
 
     }
 

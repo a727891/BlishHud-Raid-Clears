@@ -2,8 +2,8 @@
 
 public enum StrikeMissionType
 {
-    IBS,
-    EOD,
+    Ibs,
+    Eod,
     Priority
 }
 
@@ -12,6 +12,37 @@ public static class Encounters
     public enum RaidBosses
     {
         ValeGuardian,
+        SpiritWoods,
+        Gorseval,
+        Sabetha,
+        
+        Slothasor,
+        BanditTrio,
+        Matthias,
+        
+        Escort,
+        KeepConstruct,
+        TwistedCastle,
+        Xera,
+        
+        Cairn,
+        MursaatOverseer,
+        Samarog,
+        Deimos,
+        
+        SoulessHorror,
+        RiverOfSouls,
+        StatuesOfGrenth,
+        VoiceInTheVoid,
+        
+        ConjuredAmalgamate,
+        TwinLargos,
+        Qadim,
+        
+        Gate,
+        Adina,
+        Sabir,
+        QadimThePeerless,
     }
     
     public enum StrikeMission

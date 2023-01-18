@@ -6,7 +6,7 @@ namespace RaidClears.Settings.Views.Tabs;
 
 public class DungeonVisualsView : MenuedSettingsView
 {
-    private static DungeonSettings Settings => Module.ModuleInstance.SettingsService.DungeonSettings;
+    private static DungeonSettings Settings => Module.moduleInstance.SettingsService.DungeonSettings;
     
     protected override void Build(Container buildPanel)
     {

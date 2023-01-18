@@ -20,31 +20,21 @@ namespace RaidClears;
 [Export(typeof(Blish_HUD.Modules.Module))]
 public class Module : Blish_HUD.Modules.Module
 {
-    internal static readonly Logger Logger = Logger.GetLogger<Module>();
-    internal SettingsManager SettingsManager => ModuleParameters.SettingsManager;
+    internal static Module moduleInstance;
     internal ContentsManager ContentsManager => ModuleParameters.ContentsManager;
-    internal DirectoriesManager DirectoriesManager => ModuleParameters.DirectoriesManager;
     internal Gw2ApiManager Gw2ApiManager => ModuleParameters.Gw2ApiManager;
-
-    internal static Module ModuleInstance;
-
     internal SettingsPanel SettingsWindow { get; private set; }
-
     public SettingService SettingsService { get; private set; }
-
     public RaidPanel RaidsPanel { get; private set; }
     public DungeonPanel DungeonsPanel { get; private set; }
     public StrikesPanel StrikesPanel { get; private set; }
-
     public TextureService TexturesService { get; private set; }
-
     public ApiPollService ApiPollingService { get; private set; }
-
 
     [ImportingConstructor]
     public Module([Import("ModuleParameters")] ModuleParameters moduleParameters) : base(moduleParameters)
     {
-        ModuleInstance = this;
+        moduleInstance = this;
     }
 
     protected override void DefineSettings(SettingCollection settings) => SettingsService = new SettingService(settings);
@@ -75,27 +65,23 @@ public class Module : Blish_HUD.Modules.Module
     protected override void Unload()
     {
         Gw2ApiManager.SubtokenUpdated -= Gw2ApiManager_SubtokenUpdated;
-        StrikesPanel?.Dispose();
-        DungeonsPanel?.Dispose();
-        RaidsPanel?.Dispose();
-        SettingsWindow?.Dispose();
-        TexturesService?.Dispose();
-        ApiPollingService?.Dispose();
-
+        StrikesPanel.Dispose();
+        DungeonsPanel.Dispose();
+        RaidsPanel.Dispose();
+        SettingsWindow.Dispose();
+        TexturesService.Dispose();
+        ApiPollingService.Dispose();
     }
 
     #endregion
 
     protected override void Update(GameTime gameTime)
     {
-        ApiPollingService?.Update(gameTime);
-        RaidsPanel?.Update();
-        DungeonsPanel?.Update();
-        StrikesPanel?.Update();
-
+        ApiPollingService.Update(gameTime);
+        RaidsPanel.Update();
+        DungeonsPanel.Update();
+        StrikesPanel.Update();
     }
 
-    private void Gw2ApiManager_SubtokenUpdated(object sender, ValueEventArgs<IEnumerable<TokenPermission>> e) => ApiPollingService?.Invoke();
-
-
+    private void Gw2ApiManager_SubtokenUpdated(object sender, ValueEventArgs<IEnumerable<TokenPermission>> e) => ApiPollingService.Invoke();
 }

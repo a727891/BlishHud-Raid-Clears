@@ -11,21 +11,18 @@ namespace RaidClears.Features.Fractals.Services;
 
 public static class GetDailyFractalService
 {
-    public static async Task<(List<Achievement> t4s, List<Achievement> recs)> GetDailyFractals( Gw2ApiManager gw2ApiManager,
-                                                                                 Logger logger)
+    public static async Task<(List<Achievement> t4s, List<Achievement> recs)> GetDailyFractals( Gw2ApiManager gw2ApiManager, Logger logger)
     {
         var recs = new List<Achievement>();
-        var t4s = new List<Achievement>();
+        var t4S = new List<Achievement>();
 
         try
         {
             var dailies = await gw2ApiManager.Gw2ApiClient.V2.Achievements.Daily.GetAsync();
 
-            var fractal_achievement_list = dailies.Fractals.Select(x => x.Id).ToArray();
+            var fractalAchievementList = dailies.Fractals.Select(x => x.Id).ToArray();
 
-            var fractals = await gw2ApiManager.Gw2ApiClient.V2.Achievements.ManyAsync(fractal_achievement_list);
-
-            
+            var fractals = await gw2ApiManager.Gw2ApiClient.V2.Achievements.ManyAsync(fractalAchievementList);
 
             foreach(var fractal in fractals)
             {
@@ -34,22 +31,19 @@ public static class GetDailyFractalService
                     recs.Add(fractal);
                 }else if( Regex.Match(fractal.Name, "Daily Tier 4").Success)
                 {
-                    t4s.Add(fractal);
+                    t4S.Add(fractal);
                 }
                 
             }
 
-            recs.Sort((x, y) => x.Name.CompareTo(y.Name));
-            t4s.Sort((x, y) => x.Name.CompareTo(y.Name));
-
-           
+            recs.Sort((x, y) => string.Compare(x.Name, y.Name, StringComparison.Ordinal));
+            t4S.Sort((x, y) => string.Compare(x.Name, y.Name, StringComparison.Ordinal));
         }
         catch (Exception e)
         {
             logger.Warn(e, "Could not get fractals from API");
-
         }
-        return (t4s, recs);
+        return (t4S, recs);
     }
 
 

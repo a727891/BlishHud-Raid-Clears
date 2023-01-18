@@ -24,7 +24,7 @@ public class ModuleGeneralSettingView : MenuedSettingsView
         
         refreshButton.Click += (_, _) =>
         {
-            Module.ModuleInstance?.ApiPollingService?.Invoke();
+            Module.moduleInstance.ApiPollingService.Invoke();
             refreshButton.Enabled = false;
         };
     }

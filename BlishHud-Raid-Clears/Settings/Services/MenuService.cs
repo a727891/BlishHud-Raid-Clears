@@ -8,20 +8,20 @@ using System.Linq;
 
 namespace RaidClears.Settings.Services;
 
-public class MenuService : ISettingsMenuRegistrar
+public class MenuService : ISettingsMenuRegistrar // warning
 {
-    public Views.SettingsMenuView View { get; private set; }
+    private Views.SettingsMenuView View { get; set; }
 
     public event EventHandler<EventArgs> RegistrarListChanged;
 
-    private readonly List<(MenuItem MenuItem, Func<MenuItem, IView> ViewFunc, int Index)> _registeredMenuItems = new List<(MenuItem MenuItem, Func<MenuItem, IView> ViewFunc, int Index)>();
+    private readonly List<(MenuItem MenuItem, Func<MenuItem, IView> ViewFunc, int Index)> _registeredMenuItems = new();
 
     public void SetSettingMenuView(Views.SettingsMenuView v)
     {
         View = v;
     }
 
-    public IView GetMenuItemView(MenuItem selectedMenuItem)
+    public IView? GetMenuItemView(MenuItem selectedMenuItem)
     {
         foreach (var (menuItem, viewFunc, _) in _registeredMenuItems)
         {
@@ -36,12 +36,10 @@ public class MenuService : ISettingsMenuRegistrar
 
     public void RefreshMenuView()
     {
-        if (_registeredMenuItems.Count() < 1) return;
+        if (_registeredMenuItems.Count < 1) return;
 
         View.SetSettingView(GetMenuItemView(_registeredMenuItems.First().MenuItem));
     }
-
-
 
     public IEnumerable<MenuItem> GetSettingMenus() => _registeredMenuItems.OrderBy(mi => mi.Index).Select(mi => mi.MenuItem);
 
@@ -49,13 +47,6 @@ public class MenuService : ISettingsMenuRegistrar
     {
         _registeredMenuItems.Add((menuItem, viewFunc, index));
 
-        RegistrarListChanged?.Invoke(this, EventArgs.Empty);
-    }
-
-    public void RemoveSettingMenu(MenuItem menuItem)
-    {
-        _registeredMenuItems.RemoveAll(r => r.MenuItem == menuItem);
-
-        RegistrarListChanged?.Invoke(this, EventArgs.Empty);
+        RegistrarListChanged.Invoke(this, EventArgs.Empty);
     }
 }

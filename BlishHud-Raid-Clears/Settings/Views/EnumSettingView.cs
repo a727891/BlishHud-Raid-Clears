@@ -13,7 +13,7 @@ namespace RaidClears.Settings.Views;
 
 public static class EnumSettingView
 {
-    public static IView FromEnum(SettingEntry setting, int definedWidth = -1)
+    public static IView? FromEnum(SettingEntry setting, int definedWidth = -1)
     {
         return Activator.CreateInstance(typeof(EnumSettingView<>).MakeGenericType(setting.SettingType), setting, definedWidth) as IView;
     }
