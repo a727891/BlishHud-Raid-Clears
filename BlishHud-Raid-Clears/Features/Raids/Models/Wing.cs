@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Blish_HUD.Settings;
 using RaidClears.Features.Raids.Services;
 using RaidClears.Features.Shared.Controls;
@@ -12,7 +13,7 @@ namespace RaidClears.Features.Raids.Models;
 
 public static class WingFactory
 {
-    public static Wing[] Create(RaidPanel panel, WeeklyWings weekly)
+    public static IEnumerable<Wing> Create(RaidPanel panel, WeeklyWings weekly)
     {
         var settings = Module.moduleInstance.SettingsService.RaidSettings;
         var wings = GetWingMetaData();
@@ -52,45 +53,8 @@ public static class WingFactory
 
         return wings;
     }
-    public static Wing[] CreateStrikes(RaidPanel panel)
-    {
-        var settings = Module.moduleInstance.SettingsService.RaidSettings;
-        var wings = GetWingMetaData();
-        foreach (var wing in wings)
-        {
-            var group = new GridGroup(
-                panel,
-                settings.Style.Layout
-            );
-            group.VisiblityChanged(GetWingSelectionByIndex(wing.index, settings));
-            wing.SetGridGroupReference(group);
 
-            var labelBox = new GridBox(
-                group,
-                wing.shortName, wing.name,
-                settings.Style.LabelOpacity, 
-                settings.Style.FontSize
-            );
-            wing.SetGroupLabelReference(labelBox);
-            labelBox.LayoutChange(settings.Style.Layout);
-            labelBox.LabelDisplayChange(settings.Style.LabelDisplay, (wing.index + 1).ToString(), wing.shortName);
-
-            foreach (var encounter in wing.boxes)
-            {
-                var encounterBox = new GridBox(
-                    group,
-                    encounter.shortName, encounter.name,
-                    settings.Style.LabelOpacity, 
-                    settings.Style.FontSize
-                );
-                encounter.SetGridBoxReference(encounterBox);
-                encounter.WatchColorSettings(settings.Style.Color.Cleared, settings.Style.Color.NotCleared);
-            }
-        }
-        return wings;
-    }
-
-    public static void ApplyConditionalTextColoring(GridBox box,int index, WeeklyWings weekly, RaidSettings settings)
+    private static void ApplyConditionalTextColoring(GridBox box,int index, WeeklyWings weekly, RaidSettings settings)
     {
         if (index == weekly.Emboldened)
         {

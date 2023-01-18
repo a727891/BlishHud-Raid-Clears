@@ -37,7 +37,7 @@ public static class RaidPanelFactory
             )
         );
         panel.RegisterKeyBindService(
-            new KeybindHandlerService(
+            new KeyBindHandlerService(
                 Settings.Generic.ShowHideKeyBind,
                 Settings.Generic.Visible
             )

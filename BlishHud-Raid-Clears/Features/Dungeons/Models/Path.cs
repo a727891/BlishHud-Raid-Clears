@@ -7,7 +7,6 @@ namespace RaidClears.Features.Dungeons.Models;
 
 public class Path : BoxModel
 {
-
     private bool _isFrequented;
     private Color _freqColor = Color.White;
     private Color _normalTextColor = Color.White;
@@ -20,7 +19,6 @@ public class Path : BoxModel
     {
         _isFrequented = freqStatus;
         Box.TextColor = freqStatus ? _freqColor : _normalTextColor;
-
     }
 
     public void ApplyTextColor()
@@ -29,37 +27,28 @@ public class Path : BoxModel
         Box.Invalidate();
     }
 
-
     public void RegisterFrequenterSettings(
         SettingEntry<bool> highlightFreq,
         SettingEntry<string> freqColor,
         SettingEntry<string> normalTextColor)
     {
-        this._freqColor = highlightFreq.Value ?
+        _freqColor = highlightFreq.Value ?
                freqColor.Value.HexToXnaColor():
                normalTextColor.Value.HexToXnaColor();
         ApplyTextColor();
         freqColor.SettingChanged += (_, e) =>
         {
-            this._freqColor = e.NewValue.HexToXnaColor();
+            _freqColor = e.NewValue.HexToXnaColor();
             ApplyTextColor();
         };
         normalTextColor.SettingChanged += (_, e) =>
         {
-            this._normalTextColor = e.NewValue.HexToXnaColor();
+            _normalTextColor = e.NewValue.HexToXnaColor();
             ApplyTextColor();
         };
         highlightFreq.SettingChanged += (_, e) =>
         {
-            if (e.NewValue)
-            {
-                this._freqColor = freqColor.Value.HexToXnaColor();
-            }
-            else
-            {
-                this._freqColor = normalTextColor.Value.HexToXnaColor();
-
-            }
+            _freqColor = e.NewValue ? freqColor.Value.HexToXnaColor() : normalTextColor.Value.HexToXnaColor();
             ApplyTextColor();
         };
     }

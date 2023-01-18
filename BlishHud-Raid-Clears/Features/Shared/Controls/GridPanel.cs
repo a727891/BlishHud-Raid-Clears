@@ -19,7 +19,7 @@ public class GridPanel : FlowPanel
     private readonly SettingEntry<bool> _allowTooltipSetting;
 
     private CornerIconService? _cornerIconService;
-    private KeybindHandlerService? _keyBindService;
+    private KeyBindHandlerService? _keyBindService;
 
     protected GridPanel(
         SettingEntry<Point> locationSetting,
@@ -111,7 +111,7 @@ public class GridPanel : FlowPanel
         _cornerIconService = service;
     }
     
-    public void RegisterKeyBindService(KeybindHandlerService? service)
+    public void RegisterKeyBindService(KeyBindHandlerService? service)
     {
         _keyBindService= service;
     }

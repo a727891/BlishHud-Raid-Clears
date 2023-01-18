@@ -28,9 +28,6 @@ public class GridBox : Label
         FontSizeChange(fontSize);
     }
 
-    public void SetFontColor(Color color) => TextColor = color;
-    public void SetBackgroundColor(Color color) => BackgroundColor=color;
-
     private void OpacityChange(SettingEntry<float> opacity )
     {
         opacity.SettingChanged += (_, e) =>

@@ -1,15 +1,18 @@
 ﻿using System.Linq;
+using Blish_HUD.Settings;
 using RaidClears.Features.Raids.Models;
 using RaidClears.Features.Shared.Controls;
 using RaidClears.Features.Shared.Enums;
 using RaidClears.Features.Shared.Models;
-using RaidClears.Features.Strikes.Services;
+using RaidClears.Settings.Models;
 using RaidClears.Utils;
 
 namespace RaidClears.Features.Strikes.Models;
 
 public static class StrikeFactory
 {
+    private static StrikeSettings Settings => Module.moduleInstance.SettingsService.StrikeSettings;
+    
     public static Strike[] Create(StrikesPanel panel)
     {
         var settings = Module.moduleInstance.SettingsService.StrikeSettings;
@@ -20,7 +23,7 @@ public static class StrikeFactory
                 panel,
                 settings.Style.Layout
             );
-            group.VisiblityChanged(StrikeSettingService.GetStrikeGroupVisibleSettingByIndex(strike.index));
+            group.VisiblityChanged(GetStrikeGroupVisibleSettingByIndex(strike.index));
             strike.SetGridGroupReference(group);
 
             var labelBox = new GridBox(
@@ -78,6 +81,17 @@ public static class StrikeFactory
                 new BoxModel[] {
                     
                 }),
+        };
+    }
+    
+    public static SettingEntry<bool> GetStrikeGroupVisibleSettingByIndex(int id)
+    {
+        return id switch
+        {
+            8 => Settings.StrikeVisibleIbs,
+            9 => Settings.StrikeVisibleEod,
+            10 => Settings.StrikeVisiblePriority,
+            _ => Settings.StrikeVisiblePriority
         };
     }
 }

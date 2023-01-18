@@ -119,12 +119,5 @@ public class EnumSettingView<TEnum> : SettingView<TEnum> where TEnum : struct, E
     }
 
     protected override void RefreshValue(TEnum value) => _enumDropdown.SelectedItem = value.Humanize(LetterCasing.Title);
-
-    protected override void Unload()
-    {
-        if (_enumDropdown != null)
-        {
-            _enumDropdown.ValueChanged -= EnumDropdownOnValueChanged;
-        }
-    }
+    protected override void Unload() => _enumDropdown.ValueChanged -= EnumDropdownOnValueChanged;
 }

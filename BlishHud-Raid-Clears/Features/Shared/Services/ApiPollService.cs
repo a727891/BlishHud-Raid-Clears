@@ -8,50 +8,45 @@ namespace RaidClears.Features.Shared.Services;
 
 public class ApiPollService : IDisposable
 {
-    protected static int bufferMs = 50;
-    protected static int minuteMs = 60000;
+    private const int BUFFER_MS = 50;
+    private const int MINUTE_MS = 60000;
 
-    protected bool running = true;
-    protected double runningTimer = -20000;
-    protected double timeoutValue;
+    private const bool RUNNING = true;
+    private double _runningTimer = -20000;
+    private double _timeoutValue;
 
     public event EventHandler<bool> ApiPollingTrigger;
 
     public ApiPollService(SettingEntry<ApiPollPeriod> apiPollSetting)
     {
-
         _apiPollSetting = apiPollSetting;
 
         _apiPollSetting.SettingChanged += OnSettingUpdate;
         SetTimeoutValueInMinutes((int)_apiPollSetting.Value);
-
     }
 
     public void Dispose()
     {
         _apiPollSetting.SettingChanged -= OnSettingUpdate;
-
-
     }
 
     public void Update(GameTime gameTime)
     {
-        if (running)
+        if (RUNNING)
         {
-            runningTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
+            _runningTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            if (runningTimer >= timeoutValue)
+            if (_runningTimer >= _timeoutValue)
             {
                 ApiPollingTrigger.Invoke(this, true);
-                runningTimer = 0;
+                _runningTimer = 0;
             }
-
         }
     }
 
     public void Invoke()
     {
-        runningTimer = 0;
+        _runningTimer = 0;
         ApiPollingTrigger.Invoke(this, true);
     }
 
@@ -59,9 +54,8 @@ public class ApiPollService : IDisposable
 
     private void SetTimeoutValueInMinutes(int minutes)
     {
-        timeoutValue = minutes * minuteMs + bufferMs;
+        _timeoutValue = minutes * MINUTE_MS + BUFFER_MS;
     }
-
 
     private readonly SettingEntry<ApiPollPeriod> _apiPollSetting;
 }

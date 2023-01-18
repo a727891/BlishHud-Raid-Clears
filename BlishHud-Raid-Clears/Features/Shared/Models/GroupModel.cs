@@ -9,7 +9,6 @@ public class GroupModel
     public int index;
     public string shortName;
     public BoxModel[] boxes;
-    public bool highlightColor;
 
     public GridGroup GridGroup { get; private set; }
     public GridBox GroupLabel { get; private set; }
@@ -20,10 +19,7 @@ public class GroupModel
         this.index = index;
         this.shortName = shortName;
         this.boxes = boxes;
-
-        highlightColor = false;
     }
-
 
     public void SetGridGroupReference(GridGroup group)
     {

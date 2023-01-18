@@ -6,13 +6,8 @@ namespace RaidClears.Features.Shared.Services;
 
 public class TextureService : IDisposable
 {
-
-    public static TextureService instance;
-
     public TextureService(ContentsManager contentsManager)
     {
-        instance = this;
-
         CornerIconTexture = contentsManager.GetTexture(@"raids\textures\raidIconDark.png");
         CornerIconHoverTexture = contentsManager.GetTexture(@"raids\textures\raidIconBright.png");
 
@@ -21,8 +16,6 @@ public class TextureService : IDisposable
 
         StrikesCornerIconTexture = contentsManager.GetTexture(@"raids\textures\strikes_dark.png");
         StrikesCornerIconHoverTexture = contentsManager.GetTexture(@"raids\textures\strikes_bright.png");
-
-
 
         SettingWindowBackground = contentsManager.GetTexture(@"controls/window/background.png");
         SettingWindowEmblem = contentsManager.GetTexture(@"module_profile_hero_icon.png");
@@ -56,10 +49,8 @@ public class TextureService : IDisposable
     public Texture2D SettingTabStrikes { get; }
     public Texture2D CornerIconTexture { get; }
     public Texture2D CornerIconHoverTexture { get; }
-
     public Texture2D DungeonsCornerIconTexture { get; }
     public Texture2D DungeonsCornerIconHoverTexture { get; }
-
     public Texture2D StrikesCornerIconTexture { get; }
     public Texture2D StrikesCornerIconHoverTexture { get; }
 

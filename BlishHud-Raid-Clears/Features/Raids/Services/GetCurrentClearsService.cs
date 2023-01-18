@@ -38,7 +38,7 @@ public static  class GetCurrentClearsService
         }
     }
 
-    public static readonly List<TokenPermission> NecessaryApiTokenPermissions = new()
+    private static readonly List<TokenPermission> NecessaryApiTokenPermissions = new()
     {
         TokenPermission.Account,
         TokenPermission.Progression

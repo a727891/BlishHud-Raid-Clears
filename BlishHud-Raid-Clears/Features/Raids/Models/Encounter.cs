@@ -8,13 +8,9 @@ public class Encounter : BoxModel
 {
     public Encounter(RaidBosses boss) : base(boss.GetApiLabel(), boss.GetLabel(), boss.GetLabelShort())
     {
-        
-    }
-    public Encounter(StrikeMission boss) : base(boss.GetApiLabel(), boss.GetLabel(), boss.GetLabelShort())
-    {
     }
     
-    public Encounter(string id, string name, string shortName) : base(id, name, shortName)
+    public Encounter(StrikeMission boss) : base(boss.GetApiLabel(), boss.GetLabel(), boss.GetLabelShort())
     {
     }
 }

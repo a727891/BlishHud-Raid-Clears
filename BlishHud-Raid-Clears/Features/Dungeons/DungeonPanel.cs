@@ -39,7 +39,7 @@ public static class DungeonPanelFactory
             )
         );
         panel.RegisterKeyBindService(
-            new KeybindHandlerService(
+            new KeyBindHandlerService(
                 Settings.Generic.ShowHideKeyBind,
                 Settings.Generic.Visible
             )

@@ -34,7 +34,7 @@ public static class StrikesPanelFactory
             )
         );
         panel.RegisterKeyBindService(
-            new KeybindHandlerService(
+            new KeyBindHandlerService(
                 settings.Generic.ShowHideKeyBind,
                 settings.Generic.Visible
             )
@@ -66,7 +66,7 @@ public class StrikesPanel : GridPanel
 
         Module.moduleInstance.ApiPollingService.ApiPollingTrigger += (_, _) =>
         {
-            Task.Run(async () =>
+            Task.Run(() =>
             {
                 /*var weeklyClears = await CurrentClearsService.GetClearsFromApi();
 
@@ -78,6 +78,7 @@ public class StrikesPanel : GridPanel
                     }
                 }*/
                 Invalidate();
+                return Task.CompletedTask;
             });
         };
     }

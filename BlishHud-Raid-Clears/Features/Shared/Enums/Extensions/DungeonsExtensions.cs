@@ -40,6 +40,14 @@ public static class DungeonsExtensions
     {
         return value switch
         {
+            Encounters.Dungeons.AscalonianCatacombs => string.Empty,
+            Encounters.Dungeons.CaudecusManor => string.Empty,
+            Encounters.Dungeons.TwilightArbor => string.Empty,
+            Encounters.Dungeons.SorrowsEmbrace => string.Empty,
+            Encounters.Dungeons.CitadelOfFlame => string.Empty,
+            Encounters.Dungeons.HonorOfTheWaves => string.Empty,
+            Encounters.Dungeons.CrucibleOfEternity => string.Empty,
+            Encounters.Dungeons.RuinedCityOfArah => string.Empty,
             _ => throw new ArgumentOutOfRangeException(nameof(value), value, null)
         };
     }
