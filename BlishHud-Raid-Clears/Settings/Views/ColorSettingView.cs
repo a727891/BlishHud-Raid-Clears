@@ -13,10 +13,7 @@ public class ColorSettingView : SettingView<string>
     private readonly SettingEntry<string> _setting;
 
     private Label _displayNameLabel;
-
     private TextBox _stringTextBox;
-
-    private ColorBox _colorBox;
     private ColorHelper _colorHelper;
 
     public ColorSettingView(SettingEntry<string> setting, int definedWidth = -1) : base(setting, definedWidth)
@@ -24,18 +21,6 @@ public class ColorSettingView : SettingView<string>
         _setting = setting;
     }
     
-    public override bool HandleComplianceRequisite(IComplianceRequisite complianceRequisite)
-    {
-        if (complianceRequisite is SettingDisabledComplianceRequisite settingDisabledComplianceRequisite)
-        {
-            _displayNameLabel.Enabled = !settingDisabledComplianceRequisite.Disabled;
-            _stringTextBox.Enabled = !settingDisabledComplianceRequisite.Disabled;
-            return true;
-        }
-
-        return false;
-    }
-
     protected override void BuildSetting(Container buildPanel)
     {
         _stringTextBox = new TextBox
@@ -48,14 +33,14 @@ public class ColorSettingView : SettingView<string>
 
         _colorHelper = new ColorHelper();
         _colorHelper.SetRGB(_setting.Value);
-        _colorBox = new ColorBox
+        
+        buildPanel.AddChild(new ColorBox
         {
             Location = new Point(90, 0),
             Color = _colorHelper,
-            Parent = buildPanel,
             Enabled = false
-        };
-
+        });
+        
         _displayNameLabel = new Label
         {
             AutoSizeWidth = true,

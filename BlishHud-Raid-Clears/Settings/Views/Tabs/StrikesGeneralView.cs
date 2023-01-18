@@ -1,20 +1,23 @@
 ﻿using Blish_HUD.Controls;
 using RaidClears.Localization;
+using RaidClears.Settings.Models;
 
 namespace RaidClears.Settings.Views.Tabs;
 
 public class StrikesGeneralView : MenuedSettingsView
 {
+    private static StrikeSettings Settings => Module.ModuleInstance.SettingsService.StrikeSettings;
+    
     protected override void Build(Container buildPanel)
     {
         base.Build(buildPanel);
-        ShowSettingWithViewContainer(settingsService.StrikePanelDragWithMouseIsEnabled);
+        ShowSettingWithViewContainer(Settings.Generic.PositionLock);
         AddVerticalSpacer();
-        ShowSettingWithViewContainer(settingsService.StrikePanelIsVisible);
-        ShowSettingWithViewContainer(settingsService.StrikePanelAllowTooltips);
-        ShowSettingWithViewContainer(settingsService.StrikeCornerIconEnabled);
+        ShowSettingWithViewContainer(Settings.Generic.Visible);
+        ShowSettingWithViewContainer(Settings.Generic.Tooltips);
+        ShowSettingWithViewContainer(Settings.Generic.ToolbarIcon);
         AddVerticalSpacer();
-        ShowSettingWithViewContainer(settingsService.StrikePanelIsVisibleKeyBind);
+        ShowSettingWithViewContainer(Settings.Generic.ShowHideKeyBind);
         ShowText(Strings.SharedKeybind);
         AddVerticalSpacer();
         AddVerticalSpacer();
@@ -24,7 +27,6 @@ public class StrikesGeneralView : MenuedSettingsView
             Parent = rootFlowPanel,
             Text = Strings.Setting_Strike_AlignWithRaids,
             Width = 200
-
         };
         
         alignButton.Click += (_, _) =>

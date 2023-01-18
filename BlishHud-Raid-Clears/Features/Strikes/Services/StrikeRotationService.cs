@@ -14,8 +14,8 @@ public class StrikeInfo
     {
         this.name = name;
         this.expansion = expansion;
-        this.shorwName = shortName;
-        this.mapIds = maps;
+        shorwName = shortName;
+        mapIds = maps;
     }
 
 

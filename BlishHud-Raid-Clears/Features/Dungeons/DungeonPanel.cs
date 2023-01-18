@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using RaidClears.Features.Dungeons.Models;
 using System.Linq;
 using RaidClears.Features.Shared.Controls;
-using RaidClears.Settings.Services;
 using RaidClears.Features.Dungeons.Services;
 using RaidClears.Features.Raids.Services;
 

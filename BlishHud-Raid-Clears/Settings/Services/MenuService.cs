@@ -49,13 +49,13 @@ public class MenuService : ISettingsMenuRegistrar
     {
         _registeredMenuItems.Add((menuItem, viewFunc, index));
 
-        this.RegistrarListChanged?.Invoke(this, EventArgs.Empty);
+        RegistrarListChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public void RemoveSettingMenu(MenuItem menuItem)
     {
         _registeredMenuItems.RemoveAll(r => r.MenuItem == menuItem);
 
-        this.RegistrarListChanged?.Invoke(this, EventArgs.Empty);
+        RegistrarListChanged?.Invoke(this, EventArgs.Empty);
     }
 }

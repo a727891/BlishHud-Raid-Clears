@@ -23,7 +23,6 @@ public class GridPanel : FlowPanel
 
     protected CornerIconService _cornerIconService;
     protected KeybindHandlerService _keybindService;
-    
 
     public GridPanel(
         SettingEntry<Point> locationSetting,
@@ -51,8 +50,6 @@ public class GridPanel : FlowPanel
         _locationSetting.SettingChanged += (_, e) => Location = e.NewValue;
         _allowMouseDragSetting.SettingChanged += (_, _) => IgnoreMouseInput = ShouldIgnoreMouse();
         _allowTooltipSetting.SettingChanged += (_, _) => IgnoreMouseInput = ShouldIgnoreMouse();
-
-
     }
 
     protected override void DisposeControl()
@@ -64,32 +61,32 @@ public class GridPanel : FlowPanel
 
     #region Mouse Stuff
     public virtual void DoUpdate()
-
     {
         if (_isDraggedByMouse && _allowMouseDragSetting.Value)
         {
-            var nOffset = InputService.Input.Mouse.Position - _dragStart;
-            this.Location += nOffset;
+            var nOffset = GameService.Input.Mouse.Position - _dragStart;
+            Location += nOffset;
 
-            _dragStart = InputService.Input.Mouse.Position;
+            _dragStart = GameService.Input.Mouse.Position;
         }
     }
+    
     protected void AddDragDelegates()
     {
-        this.LeftMouseButtonPressed += delegate
+        LeftMouseButtonPressed += delegate
         {
             if (_allowMouseDragSetting.Value)
             {
                 _isDraggedByMouse = true;
-                _dragStart = InputService.Input.Mouse.Position;
+                _dragStart = GameService.Input.Mouse.Position;
             }
         };
-        this.LeftMouseButtonReleased += delegate
+        LeftMouseButtonReleased += delegate
         {
             if (_allowMouseDragSetting.Value)
             {
                 _isDraggedByMouse = false;
-                _locationSetting.Value = this.Location;
+                _locationSetting.Value = Location;
             }
         };
     }
@@ -129,7 +126,6 @@ public class GridPanel : FlowPanel
     }
     #endregion
 
-
     #region event handlers
     public void RegisterCornerIconService(CornerIconService service)
     {
@@ -158,6 +154,4 @@ public class GridPanel : FlowPanel
         else if (Visible && !shouldBeVisible)
             Hide();
     }
-
-
 }

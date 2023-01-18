@@ -12,7 +12,6 @@ public class ModuleSettingsView: View
         {
             Parent = buildPanel,
             Text = Strings.ModuleSettings_OpenSettings,
-
         };
 
         button.Left = (buildPanel.Width /2) - (button.Width/ 2);

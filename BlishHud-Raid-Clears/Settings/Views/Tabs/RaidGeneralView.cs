@@ -1,20 +1,23 @@
 ﻿using Blish_HUD.Controls;
 using RaidClears.Localization;
+using RaidClears.Settings.Models;
 
 namespace RaidClears.Settings.Views.Tabs;
 
 public class RaidGeneralView : MenuedSettingsView
 {
+    private static RaidSettings Settings => Module.ModuleInstance.SettingsService.RaidSettings;
+    
     protected override void Build(Container buildPanel)
     {
         base.Build(buildPanel);
-        ShowSettingWithViewContainer(settingsService.RaidPanelDragWithMouseIsEnabled);
+        ShowSettingWithViewContainer(Settings.Generic.PositionLock);
         AddVerticalSpacer();
-        ShowSettingWithViewContainer(settingsService.RaidPanelIsVisible);
-        ShowSettingWithViewContainer(settingsService.RaidPanelAllowTooltips);
-        ShowSettingWithViewContainer(settingsService.RaidCornerIconEnabled);
+        ShowSettingWithViewContainer(Settings.Generic.Visible);
+        ShowSettingWithViewContainer(Settings.Generic.Tooltips);
+        ShowSettingWithViewContainer(Settings.Generic.ToolbarIcon);
         AddVerticalSpacer();
-        ShowSettingWithViewContainer(settingsService.RaidPanelIsVisibleKeyBind);
+        ShowSettingWithViewContainer(Settings.Generic.ShowHideKeyBind);
         ShowText(Strings.SharedKeybind);
     }
 }

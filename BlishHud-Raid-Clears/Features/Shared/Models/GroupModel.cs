@@ -21,7 +21,7 @@ public class GroupModel
         this.shortName = shortName;
         this.boxes = boxes;
 
-        this.highlightColor = false;
+        highlightColor = false;
     }
 
 

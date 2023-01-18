@@ -6,7 +6,6 @@ using RaidClears.Features.Shared.Controls;
 using RaidClears.Features.Shared.Services;
 using RaidClears.Features.Raids.Models;
 using System.Threading.Tasks;
-using RaidClears.Settings.Services;
 using RaidClears.Features.Raids.Services;
 
 namespace RaidClears.Features.Raids;

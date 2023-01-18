@@ -1,16 +1,19 @@
 ﻿using Blish_HUD.Controls;
 using RaidClears.Localization;
+using RaidClears.Settings.Models;
 
 namespace RaidClears.Settings.Views.Tabs;
 
 public class DungeonVisualsView : MenuedSettingsView
 {
+    private static DungeonSettings Settings => Module.ModuleInstance.SettingsService.DungeonSettings;
+    
     protected override void Build(Container buildPanel)
     {
         base.Build(buildPanel);
-        var dungeonOffPanel = VisibilityInvertedSettingsFlowPanel(rootFlowPanel, settingsService.DungeonEnable);
+        var dungeonOffPanel = VisibilityInvertedSettingsFlowPanel(rootFlowPanel, Settings.Generic.Enabled);
         ShowText(Strings.Setting_Dun_DisabledWarning, dungeonOffPanel);
-        var dungeonSettings = VisibilitySettingsFlowPanel(rootFlowPanel, settingsService.DungeonEnable);
+        var dungeonSettings = VisibilitySettingsFlowPanel(rootFlowPanel, Settings.Generic.Enabled);
         
         var copyButton = new StandardButton
         {
@@ -26,25 +29,25 @@ public class DungeonVisualsView : MenuedSettingsView
             settingsService.CopyRaidVisualsToDungeons();
         };
         
-        ShowEnumSettingWithViewContainer(settingsService.DungeonPanelLayout, dungeonSettings);
-        ShowEnumSettingWithViewContainer(settingsService.DungeonPanelFontSize, dungeonSettings);
-        ShowEnumSettingWithViewContainer(settingsService.DungeonPanelLabelDisplay, dungeonSettings);
-        ShowSettingWithViewContainer(settingsService.DungeonPanelLabelOpacity, dungeonSettings);
-        ShowSettingWithViewContainer(settingsService.DungeonPanelGridOpacity, dungeonSettings);
-        ShowSettingWithViewContainer(settingsService.DungeonPanelBgOpacity, dungeonSettings);
+        ShowEnumSettingWithViewContainer(Settings.Style.Layout, dungeonSettings);
+        ShowEnumSettingWithViewContainer(Settings.Style.FontSize, dungeonSettings);
+        ShowEnumSettingWithViewContainer(Settings.Style.LabelDisplay, dungeonSettings);
+        ShowSettingWithViewContainer(Settings.Style.LabelOpacity, dungeonSettings);
+        ShowSettingWithViewContainer(Settings.Style.GridOpacity, dungeonSettings);
+        ShowSettingWithViewContainer(Settings.Style.BgOpacity, dungeonSettings);
 
         AddVerticalSpacer(dungeonSettings);
 
-        ShowSettingWithViewContainer(settingsService.DungeonHighlightFrequenter, dungeonSettings);
+        ShowSettingWithViewContainer(Settings.DungeonHighlightFrequenter, dungeonSettings);
 
         AddVerticalSpacer(dungeonSettings);
 
         ShowText(Strings.SettingsPanel_Raid_Visual_Colors, dungeonSettings);
         ShowText(Strings.SettingsPanel_Raid_Visual_ColorsTip, dungeonSettings);
 
-        ShowColorSettingWithViewContainer(settingsService.DungeonPanelColorNotCleared, dungeonSettings);
-        ShowColorSettingWithViewContainer(settingsService.DungeonPanelColorCleared, dungeonSettings);
-        ShowColorSettingWithViewContainer(settingsService.DungeonPanelColorText, dungeonSettings);
-        ShowColorSettingWithViewContainer(settingsService.DungeonPanelColorFreq, dungeonSettings);
+        ShowColorSettingWithViewContainer(Settings.Style.Color.NotCleared, dungeonSettings);
+        ShowColorSettingWithViewContainer(Settings.Style.Color.Cleared, dungeonSettings);
+        ShowColorSettingWithViewContainer(Settings.Style.Color.Text, dungeonSettings);
+        ShowColorSettingWithViewContainer(Settings.DungeonPanelColorFreq, dungeonSettings);
     }
 }

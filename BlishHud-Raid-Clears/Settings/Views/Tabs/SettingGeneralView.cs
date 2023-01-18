@@ -4,26 +4,32 @@ using RaidClears.Settings.Models;
 
 namespace RaidClears.Settings.Views.Tabs;
 
-public class DungeonGeneralView : MenuedSettingsView
+public class SettingGeneralView : MenuedSettingsView
 {
-    private static DungeonSettings Settings => Module.ModuleInstance.SettingsService.DungeonSettings;
+    private readonly GenericSettings _settings;
+
+    public SettingGeneralView(GenericSettings settings)
+    {
+        _settings = settings;
+    }
     
     protected override void Build(Container buildPanel)
     {
         base.Build(buildPanel);
-        ShowSettingWithViewContainer(Settings.Generic.Enabled, rootFlowPanel);
+        
+        ShowSettingWithViewContainer(_settings.Enabled, rootFlowPanel);
         AddVerticalSpacer(rootFlowPanel);
 
         var dungeonOffPanel = VisibilityInvertedSettingsFlowPanel(rootFlowPanel, settingsService.DungeonSettings.Generic.Enabled);
         ShowText(Strings.Setting_Dun_DisabledWarning, dungeonOffPanel);
 
         var dungeonSettings = VisibilitySettingsFlowPanel(rootFlowPanel, settingsService.DungeonSettings.Generic.Enabled);
-        ShowSettingWithViewContainer(Settings.Generic.PositionLock, dungeonSettings);
-        ShowSettingWithViewContainer(Settings.Generic.Visible, dungeonSettings);
-        ShowSettingWithViewContainer(Settings.Generic.Tooltips, dungeonSettings);
-        ShowSettingWithViewContainer(Settings.Generic.ToolbarIcon, dungeonSettings);
+        ShowSettingWithViewContainer(_settings.PositionLock, dungeonSettings);
+        ShowSettingWithViewContainer(_settings.Visible, dungeonSettings);
+        ShowSettingWithViewContainer(_settings.Tooltips, dungeonSettings);
+        ShowSettingWithViewContainer(_settings.ToolbarIcon, dungeonSettings);
         AddVerticalSpacer(dungeonSettings);
-        ShowSettingWithViewContainer(Settings.Generic.ShowHideKeyBind,dungeonSettings);
+        ShowSettingWithViewContainer(_settings.ShowHideKeyBind,dungeonSettings);
         ShowText(Strings.SharedKeybind, dungeonSettings);
     }
 }

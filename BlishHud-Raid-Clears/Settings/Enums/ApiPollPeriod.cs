@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+// ReSharper disable InconsistentNaming
 
 namespace RaidClears.Settings.Enums;
 

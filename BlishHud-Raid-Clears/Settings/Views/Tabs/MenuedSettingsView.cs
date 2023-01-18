@@ -19,7 +19,7 @@ public class MenuedSettingsView : View
 
     protected MenuedSettingsView()
     {
-        settingsService = Module.ModuleInstance.SettingsService ;
+        settingsService = Module.ModuleInstance.SettingsService;
     }
 
     protected override void Build(Container buildPanel)

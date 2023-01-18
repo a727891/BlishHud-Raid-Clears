@@ -9,8 +9,8 @@ namespace RaidClears.Features.Dungeons.Models;
 
 public static class DungeonFactory
 {
-    public static int FREQUENTER_INDEX = 8;
-    public static string FREQUENTER_ID = "freq";
+    public const int FREQUENTER_INDEX = 8;
+    public const string FREQUENTER_ID = "freq";
     public static Dungeon[] Create(DungeonPanel panel)
     {
         var settings = Module.ModuleInstance.SettingsService;
@@ -54,32 +54,17 @@ public static class DungeonFactory
         return dungeons;
     }
 
-    public static SettingEntry<bool> GetDungeonSelectionByIndex(int index, SettingService settings)
-    {
-        return index switch
-        {
-            0 => settings.D1IsVisible,
-            1 => settings.D2IsVisible,
-            2 => settings.D3IsVisible,
-            3 => settings.D4IsVisible,
-            4 => settings.D5IsVisible,
-            5 => settings.D6IsVisible,
-            6 => settings.D7IsVisible,
-            7 => settings.D8IsVisible,
-            8 => settings.DFIsVisible,
-            _ => settings.D1IsVisible,
-        };
-    }
+    private static SettingEntry<bool> GetDungeonSelectionByIndex(int index, SettingService settings) => settings.DungeonSettings.DungeonPaths[index];
 
     public static Dungeon[] GetDungeonMetaData()
     {
-        return new Dungeon[]
+        return new[]
         {
             new Dungeon(
                 $"Ascalonian Catacombs\nStory {30}, Explore {35}",
                 0,
                 "AC",
-                new Path[]
+                new[]
                 {
                     new Path("ac_story","Story", "S"),
                     new Path("hodgins","hodgins", "E1"),
@@ -91,7 +76,7 @@ public static class DungeonFactory
                 $"Caudecus Manor\nStory {40}, Explore {45}",
                 1,
                 "CM",
-                new Path[]
+                new[]
                 {
                     new Path("cm_story","Story", "S"),
                     new Path("asura","asura", "E1"),
@@ -103,7 +88,7 @@ public static class DungeonFactory
                 $"Twilight Arbor\nStory {50}, Explore {55}",
                 2,
                 "TA",
-                new Path[]
+                new[]
                 {
                     new Path("ta_story","Story", "S"),
                     new Path("leurent","leurent (Up)", "Up"),
@@ -115,7 +100,7 @@ public static class DungeonFactory
                 $"Sorrows Embrace\nStory {60}, Explore {65}",
                 3,
                 "SE",
-                new Path[]
+                new[]
                 {
                     new Path("se_story","Story", "S"),
                     new Path("fergg","fergg", "E1"),
@@ -127,7 +112,7 @@ public static class DungeonFactory
                 $"Citadel of Flame\nStory {70}, Explore {75}",
                 4,
                 "CoF",
-                new Path[]
+                new[]
                 {
                     new Path("cof_story","Story", "S"),
                     new Path("ferrah","ferrah", "E1"),
@@ -139,7 +124,7 @@ public static class DungeonFactory
                 $"Honor of the Waves\nStory {76}, Explore {80}",
                 5,
                 "HW",
-                new Path[]
+                new[]
                 {
                     new Path("hotw_story","Story", "S"),
                     new Path("butcher","butcher", "E1"),
@@ -151,7 +136,7 @@ public static class DungeonFactory
                 $"Crucible of Eternity\nStory {78}, Explore {80}",
                 6,
                 "CoE",
-                new Path[]
+                new[]
                 {
                     new Path("coe_story","Story", "S"),
                     new Path("submarine","submarine", "E1"),
@@ -163,7 +148,7 @@ public static class DungeonFactory
                 $"Ruined City of Arah\nExplore {80}",
                 7,
                 "Arah",
-                new Path[]
+                new[]
                 {
                     //new Path("arah_story","Story", "S"),
                     new Path("jotun","jotun", "E1"),
@@ -176,7 +161,7 @@ public static class DungeonFactory
                 $"Frequenter Achievement Summary",
                 FREQUENTER_INDEX,
                 "Freq",
-                new Path[]
+                new[]
                 {
                     //new Path("arah_story","Story", "S"),
                     new Path(FREQUENTER_ID,"Frequenter Achievement Paths Finished", "0/8"),

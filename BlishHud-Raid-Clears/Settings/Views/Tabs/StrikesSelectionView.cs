@@ -1,31 +1,34 @@
 ﻿using Blish_HUD.Controls;
 using RaidClears.Localization;
+using RaidClears.Settings.Models;
 
 namespace RaidClears.Settings.Views.Tabs;
 
 public class StrikesSelectionView : MenuedSettingsView
 {
+    private static StrikeSettings Settings => Module.ModuleInstance.SettingsService.StrikeSettings;
+    
     protected override void Build(Container buildPanel)
     {
         base.Build(buildPanel);
 
-        ShowSettingWithViewContainer(settingsService.StrikeVisible_Priority);
+        ShowSettingWithViewContainer(Settings.StrikeVisiblePriority);
+        
         AddVerticalSpacer();
-        ShowSettingWithViewContainer(settingsService.StrikeVisible_IBS);
+        ShowSettingWithViewContainer(Settings.StrikeVisibleIbs);
         ShowText(Strings.Settings_Strike_IBS_Heading);
-        ShowSettingWithViewContainer(settingsService.StrikeVisible_CW);
-        ShowSettingWithViewContainer(settingsService.StrikeVisible_FoJ);
-        ShowSettingWithViewContainer(settingsService.StrikeVisible_SP);
-        ShowSettingWithViewContainer(settingsService.StrikeVisible_VandC);
-        ShowSettingWithViewContainer(settingsService.StrikeVisible_WoJ);
-        ShowSettingWithViewContainer(settingsService.StrikeVisible_BS);
+
+        foreach (var ibsStrike in Settings.IbsMissions)
+        {
+            ShowSettingWithViewContainer(ibsStrike);
+        }
+        
         AddVerticalSpacer();
-        ShowSettingWithViewContainer(settingsService.StrikeVisible_EOD);
+        ShowSettingWithViewContainer(Settings.StrikeVisibleEod);
         ShowText(Strings.Settings_Strike_EOD_Heading);
-        ShowSettingWithViewContainer(settingsService.StrikeVisible_AH);
-        ShowSettingWithViewContainer(settingsService.StrikeVisible_XJJ);
-        ShowSettingWithViewContainer(settingsService.StrikeVisible_KO);
-        ShowSettingWithViewContainer(settingsService.StrikeVisible_HT);
-        ShowSettingWithViewContainer(settingsService.StrikeVisible_OLC);
+        foreach (var eodStrike in Settings.EodMissions)
+        {
+            ShowSettingWithViewContainer(eodStrike);
+        }
     }
 }

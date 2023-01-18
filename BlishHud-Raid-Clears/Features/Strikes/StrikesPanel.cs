@@ -1,5 +1,4 @@
-﻿
-using Blish_HUD.Settings;
+﻿using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
 using RaidClears.Localization;
 using RaidClears.Utils;
@@ -7,10 +6,8 @@ using RaidClears.Features.Shared.Services;
 using RaidClears.Features.Shared.Controls;
 using System.Threading.Tasks;
 using RaidClears.Features.Strikes.Models;
-using RaidClears.Settings.Services;
 
 namespace RaidClears.Features.Strikes;
-
 
 public static class StrikesPanelFactory
 {
@@ -45,7 +42,6 @@ public static class StrikesPanelFactory
 
         return panel;
     }
-    
 }
 
 public class StrikesPanel : GridPanel
@@ -96,6 +92,4 @@ public class StrikesPanel : GridPanel
             }
         }
     }
-
-
 }

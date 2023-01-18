@@ -1,23 +1,26 @@
 ﻿using Blish_HUD.Controls;
 using RaidClears.Localization;
+using RaidClears.Settings.Models;
 
 namespace RaidClears.Settings.Views.Tabs;
 
 public class RaidVisualsView : MenuedSettingsView
 {
+    private static RaidSettings Settings => Module.ModuleInstance.SettingsService.RaidSettings;
+    
     protected override void Build(Container buildPanel)
     {
         base.Build(buildPanel);
-        ShowEnumSettingWithViewContainer(settingsService.RaidPanelLayout);
-        ShowEnumSettingWithViewContainer(settingsService.RaidPanelFontSize);
-        ShowEnumSettingWithViewContainer(settingsService.RaidPanelLabelDisplay);
-        ShowSettingWithViewContainer(settingsService.RaidPanelLabelOpacity);
-        ShowSettingWithViewContainer(settingsService.RaidPanelGridOpacity);
-        ShowSettingWithViewContainer(settingsService.RaidPanelBgOpacity);
+        ShowEnumSettingWithViewContainer(Settings.Style.Layout);
+        ShowEnumSettingWithViewContainer(Settings.Style.FontSize);
+        ShowEnumSettingWithViewContainer(Settings.Style.LabelDisplay);
+        ShowSettingWithViewContainer(Settings.Style.LabelOpacity);
+        ShowSettingWithViewContainer(Settings.Style.GridOpacity);
+        ShowSettingWithViewContainer(Settings.Style.BgOpacity);
 
         AddVerticalSpacer();
-        ShowSettingWithViewContainer(settingsService.RaidPanelHighlightEmbolden);
-        ShowSettingWithViewContainer(settingsService.RaidPanelHighlightCotM);
+        ShowSettingWithViewContainer(Settings.RaidPanelHighlightEmbolden);
+        ShowSettingWithViewContainer(Settings.RaidPanelHighlightCotM);
 
         AddVerticalSpacer();
 
@@ -25,10 +28,10 @@ public class RaidVisualsView : MenuedSettingsView
 
         ShowText(Strings.SettingsPanel_Raid_Visual_ColorsTip);
 
-        ShowColorSettingWithViewContainer(settingsService.RaidPanelColorNotCleared);
-        ShowColorSettingWithViewContainer(settingsService.RaidPanelColorCleared);
-        ShowColorSettingWithViewContainer(settingsService.RaidPanelColorCotm);
-        ShowColorSettingWithViewContainer(settingsService.RaidPanelColorEmbolden);
-        ShowColorSettingWithViewContainer(settingsService.RaidPanelColorText);
+        ShowColorSettingWithViewContainer(Settings.Style.Color.NotCleared);
+        ShowColorSettingWithViewContainer(Settings.Style.Color.Cleared);
+        ShowColorSettingWithViewContainer(Settings.RaidPanelColorCotm);
+        ShowColorSettingWithViewContainer(Settings.RaidPanelColorEmbolden);
+        ShowColorSettingWithViewContainer(Settings.Style.Color.Text);
     }
 }

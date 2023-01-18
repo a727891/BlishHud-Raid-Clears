@@ -45,9 +45,9 @@ public class GridBox : Label
     {
         opacity.SettingChanged += (_, e) =>
         {
-            this.Opacity = e.NewValue;
+            Opacity = e.NewValue;
         };
-        this.Opacity = opacity.Value;
+        Opacity = opacity.Value;
     }
     public void LayoutChange(SettingEntry<Layout> layout)
     {

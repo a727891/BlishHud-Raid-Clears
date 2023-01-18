@@ -6,7 +6,6 @@ using RaidClears.Localization;
 using Blish_HUD;
 using Blish_HUD.Overlay;
 using RaidClears.Settings.Services;
-using System;
 using RaidClears.Settings.Views.Tabs;
 
 namespace RaidClears.Settings.Controls;
@@ -16,7 +15,6 @@ public static class SettingPanelFactory
 {
     public static SettingsPanel Create()
     {
-
         var windowLocation = new Point(36, 26); //magic numbers stolen from EventTable
         var windowWidth = new Point(1100, 714);
 
@@ -42,9 +40,8 @@ public static class SettingPanelFactory
         );
     }
 }
-public class SettingsPanel : TabbedWindow2, IDisposable
+public class SettingsPanel : TabbedWindow2
 {
-
     public OverlaySettingsTab SettingsTab { get; private set; }
 
     public SettingsPanel(
@@ -99,11 +96,13 @@ public class SettingsPanel : TabbedWindow2, IDisposable
             (_) => new DungeonGeneralView(),
             int.MinValue
         );
+        
         dungeonsMenu.RegisterSettingMenu(
             new MenuItem(Strings.SettingsPanel_Dun_Heading_Layout),
             (_) => new DungeonVisualsView(),
             int.MinValue
         );
+        
         dungeonsMenu.RegisterSettingMenu(
             new MenuItem(Strings.SettingsPanel_Dun_Heading_PathSelection),
             (_) => new DungeonPathSelectionView(),
@@ -157,7 +156,7 @@ public class SettingsPanel : TabbedWindow2, IDisposable
         #endregion
 
         //Make Menuviews rerender the first tab on Tabbed panel change
-        this.TabChanged += (_, e) =>
+        TabChanged += (_, e) =>
         {
             if (e.NewValue.Name == Strings.SettingsPanel_Tab_Raids)
             {
@@ -176,10 +175,5 @@ public class SettingsPanel : TabbedWindow2, IDisposable
 
             }
         };
-
-
-        //Show();
-
     }
-
 }

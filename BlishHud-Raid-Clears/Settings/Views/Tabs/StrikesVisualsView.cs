@@ -1,10 +1,13 @@
 ﻿using Blish_HUD.Controls;
 using RaidClears.Localization;
+using RaidClears.Settings.Models;
 
 namespace RaidClears.Settings.Views.Tabs;
 
 public class StrikesVisualsView : MenuedSettingsView
 {
+    private static StrikeSettings StrikeSettings => Module.ModuleInstance.SettingsService.StrikeSettings;
+    
     protected override void Build(Container buildPanel)
     {
         base.Build(buildPanel);
@@ -13,28 +16,32 @@ public class StrikesVisualsView : MenuedSettingsView
             Parent = rootFlowPanel,
             Text = Strings.Setting_Strike_CopyRaids,
             Width = 180
-
         };
+        
         copyButton.Click += (_, _) =>
         {
             copyButton.Enabled = false;
             settingsService.CopyRaidVisualsToStrikes();
         };
-
-        ShowEnumSettingWithViewContainer(settingsService.StrikePanelLayout);
-        ShowEnumSettingWithViewContainer(settingsService.StrikePanelFontSize);
-        ShowEnumSettingWithViewContainer(settingsService.StrikePanelLabelDisplay);
-        ShowSettingWithViewContainer(settingsService.StrikePanelLabelOpacity);
-        ShowSettingWithViewContainer(settingsService.StrikePanelGridOpacity);
-        ShowSettingWithViewContainer(settingsService.StrikePanelBgOpacity);
+        
+        var style = StrikeSettings.Style;
+        
+        ShowEnumSettingWithViewContainer(style.Layout);
+        ShowEnumSettingWithViewContainer(style.FontSize);
+        ShowEnumSettingWithViewContainer(style.LabelDisplay);
+        ShowSettingWithViewContainer(style.LabelOpacity);
+        ShowSettingWithViewContainer(style.GridOpacity);
+        ShowSettingWithViewContainer(style.BgOpacity);
 
         AddVerticalSpacer();
 
         ShowText(Strings.SettingsPanel_Raid_Visual_Colors);
         ShowText(Strings.SettingsPanel_Raid_Visual_ColorsTip);
 
-        ShowColorSettingWithViewContainer(settingsService.StrikePanelColorNotCleared);
-        ShowColorSettingWithViewContainer(settingsService.StrikePanelColorCleared);
-        ShowColorSettingWithViewContainer(settingsService.StrikePanelColorText);
+        var colors = StrikeSettings.Style.Color;
+        
+        ShowColorSettingWithViewContainer(colors.NotCleared);
+        ShowColorSettingWithViewContainer(colors.Cleared);
+        ShowColorSettingWithViewContainer(colors.Text);
     }
 }
