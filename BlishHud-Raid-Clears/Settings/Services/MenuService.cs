@@ -5,18 +5,18 @@ using Blish_HUD.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RaidClears.Settings.Views;
 
 namespace RaidClears.Settings.Services;
 
 public class MenuService : ISettingsMenuRegistrar // warning
 {
-    private Views.SettingsMenuView View { get; set; }
-
-    public event EventHandler<EventArgs> RegistrarListChanged;
+    private CustomSettingsMenuView? View { get; set; }
+    public event EventHandler<EventArgs>? RegistrarListChanged;
 
     private readonly List<(MenuItem MenuItem, Func<MenuItem, IView> ViewFunc, int Index)> _registeredMenuItems = new();
 
-    public void SetSettingMenuView(Views.SettingsMenuView v)
+    public void SetSettingMenuView(CustomSettingsMenuView v)
     {
         View = v;
     }
@@ -38,7 +38,7 @@ public class MenuService : ISettingsMenuRegistrar // warning
     {
         if (_registeredMenuItems.Count < 1) return;
 
-        View.SetSettingView(GetMenuItemView(_registeredMenuItems.First().MenuItem));
+        View?.SetSettingView(GetMenuItemView(_registeredMenuItems.First().MenuItem));
     }
 
     public IEnumerable<MenuItem> GetSettingMenus() => _registeredMenuItems.OrderBy(mi => mi.Index).Select(mi => mi.MenuItem);
@@ -47,6 +47,6 @@ public class MenuService : ISettingsMenuRegistrar // warning
     {
         _registeredMenuItems.Add((menuItem, viewFunc, index));
 
-        RegistrarListChanged.Invoke(this, EventArgs.Empty);
+        RegistrarListChanged?.Invoke(this, EventArgs.Empty);
     }
 }

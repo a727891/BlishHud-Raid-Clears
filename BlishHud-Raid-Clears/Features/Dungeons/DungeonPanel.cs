@@ -15,7 +15,7 @@ namespace RaidClears.Features.Dungeons;
 
 public static class DungeonPanelFactory
 {
-    private static DungeonSettings Settings => Module.moduleInstance.SettingsService.DungeonSettings;
+    private static DungeonSettings Settings => Service.Settings.DungeonSettings;
     
     public static DungeonPanel Create()
     {
@@ -34,8 +34,8 @@ public static class DungeonPanelFactory
                 Settings.Generic.ToolbarIcon,
                 Settings.Generic.Visible, 
                 Strings.CornerIcon_Dungeon, 
-                Module.moduleInstance.TexturesService.DungeonsCornerIconTexture,
-                Module.moduleInstance.TexturesService.DungeonsCornerIconHoverTexture
+                Service.TexturesService.DungeonsCornerIconTexture,
+                Service.TexturesService.DungeonsCornerIconHoverTexture
             )
         );
         panel.RegisterKeyBindService(
@@ -65,7 +65,7 @@ public class DungeonPanel : GridPanel
        
         var dungeons = DungeonFactory.Create(this);
 
-        Module.moduleInstance.ApiPollingService.ApiPollingTrigger += (_, _) =>
+        Service.ApiPollingService.ApiPollingTrigger += (_, _) =>
         {
             Task.Run(async () =>
             {

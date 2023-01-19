@@ -10,7 +10,7 @@ namespace RaidClears.Features.Dungeons.Models;
 
 public static class DungeonFactory
 {
-    private static DungeonSettings Settings => Module.moduleInstance.SettingsService.DungeonSettings;
+    private static DungeonSettings Settings => Service.Settings.DungeonSettings;
     
     public const int FrequenterIndex = 8;
     public const string FrequenterID = "freq";

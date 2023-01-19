@@ -1,22 +1,21 @@
 ﻿using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using RaidClears.Localization;
+using RaidClears.Utils;
 
 namespace RaidClears.Settings.Views;
 
-public class ModuleSettingsView: View
+public class ModuleMainSettingsView: View
 {
     protected override void Build(Container buildPanel)
     {
-        var button = new StandardButton
+        buildPanel.AddControl(new StandardButton 
         {
             Parent = buildPanel,
             Text = Strings.ModuleSettings_OpenSettings,
-        };
-
-        button.Left = (buildPanel.Width /2) - (button.Width/ 2);
-        button.Top = (buildPanel.Height / 2) - (button.Height / 2);
-
-        button.Click += (_, _) => Module.moduleInstance.SettingsWindow.Show();
+            Size = buildPanel.Size.Scale(0.20f),
+            Location = buildPanel.Size.Half() - buildPanel.Size.Scale(0.20f).Half(),
+            
+        }).Click += (_, _) => Service.SettingsWindow.ToggleWindow();
     }
 }

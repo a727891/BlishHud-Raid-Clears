@@ -13,7 +13,7 @@ namespace RaidClears.Features.Raids;
 
 public static class RaidPanelFactory
 {
-    private static RaidSettings Settings => Module.moduleInstance.SettingsService.RaidSettings;
+    private static RaidSettings Settings => Service.Settings.RaidSettings;
     
     public static RaidPanel Create()
     {
@@ -32,8 +32,8 @@ public static class RaidPanelFactory
                 Settings.Generic.ToolbarIcon,
                 Settings.Generic.Visible, 
                 Strings.CornerIcon_Raid, 
-                Module.moduleInstance.TexturesService.CornerIconTexture,
-                Module.moduleInstance.TexturesService.CornerIconHoverTexture
+                Service.TexturesService.CornerIconTexture,
+                Service.TexturesService.CornerIconHoverTexture
             )
         );
         panel.RegisterKeyBindService(
@@ -61,7 +61,7 @@ public class RaidPanel : GridPanel
        
         var wings = WingFactory.Create(this, weeklyWings);
 
-        Module.moduleInstance.ApiPollingService.ApiPollingTrigger += (_, _) =>
+        Service.ApiPollingService.ApiPollingTrigger += (_, _) =>
         {
             Task.Run(async () =>
             {

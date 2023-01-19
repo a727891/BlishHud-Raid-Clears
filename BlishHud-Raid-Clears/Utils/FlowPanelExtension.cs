@@ -1,6 +1,10 @@
-﻿using Blish_HUD.Controls;
+﻿using System;
+using Blish_HUD.Controls;
 using Blish_HUD.Settings;
+using Blish_HUD.Settings.UI.Views;
+using Microsoft.Xna.Framework;
 using RaidClears.Settings.Enums;
+using RaidClears.Settings.Views;
 
 namespace RaidClears.Utils;
 
@@ -64,5 +68,74 @@ public static class FlowPanelExtensions
             Layout.SingleColumn => ControlFlowDirection.SingleTopToBottom,
             _ => ControlFlowDirection.SingleTopToBottom,
         };
+    }
+
+    public static FlowPanel BeginFlow(this FlowPanel panel, Container parent, Point sizeOffset, Point locationOffset)
+    {
+        panel.FlowDirection = ControlFlowDirection.SingleTopToBottom;
+        panel.OuterControlPadding = new Vector2(50, 25);
+        panel.Parent = parent;
+        panel.Size = parent.Size + sizeOffset;
+        panel.ShowBorder = true;
+        panel.Location += locationOffset;
+        
+        return panel;
+    }
+    
+    public static FlowPanel BeginFlow(this FlowPanel panel, Container parent)
+    {
+        return BeginFlow(panel, parent, new Point(0), new Point(0));
+    }
+
+    public static FlowPanel AddSetting(this FlowPanel panel, SettingEntry setting)
+    {
+        var viewContainer = new ViewContainer
+        {
+            Parent = panel,
+        };
+        
+        viewContainer.Show(SettingView.FromType(setting, panel.Width));
+
+        return panel;
+    }
+
+    public static FlowPanel AddSettingEnum(this FlowPanel panel, SettingEntry enumSetting)
+    {
+        var viewContainer = new ViewContainer { Parent = panel };
+        viewContainer.Show(CustomEnumSettingView.FromEnum(enumSetting, panel.Width));
+        
+        return panel;
+    }
+
+    public static FlowPanel AddSettingColor(this FlowPanel panel, SettingEntry<string> colorSetting)
+    {
+        var viewContainer = new ViewContainer { Parent = panel };
+        viewContainer.Show(new ColorSettingView(colorSetting, panel.Width));
+
+        return panel;
+    }
+
+    public static FlowPanel AddSpace(this FlowPanel panel)
+    {
+        var _ = new ViewContainer
+        {
+            Parent = panel,
+        };
+        return panel;
+    }
+
+    public static FlowPanel AddString(this FlowPanel panel, string text)
+    {
+        var _ = new Label
+        {
+            Parent = panel,
+            AutoSizeWidth = true,
+            AutoSizeHeight = true,
+            Text = text,
+            WrapText = false,
+            Location = new Point(25, 0),
+        };
+
+        return panel;
     }
 }

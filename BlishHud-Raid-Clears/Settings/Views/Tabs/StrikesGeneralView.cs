@@ -6,7 +6,7 @@ namespace RaidClears.Settings.Views.Tabs;
 
 public class StrikesGeneralView : MenuedSettingsView
 {
-    private static StrikeSettings Settings => Module.moduleInstance.SettingsService.StrikeSettings;
+    private static StrikeSettings Settings => Service.Settings.StrikeSettings;
     
     protected override void Build(Container buildPanel)
     {
@@ -21,18 +21,18 @@ public class StrikesGeneralView : MenuedSettingsView
         ShowText(Strings.SharedKeybind);
         AddVerticalSpacer();
         AddVerticalSpacer();
-
-        var alignButton = new StandardButton
-        {
-            Parent = rootFlowPanel,
-            Text = Strings.Setting_Strike_AlignWithRaids,
-            Width = 200
-        };
         
-        alignButton.Click += (_, _) =>
-        {
-            settingsService.AlignStrikesWithRaidPanel();
-        };
+        // var alignButton = new StandardButton
+        // {
+        //     Parent = rootFlowPanel,
+        //     Text = Strings.Setting_Strike_AlignWithRaids,
+        //     Width = 200
+        // };
+        
+        // alignButton.Click += (_, _) =>
+        // {
+        //     settingsService.AlignStrikesWithRaidPanel();
+        // };
         
         var copyButton = new StandardButton
         {
@@ -45,7 +45,7 @@ public class StrikesGeneralView : MenuedSettingsView
         copyButton.Click += (_, _) =>
         {
             copyButton.Enabled = false;
-            settingsService.CopyRaidVisualsToStrikes();
+            Service.Settings.CopyRaidVisualsToStrikes();
         };
     }
 }

@@ -12,7 +12,7 @@ public static  class GetCurrentClearsService
 {
     public static async Task<List<string>> GetClearsFromApi()
     {
-        var gw2ApiManager = Module.moduleInstance.Gw2ApiManager;
+        var gw2ApiManager = Service.Gw2ApiManager;
         var logger = Logger.GetLogger<Module>();
 
         if (gw2ApiManager.HasPermissions(NecessaryApiTokenPermissions) == false)

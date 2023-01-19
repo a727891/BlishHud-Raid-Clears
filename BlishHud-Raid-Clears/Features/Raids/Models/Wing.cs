@@ -15,7 +15,7 @@ public static class WingFactory
 {
     public static IEnumerable<Wing> Create(RaidPanel panel, WeeklyWings weekly)
     {
-        var settings = Module.moduleInstance.SettingsService.RaidSettings;
+        var settings = Service.Settings.RaidSettings;
         var wings = GetWingMetaData();
         foreach(var wing in wings)
         {

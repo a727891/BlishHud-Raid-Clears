@@ -14,7 +14,7 @@ public class DungeonsClearsService
     
     public async Task<List<string>> GetFrequenterPaths()
     {
-        var gw2ApiManager = Module.moduleInstance.Gw2ApiManager;
+        var gw2ApiManager = Service.Gw2ApiManager;
         var logger = Logger.GetLogger<Module>();
 
         if (gw2ApiManager.HasPermissions(_necessaryApiTokenPermissions) == false)
@@ -49,7 +49,7 @@ public class DungeonsClearsService
 
     public async Task<List<string>> GetClearsFromApi()
     {
-        var gw2ApiManager = Module.moduleInstance.Gw2ApiManager;
+        var gw2ApiManager = Service.Gw2ApiManager;
         var logger = Logger.GetLogger<Module>();
 
         if (gw2ApiManager.HasPermissions(_necessaryApiTokenPermissions) == false)

@@ -11,11 +11,11 @@ namespace RaidClears.Features.Strikes.Models;
 
 public static class StrikeFactory
 {
-    private static StrikeSettings Settings => Module.moduleInstance.SettingsService.StrikeSettings;
+    private static StrikeSettings Settings => Service.Settings.StrikeSettings;
     
     public static Strike[] Create(StrikesPanel panel)
     {
-        var settings = Module.moduleInstance.SettingsService.StrikeSettings;
+        var settings = Service.Settings.StrikeSettings;
         var strikes = GetStrikeMetaData();
         foreach(var strike in strikes)
         {

@@ -15,7 +15,8 @@ public class ColorSettingView : SettingView<string>
     private Label _displayNameLabel;
     private TextBox _stringTextBox;
     private ColorHelper _colorHelper;
-
+    private ColorBox _colorBox;
+    
     public ColorSettingView(SettingEntry<string> setting, int definedWidth = -1) : base(setting, definedWidth)
     {
         _setting = setting;
@@ -33,21 +34,21 @@ public class ColorSettingView : SettingView<string>
 
         _colorHelper = new ColorHelper();
         _colorHelper.SetRGB(_setting.Value);
-        
-        buildPanel.AddChild(new ColorBox
+        _colorBox = new ColorBox
         {
             Location = new Point(90, 0),
             Color = _colorHelper,
+            Parent = buildPanel,
             Enabled = false
-        });
-        
+        };
+
         _displayNameLabel = new Label
         {
             AutoSizeWidth = true,
             Location = new Point(130, 0),
             Parent = buildPanel
         };
-
+           
         _stringTextBox.InputFocusChanged += StringTextBoxOnInputFocusChanged;
         _stringTextBox.TextChanged += TextChangedEventHandler;
     }

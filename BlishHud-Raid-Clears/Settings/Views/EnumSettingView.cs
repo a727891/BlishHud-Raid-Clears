@@ -11,15 +11,15 @@ using Microsoft.Xna.Framework;
 
 namespace RaidClears.Settings.Views;
 
-public static class EnumSettingView
+public static class CustomEnumSettingView
 {
     public static IView? FromEnum(SettingEntry setting, int definedWidth = -1)
     {
-        return Activator.CreateInstance(typeof(EnumSettingView<>).MakeGenericType(setting.SettingType), setting, definedWidth) as IView;
+        return Activator.CreateInstance(typeof(CustomEnumSettingView<>).MakeGenericType(setting.SettingType), setting, definedWidth) as IView;
     }
 }
 
-public class EnumSettingView<TEnum> : SettingView<TEnum> where TEnum : struct, Enum
+public class CustomEnumSettingView<TEnum> : SettingView<TEnum> where TEnum : struct, Enum
 {
     private const int CONTROL_PADDING = 5;
 
@@ -31,7 +31,7 @@ public class EnumSettingView<TEnum> : SettingView<TEnum> where TEnum : struct, E
 
     private TEnum[] _enumValues;
 
-    public EnumSettingView(SettingEntry<TEnum> setting, int definedWidth = -1) : base(setting, definedWidth) { /* NOOP */ }
+    public CustomEnumSettingView(SettingEntry<TEnum> setting, int definedWidth = -1) : base(setting, definedWidth) { /* NOOP */ }
 
     protected override Task<bool> Load(IProgress<string> progress)
     {

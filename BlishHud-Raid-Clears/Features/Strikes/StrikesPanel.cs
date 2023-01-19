@@ -13,7 +13,7 @@ public static class StrikesPanelFactory
 {
     public static StrikesPanel Create()
     {
-        var settings = Module.moduleInstance.SettingsService.StrikeSettings;
+        var settings = Service.Settings.StrikeSettings;
         var panel = new StrikesPanel(
             settings.Generic.Location,
             settings.Generic.Visible,
@@ -29,8 +29,8 @@ public static class StrikesPanelFactory
                 settings.Generic.ToolbarIcon,
                 settings.Generic.Visible, 
                 Strings.CornerIcon_Strike, 
-                Module.moduleInstance.TexturesService.StrikesCornerIconTexture,
-                Module.moduleInstance.TexturesService.StrikesCornerIconHoverTexture
+                Service.TexturesService.StrikesCornerIconTexture,
+                Service.TexturesService.StrikesCornerIconHoverTexture
             )
         );
         panel.RegisterKeyBindService(
@@ -64,7 +64,7 @@ public class StrikesPanel : GridPanel
         //Wings =  WingFactory.Create(this, weeklyWings);
         _strikes = StrikeFactory.Create(this);
 
-        Module.moduleInstance.ApiPollingService.ApiPollingTrigger += (_, _) =>
+        Service.ApiPollingService.ApiPollingTrigger += (_, _) =>
         {
             Task.Run(() =>
             {

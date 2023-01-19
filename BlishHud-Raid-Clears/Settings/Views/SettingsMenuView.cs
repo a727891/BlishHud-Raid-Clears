@@ -8,16 +8,16 @@ using RaidClears.Settings.Services;
 
 namespace RaidClears.Settings.Views;
 
-public class SettingsMenuView : View
+public class CustomSettingsMenuView : View
 {
     public event EventHandler<ControlActivatedEventArgs> MenuItemSelected;
 
     private Menu _menuSettingsList;
     private ViewContainer _settingViewContainer;
 
-    public SettingsMenuView(MenuService settingsMenuRegistrar) // warning
+    public CustomSettingsMenuView(MenuService settingsMenuRegistrar) // warning
     {
-        WithPresenter(new SettingsMenuPresenter(this, settingsMenuRegistrar));
+        WithPresenter(new CustomSettingsMenuPresenter(this, settingsMenuRegistrar));
         settingsMenuRegistrar.SetSettingMenuView(this);
     }
 

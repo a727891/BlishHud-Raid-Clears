@@ -2,7 +2,6 @@
 using Blish_HUD.Settings;
 using RaidClears.Localization;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework;
 using RaidClears.Settings.Enums;
 using RaidClears.Settings.Models;
 
@@ -23,7 +22,8 @@ public class SettingService // singular because Setting"s"Service already exists
             () => Strings.Setting_APIPoll_Label,
             () => Strings.Setting_APIPoll_Tooltip);
 
-        SettingsPanelKeyBind = settings.DefineSetting("RCsettingsKeybind", new KeyBinding(Keys.None),
+        SettingsPanelKeyBind = settings.DefineSetting("RCsettingsKeybind", 
+            new KeyBinding(Keys.None),
         () => Strings.Settings_Keybind_Label,
         () => Strings.Settings_Keybind_tooltip);
         SettingsPanelKeyBind.Value.Enabled = true;
@@ -33,32 +33,21 @@ public class SettingService // singular because Setting"s"Service already exists
         StrikeSettings = new StrikeSettings(settings);
     }
 
-    public void CopyRaidVisualsToDungeons()
-    {
-        DungeonSettings.Style = RaidSettings.Style;
-        
-        Module.moduleInstance.StrikesPanel.ForceInvalidate();
-    }
+    public void CopyRaidVisualsToDungeons() => DungeonSettings.Style = RaidSettings.Style;
+    public void CopyRaidVisualsToStrikes() => StrikeSettings.Style = RaidSettings.Style;
 
-    public void CopyRaidVisualsToStrikes()
-    {
-        StrikeSettings.Style = RaidSettings.Style; 
-
-        Module.moduleInstance.StrikesPanel.ForceInvalidate();
-    }
-
-    public void AlignStrikesWithRaidPanel()
-    {
-        var raidPanel = Module.moduleInstance.RaidsPanel;
-        var strikeLoc = StrikeSettings.Generic.Location;
-
-        var padding = raidPanel.ControlPadding.ToPoint();
-
-        strikeLoc.Value = RaidSettings.Style.Layout switch
-        {
-            { Value: Layout.Horizontal or Layout.SingleRow } => raidPanel.Location + new Point(raidPanel.Size.X + padding.X, 0),
-            { Value: Layout.Vertical or Layout.SingleColumn } => raidPanel.Location + new Point(0, raidPanel.Size.Y + padding.Y),
-            _ => strikeLoc.Value
-        };
-    }
+    // public void AlignStrikesWithRaidPanel()
+    // {
+    //     var raidPanel = Service.RaidsPanel;
+    //     var strikeLoc = StrikeSettings.Generic.Location;
+    //
+    //     var padding = raidPanel.ControlPadding.ToPoint();
+    //
+    //     strikeLoc.Value = RaidSettings.Style.Layout switch
+    //     {
+    //         { Value: Layout.Horizontal or Layout.SingleRow } => raidPanel.Location + new Point(raidPanel.Size.X + padding.X, 0),
+    //         { Value: Layout.Vertical or Layout.SingleColumn } => raidPanel.Location + new Point(0, raidPanel.Size.Y + padding.Y),
+    //         _ => strikeLoc.Value
+    //     };
+    // }
 }

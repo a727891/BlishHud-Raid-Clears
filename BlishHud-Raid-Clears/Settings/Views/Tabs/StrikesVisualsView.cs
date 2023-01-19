@@ -6,7 +6,7 @@ namespace RaidClears.Settings.Views.Tabs;
 
 public class StrikesVisualsView : MenuedSettingsView
 {
-    private static StrikeSettings StrikeSettings => Module.moduleInstance.SettingsService.StrikeSettings;
+    private static StrikeSettings StrikeSettings => Service.Settings.StrikeSettings;
     
     protected override void Build(Container buildPanel)
     {
@@ -21,7 +21,7 @@ public class StrikesVisualsView : MenuedSettingsView
         copyButton.Click += (_, _) =>
         {
             copyButton.Enabled = false;
-            settingsService.CopyRaidVisualsToStrikes();
+            Service.Settings.CopyRaidVisualsToStrikes();
         };
         
         var style = StrikeSettings.Style;

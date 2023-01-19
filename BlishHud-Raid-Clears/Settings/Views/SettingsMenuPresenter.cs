@@ -3,12 +3,13 @@ using System.Threading.Tasks;
 using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using Blish_HUD.Settings;
+using Blish_HUD.Settings.UI.Views;
 
 namespace RaidClears.Settings.Views;
 
-public class SettingsMenuPresenter : Presenter<SettingsMenuView, ISettingsMenuRegistrar>
+public class CustomSettingsMenuPresenter : Presenter<CustomSettingsMenuView, ISettingsMenuRegistrar>
 {
-    public SettingsMenuPresenter(SettingsMenuView view, ISettingsMenuRegistrar model) : base(view, model) { }
+    public CustomSettingsMenuPresenter(CustomSettingsMenuView view, ISettingsMenuRegistrar model) : base(view, model) { }
 
     protected override Task<bool> Load(IProgress<string> progress)
     {
