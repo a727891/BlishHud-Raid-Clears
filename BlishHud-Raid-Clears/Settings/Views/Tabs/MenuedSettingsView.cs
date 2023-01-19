@@ -18,104 +18,104 @@ public class MenuedSettingsView : View // warning
         {
             Parent = buildPanel,
             FlowDirection = ControlFlowDirection.SingleTopToBottom,
-            Width = buildPanel.ContentRegion.Width,
-            Height = buildPanel.ContentRegion.Height,
+            // Width = buildPanel.ContentRegion.Width,
+            // Height = buildPanel.ContentRegion.Height,
             //BackgroundColor = new Color(20,20,100,20)
         };
     }
     
-    protected static FlowPanel VisibilitySettingsFlowPanel(Container parent, SettingEntry<bool> setting)
-    {
-        var panel =  new FlowPanel
-        {
-            FlowDirection = ControlFlowDirection.SingleTopToBottom,
-            Width = parent.Width,
-            HeightSizingMode = SizingMode.AutoSize,
-            Parent = parent
-        };
-        
-        panel.VisiblityChanged(setting);
-        return panel;
-    }
-    
-    protected static FlowPanel VisibilityInvertedSettingsFlowPanel(Container parent, SettingEntry<bool> setting)
-    {
-        var panel = new FlowPanel
-        {
-            FlowDirection = ControlFlowDirection.SingleTopToBottom,
-            Width = parent.Width,
-            HeightSizingMode = SizingMode.AutoSize,
-            Parent = parent
-        };
-        
-        panel.InvertedVisiblityChanged(setting);
-        return panel;
-    }
+    // protected static FlowPanel VisibilitySettingsFlowPanel(Container parent, SettingEntry<bool> setting)
+    // {
+    //     var panel =  new FlowPanel
+    //     {
+    //         FlowDirection = ControlFlowDirection.SingleTopToBottom,
+    //         Width = parent.Width,
+    //         HeightSizingMode = SizingMode.AutoSize,
+    //         Parent = parent
+    //     };
+    //     
+    //     panel.VisiblityChanged(setting);
+    //     return panel;
+    // }
+    //
+    // protected static FlowPanel VisibilityInvertedSettingsFlowPanel(Container parent, SettingEntry<bool> setting)
+    // {
+    //     var panel = new FlowPanel
+    //     {
+    //         FlowDirection = ControlFlowDirection.SingleTopToBottom,
+    //         Width = parent.Width,
+    //         HeightSizingMode = SizingMode.AutoSize,
+    //         Parent = parent
+    //     };
+    //     
+    //     panel.InvertedVisiblityChanged(setting);
+    //     return panel;
+    // }
 
-    protected void ShowText(string text)
-    {
-        ShowText(text, rootFlowPanel);
-    }
-    
-    protected static void ShowText(string text, FlowPanel panel) // warning still doesn't like this
-    {
-        var _ = new Label
-        {
-            Parent = panel,
-            AutoSizeWidth= true,
-            AutoSizeHeight= true,
-            Text= text,
-            WrapText= false,
-        };
-    }
-    
-    protected void AddVerticalSpacer() => AddVerticalSpacer(rootFlowPanel);
-    
-    protected static void AddVerticalSpacer(FlowPanel panel)
-    {
-        var _ = new Label
-        {
-            Parent = panel,
-        };
-    }
-
-    protected void ShowSettingWithViewContainer(SettingEntry settingEntry) => ShowSettingWithViewContainer(settingEntry, rootFlowPanel, rootFlowPanel.Width);
-    protected static void ShowSettingWithViewContainer(SettingEntry settingEntry, Container parent) => ShowSettingWithViewContainer(settingEntry, parent, parent.Width);
-    private static void ShowSettingWithViewContainer(SettingEntry settingEntry, Container parent, int width)
-    {
-        var viewContainer = new ViewContainer { Parent = parent };
-        viewContainer.Show(SettingView.FromType(settingEntry, width));
-    }
-
-    protected ViewContainer ShowColorSettingWithViewContainer(SettingEntry<string> settingEntry)
-    {
-        return ShowColorSettingWithViewContainer(settingEntry, rootFlowPanel, rootFlowPanel.Width);
-    }
-    
-    protected ViewContainer ShowColorSettingWithViewContainer(SettingEntry<string> settingEntry, Container parent)
-    {
-        return ShowColorSettingWithViewContainer(settingEntry, parent, parent.Width);
-    }
-    
-    protected ViewContainer ShowColorSettingWithViewContainer(SettingEntry<string> settingEntry, Container parent, int width)
-    {
-        var viewContainer = new ViewContainer { Parent = parent };
-        viewContainer.Show(new ColorSettingView(settingEntry, width));
-        return viewContainer;
-    }
-
-    protected ViewContainer ShowEnumSettingWithViewContainer(SettingEntry settingEntry)
-    {
-        return ShowEnumSettingWithViewContainer(settingEntry, rootFlowPanel, rootFlowPanel.Width);
-    }
-    protected ViewContainer ShowEnumSettingWithViewContainer(SettingEntry settingEntry, Container parent)
-    {
-        return ShowEnumSettingWithViewContainer(settingEntry, parent, parent.Width);
-    }
-    protected ViewContainer ShowEnumSettingWithViewContainer(SettingEntry settingEntry, Container parent, int width)
-    {
-        var viewContainer = new ViewContainer { Parent = parent };
-        viewContainer.Show(EnumSettingView.FromEnum(settingEntry, width));
-        return viewContainer;
-    }
+    // protected void ShowText(string text)
+    // {
+    //     ShowText(text, rootFlowPanel);
+    // }
+    //
+    // protected static void ShowText(string text, FlowPanel panel) // warning still doesn't like this
+    // {
+    //     var _ = new Label
+    //     {
+    //         Parent = panel,
+    //         AutoSizeWidth= true,
+    //         AutoSizeHeight= true,
+    //         Text= text,
+    //         WrapText= false,
+    //     };
+    // }
+    //
+    // protected void AddVerticalSpacer() => AddVerticalSpacer(rootFlowPanel);
+    //
+    // protected static void AddVerticalSpacer(FlowPanel panel)
+    // {
+    //     var _ = new Label
+    //     {
+    //         Parent = panel,
+    //     };
+    // }
+    //
+    // protected void ShowSettingWithViewContainer(SettingEntry settingEntry) => ShowSettingWithViewContainer(settingEntry, rootFlowPanel, rootFlowPanel.Width);
+    // protected static void ShowSettingWithViewContainer(SettingEntry settingEntry, Container parent) => ShowSettingWithViewContainer(settingEntry, parent, parent.Width);
+    // private static void ShowSettingWithViewContainer(SettingEntry settingEntry, Container parent, int width)
+    // {
+    //     var viewContainer = new ViewContainer { Parent = parent };
+    //     viewContainer.Show(SettingView.FromType(settingEntry, width));
+    // }
+    //
+    // protected ViewContainer ShowColorSettingWithViewContainer(SettingEntry<string> settingEntry)
+    // {
+    //     return ShowColorSettingWithViewContainer(settingEntry, rootFlowPanel, rootFlowPanel.Width);
+    // }
+    //
+    // protected ViewContainer ShowColorSettingWithViewContainer(SettingEntry<string> settingEntry, Container parent)
+    // {
+    //     return ShowColorSettingWithViewContainer(settingEntry, parent, parent.Width);
+    // }
+    //
+    // protected ViewContainer ShowColorSettingWithViewContainer(SettingEntry<string> settingEntry, Container parent, int width)
+    // {
+    //     var viewContainer = new ViewContainer { Parent = parent };
+    //     viewContainer.Show(new ColorSettingView(settingEntry, width));
+    //     return viewContainer;
+    // }
+    //
+    // protected ViewContainer ShowEnumSettingWithViewContainer(SettingEntry settingEntry)
+    // {
+    //     return ShowEnumSettingWithViewContainer(settingEntry, rootFlowPanel, rootFlowPanel.Width);
+    // }
+    // protected ViewContainer ShowEnumSettingWithViewContainer(SettingEntry settingEntry, Container parent)
+    // {
+    //     return ShowEnumSettingWithViewContainer(settingEntry, parent, parent.Width);
+    // }
+    // protected ViewContainer ShowEnumSettingWithViewContainer(SettingEntry settingEntry, Container parent, int width)
+    // {
+    //     var viewContainer = new ViewContainer { Parent = parent };
+    //     viewContainer.Show(EnumSettingView.FromEnum(settingEntry, width));
+    //     return viewContainer;
+    // }
 }

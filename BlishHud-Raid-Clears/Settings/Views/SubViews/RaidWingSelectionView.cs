@@ -1,9 +1,11 @@
 ﻿using Blish_HUD.Controls;
+using Blish_HUD.Graphics.UI;
 using RaidClears.Settings.Models;
+using RaidClears.Utils;
 
-namespace RaidClears.Settings.Views.Tabs;
+namespace RaidClears.Settings.Views.SubViews;
 
-public class RaidWingSelectionView : MenuedSettingsView
+public class RaidWingSelectionView : View
 {
     private readonly RaidSettings _settings;
     
@@ -16,9 +18,8 @@ public class RaidWingSelectionView : MenuedSettingsView
     {
         base.Build(buildPanel);
 
-        foreach (var setting in _settings.RaidWings)
-        {
-            ShowSettingWithViewContainer(setting);
-        }
+        new FlowPanel()
+            .BeginFlow(buildPanel)
+            .AddSetting(_settings.RaidWings);
     }
 }

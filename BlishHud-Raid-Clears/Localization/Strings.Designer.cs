@@ -1824,7 +1824,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Path Selection.
+        ///   Looks up a localized string similar to Dungeon Selection.
         /// </summary>
         internal static string SettingsPanel_Dun_Heading_PathSelection {
             get {

@@ -1,12 +1,14 @@
 ﻿using Blish_HUD.Controls;
+using Blish_HUD.Graphics.UI;
+using Blish_HUD.Settings.UI.Views;
 using Microsoft.Xna.Framework;
 using RaidClears.Localization;
 using RaidClears.Settings.Models;
 using RaidClears.Utils;
 
-namespace RaidClears.Settings.Views.Tabs;
+namespace RaidClears.Settings.Views.SubViews.Generics;
 
-public class GenericGeneralView : MenuedSettingsView
+public class GenericGeneralView : View
 {
     private readonly GenericSettings _settings;
     

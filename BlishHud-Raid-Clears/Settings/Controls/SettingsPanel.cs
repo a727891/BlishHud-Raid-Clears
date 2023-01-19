@@ -5,6 +5,7 @@ using Blish_HUD.Settings.UI.Views;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using RaidClears.Localization;
+using RaidClears.Settings.Views.SubViews;
 using RaidClears.Settings.Views.Tabs;
 
 namespace RaidClears.Settings.Controls;
@@ -39,7 +40,9 @@ public class SettingsPanel : TabbedWindow2
 
         BuildTabs();
         
+#if DEBUG
         Task.Delay(500).ContinueWith(_ => Show());
+#endif
     }
     
     private void BuildTabs()
@@ -58,8 +61,14 @@ public class SettingsPanel : TabbedWindow2
             ));
         
         Tabs.Add(new Tab(
+            Service.TexturesService?.SettingTabStrikes,
+            () => new SettingsMenuView(new StrikesSettingTab()),
+            Strings.SettingsPanel_Tab_Dunegons
+        ));
+        
+        Tabs.Add(new Tab(
             Service.TexturesService?.SettingTabGeneral,
-            () => new ModuleGeneralSettingView(),
+            () => new MainSettingsView(),
             Strings.SettingsPanel_Tab_General
         ));
     }

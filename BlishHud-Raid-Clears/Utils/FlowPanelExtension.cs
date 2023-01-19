@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Blish_HUD.Controls;
 using Blish_HUD.Settings;
 using Blish_HUD.Settings.UI.Views;
@@ -70,6 +71,20 @@ public static class FlowPanelExtensions
         };
     }
 
+    public static FlowPanel BeginFlow(this FlowPanel panel, Container parent, Point sizeOffset, Point locationOffset, out FlowPanel FlowPanel)
+    {
+        panel.FlowDirection = ControlFlowDirection.SingleTopToBottom;
+        panel.OuterControlPadding = new Vector2(50, 25);
+        panel.Parent = parent;
+        panel.Size = parent.Size + sizeOffset;
+        panel.ShowBorder = true;
+        panel.Location += locationOffset;
+
+        FlowPanel = panel;
+        
+        return panel;
+    }
+    
     public static FlowPanel BeginFlow(this FlowPanel panel, Container parent, Point sizeOffset, Point locationOffset)
     {
         panel.FlowDirection = ControlFlowDirection.SingleTopToBottom;
@@ -96,6 +111,15 @@ public static class FlowPanelExtensions
         
         viewContainer.Show(SettingView.FromType(setting, panel.Width));
 
+        return panel;
+    }
+    
+    public static FlowPanel AddSetting(this FlowPanel panel, IEnumerable<SettingEntry> settings)
+    {
+        foreach (var setting in settings)
+        {
+            panel.AddSetting(setting);
+        }
         return panel;
     }
 

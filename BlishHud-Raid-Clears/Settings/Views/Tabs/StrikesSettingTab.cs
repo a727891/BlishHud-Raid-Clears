@@ -11,32 +11,32 @@ using RaidClears.Utils;
 
 namespace RaidClears.Settings.Views.Tabs;
 
-public class RaidsSettingTab : ISettingsMenuRegistrar
+public class StrikesSettingTab : ISettingsMenuRegistrar
 {
     public event EventHandler<EventArgs>? RegistrarListChanged;
     private readonly List<MenuViewItem> _registeredMenuItems = new();
-    
-    public RaidsSettingTab()
+
+    public StrikesSettingTab()
     {
         _registeredMenuItems.Add(new MenuViewItem(
-            new MenuItem(Strings.SettingsPanel_Raids_Heading_General),
-            (m) => new GenericGeneralView(Service.Settings.RaidSettings.Generic)
-            ));
-        
-        _registeredMenuItems.Add(new MenuViewItem(
-            new MenuItem(Strings.SettingsPanel_Raids_Heading_Layout),
-            (m) => new GenericStyleView(Service.Settings.RaidSettings.Style)
+            new MenuItem(Strings.SettingsPanel_Strikes_Heading_Selection),
+            (m) => new GenericGeneralView(Service.Settings.StrikeSettings.Generic)
         ));
         
         _registeredMenuItems.Add(new MenuViewItem(
-            new MenuItem(Strings.SettingsPanel_Raids_Heading_WingSelection),
-            (m) => new RaidWingSelectionView(Service.Settings.RaidSettings)
+            new MenuItem(Strings.SettingsPanel_Strikes_Heading_Selection),
+            (m) => new GenericStyleView(Service.Settings.StrikeSettings.Style)
+        ));
+        
+        _registeredMenuItems.Add(new MenuViewItem(
+            new MenuItem(Strings.SettingsPanel_Strikes_Heading_Selection),
+            (m) => new StrikeSelectionView(Service.Settings.StrikeSettings)
         ));
     }
     
     public IEnumerable<MenuItem> GetSettingMenus() => 
         _registeredMenuItems
-        .Select(mi => mi.MenuItem);
+            .Select(mi => mi.MenuItem);
 
     public IView? GetMenuItemView(MenuItem selectedMenuItem)
     {

@@ -1,11 +1,12 @@
 ﻿using Blish_HUD.Controls;
+using Blish_HUD.Graphics.UI;
 using Microsoft.Xna.Framework;
 using RaidClears.Localization;
 using RaidClears.Utils;
 
-namespace RaidClears.Settings.Views.Tabs;
+namespace RaidClears.Settings.Views.SubViews;
 
-public class ModuleGeneralSettingView : MenuedSettingsView
+public class MainSettingsView : View
 {
     protected override void Build(Container buildPanel)
     {
@@ -16,9 +17,9 @@ public class ModuleGeneralSettingView : MenuedSettingsView
             .AddSetting(Service.Settings.SettingsPanelKeyBind)
             .AddSpace()
             .AddSetting(Service.Settings.ApiPollingPeriod)
+            .AddSpace()
             .AddControl( new StandardButton
             {
-                Parent = buildPanel,
                 Text = Strings.Settings_RefreshNow,
             }, out var refreshButton);
         

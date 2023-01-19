@@ -5,6 +5,8 @@ using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using Blish_HUD.Settings;
 using RaidClears.Localization;
+using RaidClears.Settings.Views.SubViews;
+using RaidClears.Settings.Views.SubViews.Generics;
 using RaidClears.Utils;
 
 namespace RaidClears.Settings.Views.Tabs;
