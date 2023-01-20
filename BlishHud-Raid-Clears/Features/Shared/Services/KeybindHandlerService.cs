@@ -5,31 +5,30 @@ using Blish_HUD.Settings;
 
 namespace RaidClears.Features.Shared.Services;
 
-public class KeybindHandlerService : IDisposable
+public class KeyBindHandlerService : IDisposable
 {
-    public KeybindHandlerService(
-        SettingEntry<KeyBinding> keybindSetting,
+    public KeyBindHandlerService(
+        SettingEntry<KeyBinding> keyBindSetting,
         SettingEntry<bool> toggleControlSetting
     )
     {
-
-        _keybindSetting          = keybindSetting;
+        _keyBindSetting          = keyBindSetting;
         _toggleControlSetting    = toggleControlSetting;
        
-        _keybindSetting.Value.Activated += OnKeybindActivated;
+        _keyBindSetting.Value.Activated += OnKeyBindActivated;
 
     }
 
     public void Dispose()
     {
-        _keybindSetting.Value.Activated -= OnKeybindActivated;
+        _keyBindSetting.Value.Activated -= OnKeyBindActivated;
     }
 
-    protected void OnKeybindActivated(object sender, EventArgs e)
+    private void OnKeyBindActivated(object sender, EventArgs e)
     {
         _toggleControlSetting.Value = !_toggleControlSetting.Value;
     }
 
-    private readonly SettingEntry<KeyBinding> _keybindSetting;
+    private readonly SettingEntry<KeyBinding> _keyBindSetting;
     private readonly SettingEntry<bool> _toggleControlSetting;
 }

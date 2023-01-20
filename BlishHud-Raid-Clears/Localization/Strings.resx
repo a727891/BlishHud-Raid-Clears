@@ -342,7 +342,7 @@
     <value>Layout / Colors</value>
   </data>
   <data name="SettingsPanel_Dun_Heading_PathSelection" xml:space="preserve">
-    <value>Path Selection</value>
+    <value>Dungeon Selection</value>
   </data>
   <data name="SettingsPanel_Raids_Heading_General" xml:space="preserve">
     <value>Options / Keybind</value>

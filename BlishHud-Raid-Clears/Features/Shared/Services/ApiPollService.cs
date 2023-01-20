@@ -8,44 +8,37 @@ namespace RaidClears.Features.Shared.Services;
 
 public class ApiPollService : IDisposable
 {
-    protected static int BUFFER_MS = 50;
-    protected static int MINUTE_MS = 60000;
+    private const int BUFFER_MS = 50;
+    private const int MINUTE_MS = 60000;
 
-    protected bool _running = true;
-    protected double _runningTimer = -20000;
-    protected double _timeoutValue = 0;
+    private double _runningTimer = -20000;
+    private double _timeoutValue;
+    
+    private readonly SettingEntry<ApiPollPeriod> _apiPollSetting;
 
-    public event EventHandler<bool> ApiPollingTrigger;
+    public event EventHandler<bool>? ApiPollingTrigger;
 
     public ApiPollService(SettingEntry<ApiPollPeriod> apiPollSetting)
     {
-
         _apiPollSetting = apiPollSetting;
-
-        _apiPollSetting.SettingChanged += OnSettingUpdate;
         SetTimeoutValueInMinutes((int)_apiPollSetting.Value);
 
+        _apiPollSetting.SettingChanged += OnSettingUpdate;
     }
 
     public void Dispose()
     {
         _apiPollSetting.SettingChanged -= OnSettingUpdate;
-
-
     }
 
     public void Update(GameTime gameTime)
     {
-        if (_running)
+        _runningTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
+
+        if (_runningTimer >= _timeoutValue)
         {
-            _runningTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
-
-            if (_runningTimer >= _timeoutValue)
-            {
-                ApiPollingTrigger?.Invoke(this, true);
-                _runningTimer = 0;
-            }
-
+            ApiPollingTrigger?.Invoke(this, true);
+            _runningTimer = 0;
         }
     }
 
@@ -57,11 +50,5 @@ public class ApiPollService : IDisposable
 
     private void OnSettingUpdate(object sender, ValueChangedEventArgs<ApiPollPeriod> e) => SetTimeoutValueInMinutes((int)e.NewValue);
 
-    private void SetTimeoutValueInMinutes(int minutes)
-    {
-        _timeoutValue = minutes * MINUTE_MS + BUFFER_MS;
-    }
-
-
-    private readonly SettingEntry<ApiPollPeriod> _apiPollSetting;
+    private void SetTimeoutValueInMinutes(int minutes) => _timeoutValue = minutes * MINUTE_MS + BUFFER_MS;
 }

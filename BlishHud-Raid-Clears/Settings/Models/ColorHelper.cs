@@ -10,38 +10,27 @@ public class ColorHelper : Gw2Sharp.WebApi.V2.Models.Color
 {
     public ColorHelper()
     {
-        this.BaseRgb = new List<int>(3);
+        BaseRgb = new List<int>(3);
    
-        this.SetRGB(255,255,255);
+        SetRGB(255,255,255);
     }
+    
     public ColorHelper(string colorCode)
     {
-        this.BaseRgb = new List<int>(3);
+        BaseRgb = new List<int>(3);
 
-        this.SetRGB(colorCode);
+        SetRGB(colorCode);
     }
 
-    public List<int> GetRGB()
-    {
-        return this.Cloth.Rgb.ToList<int>();
-    }
     public XnaColor XnaColor { 
         get 
         {
-            var color = this.Cloth.Rgb.ToList();
+            var color = Cloth.Rgb.ToList();
             return new XnaColor(color[0], color[1], color[2]);
         } 
     }
-    public XnaColor GetXnaColor()
-    {
-        var color = this.Cloth.Rgb.ToList();
-        return new XnaColor(color[0], color[1], color[2]);
-    }
 
-    public void SetName(string name)
-    {
-        this.Name = name;
-    }
+    public void SetName(string name) => Name = name;
 
     public void SetRGB(string colorCode)
     {
@@ -52,24 +41,17 @@ public class ColorHelper : Gw2Sharp.WebApi.V2.Models.Color
             var r = System.Convert.ToByte(colorCode.Substring(0, 2), 16);
             var g = System.Convert.ToByte(colorCode.Substring(2, 2), 16);
             var b = System.Convert.ToByte(colorCode.Substring(4, 2), 16);
-            this.SetRGB(r, g, b);
+            SetRGB(r, g, b);
         }
         else
         {
-            this.SetRGB(255, 255, 255);
+            SetRGB(255, 255, 255);
         }
-
     }
 
-    public void SetRGB()
+    public void SetRGB(int r = 0, int g = 0, int b = 0)
     {
-        this.SetRGB(0, 0, 0);
-    }
-
-    public void SetRGB(int r, int g, int b)
-    {
-        this.Cloth.Rgb = new List<int> { r, g, b };
-        this.Name = $"RGB: {r} {g} {b}";
-
+        Cloth.Rgb = new List<int> { r, g, b };
+        Name = $"RGB: {r} {g} {b}";
     }
 }

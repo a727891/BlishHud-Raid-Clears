@@ -1,8 +1,6 @@
 ﻿using Blish_HUD;
 using Blish_HUD.Controls;
 using Blish_HUD.Settings;
-using Microsoft.Xna.Framework;
-using RaidClears.Features.Shared.Models;
 using RaidClears.Settings.Enums;
 
 
@@ -10,7 +8,6 @@ namespace RaidClears.Features.Shared.Controls;
 
 public class GridBox : Label
 {
-    protected BoxModel Model;
     public GridBox(
         Container parent,
         string title,
@@ -19,7 +16,6 @@ public class GridBox : Label
         SettingEntry<ContentService.FontSize> fontSize
     )
     {
-
         Parent = parent;
 
         Text = title;
@@ -29,36 +25,27 @@ public class GridBox : Label
 
         OpacityChange(opacity);
         FontSizeChange(fontSize);
-
-
     }
 
-    public void SetFontColor(Color color)
+    private void OpacityChange(SettingEntry<float> opacity )
     {
-        TextColor=color;
-    }
-    public void SetBackgroundColor(Color color) { 
-        BackgroundColor=color;
-    }
-
-    protected void OpacityChange(SettingEntry<float> opacity )
-    {
-        opacity.SettingChanged += (s, e) =>
+        opacity.SettingChanged += (_, e) =>
         {
-            this.Opacity = e.NewValue;
+            Opacity = e.NewValue;
         };
-        this.Opacity = opacity.Value;
+        Opacity = opacity.Value;
     }
+    
     public void LayoutChange(SettingEntry<Layout> layout)
     {
-        layout.SettingChanged += (s, e) =>
+        layout.SettingChanged += (_, e) =>
         {
             HorizontalAlignment = LabelAlignment(e.NewValue);
         };
         HorizontalAlignment = LabelAlignment(layout.Value);
     }
 
-    protected HorizontalAlignment LabelAlignment(Layout layout)
+    private static HorizontalAlignment LabelAlignment(Layout layout)
     {
         return layout switch
         {
@@ -68,17 +55,16 @@ public class GridBox : Label
         };
     }
 
-
-    protected void FontSizeChange(SettingEntry<ContentService.FontSize> fontSize)
+    private void FontSizeChange(SettingEntry<ContentService.FontSize> fontSize)
     {
-        fontSize.SettingChanged += (s, e) =>
+        fontSize.SettingChanged += (_, e) =>
         {
             SetFontSize(e.NewValue, this);
         };
         SetFontSize(fontSize.Value, this);
 
     }
-    public void SetFontSize(ContentService.FontSize fontSize, Label label)
+    private void SetFontSize(ContentService.FontSize fontSize, Label label)
     {
         var font = GameService
             .Content
@@ -92,7 +78,8 @@ public class GridBox : Label
         label.Font = font;
         label.Width = width;
     }
-    public static int GetLabelWidthForFontSize(ContentService.FontSize size)
+    
+    private static int GetLabelWidthForFontSize(ContentService.FontSize size)
     {
         switch (size)
         {
@@ -119,5 +106,4 @@ public class GridBox : Label
             default: return 40;
         }
     }
-
 }

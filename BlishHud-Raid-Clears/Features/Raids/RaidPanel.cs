@@ -6,52 +6,49 @@ using RaidClears.Features.Shared.Controls;
 using RaidClears.Features.Shared.Services;
 using RaidClears.Features.Raids.Models;
 using System.Threading.Tasks;
-using RaidClears.Settings.Services;
 using RaidClears.Features.Raids.Services;
+using RaidClears.Settings.Models;
 
 namespace RaidClears.Features.Raids;
 
-
 public static class RaidPanelFactory
 {
+    private static RaidSettings Settings => Service.Settings.RaidSettings;
+    
     public static RaidPanel Create()
     {
-        SettingService _settings = Module.ModuleInstance.SettingsService;
-        RaidPanel panel = new RaidPanel(
-            _settings.RaidPanelLocationPoint,
-            _settings.RaidPanelIsVisible,
-            _settings.RaidPanelDragWithMouseIsEnabled,
-            _settings.RaidPanelAllowTooltips
+        var panel = new RaidPanel(
+            Settings.Generic.Location,
+            Settings.Generic.Visible,
+            Settings.Generic.PositionLock,
+            Settings.Generic.Tooltips
         );
 
-        panel.LayoutChange(_settings.RaidPanelLayout);
-        panel.BackgroundColorChange(_settings.RaidPanelBgOpacity, _settings.RaidPanelColorBG);
+        panel.LayoutChange(Settings.Style.Layout);
+        panel.BackgroundColorChange(Settings.Style.BgOpacity, Settings.Style.Color.Background);
 
         panel.RegisterCornerIconService(
             new CornerIconService(
-                _settings.RaidCornerIconEnabled,
-                _settings.RaidPanelIsVisible, 
+                Settings.Generic.ToolbarIcon,
+                Settings.Generic.Visible, 
                 Strings.CornerIcon_Raid, 
-                Module.ModuleInstance.TexturesService.CornerIconTexture,
-                Module.ModuleInstance.TexturesService.CornerIconHoverTexture
+                Service.TexturesService.CornerIconTexture,
+                Service.TexturesService.CornerIconHoverTexture
             )
         );
-        panel.RegisterKeybindService(
-            new KeybindHandlerService(
-                _settings.RaidPanelIsVisibleKeyBind,
-                _settings.RaidPanelIsVisible
+        panel.RegisterKeyBindService(
+            new KeyBindHandlerService(
+                Settings.Generic.ShowHideKeyBind,
+                Settings.Generic.Visible
             )
         );
 
         return panel;
     }
-    
 }
 
 public class RaidPanel : GridPanel
 {
-    private readonly Wing[] Wings;
-    
     public RaidPanel(
         SettingEntry<Point> locationSetting, 
         SettingEntry<bool> visibleSetting,
@@ -60,17 +57,17 @@ public class RaidPanel : GridPanel
     ) : base(locationSetting, visibleSetting, allowMouseDragSetting, allowTooltipSetting)
     {
         //BackgroundColor = Color.Orange;
-        WeeklyWings weeklyWings = WingRotationService.GetWeeklyWings();
+        var weeklyWings = WingRotationService.GetWeeklyWings();
        
-        Wings =  WingFactory.Create(this, weeklyWings);
+        var wings = WingFactory.Create(this, weeklyWings);
 
-        Module.ModuleInstance.ApiPollingService.ApiPollingTrigger += (s, e) =>
+        Service.ApiPollingService.ApiPollingTrigger += (_, _) =>
         {
             Task.Run(async () =>
             {
                 var weeklyClears = await GetCurrentClearsService.GetClearsFromApi();
 
-                foreach (var wing in Wings)
+                foreach (var wing in wings)
                 {
                     foreach (var encounter in wing.boxes)
                     {

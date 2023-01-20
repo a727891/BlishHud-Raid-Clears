@@ -1,177 +1,125 @@
-﻿using Blish_HUD.Settings;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Blish_HUD.Settings;
 using RaidClears.Features.Raids.Services;
 using RaidClears.Features.Shared.Controls;
 using RaidClears.Features.Shared.Enums;
 using RaidClears.Features.Shared.Models;
 using RaidClears.Localization;
-using RaidClears.Settings.Services;
+using RaidClears.Settings.Models;
 using RaidClears.Utils;
-
 
 namespace RaidClears.Features.Raids.Models;
 
-
 public static class WingFactory
 {
-    public static Wing[] Create(RaidPanel panel, WeeklyWings weekly)
+    public static IEnumerable<Wing> Create(RaidPanel panel, WeeklyWings weekly)
     {
-        SettingService settings = Module.ModuleInstance.SettingsService;
-        Wing[] wings = GetWingMetaData();
+        var settings = Service.Settings.RaidSettings;
+        var wings = GetWingMetaData();
         foreach(var wing in wings)
         {
-            GridGroup group = new GridGroup(
+            var group = new GridGroup(
                 panel,
-                settings.RaidPanelLayout
+                settings.Style.Layout
             );
             group.VisiblityChanged(GetWingSelectionByIndex(wing.index, settings));
             wing.SetGridGroupReference(group);
 
-
-            GridBox labelBox = new GridBox(
+            var labelBox = new GridBox(
                 group,
                 wing.shortName, wing.name,
-                settings.RaidPanelLabelOpacity, settings.RaidPanelFontSize
+                settings.Style.LabelOpacity, 
+                settings.Style.FontSize
             );
+            
             wing.SetGroupLabelReference(labelBox);
-            labelBox.LayoutChange(settings.RaidPanelLayout);
+            labelBox.LayoutChange(settings.Style.Layout);
             ApplyConditionalTextColoring(labelBox, wing.index, weekly, settings);
-            labelBox.LabelDisplayChange(settings.RaidPanelLabelDisplay, (wing.index + 1).ToString(), wing.shortName);
+            labelBox.LabelDisplayChange(settings.Style.LabelDisplay, (wing.index + 1).ToString(), wing.shortName);
             
             foreach (var encounter in wing.boxes)
             {
-                GridBox encounterBox = new GridBox(
+                var encounterBox = new GridBox(
                     group,
-                    encounter.short_name, encounter.name,
-                    settings.RaidPanelGridOpacity, settings.RaidPanelFontSize
+                    encounter.shortName, encounter.name,
+                    settings.Style.GridOpacity, settings.Style.FontSize
                 );
                 encounter.SetGridBoxReference(encounterBox);
-                encounter.WatchColorSettings(settings.RaidPanelColorCleared, settings.RaidPanelColorNotCleared);
+                encounter.WatchColorSettings(settings.Style.Color.Cleared, settings.Style.Color.NotCleared);
                 ApplyConditionalTextColoring(encounterBox, wing.index, weekly, settings);
-                
             }
-                            
-        }
-
-        return wings;
-    }
-    public static Wing[] CreateStrikes(RaidPanel panel)
-    {
-        SettingService settings = Module.ModuleInstance.SettingsService;
-        Wing[] wings = GetWingMetaData();
-        foreach (var wing in wings)
-        {
-            GridGroup group = new GridGroup(
-                panel,
-                settings.RaidPanelLayout
-            );
-            group.VisiblityChanged(GetWingSelectionByIndex(wing.index, settings));
-            wing.SetGridGroupReference(group);
-
-
-            GridBox labelBox = new GridBox(
-                group,
-                wing.shortName, wing.name,
-                settings.RaidPanelLabelOpacity, settings.RaidPanelFontSize
-            );
-            wing.SetGroupLabelReference(labelBox);
-            labelBox.LayoutChange(settings.RaidPanelLayout);
-            labelBox.LabelDisplayChange(settings.RaidPanelLabelDisplay, (wing.index + 1).ToString(), wing.shortName);
-
-            foreach (var encounter in wing.boxes)
-            {
-                GridBox encounterBox = new GridBox(
-                    group,
-                    encounter.short_name, encounter.name,
-                    settings.RaidPanelGridOpacity, settings.RaidPanelFontSize
-                );
-                encounter.SetGridBoxReference(encounterBox);
-                encounter.WatchColorSettings(settings.RaidPanelColorCleared, settings.RaidPanelColorNotCleared);
-
-            }
-
         }
 
         return wings;
     }
 
-    public static void ApplyConditionalTextColoring(GridBox box,int index, WeeklyWings weekly, SettingService settings)
+    private static void ApplyConditionalTextColoring(GridBox box,int index, WeeklyWings weekly, RaidSettings settings)
     {
         if (index == weekly.Emboldened)
         {
-            box.ConditionalTextColorSetting(settings.RaidPanelHighlightEmbolden, settings.RaidPanelColorEmbolden, settings.RaidPanelColorText);
+            box.ConditionalTextColorSetting(settings.RaidPanelHighlightEmbolden, settings.RaidPanelColorEmbolden, settings.Style.Color.Text);
         }else if(index == weekly.CallOfTheMist)
         {
-            box.ConditionalTextColorSetting(settings.RaidPanelHighlightCotM, settings.RaidPanelColorCotm, settings.RaidPanelColorText);
+            box.ConditionalTextColorSetting(settings.RaidPanelHighlightCotM, settings.RaidPanelColorCotm, settings.Style.Color.Text);
         }
         else
         {
-            box.TextColorSetting(settings.RaidPanelColorText);
+            box.TextColorSetting(settings.Style.Color.Text);
         }
     }
-    public static SettingEntry<bool> GetWingSelectionByIndex(int index, SettingService settings)
-    {
-        switch (index)
-        {
-            case 0: return settings.W1IsVisible;
-            case 1: return settings.W2IsVisible;
-            case 2: return settings.W3IsVisible;
-            case 3: return settings.W4IsVisible;
-            case 4: return settings.W5IsVisible;
-            case 5: return settings.W6IsVisible;
-            case 6: return settings.W7IsVisible;
-            default : return settings.W1IsVisible;
-        }
-    }
+    
+    private static SettingEntry<bool> GetWingSelectionByIndex(int index, RaidSettings settings) => settings.RaidWings.ElementAt(index);
 
-    public static Wing[] GetWingMetaData()
+    private static Wing[] GetWingMetaData()
     {
-        return new Wing[] {
+        return new[] {
             new Wing(Strings.Raid_Wing_1, 0, Strings.Raid_Wing_1_Short,
-                new Encounter[] {
+                new BoxModel[] {
                     new Encounter(Encounters.RaidBosses.ValeGuardian),
-                    new Encounter("spirit_woods", Strings.Raid_Wing_1_2_Name, Strings.Raid_Wing_1_2_Short),
-                    new Encounter("gorseval", Strings.Raid_Wing_1_3_Name, Strings.Raid_Wing_1_3_Short),
-                    new Encounter("sabetha", Strings.Raid_Wing_1_4_Name, Strings.Raid_Wing_1_4_Short),
+                    new Encounter(Encounters.RaidBosses.SpiritWoods),
+                    new Encounter(Encounters.RaidBosses.Gorseval),
+                    new Encounter(Encounters.RaidBosses.Sabetha),
                 }),
             new Wing(Strings.Raid_Wing_2, 1, Strings.Raid_Wing_2_Short,
-                new Encounter[] {
-                    new Encounter("slothasor", Strings.Raid_Wing_2_1_Name, Strings.Raid_Wing_2_1_Short),
-                    new Encounter("bandit_trio", Strings.Raid_Wing_2_2_Name, Strings.Raid_Wing_2_2_Short),
-                    new Encounter("matthias", Strings.Raid_Wing_2_3_Name, Strings.Raid_Wing_2_3_Short),
+                new BoxModel[] {
+                    new Encounter(Encounters.RaidBosses.Slothasor),
+                    new Encounter(Encounters.RaidBosses.BanditTrio),
+                    new Encounter(Encounters.RaidBosses.Matthias),
                 }),
             new Wing(Strings.Raid_Wing_3, 2, Strings.Raid_Wing_3_Short,
-                new Encounter[] {
-                    new Encounter("escort", Strings.Raid_Wing_3_1_Name, Strings.Raid_Wing_3_1_Short),
-                    new Encounter("keep_construct", Strings.Raid_Wing_3_2_Name, Strings.Raid_Wing_3_2_Short),
-                    new Encounter("twisted_castle", Strings.Raid_Wing_3_3_Name, Strings.Raid_Wing_3_3_Short),
-                    new Encounter("xera", Strings.Raid_Wing_3_4_Name, Strings.Raid_Wing_3_4_Short),
+                new BoxModel[] {
+                    new Encounter(Encounters.RaidBosses.Escort),
+                    new Encounter(Encounters.RaidBosses.KeepConstruct),
+                    new Encounter(Encounters.RaidBosses.TwistedCastle),
+                    new Encounter(Encounters.RaidBosses.Xera),
                 }),
             new Wing(Strings.Raid_Wing_4, 3, Strings.Raid_Wing_4_Short,
-                new Encounter[] {
-                    new Encounter("cairn", Strings.Raid_Wing_4_1_Name, Strings.Raid_Wing_4_1_Short),
-                    new Encounter("mursaat_overseer", Strings.Raid_Wing_4_2_Name, Strings.Raid_Wing_4_2_Short),
-                    new Encounter("samarog", Strings.Raid_Wing_4_3_Name, Strings.Raid_Wing_4_3_Short),
-                    new Encounter("deimos", Strings.Raid_Wing_4_4_Name, Strings.Raid_Wing_4_4_Short),
+                new BoxModel[] {
+                    new Encounter(Encounters.RaidBosses.Cairn),
+                    new Encounter(Encounters.RaidBosses.MursaatOverseer),
+                    new Encounter(Encounters.RaidBosses.Samarog),
+                    new Encounter(Encounters.RaidBosses.Deimos),
                 }),
             new Wing(Strings.Raid_Wing_5, 4, Strings.Raid_Wing_5_Short,
-                new Encounter[] {
-                    new Encounter("soulless_horror", Strings.Raid_Wing_5_1_Name, Strings.Raid_Wing_5_1_Short),
-                    new Encounter("river_of_souls", Strings.Raid_Wing_5_2_Name, Strings.Raid_Wing_5_2_Short),
-                    new Encounter("statues_of_grenth", Strings.Raid_Wing_5_3_Name, Strings.Raid_Wing_5_3_Short),
-                    new Encounter("voice_in_the_void", Strings.Raid_Wing_5_4_Name, Strings.Raid_Wing_5_4_Short),
+                new BoxModel[] {
+                    new Encounter(Encounters.RaidBosses.SoulessHorror),
+                    new Encounter(Encounters.RaidBosses.RiverOfSouls),
+                    new Encounter(Encounters.RaidBosses.StatuesOfGrenth),
+                    new Encounter(Encounters.RaidBosses.VoiceInTheVoid),
                 }),
             new Wing(Strings.Raid_Wing_6, 5, Strings.Raid_Wing_6_Short,
-                new Encounter[] {
-                    new Encounter("conjured_amalgamate", Strings.Raid_Wing_6_1_Name, Strings.Raid_Wing_6_1_Short),
-                    new Encounter("twin_largos", Strings.Raid_Wing_6_2_Name, Strings.Raid_Wing_6_2_Short),
-                    new Encounter("qadim", Strings.Raid_Wing_6_3_Name, Strings.Raid_Wing_6_3_Short),
+                new BoxModel[] {
+                    new Encounter(Encounters.RaidBosses.ConjuredAmalgamate),
+                    new Encounter(Encounters.RaidBosses.TwinLargos),
+                    new Encounter(Encounters.RaidBosses.Qadim),
                 }),
             new Wing(Strings.Raid_Wing_7, 6, Strings.Raid_Wing_7_Short,
-                new Encounter[] {
-                    new Encounter("gate", Strings.Raid_Wing_7_1_Name, Strings.Raid_Wing_7_1_Short),
-                    new Encounter("adina", Strings.Raid_Wing_7_2_Name, Strings.Raid_Wing_7_2_Short),
-                    new Encounter("sabir", Strings.Raid_Wing_7_3_Name, Strings.Raid_Wing_7_3_Short),
-                    new Encounter("qadim_the_peerless", Strings.Raid_Wing_7_4_Name, Strings.Raid_Wing_7_4_Short),
+                new BoxModel[] {
+                    new Encounter(Encounters.RaidBosses.Gate),
+                    new Encounter(Encounters.RaidBosses.Adina),
+                    new Encounter(Encounters.RaidBosses.Sabir),
+                    new Encounter(Encounters.RaidBosses.QadimThePeerless),
                 })
         };
     }
@@ -181,6 +129,4 @@ public class Wing : GroupModel
     public Wing(string name, int index, string shortName, BoxModel[] boxes) : base(name, index, shortName, boxes)
     {
     }
-
-    
 }

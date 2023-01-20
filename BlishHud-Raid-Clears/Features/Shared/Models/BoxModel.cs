@@ -7,42 +7,40 @@ public class BoxModel
 {
     public string id;
     public string name;
-    public string short_name;
-    public bool is_cleared = false;
+    public string shortName;
+    private bool _isCleared;
 
     public GridBox Box { get; private set; }
 
-    private Color ColorUnknown = new Color(64, 64, 64);
-    private Color ColorNotCleared = new Color(120, 20, 20);
-    private Color ColorCleared = new Color(20, 120, 20);
+    private readonly Color _colorUnknown = new(64, 64, 64);
+    private Color _colorNotCleared = new(120, 20, 20);
+    private Color _colorCleared = new(20, 120, 20);
 
-    public BoxModel(string id, string name, string short_name)
+    protected BoxModel(string id, string name, string shortName) // warning
     {
         this.id = id;
         this.name = name;
-        this.short_name = short_name;
+        this.shortName = shortName;
     }
 
     public void SetClearColors(Color cleared, Color notCleared)
     {
-        ColorCleared = cleared;
-        ColorNotCleared = notCleared;
+        _colorCleared = cleared;
+        _colorNotCleared = notCleared;
 
-        Box.BackgroundColor = is_cleared ? ColorCleared : ColorNotCleared;
+        Box.BackgroundColor = _isCleared ? _colorCleared : _colorNotCleared;
         Box.Invalidate();
     }
 
     public void SetGridBoxReference(GridBox box)
     {
         Box = box;
-        Box.BackgroundColor = ColorUnknown;
+        Box.BackgroundColor = _colorUnknown;
     }
-
 
     public void SetCleared(bool cleared)
     {
-        Box.BackgroundColor = cleared ? ColorCleared : ColorNotCleared;
-        is_cleared = cleared;
+        Box.BackgroundColor = cleared ? _colorCleared : _colorNotCleared;
+        _isCleared = cleared;
     }
-
 }

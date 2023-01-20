@@ -1,5 +1,4 @@
-﻿
-using Blish_HUD.Settings;
+﻿using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
 using RaidClears.Localization;
 using RaidClears.Utils;
@@ -7,50 +6,47 @@ using RaidClears.Features.Shared.Services;
 using RaidClears.Features.Shared.Controls;
 using System.Threading.Tasks;
 using RaidClears.Features.Strikes.Models;
-using RaidClears.Settings.Services;
 
 namespace RaidClears.Features.Strikes;
-
 
 public static class StrikesPanelFactory
 {
     public static StrikesPanel Create()
     {
-        SettingService _settings = Module.ModuleInstance.SettingsService;
-        StrikesPanel panel = new StrikesPanel(
-            _settings.StrikePanelLocationPoint,
-            _settings.StrikePanelIsVisible,
-            _settings.StrikePanelDragWithMouseIsEnabled,
-            _settings.StrikePanelAllowTooltips
+        var settings = Service.Settings.StrikeSettings;
+        var panel = new StrikesPanel(
+            settings.Generic.Location,
+            settings.Generic.Visible,
+            settings.Generic.PositionLock,
+            settings.Generic.Tooltips
         );
 
-        panel.LayoutChange(_settings.StrikePanelLayout);
-        panel.BackgroundColorChange(_settings.StrikePanelBgOpacity, _settings.StrikePanelColorBG);
+        panel.LayoutChange(settings.Style.Layout);
+        panel.BackgroundColorChange(settings.Style.BgOpacity, settings.Style.Color.Background);
 
         panel.RegisterCornerIconService(
             new CornerIconService(
-                _settings.StrikeCornerIconEnabled,
-                _settings.StrikePanelIsVisible, 
+                settings.Generic.ToolbarIcon,
+                settings.Generic.Visible, 
                 Strings.CornerIcon_Strike, 
-                Module.ModuleInstance.TexturesService.StrikesCornerIconTexture,
-                Module.ModuleInstance.TexturesService.StrikesCornerIconHoverTexture
+                Service.TexturesService.StrikesCornerIconTexture,
+                Service.TexturesService.StrikesCornerIconHoverTexture
             )
         );
-        panel.RegisterKeybindService(
-            new KeybindHandlerService(
-                _settings.StrikePanelIsVisibleKeyBind,
-                _settings.StrikePanelIsVisible
+        panel.RegisterKeyBindService(
+            new KeyBindHandlerService(
+                settings.Generic.ShowHideKeyBind,
+                settings.Generic.Visible
             )
         );
 
         return panel;
     }
-    
 }
 
 public class StrikesPanel : GridPanel
 {
-    private readonly Strike[] Strikes;
+    private readonly Strike[] _strikes;
     //private readonly GetCurrentClearsService CurrentClearsService;
     
     public StrikesPanel(
@@ -66,11 +62,11 @@ public class StrikesPanel : GridPanel
         //WeeklyWings weeklyWings = WingRotationService.GetWeeklyWings();
 
         //Wings =  WingFactory.Create(this, weeklyWings);
-        Strikes = StrikeFactory.Create(this);
+        _strikes = StrikeFactory.Create(this);
 
-        Module.ModuleInstance.ApiPollingService.ApiPollingTrigger += (s, e) =>
+        Service.ApiPollingService.ApiPollingTrigger += (_, _) =>
         {
-            Task.Run(async () =>
+            Task.Run(() =>
             {
                 /*var weeklyClears = await CurrentClearsService.GetClearsFromApi();
 
@@ -82,13 +78,14 @@ public class StrikesPanel : GridPanel
                     }
                 }*/
                 Invalidate();
+                return Task.CompletedTask;
             });
         };
     }
 
     public void ForceInvalidate()
     {
-        foreach(var strike in Strikes)
+        foreach(var strike in _strikes)
         {
             if(strike.boxes.Length> 0)
             {
@@ -96,6 +93,4 @@ public class StrikesPanel : GridPanel
             }
         }
     }
-
-
 }

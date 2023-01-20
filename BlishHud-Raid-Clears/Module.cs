@@ -4,68 +4,43 @@ using System.Threading.Tasks;
 using Blish_HUD;
 using Blish_HUD.Graphics.UI;
 using Blish_HUD.Modules;
-using Blish_HUD.Modules.Managers;
 using Blish_HUD.Settings;
 using Gw2Sharp.WebApi.V2.Models;
 using Microsoft.Xna.Framework;
-using RaidClears.Settings.Controls;
-using RaidClears.Features.Raids;
-using RaidClears.Features.Dungeons;
-using RaidClears.Features.Strikes;
 using RaidClears.Settings.Services;
 using RaidClears.Features.Shared.Services;
+using RaidClears.Settings.Controls;
 
 namespace RaidClears;
 
 [Export(typeof(Blish_HUD.Modules.Module))]
 public class Module : Blish_HUD.Modules.Module
 {
-    internal static readonly Logger Logger = Logger.GetLogger<Module>();
-    internal SettingsManager SettingsManager => ModuleParameters.SettingsManager;
-    internal ContentsManager ContentsManager => ModuleParameters.ContentsManager;
-    internal DirectoriesManager DirectoriesManager => ModuleParameters.DirectoriesManager;
-    internal Gw2ApiManager Gw2ApiManager => ModuleParameters.Gw2ApiManager;
-
-    internal static Module ModuleInstance;
-
-    internal SettingsPanel SettingsWindow { get; private set; }
-
-    public SettingService SettingsService { get; private set; }
-
-    public RaidPanel RaidsPanel { get; private set; }
-    public DungeonPanel DungeonsPanel { get; private set; }
-    public StrikesPanel StrikesPanel { get; private set; }
-
-    public TextureService TexturesService { get; private set; }
-
-    public ApiPollService ApiPollingService { get; private set; }
-
-
     [ImportingConstructor]
     public Module([Import("ModuleParameters")] ModuleParameters moduleParameters) : base(moduleParameters)
     {
-        ModuleInstance = this;
+        Service.ModuleInstance = this;
+        Service.ContentsManager = moduleParameters.ContentsManager;
+        Service.Gw2ApiManager = moduleParameters.Gw2ApiManager;
     }
 
-    protected override void DefineSettings(SettingCollection settings) => SettingsService = new SettingService(settings);
+    protected override void DefineSettings(SettingCollection settings) => Service.Settings = new SettingService(settings);
 
-    public override IView GetSettingsView() => new Settings.Views.ModuleSettingsView();
+    public override IView GetSettingsView() => new Settings.Views.ModuleMainSettingsView();
 
-    #region Setup/Teardown
-#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
-    protected override async Task LoadAsync()
-    #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
+    protected override Task LoadAsync()
     {
-        ApiPollingService = new ApiPollService(SettingsService.ApiPollingPeriod);
-        TexturesService = new TextureService(ContentsManager);
+        Service.ApiPollingService = new ApiPollService(Service.Settings.ApiPollingPeriod);
+        Service.TexturesService = new TextureService(Service.ContentsManager);
 
-        SettingsWindow = SettingPanelFactory.Create();
-        RaidsPanel = RaidPanelFactory.Create();
-        DungeonsPanel = DungeonPanelFactory.Create();
-        StrikesPanel = StrikesPanelFactory.Create();
+        Service.SettingsWindow = new SettingsPanel();
+        // RaidsPanel = RaidPanelFactory.Create();
+        // DungeonsPanel = DungeonPanelFactory.Create();
+        // StrikesPanel = StrikesPanelFactory.Create();
 
-        Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
-       
+        Service.Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
+        return Task.CompletedTask;
+
         /*GameService.Overlay.UserLocaleChanged += (s, e) =>
         {
            //todo: refresh views
@@ -74,28 +49,25 @@ public class Module : Blish_HUD.Modules.Module
 
     protected override void Unload()
     {
-        Gw2ApiManager.SubtokenUpdated -= Gw2ApiManager_SubtokenUpdated;
-        StrikesPanel?.Dispose();
-        DungeonsPanel?.Dispose();
-        RaidsPanel?.Dispose();
-        SettingsWindow?.Dispose();
-        TexturesService?.Dispose();
-        ApiPollingService?.Dispose();
-
+        Service.Gw2ApiManager.SubtokenUpdated -= Gw2ApiManager_SubtokenUpdated;
+        
+        Service.ContentsManager.Dispose();
+        Service.TexturesService?.Dispose();
+        Service.ApiPollingService?.Dispose();
+        
+        // StrikesPanel.Dispose();
+        // DungeonsPanel.Dispose();
+        // RaidsPanel.Dispose();
+        Service.SettingsWindow.Dispose();
     }
-
-    #endregion
 
     protected override void Update(GameTime gameTime)
     {
-        ApiPollingService?.Update(gameTime);
-        RaidsPanel?.Update();
-        DungeonsPanel?.Update();
-        StrikesPanel?.Update();
-
+        Service.ApiPollingService?.Update(gameTime);
+        // RaidsPanel.Update();
+        // DungeonsPanel.Update();
+        // StrikesPanel.Update();
     }
 
-    private void Gw2ApiManager_SubtokenUpdated(object sender, ValueEventArgs<IEnumerable<TokenPermission>> e) => ApiPollingService?.Invoke();
-
-
+    private void Gw2ApiManager_SubtokenUpdated(object sender, ValueEventArgs<IEnumerable<TokenPermission>> e) => Service.ApiPollingService?.Invoke();
 }

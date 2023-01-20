@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Blish_HUD;
-using Blish_HUD.Modules.Managers;
 using Gw2Sharp.WebApi.V2.Models;
 
 
@@ -13,14 +12,14 @@ public static  class GetCurrentClearsService
 {
     public static async Task<List<string>> GetClearsFromApi()
     {
-        Gw2ApiManager gw2ApiManager = Module.ModuleInstance.Gw2ApiManager;
-        Logger logger = Logger.GetLogger<Module>();
+        var gw2ApiManager = Service.Gw2ApiManager;
+        var logger = Logger.GetLogger<Module>();
 
-        if (gw2ApiManager.HasPermissions(NECESSARY_API_TOKEN_PERMISSIONS) == false)
+        if (gw2ApiManager.HasPermissions(NecessaryApiTokenPermissions) == false)
         {
             logger.Warn("HasPermissions() returned false. Possible reasons: " +
                         "API subToken does not have the necessary permissions: " +
-                        $"{string.Join(", ", NECESSARY_API_TOKEN_PERMISSIONS)}. " +
+                        $"{string.Join(", ", NecessaryApiTokenPermissions)}. " +
                         $"Or module did not get API subToken from Blish yet. Or API key is missing.");
 
             return new List<string>();
@@ -39,7 +38,7 @@ public static  class GetCurrentClearsService
         }
     }
 
-    public static readonly List<TokenPermission> NECESSARY_API_TOKEN_PERMISSIONS = new List<TokenPermission>
+    private static readonly List<TokenPermission> NecessaryApiTokenPermissions = new()
     {
         TokenPermission.Account,
         TokenPermission.Progression

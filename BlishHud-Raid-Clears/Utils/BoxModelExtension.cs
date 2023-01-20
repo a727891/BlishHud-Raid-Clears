@@ -1,5 +1,4 @@
-﻿
-using Blish_HUD.Settings;
+﻿using Blish_HUD.Settings;
 using RaidClears.Features.Shared.Models;
 
 namespace RaidClears.Utils;
@@ -12,13 +11,8 @@ internal static class BoxModelExtension
         SettingEntry<string> notClearedColor
     )
     {
-        box.SetClearColors(clearedColor.Value.HexToXNAColor(), notClearedColor.Value.HexToXNAColor());
-        clearedColor.SettingChanged += (s,e)=> box.SetClearColors(e.NewValue.HexToXNAColor(), notClearedColor.Value.HexToXNAColor());
-        notClearedColor.SettingChanged += (s, e) => box.SetClearColors(clearedColor.Value.HexToXNAColor(), e.NewValue.HexToXNAColor());
+        box.SetClearColors(clearedColor.Value.HexToXnaColor(), notClearedColor.Value.HexToXnaColor());
+        clearedColor.SettingChanged += (_,e)=> box.SetClearColors(e.NewValue.HexToXnaColor(), notClearedColor.Value.HexToXnaColor());
+        notClearedColor.SettingChanged += (_, e) => box.SetClearColors(clearedColor.Value.HexToXnaColor(), e.NewValue.HexToXnaColor());
     }
-
-
-
-
-
 }

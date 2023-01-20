@@ -1,14 +1,9 @@
-﻿
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using RaidClears.Settings.Models;
 
 namespace RaidClears.Utils;
 
-internal static class StringExtensions
+public static class StringExtensions
 {
-    public static Color HexToXNAColor(this string s)
-    {
-        ColorHelper cs = new ColorHelper(s);
-        return cs.XnaColor;
-    }
+    public static Color HexToXnaColor(this string s) => new ColorHelper(s).XnaColor;
 }
