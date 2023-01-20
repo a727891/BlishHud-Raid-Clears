@@ -20,17 +20,20 @@ public class StrikesSettingTab : ISettingsMenuRegistrar
     {
         _registeredMenuItems.Add(new MenuViewItem(
             new MenuItem(Strings.SettingsPanel_Strikes_Heading_Selection),
-            (m) => new GenericGeneralView(Service.Settings.StrikeSettings.Generic)
+            _ => new GenericGeneralView(Service.Settings.StrikeSettings.Generic, new List<SettingEntry>
+            {
+                Service.Settings.StrikeSettings.AnchorToRaidPanel
+            })
         ));
         
         _registeredMenuItems.Add(new MenuViewItem(
             new MenuItem(Strings.SettingsPanel_Strikes_Heading_Selection),
-            (m) => new GenericStyleView(Service.Settings.StrikeSettings.Style)
+            _ => new GenericStyleView(Service.Settings.StrikeSettings.Style)
         ));
         
         _registeredMenuItems.Add(new MenuViewItem(
             new MenuItem(Strings.SettingsPanel_Strikes_Heading_Selection),
-            (m) => new StrikeSelectionView(Service.Settings.StrikeSettings)
+            _ => new StrikeSelectionView(Service.Settings.StrikeSettings)
         ));
     }
     

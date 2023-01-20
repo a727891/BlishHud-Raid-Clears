@@ -12,10 +12,10 @@ public class ColorSettingView : SettingView<string>
 {
     private readonly SettingEntry<string> _setting;
 
-    private Label _displayNameLabel;
-    private TextBox _stringTextBox;
-    private ColorHelper _colorHelper;
-    private ColorBox _colorBox;
+    private Label _displayNameLabel = null!;
+    private TextBox _stringTextBox = null!;
+    private ColorHelper _colorHelper = null!;
+    private ColorBox _colorBox = null!;
     
     public ColorSettingView(SettingEntry<string> setting, int definedWidth = -1) : base(setting, definedWidth)
     {
@@ -34,13 +34,11 @@ public class ColorSettingView : SettingView<string>
 
         _colorHelper = new ColorHelper();
         _colorHelper.SetRGB(_setting.Value);
-        _colorBox = new ColorBox
-        {
-            Location = new Point(90, 0),
-            Color = _colorHelper,
-            Parent = buildPanel,
-            Enabled = false
-        };
+        _colorBox = new ColorBox();
+        _colorBox.Location = new Point(90, 0);
+        _colorBox.Color = _colorHelper;
+        _colorBox.Parent = buildPanel;
+        _colorBox.Enabled = false;
 
         _displayNameLabel = new Label
         {

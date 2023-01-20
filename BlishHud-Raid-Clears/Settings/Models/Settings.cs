@@ -184,6 +184,7 @@ public static class Settings
             public static Setting<bool> showIbs = new("StrikeVis_ibs", true, () => Strings.Setting_Strike_IBS);
             public static Setting<bool> showEod = new("StrikeVis_eod", true, () => Strings.Setting_Strike_Eod);
             public static Setting<bool> showPriority = new("StrikeVis_priority", true, () => Strings.Setting_Stike_Priority);
+            public static Setting<bool> anchorToRaids = new("RCAnchorToRaids", false, () => "Anchor to Raid Panel", () => "Attaches Strike Panel to Raid Panel");
         }
     }
 }

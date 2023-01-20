@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Blish_HUD.Controls;
 using Blish_HUD.Settings;
 using Blish_HUD.Settings.UI.Views;
 using Microsoft.Xna.Framework;
 using RaidClears.Settings.Enums;
 using RaidClears.Settings.Views;
+using RaidClears.Settings.Views.Tabs;
 
 namespace RaidClears.Utils;
 
@@ -71,20 +71,6 @@ public static class FlowPanelExtensions
         };
     }
 
-    public static FlowPanel BeginFlow(this FlowPanel panel, Container parent, Point sizeOffset, Point locationOffset, out FlowPanel FlowPanel)
-    {
-        panel.FlowDirection = ControlFlowDirection.SingleTopToBottom;
-        panel.OuterControlPadding = new Vector2(50, 25);
-        panel.Parent = parent;
-        panel.Size = parent.Size + sizeOffset;
-        panel.ShowBorder = true;
-        panel.Location += locationOffset;
-
-        FlowPanel = panel;
-        
-        return panel;
-    }
-    
     public static FlowPanel BeginFlow(this FlowPanel panel, Container parent, Point sizeOffset, Point locationOffset)
     {
         panel.FlowDirection = ControlFlowDirection.SingleTopToBottom;
@@ -108,14 +94,23 @@ public static class FlowPanelExtensions
         {
             Parent = panel,
         };
-        
-        viewContainer.Show(SettingView.FromType(setting, panel.Width));
 
+        if (setting.SettingType == typeof(bool))
+        {
+            viewContainer.Show(FixedWidthBoolSettingView.FromSetting((SettingEntry<bool>)setting, panel.Width));
+        }
+        else
+        {
+            viewContainer.Show(SettingView.FromType(setting, panel.Width));
+        }
+        
         return panel;
     }
     
-    public static FlowPanel AddSetting(this FlowPanel panel, IEnumerable<SettingEntry> settings)
+    public static FlowPanel AddSetting(this FlowPanel panel, IEnumerable<SettingEntry>? settings)
     {
+        if (settings is null) return panel;
+        
         foreach (var setting in settings)
         {
             panel.AddSetting(setting);
@@ -126,11 +121,24 @@ public static class FlowPanelExtensions
     public static FlowPanel AddSettingEnum(this FlowPanel panel, SettingEntry enumSetting)
     {
         var viewContainer = new ViewContainer { Parent = panel };
-        viewContainer.Show(CustomEnumSettingView.FromEnum(enumSetting, panel.Width));
+        viewContainer.Show(AlignedEnumSettingView.FromEnum(enumSetting, panel.Width));
+//        viewContainer.Show(CustomEnumSettingView.FromEnum(enumSetting, panel.Width));
         
         return panel;
     }
 
+    public static FlowPanel AddSettingColor(this FlowPanel panel, IEnumerable<SettingEntry<string>>? colorSetting)
+    {
+        if (colorSetting is null) return panel;
+        
+        foreach (var color in colorSetting)
+        {
+            panel.AddSettingColor(color);
+        }
+        
+        return panel;
+    }
+    
     public static FlowPanel AddSettingColor(this FlowPanel panel, SettingEntry<string> colorSetting)
     {
         var viewContainer = new ViewContainer { Parent = panel };

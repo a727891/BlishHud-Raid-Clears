@@ -20,17 +20,23 @@ public class RaidsSettingTab : ISettingsMenuRegistrar
     {
         _registeredMenuItems.Add(new MenuViewItem(
             new MenuItem(Strings.SettingsPanel_Raids_Heading_General),
-            (m) => new GenericGeneralView(Service.Settings.RaidSettings.Generic)
-            ));
+            _ => new GenericGeneralView(Service.Settings.RaidSettings.Generic, new List<SettingEntry>
+            {
+                Service.Settings.RaidSettings.RaidPanelHighlightEmbolden,
+                Service.Settings.RaidSettings.RaidPanelHighlightCotM,
+            })));
         
         _registeredMenuItems.Add(new MenuViewItem(
             new MenuItem(Strings.SettingsPanel_Raids_Heading_Layout),
-            (m) => new GenericStyleView(Service.Settings.RaidSettings.Style)
-        ));
+            _ => new GenericStyleView(Service.Settings.RaidSettings.Style, new List<SettingEntry<string>>
+            {
+                Service.Settings.RaidSettings.RaidPanelColorEmbolden,
+                Service.Settings.RaidSettings.RaidPanelColorCotm
+            })));
         
         _registeredMenuItems.Add(new MenuViewItem(
             new MenuItem(Strings.SettingsPanel_Raids_Heading_WingSelection),
-            (m) => new RaidWingSelectionView(Service.Settings.RaidSettings)
+            _ => new RaidWingSelectionView(Service.Settings.RaidSettings)
         ));
     }
     

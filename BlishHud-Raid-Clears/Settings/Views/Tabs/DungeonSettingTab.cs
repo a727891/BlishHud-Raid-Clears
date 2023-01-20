@@ -20,17 +20,21 @@ public class DungeonSettingTab : ISettingsMenuRegistrar
     {
         _registeredMenuItems.Add(new MenuViewItem(
             new MenuItem(Strings.SettingsPanel_Dun_Heading_General),
-            (m) => new GenericGeneralView(Service.Settings.DungeonSettings.Generic)
-        ));
-        
-        _registeredMenuItems.Add(new MenuViewItem(
+            _ => new GenericGeneralView(Service.Settings.DungeonSettings.Generic, new List<SettingEntry>
+            {
+                Service.Settings.DungeonSettings.DungeonHighlightFrequenter,
+            })));
+
+    _registeredMenuItems.Add(new MenuViewItem(
             new MenuItem(Strings.SettingsPanel_Dun_Heading_Layout),
-            (m) => new GenericStyleView(Service.Settings.DungeonSettings.Style)
-        ));
+            _ => new GenericStyleView(Service.Settings.DungeonSettings.Style, new List<SettingEntry<string>>
+            {
+                Service.Settings.DungeonSettings.DungeonPanelColorFreq,
+            })));
         
         _registeredMenuItems.Add(new MenuViewItem(
             new MenuItem(Strings.SettingsPanel_Dun_Heading_PathSelection),
-            (m) => new DungeonPathSelectionView(Service.Settings.DungeonSettings)
+            _ => new DungeonPathSelectionView(Service.Settings.DungeonSettings)
         ));
     }
     

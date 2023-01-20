@@ -1,4 +1,5 @@
 ﻿using Blish_HUD.Settings;
+#pragma warning disable CS8618
 
 namespace RaidClears.Settings.Models;
 

@@ -1,6 +1,7 @@
 ﻿using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using Microsoft.Xna.Framework;
+using RaidClears.Localization;
 using RaidClears.Settings.Models;
 using RaidClears.Utils;
 
@@ -17,15 +18,21 @@ public class StrikeSelectionView : View
     
     protected override void Build(Container buildPanel)
     {
-        buildPanel.Location = new Point(300, 5);
-        buildPanel.Size = new Point(760, 680);
-        
         base.Build(buildPanel);
-        
-        
+
         new FlowPanel()
             .BeginFlow(buildPanel)
+            .AddSetting(_settings.StrikeVisiblePriority)
+            .AddSpace()
+            .AddSpace()
+            .AddSetting(_settings.StrikeVisibleIbs)
+            .AddString(Strings.Settings_Strike_IBS_Heading)
+            .AddSpace()
             .AddSetting(_settings.IbsMissions)
+            .AddSpace()
+            .AddSpace()
+            .AddSetting(_settings.StrikeVisibleEod)
+            .AddString(Strings.Settings_Strike_EOD_Heading)
             .AddSpace()
             .AddSetting(_settings.EodMissions);
     }

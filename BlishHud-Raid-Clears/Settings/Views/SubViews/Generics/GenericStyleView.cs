@@ -1,5 +1,7 @@
-﻿using Blish_HUD.Controls;
+﻿using System.Collections.Generic;
+using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
+using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
 using RaidClears.Localization;
 using RaidClears.Settings.Models;
@@ -10,17 +12,16 @@ namespace RaidClears.Settings.Views.SubViews.Generics;
 public class GenericStyleView : View
 {
     private readonly DisplayStyle _settings;
+    private readonly IEnumerable<SettingEntry<string>>? _extraSettings;
 
-    public GenericStyleView(DisplayStyle settings)
+    public GenericStyleView(DisplayStyle settings, IEnumerable<SettingEntry<string>>? extraSettings = null)
     {
         _settings = settings;
+        _extraSettings = extraSettings;
     }
 
     protected override void Build(Container buildPanel)
     {
-        buildPanel.Location = new Point(300, 5);
-        buildPanel.Size = new Point(760, 680);
-        
         base.Build(buildPanel);
 
         new FlowPanel()
@@ -36,6 +37,7 @@ public class GenericStyleView : View
             .AddString(Strings.SettingsPanel_Raid_Visual_Colors + " " + Strings.SettingsPanel_Raid_Visual_ColorsTip)
             .AddSettingColor(_settings.Color.NotCleared)
             .AddSettingColor(_settings.Color.Cleared)
-            .AddSettingColor(_settings.Color.Text);
+            .AddSettingColor(_settings.Color.Text)
+            .AddSettingColor(_extraSettings);
     }
 }

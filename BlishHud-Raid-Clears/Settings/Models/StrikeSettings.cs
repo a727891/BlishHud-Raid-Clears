@@ -9,6 +9,7 @@ public class StrikeSettings
     public SettingEntry<bool> StrikeVisibleIbs { get; set; }
     public SettingEntry<bool> StrikeVisibleEod { get; set; }
     public SettingEntry<bool> StrikeVisiblePriority { get; set; }
+    public SettingEntry<bool> AnchorToRaidPanel { get; set; }
     public IEnumerable<SettingEntry<bool>> IbsMissions { get; set; }
     public IEnumerable<SettingEntry<bool>> EodMissions { get; set; }
     public DisplayStyle Style { get; set; }
@@ -51,5 +52,7 @@ public class StrikeSettings
         StrikeVisibleIbs = settings.DefineSetting(Settings.Strikes.Module.showIbs);
         StrikeVisibleEod = settings.DefineSetting(Settings.Strikes.Module.showEod);
         StrikeVisiblePriority = settings.DefineSetting(Settings.Strikes.Module.showPriority);
+
+        AnchorToRaidPanel = settings.DefineSetting(Settings.Strikes.Module.anchorToRaids);
     }
 }

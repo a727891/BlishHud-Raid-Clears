@@ -1,6 +1,7 @@
 ﻿using Blish_HUD.Input;
 using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
+#pragma warning disable CS8618
 
 namespace RaidClears.Settings.Models;
 

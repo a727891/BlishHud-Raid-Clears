@@ -20,6 +20,8 @@ public class DungeonPathSelectionView : View
 
         new FlowPanel()
             .BeginFlow(buildPanel)
-            .AddSetting(_settings.DungeonPaths);
+            .AddSetting(_settings.DungeonPaths)
+            .AddSpace()
+            .AddSetting(_settings.DungeonFrequenterVisible);
     }
 }

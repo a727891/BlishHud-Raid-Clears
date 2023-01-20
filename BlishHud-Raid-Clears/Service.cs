@@ -1,6 +1,7 @@
 ﻿using Blish_HUD.Modules.Managers;
 using RaidClears.Features.Shared.Services;
 using RaidClears.Settings.Controls;
+using RaidClears.Settings.Models;
 using RaidClears.Settings.Services;
 
 namespace RaidClears;

@@ -1,6 +1,7 @@
 ﻿using Blish_HUD;
 using Blish_HUD.Settings;
 using RaidClears.Settings.Enums;
+#pragma warning disable CS8618
 
 namespace RaidClears.Settings.Models;
 
