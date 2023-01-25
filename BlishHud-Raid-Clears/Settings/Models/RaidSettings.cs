@@ -50,6 +50,9 @@ public class RaidSettings
             LabelDisplay = settings.DefineSetting(Settings.Raids.Style.labelDisplay),
             LabelOpacity = settings.DefineSetting(Settings.Raids.Style.labelOpacity),
         };
+        Style.GridOpacity.SetRange(0.1f, 1.0f);
+        Style.LabelOpacity.SetRange(0.1f, 1.0f);
+        Style.BgOpacity.SetRange(0.0f, 1.0f);
 
         RaidPanelColorEmbolden = settings.DefineSetting(Settings.Raids.Style.Color.embolden);
         RaidPanelColorCotm = settings.DefineSetting(Settings.Raids.Style.Color.cotm);

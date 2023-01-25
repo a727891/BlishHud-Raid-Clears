@@ -15,7 +15,7 @@ public static class DungeonFactory
     public const int FrequenterIndex = 8;
     public const string FrequenterID = "freq";
     
-    public static IEnumerable<Dungeon> Create(DungeonPanel panel)
+    /*public static IEnumerable<Dungeon> Create(DungeonPanel panel)
     {
         var dungeons = GetDungeonMetaData();
         foreach (var dungeon in dungeons)
@@ -52,7 +52,7 @@ public static class DungeonFactory
         }
 
         return dungeons;
-    }
+    }*/
 
     private static SettingEntry<bool> GetDungeonSelectionByIndex(int index, DungeonSettings settings) => settings.DungeonPaths.ElementAt(index);
 

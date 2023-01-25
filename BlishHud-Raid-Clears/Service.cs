@@ -1,4 +1,5 @@
 ﻿using Blish_HUD.Modules.Managers;
+using RaidClears.Features.Raids;
 using RaidClears.Features.Shared.Services;
 using RaidClears.Settings.Controls;
 using RaidClears.Settings.Models;
@@ -15,4 +16,6 @@ public static class Service
     public static TextureService? TexturesService { get; set; }
     public static ApiPollService? ApiPollingService { get; set; }
     public static SettingsPanel SettingsWindow { get; set; } = null!;
+
+    public static RaidPanel RaidWindow { get; set; } = null!;
 }

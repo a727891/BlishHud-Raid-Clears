@@ -9,7 +9,7 @@ using RaidClears.Features.Strikes.Models;
 
 namespace RaidClears.Features.Strikes;
 
-public static class StrikesPanelFactory
+/*public static class StrikesPanelFactory
 {
     public static StrikesPanel Create()
     {
@@ -42,8 +42,8 @@ public static class StrikesPanelFactory
 
         return panel;
     }
-}
-
+}*/
+/*
 public class StrikesPanel : GridPanel
 {
     private readonly Strike[] _strikes;
@@ -68,7 +68,7 @@ public class StrikesPanel : GridPanel
         {
             Task.Run(() =>
             {
-                /*var weeklyClears = await CurrentClearsService.GetClearsFromApi();
+                *//*var weeklyClears = await CurrentClearsService.GetClearsFromApi();
 
                 foreach (var wing in Wings)
                 {
@@ -76,7 +76,7 @@ public class StrikesPanel : GridPanel
                     {
                         encounter.SetCleared(weeklyClears.Contains(encounter.id));
                     }
-                }*/
+                }*//*
                 Invalidate();
                 return Task.CompletedTask;
             });
@@ -93,4 +93,4 @@ public class StrikesPanel : GridPanel
             }
         }
     }
-}
+}*/

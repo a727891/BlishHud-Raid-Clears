@@ -13,7 +13,7 @@ public static class StrikeFactory
 {
     private static StrikeSettings Settings => Service.Settings.StrikeSettings;
     
-    public static Strike[] Create(StrikesPanel panel)
+    /*public static Strike[] Create(StrikesPanel panel)
     {
         var settings = Service.Settings.StrikeSettings;
         var strikes = GetStrikeMetaData();
@@ -55,7 +55,7 @@ public static class StrikeFactory
         }
         
         return strikes;
-    }
+    }*/
 
     private static Strike[] GetStrikeMetaData()
     {

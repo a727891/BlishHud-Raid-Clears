@@ -34,6 +34,10 @@ public class StrikeSettings
             LabelOpacity = settings.DefineSetting(Settings.Strikes.Style.labelOpacity),
             Layout = settings.DefineSetting(Settings.Strikes.Style.layout),
         };
+        Style.GridOpacity.SetRange(0.1f, 1.0f);
+        Style.LabelOpacity.SetRange(0.1f, 1.0f);
+        Style.BgOpacity.SetRange(0.0f, 1.0f);
+        Style.LabelDisplay.SetExcluded(Enums.LabelDisplay.WingNumber);
 
         Generic = new GenericSettings
         {

@@ -10,6 +10,9 @@ using Microsoft.Xna.Framework;
 using RaidClears.Settings.Services;
 using RaidClears.Features.Shared.Services;
 using RaidClears.Settings.Controls;
+using Blish_HUD.Controls;
+using Blish_HUD.Input;
+using Microsoft.Xna.Framework.Input;
 
 namespace RaidClears;
 
@@ -34,17 +37,20 @@ public class Module : Blish_HUD.Modules.Module
         Service.TexturesService = new TextureService(Service.ContentsManager);
 
         Service.SettingsWindow = new SettingsPanel();
-        // RaidsPanel = RaidPanelFactory.Create();
+        Service.RaidWindow = new();
         // DungeonsPanel = DungeonPanelFactory.Create();
         // StrikesPanel = StrikesPanelFactory.Create();
 
         Service.Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
+
         return Task.CompletedTask;
 
         /*GameService.Overlay.UserLocaleChanged += (s, e) =>
         {
            //todo: refresh views
         };*/
+
+     
     }
 
     protected override void Unload()
@@ -54,17 +60,17 @@ public class Module : Blish_HUD.Modules.Module
         Service.ContentsManager.Dispose();
         Service.TexturesService?.Dispose();
         Service.ApiPollingService?.Dispose();
-        
+
         // StrikesPanel.Dispose();
         // DungeonsPanel.Dispose();
-        // RaidsPanel.Dispose();
+        Service.RaidWindow.Dispose();
         Service.SettingsWindow.Dispose();
     }
 
     protected override void Update(GameTime gameTime)
     {
         Service.ApiPollingService?.Update(gameTime);
-        // RaidsPanel.Update();
+        Service.RaidWindow?.Update();
         // DungeonsPanel.Update();
         // StrikesPanel.Update();
     }

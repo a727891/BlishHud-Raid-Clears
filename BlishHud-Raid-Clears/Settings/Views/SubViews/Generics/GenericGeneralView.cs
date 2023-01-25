@@ -25,8 +25,8 @@ public class GenericGeneralView : View
     {
         // This sets the size and position for the main build panel each time it is built
         // this propagates to all children after this one so this view must be built first
-        buildPanel.Location = new Point(300, 5);
-        buildPanel.Size = new Point(760, 680);
+        buildPanel.Location = new Point(280, 5);
+        buildPanel.Size = new Point(500, 680);
         
         base.Build(buildPanel);
         

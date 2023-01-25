@@ -14,19 +14,20 @@ public class SettingsPanel : TabbedWindow2
 {
     private static Texture2D? Background => Service.TexturesService?.SettingWindowBackground;
 
-    private static Rectangle Region => new()
+    private static Rectangle SettingPanelRegion => new()
     {
         Location = new Point(-7, +25),
         Size = new Point(1155, 710),
     };
     
-    private static Rectangle WindowSize => new()
+    private static Rectangle SettingPanelContentRegion => new()
     {
         Location = new Point(52, 25),
-        Size = Region.Size - Region.Location,
+        Size = SettingPanelRegion.Size - SettingPanelRegion.Location,
     };
+    private static Point SettingPanelWindowSize => new(800, 600);
 
-    public SettingsPanel() : base(Background, Region, WindowSize)
+    public SettingsPanel() : base(Background, SettingPanelRegion, SettingPanelContentRegion, SettingPanelWindowSize)
     {
         Id = $"{nameof(Module)}_96b38a83-4163-4d97-b894-282406b29a48";
         Emblem = Service.TexturesService?.SettingWindowEmblem;
@@ -34,7 +35,7 @@ public class SettingsPanel : TabbedWindow2
         Title = Strings.Module_Title;
         Subtitle = Strings.SettingsPanel_Subtitle;
         SavesPosition = true;
-        _backgroundColor = new Color(10, 10, 10);
+        //_backgroundColor = new Color(10, 10, 10);
 
         Service.Settings.SettingsPanelKeyBind.Value.Activated += (_, _) => ToggleWindow();
 

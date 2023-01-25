@@ -47,6 +47,10 @@ public class DungeonSettings
             GridOpacity = settings.DefineSetting(Settings.Dungeons.Style.gridOpacity),
             LabelDisplay = settings.DefineSetting(Settings.Dungeons.Style.labelDisplay),
         };
+        Style.GridOpacity.SetRange(0.1f, 1.0f);
+        Style.LabelOpacity.SetRange(0.1f, 1.0f);
+        Style.BgOpacity.SetRange(0.0f, 1.0f);
+        Style.LabelDisplay.SetExcluded(Enums.LabelDisplay.WingNumber);
 
         DungeonPanelColorFreq = settings.DefineSetting(Settings.Dungeons.Style.Color.frequenter);
     }

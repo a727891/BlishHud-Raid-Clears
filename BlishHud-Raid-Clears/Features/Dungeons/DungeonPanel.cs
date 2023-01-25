@@ -13,7 +13,7 @@ using RaidClears.Settings.Models;
 
 namespace RaidClears.Features.Dungeons;
 
-public static class DungeonPanelFactory
+/*public static class DungeonPanelFactory
 {
     private static DungeonSettings Settings => Service.Settings.DungeonSettings;
     
@@ -47,9 +47,9 @@ public static class DungeonPanelFactory
 
         return panel;
     }
-}
+}*/
 
-public class DungeonPanel : GridPanel
+/*public class DungeonPanel : GridPanel
 {
     public DungeonPanel(
         SettingEntry<Point> locationSetting, 
@@ -93,4 +93,4 @@ public class DungeonPanel : GridPanel
             });
         };
     }
-}
+}*/
