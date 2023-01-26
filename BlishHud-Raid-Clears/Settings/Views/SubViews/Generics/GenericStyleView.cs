@@ -23,7 +23,9 @@ public class GenericStyleView : View
     protected override void Build(Container buildPanel)
     {
         base.Build(buildPanel);
-
+        _settings.BgOpacity.SetRange(0.0f, 1.0f);
+        _settings.LabelOpacity.SetRange(0.1f, 1.0f);
+        _settings.GridOpacity.SetRange(0.1f, 1.0f);
         new FlowPanel()
             .BeginFlow(buildPanel)
             .AddSettingEnum(_settings.Layout)
@@ -34,7 +36,8 @@ public class GenericStyleView : View
             .AddSetting(_settings.GridOpacity)
             .AddSetting(_settings.BgOpacity)
             .AddSpace()
-            .AddString(Strings.SettingsPanel_Raid_Visual_Colors + " " + Strings.SettingsPanel_Raid_Visual_ColorsTip)
+            .AddString(Strings.SettingsPanel_Raid_Visual_Colors)
+            .AddString(Strings.SettingsPanel_Raid_Visual_ColorsTip)
             .AddSettingColor(_settings.Color.NotCleared)
             .AddSettingColor(_settings.Color.Cleared)
             .AddSettingColor(_settings.Color.Text)

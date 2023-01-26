@@ -51,8 +51,11 @@ public class CornerIconService : IDisposable
 
     private void RemoveCornerIcon()
     {
-        _cornerIcon.Click -= OnCornerIconClicked;
-        _cornerIcon.Dispose();
+        if (_cornerIcon is not null)
+        {
+            _cornerIcon.Click -= OnCornerIconClicked;
+            _cornerIcon.Dispose();
+        }
     }
 
     private void OnCornerIconIsVisibleSettingChanged(object sender, ValueChangedEventArgs<bool> e)

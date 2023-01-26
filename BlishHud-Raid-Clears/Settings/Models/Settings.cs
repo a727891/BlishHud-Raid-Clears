@@ -21,10 +21,10 @@ public record Setting<T>(string Key, T DefaultValue, Func<string>? Name = null, 
 }
 
 public record DungeonSetting<T>(string Key, T DefaultValue, Func<string>? Name = null) :
-    Setting<T>(Key, DefaultValue, Name, () => $"Enable {Name?.Invoke()} on the dungeon display");
+    Setting<T>(Key, DefaultValue, Name, () => $"Enable {Name?.Invoke()} on the dungeon overlay");
 
 public record StrikeSetting<T>(string Key, T DefaultValue, Func<string>? Name = null) :
-    Setting<T>(Key, DefaultValue, Name, () => $"Enable {Name?.Invoke()} on the strike display");
+    Setting<T>(Key, DefaultValue, Name, () => $"Enable {Name?.Invoke()} on the strike overlay");
 
 public static class Settings
 {
@@ -195,4 +195,12 @@ public static class SettingCollectionExtensions
     {
         return collection.DefineSetting(setting.Key, setting.DefaultValue, setting.Name, setting.Description);
     }
+    public static SettingEntry<TEntry> DefineSettingRange<TEntry>(this SettingCollection collection, Setting<TEntry> setting,float min, float max)
+    {
+        var settingEntry = collection.DefineSetting(setting.Key, setting.DefaultValue, setting.Name, setting.Description);
+        (settingEntry as SettingEntry<float>).SetRange(min, max);
+        return settingEntry;
+    }
+
+
 }

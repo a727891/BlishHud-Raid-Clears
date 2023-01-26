@@ -24,16 +24,12 @@ public class StrikeSelectionView : View
             .BeginFlow(buildPanel)
             .AddSetting(_settings.StrikeVisiblePriority)
             .AddSpace()
-            .AddSpace()
             .AddSetting(_settings.StrikeVisibleIbs)
             .AddString(Strings.Settings_Strike_IBS_Heading)
-            .AddSpace()
             .AddSetting(_settings.IbsMissions)
-            .AddSpace()
             .AddSpace()
             .AddSetting(_settings.StrikeVisibleEod)
             .AddString(Strings.Settings_Strike_EOD_Heading)
-            .AddSpace()
             .AddSetting(_settings.EodMissions);
     }
 }

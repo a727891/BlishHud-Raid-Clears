@@ -39,7 +39,6 @@ public class GenericGeneralView : View
             .AddSetting(_settings.ToolbarIcon)
             .AddSpace()
             .AddSetting(_settings.ShowHideKeyBind)
-            .AddSpace()
             .AddString(Strings.SharedKeybind)
             .AddSpace()
             .AddSetting(_extraSettings);

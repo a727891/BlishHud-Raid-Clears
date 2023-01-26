@@ -33,7 +33,7 @@ public class GridPanel : FlowPanel
         ControlPadding = DefaultPadding;
         IgnoreMouseInput = ShouldIgnoreMouse();
         Location = _settings.Location.Value;
-        Visible = _settings.Enabled.Value;
+        Visible = _settings.Visible.Value;
         Parent = parent;
         HeightSizingMode = SizingMode.AutoSize; 
         WidthSizingMode = SizingMode.AutoSize;
@@ -95,7 +95,7 @@ public class GridPanel : FlowPanel
     public void Update()
     {
         var shouldBeVisible =
-          _settings.Enabled.Value &&
+          _settings.Visible.Value &&
           GameService.GameIntegration.Gw2Instance.Gw2IsRunning &&
           GameService.GameIntegration.Gw2Instance.IsInGame &&
           GameService.Gw2Mumble.IsAvailable &&
