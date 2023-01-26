@@ -38,6 +38,7 @@ public class Module : Blish_HUD.Modules.Module
 
         Service.SettingsWindow = new SettingsPanel();
         Service.RaidWindow = new();
+        Service.StrikesWindow = new();
         // DungeonsPanel = DungeonPanelFactory.Create();
         // StrikesPanel = StrikesPanelFactory.Create();
 
@@ -61,7 +62,7 @@ public class Module : Blish_HUD.Modules.Module
         Service.TexturesService?.Dispose();
         Service.ApiPollingService?.Dispose();
 
-        // StrikesPanel.Dispose();
+        Service.StrikesWindow?.Dispose();
         // DungeonsPanel.Dispose();
         Service.RaidWindow.Dispose();
         Service.SettingsWindow.Dispose();
@@ -72,7 +73,7 @@ public class Module : Blish_HUD.Modules.Module
         Service.ApiPollingService?.Update(gameTime);
         Service.RaidWindow?.Update();
         // DungeonsPanel.Update();
-        // StrikesPanel.Update();
+        Service.StrikesWindow?.Update();
     }
 
     private void Gw2ApiManager_SubtokenUpdated(object sender, ValueEventArgs<IEnumerable<TokenPermission>> e) => Service.ApiPollingService?.Invoke();

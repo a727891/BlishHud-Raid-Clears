@@ -6,69 +6,32 @@ using RaidClears.Features.Shared.Services;
 using RaidClears.Features.Shared.Controls;
 using System.Threading.Tasks;
 using RaidClears.Features.Strikes.Models;
+using RaidClears.Settings.Models;
+using Blish_HUD;
+using Blish_HUD.Controls;
+using System.Runtime;
 
 namespace RaidClears.Features.Strikes;
 
-/*public static class StrikesPanelFactory
-{
-    public static StrikesPanel Create()
-    {
-        var settings = Service.Settings.StrikeSettings;
-        var panel = new StrikesPanel(
-            settings.Generic.Location,
-            settings.Generic.Visible,
-            settings.Generic.PositionLock,
-            settings.Generic.Tooltips
-        );
-
-        panel.LayoutChange(settings.Style.Layout);
-        panel.BackgroundColorChange(settings.Style.BgOpacity, settings.Style.Color.Background);
-
-        panel.RegisterCornerIconService(
-            new CornerIconService(
-                settings.Generic.ToolbarIcon,
-                settings.Generic.Visible, 
-                Strings.CornerIcon_Strike, 
-                Service.TexturesService.StrikesCornerIconTexture,
-                Service.TexturesService.StrikesCornerIconHoverTexture
-            )
-        );
-        panel.RegisterKeyBindService(
-            new KeyBindHandlerService(
-                settings.Generic.ShowHideKeyBind,
-                settings.Generic.Visible
-            )
-        );
-
-        return panel;
-    }
-}*/
-/*
 public class StrikesPanel : GridPanel
 {
+    private static StrikeSettings Settings => Service.Settings.StrikeSettings;
+
     private readonly Strike[] _strikes;
     //private readonly GetCurrentClearsService CurrentClearsService;
     
-    public StrikesPanel(
-        SettingEntry<Point> locationSetting, 
-        SettingEntry<bool> visibleSetting,
-        SettingEntry<bool> allowMouseDragSetting, 
-        SettingEntry<bool> allowTooltipSetting
-    ) : base(locationSetting, visibleSetting, allowMouseDragSetting, allowTooltipSetting)
+    public StrikesPanel() : base(Settings.Generic, GameService.Graphics.SpriteScreen)
     {
 
         //CurrentClearsService = new GetCurrentClearsService();
-        //BackgroundColor = Color.Orange;
-        //WeeklyWings weeklyWings = WingRotationService.GetWeeklyWings();
+       
+        _strikes = StrikeMetaData.Create(this);
 
-        //Wings =  WingFactory.Create(this, weeklyWings);
-        _strikes = StrikeFactory.Create(this);
-
-        Service.ApiPollingService.ApiPollingTrigger += (_, _) =>
+        /*Service.ApiPollingService.ApiPollingTrigger += (_, _) =>
         {
             Task.Run(() =>
             {
-                *//*var weeklyClears = await CurrentClearsService.GetClearsFromApi();
+                var weeklyClears = await CurrentClearsService.GetClearsFromApi();
 
                 foreach (var wing in Wings)
                 {
@@ -76,11 +39,29 @@ public class StrikesPanel : GridPanel
                     {
                         encounter.SetCleared(weeklyClears.Contains(encounter.id));
                     }
-                }*//*
+                }
                 Invalidate();
                 return Task.CompletedTask;
             });
-        };
+        };*/
+        (this as FlowPanel).LayoutChange(Settings.Style.Layout);
+        (this as GridPanel).BackgroundColorChange(Settings.Style.BgOpacity, Settings.Style.Color.Background);
+
+        RegisterCornerIconService(
+            new CornerIconService(
+                Settings.Generic.ToolbarIcon,
+                Settings.Generic.Visible,
+                Strings.CornerIcon_Strike,
+                Service.TexturesService!.StrikesCornerIconTexture,
+                Service.TexturesService!.StrikesCornerIconHoverTexture
+            )
+        );
+        RegisterKeyBindService(
+            new KeyBindHandlerService(
+                Settings.Generic.ShowHideKeyBind,
+                Settings.Generic.Visible
+            )
+        );
     }
 
     public void ForceInvalidate()
@@ -93,4 +74,4 @@ public class StrikesPanel : GridPanel
             }
         }
     }
-}*/
+}

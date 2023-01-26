@@ -4,19 +4,21 @@ using RaidClears.Features.Raids.Models;
 using RaidClears.Features.Shared.Controls;
 using RaidClears.Features.Shared.Enums;
 using RaidClears.Features.Shared.Models;
+using RaidClears.Features.Strikes.Services;
 using RaidClears.Settings.Models;
 using RaidClears.Utils;
 
 namespace RaidClears.Features.Strikes.Models;
 
-public static class StrikeFactory
+public static class StrikeMetaData
 {
     private static StrikeSettings Settings => Service.Settings.StrikeSettings;
     
-    /*public static Strike[] Create(StrikesPanel panel)
+    public static Strike[] Create(StrikesPanel panel)
     {
         var settings = Service.Settings.StrikeSettings;
         var strikes = GetStrikeMetaData();
+        var strikeIndex = 0;
         foreach(var strike in strikes)
         {
             var group = new GridGroup(
@@ -46,8 +48,9 @@ public static class StrikeFactory
                     encounter.shortName, encounter.name,
                     settings.Style.GridOpacity, settings.Style.FontSize
                 );
-                
-                encounterBox.VisiblityChanged(allStrikes[index]);
+                if(strikeIndex < allStrikes.Length) { 
+                    encounterBox.VisiblityChanged(allStrikes[strikeIndex++]);
+                }
                 encounterBox.TextColorSetting(settings.Style.Color.Text);
                 encounter.SetGridBoxReference(encounterBox);
                 encounter.WatchColorSettings(settings.Style.Color.Cleared, settings.Style.Color.NotCleared);
@@ -55,19 +58,19 @@ public static class StrikeFactory
         }
         
         return strikes;
-    }*/
+    }
 
     private static Strike[] GetStrikeMetaData()
     {
         return new[] {
             new Strike("Icebrood Saga", 8, "IBS",
                 new BoxModel[] {
-                    new Encounter(Encounters.StrikeMission.ColdWar),
-                    new Encounter(Encounters.StrikeMission.Fraenir),
                     new Encounter(Encounters.StrikeMission.ShiverpeaksPass),
+                    new Encounter(Encounters.StrikeMission.Fraenir),
                     new Encounter(Encounters.StrikeMission.VoiceAndClaw),
                     new Encounter(Encounters.StrikeMission.Whisper),
                     new Encounter(Encounters.StrikeMission.Boneskinner),
+                    new Encounter(Encounters.StrikeMission.ColdWar),
                 }),
             new Strike("End of Dragons", 9, "EoD",
                 new BoxModel[] {
@@ -77,10 +80,8 @@ public static class StrikeFactory
                     new Encounter(Encounters.StrikeMission.HarvestTemple),
                     new Encounter(Encounters.StrikeMission.OldLionsCourt),
                 }),
-            new Strike("Priority", 10, "PS",
-                new BoxModel[] {
-                    
-                }),
+            new PriorityStrikes("Priority Strike Missions (Daily)", 10, "PS",
+                PriorityRotationService.GetPriorityEncounters()),
         };
     }
     
@@ -101,4 +102,30 @@ public class Strike : Wing
     {
         
     }
+}
+
+public class PriorityStrikes : Strike
+{
+    private static StrikeSettings Settings => Service.Settings.StrikeSettings;
+    public PriorityStrikes(string name, int index, string shortName, BoxModel[] boxes) : base(name, index, shortName, boxes)
+    {
+        var dailies = PriorityRotationService.GetPriorityStrikes();
+
+        foreach( var daily in dailies)
+        {
+            var encounter = daily.encounter;
+            var encounterBox = new GridBox(
+                    this.GridGroup,
+                    encounter.shortName, encounter.name,
+                    Settings.Style.GridOpacity, Settings.Style.FontSize
+                );
+
+            encounterBox.TextColorSetting(Settings.Style.Color.Text);
+            encounter.SetGridBoxReference(encounterBox);
+            encounter.WatchColorSettings(Settings.Style.Color.Cleared, Settings.Style.Color.NotCleared);
+        }
+       
+    }
+
+
 }

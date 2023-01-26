@@ -21,11 +21,7 @@ public class RaidPanel : GridPanel
     {
         var weeklyWings = WingRotationService.GetWeeklyWings();
 
-        //var wings = WingFactory.Create(this, weeklyWings);
-        new GridBox(this, "L", "wings", Settings.Style.LabelOpacity, Settings.Style.FontSize);
-        new GridBox(this, "R", "tooltip1", Settings.Style.GridOpacity,Settings.Style.FontSize);
-        new GridBox(this, "S", "tooltip2", Settings.Style.GridOpacity,Settings.Style.FontSize);
-        new GridBox(this, "T", "tooltip3", Settings.Style.GridOpacity,Settings.Style.FontSize);
+        var wings = WingFactory.Create(this, weeklyWings);
 
         Service.ApiPollingService!.ApiPollingTrigger += (_, _) =>
         {
@@ -33,13 +29,13 @@ public class RaidPanel : GridPanel
             {
                 var weeklyClears = await GetCurrentClearsService.GetClearsFromApi();
 
-               /* foreach (var wing in wings)
+                foreach (var wing in wings)
                 {
                     foreach (var encounter in wing.boxes)
                     {
                         encounter.SetCleared(weeklyClears.Contains(encounter.id));
                     }
-                }*/
+                }
                 Invalidate();
             });
         };

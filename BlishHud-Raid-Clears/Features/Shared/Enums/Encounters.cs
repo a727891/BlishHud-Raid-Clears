@@ -50,11 +50,12 @@ public static class Encounters
     public enum StrikeMission
     {
         ShiverpeaksPass,
-        ColdWar,
         Fraenir,
         VoiceAndClaw,
         Whisper,
         Boneskinner,
+        ColdWar,
+
         AetherbladeHideout,
         Junkyard,
         Overlook,

@@ -3,6 +3,19 @@ using RaidClears.Localization;
 
 namespace RaidClears.Features.Shared.Enums.Extensions;
 
+public static class StrikeMissionTypeExtensions
+{
+    public static string GetLabel(this StrikeMissionType type)
+    {
+        return type switch
+        {
+            StrikeMissionType.Ibs => "IBS",
+            StrikeMissionType.Eod => "EoD",
+            StrikeMissionType.Priority => "Priority",
+            _ => "unknown"
+        };
+    }
+}
 public static class StrikeMissionExtensions
 {
     public static string GetLabel(this Encounters.StrikeMission value)
@@ -31,7 +44,7 @@ public static class StrikeMissionExtensions
             Encounters.StrikeMission.ShiverpeaksPass => "SP",
             Encounters.StrikeMission.ColdWar => "CW",
             Encounters.StrikeMission.Fraenir => "FoJ",
-            Encounters.StrikeMission.VoiceAndClaw => "Bear",
+            Encounters.StrikeMission.VoiceAndClaw => "V&C",
             Encounters.StrikeMission.Whisper => "WoJ",
             Encounters.StrikeMission.Boneskinner => "BS",
             Encounters.StrikeMission.AetherbladeHideout => "AH",

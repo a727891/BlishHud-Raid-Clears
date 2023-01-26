@@ -164,12 +164,12 @@ public static class Settings
         {
             public static Setting<bool>[] ibsMissions =
             {
-                new StrikeSetting<bool>("StrikeVis_cold_war", true, () => Strings.Setting_Strike_CW_Label),
-                new StrikeSetting<bool>("StrikeVis_fraenir_of_jormag", true, () => Strings.Setting_Strike_FoJ_Label),
                 new StrikeSetting<bool>("StrikeVis_shiverpeak_pass", true, () => Strings.Setting_Strike_SP_Label),
+                new StrikeSetting<bool>("StrikeVis_fraenir_of_jormag", true, () => Strings.Setting_Strike_FoJ_Label),
                 new StrikeSetting<bool>("StrikeVis_voice_and_claw", true, () => Strings.Setting_Strike_VandC_Label),
                 new StrikeSetting<bool>("StrikeVis_whisper_of_jormag", true, () => Strings.Setting_Strike_WoJ_Label),
                 new StrikeSetting<bool>("StrikeVis_boneskinner", true, () => Strings.Setting_Strike_BS_Label),
+                new StrikeSetting<bool>("StrikeVis_cold_war", true, () => Strings.Setting_Strike_CW_Label),
             };
 
             public static Setting<bool>[] eodMissions =
