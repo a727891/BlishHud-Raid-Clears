@@ -25,7 +25,7 @@ public class DungeonSettingTab : ISettingsMenuRegistrar
                 Service.Settings.DungeonSettings.DungeonHighlightFrequenter,
             })));
 
-    _registeredMenuItems.Add(new MenuViewItem(
+        _registeredMenuItems.Add(new MenuViewItem(
             new MenuItem(Strings.SettingsPanel_Dun_Heading_Layout),
             _ => new GenericStyleView(Service.Settings.DungeonSettings.Style, new List<SettingEntry<string>>
             {

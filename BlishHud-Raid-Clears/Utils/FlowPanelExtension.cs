@@ -74,7 +74,7 @@ public static class FlowPanelExtensions
     public static FlowPanel BeginFlow(this FlowPanel panel, Container parent, Point sizeOffset, Point locationOffset)
     {
         panel.FlowDirection = ControlFlowDirection.SingleTopToBottom;
-        panel.OuterControlPadding = new Vector2(50, 25);
+        panel.OuterControlPadding = new Vector2(20, 25);
         panel.Parent = parent;
         panel.Size = parent.Size + sizeOffset;
         panel.ShowBorder = true;

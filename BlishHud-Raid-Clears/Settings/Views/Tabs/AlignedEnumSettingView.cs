@@ -17,6 +17,8 @@ public static class AlignedEnumSettingView
 
 public class AlignedEnumSettingView<TEnum> : EnumSettingView<TEnum> where TEnum : struct, Enum
 {
+    protected static int NUMERIC_SLIDER_WIDTH = 277; //Make this match Blish's TRACKBAR_WIDTH in NumericSettingView.cs
+    protected static int DROPDOWN_HEIGHT = 27;
     public AlignedEnumSettingView(SettingEntry<TEnum> setting, int definedWidth = -1) : base(setting, definedWidth)
     {
     }
@@ -31,6 +33,13 @@ public class AlignedEnumSettingView<TEnum> : EnumSettingView<TEnum> where TEnum 
         {
             label.AutoSizeWidth = false;
             label.Width = 175;
+        }
+
+        fieldInfo = typeof(EnumSettingView<TEnum>).GetField("_enumDropdown", BindingFlags.NonPublic | BindingFlags.Instance);
+
+        if (fieldInfo?.GetValue(this) is Dropdown dropdown)
+        {
+            dropdown.Size = new(NUMERIC_SLIDER_WIDTH, DROPDOWN_HEIGHT);
         }
     }
 }

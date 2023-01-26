@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using RaidClears.Localization;
 using RaidClears.Settings.Views.SubViews;
 using RaidClears.Settings.Views.Tabs;
+using RaidClears.Settings.Views;
 
 namespace RaidClears.Settings.Controls;
 
@@ -14,15 +15,18 @@ public class SettingsPanel : TabbedWindow2
 {
     private static Texture2D? Background => Service.TexturesService?.SettingWindowBackground;
 
+    //Where on the background texture should the panel render
     private static Rectangle SettingPanelRegion => new()
     {
-        Location = new Point(-7, +25),
-        Size = new Point(1155, 710),
+        Location = new Point(38, 25),
+        //Location = new Point(-7, +25),
+        //Size = new Point(Background!.Width, Background!.Height),
+        Size = new Point(1100, 705),
     };
     
     private static Rectangle SettingPanelContentRegion => new()
     {
-        Location = new Point(52, 25),
+        Location = SettingPanelRegion.Location + new Point(52, 0),
         Size = SettingPanelRegion.Size - SettingPanelRegion.Location,
     };
     private static Point SettingPanelWindowSize => new(800, 600);
@@ -51,19 +55,19 @@ public class SettingsPanel : TabbedWindow2
         Tabs.Add(
             new Tab(
                 Service.TexturesService?.SettingTabRaid,
-                () => new SettingsMenuView(new RaidsSettingTab()),
+                () => new CustomSettingMenuView(new RaidsSettingTab()),
                 Strings.SettingsPanel_Tab_Raids
             ));
         
         Tabs.Add(new Tab(
             Service.TexturesService?.SettingTabDungeon,
-            () => new SettingsMenuView(new DungeonSettingTab()),
+            () => new CustomSettingMenuView(new DungeonSettingTab()),
                 Strings.SettingsPanel_Tab_Dunegons
             ));
         
         Tabs.Add(new Tab(
             Service.TexturesService?.SettingTabStrikes,
-            () => new SettingsMenuView(new StrikesSettingTab()),
+            () => new CustomSettingMenuView(new StrikesSettingTab()),
             Strings.SettingsPanel_Tab_Dunegons
         ));
         
