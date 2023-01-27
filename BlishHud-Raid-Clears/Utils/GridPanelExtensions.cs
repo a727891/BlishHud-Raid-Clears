@@ -14,5 +14,5 @@ public static class GridPanelExtensions
         panel.BackgroundColor = AddAlphaToColor(bgColor.Value.HexToXnaColor(), opacity.Value);            
     }
     
-    private static Color AddAlphaToColor(Color color, float opacity) => new(color, byte.MaxValue * opacity);
+    private static Color AddAlphaToColor(Color color, float opacity) => new(color, (int) (byte.MaxValue * opacity));
 }
