@@ -68,7 +68,7 @@ public class SettingsPanel : TabbedWindow2
         Tabs.Add(new Tab(
             Service.TexturesService?.SettingTabStrikes,
             () => new CustomSettingMenuView(new StrikesSettingTab()),
-            Strings.SettingsPanel_Tab_Dunegons
+            Strings.SettingsPanel_Tab_Strikes
         ));
         
         Tabs.Add(new Tab(

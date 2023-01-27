@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Blish_HUD.Settings;
+using Gw2Sharp.WebApi.V2.Models;
 using RaidClears.Features.Shared.Controls;
 using RaidClears.Features.Shared.Models;
 using RaidClears.Settings.Models;
 using RaidClears.Utils;
+using static RaidClears.Features.Shared.Enums.Encounters;
 
 namespace RaidClears.Features.Dungeons.Models;
 
@@ -15,7 +18,7 @@ public static class DungeonFactory
     public const int FrequenterIndex = 8;
     public const string FrequenterID = "freq";
     
-    /*public static IEnumerable<Dungeon> Create(DungeonPanel panel)
+    public static IEnumerable<Dungeon> Create(DungeonPanel panel)
     {
         var dungeons = GetDungeonMetaData();
         foreach (var dungeon in dungeons)
@@ -24,7 +27,14 @@ public static class DungeonFactory
                 panel,
                 Settings.Style.Layout
             );
-            group.VisiblityChanged(GetDungeonSelectionByIndex(dungeon.index, Settings));
+            if(dungeon.index == FrequenterIndex)
+            {
+                group.VisiblityChanged(Settings.DungeonFrequenterVisible);
+            }
+            else
+            {
+                group.VisiblityChanged(Settings.DungeonPaths.ElementAt(dungeon.index));
+            }
             dungeon.SetGridGroupReference(group);
 
             var labelBox = new GridBox(
@@ -34,7 +44,6 @@ public static class DungeonFactory
             );
             labelBox.LayoutChange(Settings.Style.Layout);
             dungeon.SetGroupLabelReference(labelBox);
-            //ApplyConditionalTextColoring(labelBox, dungeon.index, weekly, settings);
             labelBox.LabelDisplayChange(Settings.Style.LabelDisplay, (dungeon.index + 1).ToString(), dungeon.shortName);
 
             foreach (var encounter in dungeon.boxes.OfType<Path>())
@@ -47,12 +56,11 @@ public static class DungeonFactory
                 encounter.SetGridBoxReference(encounterBox);
                 encounter.WatchColorSettings(Settings.Style.Color.Cleared, Settings.Style.Color.NotCleared);
                 encounter.RegisterFrequenterSettings(Settings.DungeonHighlightFrequenter, Settings.DungeonPanelColorFreq, Settings.Style.Color.Text);
-                //ApplyConditionalTextColoring(encounterBox, dungeon.index, weekly, settings);
             }
         }
 
         return dungeons;
-    }*/
+    }
 
     private static SettingEntry<bool> GetDungeonSelectionByIndex(int index, DungeonSettings settings) => settings.DungeonPaths.ElementAt(index);
 
@@ -66,10 +74,10 @@ public static class DungeonFactory
                 "AC",
                 new BoxModel[]
                 {
-                    new Path("ac_story","Story", "S"),
-                    new Path("hodgins","hodgins", "E1"),
-                    new Path("detha","detha", "E2"),
-                    new Path("tzark","tzark", "E3"),
+                    new Path(DungeonPaths.AscalonianCatacombsStory),
+                    new Path(DungeonPaths.AscalonianCatacombsHodgins),
+                    new Path(DungeonPaths.AscalonianCatacombsDetha),
+                    new Path(DungeonPaths.AscalonianCatacombsTzark),
                 }
             ),
             new Dungeon(
@@ -78,10 +86,10 @@ public static class DungeonFactory
                 "CM",
                 new BoxModel[]
                 {
-                    new Path("cm_story","Story", "S"),
-                    new Path("asura","asura", "E1"),
-                    new Path("seraph","seraph", "E2"),
-                    new Path("butler","butler", "E3"),
+                    new Path(DungeonPaths.CaudecusManorStory),
+                    new Path(DungeonPaths.CaudecusManorAsura),
+                    new Path(DungeonPaths.CaudecusManorSeraph),
+                    new Path(DungeonPaths.CaudecusManorButler),
                 }
             ),
             new Dungeon(
@@ -90,10 +98,10 @@ public static class DungeonFactory
                 "TA",
                 new BoxModel[]
                 {
-                    new Path("ta_story","Story", "S"),
-                    new Path("leurent","leurent (Up)", "Up"),
-                    new Path("vevina","vevina (Forward)", "Fwd"),
-                    new Path("aetherpath","aetherpath", "Ae"),
+                    new Path(DungeonPaths.TwilightArborStory),
+                    new Path(DungeonPaths.TwilightArborLeurent),
+                    new Path(DungeonPaths.TwilightArborVevina),
+                    new Path(DungeonPaths.TwilightArborAetherPath),
                 }
             ),
             new Dungeon(
@@ -102,10 +110,10 @@ public static class DungeonFactory
                 "SE",
                 new BoxModel[]
                 {
-                    new Path("se_story","Story", "S"),
-                    new Path("fergg","fergg", "E1"),
-                    new Path("rasalov","rasalov", "E2"),
-                    new Path("koptev","koptev", "E3"),
+                    new Path(DungeonPaths.SorrowsEmbraceStory),
+                    new Path(DungeonPaths.SorrowsEmbraceFergg),
+                    new Path(DungeonPaths.SorrowsEmbraceRasalov),
+                    new Path(DungeonPaths.SorrowsEmbraceKoptev),
                 }
             ),
             new Dungeon(
@@ -114,10 +122,10 @@ public static class DungeonFactory
                 "CoF",
                 new BoxModel[]
                 {
-                    new Path("cof_story","Story", "S"),
-                    new Path("ferrah","ferrah", "E1"),
-                    new Path("magg","magg", "E2"),
-                    new Path("rhiannon","rhiannon", "E3"),
+                    new Path(DungeonPaths.CitadelOfFlameStory),
+                    new Path(DungeonPaths.CitadelOfFlameFerrah),
+                    new Path(DungeonPaths.CitadelOfFlameMagg),
+                    new Path(DungeonPaths.CitadelOfFlameRhiannon),
                 }
             ),
             new Dungeon(
@@ -126,10 +134,10 @@ public static class DungeonFactory
                 "HW",
                 new BoxModel[]
                 {
-                    new Path("hotw_story","Story", "S"),
-                    new Path("butcher","butcher", "E1"),
-                    new Path("plunderer","plunderer", "E2"),
-                    new Path("zealot","zealot", "E3"),
+                    new Path(DungeonPaths.HonorOfTheWavesStory),
+                    new Path(DungeonPaths.HonorOfTheWavesButcher),
+                    new Path(DungeonPaths.HonorOfTheWavesPlunderer),
+                    new Path(DungeonPaths.HonorOfTheWavesZealot),
                 }
             ),
             new Dungeon(
@@ -138,10 +146,10 @@ public static class DungeonFactory
                 "CoE",
                 new BoxModel[]
                 {
-                    new Path("coe_story","Story", "S"),
-                    new Path("submarine","submarine", "E1"),
-                    new Path("teleporter","teleporter", "E2"),
-                    new Path("front_door","front_door", "E3"),
+                    new Path(DungeonPaths.CrucibleOfEternityStory),
+                    new Path(DungeonPaths.CrucibleOfEternitySubmarine),
+                    new Path(DungeonPaths.CrucibleOfEternityTeleporter),
+                    new Path(DungeonPaths.CrucibleOfEternityFrontDoor),
                 }
             ),
             new Dungeon(
@@ -151,10 +159,10 @@ public static class DungeonFactory
                 new BoxModel[]
                 {
                     //new Path("arah_story","Story", "S"),
-                    new Path("jotun","jotun", "E1"),
-                    new Path("mursaat","mursaat", "E2"),
-                    new Path("forgotten","forgotten", "E3"),
-                    new Path("seer","seer", "E4"),
+                    new Path(DungeonPaths.RuinedCityOfArahJotun),
+                    new Path(DungeonPaths.RuinedCityOfArahMursaat),
+                    new Path(DungeonPaths.RuinedCityOfArahForgotten),
+                    new Path(DungeonPaths.RuinedCityOfArahSeer),
                 }
             ),
             new Dungeon(

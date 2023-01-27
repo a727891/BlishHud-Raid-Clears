@@ -1,4 +1,5 @@
 ﻿using Blish_HUD.Modules.Managers;
+using RaidClears.Features.Dungeons;
 using RaidClears.Features.Raids;
 using RaidClears.Features.Shared.Services;
 using RaidClears.Features.Strikes;
@@ -20,4 +21,7 @@ public static class Service
 
     public static RaidPanel RaidWindow { get; set; } = null!;
     public static StrikesPanel StrikesWindow { get; set; } = null!;
+    public static DungeonPanel DungeonWindow { get; set; } = null;
+
+    public static CornerIconService CornerIconService { get; set; } = null!;
 }

@@ -1,7 +1,10 @@
 ﻿using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
+using RaidClears.Features.Shared.Enums;
+using RaidClears.Features.Shared.Enums.Extensions;
 using RaidClears.Features.Shared.Models;
 using RaidClears.Utils;
+using static RaidClears.Features.Shared.Enums.Encounters;
 
 namespace RaidClears.Features.Dungeons.Models;
 
@@ -14,6 +17,7 @@ public class Path : BoxModel
     public Path(string id, string name, string shortName) : base(id, name, shortName)
     {
     }
+    public Path(DungeonPaths path) : base(path.GetApiLabel(), path.GetLabel(), path.GetLabelShort()) { }
 
     public void SetFrequenter(bool freqStatus)
     {

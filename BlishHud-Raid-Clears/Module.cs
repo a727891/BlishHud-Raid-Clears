@@ -13,6 +13,7 @@ using RaidClears.Settings.Controls;
 using Blish_HUD.Controls;
 using Blish_HUD.Input;
 using Microsoft.Xna.Framework.Input;
+using RaidClears.Localization;
 
 namespace RaidClears;
 
@@ -39,8 +40,23 @@ public class Module : Blish_HUD.Modules.Module
         Service.SettingsWindow = new SettingsPanel();
         Service.RaidWindow = new();
         Service.StrikesWindow = new();
-        // DungeonsPanel = DungeonPanelFactory.Create();
-        // StrikesPanel = StrikesPanelFactory.Create();
+        Service.DungeonWindow = new();
+
+
+        Service.CornerIconService = new CornerIconService(
+            Service.Settings.RaidSettings.Generic.ToolbarIcon,
+            Strings.CornerIcon_Raid,
+            Service.TexturesService!.CornerIconTexture,
+            Service.TexturesService!.CornerIconHoverTexture,
+            new List<CornerIconToggleMenuItem>()
+            {
+                new CornerIconToggleMenuItem(Service.SettingsWindow, "Open Settings"),
+                new CornerIconToggleMenuItem(Service.Settings.RaidSettings.Generic.Visible, "Raids"),
+                new CornerIconToggleMenuItem(Service.Settings.StrikeSettings.Generic.Visible, "Strikes"),
+                new CornerIconToggleMenuItem(Service.Settings.DungeonSettings.Generic.Visible, "Dungeons"),
+
+            }
+        );
 
         Service.Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
 
@@ -58,21 +74,22 @@ public class Module : Blish_HUD.Modules.Module
     {
         Service.Gw2ApiManager.SubtokenUpdated -= Gw2ApiManager_SubtokenUpdated;
         
-        Service.ContentsManager.Dispose();
+        Service.ContentsManager?.Dispose();
         Service.TexturesService?.Dispose();
         Service.ApiPollingService?.Dispose();
 
         Service.StrikesWindow?.Dispose();
-        // DungeonsPanel.Dispose();
-        Service.RaidWindow.Dispose();
-        Service.SettingsWindow.Dispose();
+        Service.DungeonWindow?.Dispose();
+        Service.RaidWindow?.Dispose();
+        Service.SettingsWindow?.Dispose();
+        Service.CornerIconService?.Dispose();
     }
 
     protected override void Update(GameTime gameTime)
     {
         Service.ApiPollingService?.Update(gameTime);
         Service.RaidWindow?.Update();
-        // DungeonsPanel.Update();
+        Service.DungeonWindow?.Update();
         Service.StrikesWindow?.Update();
     }
 

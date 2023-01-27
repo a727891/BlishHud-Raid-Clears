@@ -42,7 +42,7 @@ public class RaidPanel : GridPanel
 
         (this as FlowPanel).LayoutChange(Settings.Style.Layout);
         (this as GridPanel).BackgroundColorChange(Settings.Style.BgOpacity, Settings.Style.Color.Background);
-
+/*
         RegisterCornerIconService(
             new CornerIconService(
                 Settings.Generic.ToolbarIcon,
@@ -51,7 +51,7 @@ public class RaidPanel : GridPanel
                 Service.TexturesService!.CornerIconTexture,
                 Service.TexturesService!.CornerIconHoverTexture
             )
-        );
+        );*/
         RegisterKeyBindService(
             new KeyBindHandlerService(
                 Settings.Generic.ShowHideKeyBind,
@@ -59,5 +59,10 @@ public class RaidPanel : GridPanel
             )
         );
     }
+
+   /* protected void DoUpdate()
+    {
+        base.DoUpdate();
+    }*/
 
 }

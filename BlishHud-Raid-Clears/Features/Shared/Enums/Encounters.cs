@@ -114,7 +114,7 @@ public static class Encounters
             new Path("rasalov","rasalov", "E2"),
             new Path("koptev","koptev", "E3"),*/
         CitadelOfFlameStory,
-        CitadelOfFlameFeffah,
+        CitadelOfFlameFerrah,
         CitadelOfFlameMagg,
         CitadelOfFlameRhiannon,
         /*"CoF",

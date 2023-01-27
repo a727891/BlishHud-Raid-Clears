@@ -4,6 +4,7 @@ using RaidClears.Localization;
 using Microsoft.Xna.Framework.Input;
 using RaidClears.Settings.Enums;
 using RaidClears.Settings.Models;
+using Microsoft.Xna.Framework;
 
 namespace RaidClears.Settings.Services;
 
@@ -22,7 +23,7 @@ public class SettingService // singular because Setting"s"Service already exists
             () => Strings.Setting_APIPoll_Label,
             () => Strings.Setting_APIPoll_Tooltip);
 
-        SettingsPanelKeyBind = settings.DefineSetting("RCsettingsKeybind", 
+        SettingsPanelKeyBind = settings.DefineSetting("RCsettingsKeybind",
             new KeyBinding(Keys.None),
         () => Strings.Settings_Keybind_Label,
         () => Strings.Settings_Keybind_tooltip);
@@ -31,23 +32,25 @@ public class SettingService // singular because Setting"s"Service already exists
         RaidSettings = new RaidSettings(settings);
         DungeonSettings = new DungeonSettings(settings);
         StrikeSettings = new StrikeSettings(settings);
+
+        StrikeSettings.AnchorToRaidPanel.SettingChanged += (_, e) => AlignStrikesWithRaidPanel();
     }
 
     public void CopyRaidVisualsToDungeons() => DungeonSettings.Style = RaidSettings.Style;
     public void CopyRaidVisualsToStrikes() => StrikeSettings.Style = RaidSettings.Style;
 
-    // public void AlignStrikesWithRaidPanel()
-    // {
-    //     var raidPanel = Service.RaidsPanel;
-    //     var strikeLoc = StrikeSettings.Generic.Location;
-    //
-    //     var padding = raidPanel.ControlPadding.ToPoint();
-    //
-    //     strikeLoc.Value = RaidSettings.Style.Layout switch
-    //     {
-    //         { Value: Layout.Horizontal or Layout.SingleRow } => raidPanel.Location + new Point(raidPanel.Size.X + padding.X, 0),
-    //         { Value: Layout.Vertical or Layout.SingleColumn } => raidPanel.Location + new Point(0, raidPanel.Size.Y + padding.Y),
-    //         _ => strikeLoc.Value
-    //     };
-    // }
+    public void AlignStrikesWithRaidPanel()
+    {
+        var raidPanel = Service.RaidWindow;
+        var strikeLoc = StrikeSettings.Generic.Location;
+   
+        var padding = raidPanel.ControlPadding.ToPoint();
+   
+        strikeLoc.Value = RaidSettings.Style.Layout switch
+        {
+            { Value: Layout.Horizontal or Layout.SingleRow } => raidPanel.Location + new Point(raidPanel.Size.X + padding.X, 0),
+            { Value: Layout.Vertical or Layout.SingleColumn } => raidPanel.Location + new Point(0, raidPanel.Size.Y + padding.Y),
+            _ => strikeLoc.Value
+       };
+    }
 }
