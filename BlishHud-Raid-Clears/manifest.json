@@ -21,6 +21,9 @@
       "url": "https://github.com/MidoriKami"
     }
   ],
+  "directories": [
+    "strikes"
+  ],
   "enabled_without_gw2": false,
   "api_permissions": {
     "account": {

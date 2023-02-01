@@ -24,6 +24,10 @@ public class TextureService : IDisposable
         SettingTabDungeon = contentsManager.GetTexture(@"controls/tab_icons/dungeon.png");
         SettingTabGeneral = contentsManager.GetTexture(@"controls/tab_icons/cog.png");
         SettingTabStrikes = contentsManager.GetTexture(@"controls/tab_icons/strikes.png");
+
+        EoDLogo = contentsManager.GetTexture(@"eod_strikes_texture.png");
+        IBSLogo = contentsManager.GetTexture(@"ibs_strikes_texture.png");
+
     }
 
     public void Dispose()
@@ -38,9 +42,12 @@ public class TextureService : IDisposable
         SettingTabDungeon.Dispose();
         SettingTabGeneral.Dispose();
         SettingTabStrikes.Dispose();
+        EoDLogo.Dispose();
+        IBSLogo.Dispose();
 
     }
-
+    public Texture2D IBSLogo { get; }
+    public Texture2D EoDLogo { get; }
     public Texture2D SettingWindowBackground { get; }
     public Texture2D SettingWindowEmblem { get; }
     public Texture2D SettingTabRaid { get; }

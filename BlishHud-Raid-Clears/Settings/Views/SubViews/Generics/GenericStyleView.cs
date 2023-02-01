@@ -13,11 +13,13 @@ public class GenericStyleView : View
 {
     private readonly DisplayStyle _settings;
     private readonly IEnumerable<SettingEntry<string>>? _extraSettings;
+    private bool _showCopyRaids;
 
-    public GenericStyleView(DisplayStyle settings, IEnumerable<SettingEntry<string>>? extraSettings = null)
+    public GenericStyleView(DisplayStyle settings, IEnumerable<SettingEntry<string>>? extraSettings = null, bool showCopyRaids=false)
     {
         _settings = settings;
         _extraSettings = extraSettings;
+        _showCopyRaids = showCopyRaids;
     }
 
     protected override void Build(Container buildPanel)
@@ -26,7 +28,7 @@ public class GenericStyleView : View
         _settings.BgOpacity.SetRange(0.0f, 1.0f);
         _settings.LabelOpacity.SetRange(0.1f, 1.0f);
         _settings.GridOpacity.SetRange(0.1f, 1.0f);
-        new FlowPanel()
+        var panel = new FlowPanel()
             .BeginFlow(buildPanel)
             .AddSettingEnum(_settings.Layout)
             .AddSettingEnum(_settings.FontSize)
@@ -42,5 +44,22 @@ public class GenericStyleView : View
             .AddSettingColor(_settings.Color.Cleared)
             .AddSettingColor(_settings.Color.Text)
             .AddSettingColor(_extraSettings);
+
+        if (_showCopyRaids)
+        {
+            panel
+                .AddSpace()
+                .AddFlowControl(new StandardButton
+                {
+                    Text = Strings.Setting_CopyRaids,
+                    BasicTooltipText = Strings.Settngs_CopyRaidTooltip
+                }, out var CopySettingsButton);
+
+            CopySettingsButton.Click += (_, _) =>
+            {
+                Service.Settings.CopyRaidSettings(_settings);
+                CopySettingsButton.Enabled = false;
+            };
+        }
     }
 }

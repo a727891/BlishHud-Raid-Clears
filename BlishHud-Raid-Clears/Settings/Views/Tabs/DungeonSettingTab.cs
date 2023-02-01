@@ -30,7 +30,7 @@ public class DungeonSettingTab : ISettingsMenuRegistrar
             _ => new GenericStyleView(Service.Settings.DungeonSettings.Style, new List<SettingEntry<string>>
             {
                 Service.Settings.DungeonSettings.DungeonPanelColorFreq,
-            })));
+            }, true)));
         
         _registeredMenuItems.Add(new MenuViewItem(
             new MenuItem(Strings.SettingsPanel_Dun_Heading_PathSelection),

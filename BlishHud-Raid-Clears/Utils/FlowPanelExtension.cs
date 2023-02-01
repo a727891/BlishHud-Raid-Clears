@@ -170,4 +170,32 @@ public static class FlowPanelExtensions
 
         return panel;
     }
+    public static FlowPanel AddChildPanel(this FlowPanel panel, Panel child)
+    {
+        child.Parent = panel;
+
+        return panel;
+    }
+    public static FlowPanel Indent(this FlowPanel panel)
+    {
+        panel.Left = 30;
+        return panel;
+    }
+
+    public static FlowPanel AddFlowControl(this FlowPanel panel, Control control, out Control generatedControl)
+    {
+        control.Parent = panel;
+
+        panel.AddChild(control);
+        generatedControl = control;
+        return panel;
+    }
+
+    public static FlowPanel AddFlowControl(this FlowPanel panel, Control control)
+    {
+        control.Parent = panel;
+
+        panel.AddChild(control);
+        return panel;
+    }
 }

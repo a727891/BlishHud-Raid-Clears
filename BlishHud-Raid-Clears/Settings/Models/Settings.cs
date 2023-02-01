@@ -151,7 +151,7 @@ public static class Settings
 
         public static class General
         {
-            public static Setting<bool> enabled = new("RCStkEnabled", true, () => "Enable Raids Feature");
+            public static Setting<bool> enabled = new("RCStkEnabled", true, () => "Enable strikes Feature");
             public static Setting<Point> location = new("RCStkLocation", new Point(250, 250));
             public static Setting<bool> positionLock = new("RCStkDrag", true, () => Strings.Setting_Strike_Drag_Label, () => Strings.Setting_Strike_Drag_Tooltip);
             public static Setting<bool> tooltips = new("RCStktooltips", true, () => Strings.Setting_Strike_Tooltips_Label, () => Strings.Setting_Strike_Tooltips_Tooltip);
@@ -184,7 +184,7 @@ public static class Settings
             public static Setting<bool> showIbs = new("StrikeVis_ibs", true, () => Strings.Setting_Strike_IBS);
             public static Setting<bool> showEod = new("StrikeVis_eod", true, () => Strings.Setting_Strike_Eod);
             public static Setting<bool> showPriority = new("StrikeVis_priority", true, () => Strings.Setting_Stike_Priority);
-            public static Setting<bool> anchorToRaids = new("RCAnchorToRaids", false, () => "Anchor to Raid Panel", () => "Attaches Strike Panel to Raid Panel");
+            public static Setting<bool> anchorToRaids = new("RCAnchorToRaids", false, () => Strings.Settings_Strike_AnchorToRaidLabel, () => Strings.Settings_Strike_AnchorToRaidTooltip);
         }
     }
 }

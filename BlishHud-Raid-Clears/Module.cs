@@ -14,19 +14,28 @@ using Blish_HUD.Controls;
 using Blish_HUD.Input;
 using Microsoft.Xna.Framework.Input;
 using RaidClears.Localization;
+using Blish_HUD.Modules.Managers;
+using RaidClears.Features.Shared.Enums;
+using System;
+using Newtonsoft.Json;
+using RaidClears.Features.Strikes.Models;
 
 namespace RaidClears;
+
 
 [Export(typeof(Blish_HUD.Modules.Module))]
 public class Module : Blish_HUD.Modules.Module
 {
+    public static string STRIKE_DIRECTORY = "strikes";
+    internal static readonly Logger ModuleLogger = Logger.GetLogger<Module>();
     [ImportingConstructor]
     public Module([Import("ModuleParameters")] ModuleParameters moduleParameters) : base(moduleParameters)
     {
         Service.ModuleInstance = this;
         Service.ContentsManager = moduleParameters.ContentsManager;
         Service.Gw2ApiManager = moduleParameters.Gw2ApiManager;
-    }
+        Service.DirectoriesManager = moduleParameters.DirectoriesManager;
+}
 
     protected override void DefineSettings(SettingCollection settings) => Service.Settings = new SettingService(settings);
 
@@ -44,7 +53,7 @@ public class Module : Blish_HUD.Modules.Module
 
 
         Service.CornerIconService = new CornerIconService(
-            Service.Settings.RaidSettings.Generic.ToolbarIcon,
+            Service.Settings.GlobalCornerIconEnabled,
             Strings.CornerIcon_Raid,
             Service.TexturesService!.CornerIconTexture,
             Service.TexturesService!.CornerIconHoverTexture,
@@ -57,9 +66,40 @@ public class Module : Blish_HUD.Modules.Module
 
             }
         );
+        Service.CornerIconService.IconLeftClicked += (_, _) =>
+        {
+            Service.Settings.RaidSettings.Generic.ToggleVisible();
+            Service.Settings.DungeonSettings.Generic.ToggleVisible();
+            Service.Settings.StrikeSettings.Generic.ToggleVisible();
+
+        };
 
         Service.Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
 
+/*        var eventsDirectory = Service.DirectoriesManager.GetFullDirectoryPath(STRIKE_DIRECTORY);
+        var data = new Dictionary<Encounters.StrikeMission, DateTime>
+        {
+            { Encounters.StrikeMission.ColdWar, DateTime.Now },
+            { Encounters.StrikeMission.Fraenir, DateTime.Now },
+            { Encounters.StrikeMission.ShiverpeaksPass, DateTime.Now },
+            { Encounters.StrikeMission.VoiceAndClaw, DateTime.Now },
+            { Encounters.StrikeMission.Whisper, DateTime.Now },
+            { Encounters.StrikeMission.Boneskinner, DateTime.Now },
+            { Encounters.StrikeMission.AetherbladeHideout, DateTime.Now },
+            { Encounters.StrikeMission.Junkyard, DateTime.Now },
+            { Encounters.StrikeMission.Overlook, DateTime.Now },
+            { Encounters.StrikeMission.HarvestTemple, DateTime.Now },
+            { Encounters.StrikeMission.OldLionsCourt, DateTime.Now }
+        };
+        var model = new Features.Strikes.Models.StrikePersistance();
+        model.AccountClears.Add("soeed.4160", data);
+
+        ModuleLogger.Info("test message");
+        var contents = model.Save();
+        ModuleLogger.Info(contents);
+
+        var newPersistance = JsonConvert.DeserializeObject<StrikePersistance>(contents);
+        ModuleLogger.Info("deserializedone");*/
         return Task.CompletedTask;
 
         /*GameService.Overlay.UserLocaleChanged += (s, e) =>

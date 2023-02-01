@@ -4,20 +4,20 @@ namespace RaidClears.Utils;
 
 public static class ContainerExtensions
 {
-    public static Control AddControl(this Container container, Control control, out Control generatedControl)
+    public static Container AddControl(this Container container, Control control, out Control generatedControl)
     {
         control.Parent = container;
-        
+
         container.AddChild(control);
         generatedControl = control;
-        return control;
+        return container;
     }
-    
-    public static Control AddControl(this Container container, Control control)
+
+    public static Container AddControl(this Container container, Control control)
     {
         control.Parent = container;
-        
+
         container.AddChild(control);
-        return control;
+        return container;
     }
 }

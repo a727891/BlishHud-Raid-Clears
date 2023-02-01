@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Input;
 using RaidClears.Settings.Enums;
 using RaidClears.Settings.Models;
 using Microsoft.Xna.Framework;
+using System.Runtime.Serialization.Formatters;
 
 namespace RaidClears.Settings.Services;
 
@@ -12,6 +13,7 @@ public class SettingService // singular because Setting"s"Service already exists
 {
     public SettingEntry<ApiPollPeriod> ApiPollingPeriod { get; }
     public SettingEntry<KeyBinding> SettingsPanelKeyBind { get; }
+    public SettingEntry<bool> GlobalCornerIconEnabled { get; }
     public RaidSettings RaidSettings { get; }
     public DungeonSettings DungeonSettings { get; }
     public StrikeSettings StrikeSettings { get; }
@@ -29,15 +31,35 @@ public class SettingService // singular because Setting"s"Service already exists
         () => Strings.Settings_Keybind_tooltip);
         SettingsPanelKeyBind.Value.Enabled = true;
 
+        GlobalCornerIconEnabled = settings.DefineSetting("RCGlobalCornerIcon",
+            true,
+            () => Strings.Setting_CornerIconEnable,
+            () => Strings.Setting_CornerIconEnableTooltip);
+
         RaidSettings = new RaidSettings(settings);
         DungeonSettings = new DungeonSettings(settings);
         StrikeSettings = new StrikeSettings(settings);
 
-        StrikeSettings.AnchorToRaidPanel.SettingChanged += (_, e) => AlignStrikesWithRaidPanel();
+        StrikeSettings.AnchorToRaidPanel.SettingChanged += (_, e) => { if (e.NewValue) AlignStrikesWithRaidPanel(); };
+        RaidSettings.Generic.Location.SettingChanged += (_, e) => { if (StrikeSettings.AnchorToRaidPanel.Value) AlignStrikesWithRaidPanel(); };
     }
 
-    public void CopyRaidVisualsToDungeons() => DungeonSettings.Style = RaidSettings.Style;
-    public void CopyRaidVisualsToStrikes() => StrikeSettings.Style = RaidSettings.Style;
+    public void CopyRaidSettings(DisplayStyle settings)
+    {
+        settings.Layout.Value = RaidSettings.Style.Layout.Value;
+        settings.LabelDisplay.Value = RaidSettings.Style.LabelDisplay.Value;
+        settings.LabelOpacity.Value = RaidSettings.Style.LabelOpacity.Value;
+        settings.GridOpacity.Value = RaidSettings.Style.GridOpacity.Value;
+        settings.BgOpacity.Value = RaidSettings.Style.BgOpacity.Value;
+        settings.FontSize.Value = RaidSettings.Style.FontSize.Value;
+
+
+        settings.Color.Background.Value = RaidSettings.Style.Color.Background.Value;
+        settings.Color.NotCleared.Value = RaidSettings.Style.Color.NotCleared.Value;
+        settings.Color.Cleared.Value = RaidSettings.Style.Color.Cleared.Value;
+        settings.Color.Text.Value = RaidSettings.Style.Color.Text.Value;
+
+    }
 
     public void AlignStrikesWithRaidPanel()
     {

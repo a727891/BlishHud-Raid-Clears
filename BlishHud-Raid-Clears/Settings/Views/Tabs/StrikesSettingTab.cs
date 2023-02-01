@@ -25,10 +25,10 @@ public class StrikesSettingTab : ISettingsMenuRegistrar
                 Service.Settings.StrikeSettings.AnchorToRaidPanel
             })
         ));
-        
+
         _registeredMenuItems.Add(new MenuViewItem(
             new MenuItem(Strings.SettingsPanel_Raids_Heading_Layout),
-            _ => new GenericStyleView(Service.Settings.StrikeSettings.Style)
+            _ => new GenericStyleView(Service.Settings.StrikeSettings.Style, null, true)
         ));
         
         _registeredMenuItems.Add(new MenuViewItem(

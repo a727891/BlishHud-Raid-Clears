@@ -29,12 +29,12 @@ public class CornerIconToggleMenuItem: ContextMenuStripItem
 }
 public class CornerIconService : IDisposable
 {
+    public event EventHandler<bool>? IconLeftClicked;
     public CornerIconService(SettingEntry<bool> cornerIconIsVisibleSetting,
                              string tooltip,
                              Texture2D defaultTexture,
                              Texture2D hoverTexture,
                              IEnumerable<CornerIconToggleMenuItem> contextMenuItems
-                            // Func<object,MouseEventArgs> leftClickDelegate
     )
     {
         _tooltip                     = tooltip;
@@ -42,7 +42,6 @@ public class CornerIconService : IDisposable
         _cornerIconTexture           = defaultTexture;
         _cornerIconHoverTexture      = hoverTexture;
         _contextMenuItems = contextMenuItems;
-        //_leftClickDelegate = leftClickDelegate;
         cornerIconIsVisibleSetting.SettingChanged += OnCornerIconIsVisibleSettingChanged;
 
         if (cornerIconIsVisibleSetting.Value)
@@ -90,9 +89,8 @@ public class CornerIconService : IDisposable
     }
     private void OnCornerIconClicked(object sender, MouseEventArgs e)
     {
-        //_leftClickDelegate(sender, e);
+        IconLeftClicked?.Invoke(this,true);
     }
-    //private Func<object, MouseEventArgs> _leftClickDelegate;
     private readonly IEnumerable<CornerIconToggleMenuItem> _contextMenuItems;
     private readonly Texture2D _cornerIconTexture;
     private readonly Texture2D _cornerIconHoverTexture;

@@ -14,4 +14,12 @@ public class GenericSettings
     public SettingEntry<bool> ToolbarIcon { get; set; }
     public SettingEntry<bool> Visible { get; set; }
     public SettingEntry<KeyBinding> ShowHideKeyBind { get; set; }
+
+    public void ToggleVisible()
+    {
+        if(ToolbarIcon.Value)
+        {
+            Visible.Value = !Visible.Value;
+        }
+    }
 }

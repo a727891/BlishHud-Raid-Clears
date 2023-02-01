@@ -134,7 +134,7 @@
     <value>Raid Clears</value>
   </data>
   <data name="Raid_OverlayEnable" xml:space="preserve">
-    <value>Enable raid overlay</value>
+    <value>Show/hide raid overlay</value>
     <comment>Setting label for making the raid overlay visible</comment>
   </data>
   <data name="Raid_Wing_1" xml:space="preserve">
@@ -388,6 +388,12 @@
   <data name="Settings_RefreshNow" xml:space="preserve">
     <value>Refresh now</value>
   </data>
+  <data name="Settings_Strike_AnchorToRaidLabel" xml:space="preserve">
+    <value>Anchor strikes to the raid overlay</value>
+  </data>
+  <data name="Settings_Strike_AnchorToRaidTooltip" xml:space="preserve">
+    <value>The strikes overlay will attach to the raid overlay when the raid overlay is moved</value>
+  </data>
   <data name="Settings_Strike_EOD_Heading" xml:space="preserve">
     <value>Enable individual End of Dragons strikes</value>
   </data>
@@ -399,6 +405,18 @@
   </data>
   <data name="Setting_APIPoll_Tooltip" xml:space="preserve">
     <value>How often should the GW2 API be checked for updated information</value>
+  </data>
+  <data name="Setting_CopyRaids" xml:space="preserve">
+    <value>Match raid settings</value>
+  </data>
+  <data name="Setting_CornerIconEnable" xml:space="preserve">
+    <value>Enable menubar icon</value>
+  </data>
+  <data name="Setting_CornerIconEnableTooltip" xml:space="preserve">
+    <value>Add a menubar icon next to Blish in the top-left of your screen</value>
+  </data>
+  <data name="Setting_cornerIconHelpText" xml:space="preserve">
+    <value>Which overlays should Hide/Show when you left click the menu icon?</value>
   </data>
   <data name="Setting_Dun_ColFreqText_Label" xml:space="preserve">
     <value>Frequenter text color</value>
@@ -422,10 +440,10 @@
     <value>Enable/Disable all dungeon features</value>
   </data>
   <data name="Setting_Dun_Icon_Label" xml:space="preserve">
-    <value>Enable dungeon toolbar button</value>
+    <value>Dungeons hide/show on menubar icon click</value>
   </data>
   <data name="Setting_Dun_Icon_Tooltip" xml:space="preserve">
-    <value>Add a button next to Blish on the top left of screen that Shows/Hides the dungeon overlay</value>
+    <value>Dungeon overlay hides/shows when clicking the icon next to Blish in the top-left of the screen</value>
   </data>
   <data name="Setting_Dun_Keybind_Label" xml:space="preserve">
     <value>Show/Hide keybind</value>
@@ -434,7 +452,7 @@
     <value />
   </data>
   <data name="Setting_Dun_Tooltips_Label" xml:space="preserve">
-    <value>Enable mouse hover tooltips on overlay</value>
+    <value>Enable mouse hover tooltips on the overlay</value>
   </data>
   <data name="Setting_Dun_Tooltips_Tooltip" xml:space="preserve">
     <value>Hovering the mouse over an path will display the full name</value>
@@ -512,10 +530,10 @@
     <value>Hidden &lt;---&gt; Fully Visible</value>
   </data>
   <data name="Setting_Raid_Icon_Label" xml:space="preserve">
-    <value>Enable raid toolbar button</value>
+    <value>Raids hide/show on menubar icon click</value>
   </data>
   <data name="Setting_Raid_Icon_Tooltip" xml:space="preserve">
-    <value>Add a button next to Blish on the top left of screen that Shows/Hides the raid overlay</value>
+    <value>Raids overlay hides/shows when clicking the icon next to Blish in the top-left of the screen</value>
   </data>
   <data name="Setting_Raid_Keybind_Label" xml:space="preserve">
     <value>Show/Hide keybind</value>
@@ -554,7 +572,7 @@
     <value>Hovering the mouse over an encounter will display the full name</value>
   </data>
   <data name="Setting_Raid_Visible_Label" xml:space="preserve">
-    <value>Enable raid overlay</value>
+    <value>Show Raids overlay</value>
   </data>
   <data name="Setting_Raid_Visible_Tooltip" xml:space="preserve">
     <value>Show the raid overlay on screen</value>
@@ -602,46 +620,37 @@
     <value>Enable The Key of Ahdashim on the raid overlay</value>
   </data>
   <data name="Setting_Stike_Priority" xml:space="preserve">
-    <value>Enable priority stike missions (daily)</value>
+    <value>Enable priority strike missions (daily)</value>
   </data>
   <data name="Setting_Strike_AH_Label" xml:space="preserve">
     <value>Aetherblade Hideout</value>
-  </data>
-  <data name="Setting_Strike_AlignWithRaids" xml:space="preserve">
-    <value>Align with raids overlay</value>
-  </data>
-  <data name="Setting_Strike_AppendToRaid_Label" xml:space="preserve">
-    <value>Add Strikes to Raid overlay</value>
-  </data>
-  <data name="Setting_Strike_AppendToRaid_Tooltip" xml:space="preserve">
-    <value>append the stikes to the end of the raids overlay</value>
   </data>
   <data name="Setting_Strike_BS_Label" xml:space="preserve">
     <value>Boneskinner</value>
   </data>
   <data name="Setting_Strike_ColBG_Label" xml:space="preserve">
-    <value />
+    <value>Overlay background color</value>
   </data>
   <data name="Setting_Strike_ColBG_Tooltip" xml:space="preserve">
-    <value />
+    <value>Strike overlay background color</value>
   </data>
   <data name="Setting_Strike_ColClear_Label" xml:space="preserve">
-    <value />
+    <value>Cleared encounter color</value>
   </data>
   <data name="Setting_Strike_ColClear_Tooltip" xml:space="preserve">
-    <value />
+    <value>Hex color code (#rrggbb) for Encounters that have been cleared this reset</value>
   </data>
   <data name="Setting_Strike_ColNotClear_Label" xml:space="preserve">
-    <value />
+    <value>Not-cleared encounter color</value>
   </data>
   <data name="Setting_Strike_ColNotClear_Tooltip" xml:space="preserve">
-    <value />
+    <value>Hex color code (#rrggbb) for Encounters that have not been cleared this week</value>
   </data>
   <data name="Setting_Strike_ColText_Label" xml:space="preserve">
-    <value />
+    <value>Label and Grid text color</value>
   </data>
   <data name="Setting_Strike_ColText_Tooltip" xml:space="preserve">
-    <value />
+    <value>Hex color code (#rrggbb) for label and grid text</value>
   </data>
   <data name="Setting_Strike_CopyRaids" xml:space="preserve">
     <value>Copy layout from raids</value>
@@ -650,10 +659,10 @@
     <value>Cold War</value>
   </data>
   <data name="Setting_Strike_Drag_Label" xml:space="preserve">
-    <value />
+    <value>Unlock Strike overlay position</value>
   </data>
   <data name="Setting_Strike_Drag_Tooltip" xml:space="preserve">
-    <value />
+    <value>Click and drag to reposition the overlay window</value>
   </data>
   <data name="Setting_Strike_Eod" xml:space="preserve">
     <value>Enable End of Dragons</value>
@@ -662,16 +671,16 @@
     <value>Fraenir of Jormag</value>
   </data>
   <data name="Setting_Strike_Font_Label" xml:space="preserve">
-    <value />
+    <value>Grid size</value>
   </data>
   <data name="Setting_Strike_Font_Tooptip" xml:space="preserve">
-    <value />
+    <value>Change the size of the grid</value>
   </data>
   <data name="Setting_Strike_GridOpacity_Label" xml:space="preserve">
-    <value />
+    <value>Grid opacity</value>
   </data>
   <data name="Setting_Strike_GridOpactiy_Tooltip" xml:space="preserve">
-    <value />
+    <value>Hidden &lt;---&gt; Fully Visible</value>
   </data>
   <data name="Setting_Strike_HT_Label" xml:space="preserve">
     <value>Harvest Temple</value>
@@ -680,13 +689,13 @@
     <value>Enable Icebrood Saga</value>
   </data>
   <data name="Setting_Strike_Icon_Label" xml:space="preserve">
-    <value />
+    <value>Strikes hide/show on menubar icon click</value>
   </data>
   <data name="Setting_Strike_Icon_Tooltip" xml:space="preserve">
-    <value />
+    <value>Strikes overlay hides/shows when clicking the icon next to Blish in the top-left of the screen</value>
   </data>
   <data name="Setting_Strike_Keybind_Label" xml:space="preserve">
-    <value />
+    <value>Show/Hide keybind</value>
   </data>
   <data name="Setting_Strike_Keybind_Tooltip" xml:space="preserve">
     <value />
@@ -695,19 +704,19 @@
     <value>Kaineng Overlook</value>
   </data>
   <data name="Setting_Strike_LabelDisplay_Label" xml:space="preserve">
-    <value />
+    <value>Label style</value>
   </data>
   <data name="Setting_Strike_LabelDisplay_Tooltip" xml:space="preserve">
     <value />
   </data>
   <data name="Setting_Strike_LabelOpacity_Label" xml:space="preserve">
-    <value />
+    <value>Label opacity</value>
   </data>
   <data name="Setting_Strike_LabelOpacity_Tooltip" xml:space="preserve">
-    <value />
+    <value>Hidden &lt;---&gt; Fully Visible</value>
   </data>
   <data name="Setting_Strike_Layout_Label" xml:space="preserve">
-    <value />
+    <value>Grid layout</value>
   </data>
   <data name="Setting_Strike_Layout_Tooltip" xml:space="preserve">
     <value />
@@ -716,34 +725,37 @@
     <value>Old Lion's Court</value>
   </data>
   <data name="Setting_Strike_PanelOpacity_Label" xml:space="preserve">
-    <value />
+    <value>Grid background opacity</value>
   </data>
   <data name="Setting_Strike_PanelOpacity_Tooltip" xml:space="preserve">
-    <value />
+    <value>Hidden &lt;---&gt; Fully Visible</value>
   </data>
   <data name="Setting_Strike_SP_Label" xml:space="preserve">
     <value>Shiverpeaks Pass</value>
   </data>
   <data name="Setting_Strike_Tooltips_Label" xml:space="preserve">
-    <value />
+    <value>Enable mouse hover tooltips on overlay</value>
   </data>
   <data name="Setting_Strike_Tooltips_Tooltip" xml:space="preserve">
-    <value />
+    <value>Hovering the mouse over an encounter will display the full name</value>
   </data>
   <data name="Setting_Strike_VandC_Label" xml:space="preserve">
     <value>Voice and Claw of the Fallen</value>
   </data>
   <data name="Setting_Strike_Visible_Label" xml:space="preserve">
-    <value />
+    <value>Show strikes overlay</value>
   </data>
   <data name="Setting_Strike_Visible_Tooltip" xml:space="preserve">
-    <value />
+    <value>Show the strikes overlay on screen</value>
   </data>
   <data name="Setting_Strike_WoJ_Label" xml:space="preserve">
     <value>Whisper of Jormag</value>
   </data>
   <data name="Setting_Strike_XJJ_Label" xml:space="preserve">
     <value>Xunlai Jade Junkyard</value>
+  </data>
+  <data name="Settngs_CopyRaidTooltip" xml:space="preserve">
+    <value>Make all settings match the coresponding values from Raids overlay</value>
   </data>
   <data name="SharedKeybind" xml:space="preserve">
     <value>Overlays can use the same keybind</value>
