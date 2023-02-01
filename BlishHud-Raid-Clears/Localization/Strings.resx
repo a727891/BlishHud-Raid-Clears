@@ -131,7 +131,7 @@
     <comment>Open Settings panel button text in the Blish module settings</comment>
   </data>
   <data name="Module_Title" xml:space="preserve">
-    <value>Raid Clears</value>
+    <value>Clears Tracker</value>
   </data>
   <data name="Raid_OverlayEnable" xml:space="preserve">
     <value>Show/hide raid overlay</value>
@@ -379,11 +379,20 @@
   <data name="SettingsPanel_Tab_Strikes" xml:space="preserve">
     <value>Strikes</value>
   </data>
+  <data name="Settings_Dungeon_Heading" xml:space="preserve">
+    <value>Enable individual Dungeons</value>
+  </data>
   <data name="Settings_Keybind_Label" xml:space="preserve">
     <value>Settings window keybind</value>
   </data>
   <data name="Settings_Keybind_tooltip" xml:space="preserve">
     <value>Show/Hide this window with a keybind</value>
+  </data>
+  <data name="Settings_Raid_Hot_Heading" xml:space="preserve">
+    <value>Enable individual Heart of Thorns raid wings</value>
+  </data>
+  <data name="Settings_Raid_PoF_Heading" xml:space="preserve">
+    <value>Enable individual Path of Fire raid wings</value>
   </data>
   <data name="Settings_RefreshNow" xml:space="preserve">
     <value>Refresh now</value>

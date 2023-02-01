@@ -41,6 +41,7 @@ public class StrikeSelectionView : View
                     BackgroundTexture = Service.TexturesService!.IBSLogo
 
                 }
+                    .AddSpace()
                     .AddString(Strings.Settings_Strike_IBS_Heading)
                     .AddSetting(_settings.IbsMissions)
                     .AddSpace()
@@ -60,8 +61,10 @@ public class StrikeSelectionView : View
                     BackgroundTexture = Service.TexturesService!.EoDLogo
 
                 }
+                .AddSpace()
                 .AddString(Strings.Settings_Strike_EOD_Heading)
                 .AddSetting(_settings.EodMissions)
+                .AddSpace()
                 .AddSpace()
             );
 

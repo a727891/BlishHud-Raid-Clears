@@ -27,6 +27,9 @@ public class TextureService : IDisposable
 
         EoDLogo = contentsManager.GetTexture(@"eod_strikes_texture.png");
         IBSLogo = contentsManager.GetTexture(@"ibs_strikes_texture.png");
+        PoFLogo = contentsManager.GetTexture(@"pof_raids_texture.png");
+        HoTLogo = contentsManager.GetTexture(@"hot_raids_texture.png");
+        BaseLogo = contentsManager.GetTexture(@"base_game_texture.png");
 
     }
 
@@ -44,10 +47,16 @@ public class TextureService : IDisposable
         SettingTabStrikes.Dispose();
         EoDLogo.Dispose();
         IBSLogo.Dispose();
+        PoFLogo.Dispose();
+        HoTLogo.Dispose();
+        BaseLogo.Dispose();
 
     }
-    public Texture2D IBSLogo { get; }
     public Texture2D EoDLogo { get; }
+    public Texture2D IBSLogo { get; }
+    public Texture2D PoFLogo { get; }
+    public Texture2D HoTLogo { get; }
+    public Texture2D BaseLogo { get; }
     public Texture2D SettingWindowBackground { get; }
     public Texture2D SettingWindowEmblem { get; }
     public Texture2D SettingTabRaid { get; }

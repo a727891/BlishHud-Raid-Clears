@@ -16,6 +16,6 @@ public class ModuleMainSettingsView: View
             Size = buildPanel.Size.Scale(0.20f),
             Location = buildPanel.Size.Half() - buildPanel.Size.Scale(0.20f).Half(),
             
-        }).Click += (_, _) => Service.SettingsWindow.ToggleWindow();
+        }).Click += (_, _) => Service.SettingsWindow.Show();
     }
 }

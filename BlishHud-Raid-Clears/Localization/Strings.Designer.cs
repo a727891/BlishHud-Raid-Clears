@@ -88,7 +88,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Raid Clears.
+        ///   Looks up a localized string similar to Clears Tracker.
         /// </summary>
         internal static string Module_Title {
             get {
@@ -1771,6 +1771,15 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enable individual Dungeons.
+        /// </summary>
+        internal static string Settings_Dungeon_Heading {
+            get {
+                return ResourceManager.GetString("Settings_Dungeon_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings window keybind.
         /// </summary>
         internal static string Settings_Keybind_Label {
@@ -1785,6 +1794,24 @@ namespace RaidClears.Localization {
         internal static string Settings_Keybind_tooltip {
             get {
                 return ResourceManager.GetString("Settings_Keybind_tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable individual Heart of Thorns raid wings.
+        /// </summary>
+        internal static string Settings_Raid_Hot_Heading {
+            get {
+                return ResourceManager.GetString("Settings_Raid_Hot_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable individual Path of Fire raid wings.
+        /// </summary>
+        internal static string Settings_Raid_PoF_Heading {
+            get {
+                return ResourceManager.GetString("Settings_Raid_PoF_Heading", resourceCulture);
             }
         }
         

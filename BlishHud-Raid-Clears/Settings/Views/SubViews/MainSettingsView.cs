@@ -24,6 +24,11 @@ public class MainSettingsView : View
             }, out var refreshButton)
             .AddSpace()
             .AddSpace()
+            .AddFlowControl( new Image()
+            {
+                Texture = Service.TexturesService!.CornerIconTexture,
+                Size= new(48,48)
+            })
             .AddSetting(Service.Settings.GlobalCornerIconEnabled);
 
         panel.AddChildPanel(

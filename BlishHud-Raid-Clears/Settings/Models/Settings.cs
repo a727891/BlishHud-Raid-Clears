@@ -33,7 +33,7 @@ public static class Settings
         public static class General
         {
             public static Setting<bool> enable = new("RCDungeonEnable", true, () => Strings.Setting_Dun_Enabled, () => Strings.Setting_Dun_Enabled_Tooltip);
-            public static Setting<Point> location = new("RCDungeonLoc", new Point(250, 410));
+            public static Setting<Point> location = new("RCDungeonLoc", new Point(250, 500));
             public static Setting<bool> positionLock = new("RCDunDrag", true, () => Strings.Setting_Dun_Drag_Label, () => Strings.Setting_Dun_Drag_Tooltip);
             public static Setting<bool> tooltips = new("RCDuntooltips", true, () => Strings.Setting_Dun_Tooltips_Label, () => Strings.Setting_Dun_Tooltips_Tooltip);
             public static Setting<bool> toolbarIcon = new("RCDungeonCornerIcon", true, () => Strings.Setting_Dun_Icon_Label, () => Strings.Setting_Dun_Icon_Tooltip);
@@ -84,7 +84,7 @@ public static class Settings
         public static class General
         {
             public static Setting<bool> enabled = new("RCRaidEnabled", true, () => "Enable Raids Feature");
-            public static Setting<Point> location = new("RCLocation", new Point(250, 250));
+            public static Setting<Point> location = new("RCLocation", new Point(250, 210));
             public static Setting<bool> positionLock = new("RCDrag", true, () => Strings.Setting_Raid_Drag_Label, () => Strings.Setting_Raid_Drag_Tooltip);
             public static Setting<bool> tooltips = new("RCtooltips", true, () => Strings.Setting_Raid_Tooltips_Label, () => Strings.Setting_Raid_Tooltips_Tooltip);
             public static Setting<bool> toolbarIcon = new("RCCornerIcon", true, () => Strings.Setting_Raid_Icon_Label, () => Strings.Setting_Raid_Icon_Tooltip);
@@ -152,7 +152,7 @@ public static class Settings
         public static class General
         {
             public static Setting<bool> enabled = new("RCStkEnabled", true, () => "Enable strikes Feature");
-            public static Setting<Point> location = new("RCStkLocation", new Point(250, 250));
+            public static Setting<Point> location = new("RCStkLocation", new Point(250, 390));
             public static Setting<bool> positionLock = new("RCStkDrag", true, () => Strings.Setting_Strike_Drag_Label, () => Strings.Setting_Strike_Drag_Tooltip);
             public static Setting<bool> tooltips = new("RCStktooltips", true, () => Strings.Setting_Strike_Tooltips_Label, () => Strings.Setting_Strike_Tooltips_Tooltip);
             public static Setting<bool> toolbarIcon = new("RCStkCornerIcon", true, () => Strings.Setting_Strike_Icon_Label, () => Strings.Setting_Strike_Icon_Tooltip);

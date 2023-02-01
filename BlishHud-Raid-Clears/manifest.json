@@ -1,10 +1,10 @@
 {
-  "name": "Raid Clears",
+  "name": "Clears Tracker",
   "version": "1.4.1",
   "namespace": "Soeed.RaidClears",
   "package": "BlishHud-Raid-Clears.dll",
   "manifest_version": 1,
-  "description": "Displays an overlay with your current weekly Raid clear and daily Dungeon progress.\n",
+  "description": "Track your daily and weekly PvE instance clears\nRaids, Strikes, and Dungeons\n\nformerly called 'Raid Clears'",
   "dependencies": {
     "bh.blishhud": ">=1.0.0"
   },
@@ -22,7 +22,7 @@
     }
   ],
   "directories": [
-    "strikes"
+    "clearsTracker"
   ],
   "enabled_without_gw2": false,
   "api_permissions": {

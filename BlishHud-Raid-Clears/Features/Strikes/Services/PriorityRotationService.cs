@@ -25,7 +25,8 @@ public class StrikeInfo
 public static class PriorityRotationService
 {
 
-    private static int BOTH_AT_INDEX_0_TIMESTAMP = 1672617600; //Mon Jan 02 2023 00:00:00 GMT+0000
+    //private static int BOTH_AT_INDEX_0_TIMESTAMP = 1672617600; //Mon Jan 02 2023 00:00:00 GMT+0000
+    private static int BOTH_AT_INDEX_0_TIMESTAMP = 1675123200; //Tue Jan 31 2023 00:00:00 GMT+0000
     private static int DAILY_SECONDS = 86400;
     private static int NUMBER_OF_IBS_STRIKES = 6;
     private static int NUMBER_OF_EOD_STRIKES = 5;

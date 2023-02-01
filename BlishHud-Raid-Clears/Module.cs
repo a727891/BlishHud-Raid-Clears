@@ -26,7 +26,7 @@ namespace RaidClears;
 [Export(typeof(Blish_HUD.Modules.Module))]
 public class Module : Blish_HUD.Modules.Module
 {
-    public static string STRIKE_DIRECTORY = "strikes";
+    public static string DIRECTORY_PATH = "clearsTracker";
     internal static readonly Logger ModuleLogger = Logger.GetLogger<Module>();
     [ImportingConstructor]
     public Module([Import("ModuleParameters")] ModuleParameters moduleParameters) : base(moduleParameters)
@@ -54,7 +54,7 @@ public class Module : Blish_HUD.Modules.Module
 
         Service.CornerIconService = new CornerIconService(
             Service.Settings.GlobalCornerIconEnabled,
-            Strings.CornerIcon_Raid,
+            Strings.Module_Title,
             Service.TexturesService!.CornerIconTexture,
             Service.TexturesService!.CornerIconHoverTexture,
             new List<CornerIconToggleMenuItem>()
@@ -76,7 +76,7 @@ public class Module : Blish_HUD.Modules.Module
 
         Service.Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
 
-/*        var eventsDirectory = Service.DirectoriesManager.GetFullDirectoryPath(STRIKE_DIRECTORY);
+/*        var eventsDirectory = Service.DirectoriesManager.GetFullDirectoryPath(DIRECTORY_PATH);
         var data = new Dictionary<Encounters.StrikeMission, DateTime>
         {
             { Encounters.StrikeMission.ColdWar, DateTime.Now },

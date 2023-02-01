@@ -1,5 +1,6 @@
 ﻿using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
+using RaidClears.Localization;
 using RaidClears.Settings.Models;
 using RaidClears.Utils;
 
@@ -13,15 +14,26 @@ public class DungeonPathSelectionView : View
     {
         _settings = settings;
     }
-    
+
     protected override void Build(Container buildPanel)
     {
         base.Build(buildPanel);
 
-        new FlowPanel()
+        var panel = new FlowPanel()
             .BeginFlow(buildPanel)
+            .AddString(Strings.Settings_Dungeon_Heading)
             .AddSetting(_settings.DungeonPaths)
             .AddSpace()
             .AddSetting(_settings.DungeonFrequenterVisible);
+
+        new Image()
+        {
+            Texture = Service.TexturesService!.BaseLogo,
+            Parent = buildPanel,
+            Location = new(300, 30),
+            Size = new(200,200)
+
+
+        };
     }
 }
