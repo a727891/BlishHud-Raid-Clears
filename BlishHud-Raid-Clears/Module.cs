@@ -44,19 +44,24 @@ public class Module : Blish_HUD.Modules.Module
     protected override Task LoadAsync()
     {
         Service.ApiPollingService = new ApiPollService(Service.Settings.ApiPollingPeriod);
-        Service.TexturesService = new TextureService(Service.ContentsManager);
+        Service.Textures = new TextureService(Service.ContentsManager);
+
+        Service.StrikeConfirmWindow = new Features.Strikes.StrikeConfirmationPanel();
+
+        Service.MapWatcher = new Features.Strikes.Services.MapWatcherService();
 
         Service.SettingsWindow = new SettingsPanel();
-        Service.RaidWindow = new();
-        Service.StrikesWindow = new();
-        Service.DungeonWindow = new();
+        Service.RaidWindow = new Features.Raids.RaidPanel();
+        Service.StrikesWindow = new Features.Strikes.StrikesPanel ();
+        Service.DungeonWindow = new Features.Dungeons.DungeonPanel();
+        Service.StrikeConfirmWindow = new Features.Strikes.StrikeConfirmationPanel();
 
 
-        Service.CornerIconService = new CornerIconService(
+        Service.CornerIcon = new CornerIconService(
             Service.Settings.GlobalCornerIconEnabled,
             Strings.Module_Title,
-            Service.TexturesService!.CornerIconTexture,
-            Service.TexturesService!.CornerIconHoverTexture,
+            Service.Textures!.CornerIconTexture,
+            Service.Textures!.CornerIconHoverTexture,
             new List<CornerIconToggleMenuItem>()
             {
                 new CornerIconToggleMenuItem(Service.SettingsWindow, "Open Settings"),
@@ -66,7 +71,7 @@ public class Module : Blish_HUD.Modules.Module
 
             }
         );
-        Service.CornerIconService.IconLeftClicked += (_, _) =>
+        Service.CornerIcon.IconLeftClicked += (_, _) =>
         {
             Service.Settings.RaidSettings.Generic.ToggleVisible();
             Service.Settings.DungeonSettings.Generic.ToggleVisible();
@@ -115,14 +120,17 @@ public class Module : Blish_HUD.Modules.Module
         Service.Gw2ApiManager.SubtokenUpdated -= Gw2ApiManager_SubtokenUpdated;
         
         Service.ContentsManager?.Dispose();
-        Service.TexturesService?.Dispose();
+        Service.Textures?.Dispose();
         Service.ApiPollingService?.Dispose();
 
+        Service.StrikeConfirmWindow?.Dispose();
         Service.StrikesWindow?.Dispose();
         Service.DungeonWindow?.Dispose();
         Service.RaidWindow?.Dispose();
         Service.SettingsWindow?.Dispose();
-        Service.CornerIconService?.Dispose();
+        Service.CornerIcon?.Dispose();
+
+        Service.MapWatcher?.Dispose();
     }
 
     protected override void Update(GameTime gameTime)
@@ -131,6 +139,7 @@ public class Module : Blish_HUD.Modules.Module
         Service.RaidWindow?.Update();
         Service.DungeonWindow?.Update();
         Service.StrikesWindow?.Update();
+        Service.StrikeConfirmWindow.Update(gameTime);
     }
 
     private void Gw2ApiManager_SubtokenUpdated(object sender, ValueEventArgs<IEnumerable<TokenPermission>> e) => Service.ApiPollingService?.Invoke();

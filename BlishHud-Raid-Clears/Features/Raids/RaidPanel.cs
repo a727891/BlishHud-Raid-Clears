@@ -44,12 +44,12 @@ public class RaidPanel : GridPanel
         (this as GridPanel).BackgroundColorChange(Settings.Style.BgOpacity, Settings.Style.Color.Background);
 /*
         RegisterCornerIconService(
-            new CornerIconService(
+            new CornerIcon(
                 Settings.Generic.ToolbarIcon,
                 Settings.Generic.Visible,
                 Strings.CornerIcon_Raid,
-                Service.TexturesService!.CornerIconTexture,
-                Service.TexturesService!.CornerIconHoverTexture
+                Service.Textures!.CornerIconTexture,
+                Service.Textures!.CornerIconHoverTexture
             )
         );*/
         RegisterKeyBindService(

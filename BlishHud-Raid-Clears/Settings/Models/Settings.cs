@@ -185,6 +185,8 @@ public static class Settings
             public static Setting<bool> showEod = new("StrikeVis_eod", true, () => Strings.Setting_Strike_Eod);
             public static Setting<bool> showPriority = new("StrikeVis_priority", true, () => Strings.Setting_Stike_Priority);
             public static Setting<bool> anchorToRaids = new("RCAnchorToRaids", false, () => Strings.Settings_Strike_AnchorToRaidLabel, () => Strings.Settings_Strike_AnchorToRaidTooltip);
+
+            public static Setting<StrikeComplete> strikeCompletion = new("RCStrikeComplete", StrikeComplete.MAP_CHANGE, () => Strings.Settings_Strike_Completion, () => Strings.Settings_Strike_CompletionTooltip);
         }
     }
 }

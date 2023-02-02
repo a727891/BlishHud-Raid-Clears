@@ -22,6 +22,7 @@ public class StrikesSettingTab : ISettingsMenuRegistrar
             new MenuItem(Strings.SettingsPanel_Raids_Heading_General),
             _ => new GenericGeneralView(Service.Settings.StrikeSettings.Generic, new List<SettingEntry>
             {
+                Service.Settings.StrikeSettings.StrikeCompletion,
                 Service.Settings.StrikeSettings.AnchorToRaidPanel
             })
         ));

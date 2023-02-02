@@ -1843,6 +1843,24 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mark complete.
+        /// </summary>
+        internal static string Settings_Strike_Completion {
+            get {
+                return ResourceManager.GetString("Settings_Strike_Completion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Determine how strikes are marked as cleared.
+        /// </summary>
+        internal static string Settings_Strike_CompletionTooltip {
+            get {
+                return ResourceManager.GetString("Settings_Strike_CompletionTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enable individual End of Dragons strikes.
         /// </summary>
         internal static string Settings_Strike_EOD_Heading {

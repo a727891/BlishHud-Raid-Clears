@@ -34,7 +34,7 @@ public class RaidWingSelectionView : View
                ShowBorder = false,
                HeightSizingMode = SizingMode.AutoSize,
                Width = panel.Width - 40,
-               BackgroundTexture = Service.TexturesService!.HoTLogo
+               BackgroundTexture = Service.Textures!.HoTLogo
 
            }
            .AddSpace()
@@ -53,7 +53,7 @@ public class RaidWingSelectionView : View
                ShowBorder = false,
                HeightSizingMode = SizingMode.AutoSize,
                Width = panel.Width - 40,
-               BackgroundTexture = Service.TexturesService!.PoFLogo
+               BackgroundTexture = Service.Textures!.PoFLogo
 
            }
            .AddSpace()

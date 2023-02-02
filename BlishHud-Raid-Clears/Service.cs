@@ -3,6 +3,7 @@ using RaidClears.Features.Dungeons;
 using RaidClears.Features.Raids;
 using RaidClears.Features.Shared.Services;
 using RaidClears.Features.Strikes;
+using RaidClears.Features.Strikes.Services;
 using RaidClears.Settings.Controls;
 using RaidClears.Settings.Models;
 using RaidClears.Settings.Services;
@@ -16,13 +17,16 @@ public static class Service
     public static ContentsManager ContentsManager { get; set; } = null!;
     public static Gw2ApiManager Gw2ApiManager { get; set; } = null!;
     public static DirectoriesManager DirectoriesManager { get; set; } = null!;
-    public static TextureService? TexturesService { get; set; }
+    public static TextureService? Textures { get; set; }
     public static ApiPollService? ApiPollingService { get; set; }
     public static SettingsPanel SettingsWindow { get; set; } = null!;
 
     public static RaidPanel RaidWindow { get; set; } = null!;
     public static StrikesPanel StrikesWindow { get; set; } = null!;
+    public static StrikeConfirmationPanel StrikeConfirmWindow { get; set; } = null!;
     public static DungeonPanel DungeonWindow { get; set; } = null!;
 
-    public static CornerIconService CornerIconService { get; set; } = null!;
+    public static CornerIconService CornerIcon { get; set; } = null!;
+
+    public static MapWatcherService MapWatcher { get; set; } = null!;
 }

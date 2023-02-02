@@ -13,7 +13,7 @@ namespace RaidClears.Settings.Controls;
 
 public class SettingsPanel : TabbedWindow2
 {
-    private static Texture2D? Background => Service.TexturesService?.SettingWindowBackground;
+    private static Texture2D? Background => Service.Textures?.SettingWindowBackground;
 
     //Where on the background texture should the panel render
     private static Rectangle SettingPanelRegion => new()
@@ -34,7 +34,7 @@ public class SettingsPanel : TabbedWindow2
     public SettingsPanel() : base(Background, SettingPanelRegion, SettingPanelContentRegion, SettingPanelWindowSize)
     {
         Id = $"{nameof(Module)}_96b38a83-4163-4d97-b894-282406b29a48";
-        Emblem = Service.TexturesService?.SettingWindowEmblem;
+        Emblem = Service.Textures?.SettingWindowEmblem;
         Parent = GameService.Graphics.SpriteScreen;
         Title = Strings.Module_Title;
         Subtitle = Strings.SettingsPanel_Subtitle;
@@ -54,25 +54,25 @@ public class SettingsPanel : TabbedWindow2
     {
         Tabs.Add(
             new Tab(
-                Service.TexturesService?.SettingTabRaid,
+                Service.Textures?.SettingTabRaid,
                 () => new CustomSettingMenuView(new RaidsSettingTab()),
                 Strings.SettingsPanel_Tab_Raids
             ));
         
         Tabs.Add(new Tab(
-            Service.TexturesService?.SettingTabDungeon,
+            Service.Textures?.SettingTabDungeon,
             () => new CustomSettingMenuView(new DungeonSettingTab()),
                 Strings.SettingsPanel_Tab_Dunegons
             ));
         
         Tabs.Add(new Tab(
-            Service.TexturesService?.SettingTabStrikes,
+            Service.Textures?.SettingTabStrikes,
             () => new CustomSettingMenuView(new StrikesSettingTab()),
             Strings.SettingsPanel_Tab_Strikes
         ));
         
         Tabs.Add(new Tab(
-            Service.TexturesService?.SettingTabGeneral,
+            Service.Textures?.SettingTabGeneral,
             () => new MainSettingsView(),
             Strings.SettingsPanel_Tab_General
         ));

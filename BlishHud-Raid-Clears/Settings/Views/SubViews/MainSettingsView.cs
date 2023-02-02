@@ -24,11 +24,6 @@ public class MainSettingsView : View
             }, out var refreshButton)
             .AddSpace()
             .AddSpace()
-            .AddFlowControl( new Image()
-            {
-                Texture = Service.TexturesService!.CornerIconTexture,
-                Size= new(48,48)
-            })
             .AddSetting(Service.Settings.GlobalCornerIconEnabled);
 
         panel.AddChildPanel(
@@ -41,7 +36,7 @@ public class MainSettingsView : View
                 ShowBorder = false,
                 HeightSizingMode = SizingMode.AutoSize,
                 Width = panel.Width - 40,
-                //BackgroundTexture = Service.TexturesService.IBSLogo
+                //BackgroundTexture = Service.Textures.IBSLogo
 
             }
             .AddString(Strings.Setting_cornerIconHelpText)

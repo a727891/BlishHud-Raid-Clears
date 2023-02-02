@@ -403,6 +403,12 @@
   <data name="Settings_Strike_AnchorToRaidTooltip" xml:space="preserve">
     <value>The strikes overlay will attach to the raid overlay when the raid overlay is moved</value>
   </data>
+  <data name="Settings_Strike_Completion" xml:space="preserve">
+    <value>Mark complete</value>
+  </data>
+  <data name="Settings_Strike_CompletionTooltip" xml:space="preserve">
+    <value>Determine how strikes are marked as cleared</value>
+  </data>
   <data name="Settings_Strike_EOD_Heading" xml:space="preserve">
     <value>Enable individual End of Dragons strikes</value>
   </data>

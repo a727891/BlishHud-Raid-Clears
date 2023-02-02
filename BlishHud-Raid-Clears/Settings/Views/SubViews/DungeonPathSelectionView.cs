@@ -28,11 +28,10 @@ public class DungeonPathSelectionView : View
 
         new Image()
         {
-            Texture = Service.TexturesService!.BaseLogo,
+            Texture = Service.Textures!.BaseLogo,
             Parent = buildPanel,
-            Location = new(300, 30),
-            Size = new(200,200)
-
+            Location = new(300, 65),
+            Size = new Microsoft.Xna.Framework.Point(400, 278).Scale(0.5f)
 
         };
     }

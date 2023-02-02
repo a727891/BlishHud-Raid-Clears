@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Blish_HUD.Settings;
+using RaidClears.Settings.Enums;
 
 namespace RaidClears.Settings.Models;
 
@@ -10,6 +11,7 @@ public class StrikeSettings
     public SettingEntry<bool> StrikeVisibleEod { get; set; }
     public SettingEntry<bool> StrikeVisiblePriority { get; set; }
     public SettingEntry<bool> AnchorToRaidPanel { get; set; }
+    public SettingEntry<StrikeComplete> StrikeCompletion { get; set; }
     public IEnumerable<SettingEntry<bool>> IbsMissions { get; set; }
     public IEnumerable<SettingEntry<bool>> EodMissions { get; set; }
     public DisplayStyle Style { get; set; }
@@ -58,5 +60,7 @@ public class StrikeSettings
         StrikeVisiblePriority = settings.DefineSetting(Settings.Strikes.Module.showPriority);
 
         AnchorToRaidPanel = settings.DefineSetting(Settings.Strikes.Module.anchorToRaids);
+        StrikeCompletion = settings.DefineSetting(Settings.Strikes.Module.strikeCompletion);
+        
     }
 }

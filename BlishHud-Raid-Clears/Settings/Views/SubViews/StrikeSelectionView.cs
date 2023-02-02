@@ -38,7 +38,7 @@ public class StrikeSelectionView : View
                     ShowBorder = false,
                     HeightSizingMode = SizingMode.AutoSize,
                     Width = panel.Width - 40,
-                    BackgroundTexture = Service.TexturesService!.IBSLogo
+                    BackgroundTexture = Service.Textures!.IBSLogo
 
                 }
                     .AddSpace()
@@ -58,7 +58,7 @@ public class StrikeSelectionView : View
                     ShowBorder = false,
                     HeightSizingMode = SizingMode.AutoSize,
                     Width = panel.Width - 40,
-                    BackgroundTexture = Service.TexturesService!.EoDLogo
+                    BackgroundTexture = Service.Textures!.EoDLogo
 
                 }
                 .AddSpace()
@@ -68,19 +68,5 @@ public class StrikeSelectionView : View
                 .AddSpace()
             );
 
-      /*  var ibsLogo = new Image(Service.TexturesService!.IBSLogo)
-        {
-            Size = new Point(175, 175),
-            Location = new Point(250, 50),
-            Parent = buildPanel,
-
-        };*/
-       /* var eodLogo = new Image(Service.TexturesService!.EoDLogo)
-        {
-            Size = new Point(175, 175),
-            Location = new Point(250,250),
-            Parent = buildPanel,
-           
-        };*/
     }
 }

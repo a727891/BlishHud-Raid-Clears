@@ -7,6 +7,7 @@ using SharpDX.Direct3D11;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace RaidClears.Features.Strikes.Services;
 
@@ -16,6 +17,7 @@ public class MapWatcherService: IDisposable
     protected bool _enteredCombat = false;
     protected bool _leftCombat = false;
     protected string _strikeApiName = string.Empty;
+    protected string _strikeName = string.Empty;
 
     public event EventHandler<string>? LeftStrikeMapWithCombatStartAndEnd;
 
@@ -23,6 +25,18 @@ public class MapWatcherService: IDisposable
     {
         GameService.Gw2Mumble.CurrentMap.MapChanged += CurrentMap_MapChanged;
         GameService.Gw2Mumble.PlayerCharacter.IsInCombatChanged += PlayerCharacter_IsInCombatChanged;
+
+#if DEBUG
+        Task.Delay(500).ContinueWith(_ =>
+        {
+            CurrentMap_MapChanged(this, new ValueEventArgs<int>((int)MapIds.StrikeMaps.AetherbladeHideout));
+            PlayerCharacter_IsInCombatChanged(this, new ValueEventArgs<bool>(true));
+            PlayerCharacter_IsInCombatChanged(this, new ValueEventArgs<bool>(false));
+            CurrentMap_MapChanged(this, new ValueEventArgs<int>((int)-1));
+            //Service.StrikeConfirmWindow.AskComplete(_strikeName, _strikeApiName, (s) => LeftStrikeMapWithCombatStartAndEnd?.Invoke(this, s));
+
+        });
+#endif
     }
 
     protected void Reset()
@@ -31,6 +45,7 @@ public class MapWatcherService: IDisposable
         _enteredCombat = false;
         _leftCombat = false;
         _strikeApiName = string.Empty;
+        _strikeName = string.Empty;
     }
 
     private void PlayerCharacter_IsInCombatChanged(object sender, ValueEventArgs<bool> e)
@@ -52,17 +67,30 @@ public class MapWatcherService: IDisposable
             Reset();
             _isOnStrikeMap= true;
             _strikeApiName = ((MapIds.StrikeMaps)e.Value).GetApiLabel();
+            _strikeName = ((MapIds.StrikeMaps)e.Value).GetLabel();
         }
         else
         {
-            if (_isOnStrikeMap && _enteredCombat && _leftCombat)
+            switch (Service.Settings.StrikeSettings.StrikeCompletion.Value)
             {
-                //trigger update
-                LeftStrikeMapWithCombatStartAndEnd?.Invoke(this, _strikeApiName);
+                case Settings.Enums.StrikeComplete.MAP_CHANGE:
 
-                Reset();
+                    if (_isOnStrikeMap && _enteredCombat && _leftCombat)
+                    {
+                        //trigger update
+                        LeftStrikeMapWithCombatStartAndEnd?.Invoke(this, _strikeApiName);
+                    }
+                    break;
+                case Settings.Enums.StrikeComplete.POPUP:
+                    if (_isOnStrikeMap)
+                    {
+                        //Ask user
+                        Service.StrikeConfirmWindow.AskComplete(_strikeName, _strikeApiName, (s) => LeftStrikeMapWithCombatStartAndEnd?.Invoke(this,s));
+                    }
+                    break;
+                default: break;
             }
-
+            Reset();
         }
     }
 
