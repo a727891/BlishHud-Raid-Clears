@@ -23,7 +23,6 @@ public static class Service
 
     public static RaidPanel RaidWindow { get; set; } = null!;
     public static StrikesPanel StrikesWindow { get; set; } = null!;
-    public static StrikeConfirmationPanel StrikeConfirmWindow { get; set; } = null!;
     public static DungeonPanel DungeonWindow { get; set; } = null!;
 
     public static CornerIconService CornerIcon { get; set; } = null!;

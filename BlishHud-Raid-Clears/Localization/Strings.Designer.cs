@@ -2021,5 +2021,32 @@ namespace RaidClears.Localization {
                 return ResourceManager.GetString("SharedKeybind", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string Strike_Confirm_Btn_No {
+            get {
+                return ResourceManager.GetString("Strike_Confirm_Btn_No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Completed.
+        /// </summary>
+        internal static string Strike_Confirm_Btn_Yes {
+            get {
+                return ResourceManager.GetString("Strike_Confirm_Btn_Yes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Did you complete the encounter successfully?.
+        /// </summary>
+        internal static string Strike_Confirm_Message {
+            get {
+                return ResourceManager.GetString("Strike_Confirm_Message", resourceCulture);
+            }
+        }
     }
 }

@@ -1,12 +1,9 @@
 ﻿using Blish_HUD;
-using RaidClears.Features.Raids.Models;
 using RaidClears.Features.Shared.Enums;
 using RaidClears.Features.Shared.Enums.Extensions;
-using RaidClears.Features.Shared.Models;
-using SharpDX.Direct3D11;
+using RaidClears.Localization;
+using RaidClears.Shared.Controls;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace RaidClears.Features.Strikes.Services;
@@ -14,26 +11,22 @@ namespace RaidClears.Features.Strikes.Services;
 public class MapWatcherService: IDisposable
 {
     protected bool _isOnStrikeMap = false;
-    protected bool _enteredCombat = false;
-    protected bool _leftCombat = false;
+    //protected bool _enteredCombat = false;
+    //protected bool _leftCombat = false;
     protected string _strikeApiName = string.Empty;
     protected string _strikeName = string.Empty;
 
-    public event EventHandler<string>? LeftStrikeMapWithCombatStartAndEnd;
+    public event EventHandler<string>? LeftStrikeMap;
 
     public MapWatcherService()
     {
         GameService.Gw2Mumble.CurrentMap.MapChanged += CurrentMap_MapChanged;
-        GameService.Gw2Mumble.PlayerCharacter.IsInCombatChanged += PlayerCharacter_IsInCombatChanged;
 
 #if DEBUG
-        Task.Delay(500).ContinueWith(_ =>
+        Task.Delay(800).ContinueWith(_ =>
         {
-            CurrentMap_MapChanged(this, new ValueEventArgs<int>((int)MapIds.StrikeMaps.AetherbladeHideout));
-            PlayerCharacter_IsInCombatChanged(this, new ValueEventArgs<bool>(true));
-            PlayerCharacter_IsInCombatChanged(this, new ValueEventArgs<bool>(false));
+            CurrentMap_MapChanged(this, new ValueEventArgs<int>((int)MapIds.StrikeMaps.VoiceAndClaw));
             CurrentMap_MapChanged(this, new ValueEventArgs<int>((int)-1));
-            //Service.StrikeConfirmWindow.AskComplete(_strikeName, _strikeApiName, (s) => LeftStrikeMapWithCombatStartAndEnd?.Invoke(this, s));
 
         });
 #endif
@@ -42,25 +35,11 @@ public class MapWatcherService: IDisposable
     protected void Reset()
     {
         _isOnStrikeMap = false;
-        _enteredCombat = false;
-        _leftCombat = false;
         _strikeApiName = string.Empty;
         _strikeName = string.Empty;
     }
 
-    private void PlayerCharacter_IsInCombatChanged(object sender, ValueEventArgs<bool> e)
-    {
-        if(_isOnStrikeMap && e.Value) 
-        { 
-            _enteredCombat = true;
-        }
-        if(_isOnStrikeMap  && _enteredCombat && !e.Value)
-        {
-            _leftCombat = true;
-        }
-    }
-
-    private void CurrentMap_MapChanged(object sender, ValueEventArgs<int> e)
+    private async void CurrentMap_MapChanged(object sender, ValueEventArgs<int> e)
     {
         if (Enum.IsDefined(typeof(MapIds.StrikeMaps), e.Value))
         {
@@ -71,32 +50,42 @@ public class MapWatcherService: IDisposable
         }
         else
         {
-            switch (Service.Settings.StrikeSettings.StrikeCompletion.Value)
+            if (_isOnStrikeMap)
             {
-                case Settings.Enums.StrikeComplete.MAP_CHANGE:
+                switch (Service.Settings.StrikeSettings.StrikeCompletion.Value)
+                {
+                    case Settings.Enums.StrikeComplete.MAP_CHANGE:
+                            //trigger update
+                            LeftStrikeMap?.Invoke(this, _strikeApiName);
+                        break;
+                    case Settings.Enums.StrikeComplete.POPUP:
+                            //Ask user
+                            var dialog = new ConfirmDialog(
+                                $"{_strikeName}",
+                                Strings.Strike_Confirm_Message,
+                                new[] {
+                                    new ButtonDefinition(Strings.Strike_Confirm_Btn_Yes, DialogResult.OK),
+                                    new ButtonDefinition(Strings.Strike_Confirm_Btn_No, DialogResult.Cancel)
+                                });
 
-                    if (_isOnStrikeMap && _enteredCombat && _leftCombat)
-                    {
-                        //trigger update
-                        LeftStrikeMapWithCombatStartAndEnd?.Invoke(this, _strikeApiName);
-                    }
-                    break;
-                case Settings.Enums.StrikeComplete.POPUP:
-                    if (_isOnStrikeMap)
-                    {
-                        //Ask user
-                        Service.StrikeConfirmWindow.AskComplete(_strikeName, _strikeApiName, (s) => LeftStrikeMapWithCombatStartAndEnd?.Invoke(this,s));
-                    }
-                    break;
-                default: break;
+                            var result = await dialog.ShowDialog();
+                            dialog.Dispose();
+
+                            if (result == DialogResult.OK)
+                                LeftStrikeMap?.Invoke(this, _strikeApiName);
+
+                    
+                        break;
+                    default: break;
+                }
+                Reset();
             }
-            Reset();
         }
     }
 
     public void Dispose()
     {
         GameService.Gw2Mumble.CurrentMap.MapChanged -= CurrentMap_MapChanged;
-        GameService.Gw2Mumble.PlayerCharacter.IsInCombatChanged -= PlayerCharacter_IsInCombatChanged;
+        //GameService.Gw2Mumble.PlayerCharacter.IsInCombatChanged -= PlayerCharacter_IsInCombatChanged;
     }
 }

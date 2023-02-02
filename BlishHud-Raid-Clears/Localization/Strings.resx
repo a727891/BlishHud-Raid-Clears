@@ -775,4 +775,13 @@
   <data name="SharedKeybind" xml:space="preserve">
     <value>Overlays can use the same keybind</value>
   </data>
+  <data name="Strike_Confirm_Btn_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Strike_Confirm_Btn_Yes" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="Strike_Confirm_Message" xml:space="preserve">
+    <value>Did you complete the encounter successfully?</value>
+  </data>
 </root>

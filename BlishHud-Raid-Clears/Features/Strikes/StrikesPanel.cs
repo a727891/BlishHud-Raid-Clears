@@ -22,7 +22,7 @@ public class StrikesPanel : GridPanel
         _mapService = Service.MapWatcher;
         _strikes = StrikeMetaData.Create(this);
 
-        _mapService.LeftStrikeMapWithCombatStartAndEnd += _mapService_LeftStrikeMapWithCombatStartAndEnd;
+        _mapService.LeftStrikeMap += _mapService_LeftStrikeMapWithCombatStartAndEnd;
 
         (this as FlowPanel).LayoutChange(Settings.Style.Layout);
         (this as GridPanel).BackgroundColorChange(Settings.Style.BgOpacity, Settings.Style.Color.Background);
@@ -64,7 +64,7 @@ public class StrikesPanel : GridPanel
     protected override void DisposeControl()
     {
         base.DisposeControl();
-        _mapService.LeftStrikeMapWithCombatStartAndEnd -= _mapService_LeftStrikeMapWithCombatStartAndEnd;
+        _mapService.LeftStrikeMap -= _mapService_LeftStrikeMapWithCombatStartAndEnd;
         _mapService.Dispose();
     }
 }
