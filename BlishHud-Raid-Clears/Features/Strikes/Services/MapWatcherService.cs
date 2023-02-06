@@ -13,27 +13,29 @@ public class MapWatcherService: IDisposable
     protected bool _isOnStrikeMap = false;
     //protected bool _enteredCombat = false;
     //protected bool _leftCombat = false;
+    protected Encounters.StrikeMission? _strikeMission = null;
     protected string _strikeApiName = string.Empty;
     protected string _strikeName = string.Empty;
 
-    public event EventHandler<string>? LeftStrikeMap;
+    public event EventHandler<string>? StrikeCompleted;
 
     public MapWatcherService()
     {
         GameService.Gw2Mumble.CurrentMap.MapChanged += CurrentMap_MapChanged;
 
 #if DEBUG
-        Task.Delay(800).ContinueWith(_ =>
+       /* Task.Delay(800).ContinueWith(_ =>
         {
             CurrentMap_MapChanged(this, new ValueEventArgs<int>((int)MapIds.StrikeMaps.VoiceAndClaw));
             CurrentMap_MapChanged(this, new ValueEventArgs<int>((int)-1));
 
-        });
+        });*/
 #endif
     }
 
     protected void Reset()
     {
+        _strikeMission = null;
         _isOnStrikeMap = false;
         _strikeApiName = string.Empty;
         _strikeName = string.Empty;
@@ -56,12 +58,12 @@ public class MapWatcherService: IDisposable
                 {
                     case Settings.Enums.StrikeComplete.MAP_CHANGE:
                             //trigger update
-                            LeftStrikeMap?.Invoke(this, _strikeApiName);
+                            StrikeCompleted?.Invoke(this, _strikeApiName);
                         break;
                     case Settings.Enums.StrikeComplete.POPUP:
                             //Ask user
                             var dialog = new ConfirmDialog(
-                                $"{_strikeName}",
+                                _strikeName,
                                 Strings.Strike_Confirm_Message,
                                 new[] {
                                     new ButtonDefinition(Strings.Strike_Confirm_Btn_Yes, DialogResult.OK),
@@ -72,7 +74,7 @@ public class MapWatcherService: IDisposable
                             dialog.Dispose();
 
                             if (result == DialogResult.OK)
-                                LeftStrikeMap?.Invoke(this, _strikeApiName);
+                                StrikeCompleted?.Invoke(this, _strikeApiName);
 
                     
                         break;

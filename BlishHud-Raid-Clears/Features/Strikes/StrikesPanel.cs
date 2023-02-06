@@ -6,6 +6,7 @@ using RaidClears.Settings.Models;
 using Blish_HUD;
 using Blish_HUD.Controls;
 using RaidClears.Features.Strikes.Services;
+using System.Collections.Generic;
 
 namespace RaidClears.Features.Strikes;
 
@@ -13,7 +14,7 @@ public class StrikesPanel : GridPanel
 {
     private static StrikeSettings Settings => Service.Settings.StrikeSettings;
 
-    private readonly Strike[] _strikes;
+    private readonly IEnumerable<Strike> _strikes;
     private readonly MapWatcherService _mapService;
     
     public StrikesPanel() : base(Settings.Generic, GameService.Graphics.SpriteScreen)
@@ -22,7 +23,7 @@ public class StrikesPanel : GridPanel
         _mapService = Service.MapWatcher;
         _strikes = StrikeMetaData.Create(this);
 
-        _mapService.LeftStrikeMap += _mapService_LeftStrikeMapWithCombatStartAndEnd;
+        _mapService.StrikeCompleted += _mapService_LeftStrikeMapWithCombatStartAndEnd;
 
         (this as FlowPanel).LayoutChange(Settings.Style.Layout);
         (this as GridPanel).BackgroundColorChange(Settings.Style.BgOpacity, Settings.Style.Color.Background);
@@ -52,19 +53,22 @@ public class StrikesPanel : GridPanel
 
     public void ForceInvalidate()
     {
-        foreach(var strike in _strikes)
+        /*foreach(var strike in _strikes)
         {
-            if(strike.boxes.Length> 0)
+            foreach( var s in strike.boxes)
             {
-                strike.boxes[0].Box?.Parent.Invalidate();
+s               s.Box?.Parent.Invalidate();
             }
-        }
+        }*/
     }
 
     protected override void DisposeControl()
     {
         base.DisposeControl();
-        _mapService.LeftStrikeMap -= _mapService_LeftStrikeMapWithCombatStartAndEnd;
-        _mapService.Dispose();
+        _mapService.StrikeCompleted -= _mapService_LeftStrikeMapWithCombatStartAndEnd;
+        foreach(var strike in _strikes)
+        {
+            strike.Dispose();
+        }
     }
 }

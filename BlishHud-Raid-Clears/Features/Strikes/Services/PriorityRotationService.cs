@@ -11,13 +11,13 @@ namespace RaidClears.Features.Strikes.Services;
 
 public class StrikeInfo
 {
-    public Encounter encounter;
-    public List<int> mapIds;
+    public Encounter Encounter;
+    public List<int> MapIds;
 
     public StrikeInfo(Encounters.StrikeMission mission, List<int> maps)
     {
-        this.encounter = new(mission);
-        this.mapIds = maps;
+        Encounter = new(mission);
+        MapIds = maps;
     }
 
 }
@@ -32,9 +32,9 @@ public static class PriorityRotationService
     private static int NUMBER_OF_EOD_STRIKES = 5;
 
 
-    public static BoxModel[] GetPriorityEncounters()
+    public static IEnumerable<BoxModel> GetPriorityEncounters()
     {
-        return GetPriorityStrikes().Select(e => e.encounter).ToArray();
+        return GetPriorityStrikes().Select(e => e.Encounter);
     }
     public static IEnumerable<StrikeInfo> GetPriorityStrikes()
     {

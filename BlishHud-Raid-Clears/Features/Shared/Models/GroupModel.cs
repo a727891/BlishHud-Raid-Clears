@@ -1,5 +1,6 @@
 ﻿
 using RaidClears.Features.Shared.Controls;
+using System.Collections.Generic;
 
 namespace RaidClears.Features.Shared.Models;
 
@@ -8,12 +9,12 @@ public class GroupModel
     public string name;
     public int index;
     public string shortName;
-    public BoxModel[] boxes;
+    public IEnumerable<BoxModel> boxes;
 
     public GridGroup GridGroup { get; private set; }
     public GridBox GroupLabel { get; private set; }
 
-    public GroupModel(string name, int index, string shortName, BoxModel[] boxes)
+    public GroupModel(string name, int index, string shortName, IEnumerable<BoxModel>  boxes)
     {
         this.name = name;
         this.index = index;

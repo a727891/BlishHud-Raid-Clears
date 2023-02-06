@@ -11,6 +11,7 @@ using RaidClears.Settings.Services;
 using RaidClears.Features.Shared.Services;
 using RaidClears.Settings.Controls;
 using RaidClears.Localization;
+using RaidClears.Features.Strikes.Services;
 
 namespace RaidClears;
 
@@ -18,8 +19,10 @@ namespace RaidClears;
 [Export(typeof(Blish_HUD.Modules.Module))]
 public class Module : Blish_HUD.Modules.Module
 {
-    public static string DIRECTORY_PATH = "clearsTracker";
+    public static string DIRECTORY_PATH = "clearsTracker"; //Defined folder in manifest.json
+
     internal static readonly Logger ModuleLogger = Logger.GetLogger<Module>();
+
     [ImportingConstructor]
     public Module([Import("ModuleParameters")] ModuleParameters moduleParameters) : base(moduleParameters)
     {
@@ -38,6 +41,7 @@ public class Module : Blish_HUD.Modules.Module
         Service.ApiPollingService = new ApiPollService(Service.Settings.ApiPollingPeriod);
         Service.Textures = new TextureService(Service.ContentsManager);
 
+        Service.ResetWatcher = new ResetsWatcherService();
         Service.MapWatcher = new Features.Strikes.Services.MapWatcherService();
 
         Service.SettingsWindow = new SettingsPanel();
@@ -53,41 +57,44 @@ public class Module : Blish_HUD.Modules.Module
             Service.Textures!.CornerIconHoverTexture,
             new List<CornerIconToggleMenuItem>()
             {
-                new CornerIconToggleMenuItem(Service.SettingsWindow, "Open Settings"),
-                new CornerIconToggleMenuItem(Service.Settings.RaidSettings.Generic.Visible, "Raids"),
-                new CornerIconToggleMenuItem(Service.Settings.StrikeSettings.Generic.Visible, "Strikes"),
-                new CornerIconToggleMenuItem(Service.Settings.DungeonSettings.Generic.Visible, "Dungeons"),
+                new CornerIconToggleMenuItem(Service.SettingsWindow, Strings.ModuleSettings_OpenSettings),
+                new CornerIconToggleMenuItem(Service.Settings.RaidSettings.Generic.Visible, Strings.SettingsPanel_Tab_Raids),
+                new CornerIconToggleMenuItem(Service.Settings.StrikeSettings.Generic.Visible, Strings.SettingsPanel_Tab_Strikes),
+                new CornerIconToggleMenuItem(Service.Settings.DungeonSettings.Generic.Visible, Strings.SettingsPanel_Tab_Dunegons),
 
             }
         );
+
         Service.CornerIcon.IconLeftClicked += CornerIcon_IconLeftClicked;
        
         Service.Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
 
-/*        var eventsDirectory = Service.DirectoriesManager.GetFullDirectoryPath(DIRECTORY_PATH);
-        var data = new Dictionary<Encounters.StrikeMission, DateTime>
-        {
-            { Encounters.StrikeMission.ColdWar, DateTime.Now },
-            { Encounters.StrikeMission.Fraenir, DateTime.Now },
-            { Encounters.StrikeMission.ShiverpeaksPass, DateTime.Now },
-            { Encounters.StrikeMission.VoiceAndClaw, DateTime.Now },
-            { Encounters.StrikeMission.Whisper, DateTime.Now },
-            { Encounters.StrikeMission.Boneskinner, DateTime.Now },
-            { Encounters.StrikeMission.AetherbladeHideout, DateTime.Now },
-            { Encounters.StrikeMission.Junkyard, DateTime.Now },
-            { Encounters.StrikeMission.Overlook, DateTime.Now },
-            { Encounters.StrikeMission.HarvestTemple, DateTime.Now },
-            { Encounters.StrikeMission.OldLionsCourt, DateTime.Now }
-        };
-        var model = new Features.Strikes.Models.StrikePersistance();
-        model.AccountClears.Add("soeed.4160", data);
+        /*        var eventsDirectory = Service.DirectoriesManager.GetFullDirectoryPath(DIRECTORY_PATH);
+                var data = new Dictionary<Encounters.StrikeMission, DateTime>
+                {
+                    { Encounters.StrikeMission.ColdWar, DateTime.Now },
+                    { Encounters.StrikeMission.Fraenir, DateTime.Now },
+                    { Encounters.StrikeMission.ShiverpeaksPass, DateTime.Now },
+                    { Encounters.StrikeMission.VoiceAndClaw, DateTime.Now },
+                    { Encounters.StrikeMission.Whisper, DateTime.Now },
+                    { Encounters.StrikeMission.Boneskinner, DateTime.Now },
+                    { Encounters.StrikeMission.AetherbladeHideout, DateTime.Now },
+                    { Encounters.StrikeMission.Junkyard, DateTime.Now },
+                    { Encounters.StrikeMission.Overlook, DateTime.Now },
+                    { Encounters.StrikeMission.HarvestTemple, DateTime.Now },
+                    { Encounters.StrikeMission.OldLionsCourt, DateTime.Now }
+                };
+                var model = new Features.Strikes.Models.StrikePersistance();
+                model.AccountClears.Add("soeed.4160", data);
 
-        ModuleLogger.Info("test message");
-        var contents = model.Save();
-        ModuleLogger.Info(contents);
+                ModuleLogger.Info("test message");
+                var contents = model.Save();
+                ModuleLogger.Info(contents);
 
-        var newPersistance = JsonConvert.DeserializeObject<StrikePersistance>(contents);
-        ModuleLogger.Info("deserializedone");*/
+                var newPersistance = JsonConvert.DeserializeObject<StrikePersistance>(contents);
+                ModuleLogger.Info("deserializedone");*/
+
+        
         return Task.CompletedTask;
 
         /*GameService.Overlay.UserLocaleChanged += (s, e) =>
@@ -114,6 +121,7 @@ public class Module : Blish_HUD.Modules.Module
         Service.CornerIcon?.Dispose();
 
         Service.MapWatcher?.Dispose();
+        Service.ResetWatcher?.Dispose();
     }
 
     protected override void Update(GameTime gameTime)
@@ -122,6 +130,7 @@ public class Module : Blish_HUD.Modules.Module
         Service.RaidWindow?.Update();
         Service.DungeonWindow?.Update();
         Service.StrikesWindow?.Update();
+        Service.ResetWatcher?.Update(gameTime);
     }
     private void CornerIcon_IconLeftClicked(object sender, bool e)
     {

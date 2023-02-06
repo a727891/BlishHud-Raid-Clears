@@ -126,7 +126,7 @@ public static class WingFactory
 }
 public class Wing : GroupModel
 { 
-    public Wing(string name, int index, string shortName, BoxModel[] boxes) : base(name, index, shortName, boxes)
+    public Wing(string name, int index, string shortName, IEnumerable<BoxModel> boxes) : base(name, index, shortName, boxes)
     {
     }
 }

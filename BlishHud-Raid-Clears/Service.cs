@@ -28,4 +28,6 @@ public static class Service
     public static CornerIconService CornerIcon { get; set; } = null!;
 
     public static MapWatcherService MapWatcher { get; set; } = null!;
+
+    public static ResetsWatcherService ResetWatcher { get; set; } = null!;
 }

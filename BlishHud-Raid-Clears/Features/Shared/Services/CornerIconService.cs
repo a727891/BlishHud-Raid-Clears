@@ -5,6 +5,7 @@ using Blish_HUD.Controls;
 using Blish_HUD.Input;
 using Blish_HUD.Settings;
 using Microsoft.Xna.Framework.Graphics;
+using RaidClears.Localization;
 
 namespace RaidClears.Features.Shared.Services;
 
@@ -13,12 +14,12 @@ public class CornerIconToggleMenuItem: ContextMenuStripItem
     public CornerIconToggleMenuItem(SettingEntry<bool> setting, string displayLabel) : base(displayLabel)
     {
         var baseText = displayLabel;
-        Text = (setting.Value ? "Hide " : "Show ") + baseText;
+        Text = (setting.Value ? Strings.VisibleHide : Strings.VisibleShow) + " " + baseText;
 
         Click += delegate { setting.Value = !setting.Value; };
         setting.SettingChanged += delegate
         {
-            Text = (setting.Value ? "Hide " : "Show ") + baseText;
+            Text = (setting.Value ? Strings.VisibleHide : Strings.VisibleShow) + " " + baseText;
         };
     }
 

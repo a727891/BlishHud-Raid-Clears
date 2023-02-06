@@ -2048,5 +2048,23 @@ namespace RaidClears.Localization {
                 return ResourceManager.GetString("Strike_Confirm_Message", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide.
+        /// </summary>
+        internal static string VisibleHide {
+            get {
+                return ResourceManager.GetString("VisibleHide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show.
+        /// </summary>
+        internal static string VisibleShow {
+            get {
+                return ResourceManager.GetString("VisibleShow", resourceCulture);
+            }
+        }
     }
 }

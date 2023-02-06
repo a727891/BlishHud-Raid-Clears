@@ -784,4 +784,12 @@
   <data name="Strike_Confirm_Message" xml:space="preserve">
     <value>Did you complete the encounter successfully?</value>
   </data>
+  <data name="VisibleHide" xml:space="preserve">
+    <value>Hide</value>
+    <comment>menubar icon context menu "Hide {name}"</comment>
+  </data>
+  <data name="VisibleShow" xml:space="preserve">
+    <value>Show</value>
+    <comment>menubar icon context menu "Show {name}"</comment>
+  </data>
 </root>
