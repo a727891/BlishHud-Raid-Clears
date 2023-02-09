@@ -12,6 +12,7 @@ using RaidClears.Features.Shared.Services;
 using RaidClears.Settings.Controls;
 using RaidClears.Localization;
 using RaidClears.Features.Strikes.Services;
+using Blish_HUD.Modules.Managers;
 
 namespace RaidClears;
 
@@ -30,7 +31,7 @@ public class Module : Blish_HUD.Modules.Module
         Service.ContentsManager = moduleParameters.ContentsManager;
         Service.Gw2ApiManager = moduleParameters.Gw2ApiManager;
         Service.DirectoriesManager = moduleParameters.DirectoriesManager;
-}
+    }
 
     protected override void DefineSettings(SettingCollection settings) => Service.Settings = new SettingService(settings);
 
@@ -38,6 +39,9 @@ public class Module : Blish_HUD.Modules.Module
 
     protected override Task LoadAsync()
     {
+
+        Service.StrikePersistance = StrikePersistance.Load();
+
         Service.ApiPollingService = new ApiPollService(Service.Settings.ApiPollingPeriod);
         Service.Textures = new TextureService(Service.ContentsManager);
 
@@ -46,7 +50,7 @@ public class Module : Blish_HUD.Modules.Module
 
         Service.SettingsWindow = new SettingsPanel();
         Service.RaidWindow = new Features.Raids.RaidPanel();
-        Service.StrikesWindow = new Features.Strikes.StrikesPanel ();
+        Service.StrikesWindow = new Features.Strikes.StrikesPanel();
         Service.DungeonWindow = new Features.Dungeons.DungeonPanel();
 
 
@@ -66,35 +70,11 @@ public class Module : Blish_HUD.Modules.Module
         );
 
         Service.CornerIcon.IconLeftClicked += CornerIcon_IconLeftClicked;
-       
+
         Service.Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
 
-        /*        var eventsDirectory = Service.DirectoriesManager.GetFullDirectoryPath(DIRECTORY_PATH);
-                var data = new Dictionary<Encounters.StrikeMission, DateTime>
-                {
-                    { Encounters.StrikeMission.ColdWar, DateTime.Now },
-                    { Encounters.StrikeMission.Fraenir, DateTime.Now },
-                    { Encounters.StrikeMission.ShiverpeaksPass, DateTime.Now },
-                    { Encounters.StrikeMission.VoiceAndClaw, DateTime.Now },
-                    { Encounters.StrikeMission.Whisper, DateTime.Now },
-                    { Encounters.StrikeMission.Boneskinner, DateTime.Now },
-                    { Encounters.StrikeMission.AetherbladeHideout, DateTime.Now },
-                    { Encounters.StrikeMission.Junkyard, DateTime.Now },
-                    { Encounters.StrikeMission.Overlook, DateTime.Now },
-                    { Encounters.StrikeMission.HarvestTemple, DateTime.Now },
-                    { Encounters.StrikeMission.OldLionsCourt, DateTime.Now }
-                };
-                var model = new Features.Strikes.Models.StrikePersistance();
-                model.AccountClears.Add("soeed.4160", data);
 
-                ModuleLogger.Info("test message");
-                var contents = model.Save();
-                ModuleLogger.Info(contents);
 
-                var newPersistance = JsonConvert.DeserializeObject<StrikePersistance>(contents);
-                ModuleLogger.Info("deserializedone");*/
-
-        
         return Task.CompletedTask;
 
         /*GameService.Overlay.UserLocaleChanged += (s, e) =>
@@ -102,7 +82,7 @@ public class Module : Blish_HUD.Modules.Module
            //todo: refresh views
         };*/
 
-     
+
     }
 
     protected override void Unload()
@@ -139,5 +119,13 @@ public class Module : Blish_HUD.Modules.Module
         Service.Settings.StrikeSettings.Generic.ToggleVisible();
     }
 
-    private void Gw2ApiManager_SubtokenUpdated(object sender, ValueEventArgs<IEnumerable<TokenPermission>> e) => Service.ApiPollingService?.Invoke();
+    private void Gw2ApiManager_SubtokenUpdated(object sender, ValueEventArgs<IEnumerable<TokenPermission>> e)
+    {
+        Task.Run(async () =>
+        {
+            Service.CurrentAccountName = await AccountNameService.UpdateAccountName();
+            Service.MapWatcher.DispatchCurrentStrikeClears();
+        });
+        Service.ApiPollingService?.Invoke();
+    } 
 }

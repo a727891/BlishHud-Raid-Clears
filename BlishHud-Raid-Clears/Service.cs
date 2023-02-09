@@ -12,6 +12,7 @@ namespace RaidClears;
 
 public static class Service
 {
+    public static string CurrentAccountName { get; set; } = AccountNameService.DEFAULT_ACCOUNT_NAME;
     public static Module ModuleInstance { get; set; } = null!;
     public static SettingService Settings { get; set; } = null!;
     public static ContentsManager ContentsManager { get; set; } = null!;
@@ -20,6 +21,8 @@ public static class Service
     public static TextureService? Textures { get; set; }
     public static ApiPollService? ApiPollingService { get; set; }
     public static SettingsPanel SettingsWindow { get; set; } = null!;
+
+    public static StrikePersistance StrikePersistance { get; set; } = null!;
 
     public static RaidPanel RaidWindow { get; set; } = null!;
     public static StrikesPanel StrikesWindow { get; set; } = null!;

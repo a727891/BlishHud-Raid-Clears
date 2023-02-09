@@ -23,7 +23,8 @@ public class StrikesPanel : GridPanel
         _mapService = Service.MapWatcher;
         _strikes = StrikeMetaData.Create(this);
 
-        _mapService.StrikeCompleted += _mapService_LeftStrikeMapWithCombatStartAndEnd;
+        //_mapService.StrikeCompleted += _mapService_LeftStrikeMapWithCombatStartAndEnd;
+        _mapService.CompletedStrikes += _mapService_CompletedStrikes;
 
         (this as FlowPanel).LayoutChange(Settings.Style.Layout);
         (this as GridPanel).BackgroundColorChange(Settings.Style.BgOpacity, Settings.Style.Color.Background);
@@ -36,7 +37,19 @@ public class StrikesPanel : GridPanel
         );
     }
 
-    private void _mapService_LeftStrikeMapWithCombatStartAndEnd(object sender, string encounterId)
+    private void _mapService_CompletedStrikes(object sender, List<string> strikesCompletedThisReset)
+    {
+        foreach (var group in _strikes)
+        {
+            foreach (var encounter in group.boxes)
+            {
+                encounter.SetCleared(strikesCompletedThisReset.Contains(encounter.id));
+            }
+        }
+        Invalidate();
+    }
+
+  /*  private void _mapService_LeftStrikeMapWithCombatStartAndEnd(object sender, string encounterId)
     {
         foreach (var group in _strikes)
         {
@@ -49,7 +62,7 @@ public class StrikesPanel : GridPanel
             }
         }
         Invalidate();
-    }
+    }*/
 
     public void ForceInvalidate()
     {
@@ -65,7 +78,8 @@ s               s.Box?.Parent.Invalidate();
     protected override void DisposeControl()
     {
         base.DisposeControl();
-        _mapService.StrikeCompleted -= _mapService_LeftStrikeMapWithCombatStartAndEnd;
+       // _mapService.StrikeCompleted -= _mapService_LeftStrikeMapWithCombatStartAndEnd;
+        _mapService.CompletedStrikes -= _mapService_CompletedStrikes;
         foreach(var strike in _strikes)
         {
             strike.Dispose();

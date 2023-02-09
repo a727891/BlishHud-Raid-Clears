@@ -1,12 +1,5 @@
-﻿using Blish_HUD;
-using Blish_HUD.Controls;
-using Microsoft.Xna.Framework;
-using RaidClears.Features.Shared.Enums;
-using RaidClears.Features.Shared.Enums.Extensions;
-using RaidClears.Localization;
-using RaidClears.Shared.Controls;
+﻿using Microsoft.Xna.Framework;
 using System;
-using System.Threading.Tasks;
 
 namespace RaidClears.Features.Strikes.Services;
 
@@ -14,52 +7,67 @@ public class ResetsWatcherService : IDisposable
 {
 
     public event EventHandler<DateTime>? DailyReset;
+    public event EventHandler<DateTime>? WeeklyReset;
 
-    protected DateTime NextDailyReset;
-
-    protected FlowPanel panel = new FlowPanel()
-    {
-        Parent = GameService.Graphics.SpriteScreen,
-        Location = new(800, 0),
-        Size = new Point(300, 300),
-        ShowBorder = true,
-        ShowTint = true,
-        FlowDirection = ControlFlowDirection.SingleTopToBottom,
-        CanScroll= true,
-
-    };
+    public  DateTime NextDailyReset { get; private set; }
+    public DateTime LastDailyReset { get; private set; }
+    public DateTime NextWeeklyReset { get; private set; }
+    public DateTime LastWeeklyReset { get; private set; }
 
     public ResetsWatcherService()
     {
         NextDailyReset = GetNextDailyReset();
-        new Label()
-        {
-            Width = 300,
-            Parent = panel,
-            Text = $"Reset calulated as {NextDailyReset.ToString()}"
-        };
+        LastDailyReset = NextDailyReset.AddDays(-1);
+        NextWeeklyReset = GetNextWeeklyReset();
+        LastWeeklyReset = NextWeeklyReset.AddDays(-7);
     }
 
     public DateTime GetNextDailyReset()
     {
         var now = DateTime.UtcNow;
 
-        return now.AddSeconds(10);
-        //return now.AddDays(1).Date;
+        return now.AddDays(1).Date;
+    }
+
+    public DateTime GetNextWeeklyReset()
+    {
+        return NextDayOfWeek(DayOfWeek.Monday, 7, 30); //https://wiki.guildwars2.com/wiki/Server_reset#Weekly_reset
+    }
+    public static DateTime NextDayOfWeek(DayOfWeek weekday, int hour, int minute)
+    {
+        var today = DateTime.UtcNow;
+
+        if (today.Hour < hour && today.DayOfWeek == weekday)
+        {
+            return today.Date.AddHours(hour).AddMinutes(minute);
+        }
+        else
+        {
+            var nextReset = today.AddDays(1);
+
+            while (nextReset.DayOfWeek != weekday)
+            {
+                nextReset = nextReset.AddDays(1);
+            }
+
+            return nextReset.Date.AddHours(hour).AddMinutes(minute);
+        }
     }
 
     public void Update(GameTime gametime)
     {
-        if( DateTime.UtcNow >= NextDailyReset )
+        var now = DateTime.UtcNow;
+        if( now >= NextDailyReset )
         {
             DailyReset?.Invoke(this, NextDailyReset);
             NextDailyReset = GetNextDailyReset();
-            new Label()
-            {
-                Width = 300,
-                Parent = panel,
-                Text = $"Reset calulated as {NextDailyReset.ToString()}"
-            };
+            LastDailyReset = NextDailyReset.AddDays(-1);
+        }
+        if(now >= NextWeeklyReset )
+        {
+            WeeklyReset?.Invoke(this, NextWeeklyReset);
+            NextWeeklyReset= GetNextWeeklyReset();
+            NextWeeklyReset = NextDailyReset.AddDays(-7);
         }
     }
 

@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Blish_HUD.Settings;
+using RaidClears.Features.Shared.Enums;
 using RaidClears.Settings.Enums;
 
 namespace RaidClears.Settings.Models;
@@ -61,6 +63,6 @@ public class StrikeSettings
 
         AnchorToRaidPanel = settings.DefineSetting(Settings.Strikes.Module.anchorToRaids);
         StrikeCompletion = settings.DefineSetting(Settings.Strikes.Module.strikeCompletion);
-        
+
     }
 }

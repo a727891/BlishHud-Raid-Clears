@@ -16,7 +16,7 @@ public class PriorityStrikes : Strike
 {
     private readonly StrikeSettings settings = Service.Settings.StrikeSettings;
     private static StrikeSettings Settings => Service.Settings.StrikeSettings;
-    public PriorityStrikes(string name, int index, string shortName, IEnumerable<BoxModel> boxes, Container panel) : base(name, index, shortName, boxes)
+    public PriorityStrikes(string name, int index, string shortName, IEnumerable<BoxModel> boxes, Container panel) : base($"priority_{name}", index, shortName, boxes)
     {
         Service.ResetWatcher.DailyReset += ResetWatcher_DailyReset;
         InitGroup(panel);

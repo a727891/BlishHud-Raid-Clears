@@ -75,7 +75,7 @@ public static class StrikeMissionExtensions
         };
     }
     
-    public static StrikeMissionType GetType(this Encounters.StrikeMission value)
+    public static StrikeMissionType GetExpansionType(this Encounters.StrikeMission value)
     {
         return value switch
         {
