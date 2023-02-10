@@ -16,7 +16,7 @@ public class PriorityStrikes : Strike
 {
     private readonly StrikeSettings settings = Service.Settings.StrikeSettings;
     private static StrikeSettings Settings => Service.Settings.StrikeSettings;
-    public PriorityStrikes(string name, int index, string shortName, IEnumerable<BoxModel> boxes, Container panel) : base($"priority_{name}", index, shortName, boxes)
+    public PriorityStrikes(string name, int index, string shortName, IEnumerable<BoxModel> boxes, Container panel) : base(name, index, shortName, boxes)
     {
         Service.ResetWatcher.DailyReset += ResetWatcher_DailyReset;
         InitGroup(panel);
@@ -46,11 +46,10 @@ public class PriorityStrikes : Strike
     protected void InitPriorityStrikes()
     {
 
-        var dailies = PriorityRotationService.GetPriorityStrikes();
+        var dailies = PriorityRotationService.GetPriorityEncounters();
         var newList = new List<BoxModel>();
-        foreach (var daily in dailies)
+        foreach (var encounter in dailies)
         {
-            var encounter = daily.Encounter;
             var encounterBox = new GridBox(
                 this.GridGroup,
                 encounter.shortName, encounter.name,

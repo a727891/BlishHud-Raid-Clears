@@ -2050,6 +2050,15 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tomorrow:.
+        /// </summary>
+        internal static string Strike_Tooltip_tomorrow {
+            get {
+                return ResourceManager.GetString("Strike_Tooltip_tomorrow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hide.
         /// </summary>
         internal static string VisibleHide {

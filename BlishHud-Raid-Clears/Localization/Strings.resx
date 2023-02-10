@@ -784,6 +784,9 @@
   <data name="Strike_Confirm_Message" xml:space="preserve">
     <value>Did you complete the encounter successfully?</value>
   </data>
+  <data name="Strike_Tooltip_tomorrow" xml:space="preserve">
+    <value>Tomorrow:</value>
+  </data>
   <data name="VisibleHide" xml:space="preserve">
     <value>Hide</value>
     <comment>menubar icon context menu "Hide {name}"</comment>

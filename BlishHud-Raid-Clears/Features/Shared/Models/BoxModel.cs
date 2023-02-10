@@ -16,7 +16,7 @@ public class BoxModel
     private Color _colorNotCleared = new(120, 20, 20);
     private Color _colorCleared = new(20, 120, 20);
 
-    protected BoxModel(string id, string name, string shortName) // warning
+    public BoxModel(string id, string name, string shortName) // warning
     {
         this.id = id;
         this.name = name;

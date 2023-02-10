@@ -30,6 +30,7 @@ public class CustomSettingMenuView : SettingsMenuView
             viewContainer.Size = new(buildPanel.ContentRegion.Width - NEW_MENU_WIDTH - (int)buildPanel.Padding.Left, buildPanel.ContentRegion.Height);
             viewContainer.Location = new(NEW_MENU_WIDTH +5, 10);
         }
+
     }
 
     private Menu? GetMenuPanel()

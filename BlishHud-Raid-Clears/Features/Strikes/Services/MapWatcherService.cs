@@ -28,12 +28,12 @@ public class MapWatcherService: IDisposable
         GameService.Gw2Mumble.CurrentMap.MapChanged += CurrentMap_MapChanged;
 
 #if DEBUG
-       /* Task.Delay(800).ContinueWith(_ =>
+        Task.Delay(800).ContinueWith(_ =>
         {
-            CurrentMap_MapChanged(this, new ValueEventArgs<int>((int)MapIds.StrikeMaps.VoiceAndClaw));
+            CurrentMap_MapChanged(this, new ValueEventArgs<int>((int)MapIds.StrikeMaps.OldLionsCourt));
             CurrentMap_MapChanged(this, new ValueEventArgs<int>((int)-1));
 
-        });*/
+        });
 #endif
     }
  

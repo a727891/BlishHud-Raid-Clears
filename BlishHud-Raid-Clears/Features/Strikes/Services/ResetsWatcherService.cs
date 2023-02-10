@@ -16,22 +16,23 @@ public class ResetsWatcherService : IDisposable
 
     public ResetsWatcherService()
     {
-        NextDailyReset = GetNextDailyReset();
-        LastDailyReset = NextDailyReset.AddDays(-1);
-        NextWeeklyReset = GetNextWeeklyReset();
-        LastWeeklyReset = NextWeeklyReset.AddDays(-7);
+        CalcNextDailyReset();
+        CalcNextWeeklyReset();
     }
 
-    public DateTime GetNextDailyReset()
+    public void CalcNextDailyReset()
     {
         var now = DateTime.UtcNow;
 
-        return now.AddDays(1).Date;
+        NextDailyReset = now.AddDays(1).Date;
+        LastDailyReset = NextDailyReset.AddDays(-1);
     }
 
-    public DateTime GetNextWeeklyReset()
+    public void CalcNextWeeklyReset()
     {
-        return NextDayOfWeek(DayOfWeek.Monday, 7, 30); //https://wiki.guildwars2.com/wiki/Server_reset#Weekly_reset
+        NextWeeklyReset = NextDayOfWeek(DayOfWeek.Monday, 7, 30); //https://wiki.guildwars2.com/wiki/Server_reset#Weekly_reset
+        LastWeeklyReset = NextWeeklyReset.AddDays(-7);
+
     }
     public static DateTime NextDayOfWeek(DayOfWeek weekday, int hour, int minute)
     {
@@ -60,14 +61,12 @@ public class ResetsWatcherService : IDisposable
         if( now >= NextDailyReset )
         {
             DailyReset?.Invoke(this, NextDailyReset);
-            NextDailyReset = GetNextDailyReset();
-            LastDailyReset = NextDailyReset.AddDays(-1);
+            CalcNextDailyReset();
         }
         if(now >= NextWeeklyReset )
         {
             WeeklyReset?.Invoke(this, NextWeeklyReset);
-            NextWeeklyReset= GetNextWeeklyReset();
-            NextWeeklyReset = NextDailyReset.AddDays(-7);
+            CalcNextWeeklyReset();
         }
     }
 

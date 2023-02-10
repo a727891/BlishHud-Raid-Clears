@@ -7,6 +7,7 @@ using Blish_HUD;
 using Blish_HUD.Controls;
 using RaidClears.Features.Strikes.Services;
 using System.Collections.Generic;
+using System;
 
 namespace RaidClears.Features.Strikes;
 
@@ -25,6 +26,8 @@ public class StrikesPanel : GridPanel
 
         //_mapService.StrikeCompleted += _mapService_LeftStrikeMapWithCombatStartAndEnd;
         _mapService.CompletedStrikes += _mapService_CompletedStrikes;
+        Service.ResetWatcher.DailyReset += UpdateClearsAtReset;
+        Service.ResetWatcher.WeeklyReset += UpdateClearsAtReset;
 
         (this as FlowPanel).LayoutChange(Settings.Style.Layout);
         (this as GridPanel).BackgroundColorChange(Settings.Style.BgOpacity, Settings.Style.Color.Background);
@@ -36,7 +39,10 @@ public class StrikesPanel : GridPanel
             )
         );
     }
-
+    private void UpdateClearsAtReset(object sender, DateTime reset)
+    {
+        Service.MapWatcher.DispatchCurrentStrikeClears();
+    }
     private void _mapService_CompletedStrikes(object sender, List<string> strikesCompletedThisReset)
     {
         foreach (var group in _strikes)
@@ -80,7 +86,9 @@ s               s.Box?.Parent.Invalidate();
         base.DisposeControl();
        // _mapService.StrikeCompleted -= _mapService_LeftStrikeMapWithCombatStartAndEnd;
         _mapService.CompletedStrikes -= _mapService_CompletedStrikes;
-        foreach(var strike in _strikes)
+        Service.ResetWatcher.DailyReset -= UpdateClearsAtReset;
+        Service.ResetWatcher.WeeklyReset -= UpdateClearsAtReset;
+        foreach (var strike in _strikes)
         {
             strike.Dispose();
         }
