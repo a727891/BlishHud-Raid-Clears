@@ -1,22 +1,22 @@
 ﻿using System.ComponentModel;
+// ReSharper disable InconsistentNaming
 
-namespace Settings.Enums
+namespace RaidClears.Settings.Enums;
+
+public enum ApiPollPeriod
 {
-    public enum ApiPollPeriod : int
-    {
-        [Description("3 minutes")]
-        MINUTES_3 = 3,
+    [Description("3 minutes")]
+    MINUTES_3 = 3,
 
-        [Description("5 minutes")]
-        MINUTES_5 = 5,
+    [Description("5 minutes")]
+    MINUTES_5 = 5,
 
-        [Description("10 minutes")]
-        MINUTES_10 = 10,
+    [Description("10 minutes")]
+    MINUTES_10 = 10,
 
-        [Description("15 minutes")]
-        MINUTES_15 = 15,
+    [Description("15 minutes")]
+    MINUTES_15 = 15,
 
-        [Description("30 minutes")]
-        MINUTES_30 = 30,
-    }
+    [Description("30 minutes")]
+    MINUTES_30 = 30,
 }

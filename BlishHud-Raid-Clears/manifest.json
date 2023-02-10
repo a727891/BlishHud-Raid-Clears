@@ -1,12 +1,12 @@
 {
-  "name": "Raid Clears",
+  "name": "Clears Tracker",
   "version": "1.4.1",
   "namespace": "Soeed.RaidClears",
   "package": "BlishHud-Raid-Clears.dll",
   "manifest_version": 1,
-  "description": "Display weekly Raid clear and daily Dungeon progress. \nNote that clears data depends on the GW2 API and may take several minutes to update.",
+  "description": "Track your daily and weekly PvE instance clears\nRaids, Strikes, and Dungeons\n\nformerly called 'Raid Clears'",
   "dependencies": {
-    "bh.blishhud": ">=0.11.7"
+    "bh.blishhud": ">=1.0.0"
   },
   "url": "https://github.com/a727891/BlishHud-Raid-Clears",
   "contributors": [
@@ -14,7 +14,15 @@
       "name": "Soeed",
       "username": "soeed.4160",
       "url": "https://github.com/a727891"
+    },
+    {
+      "name": "Abbadon",
+      "username": "kami.8342",
+      "url": "https://github.com/MidoriKami"
     }
+  ],
+  "directories": [
+    "clearsTracker"
   ],
   "enabled_without_gw2": false,
   "api_permissions": {

@@ -1,4 +1,5 @@
-# Raid Clears
+# Clears Tracker
+(formerly Raid Clears)
 
 Add a small grid to the screen showing raid encounter weekly clear status.
 
@@ -39,5 +40,11 @@ Key Features
 ### 1.4.0 (2022-12-31)
 * Added color customization
 
+### 1.4.1 (2023-01-11)
+* Settings are expanded by default
+
+### 2.0.0 (2023-02-01)
+* Rewrite
+* Added strike functionality
 ---
 Heavily inspired by the same feature bundled with Gw2TaCO.
