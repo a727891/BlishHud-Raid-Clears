@@ -46,5 +46,7 @@ Key Features
 ### 2.0.0 (2023-02-01)
 * Rewrite
 * Added strike functionality
+### 2.0.1 (2023-02-12)
+* version bump for 2.0.0 full release
 ---
 Heavily inspired by the same feature bundled with Gw2TaCO.
