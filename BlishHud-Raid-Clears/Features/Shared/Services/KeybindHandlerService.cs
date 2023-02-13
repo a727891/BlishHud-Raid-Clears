@@ -14,13 +14,15 @@ public class KeyBindHandlerService : IDisposable
     {
         _keyBindSetting          = keyBindSetting;
         _toggleControlSetting    = toggleControlSetting;
-       
+
+        _keyBindSetting.Value.Enabled = true;
         _keyBindSetting.Value.Activated += OnKeyBindActivated;
 
     }
 
     public void Dispose()
     {
+        _keyBindSetting.Value.Enabled = false;
         _keyBindSetting.Value.Activated -= OnKeyBindActivated;
     }
 
