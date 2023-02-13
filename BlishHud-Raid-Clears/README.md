@@ -48,5 +48,7 @@ Key Features
 * Added strike functionality
 ### 2.0.1 (2023-02-12)
 * version bump for 2.0.0 full release
+### 2.0.2 (2023-02-13)
+* Fixed keybinds not activating
 ---
 Heavily inspired by the same feature bundled with Gw2TaCO.
