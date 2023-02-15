@@ -2050,11 +2050,164 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to AH.
+        /// </summary>
+        internal static string Strike_Short_AetherbladeHideout {
+            get {
+                return ResourceManager.GetString("Strike_Short_AetherbladeHideout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BS.
+        /// </summary>
+        internal static string Strike_Short_Boneskinner {
+            get {
+                return ResourceManager.GetString("Strike_Short_Boneskinner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CW.
+        /// </summary>
+        internal static string Strike_Short_ColdWar {
+            get {
+                return ResourceManager.GetString("Strike_Short_ColdWar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FoJ.
+        /// </summary>
+        internal static string Strike_Short_Fraenir {
+            get {
+                return ResourceManager.GetString("Strike_Short_Fraenir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HT.
+        /// </summary>
+        internal static string Strike_Short_HarvestTemple {
+            get {
+                return ResourceManager.GetString("Strike_Short_HarvestTemple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to XJJ.
+        /// </summary>
+        internal static string Strike_Short_Junkyard {
+            get {
+                return ResourceManager.GetString("Strike_Short_Junkyard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OLC.
+        /// </summary>
+        internal static string Strike_Short_OldLionsCourt {
+            get {
+                return ResourceManager.GetString("Strike_Short_OldLionsCourt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to KO.
+        /// </summary>
+        internal static string Strike_Short_Overlook {
+            get {
+                return ResourceManager.GetString("Strike_Short_Overlook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SP.
+        /// </summary>
+        internal static string Strike_Short_Shiverpeak {
+            get {
+                return ResourceManager.GetString("Strike_Short_Shiverpeak", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to V&amp;C.
+        /// </summary>
+        internal static string Strike_Short_VoiceAndClaw {
+            get {
+                return ResourceManager.GetString("Strike_Short_VoiceAndClaw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WoJ.
+        /// </summary>
+        internal static string Strike_Short_Whisper {
+            get {
+                return ResourceManager.GetString("Strike_Short_Whisper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tomorrow:.
         /// </summary>
         internal static string Strike_Tooltip_tomorrow {
             get {
                 return ResourceManager.GetString("Strike_Tooltip_tomorrow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End of Dragons.
+        /// </summary>
+        internal static string StrikeGroup_EoD {
+            get {
+                return ResourceManager.GetString("StrikeGroup_EoD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Eod.
+        /// </summary>
+        internal static string StrikeGroup_Eod_abbr {
+            get {
+                return ResourceManager.GetString("StrikeGroup_Eod_abbr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Icebrood Saga.
+        /// </summary>
+        internal static string StrikeGroup_Icebrood {
+            get {
+                return ResourceManager.GetString("StrikeGroup_Icebrood", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IBS.
+        /// </summary>
+        internal static string StrikeGroup_Icebrood_abbr {
+            get {
+                return ResourceManager.GetString("StrikeGroup_Icebrood_abbr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Priority Strike Missions (Daily).
+        /// </summary>
+        internal static string StrikeGroup_Priority {
+            get {
+                return ResourceManager.GetString("StrikeGroup_Priority", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PS.
+        /// </summary>
+        internal static string StrikeGroup_Priority_abbr {
+            get {
+                return ResourceManager.GetString("StrikeGroup_Priority_abbr", resourceCulture);
             }
         }
         

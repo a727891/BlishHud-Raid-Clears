@@ -131,7 +131,7 @@
     <comment>Open Settings panel button text in the Blish module settings</comment>
   </data>
   <data name="Module_Title" xml:space="preserve">
-    <value>Löscht den Tracker</value>
+    <value>Clears Tracker</value>
   </data>
   <data name="Raid_OverlayEnable" xml:space="preserve">
     <value>Raid-Overlay ein-/ausblenden</value>
@@ -596,25 +596,25 @@
     <value>W1 / Geistertal</value>
   </data>
   <data name="Setting_Raid_W1_Tooltip" xml:space="preserve">
-    <value>Aktiviere Spirit Vale im Raid-Overlay</value>
+    <value>Aktiviere Geistertal im Raid-Overlay</value>
   </data>
   <data name="Setting_Raid_W2_Label" xml:space="preserve">
-    <value>W2 / Heilspass</value>
+    <value>W2 / Erlösungspass</value>
   </data>
   <data name="Setting_Raid_W2_Tooltip" xml:space="preserve">
-    <value>Aktiviere Salvation Pass im Raid-Overlay</value>
+    <value>Aktiviere Erlösungspass im Raid-Overlay</value>
   </data>
   <data name="Setting_Raid_W3_Label" xml:space="preserve">
-    <value>W3 / Festung der Gläubigen</value>
+    <value>W3 / Festung der Treuen</value>
   </data>
   <data name="Setting_Raid_W3_Tooltip" xml:space="preserve">
-    <value>Aktiviere Stronghold of the Faithful im Raid-Overlay</value>
+    <value>Aktiviere Festung der Treuen im Raid-Overlay</value>
   </data>
   <data name="Setting_Raid_W4_Label" xml:space="preserve">
-    <value>W4 / Bastion der Büßer</value>
+    <value>W4 / Bastion der Büßfertigen</value>
   </data>
   <data name="Setting_Raid_W4_Tooltip" xml:space="preserve">
-    <value>Aktivieren Sie Bastion of the Penitent im Raid-Overlay</value>
+    <value>Aktivieren Sie Bastion der Büßfertigen im Raid-Overlay</value>
   </data>
   <data name="Setting_Raid_W5_Label" xml:space="preserve">
     <value>W5 / Halle der Ketten</value>
@@ -623,13 +623,13 @@
     <value>Aktiviere Hall of Chains im Raid-Overlay</value>
   </data>
   <data name="Setting_Raid_W6_Label" xml:space="preserve">
-    <value>W6 / Mythenschreiber-Gambit</value>
+    <value>W6 / Mythenschreiber - Wagnis</value>
   </data>
   <data name="Setting_Raid_W6_Tooltip" xml:space="preserve">
-    <value>Aktivieren Sie Mythwright Gambit im Raid-Overlay</value>
+    <value>Aktivieren Sie Mythenschreiber - Wagnis im Raid-Overlay</value>
   </data>
   <data name="Setting_Raid_W7_Label" xml:space="preserve">
-    <value>W7 / Der Schlüssel von Ahdashim</value>
+    <value>W7 /Schlussel von Ahdashim</value>
   </data>
   <data name="Setting_Raid_W7_Tooltip" xml:space="preserve">
     <value>Aktiviere den Schlüssel von Ahdashim im Raid-Overlay</value>
@@ -638,7 +638,7 @@
     <value>Priority-Strike-Missionen aktivieren (täglich)</value>
   </data>
   <data name="Setting_Strike_AH_Label" xml:space="preserve">
-    <value>Ätherklingen-Versteck</value>
+    <value>Ätherklingen-Untershchlupf</value>
   </data>
   <data name="Setting_Strike_BS_Label" xml:space="preserve">
     <value>Knochenhäuter</value>
@@ -683,7 +683,7 @@
     <value>Aktivieren Sie Ende der Drachen</value>
   </data>
   <data name="Setting_Strike_FoJ_Label" xml:space="preserve">
-    <value>Fraenir von Jormag</value>
+    <value>Fraenir Jormags</value>
   </data>
   <data name="Setting_Strike_Font_Label" xml:space="preserve">
     <value>Gittergröße</value>
@@ -698,7 +698,7 @@
     <value>Versteckt &lt;---&gt; Vollständig sichtbar</value>
   </data>
   <data name="Setting_Strike_HT_Label" xml:space="preserve">
-    <value>Tempel der Ernte</value>
+    <value>Erntetempel</value>
   </data>
   <data name="Setting_Strike_IBS" xml:space="preserve">
     <value>Eisbrut-Saga aktivieren</value>
@@ -716,7 +716,7 @@
     <value />
   </data>
   <data name="Setting_Strike_KO_Label" xml:space="preserve">
-    <value>Blick auf Kaineng</value>
+    <value>Kaineng-Aussichtspunkt</value>
   </data>
   <data name="Setting_Strike_LabelDisplay_Label" xml:space="preserve">
     <value>Etikettenstil</value>
@@ -746,7 +746,7 @@
     <value>Versteckt &lt;---&gt; Vollständig sichtbar</value>
   </data>
   <data name="Setting_Strike_SP_Label" xml:space="preserve">
-    <value>Zittergipfelpass</value>
+    <value>Zittergipfel-Pass</value>
   </data>
   <data name="Setting_Strike_Tooltips_Label" xml:space="preserve">
     <value>Mauszeiger-QuickInfos auf Overlay aktivieren</value>
@@ -764,7 +764,7 @@
     <value>Zeigt das Streik-Overlay auf dem Bildschirm an</value>
   </data>
   <data name="Setting_Strike_WoJ_Label" xml:space="preserve">
-    <value>Flüstern von Jormag</value>
+    <value>Gifuster des Jormag</value>
   </data>
   <data name="Setting_Strike_XJJ_Label" xml:space="preserve">
     <value>Xunlai-Jade-Schrottplatz</value>

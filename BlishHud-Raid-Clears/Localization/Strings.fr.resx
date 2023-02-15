@@ -131,14 +131,14 @@
     <comment>Open Settings panel button text in the Blish module settings</comment>
   </data>
   <data name="Module_Title" xml:space="preserve">
-    <value>Efface le suivi</value>
+    <value>Clears Tracker</value>
   </data>
   <data name="Raid_OverlayEnable" xml:space="preserve">
     <value>Afficher/masquer la superposition de raid</value>
     <comment>Setting label for making the raid overlay visible</comment>
   </data>
   <data name="Raid_Wing_1" xml:space="preserve">
-    <value>La Vallee des esprits</value>
+    <value>La Vallée des esprits</value>
   </data>
   <data name="Raid_Wing_1_1_Name" xml:space="preserve">
     <value>Gardien du Val</value>
@@ -593,34 +593,34 @@
     <value>Afficher la superposition du raid à l'écran</value>
   </data>
   <data name="Setting_Raid_W1_Label" xml:space="preserve">
-    <value>W1 / Vallée spirituelle</value>
+    <value>W1 / La Vallée des esprits</value>
   </data>
   <data name="Setting_Raid_W1_Tooltip" xml:space="preserve">
-    <value>Activer Spirit Vale sur la superposition de raid</value>
+    <value>Activer La Vallée des esprits sur la superposition de raid</value>
   </data>
   <data name="Setting_Raid_W2_Label" xml:space="preserve">
-    <value>W2 / Passe du salut</value>
+    <value>W2 / Passage de la redemption</value>
   </data>
   <data name="Setting_Raid_W2_Tooltip" xml:space="preserve">
-    <value>Activer Salvation Pass sur la superposition de raid</value>
+    <value>Activer Passage de la redemption sur la superposition de raid</value>
   </data>
   <data name="Setting_Raid_W3_Label" xml:space="preserve">
     <value>W3 / Forteresse des Fidèles</value>
   </data>
   <data name="Setting_Raid_W3_Tooltip" xml:space="preserve">
-    <value>Activer Stronghold of the Faithful sur la superposition de raid</value>
+    <value>Activer Forteresse des Fidèles sur la superposition de raid</value>
   </data>
   <data name="Setting_Raid_W4_Label" xml:space="preserve">
-    <value>W4 / Bastion des Pénitents</value>
+    <value>W4 / Bastion du pénitent</value>
   </data>
   <data name="Setting_Raid_W4_Tooltip" xml:space="preserve">
     <value>Activer Bastion du pénitent sur la superposition de raid</value>
   </data>
   <data name="Setting_Raid_W5_Label" xml:space="preserve">
-    <value>W5 / Salle des Chaînes</value>
+    <value>W5 / Salle des chaînes</value>
   </data>
   <data name="Setting_Raid_W5_Tooltip" xml:space="preserve">
-    <value>Activer Hall of Chains sur la superposition de raid</value>
+    <value>Activer Salle des chaînes sur la superposition de raid</value>
   </data>
   <data name="Setting_Raid_W6_Label" xml:space="preserve">
     <value>W6 / Pari du mythe</value>
@@ -638,10 +638,10 @@
     <value>Activer les missions d'attaque prioritaire (quotidiennement)</value>
   </data>
   <data name="Setting_Strike_AH_Label" xml:space="preserve">
-    <value>Repaire de la Lame d'Éther</value>
+    <value>Cachette des E'therlames</value>
   </data>
   <data name="Setting_Strike_BS_Label" xml:space="preserve">
-    <value>Dépeceur</value>
+    <value>Désosseur</value>
   </data>
   <data name="Setting_Strike_ColBG_Label" xml:space="preserve">
     <value>Superposer la couleur d'arrière-plan</value>
@@ -716,7 +716,7 @@
     <value />
   </data>
   <data name="Setting_Strike_KO_Label" xml:space="preserve">
-    <value>Surplomb de Kaineng</value>
+    <value>Belvedere de Kaineng</value>
   </data>
   <data name="Setting_Strike_LabelDisplay_Label" xml:space="preserve">
     <value>Style d'étiquette</value>
@@ -746,7 +746,7 @@
     <value>Caché &lt;---&gt; Entièrement visible</value>
   </data>
   <data name="Setting_Strike_SP_Label" xml:space="preserve">
-    <value>Passe des Cimefroides</value>
+    <value>Col des Cimefroides</value>
   </data>
   <data name="Setting_Strike_Tooltips_Label" xml:space="preserve">
     <value>Activer les info-bulles de survol de la souris sur la superposition</value>
@@ -755,7 +755,7 @@
     <value>Passer la souris sur une rencontre affichera le nom complet</value>
   </data>
   <data name="Setting_Strike_VandC_Label" xml:space="preserve">
-    <value>Voix et griffe des morts</value>
+    <value>Voix et Griffe des dechus</value>
   </data>
   <data name="Setting_Strike_Visible_Label" xml:space="preserve">
     <value>Afficher la superposition des avertissements</value>
@@ -767,7 +767,7 @@
     <value>Murmure de Jormag</value>
   </data>
   <data name="Setting_Strike_XJJ_Label" xml:space="preserve">
-    <value>Casse de jade de Xunlai</value>
+    <value>Decharges de Xunlai Jade</value>
   </data>
   <data name="Settngs_CopyRaidTooltip" xml:space="preserve">
     <value>Faites en sorte que tous les paramètres correspondent aux valeurs correspondantes de la superposition Raids</value>

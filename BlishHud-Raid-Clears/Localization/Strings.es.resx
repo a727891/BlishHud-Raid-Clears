@@ -131,7 +131,7 @@
     <comment>Open Settings panel button text in the Blish module settings</comment>
   </data>
   <data name="Module_Title" xml:space="preserve">
-    <value>Borra el rastreador</value>
+    <value>Clears Tracker</value>
   </data>
   <data name="Raid_OverlayEnable" xml:space="preserve">
     <value>Mostrar/ocultar superposición de incursión</value>
@@ -361,7 +361,7 @@
     <value>(Consejo: Google 'selector de color' para obtener ayuda)</value>
   </data>
   <data name="SettingsPanel_Strikes_Heading_Selection" xml:space="preserve">
-    <value>Selección de Huelgas</value>
+    <value>Selección de misiones de ataque</value>
   </data>
   <data name="SettingsPanel_Subtitle" xml:space="preserve">
     <value>opciones de personalización</value>
@@ -377,7 +377,7 @@
     <value>redadas</value>
   </data>
   <data name="SettingsPanel_Tab_Strikes" xml:space="preserve">
-    <value>Huelgas</value>
+    <value>Misiones de ataque</value>
   </data>
   <data name="Settings_Dungeon_Heading" xml:space="preserve">
     <value>Habilitar mazmorras individuales</value>
@@ -638,10 +638,10 @@
     <value>Habilitar misiones de ataque prioritario (diario)</value>
   </data>
   <data name="Setting_Strike_AH_Label" xml:space="preserve">
-    <value>Guarida Filoetérea</value>
+    <value>Escondite Fileotero</value>
   </data>
   <data name="Setting_Strike_BS_Label" xml:space="preserve">
-    <value>Desollahuesos</value>
+    <value>Pelahuesos</value>
   </data>
   <data name="Setting_Strike_ColBG_Label" xml:space="preserve">
     <value>Color de fondo superpuesto</value>
@@ -737,7 +737,7 @@
     <value />
   </data>
   <data name="Setting_Strike_OLC_Label" xml:space="preserve">
-    <value>Corte del Viejo León</value>
+    <value>Viega Corte del León</value>
   </data>
   <data name="Setting_Strike_PanelOpacity_Label" xml:space="preserve">
     <value>Opacidad de fondo de cuadrícula</value>
@@ -767,7 +767,7 @@
     <value>Susurro de Jormag</value>
   </data>
   <data name="Setting_Strike_XJJ_Label" xml:space="preserve">
-    <value>Depósito de chatarra de jade Xunlai</value>
+    <value>Chararreria de Xunlai Jade</value>
   </data>
   <data name="Settngs_CopyRaidTooltip" xml:space="preserve">
     <value>Haga que todas las configuraciones coincidan con los valores correspondientes de la superposición de Raids</value>
