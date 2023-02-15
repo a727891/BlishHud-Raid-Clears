@@ -133,6 +133,12 @@
   <data name="Module_Title" xml:space="preserve">
     <value>Clears Tracker</value>
   </data>
+  <data name="PatchNotes" xml:space="preserve">
+    <value>Patch Notes</value>
+  </data>
+  <data name="PatchNotes_Tooltip" xml:space="preserve">
+    <value>Show patch notes in your default web browser</value>
+  </data>
   <data name="Raid_OverlayEnable" xml:space="preserve">
     <value>Show/hide raid overlay</value>
     <comment>Setting label for making the raid overlay visible</comment>

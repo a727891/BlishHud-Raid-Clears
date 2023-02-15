@@ -3,6 +3,7 @@ using Blish_HUD.Graphics.UI;
 using Microsoft.Xna.Framework;
 using RaidClears.Localization;
 using RaidClears.Utils;
+using System.Diagnostics;
 
 namespace RaidClears.Settings.Views.SubViews;
 
@@ -14,6 +15,12 @@ public class MainSettingsView : View
 
         var panel = new FlowPanel()
             .BeginFlow(buildPanel, new Point(-95, 0), new Point(0, 5))
+            .AddFlowControl(new StandardButton
+            {
+                Text = Strings.PatchNotes,
+                BasicTooltipText = Strings.PatchNotes_Tooltip
+            }, out var patchNotesButton)
+            .AddSpace()
             .AddSetting(Service.Settings.SettingsPanelKeyBind)
             .AddSpace()
             .AddSetting(Service.Settings.ApiPollingPeriod)
@@ -49,6 +56,14 @@ public class MainSettingsView : View
         {
             Service.ApiPollingService?.Invoke();
             refreshButton.Enabled = false;
+        };
+        patchNotesButton.Click += (s, e) =>
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://pkgs.blishhud.com/Soeed.RaidClears.html",
+                UseShellExecute = true
+            });
         };
     }
 }

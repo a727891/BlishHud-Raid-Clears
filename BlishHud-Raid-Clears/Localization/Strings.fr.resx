@@ -133,6 +133,12 @@
   <data name="Module_Title" xml:space="preserve">
     <value>Clears Tracker</value>
   </data>
+  <data name="PatchNotes" xml:space="preserve">
+    <value>Notes de mise à jour</value>
+  </data>
+  <data name="PatchNotes_Tooltip" xml:space="preserve">
+    <value>Afficher les notes de mise à jour dans votre navigateur Web par défaut</value>
+  </data>
   <data name="Raid_OverlayEnable" xml:space="preserve">
     <value>Afficher/masquer la superposition de raid</value>
     <comment>Setting label for making the raid overlay visible</comment>
@@ -464,7 +470,7 @@
     <value>Afficher/Masquer le raccourci clavier</value>
   </data>
   <data name="Setting_Dun_Keybind_Tooltip" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="Setting_Dun_Tooltips_Label" xml:space="preserve">
     <value>Activer les info-bulles de survol de la souris sur la superposition</value>
@@ -554,13 +560,13 @@
     <value>Afficher/Masquer le raccourci clavier</value>
   </data>
   <data name="Setting_Raid_Keybind_Tooltip" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="Setting_Raid_LabelDisplay_Label" xml:space="preserve">
     <value>Style d'étiquette</value>
   </data>
   <data name="Setting_Raid_LabelDisplay_Tooltip" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="Setting_Raid_LabelOpacity_Label" xml:space="preserve">
     <value>Opacité des étiquettes</value>
@@ -572,7 +578,7 @@
     <value>Disposition de la grille</value>
   </data>
   <data name="Setting_Raid_Layout_Tooltip" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="Setting_Raid_PanelOpacity_Label" xml:space="preserve">
     <value>Opacité de l'arrière-plan de la grille</value>
@@ -713,7 +719,7 @@
     <value>Afficher/Masquer le raccourci clavier</value>
   </data>
   <data name="Setting_Strike_Keybind_Tooltip" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="Setting_Strike_KO_Label" xml:space="preserve">
     <value>Belvedere de Kaineng</value>
@@ -722,7 +728,7 @@
     <value>Style d'étiquette</value>
   </data>
   <data name="Setting_Strike_LabelDisplay_Tooltip" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="Setting_Strike_LabelOpacity_Label" xml:space="preserve">
     <value>Opacité des étiquettes</value>
@@ -734,7 +740,7 @@
     <value>Disposition de la grille</value>
   </data>
   <data name="Setting_Strike_Layout_Tooltip" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="Setting_Strike_OLC_Label" xml:space="preserve">
     <value>Ancienne Cour du Lion</value>
@@ -775,6 +781,24 @@
   <data name="SharedKeybind" xml:space="preserve">
     <value>Les superpositions peuvent utiliser le même raccourci clavier</value>
   </data>
+  <data name="StrikeGroup_EoD" xml:space="preserve">
+    <value>Fin des dragons</value>
+  </data>
+  <data name="StrikeGroup_Eod_abbr" xml:space="preserve">
+    <value>Éod</value>
+  </data>
+  <data name="StrikeGroup_Icebrood" xml:space="preserve">
+    <value>Saga du givre</value>
+  </data>
+  <data name="StrikeGroup_Icebrood_abbr" xml:space="preserve">
+    <value>SCI</value>
+  </data>
+  <data name="StrikeGroup_Priority" xml:space="preserve">
+    <value>Missions d'attaque prioritaire (quotidiennes)</value>
+  </data>
+  <data name="StrikeGroup_Priority_abbr" xml:space="preserve">
+    <value>PS</value>
+  </data>
   <data name="Strike_Confirm_Btn_No" xml:space="preserve">
     <value>Non</value>
   </data>
@@ -783,6 +807,39 @@
   </data>
   <data name="Strike_Confirm_Message" xml:space="preserve">
     <value>Avez-vous terminé la rencontre avec succès ?</value>
+  </data>
+  <data name="Strike_Short_AetherbladeHideout" xml:space="preserve">
+    <value>Ah</value>
+  </data>
+  <data name="Strike_Short_Boneskinner" xml:space="preserve">
+    <value>BS</value>
+  </data>
+  <data name="Strike_Short_ColdWar" xml:space="preserve">
+    <value>CW</value>
+  </data>
+  <data name="Strike_Short_Fraenir" xml:space="preserve">
+    <value>FoJ</value>
+  </data>
+  <data name="Strike_Short_HarvestTemple" xml:space="preserve">
+    <value>HT</value>
+  </data>
+  <data name="Strike_Short_Junkyard" xml:space="preserve">
+    <value>XJJ</value>
+  </data>
+  <data name="Strike_Short_OldLionsCourt" xml:space="preserve">
+    <value>CLO</value>
+  </data>
+  <data name="Strike_Short_Overlook" xml:space="preserve">
+    <value>KO</value>
+  </data>
+  <data name="Strike_Short_Shiverpeak" xml:space="preserve">
+    <value>PS</value>
+  </data>
+  <data name="Strike_Short_VoiceAndClaw" xml:space="preserve">
+    <value>V&amp;C</value>
+  </data>
+  <data name="Strike_Short_Whisper" xml:space="preserve">
+    <value>WoJ</value>
   </data>
   <data name="Strike_Tooltip_tomorrow" xml:space="preserve">
     <value>Demain:</value>

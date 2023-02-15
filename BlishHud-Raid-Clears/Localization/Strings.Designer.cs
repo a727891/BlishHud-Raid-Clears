@@ -106,6 +106,24 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Patch Notes.
+        /// </summary>
+        internal static string PatchNotes {
+            get {
+                return ResourceManager.GetString("PatchNotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show patch notes in your default web browser.
+        /// </summary>
+        internal static string PatchNotes_Tooltip {
+            get {
+                return ResourceManager.GetString("PatchNotes_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show/hide raid overlay.
         /// </summary>
         internal static string Raid_OverlayEnable {
