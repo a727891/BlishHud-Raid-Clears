@@ -118,36 +118,36 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CornerIcon_Dungeon" xml:space="preserve">
-    <value>Click to show/hide the Dungeons overlay</value>
+    <value>Klicken Sie hier, um das Dungeons-Overlay anzuzeigen/auszublenden</value>
   </data>
   <data name="CornerIcon_Raid" xml:space="preserve">
-    <value>Click to show/hide the Raids overlay</value>
+    <value>Klicken Sie hier, um das Raids-Overlay anzuzeigen/auszublenden</value>
   </data>
   <data name="CornerIcon_Strike" xml:space="preserve">
-    <value>Click to show/hide the Strikes overlay</value>
+    <value>Klicken Sie hier, um das Strikes-Overlay anzuzeigen/auszublenden</value>
   </data>
   <data name="ModuleSettings_OpenSettings" xml:space="preserve">
-    <value>Open Settings</value>
+    <value>Einstellungen öffnen</value>
     <comment>Open Settings panel button text in the Blish module settings</comment>
   </data>
   <data name="Module_Title" xml:space="preserve">
-    <value>Clears Tracker</value>
+    <value>Löscht den Tracker</value>
   </data>
   <data name="Raid_OverlayEnable" xml:space="preserve">
-    <value>Show/hide raid overlay</value>
+    <value>Raid-Overlay ein-/ausblenden</value>
     <comment>Setting label for making the raid overlay visible</comment>
   </data>
   <data name="Raid_Wing_1" xml:space="preserve">
-    <value>Spirit Vale</value>
+    <value>Geistertal</value>
   </data>
   <data name="Raid_Wing_1_1_Name" xml:space="preserve">
-    <value>Vale Guardian</value>
+    <value>Talwächter</value>
   </data>
   <data name="Raid_Wing_1_1_Short" xml:space="preserve">
     <value>VG</value>
   </data>
   <data name="Raid_Wing_1_2_Name" xml:space="preserve">
-    <value>Spirit Run</value>
+    <value>Geisterlauf</value>
   </data>
   <data name="Raid_Wing_1_2_Short" xml:space="preserve">
     <value>SR</value>
@@ -168,7 +168,7 @@
     <value>SV</value>
   </data>
   <data name="Raid_Wing_2" xml:space="preserve">
-    <value>Salvation Pass</value>
+    <value>Erlösungspass</value>
   </data>
   <data name="Raid_Wing_2_1_Name" xml:space="preserve">
     <value>Slothasor</value>
@@ -177,13 +177,13 @@
     <value>S</value>
   </data>
   <data name="Raid_Wing_2_2_Name" xml:space="preserve">
-    <value>Bandit Trio</value>
+    <value>Banditen-Trio</value>
   </data>
   <data name="Raid_Wing_2_2_Short" xml:space="preserve">
     <value>B3</value>
   </data>
   <data name="Raid_Wing_2_3_Name" xml:space="preserve">
-    <value>Matthias Gabrel</value>
+    <value>Mathias Gabriel</value>
   </data>
   <data name="Raid_Wing_2_3_Short" xml:space="preserve">
     <value>M</value>
@@ -192,22 +192,22 @@
     <value>SP</value>
   </data>
   <data name="Raid_Wing_3" xml:space="preserve">
-    <value>Stonghold of the Falthful</value>
+    <value>Festung der Treuen</value>
   </data>
   <data name="Raid_Wing_3_1_Name" xml:space="preserve">
-    <value>Escort</value>
+    <value>Begleiten</value>
   </data>
   <data name="Raid_Wing_3_1_Short" xml:space="preserve">
     <value>E</value>
   </data>
   <data name="Raid_Wing_3_2_Name" xml:space="preserve">
-    <value>Keep Construct</value>
+    <value>Konstrukt behalten</value>
   </data>
   <data name="Raid_Wing_3_2_Short" xml:space="preserve">
     <value>KC</value>
   </data>
   <data name="Raid_Wing_3_3_Name" xml:space="preserve">
-    <value>Twisted Castle</value>
+    <value>Verdrehtes Schloss</value>
   </data>
   <data name="Raid_Wing_3_3_Short" xml:space="preserve">
     <value>TC</value>
@@ -219,19 +219,19 @@
     <value>X</value>
   </data>
   <data name="Raid_Wing_3_Short" xml:space="preserve">
-    <value>SotF</value>
+    <value>SofF</value>
   </data>
   <data name="Raid_Wing_4" xml:space="preserve">
-    <value>Bastion of the Penitent</value>
+    <value>Bastion der Büßfertigen</value>
   </data>
   <data name="Raid_Wing_4_1_Name" xml:space="preserve">
-    <value>Cairn the Indominable</value>
+    <value>Cairn der Unbezwingbare</value>
   </data>
   <data name="Raid_Wing_4_1_Short" xml:space="preserve">
     <value>C</value>
   </data>
   <data name="Raid_Wing_4_2_Name" xml:space="preserve">
-    <value>Mursaat Overseer</value>
+    <value>Mursaat-Aufseher</value>
   </data>
   <data name="Raid_Wing_4_2_Short" xml:space="preserve">
     <value>MO</value>
@@ -252,22 +252,22 @@
     <value>BotP</value>
   </data>
   <data name="Raid_Wing_5" xml:space="preserve">
-    <value>Hall of Chains</value>
+    <value>Halle der Ketten</value>
   </data>
   <data name="Raid_Wing_5_1_Name" xml:space="preserve">
-    <value>Soulless Horror</value>
+    <value>Seelenloses Grauen</value>
   </data>
   <data name="Raid_Wing_5_1_Short" xml:space="preserve">
     <value>SH</value>
   </data>
   <data name="Raid_Wing_5_2_Name" xml:space="preserve">
-    <value>River of Souls</value>
+    <value>Fluss der Seelen</value>
   </data>
   <data name="Raid_Wing_5_2_Short" xml:space="preserve">
     <value>R</value>
   </data>
   <data name="Raid_Wing_5_3_Name" xml:space="preserve">
-    <value>Statues of Grenth</value>
+    <value>Statuen von Grenth</value>
   </data>
   <data name="Raid_Wing_5_3_Short" xml:space="preserve">
     <value>S</value>
@@ -282,16 +282,16 @@
     <value>HoC</value>
   </data>
   <data name="Raid_Wing_6" xml:space="preserve">
-    <value>Mythwright Gambit</value>
+    <value>Mythenschreiber - Wagnis</value>
   </data>
   <data name="Raid_Wing_6_1_Name" xml:space="preserve">
-    <value>Conjured Amalgamate</value>
+    <value>Beschworenes Amalgamat</value>
   </data>
   <data name="Raid_Wing_6_1_Short" xml:space="preserve">
     <value>CA</value>
   </data>
   <data name="Raid_Wing_6_2_Name" xml:space="preserve">
-    <value>Twin Largos</value>
+    <value>Zwilling Largos</value>
   </data>
   <data name="Raid_Wing_6_2_Short" xml:space="preserve">
     <value>TL</value>
@@ -306,28 +306,28 @@
     <value>MG</value>
   </data>
   <data name="Raid_Wing_7" xml:space="preserve">
-    <value>The Key of Ahdashim</value>
+    <value>Schlussel von Ahdashim</value>
   </data>
   <data name="Raid_Wing_7_1_Name" xml:space="preserve">
-    <value>Gate</value>
+    <value>Tor</value>
   </data>
   <data name="Raid_Wing_7_1_Short" xml:space="preserve">
     <value>G</value>
   </data>
   <data name="Raid_Wing_7_2_Name" xml:space="preserve">
-    <value>Cardinal Adina</value>
+    <value>Kardinal Adina</value>
   </data>
   <data name="Raid_Wing_7_2_Short" xml:space="preserve">
     <value>A</value>
   </data>
   <data name="Raid_Wing_7_3_Name" xml:space="preserve">
-    <value>Cardinal Sabir</value>
+    <value>Kardinal Sabir</value>
   </data>
   <data name="Raid_Wing_7_3_Short" xml:space="preserve">
     <value>S</value>
   </data>
   <data name="Raid_Wing_7_4_Name" xml:space="preserve">
-    <value>Qadim the Peerless</value>
+    <value>Qadim der Unvergleichliche</value>
   </data>
   <data name="Raid_Wing_7_4_Short" xml:space="preserve">
     <value>Q2</value>
@@ -336,463 +336,463 @@
     <value>TKoA</value>
   </data>
   <data name="SettingsPanel_Dun_Heading_General" xml:space="preserve">
-    <value>Options / Keybind</value>
+    <value>Optionen / Tastenbelegung</value>
   </data>
   <data name="SettingsPanel_Dun_Heading_Layout" xml:space="preserve">
-    <value>Layout / Colors</value>
+    <value>Layout / Farben</value>
   </data>
   <data name="SettingsPanel_Dun_Heading_PathSelection" xml:space="preserve">
-    <value>Dungeon Selection</value>
+    <value>Dungeon-Auswahl</value>
   </data>
   <data name="SettingsPanel_Raids_Heading_General" xml:space="preserve">
-    <value>Options / Keybind</value>
+    <value>Optionen / Tastenbelegung</value>
   </data>
   <data name="SettingsPanel_Raids_Heading_Layout" xml:space="preserve">
-    <value>Layout / Colors</value>
+    <value>Layout / Farben</value>
   </data>
   <data name="SettingsPanel_Raids_Heading_WingSelection" xml:space="preserve">
-    <value>Wing Selection</value>
+    <value>Flügelauswahl</value>
   </data>
   <data name="SettingsPanel_Raid_Visual_Colors" xml:space="preserve">
-    <value>Customize the colors by entering a Hex color code.</value>
+    <value>Passen Sie die Farben an, indem Sie einen Hex-Farbcode eingeben.</value>
     <comment>On the raids visual page, help text explaining the color pickers</comment>
   </data>
   <data name="SettingsPanel_Raid_Visual_ColorsTip" xml:space="preserve">
-    <value> (Tip: Google 'color picker' for help)</value>
+    <value>(Tipp: Google 'Color Picker' für Hilfe)</value>
   </data>
   <data name="SettingsPanel_Strikes_Heading_Selection" xml:space="preserve">
-    <value>Strikes Selection</value>
+    <value>Streikauswahl</value>
   </data>
   <data name="SettingsPanel_Subtitle" xml:space="preserve">
-    <value>customization options</value>
+    <value>Anpassungsmöglichkeiten</value>
     <comment>Subtitle on the settings panel header</comment>
   </data>
   <data name="SettingsPanel_Tab_Dunegons" xml:space="preserve">
-    <value>Dungeons</value>
+    <value>Kerker</value>
   </data>
   <data name="SettingsPanel_Tab_General" xml:space="preserve">
-    <value>General</value>
+    <value>Allgemein</value>
   </data>
   <data name="SettingsPanel_Tab_Raids" xml:space="preserve">
-    <value>Raids</value>
+    <value>Überfälle</value>
   </data>
   <data name="SettingsPanel_Tab_Strikes" xml:space="preserve">
-    <value>Strikes</value>
+    <value>Streiks</value>
   </data>
   <data name="Settings_Dungeon_Heading" xml:space="preserve">
-    <value>Enable individual Dungeons</value>
+    <value>Aktiviere einzelne Dungeons</value>
   </data>
   <data name="Settings_Keybind_Label" xml:space="preserve">
-    <value>Settings window keybind</value>
+    <value>Tastenkombination für das Einstellungsfenster</value>
   </data>
   <data name="Settings_Keybind_tooltip" xml:space="preserve">
-    <value>Show/Hide this window with a keybind</value>
+    <value>Dieses Fenster mit einer Tastenkombination ein-/ausblenden</value>
   </data>
   <data name="Settings_Raid_Hot_Heading" xml:space="preserve">
-    <value>Enable individual Heart of Thorns raid wings</value>
+    <value>Aktivieren Sie einzelne Heart of Thorns-Schlachtzüge</value>
   </data>
   <data name="Settings_Raid_PoF_Heading" xml:space="preserve">
-    <value>Enable individual Path of Fire raid wings</value>
+    <value>Aktivieren Sie einzelne Path of Fire-Schlachtzüge</value>
   </data>
   <data name="Settings_RefreshNow" xml:space="preserve">
-    <value>Refresh now</value>
+    <value>Jetzt aktualisieren</value>
   </data>
   <data name="Settings_Strike_AnchorToRaidLabel" xml:space="preserve">
-    <value>Anchor strikes to the raid overlay</value>
+    <value>Anker schlägt im Raid-Overlay ein</value>
   </data>
   <data name="Settings_Strike_AnchorToRaidTooltip" xml:space="preserve">
-    <value>The strikes overlay will attach to the raid overlay when the raid overlay is moved</value>
+    <value>Das Strikes-Overlay wird an das Raid-Overlay angehängt, wenn das Raid-Overlay verschoben wird</value>
   </data>
   <data name="Settings_Strike_Completion" xml:space="preserve">
-    <value>Mark complete</value>
+    <value>Fertig markieren</value>
   </data>
   <data name="Settings_Strike_CompletionTooltip" xml:space="preserve">
-    <value>Determine how strikes are marked as cleared</value>
+    <value>Legen Sie fest, wie Verwarnungen als gelöscht markiert werden</value>
   </data>
   <data name="Settings_Strike_EOD_Heading" xml:space="preserve">
-    <value>Enable individual End of Dragons strikes</value>
+    <value>Aktivieren Sie individuelle End of Dragons-Streiks</value>
   </data>
   <data name="Settings_Strike_IBS_Heading" xml:space="preserve">
-    <value>Enable individual Icebrood Saga strikes</value>
+    <value>Aktiviert individuelle Eisbrut-Saga-Strikes</value>
   </data>
   <data name="Setting_APIPoll_Label" xml:space="preserve">
-    <value>Refresh data every </value>
+    <value>Daten aktualisieren alle</value>
   </data>
   <data name="Setting_APIPoll_Tooltip" xml:space="preserve">
-    <value>How often should the GW2 API be checked for updated information</value>
+    <value>Wie oft sollte die GW2-API auf aktualisierte Informationen überprüft werden?</value>
   </data>
   <data name="Setting_CopyRaids" xml:space="preserve">
-    <value>Match raid settings</value>
+    <value>Match-Raid-Einstellungen</value>
   </data>
   <data name="Setting_CornerIconEnable" xml:space="preserve">
-    <value>Enable menubar icon</value>
+    <value>Menüleistensymbol aktivieren</value>
   </data>
   <data name="Setting_CornerIconEnableTooltip" xml:space="preserve">
-    <value>Add a menubar icon next to Blish in the top-left of your screen</value>
+    <value>Fügen Sie ein Menüleistensymbol neben Blish oben links auf Ihrem Bildschirm hinzu</value>
   </data>
   <data name="Setting_cornerIconHelpText" xml:space="preserve">
-    <value>Which overlays should Hide/Show when you left click the menu icon?</value>
+    <value>Welche Overlays sollen ausgeblendet/angezeigt werden, wenn Sie mit der linken Maustaste auf das Menüsymbol klicken?</value>
   </data>
   <data name="Setting_Dun_ColFreqText_Label" xml:space="preserve">
-    <value>Frequenter text color</value>
+    <value>Häufigere Textfarbe</value>
   </data>
   <data name="Setting_Dun_ColFreqText_Tooltip" xml:space="preserve">
-    <value>Hex color code (#rrggbb) for Paths that count for dungeon frequenter achievement</value>
+    <value>Hex-Farbcode (#rrggbb) für Pfade, die für den Dungeon-Frequenz-Erfolg zählen</value>
   </data>
   <data name="Setting_Dun_DisabledWarning" xml:space="preserve">
-    <value>Dungeon feature is currently disabled</value>
+    <value>Die Dungeon-Funktion ist derzeit deaktiviert</value>
   </data>
   <data name="Setting_Dun_Drag_Label" xml:space="preserve">
-    <value>Unlock Dungeon overlay position</value>
+    <value>Schalte die Dungeon-Overlay-Position frei</value>
   </data>
   <data name="Setting_Dun_Drag_Tooltip" xml:space="preserve">
-    <value>Click and drag to reposition the overlay window</value>
+    <value>Klicken und ziehen Sie, um das Überlagerungsfenster neu zu positionieren</value>
   </data>
   <data name="Setting_Dun_Enabled" xml:space="preserve">
-    <value>Enable dungeons feature</value>
+    <value>Dungeons-Funktion aktivieren</value>
   </data>
   <data name="Setting_Dun_Enabled_Tooltip" xml:space="preserve">
-    <value>Enable/Disable all dungeon features</value>
+    <value>Aktiviere/Deaktiviere alle Dungeon-Features</value>
   </data>
   <data name="Setting_Dun_Icon_Label" xml:space="preserve">
-    <value>Dungeons hide/show on menubar icon click</value>
+    <value>Dungeons verstecken/anzeigen auf Menüleisten-Icon-Klick</value>
   </data>
   <data name="Setting_Dun_Icon_Tooltip" xml:space="preserve">
-    <value>Dungeon overlay hides/shows when clicking the icon next to Blish in the top-left of the screen</value>
+    <value>Das Dungeon-Overlay wird ausgeblendet/angezeigt, wenn Sie auf das Symbol neben Blish oben links auf dem Bildschirm klicken</value>
   </data>
   <data name="Setting_Dun_Keybind_Label" xml:space="preserve">
-    <value>Show/Hide keybind</value>
+    <value>Tastenbelegung ein-/ausblenden</value>
   </data>
   <data name="Setting_Dun_Keybind_Tooltip" xml:space="preserve">
     <value />
   </data>
   <data name="Setting_Dun_Tooltips_Label" xml:space="preserve">
-    <value>Enable mouse hover tooltips on the overlay</value>
+    <value>Aktivieren Sie Mauszeiger-QuickInfos auf dem Overlay</value>
   </data>
   <data name="Setting_Dun_Tooltips_Tooltip" xml:space="preserve">
-    <value>Hovering the mouse over an path will display the full name</value>
+    <value>Wenn Sie die Maus über einen Pfad bewegen, wird der vollständige Name angezeigt</value>
   </data>
   <data name="Setting_Dun_Visible_Label" xml:space="preserve">
-    <value>Show dungeons overlay</value>
+    <value>Dungeons-Overlay anzeigen</value>
   </data>
   <data name="Setting_Dun_Visible_Tooltip" xml:space="preserve">
-    <value>Show the dungeons overlay on screen</value>
+    <value>Zeigen Sie das Dungeons-Overlay auf dem Bildschirm</value>
   </data>
   <data name="Setting_Raid_ColBG_Label" xml:space="preserve">
-    <value>Overlay background color</value>
+    <value>Hintergrundfarbe überlagern</value>
   </data>
   <data name="Setting_Raid_ColBG_Tooltip" xml:space="preserve">
-    <value>Raid overlay background color</value>
+    <value>Hintergrundfarbe des Raid-Overlays</value>
   </data>
   <data name="Setting_Raid_ColClear_Label" xml:space="preserve">
-    <value>Cleared encounter color</value>
+    <value>Begegnungsfarbe gelöscht</value>
   </data>
   <data name="Setting_Raid_ColClear_Tooltip" xml:space="preserve">
-    <value>Hex color code (#rrggbb) for Encounters that have been cleared this week</value>
+    <value>Hex-Farbcode (#rrggbb) für Begegnungen, die diese Woche abgeschlossen wurden</value>
   </data>
   <data name="Setting_Raid_ColCotm_Label" xml:space="preserve">
-    <value>Call of the Mists text color</value>
+    <value>Call of the Mists Textfarbe</value>
   </data>
   <data name="Setting_Raid_ColCotm_Tooltip" xml:space="preserve">
-    <value>Hex color code (#rrggbb) for Wing and Encounters text during the Call of the Mists week</value>
+    <value>Hex-Farbcode (#rrggbb) für den Flügel- und Begegnungstext während der Call of the Mists-Woche</value>
   </data>
   <data name="Setting_Raid_ColEmbolden_Label" xml:space="preserve">
-    <value>Emboldened text color</value>
+    <value>Ermutigte Textfarbe</value>
   </data>
   <data name="Setting_Raid_ColEmbolden_Tooltip" xml:space="preserve">
-    <value>Hex color code (#rrggbb) for Wing and Encounters text during the Emboldened week</value>
+    <value>Hex-Farbcode (#rrggbb) für Wing- und Encounter-Text während der Emboldened-Woche</value>
   </data>
   <data name="Setting_Raid_ColNotClear_Label" xml:space="preserve">
-    <value>Non-cleared encounter color</value>
+    <value>Nicht gelöschte Begegnungsfarbe</value>
   </data>
   <data name="Setting_Raid_ColNotClear_Tooltip" xml:space="preserve">
-    <value>Hex color code (#rrggbb) for Encounters that have not been cleared this week</value>
+    <value>Hex-Farbcode (#rrggbb) für Begegnungen, die diese Woche nicht abgeschlossen wurden</value>
   </data>
   <data name="Setting_Raid_ColText_Label" xml:space="preserve">
-    <value>Label and Grid text color</value>
+    <value>Beschriftungs- und Rastertextfarbe</value>
   </data>
   <data name="Setting_Raid_ColText_Tooltip" xml:space="preserve">
-    <value>Hex color code (#rrggbb) for label and grid text</value>
+    <value>Hex-Farbcode (#rrggbb) für Label- und Rastertext</value>
   </data>
   <data name="Setting_Raid_Cotm_Label" xml:space="preserve">
-    <value>Highlight the weekly 'Call of the Mist' raid wing</value>
+    <value>Heben Sie den wöchentlichen Raid-Flügel „Ruf des Nebels“ hervor</value>
   </data>
   <data name="Setting_Raid_Cotm_Tooltip" xml:space="preserve">
-    <value>Colors the text for the weekly Call of the Mists raid wing\nCall of the Mists doubles all gold in the boss loot chest</value>
+    <value>Färbt den Text für den wöchentlichen Raid-Flügel „Call of the Mists“.\nCall of the Mists verdoppelt das gesamte Gold in der Boss-Beutetruhe</value>
   </data>
   <data name="Setting_Raid_Drag_Label" xml:space="preserve">
-    <value>Unlock Raid overlay position</value>
+    <value>Schalte die Raid-Overlay-Position frei</value>
   </data>
   <data name="Setting_Raid_Drag_Tooltip" xml:space="preserve">
-    <value>Click and drag to reposition the overlay windows</value>
+    <value>Klicken und ziehen Sie, um die Overlay-Fenster neu zu positionieren</value>
   </data>
   <data name="Setting_Raid_Embolden_Label" xml:space="preserve">
-    <value>Highlight the weekly 'Emboldened' raid wing</value>
+    <value>Heben Sie den wöchentlichen Raid-Flügel „Emboldened“ hervor</value>
   </data>
   <data name="Setting_Raid_Embolden_Tooltip" xml:space="preserve">
-    <value>Colors the text for the weekly Emboldened raid wing\nEmbolden mode increases player health, damage, and healing for each stack</value>
+    <value>Färbt den Text für den wöchentlichen Raid-Flügel „Embolden“ ein\nDer Modus „Embold“ erhöht die Gesundheit, den Schaden und die Heilung des Spielers für jeden Stapel</value>
   </data>
   <data name="Setting_Raid_Font_Label" xml:space="preserve">
-    <value>Grid size</value>
+    <value>Gittergröße</value>
   </data>
   <data name="Setting_Raid_Font_Tooptip" xml:space="preserve">
-    <value>Change the size of the grid</value>
+    <value>Ändern Sie die Größe des Rasters</value>
   </data>
   <data name="Setting_Raid_GridOpacity_Label" xml:space="preserve">
-    <value>Grid opacity</value>
+    <value>Rasterdeckkraft</value>
   </data>
   <data name="Setting_Raid_GridOpactiy_Tooltip" xml:space="preserve">
-    <value>Hidden &lt;---&gt; Fully Visible</value>
+    <value>Versteckt &lt;---&gt; Vollständig sichtbar</value>
   </data>
   <data name="Setting_Raid_Icon_Label" xml:space="preserve">
-    <value>Raids hide/show on menubar icon click</value>
+    <value>Raids verstecken/anzeigen auf Menüleisten-Icon-Klick</value>
   </data>
   <data name="Setting_Raid_Icon_Tooltip" xml:space="preserve">
-    <value>Raids overlay hides/shows when clicking the icon next to Blish in the top-left of the screen</value>
+    <value>Überlagerte Raids werden ausgeblendet/angezeigt, wenn auf das Symbol neben Blish oben links auf dem Bildschirm geklickt wird</value>
   </data>
   <data name="Setting_Raid_Keybind_Label" xml:space="preserve">
-    <value>Show/Hide keybind</value>
+    <value>Tastenbelegung ein-/ausblenden</value>
   </data>
   <data name="Setting_Raid_Keybind_Tooltip" xml:space="preserve">
     <value />
   </data>
   <data name="Setting_Raid_LabelDisplay_Label" xml:space="preserve">
-    <value>Label style</value>
+    <value>Etikettenstil</value>
   </data>
   <data name="Setting_Raid_LabelDisplay_Tooltip" xml:space="preserve">
     <value />
   </data>
   <data name="Setting_Raid_LabelOpacity_Label" xml:space="preserve">
-    <value>Label opacity</value>
+    <value>Deckkraft des Etiketts</value>
   </data>
   <data name="Setting_Raid_LabelOpacity_Tooltip" xml:space="preserve">
-    <value>Hidden &lt;---&gt; Fully Visible</value>
+    <value>Versteckt &lt;---&gt; Vollständig sichtbar</value>
   </data>
   <data name="Setting_Raid_Layout_Label" xml:space="preserve">
-    <value>Grid layout</value>
+    <value>Gitterstruktur</value>
   </data>
   <data name="Setting_Raid_Layout_Tooltip" xml:space="preserve">
     <value />
   </data>
   <data name="Setting_Raid_PanelOpacity_Label" xml:space="preserve">
-    <value>Grid background opacity</value>
+    <value>Deckkraft des Gitterhintergrunds</value>
   </data>
   <data name="Setting_Raid_PanelOpacity_Tooltip" xml:space="preserve">
-    <value>Hidden &lt;---&gt; Fully Visible</value>
+    <value>Versteckt &lt;---&gt; Vollständig sichtbar</value>
   </data>
   <data name="Setting_Raid_Tooltips_Label" xml:space="preserve">
-    <value>Enable mouse hover tooltips on overlay</value>
+    <value>Mauszeiger-QuickInfos auf Overlay aktivieren</value>
   </data>
   <data name="Setting_Raid_Tooltips_Tooltip" xml:space="preserve">
-    <value>Hovering the mouse over an encounter will display the full name</value>
+    <value>Wenn Sie die Maus über eine Begegnung bewegen, wird der vollständige Name angezeigt</value>
   </data>
   <data name="Setting_Raid_Visible_Label" xml:space="preserve">
-    <value>Show Raids overlay</value>
+    <value>Raids-Overlay anzeigen</value>
   </data>
   <data name="Setting_Raid_Visible_Tooltip" xml:space="preserve">
-    <value>Show the raid overlay on screen</value>
+    <value>Zeigen Sie das Raid-Overlay auf dem Bildschirm an</value>
   </data>
   <data name="Setting_Raid_W1_Label" xml:space="preserve">
-    <value>W1 / Spirit Vale</value>
+    <value>W1 / Geistertal</value>
   </data>
   <data name="Setting_Raid_W1_Tooltip" xml:space="preserve">
-    <value>Enable Spirit Vale on the raid overlay</value>
+    <value>Aktiviere Spirit Vale im Raid-Overlay</value>
   </data>
   <data name="Setting_Raid_W2_Label" xml:space="preserve">
-    <value>W2 / Salvation Pass</value>
+    <value>W2 / Heilspass</value>
   </data>
   <data name="Setting_Raid_W2_Tooltip" xml:space="preserve">
-    <value>Enable Salvation Pass on the raid overlay</value>
+    <value>Aktiviere Salvation Pass im Raid-Overlay</value>
   </data>
   <data name="Setting_Raid_W3_Label" xml:space="preserve">
-    <value>W3 / Stronghold of the Faithful</value>
+    <value>W3 / Festung der Gläubigen</value>
   </data>
   <data name="Setting_Raid_W3_Tooltip" xml:space="preserve">
-    <value>Enable Stronghold of the Faithful on the raid overlay</value>
+    <value>Aktiviere Stronghold of the Faithful im Raid-Overlay</value>
   </data>
   <data name="Setting_Raid_W4_Label" xml:space="preserve">
-    <value>W4 / Bastion of the Penitent</value>
+    <value>W4 / Bastion der Büßer</value>
   </data>
   <data name="Setting_Raid_W4_Tooltip" xml:space="preserve">
-    <value>Enable Bastion of the Penitent on the raid overlay</value>
+    <value>Aktivieren Sie Bastion of the Penitent im Raid-Overlay</value>
   </data>
   <data name="Setting_Raid_W5_Label" xml:space="preserve">
-    <value>W5 / Hall of Chains</value>
+    <value>W5 / Halle der Ketten</value>
   </data>
   <data name="Setting_Raid_W5_Tooltip" xml:space="preserve">
-    <value>Enable Hall of Chains on the raid overlay</value>
+    <value>Aktiviere Hall of Chains im Raid-Overlay</value>
   </data>
   <data name="Setting_Raid_W6_Label" xml:space="preserve">
-    <value>W6 / Mythwright Gambit</value>
+    <value>W6 / Mythenschreiber-Gambit</value>
   </data>
   <data name="Setting_Raid_W6_Tooltip" xml:space="preserve">
-    <value>Enable Mythwright Gambit on the raid overlay</value>
+    <value>Aktivieren Sie Mythwright Gambit im Raid-Overlay</value>
   </data>
   <data name="Setting_Raid_W7_Label" xml:space="preserve">
-    <value>W7 / The Key of Ahdashim</value>
+    <value>W7 / Der Schlüssel von Ahdashim</value>
   </data>
   <data name="Setting_Raid_W7_Tooltip" xml:space="preserve">
-    <value>Enable The Key of Ahdashim on the raid overlay</value>
+    <value>Aktiviere den Schlüssel von Ahdashim im Raid-Overlay</value>
   </data>
   <data name="Setting_Stike_Priority" xml:space="preserve">
-    <value>Enable priority strike missions (daily)</value>
+    <value>Priority-Strike-Missionen aktivieren (täglich)</value>
   </data>
   <data name="Setting_Strike_AH_Label" xml:space="preserve">
-    <value>Aetherblade Hideout</value>
+    <value>Ätherklingen-Versteck</value>
   </data>
   <data name="Setting_Strike_BS_Label" xml:space="preserve">
-    <value>Boneskinner</value>
+    <value>Knochenhäuter</value>
   </data>
   <data name="Setting_Strike_ColBG_Label" xml:space="preserve">
-    <value>Overlay background color</value>
+    <value>Hintergrundfarbe überlagern</value>
   </data>
   <data name="Setting_Strike_ColBG_Tooltip" xml:space="preserve">
-    <value>Strike overlay background color</value>
+    <value>Strike-Overlay-Hintergrundfarbe</value>
   </data>
   <data name="Setting_Strike_ColClear_Label" xml:space="preserve">
-    <value>Cleared encounter color</value>
+    <value>Begegnungsfarbe gelöscht</value>
   </data>
   <data name="Setting_Strike_ColClear_Tooltip" xml:space="preserve">
-    <value>Hex color code (#rrggbb) for Encounters that have been cleared this reset</value>
+    <value>Hex-Farbcode (#rrggbb) für Begegnungen, die bei diesem Reset gelöscht wurden</value>
   </data>
   <data name="Setting_Strike_ColNotClear_Label" xml:space="preserve">
-    <value>Not-cleared encounter color</value>
+    <value>Nicht gelöschte Begegnungsfarbe</value>
   </data>
   <data name="Setting_Strike_ColNotClear_Tooltip" xml:space="preserve">
-    <value>Hex color code (#rrggbb) for Encounters that have not been cleared this week</value>
+    <value>Hex-Farbcode (#rrggbb) für Begegnungen, die diese Woche nicht abgeschlossen wurden</value>
   </data>
   <data name="Setting_Strike_ColText_Label" xml:space="preserve">
-    <value>Label and Grid text color</value>
+    <value>Beschriftungs- und Rastertextfarbe</value>
   </data>
   <data name="Setting_Strike_ColText_Tooltip" xml:space="preserve">
-    <value>Hex color code (#rrggbb) for label and grid text</value>
+    <value>Hex-Farbcode (#rrggbb) für Label- und Rastertext</value>
   </data>
   <data name="Setting_Strike_CopyRaids" xml:space="preserve">
-    <value>Copy layout from raids</value>
+    <value>Layout von Raids kopieren</value>
   </data>
   <data name="Setting_Strike_CW_Label" xml:space="preserve">
-    <value>Cold War</value>
+    <value>Kalter Krieg</value>
   </data>
   <data name="Setting_Strike_Drag_Label" xml:space="preserve">
-    <value>Unlock Strike overlay position</value>
+    <value>Schalte die Strike-Overlay-Position frei</value>
   </data>
   <data name="Setting_Strike_Drag_Tooltip" xml:space="preserve">
-    <value>Click and drag to reposition the overlay window</value>
+    <value>Klicken und ziehen Sie, um das Überlagerungsfenster neu zu positionieren</value>
   </data>
   <data name="Setting_Strike_Eod" xml:space="preserve">
-    <value>Enable End of Dragons</value>
+    <value>Aktivieren Sie Ende der Drachen</value>
   </data>
   <data name="Setting_Strike_FoJ_Label" xml:space="preserve">
-    <value>Fraenir of Jormag</value>
+    <value>Fraenir von Jormag</value>
   </data>
   <data name="Setting_Strike_Font_Label" xml:space="preserve">
-    <value>Grid size</value>
+    <value>Gittergröße</value>
   </data>
   <data name="Setting_Strike_Font_Tooptip" xml:space="preserve">
-    <value>Change the size of the grid</value>
+    <value>Ändern Sie die Größe des Rasters</value>
   </data>
   <data name="Setting_Strike_GridOpacity_Label" xml:space="preserve">
-    <value>Grid opacity</value>
+    <value>Rasterdeckkraft</value>
   </data>
   <data name="Setting_Strike_GridOpactiy_Tooltip" xml:space="preserve">
-    <value>Hidden &lt;---&gt; Fully Visible</value>
+    <value>Versteckt &lt;---&gt; Vollständig sichtbar</value>
   </data>
   <data name="Setting_Strike_HT_Label" xml:space="preserve">
-    <value>Harvest Temple</value>
+    <value>Tempel der Ernte</value>
   </data>
   <data name="Setting_Strike_IBS" xml:space="preserve">
-    <value>Enable Icebrood Saga</value>
+    <value>Eisbrut-Saga aktivieren</value>
   </data>
   <data name="Setting_Strike_Icon_Label" xml:space="preserve">
-    <value>Strikes hide/show on menubar icon click</value>
+    <value>Streiks verbergen/anzeigen auf Menüleistensymbol klicken</value>
   </data>
   <data name="Setting_Strike_Icon_Tooltip" xml:space="preserve">
-    <value>Strikes overlay hides/shows when clicking the icon next to Blish in the top-left of the screen</value>
+    <value>Strikes Overlay wird ausgeblendet/angezeigt, wenn Sie auf das Symbol neben Blish oben links auf dem Bildschirm klicken</value>
   </data>
   <data name="Setting_Strike_Keybind_Label" xml:space="preserve">
-    <value>Show/Hide keybind</value>
+    <value>Tastenbelegung ein-/ausblenden</value>
   </data>
   <data name="Setting_Strike_Keybind_Tooltip" xml:space="preserve">
     <value />
   </data>
   <data name="Setting_Strike_KO_Label" xml:space="preserve">
-    <value>Kaineng Overlook</value>
+    <value>Blick auf Kaineng</value>
   </data>
   <data name="Setting_Strike_LabelDisplay_Label" xml:space="preserve">
-    <value>Label style</value>
+    <value>Etikettenstil</value>
   </data>
   <data name="Setting_Strike_LabelDisplay_Tooltip" xml:space="preserve">
     <value />
   </data>
   <data name="Setting_Strike_LabelOpacity_Label" xml:space="preserve">
-    <value>Label opacity</value>
+    <value>Deckkraft des Etiketts</value>
   </data>
   <data name="Setting_Strike_LabelOpacity_Tooltip" xml:space="preserve">
-    <value>Hidden &lt;---&gt; Fully Visible</value>
+    <value>Versteckt &lt;---&gt; Vollständig sichtbar</value>
   </data>
   <data name="Setting_Strike_Layout_Label" xml:space="preserve">
-    <value>Grid layout</value>
+    <value>Gitterstruktur</value>
   </data>
   <data name="Setting_Strike_Layout_Tooltip" xml:space="preserve">
     <value />
   </data>
   <data name="Setting_Strike_OLC_Label" xml:space="preserve">
-    <value>Old Lion's Court</value>
+    <value>Alter Löwenhof</value>
   </data>
   <data name="Setting_Strike_PanelOpacity_Label" xml:space="preserve">
-    <value>Grid background opacity</value>
+    <value>Deckkraft des Gitterhintergrunds</value>
   </data>
   <data name="Setting_Strike_PanelOpacity_Tooltip" xml:space="preserve">
-    <value>Hidden &lt;---&gt; Fully Visible</value>
+    <value>Versteckt &lt;---&gt; Vollständig sichtbar</value>
   </data>
   <data name="Setting_Strike_SP_Label" xml:space="preserve">
-    <value>Shiverpeaks Pass</value>
+    <value>Zittergipfelpass</value>
   </data>
   <data name="Setting_Strike_Tooltips_Label" xml:space="preserve">
-    <value>Enable mouse hover tooltips on overlay</value>
+    <value>Mauszeiger-QuickInfos auf Overlay aktivieren</value>
   </data>
   <data name="Setting_Strike_Tooltips_Tooltip" xml:space="preserve">
-    <value>Hovering the mouse over an encounter will display the full name</value>
+    <value>Wenn Sie die Maus über eine Begegnung bewegen, wird der vollständige Name angezeigt</value>
   </data>
   <data name="Setting_Strike_VandC_Label" xml:space="preserve">
-    <value>Voice and Claw of the Fallen</value>
+    <value>Stimme und Klaue der Gefallenen</value>
   </data>
   <data name="Setting_Strike_Visible_Label" xml:space="preserve">
-    <value>Show strikes overlay</value>
+    <value>Verwarnungsüberlagerung anzeigen</value>
   </data>
   <data name="Setting_Strike_Visible_Tooltip" xml:space="preserve">
-    <value>Show the strikes overlay on screen</value>
+    <value>Zeigt das Streik-Overlay auf dem Bildschirm an</value>
   </data>
   <data name="Setting_Strike_WoJ_Label" xml:space="preserve">
-    <value>Whisper of Jormag</value>
+    <value>Flüstern von Jormag</value>
   </data>
   <data name="Setting_Strike_XJJ_Label" xml:space="preserve">
-    <value>Xunlai Jade Junkyard</value>
+    <value>Xunlai-Jade-Schrottplatz</value>
   </data>
   <data name="Settngs_CopyRaidTooltip" xml:space="preserve">
-    <value>Make all settings match the coresponding values from Raids overlay</value>
+    <value>Stellen Sie sicher, dass alle Einstellungen mit den entsprechenden Werten aus dem Raids-Overlay übereinstimmen</value>
   </data>
   <data name="SharedKeybind" xml:space="preserve">
-    <value>Overlays can use the same keybind</value>
+    <value>Overlays können dieselbe Tastenkombination verwenden</value>
   </data>
   <data name="Strike_Confirm_Btn_No" xml:space="preserve">
-    <value>No</value>
+    <value>NEIN</value>
   </data>
   <data name="Strike_Confirm_Btn_Yes" xml:space="preserve">
-    <value>Completed</value>
+    <value>Vollendet</value>
   </data>
   <data name="Strike_Confirm_Message" xml:space="preserve">
-    <value>Did you complete the encounter successfully?</value>
+    <value>Hast du die Begegnung erfolgreich abgeschlossen?</value>
   </data>
   <data name="Strike_Tooltip_tomorrow" xml:space="preserve">
-    <value>Tomorrow:</value>
+    <value>Morgen:</value>
   </data>
   <data name="VisibleHide" xml:space="preserve">
-    <value>Hide</value>
+    <value>Verstecken</value>
     <comment>menubar icon context menu "Hide {name}"</comment>
   </data>
   <data name="VisibleShow" xml:space="preserve">
-    <value>Show</value>
+    <value>Zeigen</value>
     <comment>menubar icon context menu "Show {name}"</comment>
   </data>
 </root>

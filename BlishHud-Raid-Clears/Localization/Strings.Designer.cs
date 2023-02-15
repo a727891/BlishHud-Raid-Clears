@@ -358,7 +358,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SofF.
+        ///   Looks up a localized string similar to SotF.
         /// </summary>
         internal static string Raid_Wing_3_Short {
             get {
