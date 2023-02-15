@@ -117,229 +117,285 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CornerIcon_Dungeon" xml:space="preserve">
-    <value>Click to show/hide the Dungeons overlay</value>
-  </data>
-  <data name="CornerIcon_Raid" xml:space="preserve">
-    <value>Click to show/hide the Raids overlay</value>
-  </data>
-  <data name="CornerIcon_Strike" xml:space="preserve">
-    <value>Click to show/hide the Strikes overlay</value>
-  </data>
   <data name="ModuleSettings_OpenSettings" xml:space="preserve">
     <value>Open Settings</value>
     <comment>Open Settings panel button text in the Blish module settings</comment>
   </data>
   <data name="Module_Title" xml:space="preserve">
     <value>Clears Tracker</value>
+    <comment>module name</comment>
   </data>
   <data name="PatchNotes" xml:space="preserve">
     <value>Patch Notes</value>
+    <comment>button text to open patch notes</comment>
   </data>
   <data name="PatchNotes_Tooltip" xml:space="preserve">
     <value>Show patch notes in your default web browser</value>
-  </data>
-  <data name="Raid_OverlayEnable" xml:space="preserve">
-    <value>Show/hide raid overlay</value>
-    <comment>Setting label for making the raid overlay visible</comment>
+    <comment>button tooltip to open patch notes in browser</comment>
   </data>
   <data name="Raid_Wing_1" xml:space="preserve">
     <value>Spirit Vale</value>
+    <comment>raid wing full name</comment>
   </data>
   <data name="Raid_Wing_1_1_Name" xml:space="preserve">
     <value>Vale Guardian</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_1_1_Short" xml:space="preserve">
     <value>VG</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_1_2_Name" xml:space="preserve">
     <value>Spirit Run</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_1_2_Short" xml:space="preserve">
     <value>SR</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_1_3_Name" xml:space="preserve">
     <value>Gorseval</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_1_3_Short" xml:space="preserve">
     <value>G</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_1_4_Name" xml:space="preserve">
     <value>Sabetha</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_1_4_Short" xml:space="preserve">
     <value>S</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_1_Short" xml:space="preserve">
     <value>SV</value>
+    <comment>raid wing abbreviation</comment>
   </data>
   <data name="Raid_Wing_2" xml:space="preserve">
     <value>Salvation Pass</value>
+    <comment>raid wing full name</comment>
   </data>
   <data name="Raid_Wing_2_1_Name" xml:space="preserve">
     <value>Slothasor</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_2_1_Short" xml:space="preserve">
     <value>S</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_2_2_Name" xml:space="preserve">
     <value>Bandit Trio</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_2_2_Short" xml:space="preserve">
     <value>B3</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_2_3_Name" xml:space="preserve">
     <value>Matthias Gabrel</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_2_3_Short" xml:space="preserve">
     <value>M</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_2_Short" xml:space="preserve">
     <value>SP</value>
+    <comment>raid wing abbreviation</comment>
   </data>
   <data name="Raid_Wing_3" xml:space="preserve">
     <value>Stonghold of the Falthful</value>
+    <comment>raid wing full name</comment>
   </data>
   <data name="Raid_Wing_3_1_Name" xml:space="preserve">
     <value>Escort</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_3_1_Short" xml:space="preserve">
     <value>E</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_3_2_Name" xml:space="preserve">
     <value>Keep Construct</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_3_2_Short" xml:space="preserve">
     <value>KC</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_3_3_Name" xml:space="preserve">
     <value>Twisted Castle</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_3_3_Short" xml:space="preserve">
     <value>TC</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_3_4_Name" xml:space="preserve">
     <value>Xera</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_3_4_Short" xml:space="preserve">
     <value>X</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_3_Short" xml:space="preserve">
     <value>SotF</value>
+    <comment>raid wing abbreviation</comment>
   </data>
   <data name="Raid_Wing_4" xml:space="preserve">
     <value>Bastion of the Penitent</value>
+    <comment>raid wing full name</comment>
   </data>
   <data name="Raid_Wing_4_1_Name" xml:space="preserve">
     <value>Cairn the Indominable</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_4_1_Short" xml:space="preserve">
     <value>C</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_4_2_Name" xml:space="preserve">
     <value>Mursaat Overseer</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_4_2_Short" xml:space="preserve">
     <value>MO</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_4_3_Name" xml:space="preserve">
     <value>Samarog</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_4_3_Short" xml:space="preserve">
     <value>S</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_4_4_Name" xml:space="preserve">
     <value>Deimos</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_4_4_Short" xml:space="preserve">
     <value>D</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_4_Short" xml:space="preserve">
     <value>BotP</value>
+    <comment>raid wing abbreviation</comment>
   </data>
   <data name="Raid_Wing_5" xml:space="preserve">
     <value>Hall of Chains</value>
+    <comment>raid wing full name</comment>
   </data>
   <data name="Raid_Wing_5_1_Name" xml:space="preserve">
     <value>Soulless Horror</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_5_1_Short" xml:space="preserve">
     <value>SH</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_5_2_Name" xml:space="preserve">
     <value>River of Souls</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_5_2_Short" xml:space="preserve">
     <value>R</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_5_3_Name" xml:space="preserve">
     <value>Statues of Grenth</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_5_3_Short" xml:space="preserve">
     <value>S</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_5_4_Name" xml:space="preserve">
     <value>Dhuum</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_5_4_Short" xml:space="preserve">
     <value>D</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_5_Short" xml:space="preserve">
     <value>HoC</value>
+    <comment>raid wing abbreviation</comment>
   </data>
   <data name="Raid_Wing_6" xml:space="preserve">
     <value>Mythwright Gambit</value>
+    <comment>raid wing full name</comment>
   </data>
   <data name="Raid_Wing_6_1_Name" xml:space="preserve">
     <value>Conjured Amalgamate</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_6_1_Short" xml:space="preserve">
     <value>CA</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_6_2_Name" xml:space="preserve">
     <value>Twin Largos</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_6_2_Short" xml:space="preserve">
     <value>TL</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_6_3_Name" xml:space="preserve">
     <value>Qadim</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_6_3_Short" xml:space="preserve">
     <value>Q1</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_6_Short" xml:space="preserve">
     <value>MG</value>
+    <comment>raid wing abbreviation</comment>
   </data>
   <data name="Raid_Wing_7" xml:space="preserve">
     <value>The Key of Ahdashim</value>
+    <comment>raid wing full name</comment>
   </data>
   <data name="Raid_Wing_7_1_Name" xml:space="preserve">
     <value>Gate</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_7_1_Short" xml:space="preserve">
     <value>G</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_7_2_Name" xml:space="preserve">
     <value>Cardinal Adina</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_7_2_Short" xml:space="preserve">
     <value>A</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_7_3_Name" xml:space="preserve">
     <value>Cardinal Sabir</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_7_3_Short" xml:space="preserve">
     <value>S</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_7_4_Name" xml:space="preserve">
     <value>Qadim the Peerless</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Raid_Wing_7_4_Short" xml:space="preserve">
     <value>Q2</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Raid_Wing_7_Short" xml:space="preserve">
     <value>TKoA</value>
+    <comment>raid wing abbreviation</comment>
   </data>
   <data name="SettingsPanel_Dun_Heading_General" xml:space="preserve">
     <value>Options / Keybind</value>
@@ -360,11 +416,12 @@
     <value>Wing Selection</value>
   </data>
   <data name="SettingsPanel_Raid_Visual_Colors" xml:space="preserve">
-    <value>Customize the colors by entering a Hex color code.</value>
+    <value>Customize the colors by entering a Hex color code</value>
     <comment>On the raids visual page, help text explaining the color pickers</comment>
   </data>
   <data name="SettingsPanel_Raid_Visual_ColorsTip" xml:space="preserve">
-    <value> (Tip: Google 'color picker' for help)</value>
+    <value>(Tip: Google 'color picker' for help)</value>
+    <comment>help text to find a color picker gui</comment>
   </data>
   <data name="SettingsPanel_Strikes_Heading_Selection" xml:space="preserve">
     <value>Strikes Selection</value>
@@ -390,9 +447,11 @@
   </data>
   <data name="Settings_Keybind_Label" xml:space="preserve">
     <value>Settings window keybind</value>
+    <comment>keybind to open the settings window</comment>
   </data>
   <data name="Settings_Keybind_tooltip" xml:space="preserve">
     <value>Show/Hide this window with a keybind</value>
+    <comment>keybind to open the settings window</comment>
   </data>
   <data name="Settings_Raid_Hot_Heading" xml:space="preserve">
     <value>Enable individual Heart of Thorns raid wings</value>
@@ -402,18 +461,23 @@
   </data>
   <data name="Settings_RefreshNow" xml:space="preserve">
     <value>Refresh now</value>
+    <comment>button to trigger api refresh</comment>
   </data>
   <data name="Settings_Strike_AnchorToRaidLabel" xml:space="preserve">
     <value>Anchor strikes to the raid overlay</value>
+    <comment>checkbox - strikes attach to raids overlay</comment>
   </data>
   <data name="Settings_Strike_AnchorToRaidTooltip" xml:space="preserve">
     <value>The strikes overlay will attach to the raid overlay when the raid overlay is moved</value>
+    <comment>checkbox - strikes attach to raids overlay</comment>
   </data>
   <data name="Settings_Strike_Completion" xml:space="preserve">
     <value>Mark complete</value>
+    <comment>dropdown label for strike completion options</comment>
   </data>
   <data name="Settings_Strike_CompletionTooltip" xml:space="preserve">
     <value>Determine how strikes are marked as cleared</value>
+    <comment>Dropdown asking if strikes are auto-completed or prompted with a yes/no window</comment>
   </data>
   <data name="Settings_Strike_EOD_Heading" xml:space="preserve">
     <value>Enable individual End of Dragons strikes</value>
@@ -422,16 +486,19 @@
     <value>Enable individual Icebrood Saga strikes</value>
   </data>
   <data name="Setting_APIPoll_Label" xml:space="preserve">
-    <value>Refresh data every </value>
+    <value>Refresh data every</value>
+    <comment>dropdown - api poll frequency,  x minutes</comment>
   </data>
   <data name="Setting_APIPoll_Tooltip" xml:space="preserve">
-    <value>How often should the GW2 API be checked for updated information</value>
+    <value>How often should the GW2 API be checked for updated information?</value>
   </data>
   <data name="Setting_CopyRaids" xml:space="preserve">
     <value>Match raid settings</value>
+    <comment>button - copy style settings from raids</comment>
   </data>
   <data name="Setting_CornerIconEnable" xml:space="preserve">
     <value>Enable menubar icon</value>
+    <comment>checkbox - add menubar icon next to blish</comment>
   </data>
   <data name="Setting_CornerIconEnableTooltip" xml:space="preserve">
     <value>Add a menubar icon next to Blish in the top-left of your screen</value>
@@ -441,24 +508,27 @@
   </data>
   <data name="Setting_Dun_ColFreqText_Label" xml:space="preserve">
     <value>Frequenter text color</value>
+    <comment>text color for dungeon paths that are counting against frequenter achievement</comment>
   </data>
   <data name="Setting_Dun_ColFreqText_Tooltip" xml:space="preserve">
     <value>Hex color code (#rrggbb) for Paths that count for dungeon frequenter achievement</value>
-  </data>
-  <data name="Setting_Dun_DisabledWarning" xml:space="preserve">
-    <value>Dungeon feature is currently disabled</value>
+    <comment>text color for dungeon paths that are counting against frequenter achievement</comment>
   </data>
   <data name="Setting_Dun_Drag_Label" xml:space="preserve">
     <value>Unlock Dungeon overlay position</value>
+    <comment>dungeon overlay is draggable</comment>
   </data>
   <data name="Setting_Dun_Drag_Tooltip" xml:space="preserve">
     <value>Click and drag to reposition the overlay window</value>
+    <comment>dungeon overlay is draggable</comment>
   </data>
   <data name="Setting_Dun_Enabled" xml:space="preserve">
     <value>Enable dungeons feature</value>
+    <comment>---not used</comment>
   </data>
   <data name="Setting_Dun_Enabled_Tooltip" xml:space="preserve">
     <value>Enable/Disable all dungeon features</value>
+    <comment>---not used</comment>
   </data>
   <data name="Setting_Dun_Icon_Label" xml:space="preserve">
     <value>Dungeons hide/show on menubar icon click</value>
@@ -480,9 +550,11 @@
   </data>
   <data name="Setting_Dun_Visible_Label" xml:space="preserve">
     <value>Show dungeons overlay</value>
+    <comment>checkbox - dungeons overlay visible</comment>
   </data>
   <data name="Setting_Dun_Visible_Tooltip" xml:space="preserve">
     <value>Show the dungeons overlay on screen</value>
+    <comment>checkbox - dungeons overlay visible</comment>
   </data>
   <data name="Setting_Raid_ColBG_Label" xml:space="preserve">
     <value>Overlay background color</value>
@@ -492,51 +564,67 @@
   </data>
   <data name="Setting_Raid_ColClear_Label" xml:space="preserve">
     <value>Cleared encounter color</value>
+    <comment>Box color when a raid encounter is cleared/done</comment>
   </data>
   <data name="Setting_Raid_ColClear_Tooltip" xml:space="preserve">
     <value>Hex color code (#rrggbb) for Encounters that have been cleared this week</value>
+    <comment>Box color when a raid encounter is cleared/done</comment>
   </data>
   <data name="Setting_Raid_ColCotm_Label" xml:space="preserve">
     <value>Call of the Mists text color</value>
+    <comment>call of the mists text color</comment>
   </data>
   <data name="Setting_Raid_ColCotm_Tooltip" xml:space="preserve">
     <value>Hex color code (#rrggbb) for Wing and Encounters text during the Call of the Mists week</value>
+    <comment>call of the mists text color</comment>
   </data>
   <data name="Setting_Raid_ColEmbolden_Label" xml:space="preserve">
     <value>Emboldened text color</value>
+    <comment>emboldened text color</comment>
   </data>
   <data name="Setting_Raid_ColEmbolden_Tooltip" xml:space="preserve">
     <value>Hex color code (#rrggbb) for Wing and Encounters text during the Emboldened week</value>
+    <comment>emboldened text color</comment>
   </data>
   <data name="Setting_Raid_ColNotClear_Label" xml:space="preserve">
     <value>Non-cleared encounter color</value>
+    <comment>Box color when a raid encounter is not cleared/done</comment>
   </data>
   <data name="Setting_Raid_ColNotClear_Tooltip" xml:space="preserve">
     <value>Hex color code (#rrggbb) for Encounters that have not been cleared this week</value>
+    <comment>Box color when a raid encounter is not cleared/done</comment>
   </data>
   <data name="Setting_Raid_ColText_Label" xml:space="preserve">
     <value>Label and Grid text color</value>
+    <comment>raid overlay text color</comment>
   </data>
   <data name="Setting_Raid_ColText_Tooltip" xml:space="preserve">
     <value>Hex color code (#rrggbb) for label and grid text</value>
+    <comment>raid overlay text color</comment>
   </data>
   <data name="Setting_Raid_Cotm_Label" xml:space="preserve">
     <value>Highlight the weekly 'Call of the Mist' raid wing</value>
+    <comment>checkbox - color call of the mists wing's text color</comment>
   </data>
   <data name="Setting_Raid_Cotm_Tooltip" xml:space="preserve">
     <value>Colors the text for the weekly Call of the Mists raid wing\nCall of the Mists doubles all gold in the boss loot chest</value>
+    <comment>checkbox - color call of the mists wing's text color</comment>
   </data>
   <data name="Setting_Raid_Drag_Label" xml:space="preserve">
     <value>Unlock Raid overlay position</value>
+    <comment>checkbox - raids overlay draggable</comment>
   </data>
   <data name="Setting_Raid_Drag_Tooltip" xml:space="preserve">
     <value>Click and drag to reposition the overlay windows</value>
+    <comment>checkbox - raids overlay draggable</comment>
   </data>
   <data name="Setting_Raid_Embolden_Label" xml:space="preserve">
     <value>Highlight the weekly 'Emboldened' raid wing</value>
+    <comment>checkbox - color embolden wing's text color</comment>
   </data>
   <data name="Setting_Raid_Embolden_Tooltip" xml:space="preserve">
     <value>Colors the text for the weekly Emboldened raid wing\nEmbolden mode increases player health, damage, and healing for each stack</value>
+    <comment>checkbox - color embolden wing's text color</comment>
   </data>
   <data name="Setting_Raid_Font_Label" xml:space="preserve">
     <value>Grid size</value>
@@ -570,6 +658,7 @@
   </data>
   <data name="Setting_Raid_LabelOpacity_Label" xml:space="preserve">
     <value>Label opacity</value>
+    <comment>Opacity for raid wing labels</comment>
   </data>
   <data name="Setting_Raid_LabelOpacity_Tooltip" xml:space="preserve">
     <value>Hidden &lt;---&gt; Fully Visible</value>
@@ -594,60 +683,79 @@
   </data>
   <data name="Setting_Raid_Visible_Label" xml:space="preserve">
     <value>Show Raids overlay</value>
+    <comment>checkbox - raids overlay visible</comment>
   </data>
   <data name="Setting_Raid_Visible_Tooltip" xml:space="preserve">
     <value>Show the raid overlay on screen</value>
+    <comment>checkbox - raids overlay visible</comment>
   </data>
   <data name="Setting_Raid_W1_Label" xml:space="preserve">
     <value>W1 / Spirit Vale</value>
+    <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W1_Tooltip" xml:space="preserve">
     <value>Enable Spirit Vale on the raid overlay</value>
+    <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W2_Label" xml:space="preserve">
     <value>W2 / Salvation Pass</value>
+    <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W2_Tooltip" xml:space="preserve">
     <value>Enable Salvation Pass on the raid overlay</value>
+    <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W3_Label" xml:space="preserve">
     <value>W3 / Stronghold of the Faithful</value>
+    <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W3_Tooltip" xml:space="preserve">
     <value>Enable Stronghold of the Faithful on the raid overlay</value>
+    <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W4_Label" xml:space="preserve">
     <value>W4 / Bastion of the Penitent</value>
+    <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W4_Tooltip" xml:space="preserve">
     <value>Enable Bastion of the Penitent on the raid overlay</value>
+    <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W5_Label" xml:space="preserve">
     <value>W5 / Hall of Chains</value>
+    <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W5_Tooltip" xml:space="preserve">
     <value>Enable Hall of Chains on the raid overlay</value>
+    <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W6_Label" xml:space="preserve">
     <value>W6 / Mythwright Gambit</value>
+    <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W6_Tooltip" xml:space="preserve">
     <value>Enable Mythwright Gambit on the raid overlay</value>
+    <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W7_Label" xml:space="preserve">
     <value>W7 / The Key of Ahdashim</value>
+    <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W7_Tooltip" xml:space="preserve">
     <value>Enable The Key of Ahdashim on the raid overlay</value>
+    <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Stike_Priority" xml:space="preserve">
     <value>Enable priority strike missions (daily)</value>
+    <comment>checkbox - daily strike group visible on overlay</comment>
   </data>
   <data name="Setting_Strike_AH_Label" xml:space="preserve">
     <value>Aetherblade Hideout</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Setting_Strike_BS_Label" xml:space="preserve">
     <value>Boneskinner</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Setting_Strike_ColBG_Label" xml:space="preserve">
     <value>Overlay background color</value>
@@ -657,27 +765,31 @@
   </data>
   <data name="Setting_Strike_ColClear_Label" xml:space="preserve">
     <value>Cleared encounter color</value>
+    <comment>Box color when an encounter is cleared/done</comment>
   </data>
   <data name="Setting_Strike_ColClear_Tooltip" xml:space="preserve">
     <value>Hex color code (#rrggbb) for Encounters that have been cleared this reset</value>
+    <comment>Box color when an encounter is cleared/done</comment>
   </data>
   <data name="Setting_Strike_ColNotClear_Label" xml:space="preserve">
     <value>Not-cleared encounter color</value>
+    <comment>Box color when an encounter is NOT cleared/done</comment>
   </data>
   <data name="Setting_Strike_ColNotClear_Tooltip" xml:space="preserve">
     <value>Hex color code (#rrggbb) for Encounters that have not been cleared this week</value>
+    <comment>Box color when an encounter is NOT cleared/done</comment>
   </data>
   <data name="Setting_Strike_ColText_Label" xml:space="preserve">
     <value>Label and Grid text color</value>
+    <comment>strike overlay text color</comment>
   </data>
   <data name="Setting_Strike_ColText_Tooltip" xml:space="preserve">
     <value>Hex color code (#rrggbb) for label and grid text</value>
-  </data>
-  <data name="Setting_Strike_CopyRaids" xml:space="preserve">
-    <value>Copy layout from raids</value>
+    <comment>strike overlay text color</comment>
   </data>
   <data name="Setting_Strike_CW_Label" xml:space="preserve">
     <value>Cold War</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Setting_Strike_Drag_Label" xml:space="preserve">
     <value>Unlock Strike overlay position</value>
@@ -690,6 +802,7 @@
   </data>
   <data name="Setting_Strike_FoJ_Label" xml:space="preserve">
     <value>Fraenir of Jormag</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Setting_Strike_Font_Label" xml:space="preserve">
     <value>Grid size</value>
@@ -705,6 +818,7 @@
   </data>
   <data name="Setting_Strike_HT_Label" xml:space="preserve">
     <value>Harvest Temple</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Setting_Strike_IBS" xml:space="preserve">
     <value>Enable Icebrood Saga</value>
@@ -723,6 +837,7 @@
   </data>
   <data name="Setting_Strike_KO_Label" xml:space="preserve">
     <value>Kaineng Overlook</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Setting_Strike_LabelDisplay_Label" xml:space="preserve">
     <value>Label style</value>
@@ -744,6 +859,7 @@
   </data>
   <data name="Setting_Strike_OLC_Label" xml:space="preserve">
     <value>Old Lion's Court</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Setting_Strike_PanelOpacity_Label" xml:space="preserve">
     <value>Grid background opacity</value>
@@ -753,6 +869,7 @@
   </data>
   <data name="Setting_Strike_SP_Label" xml:space="preserve">
     <value>Shiverpeaks Pass</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Setting_Strike_Tooltips_Label" xml:space="preserve">
     <value>Enable mouse hover tooltips on overlay</value>
@@ -765,84 +882,110 @@
   </data>
   <data name="Setting_Strike_Visible_Label" xml:space="preserve">
     <value>Show strikes overlay</value>
+    <comment>Checbox label - strikes are visible</comment>
   </data>
   <data name="Setting_Strike_Visible_Tooltip" xml:space="preserve">
     <value>Show the strikes overlay on screen</value>
   </data>
   <data name="Setting_Strike_WoJ_Label" xml:space="preserve">
     <value>Whisper of Jormag</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Setting_Strike_XJJ_Label" xml:space="preserve">
     <value>Xunlai Jade Junkyard</value>
+    <comment>encounter full name</comment>
   </data>
   <data name="Settngs_CopyRaidTooltip" xml:space="preserve">
     <value>Make all settings match the coresponding values from Raids overlay</value>
+    <comment>button to copy raid settings tooltip</comment>
   </data>
   <data name="SharedKeybind" xml:space="preserve">
     <value>Overlays can use the same keybind</value>
+    <comment>help text informing user that the same keybind can exist more than once</comment>
   </data>
   <data name="StrikeGroup_EoD" xml:space="preserve">
     <value>End of Dragons</value>
+    <comment>Full Text for EoD Strike group</comment>
   </data>
   <data name="StrikeGroup_Eod_abbr" xml:space="preserve">
     <value>Eod</value>
+    <comment>Abbr text for EoD Strike group</comment>
   </data>
   <data name="StrikeGroup_Icebrood" xml:space="preserve">
     <value>Icebrood Saga</value>
+    <comment>Full Text for IBS Strike group</comment>
   </data>
   <data name="StrikeGroup_Icebrood_abbr" xml:space="preserve">
     <value>IBS</value>
+    <comment>Abbr Text for IBS Strike group</comment>
   </data>
   <data name="StrikeGroup_Priority" xml:space="preserve">
     <value>Priority Strike Missions (Daily)</value>
+    <comment>Full Text for daily Strike group</comment>
   </data>
   <data name="StrikeGroup_Priority_abbr" xml:space="preserve">
     <value>PS</value>
+    <comment>Abbr Text for daily Strike group</comment>
   </data>
   <data name="Strike_Confirm_Btn_No" xml:space="preserve">
     <value>No</value>
+    <comment>No button text when asking Strike_Confirm_Message</comment>
   </data>
   <data name="Strike_Confirm_Btn_Yes" xml:space="preserve">
     <value>Completed</value>
+    <comment>Yes button text when asking Strike_Confirm_Message</comment>
   </data>
   <data name="Strike_Confirm_Message" xml:space="preserve">
     <value>Did you complete the encounter successfully?</value>
+    <comment>Popup prompt with strike name when user leaves a strike map</comment>
   </data>
   <data name="Strike_Short_AetherbladeHideout" xml:space="preserve">
     <value>AH</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Strike_Short_Boneskinner" xml:space="preserve">
     <value>BS</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Strike_Short_ColdWar" xml:space="preserve">
     <value>CW</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Strike_Short_Fraenir" xml:space="preserve">
     <value>FoJ</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Strike_Short_HarvestTemple" xml:space="preserve">
     <value>HT</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Strike_Short_Junkyard" xml:space="preserve">
     <value>XJJ</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Strike_Short_OldLionsCourt" xml:space="preserve">
     <value>OLC</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Strike_Short_Overlook" xml:space="preserve">
     <value>KO</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Strike_Short_Shiverpeak" xml:space="preserve">
     <value>SP</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Strike_Short_VoiceAndClaw" xml:space="preserve">
     <value>V&amp;C</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Strike_Short_Whisper" xml:space="preserve">
     <value>WoJ</value>
+    <comment>encounter box label</comment>
   </data>
   <data name="Strike_Tooltip_tomorrow" xml:space="preserve">
     <value>Tomorrow:</value>
+    <comment>priority strike mission tooltip, show current, tomorrow: next strike</comment>
   </data>
   <data name="VisibleHide" xml:space="preserve">
     <value>Hide</value>

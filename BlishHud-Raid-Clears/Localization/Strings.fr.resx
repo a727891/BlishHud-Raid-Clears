@@ -117,15 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CornerIcon_Dungeon" xml:space="preserve">
-    <value>Cliquez pour afficher/masquer la superposition Donjons</value>
-  </data>
-  <data name="CornerIcon_Raid" xml:space="preserve">
-    <value>Cliquez pour afficher/masquer la superposition Raids</value>
-  </data>
-  <data name="CornerIcon_Strike" xml:space="preserve">
-    <value>Cliquez pour afficher/masquer la superposition Grèves</value>
-  </data>
   <data name="ModuleSettings_OpenSettings" xml:space="preserve">
     <value>Ouvrir les paramètres</value>
     <comment>Open Settings panel button text in the Blish module settings</comment>
@@ -139,33 +130,29 @@
   <data name="PatchNotes_Tooltip" xml:space="preserve">
     <value>Afficher les notes de mise à jour dans votre navigateur Web par défaut</value>
   </data>
-  <data name="Raid_OverlayEnable" xml:space="preserve">
-    <value>Afficher/masquer la superposition de raid</value>
-    <comment>Setting label for making the raid overlay visible</comment>
-  </data>
   <data name="Raid_Wing_1" xml:space="preserve">
     <value>La Vallée des esprits</value>
   </data>
   <data name="Raid_Wing_1_1_Name" xml:space="preserve">
-    <value>Gardien du Val</value>
+    <value>Gardien de la Vallée</value>
   </data>
   <data name="Raid_Wing_1_1_Short" xml:space="preserve">
     <value>VG</value>
   </data>
   <data name="Raid_Wing_1_2_Name" xml:space="preserve">
-    <value>Course spirituelle</value>
+    <value>Les Bois des esprits</value>
   </data>
   <data name="Raid_Wing_1_2_Short" xml:space="preserve">
     <value>SR</value>
   </data>
   <data name="Raid_Wing_1_3_Name" xml:space="preserve">
-    <value>Gorseval</value>
+    <value>Gorseval le Disparate</value>
   </data>
   <data name="Raid_Wing_1_3_Short" xml:space="preserve">
     <value>G</value>
   </data>
   <data name="Raid_Wing_1_4_Name" xml:space="preserve">
-    <value>Sabetha</value>
+    <value>Sabetha la saboteuse</value>
   </data>
   <data name="Raid_Wing_1_4_Short" xml:space="preserve">
     <value>S</value>
@@ -174,10 +161,10 @@
     <value>SV</value>
   </data>
   <data name="Raid_Wing_2" xml:space="preserve">
-    <value>Passage de la redemption</value>
+    <value>Passage de la rédemption</value>
   </data>
   <data name="Raid_Wing_2_1_Name" xml:space="preserve">
-    <value>paresseux</value>
+    <value>Paressor</value>
   </data>
   <data name="Raid_Wing_2_1_Short" xml:space="preserve">
     <value>S</value>
@@ -189,7 +176,7 @@
     <value>B3</value>
   </data>
   <data name="Raid_Wing_2_3_Name" xml:space="preserve">
-    <value>Mathias Gabrel</value>
+    <value>Matthias Gabrel</value>
   </data>
   <data name="Raid_Wing_2_3_Short" xml:space="preserve">
     <value>M</value>
@@ -201,19 +188,19 @@
     <value>Forteresse des Fidèles</value>
   </data>
   <data name="Raid_Wing_3_1_Name" xml:space="preserve">
-    <value>Escorte</value>
+    <value>Assaut de la forteresse</value>
   </data>
   <data name="Raid_Wing_3_1_Short" xml:space="preserve">
     <value>E</value>
   </data>
   <data name="Raid_Wing_3_2_Name" xml:space="preserve">
-    <value>Conserver Construire</value>
+    <value>Détruire la création de Xera</value>
   </data>
   <data name="Raid_Wing_3_2_Short" xml:space="preserve">
     <value>KC</value>
   </data>
   <data name="Raid_Wing_3_3_Name" xml:space="preserve">
-    <value>Château tordu</value>
+    <value>Traverser le Château corrompu</value>
   </data>
   <data name="Raid_Wing_3_3_Short" xml:space="preserve">
     <value>CT</value>
@@ -360,7 +347,7 @@
     <value>Sélection d'ailes</value>
   </data>
   <data name="SettingsPanel_Raid_Visual_Colors" xml:space="preserve">
-    <value>Personnalisez les couleurs en saisissant un code couleur hexadécimal.</value>
+    <value>Personnalisez les couleurs en saisissant un code couleur hexadécimal</value>
     <comment>On the raids visual page, help text explaining the color pickers</comment>
   </data>
   <data name="SettingsPanel_Raid_Visual_ColorsTip" xml:space="preserve">
@@ -444,9 +431,6 @@
   </data>
   <data name="Setting_Dun_ColFreqText_Tooltip" xml:space="preserve">
     <value>Code de couleur hexadécimal (#rrggbb) pour les chemins qui comptent pour la réalisation de fréquentation de donjon</value>
-  </data>
-  <data name="Setting_Dun_DisabledWarning" xml:space="preserve">
-    <value>La fonctionnalité de donjon est actuellement désactivée</value>
   </data>
   <data name="Setting_Dun_Drag_Label" xml:space="preserve">
     <value>Déverrouiller la position de superposition de donjon</value>
@@ -672,9 +656,6 @@
   </data>
   <data name="Setting_Strike_ColText_Tooltip" xml:space="preserve">
     <value>Code de couleur hexadécimal (#rrggbb) pour le texte de l'étiquette et de la grille</value>
-  </data>
-  <data name="Setting_Strike_CopyRaids" xml:space="preserve">
-    <value>Copier la mise en page des raids</value>
   </data>
   <data name="Setting_Strike_CW_Label" xml:space="preserve">
     <value>Guerre froide</value>

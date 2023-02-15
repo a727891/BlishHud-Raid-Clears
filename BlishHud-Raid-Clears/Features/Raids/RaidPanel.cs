@@ -47,7 +47,7 @@ public class RaidPanel : GridPanel
             new CornerIcon(
                 Settings.Generic.ToolbarIcon,
                 Settings.Generic.Visible,
-                Strings.CornerIcon_Raid,
+                "removed string resource",
                 Service.Textures!.CornerIconTexture,
                 Service.Textures!.CornerIconHoverTexture
             )

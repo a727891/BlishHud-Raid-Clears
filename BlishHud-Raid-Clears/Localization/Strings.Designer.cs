@@ -61,33 +61,6 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Click to show/hide the Dungeons overlay.
-        /// </summary>
-        internal static string CornerIcon_Dungeon {
-            get {
-                return ResourceManager.GetString("CornerIcon_Dungeon", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Click to show/hide the Raids overlay.
-        /// </summary>
-        internal static string CornerIcon_Raid {
-            get {
-                return ResourceManager.GetString("CornerIcon_Raid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Click to show/hide the Strikes overlay.
-        /// </summary>
-        internal static string CornerIcon_Strike {
-            get {
-                return ResourceManager.GetString("CornerIcon_Strike", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Clears Tracker.
         /// </summary>
         internal static string Module_Title {
@@ -120,15 +93,6 @@ namespace RaidClears.Localization {
         internal static string PatchNotes_Tooltip {
             get {
                 return ResourceManager.GetString("PatchNotes_Tooltip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show/hide raid overlay.
-        /// </summary>
-        internal static string Raid_OverlayEnable {
-            get {
-                return ResourceManager.GetString("Raid_OverlayEnable", resourceCulture);
             }
         }
         
@@ -727,7 +691,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Refresh data every .
+        ///   Looks up a localized string similar to Refresh data every.
         /// </summary>
         internal static string Setting_APIPoll_Label {
             get {
@@ -736,7 +700,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to How often should the GW2 API be checked for updated information.
+        ///   Looks up a localized string similar to How often should the GW2 API be checked for updated information?.
         /// </summary>
         internal static string Setting_APIPoll_Tooltip {
             get {
@@ -795,15 +759,6 @@ namespace RaidClears.Localization {
         internal static string Setting_Dun_ColFreqText_Tooltip {
             get {
                 return ResourceManager.GetString("Setting_Dun_ColFreqText_Tooltip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Dungeon feature is currently disabled.
-        /// </summary>
-        internal static string Setting_Dun_DisabledWarning {
-            get {
-                return ResourceManager.GetString("Setting_Dun_DisabledWarning", resourceCulture);
             }
         }
         
@@ -1483,15 +1438,6 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copy layout from raids.
-        /// </summary>
-        internal static string Setting_Strike_CopyRaids {
-            get {
-                return ResourceManager.GetString("Setting_Strike_CopyRaids", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Cold War.
         /// </summary>
         internal static string Setting_Strike_CW_Label {
@@ -1924,7 +1870,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Customize the colors by entering a Hex color code..
+        ///   Looks up a localized string similar to Customize the colors by entering a Hex color code.
         /// </summary>
         internal static string SettingsPanel_Raid_Visual_Colors {
             get {
@@ -1933,7 +1879,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  (Tip: Google &apos;color picker&apos; for help).
+        ///   Looks up a localized string similar to (Tip: Google &apos;color picker&apos; for help).
         /// </summary>
         internal static string SettingsPanel_Raid_Visual_ColorsTip {
             get {

@@ -117,15 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CornerIcon_Dungeon" xml:space="preserve">
-    <value>Klicken Sie hier, um das Dungeons-Overlay anzuzeigen/auszublenden</value>
-  </data>
-  <data name="CornerIcon_Raid" xml:space="preserve">
-    <value>Klicken Sie hier, um das Raids-Overlay anzuzeigen/auszublenden</value>
-  </data>
-  <data name="CornerIcon_Strike" xml:space="preserve">
-    <value>Klicken Sie hier, um das Strikes-Overlay anzuzeigen/auszublenden</value>
-  </data>
   <data name="ModuleSettings_OpenSettings" xml:space="preserve">
     <value>Einstellungen öffnen</value>
     <comment>Open Settings panel button text in the Blish module settings</comment>
@@ -137,11 +128,7 @@
     <value>Klebenotizzettel</value>
   </data>
   <data name="PatchNotes_Tooltip" xml:space="preserve">
-    <value>Zeigen Sie Patchnotizen in Ihrem Standard-Webbrowser an</value>
-  </data>
-  <data name="Raid_OverlayEnable" xml:space="preserve">
-    <value>Raid-Overlay ein-/ausblenden</value>
-    <comment>Setting label for making the raid overlay visible</comment>
+    <value>Zeige Versionshinweise im Standard-Webbrowser an</value>
   </data>
   <data name="Raid_Wing_1" xml:space="preserve">
     <value>Geistertal</value>
@@ -177,7 +164,7 @@
     <value>Erlösungspass</value>
   </data>
   <data name="Raid_Wing_2_1_Name" xml:space="preserve">
-    <value>Slothasor</value>
+    <value>Faultierion</value>
   </data>
   <data name="Raid_Wing_2_1_Short" xml:space="preserve">
     <value>S</value>
@@ -201,13 +188,13 @@
     <value>Festung der Treuen</value>
   </data>
   <data name="Raid_Wing_3_1_Name" xml:space="preserve">
-    <value>Begleiten</value>
+    <value>Belagert die Festung</value>
   </data>
   <data name="Raid_Wing_3_1_Short" xml:space="preserve">
     <value>E</value>
   </data>
   <data name="Raid_Wing_3_2_Name" xml:space="preserve">
-    <value>Konstrukt behalten</value>
+    <value>Festenkonstrukt</value>
   </data>
   <data name="Raid_Wing_3_2_Short" xml:space="preserve">
     <value>KC</value>
@@ -231,7 +218,7 @@
     <value>Bastion der Büßfertigen</value>
   </data>
   <data name="Raid_Wing_4_1_Name" xml:space="preserve">
-    <value>Cairn der Unbezwingbare</value>
+    <value>Cairn der Unbeugsame</value>
   </data>
   <data name="Raid_Wing_4_1_Short" xml:space="preserve">
     <value>C</value>
@@ -261,7 +248,7 @@
     <value>Halle der Ketten</value>
   </data>
   <data name="Raid_Wing_5_1_Name" xml:space="preserve">
-    <value>Seelenloses Grauen</value>
+    <value>Seelenloser Schrecken</value>
   </data>
   <data name="Raid_Wing_5_1_Short" xml:space="preserve">
     <value>SH</value>
@@ -273,7 +260,7 @@
     <value>R</value>
   </data>
   <data name="Raid_Wing_5_3_Name" xml:space="preserve">
-    <value>Statuen von Grenth</value>
+    <value>Statuen des Grenth</value>
   </data>
   <data name="Raid_Wing_5_3_Short" xml:space="preserve">
     <value>S</value>
@@ -291,13 +278,13 @@
     <value>Mythenschreiber - Wagnis</value>
   </data>
   <data name="Raid_Wing_6_1_Name" xml:space="preserve">
-    <value>Beschworenes Amalgamat</value>
+    <value>Beschworene Verschmelzung</value>
   </data>
   <data name="Raid_Wing_6_1_Short" xml:space="preserve">
     <value>CA</value>
   </data>
   <data name="Raid_Wing_6_2_Name" xml:space="preserve">
-    <value>Zwilling Largos</value>
+    <value>Zwillings-Largos (Nikare und Kenut)</value>
   </data>
   <data name="Raid_Wing_6_2_Short" xml:space="preserve">
     <value>TL</value>
@@ -348,7 +335,7 @@
     <value>Layout / Farben</value>
   </data>
   <data name="SettingsPanel_Dun_Heading_PathSelection" xml:space="preserve">
-    <value>Dungeon-Auswahl</value>
+    <value>Verlies-Auswahl</value>
   </data>
   <data name="SettingsPanel_Raids_Heading_General" xml:space="preserve">
     <value>Optionen / Tastenbelegung</value>
@@ -360,33 +347,33 @@
     <value>Flügelauswahl</value>
   </data>
   <data name="SettingsPanel_Raid_Visual_Colors" xml:space="preserve">
-    <value>Passen Sie die Farben an, indem Sie einen Hex-Farbcode eingeben.</value>
+    <value>Farben anpassen durch Hex-Farbcode Eingabe</value>
     <comment>On the raids visual page, help text explaining the color pickers</comment>
   </data>
   <data name="SettingsPanel_Raid_Visual_ColorsTip" xml:space="preserve">
-    <value>(Tipp: Google 'Color Picker' für Hilfe)</value>
+    <value>(Tipp: Google 'Color Picker' als Hilfe)</value>
   </data>
   <data name="SettingsPanel_Strikes_Heading_Selection" xml:space="preserve">
-    <value>Streikauswahl</value>
+    <value>Angriffsmissionsauswahl</value>
   </data>
   <data name="SettingsPanel_Subtitle" xml:space="preserve">
     <value>Anpassungsmöglichkeiten</value>
     <comment>Subtitle on the settings panel header</comment>
   </data>
   <data name="SettingsPanel_Tab_Dunegons" xml:space="preserve">
-    <value>Kerker</value>
+    <value>Verlies</value>
   </data>
   <data name="SettingsPanel_Tab_General" xml:space="preserve">
     <value>Allgemein</value>
   </data>
   <data name="SettingsPanel_Tab_Raids" xml:space="preserve">
-    <value>Überfälle</value>
+    <value>Schlachtzug</value>
   </data>
   <data name="SettingsPanel_Tab_Strikes" xml:space="preserve">
-    <value>Streiks</value>
+    <value>Angriffsmissionen</value>
   </data>
   <data name="Settings_Dungeon_Heading" xml:space="preserve">
-    <value>Aktiviere einzelne Dungeons</value>
+    <value>Aktiviere einzelnes Verlies</value>
   </data>
   <data name="Settings_Keybind_Label" xml:space="preserve">
     <value>Tastenkombination für das Einstellungsfenster</value>
@@ -395,76 +382,73 @@
     <value>Dieses Fenster mit einer Tastenkombination ein-/ausblenden</value>
   </data>
   <data name="Settings_Raid_Hot_Heading" xml:space="preserve">
-    <value>Aktivieren Sie einzelne Heart of Thorns-Schlachtzüge</value>
+    <value>Aktiviere einzelne Heart of Thorns Schlachtzug-Flügel</value>
   </data>
   <data name="Settings_Raid_PoF_Heading" xml:space="preserve">
-    <value>Aktivieren Sie einzelne Path of Fire-Schlachtzüge</value>
+    <value>Aktiviere einzelne Path of Fire Schlachtzug-Flügel</value>
   </data>
   <data name="Settings_RefreshNow" xml:space="preserve">
     <value>Jetzt aktualisieren</value>
   </data>
   <data name="Settings_Strike_AnchorToRaidLabel" xml:space="preserve">
-    <value>Anker schlägt im Raid-Overlay ein</value>
+    <value>Anker schlägt im Schlachtzug-Overlay ein</value>
   </data>
   <data name="Settings_Strike_AnchorToRaidTooltip" xml:space="preserve">
-    <value>Das Strikes-Overlay wird an das Raid-Overlay angehängt, wenn das Raid-Overlay verschoben wird</value>
+    <value>Das Angriffsmissionen-Overlay wird an das Schlachtzüge-Overlay angehängt, wenn das Schlachtzüge-Overlay verschoben wird</value>
   </data>
   <data name="Settings_Strike_Completion" xml:space="preserve">
-    <value>Fertig markieren</value>
+    <value>als abgeschlossen markieren</value>
   </data>
   <data name="Settings_Strike_CompletionTooltip" xml:space="preserve">
-    <value>Legen Sie fest, wie Verwarnungen als gelöscht markiert werden</value>
+    <value>Festlegen wie Angriffsmissionen als abgeschlossen markiert werden</value>
   </data>
   <data name="Settings_Strike_EOD_Heading" xml:space="preserve">
-    <value>Aktivieren Sie individuelle End of Dragons-Streiks</value>
+    <value>Aktiviert individuelle End of Dragon Angriffsmissionen</value>
   </data>
   <data name="Settings_Strike_IBS_Heading" xml:space="preserve">
-    <value>Aktiviert individuelle Eisbrut-Saga-Strikes</value>
+    <value>Aktiviert individuelle Eisbrut-Saga Angriffsmissionen</value>
   </data>
   <data name="Setting_APIPoll_Label" xml:space="preserve">
-    <value>Daten aktualisieren alle</value>
+    <value>Alle Daten aktualisieren</value>
   </data>
   <data name="Setting_APIPoll_Tooltip" xml:space="preserve">
-    <value>Wie oft sollte die GW2-API auf aktualisierte Informationen überprüft werden?</value>
+    <value>Wie oft soll die GW2-API auf aktualisierte Informationen überprüft werden?</value>
   </data>
   <data name="Setting_CopyRaids" xml:space="preserve">
-    <value>Match-Raid-Einstellungen</value>
+    <value>Match-Schlachtzug-Einstellungen</value>
   </data>
   <data name="Setting_CornerIconEnable" xml:space="preserve">
     <value>Menüleistensymbol aktivieren</value>
   </data>
   <data name="Setting_CornerIconEnableTooltip" xml:space="preserve">
-    <value>Fügen Sie ein Menüleistensymbol neben Blish oben links auf Ihrem Bildschirm hinzu</value>
+    <value>Fügt ein Menüleistensymbol neben Blish oben links auf dem Bildschirm hinzu</value>
   </data>
   <data name="Setting_cornerIconHelpText" xml:space="preserve">
-    <value>Welche Overlays sollen ausgeblendet/angezeigt werden, wenn Sie mit der linken Maustaste auf das Menüsymbol klicken?</value>
+    <value>Welche Overlays sollen ausgeblendet/angezeigt werden, wenn mit der linken Maustaste auf das Menüsymbol geklickt wird?</value>
   </data>
   <data name="Setting_Dun_ColFreqText_Label" xml:space="preserve">
     <value>Häufigere Textfarbe</value>
   </data>
   <data name="Setting_Dun_ColFreqText_Tooltip" xml:space="preserve">
-    <value>Hex-Farbcode (#rrggbb) für Pfade, die für den Dungeon-Frequenz-Erfolg zählen</value>
-  </data>
-  <data name="Setting_Dun_DisabledWarning" xml:space="preserve">
-    <value>Die Dungeon-Funktion ist derzeit deaktiviert</value>
+    <value>Hex-Farbcode (#rrggbb) für Pfade, die für den Verlies-Frequenz-Erfolg zählen</value>
   </data>
   <data name="Setting_Dun_Drag_Label" xml:space="preserve">
-    <value>Schalte die Dungeon-Overlay-Position frei</value>
+    <value>Löse Fixierung der Verlies-Overlay-Position</value>
   </data>
   <data name="Setting_Dun_Drag_Tooltip" xml:space="preserve">
-    <value>Klicken und ziehen Sie, um das Überlagerungsfenster neu zu positionieren</value>
+    <value>Anklicken und ziehen, um das overlay fenster neu zu positionieren</value>
   </data>
   <data name="Setting_Dun_Enabled" xml:space="preserve">
-    <value>Dungeons-Funktion aktivieren</value>
+    <value>Verlies Funktion aktivieren</value>
   </data>
   <data name="Setting_Dun_Enabled_Tooltip" xml:space="preserve">
-    <value>Aktiviere/Deaktiviere alle Dungeon-Features</value>
+    <value>Aktiviere/Deaktiviere alle Verlies Funktionen</value>
   </data>
   <data name="Setting_Dun_Icon_Label" xml:space="preserve">
-    <value>Dungeons verstecken/anzeigen auf Menüleisten-Icon-Klick</value>
+    <value>Verliese verstecken/anzeigen bei Klick auf Menüleisten-Icon</value>
   </data>
   <data name="Setting_Dun_Icon_Tooltip" xml:space="preserve">
-    <value>Das Dungeon-Overlay wird ausgeblendet/angezeigt, wenn Sie auf das Symbol neben Blish oben links auf dem Bildschirm klicken</value>
+    <value>Das Verlies-Overlay wird ausgeblendet/angezeigt, wenn Sie auf das Symbol neben Blish oben links auf dem Bildschirm klicken</value>
   </data>
   <data name="Setting_Dun_Keybind_Label" xml:space="preserve">
     <value>Tastenbelegung ein-/ausblenden</value>
@@ -473,22 +457,22 @@
     <value></value>
   </data>
   <data name="Setting_Dun_Tooltips_Label" xml:space="preserve">
-    <value>Aktivieren Sie Mauszeiger-QuickInfos auf dem Overlay</value>
+    <value>Aktiviert Mauszeiger-QuickInfos auf dem Overlay</value>
   </data>
   <data name="Setting_Dun_Tooltips_Tooltip" xml:space="preserve">
     <value>Wenn Sie die Maus über einen Pfad bewegen, wird der vollständige Name angezeigt</value>
   </data>
   <data name="Setting_Dun_Visible_Label" xml:space="preserve">
-    <value>Dungeons-Overlay anzeigen</value>
+    <value>Verliese-Overlay anzeigen</value>
   </data>
   <data name="Setting_Dun_Visible_Tooltip" xml:space="preserve">
-    <value>Zeigen Sie das Dungeons-Overlay auf dem Bildschirm</value>
+    <value>Zeigt Verliese-Overlay auf dem Bildschirm</value>
   </data>
   <data name="Setting_Raid_ColBG_Label" xml:space="preserve">
     <value>Hintergrundfarbe überlagern</value>
   </data>
   <data name="Setting_Raid_ColBG_Tooltip" xml:space="preserve">
-    <value>Hintergrundfarbe des Raid-Overlays</value>
+    <value>Hintergrundfarbe des Schlagzug-Overlays</value>
   </data>
   <data name="Setting_Raid_ColClear_Label" xml:space="preserve">
     <value>Begegnungsfarbe gelöscht</value>
@@ -521,40 +505,40 @@
     <value>Hex-Farbcode (#rrggbb) für Label- und Rastertext</value>
   </data>
   <data name="Setting_Raid_Cotm_Label" xml:space="preserve">
-    <value>Heben Sie den wöchentlichen Raid-Flügel „Ruf des Nebels“ hervor</value>
+    <value>Heben den wöchentlichen Schlachtzug-Flügel „Ruf des Nebels“ hervor</value>
   </data>
   <data name="Setting_Raid_Cotm_Tooltip" xml:space="preserve">
-    <value>Färbt den Text für den wöchentlichen Raid-Flügel „Call of the Mists“.\nCall of the Mists verdoppelt das gesamte Gold in der Boss-Beutetruhe</value>
+    <value>Färbt den Text für den wöchentlichen Schlachtzug-Flügel „Call of the Mists“.\nCall of the Mists verdoppelt das gesamte Gold in der Boss-Beutetruhe</value>
   </data>
   <data name="Setting_Raid_Drag_Label" xml:space="preserve">
-    <value>Schalte die Raid-Overlay-Position frei</value>
+    <value>Löse Fixierung der Schlachtzug-Overlay-Position</value>
   </data>
   <data name="Setting_Raid_Drag_Tooltip" xml:space="preserve">
-    <value>Klicken und ziehen Sie, um die Overlay-Fenster neu zu positionieren</value>
+    <value>Klicken und ziehen, um die Overlay-Fenster neu zu positionieren</value>
   </data>
   <data name="Setting_Raid_Embolden_Label" xml:space="preserve">
-    <value>Heben Sie den wöchentlichen Raid-Flügel „Emboldened“ hervor</value>
+    <value>Hebt den wöchentlichen Schlachtzug-Flügel „Emboldened“ hervor</value>
   </data>
   <data name="Setting_Raid_Embolden_Tooltip" xml:space="preserve">
-    <value>Färbt den Text für den wöchentlichen Raid-Flügel „Embolden“ ein\nDer Modus „Embold“ erhöht die Gesundheit, den Schaden und die Heilung des Spielers für jeden Stapel</value>
+    <value>Färbt den Text für den wöchentlichen Schlachtzug-Flügel „Embolden“ ein\nDer Modus „Embold“ erhöht die Gesundheit, den Schaden und die Heilung des Spielers für jeden Stapel</value>
   </data>
   <data name="Setting_Raid_Font_Label" xml:space="preserve">
     <value>Gittergröße</value>
   </data>
   <data name="Setting_Raid_Font_Tooptip" xml:space="preserve">
-    <value>Ändern Sie die Größe des Rasters</value>
+    <value>Gittergröße ändern</value>
   </data>
   <data name="Setting_Raid_GridOpacity_Label" xml:space="preserve">
-    <value>Rasterdeckkraft</value>
+    <value>Gitterdeckkraft</value>
   </data>
   <data name="Setting_Raid_GridOpactiy_Tooltip" xml:space="preserve">
     <value>Versteckt &lt;---&gt; Vollständig sichtbar</value>
   </data>
   <data name="Setting_Raid_Icon_Label" xml:space="preserve">
-    <value>Raids verstecken/anzeigen auf Menüleisten-Icon-Klick</value>
+    <value>Schlachtzüge verstecken/anzeigen auf Menüleisten-Icon-Klick</value>
   </data>
   <data name="Setting_Raid_Icon_Tooltip" xml:space="preserve">
-    <value>Überlagerte Raids werden ausgeblendet/angezeigt, wenn auf das Symbol neben Blish oben links auf dem Bildschirm geklickt wird</value>
+    <value>Überlagerte Schlachtzüge werden ausgeblendet/angezeigt, wenn auf das Symbol neben Blish oben links auf dem Bildschirm geklickt wird</value>
   </data>
   <data name="Setting_Raid_Keybind_Label" xml:space="preserve">
     <value>Tastenbelegung ein-/ausblenden</value>
@@ -590,61 +574,61 @@
     <value>Mauszeiger-QuickInfos auf Overlay aktivieren</value>
   </data>
   <data name="Setting_Raid_Tooltips_Tooltip" xml:space="preserve">
-    <value>Wenn Sie die Maus über eine Begegnung bewegen, wird der vollständige Name angezeigt</value>
+    <value>Wenn die Maus über eine Begegnung bewegt wird, wird der vollständige Name angezeigt</value>
   </data>
   <data name="Setting_Raid_Visible_Label" xml:space="preserve">
-    <value>Raids-Overlay anzeigen</value>
+    <value>Schlachtzug-Overlay anzeigen</value>
   </data>
   <data name="Setting_Raid_Visible_Tooltip" xml:space="preserve">
-    <value>Zeigen Sie das Raid-Overlay auf dem Bildschirm an</value>
+    <value>Zeigt das Schlachtzug-Overlay auf dem Bildschirm an</value>
   </data>
   <data name="Setting_Raid_W1_Label" xml:space="preserve">
     <value>W1 / Geistertal</value>
   </data>
   <data name="Setting_Raid_W1_Tooltip" xml:space="preserve">
-    <value>Aktiviere Geistertal im Raid-Overlay</value>
+    <value>Aktiviere Geistertal im Schlachtzug-Overlay</value>
   </data>
   <data name="Setting_Raid_W2_Label" xml:space="preserve">
     <value>W2 / Erlösungspass</value>
   </data>
   <data name="Setting_Raid_W2_Tooltip" xml:space="preserve">
-    <value>Aktiviere Erlösungspass im Raid-Overlay</value>
+    <value>Aktiviere Erlösungspass im Schlachtzug-Overlay</value>
   </data>
   <data name="Setting_Raid_W3_Label" xml:space="preserve">
     <value>W3 / Festung der Treuen</value>
   </data>
   <data name="Setting_Raid_W3_Tooltip" xml:space="preserve">
-    <value>Aktiviere Festung der Treuen im Raid-Overlay</value>
+    <value>Aktiviere Festung der Treuen im Schlachtzug-Overlay</value>
   </data>
   <data name="Setting_Raid_W4_Label" xml:space="preserve">
     <value>W4 / Bastion der Büßfertigen</value>
   </data>
   <data name="Setting_Raid_W4_Tooltip" xml:space="preserve">
-    <value>Aktivieren Sie Bastion der Büßfertigen im Raid-Overlay</value>
+    <value>Aktiviert Bastion der Büßfertigen im Schlachtzug-Overlay</value>
   </data>
   <data name="Setting_Raid_W5_Label" xml:space="preserve">
     <value>W5 / Halle der Ketten</value>
   </data>
   <data name="Setting_Raid_W5_Tooltip" xml:space="preserve">
-    <value>Aktiviere Hall of Chains im Raid-Overlay</value>
+    <value>Aktiviere Hall of Chains im Schlachtzug-Overlay</value>
   </data>
   <data name="Setting_Raid_W6_Label" xml:space="preserve">
     <value>W6 / Mythenschreiber - Wagnis</value>
   </data>
   <data name="Setting_Raid_W6_Tooltip" xml:space="preserve">
-    <value>Aktivieren Sie Mythenschreiber - Wagnis im Raid-Overlay</value>
+    <value>Aktiviert Mythenschreiber - Wagnis im Schlachtzug-Overlay</value>
   </data>
   <data name="Setting_Raid_W7_Label" xml:space="preserve">
     <value>W7 /Schlussel von Ahdashim</value>
   </data>
   <data name="Setting_Raid_W7_Tooltip" xml:space="preserve">
-    <value>Aktiviere den Schlüssel von Ahdashim im Raid-Overlay</value>
+    <value>Aktiviere den Schlüssel von Ahdashim im Schlachtzug-Overlay</value>
   </data>
   <data name="Setting_Stike_Priority" xml:space="preserve">
-    <value>Priority-Strike-Missionen aktivieren (täglich)</value>
+    <value>Priority-Angriffsmissionen aktivieren (täglich)</value>
   </data>
   <data name="Setting_Strike_AH_Label" xml:space="preserve">
-    <value>Ätherklingen-Untershchlupf</value>
+    <value>Ätherklingen-Unterschlupf</value>
   </data>
   <data name="Setting_Strike_BS_Label" xml:space="preserve">
     <value>Knochenhäuter</value>
@@ -653,10 +637,10 @@
     <value>Hintergrundfarbe überlagern</value>
   </data>
   <data name="Setting_Strike_ColBG_Tooltip" xml:space="preserve">
-    <value>Strike-Overlay-Hintergrundfarbe</value>
+    <value>Angriffsmission-Overlay-Hintergrundfarbe</value>
   </data>
   <data name="Setting_Strike_ColClear_Label" xml:space="preserve">
-    <value>Begegnungsfarbe gelöscht</value>
+    <value>Farbe für erledigte Begegnung</value>
   </data>
   <data name="Setting_Strike_ColClear_Tooltip" xml:space="preserve">
     <value>Hex-Farbcode (#rrggbb) für Begegnungen, die bei diesem Reset gelöscht wurden</value>
@@ -673,20 +657,17 @@
   <data name="Setting_Strike_ColText_Tooltip" xml:space="preserve">
     <value>Hex-Farbcode (#rrggbb) für Label- und Rastertext</value>
   </data>
-  <data name="Setting_Strike_CopyRaids" xml:space="preserve">
-    <value>Layout von Raids kopieren</value>
-  </data>
   <data name="Setting_Strike_CW_Label" xml:space="preserve">
     <value>Kalter Krieg</value>
   </data>
   <data name="Setting_Strike_Drag_Label" xml:space="preserve">
-    <value>Schalte die Strike-Overlay-Position frei</value>
+    <value>Löse Fixierung der Angriffsmission-Overlay-Position</value>
   </data>
   <data name="Setting_Strike_Drag_Tooltip" xml:space="preserve">
-    <value>Klicken und ziehen Sie, um das Überlagerungsfenster neu zu positionieren</value>
+    <value>Anklicken und ziehen, um das Überlagerungsfenster neu zu positionieren</value>
   </data>
   <data name="Setting_Strike_Eod" xml:space="preserve">
-    <value>Aktivieren Sie Ende der Drachen</value>
+    <value>Aktiviert Ende der Drachen</value>
   </data>
   <data name="Setting_Strike_FoJ_Label" xml:space="preserve">
     <value>Fraenir Jormags</value>
@@ -695,7 +676,7 @@
     <value>Gittergröße</value>
   </data>
   <data name="Setting_Strike_Font_Tooptip" xml:space="preserve">
-    <value>Ändern Sie die Größe des Rasters</value>
+    <value>Ändert die Gittergröße</value>
   </data>
   <data name="Setting_Strike_GridOpacity_Label" xml:space="preserve">
     <value>Rasterdeckkraft</value>
@@ -710,10 +691,10 @@
     <value>Eisbrut-Saga aktivieren</value>
   </data>
   <data name="Setting_Strike_Icon_Label" xml:space="preserve">
-    <value>Streiks verbergen/anzeigen auf Menüleistensymbol klicken</value>
+    <value>Schlachtzüge verbergen/anzeigen auf Menüleistensymbol klicken</value>
   </data>
   <data name="Setting_Strike_Icon_Tooltip" xml:space="preserve">
-    <value>Strikes Overlay wird ausgeblendet/angezeigt, wenn Sie auf das Symbol neben Blish oben links auf dem Bildschirm klicken</value>
+    <value>Schlachtzüge Overlay wird ausgeblendet/angezeigt, wenn auf das Symbol neben Blish oben links auf dem Bildschirm geklickt wird</value>
   </data>
   <data name="Setting_Strike_Keybind_Label" xml:space="preserve">
     <value>Tastenbelegung ein-/ausblenden</value>
@@ -758,16 +739,16 @@
     <value>Mauszeiger-QuickInfos auf Overlay aktivieren</value>
   </data>
   <data name="Setting_Strike_Tooltips_Tooltip" xml:space="preserve">
-    <value>Wenn Sie die Maus über eine Begegnung bewegen, wird der vollständige Name angezeigt</value>
+    <value>Wenn die Maus über eine Begegnung bewegt wird, wird der vollständige Name angezeigt</value>
   </data>
   <data name="Setting_Strike_VandC_Label" xml:space="preserve">
     <value>Stimme und Klaue der Gefallenen</value>
   </data>
   <data name="Setting_Strike_Visible_Label" xml:space="preserve">
-    <value>Verwarnungsüberlagerung anzeigen</value>
+    <value>Angriffsmissionen overlay anzeigen</value>
   </data>
   <data name="Setting_Strike_Visible_Tooltip" xml:space="preserve">
-    <value>Zeigt das Streik-Overlay auf dem Bildschirm an</value>
+    <value>Zeigt das Schlachtzüge-Overlay auf dem Bildschirm an</value>
   </data>
   <data name="Setting_Strike_WoJ_Label" xml:space="preserve">
     <value>Gifuster des Jormag</value>
@@ -776,7 +757,7 @@
     <value>Xunlai-Jade-Schrottplatz</value>
   </data>
   <data name="Settngs_CopyRaidTooltip" xml:space="preserve">
-    <value>Stellen Sie sicher, dass alle Einstellungen mit den entsprechenden Werten aus dem Raids-Overlay übereinstimmen</value>
+    <value>Stellt sicher, dass alle Einstellungen mit den entsprechenden Werten aus dem Schlachtzüge-Overlay übereinstimmen</value>
   </data>
   <data name="SharedKeybind" xml:space="preserve">
     <value>Overlays können dieselbe Tastenkombination verwenden</value>
@@ -794,7 +775,7 @@
     <value>RDS</value>
   </data>
   <data name="StrikeGroup_Priority" xml:space="preserve">
-    <value>Priority-Strike-Missionen (täglich)</value>
+    <value>Priority-Schlachtzüge-Missionen (täglich)</value>
   </data>
   <data name="StrikeGroup_Priority_abbr" xml:space="preserve">
     <value>PS</value>

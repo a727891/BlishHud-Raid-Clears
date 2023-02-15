@@ -117,15 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CornerIcon_Dungeon" xml:space="preserve">
-    <value>Haz clic para mostrar/ocultar la superposición de Mazmorras</value>
-  </data>
-  <data name="CornerIcon_Raid" xml:space="preserve">
-    <value>Haz clic para mostrar/ocultar la superposición de Incursiones</value>
-  </data>
-  <data name="CornerIcon_Strike" xml:space="preserve">
-    <value>Haga clic para mostrar/ocultar la superposición de Strikes</value>
-  </data>
   <data name="ModuleSettings_OpenSettings" xml:space="preserve">
     <value>Configuración abierta</value>
     <comment>Open Settings panel button text in the Blish module settings</comment>
@@ -139,10 +130,6 @@
   <data name="PatchNotes_Tooltip" xml:space="preserve">
     <value>Muestra las notas del parche en tu navegador web predeterminado</value>
   </data>
-  <data name="Raid_OverlayEnable" xml:space="preserve">
-    <value>Mostrar/ocultar superposición de incursión</value>
-    <comment>Setting label for making the raid overlay visible</comment>
-  </data>
   <data name="Raid_Wing_1" xml:space="preserve">
     <value>Valle Espiritual</value>
   </data>
@@ -153,19 +140,19 @@
     <value>VG</value>
   </data>
   <data name="Raid_Wing_1_2_Name" xml:space="preserve">
-    <value>carrera espiritual</value>
+    <value>Bosques espirituales</value>
   </data>
   <data name="Raid_Wing_1_2_Short" xml:space="preserve">
     <value>SR</value>
   </data>
   <data name="Raid_Wing_1_3_Name" xml:space="preserve">
-    <value>Gorseval</value>
+    <value>Gorseval el Múltiple</value>
   </data>
   <data name="Raid_Wing_1_3_Short" xml:space="preserve">
     <value>G</value>
   </data>
   <data name="Raid_Wing_1_4_Name" xml:space="preserve">
-    <value>sabetha</value>
+    <value>Sabetha la Saboteadora</value>
   </data>
   <data name="Raid_Wing_1_4_Short" xml:space="preserve">
     <value>S</value>
@@ -177,19 +164,19 @@
     <value>Paso de la Salvación</value>
   </data>
   <data name="Raid_Wing_2_1_Name" xml:space="preserve">
-    <value>Slothasor</value>
+    <value>Perezón</value>
   </data>
   <data name="Raid_Wing_2_1_Short" xml:space="preserve">
     <value>S</value>
   </data>
   <data name="Raid_Wing_2_2_Name" xml:space="preserve">
-    <value>Trío de bandidos</value>
+    <value>Campamento de prisioneros</value>
   </data>
   <data name="Raid_Wing_2_2_Short" xml:space="preserve">
     <value>B3</value>
   </data>
   <data name="Raid_Wing_2_3_Name" xml:space="preserve">
-    <value>Matías Gabriel</value>
+    <value>Matías Gabrel</value>
   </data>
   <data name="Raid_Wing_2_3_Short" xml:space="preserve">
     <value>M</value>
@@ -201,22 +188,22 @@
     <value>Foraleza de los Fieles</value>
   </data>
   <data name="Raid_Wing_3_1_Name" xml:space="preserve">
-    <value>Escolta</value>
+    <value>Asedio a la fortaleza</value>
   </data>
   <data name="Raid_Wing_3_1_Short" xml:space="preserve">
     <value>E</value>
   </data>
   <data name="Raid_Wing_3_2_Name" xml:space="preserve">
-    <value>mantener construir</value>
+    <value>Ensamblaje de la fortaleza</value>
   </data>
   <data name="Raid_Wing_3_2_Short" xml:space="preserve">
     <value>KC</value>
   </data>
   <data name="Raid_Wing_3_3_Name" xml:space="preserve">
-    <value>Castillo retorcido</value>
+    <value>Castillo Retorcido</value>
   </data>
   <data name="Raid_Wing_3_3_Short" xml:space="preserve">
-    <value>CT</value>
+    <value>TC</value>
   </data>
   <data name="Raid_Wing_3_4_Name" xml:space="preserve">
     <value>Xera</value>
@@ -228,7 +215,7 @@
     <value>SotF</value>
   </data>
   <data name="Raid_Wing_4" xml:space="preserve">
-    <value>Bastion del Penitente</value>
+    <value>Bastión del Penitente</value>
   </data>
   <data name="Raid_Wing_4_1_Name" xml:space="preserve">
     <value>Cairn el Indomable</value>
@@ -237,7 +224,7 @@
     <value>C</value>
   </data>
   <data name="Raid_Wing_4_2_Name" xml:space="preserve">
-    <value>Supervisor Mursaat</value>
+    <value>Dirigente mursaat</value>
   </data>
   <data name="Raid_Wing_4_2_Short" xml:space="preserve">
     <value>MO</value>
@@ -261,7 +248,7 @@
     <value>Sala de las Cadenas</value>
   </data>
   <data name="Raid_Wing_5_1_Name" xml:space="preserve">
-    <value>Terror sin alma</value>
+    <value>Horror sin alma</value>
   </data>
   <data name="Raid_Wing_5_1_Short" xml:space="preserve">
     <value>SH</value>
@@ -288,16 +275,16 @@
     <value>HoC</value>
   </data>
   <data name="Raid_Wing_6" xml:space="preserve">
-    <value>Tactica del Forjador de Mitos</value>
+    <value>Táctica del Forjador de Mitos</value>
   </data>
   <data name="Raid_Wing_6_1_Name" xml:space="preserve">
-    <value>Amalgamado Conjurado</value>
+    <value>Amalgamado conjurado</value>
   </data>
   <data name="Raid_Wing_6_1_Short" xml:space="preserve">
     <value>CA</value>
   </data>
   <data name="Raid_Wing_6_2_Name" xml:space="preserve">
-    <value>Largos gemelos</value>
+    <value>Largos gemelos (Nikare y Kenut)</value>
   </data>
   <data name="Raid_Wing_6_2_Short" xml:space="preserve">
     <value>TL</value>
@@ -333,7 +320,7 @@
     <value>S</value>
   </data>
   <data name="Raid_Wing_7_4_Name" xml:space="preserve">
-    <value>Qadim el Inigualable</value>
+    <value>Qadim el Simpar</value>
   </data>
   <data name="Raid_Wing_7_4_Short" xml:space="preserve">
     <value>Q2</value>
@@ -360,7 +347,7 @@
     <value>Selección de alas</value>
   </data>
   <data name="SettingsPanel_Raid_Visual_Colors" xml:space="preserve">
-    <value>Personaliza los colores ingresando un código de color hexadecimal.</value>
+    <value>Personaliza los colores ingresando un código de color hexadecimal</value>
     <comment>On the raids visual page, help text explaining the color pickers</comment>
   </data>
   <data name="SettingsPanel_Raid_Visual_ColorsTip" xml:space="preserve">
@@ -444,9 +431,6 @@
   </data>
   <data name="Setting_Dun_ColFreqText_Tooltip" xml:space="preserve">
     <value>Código de color hexadecimal (#rrggbb) para rutas que cuentan para el logro de frecuentador de mazmorras</value>
-  </data>
-  <data name="Setting_Dun_DisabledWarning" xml:space="preserve">
-    <value>La función de mazmorra está actualmente deshabilitada</value>
   </data>
   <data name="Setting_Dun_Drag_Label" xml:space="preserve">
     <value>Desbloquear la posición de superposición de Dungeon</value>
@@ -672,9 +656,6 @@
   </data>
   <data name="Setting_Strike_ColText_Tooltip" xml:space="preserve">
     <value>Código de color hexadecimal (#rrggbb) para etiqueta y texto de cuadrícula</value>
-  </data>
-  <data name="Setting_Strike_CopyRaids" xml:space="preserve">
-    <value>Copiar diseño de redadas</value>
   </data>
   <data name="Setting_Strike_CW_Label" xml:space="preserve">
     <value>Guerra Fría</value>
