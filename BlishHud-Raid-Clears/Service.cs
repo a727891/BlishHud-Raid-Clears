@@ -10,7 +10,7 @@ using RaidClears.Settings.Services;
 
 namespace RaidClears;
 
-public static class Service
+public static class Service 
 {
     public static string CurrentAccountName { get; set; } = AccountNameService.DEFAULT_ACCOUNT_NAME;
     public static Module ModuleInstance { get; set; } = null!;

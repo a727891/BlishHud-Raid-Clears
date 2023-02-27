@@ -50,5 +50,7 @@ Key Features
 * version bump for 2.0.0 full release
 ### 2.0.2 (2023-02-13)
 * Fixed keybinds not activating
+### 2.0.3 (2023-02-26)
+* Fixed race condition on resetwatcher
 ---
 Heavily inspired by the same feature bundled with Gw2TaCO.

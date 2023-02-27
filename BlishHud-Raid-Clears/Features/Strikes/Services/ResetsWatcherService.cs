@@ -60,13 +60,13 @@ public class ResetsWatcherService : IDisposable
         var now = DateTime.UtcNow;
         if( now >= NextDailyReset )
         {
-            DailyReset?.Invoke(this, NextDailyReset);
             CalcNextDailyReset();
+            DailyReset?.Invoke(this, NextDailyReset);
         }
         if(now >= NextWeeklyReset )
         {
-            WeeklyReset?.Invoke(this, NextWeeklyReset);
             CalcNextWeeklyReset();
+            WeeklyReset?.Invoke(this, NextWeeklyReset);
         }
     }
 
