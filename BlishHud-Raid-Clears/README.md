@@ -51,6 +51,8 @@ Key Features
 ### 2.0.2 (2023-02-13)
 * Fixed keybinds not activating
 ### 2.0.3 (2023-02-26)
-* Fixed race condition on resetwatcher
+* Fixed race condition on 
+### 2.0.4 (2023-03-01)
+* Fixed daily strike index using Anets day of year index calculation
 ---
 Heavily inspired by the same feature bundled with Gw2TaCO.
