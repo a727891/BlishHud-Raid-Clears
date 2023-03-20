@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Blish_HUD.Settings;
 using RaidClears.Features.Raids.Services;
@@ -17,6 +18,18 @@ public static class WingFactory
     {
         var settings = Service.Settings.RaidSettings;
         var wings = GetWingMetaData();
+        if(DateTime.UtcNow.Month==4 && DateTime.UtcNow.Day == 1)
+        {
+            wings.Add(
+                new Wing("The Wait for Wing 8", 7, "W8",
+                   new BoxModel[] {
+                        new BoxModel("w8-1","Not","N"),
+                        new BoxModel("w8-2","Our","O"),
+                        new BoxModel("w8-3","Priority","P"),
+                        new BoxModel("w8-4","Ever","E")
+                   })
+            );
+        }
         foreach(var wing in wings)
         {
             var group = new GridGroup(
@@ -71,9 +84,9 @@ public static class WingFactory
     
     private static SettingEntry<bool> GetWingSelectionByIndex(int index, RaidSettings settings) => settings.RaidWings.ElementAt(index);
 
-    private static Wing[] GetWingMetaData()
+    private static List<Wing> GetWingMetaData()
     {
-        return new[] {
+        return new List<Wing> {
             new Wing(Strings.Raid_Wing_1, 0, Strings.Raid_Wing_1_Short,
                 new BoxModel[] {
                     new Encounter(Encounters.RaidBosses.ValeGuardian),

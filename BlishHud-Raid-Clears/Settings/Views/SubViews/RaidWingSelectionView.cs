@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using RaidClears.Localization;
 using RaidClears.Settings.Models;
 using RaidClears.Utils;
+using System;
 using System.Linq;
 
 namespace RaidClears.Settings.Views.SubViews;
@@ -63,6 +64,25 @@ public class RaidWingSelectionView : View
             .AddSpace()
             .AddSpace()
         );
-          //  .AddSetting(_settings.RaidWings);
+
+        if(DateTime.UtcNow.Month==4 && DateTime.UtcNow.Day==1)
+        {
+            panel.AddChildPanel(
+             new FlowPanel()
+             {
+                 FlowDirection = ControlFlowDirection.SingleTopToBottom,
+                 OuterControlPadding = new Vector2(20, 5),
+                 Parent = panel,
+                 ShowTint = false,
+                 ShowBorder = false,
+                 HeightSizingMode = SizingMode.AutoSize,
+                 Width = panel.Width - 40
+                
+
+             }
+              .AddString("April Fools Joke")
+              .AddSetting(_settings.RaidWings.Skip(7).Take(1))
+          );
+        }
     }
 }
