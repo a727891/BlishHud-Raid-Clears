@@ -54,5 +54,7 @@ Key Features
 * Fixed race condition on 
 ### 2.0.4 (2023-03-01)
 * Fixed daily strike index using Anets day of year index calculation
+### 2.0.5 (2023-03-19)
+* Added Wing 8 for april fools joke
 ---
 Heavily inspired by the same feature bundled with Gw2TaCO.
