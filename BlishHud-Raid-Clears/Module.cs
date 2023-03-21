@@ -12,7 +12,8 @@ using RaidClears.Features.Shared.Services;
 using RaidClears.Settings.Controls;
 using RaidClears.Localization;
 using RaidClears.Features.Strikes.Services;
-using Blish_HUD.Modules.Managers;
+using Blish_HUD.Controls;
+using RaidClears.Features.Shared.Models;
 
 namespace RaidClears;
 
@@ -54,17 +55,23 @@ public class Module : Blish_HUD.Modules.Module
         Service.DungeonWindow = new Features.Dungeons.DungeonPanel();
 
 
+        var refreshApiContextMenu = new ContextMenuStripItem(Strings.Settings_RefreshNow);
+        refreshApiContextMenu.Click += (s, e) => Service.ApiPollingService?.Invoke();
+
         Service.CornerIcon = new CornerIconService(
             Service.Settings.GlobalCornerIconEnabled,
             Strings.Module_Title,
             Service.Textures!.CornerIconTexture,
             Service.Textures!.CornerIconHoverTexture,
-            new List<CornerIconToggleMenuItem>()
+            new List<ContextMenuStripItem>()
             {
                 new CornerIconToggleMenuItem(Service.SettingsWindow, Strings.ModuleSettings_OpenSettings),
+                new ContextMenuStripItemSeparator(),
                 new CornerIconToggleMenuItem(Service.Settings.RaidSettings.Generic.Visible, Strings.SettingsPanel_Tab_Raids),
                 new CornerIconToggleMenuItem(Service.Settings.StrikeSettings.Generic.Visible, Strings.SettingsPanel_Tab_Strikes),
                 new CornerIconToggleMenuItem(Service.Settings.DungeonSettings.Generic.Visible, Strings.SettingsPanel_Tab_Dunegons),
+                new ContextMenuStripItemSeparator(),
+                refreshApiContextMenu
 
             }
         );

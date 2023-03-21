@@ -1780,7 +1780,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Refresh now.
+        ///   Looks up a localized string similar to Refresh data now.
         /// </summary>
         internal static string Settings_RefreshNow {
             get {

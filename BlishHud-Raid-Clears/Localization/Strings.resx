@@ -460,7 +460,7 @@
     <value>Enable individual Path of Fire raid wings</value>
   </data>
   <data name="Settings_RefreshNow" xml:space="preserve">
-    <value>Refresh now</value>
+    <value>Refresh data now</value>
     <comment>button to trigger api refresh</comment>
   </data>
   <data name="Settings_Strike_AnchorToRaidLabel" xml:space="preserve">
