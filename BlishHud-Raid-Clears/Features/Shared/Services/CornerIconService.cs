@@ -62,10 +62,11 @@ public class CornerIconService : IDisposable
 
         _cornerIcon = new CornerIcon
         {
-            Icon             = _cornerIconTexture,
-            HoverIcon        = _cornerIconHoverTexture,
+            Icon = _cornerIconTexture,
+            HoverIcon = _cornerIconHoverTexture,
             BasicTooltipText = _tooltip,
-            Parent           = GameService.Graphics.SpriteScreen,
+            Parent = GameService.Graphics.SpriteScreen,
+            Priority = 2033877237 //Generated from Ecksofa's fiddle https://dotnetfiddle.net/5U0xPw
         };
 
         _cornerIcon.Click += OnCornerIconClicked;
