@@ -125,6 +125,7 @@ public static class Settings
                 new("RCw5",true,() => Strings.Setting_Raid_W5_Label,() => Strings.Setting_Raid_W5_Tooltip),
                 new("RCw6",true,() => Strings.Setting_Raid_W6_Label,() => Strings.Setting_Raid_W6_Tooltip),
                 new("RCw7",true,() => Strings.Setting_Raid_W7_Label,() => Strings.Setting_Raid_W7_Tooltip),
+                new("RCw8",true,() => "Wing 8" ,() => "Happy April 1st"),
             };
         }
     }

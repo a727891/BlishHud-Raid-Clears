@@ -15,6 +15,7 @@ using RaidClears.Features.Strikes.Services;
 using Blish_HUD.Controls;
 using RaidClears.Features.Shared.Models;
 using RaidClears.Features.Fractals.Services;
+using Blish_HUD.Modules.Managers;
 
 namespace RaidClears;
 
@@ -85,6 +86,14 @@ public class Module : Blish_HUD.Modules.Module
 
         Service.Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
 
+
+        if (Service.Settings.StrikeSettings.AnchorToRaidPanel.Value == true)
+        {
+            Task.Delay(1500).ContinueWith(_ =>
+            {
+                Service.Settings.AlignStrikesWithRaidPanel();
+            });
+        }
 
 
         return Task.CompletedTask;
