@@ -58,18 +58,24 @@ public class SettingsPanel : TabbedWindow2
                 () => new CustomSettingMenuView(new RaidsSettingTab()),
                 Strings.SettingsPanel_Tab_Raids
             ));
-        
+        Tabs.Add(new Tab(
+            Service.Textures?.SettingTabStrikes,
+            () => new CustomSettingMenuView(new StrikesSettingTab()),
+            Strings.SettingsPanel_Tab_Strikes
+        ));
+
+        Tabs.Add(new Tab(
+            Service.Textures?.SettingTabFractals,
+            () => new CustomSettingMenuView(new FractalSettingTab()),
+           Strings.SettingsPanel_Tab_Fractals
+        ));
         Tabs.Add(new Tab(
             Service.Textures?.SettingTabDungeon,
             () => new CustomSettingMenuView(new DungeonSettingTab()),
                 Strings.SettingsPanel_Tab_Dunegons
             ));
         
-        Tabs.Add(new Tab(
-            Service.Textures?.SettingTabStrikes,
-            () => new CustomSettingMenuView(new StrikesSettingTab()),
-            Strings.SettingsPanel_Tab_Strikes
-        ));
+        
         
         Tabs.Add(new Tab(
             Service.Textures?.SettingTabGeneral,

@@ -61,6 +61,42 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Daily Recommended.
+        /// </summary>
+        internal static string Fractals_DailyRecommended {
+            get {
+                return ResourceManager.GetString("Fractals_DailyRecommended", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Daily Tier (1,2,3,4).
+        /// </summary>
+        internal static string Fractals_DailyTierN {
+            get {
+                return ResourceManager.GetString("Fractals_DailyTierN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Did you complete the encounter successfully?.
+        /// </summary>
+        internal static string Fractals_Message {
+            get {
+                return ResourceManager.GetString("Fractals_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable daily fractal groupings.
+        /// </summary>
+        internal static string Fractals_Selection_Prompt {
+            get {
+                return ResourceManager.GetString("Fractals_Selection_Prompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clears Tracker.
         /// </summary>
         internal static string Module_Title {
@@ -867,6 +903,276 @@ namespace RaidClears.Localization {
         internal static string Setting_Dun_Visible_Tooltip {
             get {
                 return ResourceManager.GetString("Setting_Dun_Visible_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overlay background color.
+        /// </summary>
+        internal static string Setting_Fractals_ColBG_Label {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_ColBG_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fractals overlay background color.
+        /// </summary>
+        internal static string Setting_Fractals_ColBG_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_ColBG_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cleared encounter color.
+        /// </summary>
+        internal static string Setting_Fractals_ColClear_Label {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_ColClear_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hex color code (#rrggbb) for Encounters that have been cleared this reset.
+        /// </summary>
+        internal static string Setting_Fractals_ColClear_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_ColClear_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not-cleared encounter color.
+        /// </summary>
+        internal static string Setting_Fractals_ColNotClear_Label {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_ColNotClear_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hex color code (#rrggbb) for Encounters that have not been cleared this reset.
+        /// </summary>
+        internal static string Setting_Fractals_ColNotClear_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_ColNotClear_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Label and Grid text color.
+        /// </summary>
+        internal static string Setting_Fractals_ColText_Label {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_ColText_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hex color code (#rrggbb) for label and grid text.
+        /// </summary>
+        internal static string Setting_Fractals_ColText_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_ColText_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unlock fractals overlay position.
+        /// </summary>
+        internal static string Setting_Fractals_Drag_Label {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_Drag_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click and drag to reposition the overlay window.
+        /// </summary>
+        internal static string Setting_Fractals_Drag_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_Drag_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grid size.
+        /// </summary>
+        internal static string Setting_Fractals_Font_Label {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_Font_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change the size of the grid.
+        /// </summary>
+        internal static string Setting_Fractals_Font_Tooptip {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_Font_Tooptip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grid opacity.
+        /// </summary>
+        internal static string Setting_Fractals_GridOpacity_Label {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_GridOpacity_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hidden &lt;---&gt; Fully Visible.
+        /// </summary>
+        internal static string Setting_Fractals_GridOpactiy_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_GridOpactiy_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fractals hide/show on menubar icon click.
+        /// </summary>
+        internal static string Setting_Fractals_Icon_Label {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_Icon_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fractals overlay hides/shows when clicking the icon next to Blish in the top-left of the screen.
+        /// </summary>
+        internal static string Setting_Fractals_Icon_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_Icon_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show/Hide keybind.
+        /// </summary>
+        internal static string Setting_Fractals_Keybind_Label {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_Keybind_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Fractals_Keybind_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_Keybind_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Label style.
+        /// </summary>
+        internal static string Setting_Fractals_LabelDisplay_Label {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_LabelDisplay_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Fractals_LabelDisplay_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_LabelDisplay_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Label opacity.
+        /// </summary>
+        internal static string Setting_Fractals_LabelOpacity_Label {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_LabelOpacity_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hidden &lt;---&gt; Fully Visible.
+        /// </summary>
+        internal static string Setting_Fractals_LabelOpacity_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_LabelOpacity_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grid layout.
+        /// </summary>
+        internal static string Setting_Fractals_Layout_Label {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_Layout_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Fractals_Layout_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_Layout_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grid background opacity.
+        /// </summary>
+        internal static string Setting_Fractals_PanelOpacity_Label {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_PanelOpacity_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hidden &lt;---&gt; Fully Visible.
+        /// </summary>
+        internal static string Setting_Fractals_PanelOpacity_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_PanelOpacity_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable mouse hover tooltips on overlay.
+        /// </summary>
+        internal static string Setting_Fractals_Tooltips_Label {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_Tooltips_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hovering the mouse over an encounter will display the full name and tomorrow&apos;s encounter.
+        /// </summary>
+        internal static string Setting_Fractals_Tooltips_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_Tooltips_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show fractals overlay.
+        /// </summary>
+        internal static string Setting_Fractals_Visible_Label {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_Visible_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Setting_Fractals_Visible_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Fractals_Visible_Tooltip", resourceCulture);
             }
         }
         
@@ -1708,7 +2014,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show the strikes overlay on screen.
+        ///   Looks up a localized string similar to Show the fractals overlay on screen.
         /// </summary>
         internal static string Setting_Strike_Visible_Tooltip {
             get {
@@ -1740,6 +2046,24 @@ namespace RaidClears.Localization {
         internal static string Settings_Dungeon_Heading {
             get {
                 return ResourceManager.GetString("Settings_Dungeon_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mark complete.
+        /// </summary>
+        internal static string Settings_Fractals_Completion {
+            get {
+                return ResourceManager.GetString("Settings_Fractals_Completion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Determine how fractals are marked as cleared.
+        /// </summary>
+        internal static string Settings_Fractals_CompletionTooltip {
+            get {
+                return ResourceManager.GetString("Settings_Fractals_CompletionTooltip", resourceCulture);
             }
         }
         
@@ -1780,7 +2104,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Refresh data now.
+        ///   Looks up a localized string similar to Refresh now.
         /// </summary>
         internal static string Settings_RefreshNow {
             get {
@@ -1870,6 +2194,15 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fractals Selection.
+        /// </summary>
+        internal static string SettingsPanel_Fractals_Heading_Selection {
+            get {
+                return ResourceManager.GetString("SettingsPanel_Fractals_Heading_Selection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Customize the colors by entering a Hex color code.
         /// </summary>
         internal static string SettingsPanel_Raid_Visual_Colors {
@@ -1938,6 +2271,15 @@ namespace RaidClears.Localization {
         internal static string SettingsPanel_Tab_Dunegons {
             get {
                 return ResourceManager.GetString("SettingsPanel_Tab_Dunegons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fractals of the Mists.
+        /// </summary>
+        internal static string SettingsPanel_Tab_Fractals {
+            get {
+                return ResourceManager.GetString("SettingsPanel_Tab_Fractals", resourceCulture);
             }
         }
         

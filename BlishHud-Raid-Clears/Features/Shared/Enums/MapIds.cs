@@ -45,5 +45,31 @@ public static class MapIds
         OldLionsCourt = 1485,
     }
 
+    public enum FractalMaps
+    {
+        //MistlockObservatory = 872,
+        AetherbladeFractal = 956,
+        AquaticRuinsFractal = 951,
+        CaptainMaiTrinBossFractal = 960,
+        ChaosFractal = 1164,
+        CliffsideFractal = 952,
+        DeepstoneFractal = 1290,
+        MoltenBoss = 959,
+        MoltenFurnace = 955,
+        Nightmare = 1177,
+        ShatteredObservatory = 1205,
+        SirensReef = 1309,
+        SnowblindFractal = 948,
+        SunquaPeak = 1384,
+        SolidOceanFractal = 958,
+        SwamplandFractal = 949,
+        ThaumanovaReactor = 957,
+        TwilightOasis = 1267,
+        UncategorizedFractal = 947,
+        UndergroundFacilityFractal = 953,
+        UrbanBattlegroundFractal = 950,
+        VolcanicFractal = 954,
+    }
+
 }       
 

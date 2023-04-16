@@ -50,6 +50,7 @@ public class MainSettingsView : View
             .AddSetting(Service.Settings.RaidSettings.Generic.ToolbarIcon)
             .AddSetting(Service.Settings.DungeonSettings.Generic.ToolbarIcon)
             .AddSetting(Service.Settings.StrikeSettings.Generic.ToolbarIcon)
+            .AddSetting(Service.Settings.FractalSettings.Generic.ToolbarIcon)
             );
            
         refreshButton.Click += (_, _) =>

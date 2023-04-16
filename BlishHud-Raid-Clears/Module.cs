@@ -14,6 +14,7 @@ using RaidClears.Localization;
 using RaidClears.Features.Strikes.Services;
 using Blish_HUD.Controls;
 using RaidClears.Features.Shared.Models;
+using RaidClears.Features.Fractals.Services;
 
 namespace RaidClears;
 
@@ -42,16 +43,19 @@ public class Module : Blish_HUD.Modules.Module
     {
 
         Service.StrikePersistance = StrikePersistance.Load();
+        Service.FractalPersistance = FractalPersistance.Load();
 
         Service.ApiPollingService = new ApiPollService(Service.Settings.ApiPollingPeriod);
         Service.Textures = new TextureService(Service.ContentsManager);
 
         Service.ResetWatcher = new ResetsWatcherService();
-        Service.MapWatcher = new Features.Strikes.Services.MapWatcherService();
+        Service.MapWatcher = new MapWatcherService();
+        Service.FractalMapWatcher = new FractalMapWatcherService();
 
         Service.SettingsWindow = new SettingsPanel();
         Service.RaidWindow = new Features.Raids.RaidPanel();
         Service.StrikesWindow = new Features.Strikes.StrikesPanel();
+        Service.FractalWindow = new Features.Fractals.FractalsPanel();
         Service.DungeonWindow = new Features.Dungeons.DungeonPanel();
 
 
@@ -69,6 +73,7 @@ public class Module : Blish_HUD.Modules.Module
                 new ContextMenuStripItemSeparator(),
                 new CornerIconToggleMenuItem(Service.Settings.RaidSettings.Generic.Visible, Strings.SettingsPanel_Tab_Raids),
                 new CornerIconToggleMenuItem(Service.Settings.StrikeSettings.Generic.Visible, Strings.SettingsPanel_Tab_Strikes),
+                new CornerIconToggleMenuItem(Service.Settings.FractalSettings.Generic.Visible, "Fractals"),
                 new CornerIconToggleMenuItem(Service.Settings.DungeonSettings.Generic.Visible, Strings.SettingsPanel_Tab_Dunegons),
                 new ContextMenuStripItemSeparator(),
                 refreshApiContextMenu
@@ -101,6 +106,7 @@ public class Module : Blish_HUD.Modules.Module
         Service.Textures?.Dispose();
         Service.ApiPollingService?.Dispose();
 
+        Service.FractalWindow?.Dispose();
         Service.StrikesWindow?.Dispose();
         Service.DungeonWindow?.Dispose();
         Service.RaidWindow?.Dispose();
@@ -108,6 +114,7 @@ public class Module : Blish_HUD.Modules.Module
         Service.CornerIcon?.Dispose();
 
         Service.MapWatcher?.Dispose();
+        Service.FractalMapWatcher.Dispose();
         Service.ResetWatcher?.Dispose();
     }
 
@@ -117,6 +124,7 @@ public class Module : Blish_HUD.Modules.Module
         Service.RaidWindow?.Update();
         Service.DungeonWindow?.Update();
         Service.StrikesWindow?.Update();
+        Service.FractalWindow?.Update();
         Service.ResetWatcher?.Update(gameTime);
     }
     private void CornerIcon_IconLeftClicked(object sender, bool e)
@@ -124,6 +132,7 @@ public class Module : Blish_HUD.Modules.Module
         Service.Settings.RaidSettings.Generic.ToggleVisible();
         Service.Settings.DungeonSettings.Generic.ToggleVisible();
         Service.Settings.StrikeSettings.Generic.ToggleVisible();
+        Service.Settings.FractalSettings.Generic.ToggleVisible();
     }
 
     private void Gw2ApiManager_SubtokenUpdated(object sender, ValueEventArgs<IEnumerable<TokenPermission>> e)
@@ -132,6 +141,7 @@ public class Module : Blish_HUD.Modules.Module
         {
             Service.CurrentAccountName = await AccountNameService.UpdateAccountName();
             Service.MapWatcher.DispatchCurrentStrikeClears();
+            Service.FractalMapWatcher.DispatchCurrentClears();
         });
         Service.ApiPollingService?.Invoke();
     } 

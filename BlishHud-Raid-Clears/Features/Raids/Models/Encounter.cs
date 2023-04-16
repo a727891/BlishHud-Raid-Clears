@@ -13,4 +13,8 @@ public class Encounter : BoxModel
     public Encounter(StrikeMission boss) : base(boss.GetApiLabel(), boss.GetLabel(), boss.GetLabelShort())
     {
     }
+
+    public Encounter(Fractal fractal) : base(fractal.GetApiLabel(), fractal.GetLabel(), fractal.GetLabelShort())
+    {
+    }
 }
