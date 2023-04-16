@@ -35,7 +35,7 @@ public class CornerIconService : IDisposable
                              string tooltip,
                              Texture2D defaultTexture,
                              Texture2D hoverTexture,
-                             IEnumerable<CornerIconToggleMenuItem> contextMenuItems
+                             IEnumerable<ContextMenuStripItem> contextMenuItems
     )
     {
         _tooltip                     = tooltip;
@@ -62,10 +62,11 @@ public class CornerIconService : IDisposable
 
         _cornerIcon = new CornerIcon
         {
-            Icon             = _cornerIconTexture,
-            HoverIcon        = _cornerIconHoverTexture,
+            Icon = _cornerIconTexture,
+            HoverIcon = _cornerIconHoverTexture,
             BasicTooltipText = _tooltip,
-            Parent           = GameService.Graphics.SpriteScreen,
+            Parent = GameService.Graphics.SpriteScreen,
+            Priority = 2033877237 //Generated from Ecksofa's fiddle https://dotnetfiddle.net/5U0xPw
         };
 
         _cornerIcon.Click += OnCornerIconClicked;
@@ -92,7 +93,7 @@ public class CornerIconService : IDisposable
     {
         IconLeftClicked?.Invoke(this,true);
     }
-    private readonly IEnumerable<CornerIconToggleMenuItem> _contextMenuItems;
+    private readonly IEnumerable<ContextMenuStripItem> _contextMenuItems;
     private readonly Texture2D _cornerIconTexture;
     private readonly Texture2D _cornerIconHoverTexture;
     private readonly SettingEntry<bool> _cornerIconIsVisibleSetting;

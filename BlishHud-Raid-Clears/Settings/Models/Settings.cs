@@ -153,7 +153,7 @@ public static class Settings
         public static class General
         {
             public static Setting<bool> enabled = new("RCStkEnabled", true, () => "Enable strikes Feature");
-            public static Setting<Point> location = new("RCStkLocation", new Point(250, 390));
+            public static Setting<Point> location = new("RCStkLocation", new Point(250, 370));
             public static Setting<bool> positionLock = new("RCStkDrag", true, () => Strings.Setting_Strike_Drag_Label, () => Strings.Setting_Strike_Drag_Tooltip);
             public static Setting<bool> tooltips = new("RCStktooltips", true, () => Strings.Setting_Strike_Tooltips_Label, () => Strings.Setting_Strike_Tooltips_Tooltip);
             public static Setting<bool> toolbarIcon = new("RCStkCornerIcon", true, () => Strings.Setting_Strike_Icon_Label, () => Strings.Setting_Strike_Icon_Tooltip);
@@ -188,6 +188,48 @@ public static class Settings
             public static Setting<bool> anchorToRaids = new("RCAnchorToRaids", false, () => Strings.Settings_Strike_AnchorToRaidLabel, () => Strings.Settings_Strike_AnchorToRaidTooltip);
 
             public static Setting<StrikeComplete> strikeCompletion = new("RCStrikeComplete", StrikeComplete.MAP_CHANGE, () => Strings.Settings_Strike_Completion, () => Strings.Settings_Strike_CompletionTooltip);
+        }
+    }
+
+    public static class Fractal
+    {
+        public static class Style
+        {
+            public static class Color
+            {
+                public static Setting<string> uncleared = new("FraccolNotCleared", Colors.SoftRed, () => Strings.Setting_Fractals_ColNotClear_Label, () => Strings.Setting_Fractals_ColNotClear_Tooltip);
+                public static Setting<string> cleared = new("FracColCleared", Colors.Green, () => Strings.Setting_Fractals_ColClear_Label, () => Strings.Setting_Fractals_ColClear_Tooltip);
+                public static Setting<string> text = new("FracColText", Colors.White, () => Strings.Setting_Fractals_ColText_Label, () => Strings.Setting_Fractals_ColText_Tooltip);
+                public static Setting<string> background = new("colFracBG", Colors.Black, () => Strings.Setting_Fractals_ColBG_Label, () => Strings.Setting_Fractals_ColBG_Tooltip);
+            }
+
+            public static Setting<ContentService.FontSize> fontSize = new("RCFracFontSize", ContentService.FontSize.Size18, () => Strings.Setting_Fractals_Font_Label, () => Strings.Setting_Fractals_Font_Tooptip);
+            public static Setting<LabelDisplay> labelDisplay = new("RCFracLabelDisplay", LabelDisplay.Abbreviation, () => Strings.Setting_Fractals_LabelDisplay_Label, () => Strings.Setting_Fractals_LabelDisplay_Tooltip);
+            public static Setting<Layout> layout = new("RCFracOrientation", Layout.Vertical, () => Strings.Setting_Fractals_Layout_Label, () => Strings.Setting_Fractals_Layout_Tooltip);
+            public static Setting<float> labelOpacity = new("RCFracLabelOpacity", 1f, () => Strings.Setting_Fractals_LabelOpacity_Label, () => Strings.Setting_Fractals_LabelOpacity_Tooltip);
+            public static Setting<float> gridOpacity = new("RCFracOpacity", 0.8f, () => Strings.Setting_Fractals_GridOpacity_Label, () => Strings.Setting_Fractals_GridOpactiy_Tooltip);
+            public static Setting<float> backgroundOpacity = new("RCSFracBgOpacity", 0.0f, () => Strings.Setting_Fractals_PanelOpacity_Label, () => Strings.Setting_Fractals_PanelOpacity_Tooltip);
+        }
+
+        public static class General
+        {
+            public static Setting<bool> enabled = new("RCFracEnabled", true, () => "Enable Fractals Feature");
+            public static Setting<Point> location = new("RCFracLocation", new Point(250, 445));
+            public static Setting<bool> positionLock = new("RCFracDrag", true, () => Strings.Setting_Fractals_Drag_Label, () => Strings.Setting_Fractals_Drag_Tooltip);
+            public static Setting<bool> tooltips = new("RCFractooltips", true, () => Strings.Setting_Fractals_Tooltips_Label, () => Strings.Setting_Fractals_Tooltips_Tooltip);
+            public static Setting<bool> toolbarIcon = new("RCFracCornerIcon", true, () => Strings.Setting_Fractals_Icon_Label, () => Strings.Setting_Fractals_Icon_Tooltip);
+            public static Setting<bool> visible = new("RCFracActive", true, () => Strings.Setting_Fractals_Visible_Label, () => Strings.Setting_Fractals_Visible_Tooltip);
+            public static Setting<KeyBinding> keyBind = new("RCSFrackeybind", new KeyBinding(Keys.None), () => Strings.Setting_Fractals_Keybind_Label, () => Strings.Setting_Fractals_Keybind_Tooltip);
+        }
+
+        public static class Module
+        {
+            public static Setting<bool> showTierN = new("FractalTierN", true, () => Strings.Fractals_DailyTierN);
+            public static Setting<bool> showRecs = new("FractalRecs", true, () => Strings.Fractals_DailyRecommended);
+            public static Setting<bool> tomorrow = new("FractalTierTomorrow", false, () => "Tomorrow's Tier",()=>"Show tomorow's TierN fractals. Useful for statics that pre-clear before reset");
+
+            public static Setting<StrikeComplete> completionMethod = new("RCFractalComplete", StrikeComplete.MAP_CHANGE, () => Strings.Settings_Strike_Completion, () => Strings.Settings_Fractals_Completion);
+
         }
     }
 }

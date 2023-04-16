@@ -17,6 +17,7 @@ public class SettingService // singular because Setting"s"Service already exists
     public RaidSettings RaidSettings { get; }
     public DungeonSettings DungeonSettings { get; }
     public StrikeSettings StrikeSettings { get; }
+    public FractalSettings FractalSettings { get; }
 
     public SettingService(SettingCollection settings)
     {
@@ -39,6 +40,7 @@ public class SettingService // singular because Setting"s"Service already exists
         RaidSettings = new RaidSettings(settings);
         DungeonSettings = new DungeonSettings(settings);
         StrikeSettings = new StrikeSettings(settings);
+        FractalSettings = new FractalSettings(settings);
 
         StrikeSettings.AnchorToRaidPanel.SettingChanged += (_, e) => { if (e.NewValue) AlignStrikesWithRaidPanel(); };
         RaidSettings.Generic.Location.SettingChanged += (_, e) => { if (StrikeSettings.AnchorToRaidPanel.Value) AlignStrikesWithRaidPanel(); };

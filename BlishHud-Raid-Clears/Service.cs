@@ -1,5 +1,7 @@
 ﻿using Blish_HUD.Modules.Managers;
 using RaidClears.Features.Dungeons;
+using RaidClears.Features.Fractals;
+using RaidClears.Features.Fractals.Services;
 using RaidClears.Features.Raids;
 using RaidClears.Features.Shared.Services;
 using RaidClears.Features.Strikes;
@@ -23,14 +25,17 @@ public static class Service
     public static SettingsPanel SettingsWindow { get; set; } = null!;
 
     public static StrikePersistance StrikePersistance { get; set; } = null!;
+    public static FractalPersistance FractalPersistance { get; set; } = null!;
 
     public static RaidPanel RaidWindow { get; set; } = null!;
     public static StrikesPanel StrikesWindow { get; set; } = null!;
+    public static FractalsPanel FractalWindow { get; set; } = null!;
     public static DungeonPanel DungeonWindow { get; set; } = null!;
 
     public static CornerIconService CornerIcon { get; set; } = null!;
 
     public static MapWatcherService MapWatcher { get; set; } = null!;
+    public static FractalMapWatcherService FractalMapWatcher { get; set; } = null!;
 
     public static ResetsWatcherService ResetWatcher { get; set; } = null!;
 }

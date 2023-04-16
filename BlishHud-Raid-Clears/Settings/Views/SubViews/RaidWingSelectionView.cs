@@ -65,7 +65,7 @@ public class RaidWingSelectionView : View
             .AddSpace()
         );
 
-        if(DateTime.UtcNow.Month==4 && DateTime.UtcNow.Day==1)
+        if(DateTime.Now.Month==4 && DateTime.Now.Day==1)
         {
             panel.AddChildPanel(
              new FlowPanel()

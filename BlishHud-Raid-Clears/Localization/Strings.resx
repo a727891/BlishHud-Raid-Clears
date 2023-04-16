@@ -885,7 +885,7 @@
     <comment>Checbox label - strikes are visible</comment>
   </data>
   <data name="Setting_Strike_Visible_Tooltip" xml:space="preserve">
-    <value>Show the strikes overlay on screen</value>
+    <value>Show the fractals overlay on screen</value>
   </data>
   <data name="Setting_Strike_WoJ_Label" xml:space="preserve">
     <value>Whisper of Jormag</value>
@@ -994,5 +994,132 @@
   <data name="VisibleShow" xml:space="preserve">
     <value>Show</value>
     <comment>menubar icon context menu "Show {name}"</comment>
+  </data>
+  <data name="SettingsPanel_Fractals_Heading_Selection" xml:space="preserve">
+    <value>Fractals Selection</value>
+  </data>
+  <data name="SettingsPanel_Tab_Fractals" xml:space="preserve">
+    <value>Fractals of the Mists</value>
+  </data>
+  <data name="Settings_Fractals_Completion" xml:space="preserve">
+    <value>Mark complete</value>
+    <comment>dropdown label for Fractalscompletion options</comment>
+  </data>
+  <data name="Settings_Fractals_CompletionTooltip" xml:space="preserve">
+    <value>Determine how fractals are marked as cleared</value>
+    <comment>Dropdown asking if Fractals are auto-completed or prompted with a yes/no window</comment>
+  </data>
+  <data name="Setting_Fractals_ColBG_Label" xml:space="preserve">
+    <value>Overlay background color</value>
+  </data>
+  <data name="Setting_Fractals_ColBG_Tooltip" xml:space="preserve">
+    <value>Fractals overlay background color</value>
+  </data>
+  <data name="Setting_Fractals_ColClear_Label" xml:space="preserve">
+    <value>Cleared encounter color</value>
+    <comment>Box color when an encounter is cleared/done</comment>
+  </data>
+  <data name="Setting_Fractals_ColClear_Tooltip" xml:space="preserve">
+    <value>Hex color code (#rrggbb) for Encounters that have been cleared this reset</value>
+    <comment>Box color when an encounter is cleared/done</comment>
+  </data>
+  <data name="Setting_Fractals_ColNotClear_Label" xml:space="preserve">
+    <value>Not-cleared encounter color</value>
+    <comment>Box color when an encounter is NOT cleared/done</comment>
+  </data>
+  <data name="Setting_Fractals_ColNotClear_Tooltip" xml:space="preserve">
+    <value>Hex color code (#rrggbb) for Encounters that have not been cleared this reset</value>
+    <comment>Box color when an encounter is NOT cleared/done</comment>
+  </data>
+  <data name="Setting_Fractals_ColText_Label" xml:space="preserve">
+    <value>Label and Grid text color</value>
+    <comment>Fractals overlay text color</comment>
+  </data>
+  <data name="Setting_Fractals_ColText_Tooltip" xml:space="preserve">
+    <value>Hex color code (#rrggbb) for label and grid text</value>
+    <comment>Fractals overlay text color</comment>
+  </data>
+  <data name="Setting_Fractals_Drag_Label" xml:space="preserve">
+    <value>Unlock fractals overlay position</value>
+  </data>
+  <data name="Setting_Fractals_Drag_Tooltip" xml:space="preserve">
+    <value>Click and drag to reposition the overlay window</value>
+  </data>
+  <data name="Setting_Fractals_Font_Label" xml:space="preserve">
+    <value>Grid size</value>
+  </data>
+  <data name="Setting_Fractals_Font_Tooptip" xml:space="preserve">
+    <value>Change the size of the grid</value>
+  </data>
+  <data name="Setting_Fractals_GridOpacity_Label" xml:space="preserve">
+    <value>Grid opacity</value>
+  </data>
+  <data name="Setting_Fractals_GridOpactiy_Tooltip" xml:space="preserve">
+    <value>Hidden &lt;---&gt; Fully Visible</value>
+  </data>
+  <data name="Setting_Fractals_Icon_Label" xml:space="preserve">
+    <value>Fractals hide/show on menubar icon click</value>
+  </data>
+  <data name="Setting_Fractals_Icon_Tooltip" xml:space="preserve">
+    <value>Fractals overlay hides/shows when clicking the icon next to Blish in the top-left of the screen</value>
+  </data>
+  <data name="Setting_Fractals_Keybind_Label" xml:space="preserve">
+    <value>Show/Hide keybind</value>
+  </data>
+  <data name="Setting_Fractals_Keybind_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Fractals_LabelDisplay_Label" xml:space="preserve">
+    <value>Label style</value>
+  </data>
+  <data name="Setting_Fractals_LabelDisplay_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Fractals_LabelOpacity_Label" xml:space="preserve">
+    <value>Label opacity</value>
+  </data>
+  <data name="Setting_Fractals_LabelOpacity_Tooltip" xml:space="preserve">
+    <value>Hidden &lt;---&gt; Fully Visible</value>
+  </data>
+  <data name="Setting_Fractals_Layout_Label" xml:space="preserve">
+    <value>Grid layout</value>
+  </data>
+  <data name="Setting_Fractals_Layout_Tooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Setting_Fractals_PanelOpacity_Label" xml:space="preserve">
+    <value>Grid background opacity</value>
+  </data>
+  <data name="Setting_Fractals_PanelOpacity_Tooltip" xml:space="preserve">
+    <value>Hidden &lt;---&gt; Fully Visible</value>
+  </data>
+  <data name="Setting_Fractals_Tooltips_Label" xml:space="preserve">
+    <value>Enable mouse hover tooltips on overlay</value>
+  </data>
+  <data name="Setting_Fractals_Tooltips_Tooltip" xml:space="preserve">
+    <value>Hovering the mouse over an encounter will display the full name and tomorrow's encounter</value>
+  </data>
+  <data name="Setting_Fractals_Visible_Label" xml:space="preserve">
+    <value>Show fractals overlay</value>
+    <comment>Checbox label - strikes are visible</comment>
+  </data>
+  <data name="Fractals_Message" xml:space="preserve">
+    <value>Did you complete the encounter successfully?</value>
+    <comment>Popup prompt with fractal name when user leaves a Fractals map</comment>
+  </data>
+  <data name="Fractals_DailyTierN" xml:space="preserve">
+    <value>Daily Tier (1,2,3,4)</value>
+    <comment>fractal selection - daily TierN selection label</comment>
+  </data>
+  <data name="Fractals_DailyRecommended" xml:space="preserve">
+    <value>Daily Recommended</value>
+    <comment>fractal selection - daily recs selection label</comment>
+  </data>
+  <data name="Fractals_Selection_Prompt" xml:space="preserve">
+    <value>Enable daily fractal groupings</value>
+    <comment>fractal selection - guidance</comment>
+  </data>
+  <data name="Setting_Fractals_Visible_Tooltip" xml:space="preserve">
+    <value />
   </data>
 </root>
