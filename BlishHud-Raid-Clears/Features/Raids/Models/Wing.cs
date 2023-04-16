@@ -18,7 +18,7 @@ public static class WingFactory
     {
         var settings = Service.Settings.RaidSettings;
         var wings = GetWingMetaData();
-        if(DateTime.UtcNow.Month==4 && DateTime.UtcNow.Day == 1)
+        if(DateTime.Now.Month==4 && DateTime.Now.Day == 1)
         {
             wings.Add(
                 new Wing("The Wait for Wing 8", 7, "W8",

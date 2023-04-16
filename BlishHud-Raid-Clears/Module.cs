@@ -87,15 +87,6 @@ public class Module : Blish_HUD.Modules.Module
         Service.Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
 
 
-        if (Service.Settings.StrikeSettings.AnchorToRaidPanel.Value == true)
-        {
-            Task.Delay(1500).ContinueWith(_ =>
-            {
-                Service.Settings.AlignStrikesWithRaidPanel();
-            });
-        }
-
-
         return Task.CompletedTask;
 
         /*GameService.Overlay.UserLocaleChanged += (s, e) =>
