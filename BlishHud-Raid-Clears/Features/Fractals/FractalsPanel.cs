@@ -46,6 +46,9 @@ public class FractalsPanel : GridPanel
     {
         foreach (var group in _fractals)
         {
+            if(group.GetType() == typeof(TierNTomorrow)){
+                continue;
+            }
             foreach (var encounter in group.boxes)
             {
                 encounter.SetCleared(strikesCompletedThisReset.Contains(encounter.id));
