@@ -64,6 +64,10 @@ public class MapWatcherService: IDisposable
                     clearedStrikesThisReset.Add($"priority_{entry.Key.GetApiLabel()}");
                 }
             }
+            if (entry.Key.GetExpansionType() == StrikeMissionType.Eod && entry.Value >= Service.ResetWatcher.LastDailyReset)
+            {
+                clearedStrikesThisReset.Add($"priority_{entry.Key.GetApiLabel()}");
+            }
         }
 
         CompletedStrikes?.Invoke(this, clearedStrikesThisReset);
