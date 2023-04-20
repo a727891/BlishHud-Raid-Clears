@@ -1,10 +1,10 @@
 {
   "name": "Clears Tracker",
-  "version": "2.1.0-beta-1",
+  "version": "2.1.0",
   "namespace": "Soeed.RaidClears",
   "package": "BlishHud-Raid-Clears.dll",
   "manifest_version": 1,
-  "description": "Track your daily and weekly PvE instance clears\nRaids, Strikes, and Dungeons\n\nformerly called 'Raid Clears'",
+  "description": "Track your daily and weekly PvE instance clears\nRaids, Strikes, Fracals, and Dungeons",
   "dependencies": {
     "bh.blishhud": ">=1.0.0"
   },
