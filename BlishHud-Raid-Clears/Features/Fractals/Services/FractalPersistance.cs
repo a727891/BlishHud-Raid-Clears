@@ -14,7 +14,7 @@ public class FractalPersistance
     public static string FILENAME = "fractal_clears.json";
 
     [JsonProperty("version")]
-    public string Version { get; set; } = "2.0.0";
+    public string Version { get; set; } = "2.2.0";
 
     [JsonProperty("accountClears")]
     public Dictionary<string, Dictionary<Encounters.Fractal, DateTime>> AccountClears { get; set; } = new();
@@ -33,6 +33,7 @@ public class FractalPersistance
                     { Encounters.Fractal.NightmareFractal, new() },
                     { Encounters.Fractal.ShatteredObservatoryFractal, new() },
                     { Encounters.Fractal.SirensReefFractal, new() },
+                    { Encounters.Fractal.SilentSurfFractal, new() },
                     { Encounters.Fractal.SnowblindFractal, new() },
                     { Encounters.Fractal.SunquaPeakFractal, new() },
                     { Encounters.Fractal.SolidOceanFractal, new() },

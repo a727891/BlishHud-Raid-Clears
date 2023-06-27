@@ -42,6 +42,12 @@ public class TierNFractals : Fractal
         labelBox.LayoutChange(settings.Style.Layout);
         labelBox.LabelDisplayChange(settings.Style.LabelDisplay, shortName, shortName);
 
+        //Update Warning
+        new GridBox(
+               group,
+               "Patch!", "Data may be wrong for up to two(2) weeks while the new fractal rotation is recorded",
+               Settings.Style.GridOpacity, Settings.Style.FontSize
+           );
     }
     protected void InitTierNFractals()
     {

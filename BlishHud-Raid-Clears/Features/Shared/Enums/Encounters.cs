@@ -167,6 +167,7 @@ public static class Encounters
         NightmareFractal,
         ShatteredObservatoryFractal,
         SirensReefFractal,
+        SilentSurfFractal,
         SnowblindFractal,
         SunquaPeakFractal,
         SolidOceanFractal,

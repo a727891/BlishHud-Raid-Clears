@@ -59,6 +59,7 @@ public static class MapIdsExtensions
             MapIds.FractalMaps.Nightmare => Encounters.Fractal.NightmareFractal,
             MapIds.FractalMaps.ShatteredObservatory => Encounters.Fractal.ShatteredObservatoryFractal,
             MapIds.FractalMaps.SirensReef => Encounters.Fractal.SirensReefFractal,
+            MapIds.FractalMaps.SilentSurf => Encounters.Fractal.SilentSurfFractal,
             MapIds.FractalMaps.SnowblindFractal => Encounters.Fractal.SnowblindFractal,
             MapIds.FractalMaps.SolidOceanFractal => Encounters.Fractal.SolidOceanFractal,
             MapIds.FractalMaps.SunquaPeak => Encounters.Fractal.SunquaPeakFractal,
