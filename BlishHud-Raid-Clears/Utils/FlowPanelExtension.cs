@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Blish_HUD.Controls;
 using Blish_HUD.Settings;
 using Blish_HUD.Settings.UI.Views;
 using Microsoft.Xna.Framework;
+using RaidClears.Features.Raids.Models;
+using RaidClears.Features.Shared.Enums;
+using RaidClears.Settings.Controls;
 using RaidClears.Settings.Enums;
 using RaidClears.Settings.Views;
 using RaidClears.Settings.Views.Tabs;
@@ -124,6 +128,18 @@ public static class FlowPanelExtensions
         viewContainer.Show(AlignedEnumSettingView.FromEnum(enumSetting, panel.Width));
 //        viewContainer.Show(CustomEnumSettingView.FromEnum(enumSetting, panel.Width));
         
+        return panel;
+    }
+
+    public static FlowPanel AddEncounterClearStatus(this FlowPanel panel, Encounters.Fractal encounter, DateTime clearDate)
+    {
+
+        new EncounterClearStatus(panel, encounter, clearDate);
+        return panel;
+    }
+    public static FlowPanel AddEncounterClearStatus(this FlowPanel panel, Encounters.StrikeMission encounter, DateTime clearDate)
+    {
+        new EncounterClearStatus(panel, encounter, clearDate);
         return panel;
     }
 

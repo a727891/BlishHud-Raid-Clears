@@ -36,6 +36,11 @@ public class StrikesSettingTab : ISettingsMenuRegistrar
             new MenuItem(Strings.SettingsPanel_Strikes_Heading_Selection),
             _ => new StrikeSelectionView(Service.Settings.StrikeSettings)
         ));
+        _registeredMenuItems.Add(new MenuViewItem(
+            new MenuItem("Manage Clears"),
+            _ => new StrikeClearCorrectionView()
+        ));
+        
     }
     
     public IEnumerable<MenuItem> GetSettingMenus() => 

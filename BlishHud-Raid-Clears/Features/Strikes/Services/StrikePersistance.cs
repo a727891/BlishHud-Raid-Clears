@@ -49,6 +49,20 @@ public class StrikePersistance
         Save();
 
     }
+    public void RemoveClear(string account, Encounters.StrikeMission mission)
+    {
+        Dictionary<Encounters.StrikeMission, DateTime> clears;
+        if (!AccountClears.TryGetValue(account, out clears))
+        {
+            clears = GetEmpty();
+            AccountClears.Add(account, clears);
+            // the key isn't in the dictionary.
+        }
+
+        clears[mission] = new DateTime();
+        AccountClears[account] = clears;
+        Save();
+    }
 
 
     public void Save()
