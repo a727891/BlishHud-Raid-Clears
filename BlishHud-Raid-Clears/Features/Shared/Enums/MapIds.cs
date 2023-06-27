@@ -59,6 +59,7 @@ public static class MapIds
         Nightmare = 1177,
         ShatteredObservatory = 1205,
         SirensReef = 1309,
+        SilentSurf = 1500,
         SnowblindFractal = 948,
         SunquaPeak = 1384,
         SolidOceanFractal = 958,
