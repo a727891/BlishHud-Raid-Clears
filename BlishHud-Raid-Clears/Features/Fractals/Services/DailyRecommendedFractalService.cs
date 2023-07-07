@@ -68,7 +68,7 @@ public static class DailyRecommendedFractalService
             case 2:
                 return new List<int> { 10, 32, 65 };
             case 3:
-                return new List<int> { 14, 34, 75 };
+                return new List<int> { 14, 34, 74 };
             case 4:
                 return new List<int> { 19, 37, 66 };
             case 5:

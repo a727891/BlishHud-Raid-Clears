@@ -26,6 +26,17 @@ public static class DailyTierNFractalService
         return GetDailyTierNFractals().Select(e => new BoxModel($"{e.Encounter.id}", $"{e.Encounter.name}\n\n{Strings.Strike_Tooltip_tomorrow}\n{e.TomorrowEncounter.GetLabel()}", e.Encounter.shortName));
     }
 
+    public static IEnumerable<BoxModel> GetCMFractals()
+    {
+        var CMs = new List<Encounters.Fractal> {
+                Encounters.Fractal.NightmareFractal,
+                Encounters.Fractal.ShatteredObservatoryFractal,
+                Encounters.Fractal.SunquaPeakFractal,
+                Encounters.Fractal.SilentSurfFractal
+        };
+        return CMs.Select(e => new BoxModel(e.GetApiLabel(), e.GetLabel(), e.GetLabelShort()));
+    }
+
     public static IEnumerable<BoxModel> GetTomorrowTierN()
     {
         return GetTomorrowTierNFractals().Select(e => new BoxModel($"{e.GetApiLabel()}", $"{e.GetLabel()}", e.GetLabelShort()));
@@ -84,7 +95,7 @@ public static class DailyTierNFractalService
             case 2:
                 return new List<Encounters.Fractal> { Encounters.Fractal.TwilightOasisFractal, Encounters.Fractal.CliffsideFractal, Encounters.Fractal.ChaosFractal };
             case 3:
-                return new List<Encounters.Fractal> { Encounters.Fractal.DeepstoneFractal, Encounters.Fractal.CaptainMaiTrinBossFractal, Encounters.Fractal.SunquaPeakFractal };
+                return new List<Encounters.Fractal> { Encounters.Fractal.DeepstoneFractal, Encounters.Fractal.CaptainMaiTrinBossFractal, Encounters.Fractal.SilentSurfFractal };
             case 4:
                 return new List<Encounters.Fractal> { Encounters.Fractal.SnowblindFractal, Encounters.Fractal.SolidOceanFractal, Encounters.Fractal.NightmareFractal };
             case 5:
@@ -94,7 +105,7 @@ public static class DailyTierNFractalService
             case 7:
                 return new List<Encounters.Fractal> { Encounters.Fractal.MoltenBossFractal, Encounters.Fractal.TwilightOasisFractal, Encounters.Fractal.UndergroundFacilityFractal };
             case 8:
-                return new List<Encounters.Fractal> { Encounters.Fractal.VolcanicFractal, Encounters.Fractal.SwamplandFractal, Encounters.Fractal.ShatteredObservatoryFractal };
+                return new List<Encounters.Fractal> { Encounters.Fractal.VolcanicFractal, Encounters.Fractal.SwamplandFractal, Encounters.Fractal.SilentSurfFractal };
             case 9:
                 return new List<Encounters.Fractal> { Encounters.Fractal.SnowblindFractal, Encounters.Fractal.ThaumanovaReactorFractal, Encounters.Fractal.AquaticRuinsFractal };
             case 10:
