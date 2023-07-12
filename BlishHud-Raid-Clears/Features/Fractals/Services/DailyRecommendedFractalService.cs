@@ -92,7 +92,7 @@ public static class DailyRecommendedFractalService
             case 14:
                 return new List<int> { 5, 48, 68 };
           
-            default: return new List<int> { 98, 99, 100 };
+            default: return new List<int> { 97, 98, 99, 100 };
         }
     }
 

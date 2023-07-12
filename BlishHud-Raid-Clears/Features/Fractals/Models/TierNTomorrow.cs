@@ -43,12 +43,12 @@ public class TierNTomorrow : Fractal
         labelBox.LabelDisplayChange(settings.Style.LabelDisplay, shortName, shortName);
 
 
-        //Update Warning
+        /*//Update Warning
         new GridBox(
                group,
                "Patch!", "Data may be wrong for up to two(2) weeks while the new fractal rotation is recorded",
                Settings.Style.GridOpacity, Settings.Style.FontSize
-           );
+           );*/
 
     }
     protected void InitTierNFractals()
