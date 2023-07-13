@@ -56,5 +56,12 @@ Key Features
 * Fixed daily strike index using Anets day of year index calculation
 ### 2.0.5 (2023-03-19)
 * Added Wing 8 for april fools joke
+### 2.1.0 (2023-04-20)
+
+### 2.2.0 (2023-06-28)
+* Added Silent Surf support
+### 2.2.1 (2023-07-12)
+* Finalized Silent Surf fractal changes
+* Added strike and fractal clear management setting page.
 ---
 Heavily inspired by the same feature bundled with Gw2TaCO.
