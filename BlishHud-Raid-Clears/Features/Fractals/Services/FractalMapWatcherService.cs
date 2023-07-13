@@ -60,9 +60,15 @@ public class FractalMapWatcherService: IDisposable
 
     }
 
-    protected void MarkCompleted(Encounters.Fractal fractal)
+    public void MarkCompleted(Encounters.Fractal fractal)
     {
         Service.FractalPersistance.SaveClear(Service.CurrentAccountName, fractal);
+        DispatchCurrentClears();
+    }
+
+    public void MarkNotCompleted(Encounters.Fractal fractal)
+    {
+        Service.FractalPersistance.RemoveClear(Service.CurrentAccountName, fractal);
         DispatchCurrentClears();
     }
 

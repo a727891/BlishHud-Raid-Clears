@@ -35,6 +35,11 @@ public class FractalSettingTab : ISettingsMenuRegistrar
             new MenuItem(Strings.SettingsPanel_Fractals_Heading_Selection),
             _ => new FractalSelectionView(Service.Settings.FractalSettings)
         ));
+
+        _registeredMenuItems.Add(new MenuViewItem(
+            new MenuItem("Manage Clears"),
+            _ => new FractalClearCorrectionView()
+        ));
     }
     
     public IEnumerable<MenuItem> GetSettingMenus() => 

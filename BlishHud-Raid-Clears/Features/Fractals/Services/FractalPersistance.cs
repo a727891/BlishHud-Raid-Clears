@@ -61,7 +61,20 @@ public class FractalPersistance
         Save();
 
     }
+    public void RemoveClear(string account, Encounters.Fractal mission)
+    {
+        Dictionary<Encounters.Fractal, DateTime> clears;
+        if (!AccountClears.TryGetValue(account, out clears))
+        {
+            clears = GetEmpty();
+            AccountClears.Add(account, clears);
+            // the key isn't in the dictionary.
+        }
 
+        clears[mission] = new DateTime();
+        AccountClears[account] = clears;
+        Save();
+    }
 
     public void Save()
     {
