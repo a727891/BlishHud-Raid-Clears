@@ -43,6 +43,9 @@ public static class MapIds
         Overlook = 1451,
         HarvestTemple = 1437,
         OldLionsCourt = 1485,
+
+        DragonStorm=1409,
+        DragonStormPublic=1411
     }
 
     public enum FractalMaps

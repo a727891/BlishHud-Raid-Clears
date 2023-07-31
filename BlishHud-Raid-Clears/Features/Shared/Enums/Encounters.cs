@@ -61,6 +61,8 @@ public static class Encounters
         Overlook,
         HarvestTemple,
         OldLionsCourt,
+
+        DragonStorm,
     }
 
     public enum Dungeons

@@ -14,7 +14,7 @@ public class StrikePersistance
     public static string FILENAME = "strike_clears.json";
 
     [JsonProperty("version")]
-    public string Version { get; set; } = "2.0.0";
+    public string Version { get; set; } = "2.0.1";
 
     [JsonProperty("accountClears")]
     public Dictionary<string, Dictionary<Encounters.StrikeMission, DateTime>> AccountClears { get; set; } = new();
@@ -31,7 +31,8 @@ public class StrikePersistance
                     { Encounters.StrikeMission.Junkyard, new() },
                     { Encounters.StrikeMission.Overlook, new() },
                     { Encounters.StrikeMission.HarvestTemple, new() },
-                    { Encounters.StrikeMission.OldLionsCourt, new() }
+                    { Encounters.StrikeMission.OldLionsCourt, new() },
+                    { Encounters.StrikeMission.DragonStorm, new() },
                 };
 
     public void SaveClear(string account, Encounters.StrikeMission mission)

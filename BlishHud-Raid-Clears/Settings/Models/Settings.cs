@@ -171,6 +171,7 @@ public static class Settings
                 new StrikeSetting<bool>("StrikeVis_whisper_of_jormag", true, () => Strings.Setting_Strike_WoJ_Label),
                 new StrikeSetting<bool>("StrikeVis_boneskinner", true, () => Strings.Setting_Strike_BS_Label),
                 new StrikeSetting<bool>("StrikeVis_cold_war", true, () => Strings.Setting_Strike_CW_Label),
+                new StrikeSetting<bool>("StrikeVis_dragonstorm", true, () => "Dragonstorm"),
             };
 
             public static Setting<bool>[] eodMissions =
