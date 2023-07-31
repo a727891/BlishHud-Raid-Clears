@@ -63,5 +63,7 @@ Key Features
 ### 2.2.1 (2023-07-12)
 * Finalized Silent Surf fractal changes
 * Added strike and fractal clear management setting page.
+### 2.2.2 (2023-07-30)
+* Added Dragonstorm to IBS strikes list
 ---
 Heavily inspired by the same feature bundled with Gw2TaCO.
