@@ -16,7 +16,7 @@ using Blish_HUD.Controls;
 using RaidClears.Features.Shared.Models;
 using RaidClears.Features.Fractals.Services;
 using Blish_HUD.Modules.Managers;
-
+using Blish_HUD.GameIntegration;
 namespace RaidClears;
 
 
@@ -39,6 +39,11 @@ public class Module : Blish_HUD.Modules.Module
     protected override void DefineSettings(SettingCollection settings) => Service.Settings = new SettingService(settings);
 
     public override IView GetSettingsView() => new Settings.Views.ModuleMainSettingsView();
+
+    protected override void Initialize()
+    {
+        this.TEMP_FIX_SetTacOAsActive();
+    }
 
     protected override Task LoadAsync()
     {
@@ -95,6 +100,20 @@ public class Module : Blish_HUD.Modules.Module
         };*/
 
 
+    }
+
+    private void TEMP_FIX_SetTacOAsActive()
+    {
+        // SOTO Fix
+        if (System.DateTime.UtcNow.Date >= new System.DateTime(2023, 8, 22, 0, 0, 0, System.DateTimeKind.Utc) && Program.OverlayVersion < new SemVer.Version(1, 1, 0))
+        {
+            try
+            {
+                var tacoActive = typeof(TacOIntegration).GetProperty(nameof(TacOIntegration.TacOIsRunning)).GetSetMethod(true);
+                tacoActive?.Invoke(GameService.GameIntegration.TacO, new object[] { true });
+            }
+            catch { /* NOOP */ }
+        }
     }
 
     protected override void Unload()

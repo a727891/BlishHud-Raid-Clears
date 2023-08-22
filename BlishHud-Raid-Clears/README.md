@@ -65,5 +65,7 @@ Key Features
 * Added strike and fractal clear management setting page.
 ### 2.2.2 (2023-07-30)
 * Added Dragonstorm to IBS strikes list
+### 2.2.3 (2023-08-22)
+* Added Soto fix patch for blish corner icon offset
 ---
 Heavily inspired by the same feature bundled with Gw2TaCO.
