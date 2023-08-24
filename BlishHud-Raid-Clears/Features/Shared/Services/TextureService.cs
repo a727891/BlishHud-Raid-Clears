@@ -28,6 +28,7 @@ public class TextureService : IDisposable
 
         EoDLogo = contentsManager.GetTexture(@"eod_strikes_texture.png");
         IBSLogo = contentsManager.GetTexture(@"ibs_strikes_texture.png");
+        SotOLogo = contentsManager.GetTexture(@"soto_strikes_texture.png");
         PoFLogo = contentsManager.GetTexture(@"pof_raids_texture.png");
         HoTLogo = contentsManager.GetTexture(@"hot_raids_texture.png");
         BaseLogo = contentsManager.GetTexture(@"base_game_texture.png");
@@ -49,6 +50,7 @@ public class TextureService : IDisposable
         SettingTabFractals.Dispose();
         EoDLogo.Dispose();
         IBSLogo.Dispose();
+        SotOLogo.Dispose();
         PoFLogo.Dispose();
         HoTLogo.Dispose();
         BaseLogo.Dispose();
@@ -56,6 +58,7 @@ public class TextureService : IDisposable
     }
     public Texture2D EoDLogo { get; }
     public Texture2D IBSLogo { get; }
+    public Texture2D SotOLogo { get; }
     public Texture2D PoFLogo { get; }
     public Texture2D HoTLogo { get; }
     public Texture2D BaseLogo { get; }
