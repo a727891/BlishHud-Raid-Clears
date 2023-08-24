@@ -41,7 +41,7 @@ public static class StrikeMetaData
             labelBox.LayoutChange(settings.Style.Layout);
             labelBox.LabelDisplayChange(settings.Style.LabelDisplay, strike.shortName, strike.shortName);
 
-            var allStrikes = settings.IbsMissions.Concat(settings.EodMissions).ToArray();
+            var allStrikes = settings.IbsMissions.Concat(settings.EodMissions).Concat(settings.SotOMissions).ToArray();
 
             foreach (var index in Enumerable.Range(0, strike.boxes.Count()))
             {
@@ -62,7 +62,7 @@ public static class StrikeMetaData
             }
         }
 
-        strikes.Add(new PriorityStrikes(Strings.StrikeGroup_Priority, 10, Strings.StrikeGroup_Priority_abbr, new List<BoxModel>() { }, panel));
+        strikes.Add(new PriorityStrikes(Strings.StrikeGroup_Priority, 11, Strings.StrikeGroup_Priority_abbr, new List<BoxModel>() { }, panel));
 
 
         return strikes;
@@ -89,6 +89,11 @@ public static class StrikeMetaData
                     new Encounter(Encounters.StrikeMission.HarvestTemple),
                     new Encounter(Encounters.StrikeMission.OldLionsCourt),
                 }),
+            new Strike("Secrets of the Obscure", 10, "SotO",
+                new List<BoxModel>() {
+                    new Encounter(Encounters.StrikeMission.CosmicObservatory),
+                    new Encounter(Encounters.StrikeMission.TempleOfFebe),
+                }),
            // new PriorityStrikes("Priority Strike Missions (Daily)", 10, "PS", new List<BoxModel>() { }),
         };
     }
@@ -99,7 +104,8 @@ public static class StrikeMetaData
         {
             8 => Settings.StrikeVisibleIbs,
             9 => Settings.StrikeVisibleEod,
-            10 => Settings.StrikeVisiblePriority,
+            10 => Settings.StrikeVisibleSotO,
+            11 => Settings.StrikeVisiblePriority,
             _ => Settings.StrikeVisiblePriority
         };
     }

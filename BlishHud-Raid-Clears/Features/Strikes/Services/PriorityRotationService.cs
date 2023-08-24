@@ -29,6 +29,7 @@ public static class PriorityRotationService
 {
     private static int NUMBER_OF_IBS_STRIKES = 6;
     private static int NUMBER_OF_EOD_STRIKES = 5;
+    private static int NUMBER_OF_SOTO_STRIKES = 2;
 
 
     public static IEnumerable<BoxModel> GetPriorityEncounters()
@@ -67,11 +68,13 @@ public static class PriorityRotationService
 
         var ibs_index = dayIndex % NUMBER_OF_IBS_STRIKES;
         var eod_index = dayIndex % NUMBER_OF_EOD_STRIKES;
+        var soto_index = dayIndex % NUMBER_OF_SOTO_STRIKES;
 
         return new List<StrikeInfo>()
         {
             IcebroodStrikeInfo(ibs_index),
             EndOfDragonsStrikeInfo(eod_index),
+            SecretsOftheObscureStrikeInfo(soto_index),
         };
 
     }
@@ -133,6 +136,25 @@ public static class PriorityRotationService
             default: return new StrikeInfo(Encounters.StrikeMission.AetherbladeHideout, new List<int> { }, Encounters.StrikeMission.AetherbladeHideout);
         }
     }
+    public static StrikeInfo SecretsOftheObscureStrikeInfo(int index)
+    {
+        /**
+         * SOTO
+         * 0	Cosmic Observaatory https://api.guildwars2.com/v2/maps?ids=1515&lang=en
+         * 1	Temple of Febe https://api.guildwars2.com/v2/maps?ids=1520&lang=en
+        
+         **/
 
+        switch (index)
+        {
+            case 0:
+                return new StrikeInfo(Encounters.StrikeMission.CosmicObservatory, new List<int> { (int)MapIds.StrikeMaps.CosmicObservatory }, Encounters.StrikeMission.TempleOfFebe);
+            case 1:
+                return new StrikeInfo(Encounters.StrikeMission.TempleOfFebe, new List<int> { (int)MapIds.StrikeMaps.TempleOfFebe }, Encounters.StrikeMission.CosmicObservatory);
+           
+
+            default: return new StrikeInfo(Encounters.StrikeMission.AetherbladeHideout, new List<int> { }, Encounters.StrikeMission.AetherbladeHideout);
+        }
+    }
 
 }

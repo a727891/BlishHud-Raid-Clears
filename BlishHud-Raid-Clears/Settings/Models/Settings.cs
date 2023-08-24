@@ -182,9 +182,16 @@ public static class Settings
                 new StrikeSetting<bool>("StrikeVis_harvest_temple", true, () => Strings.Setting_Strike_HT_Label),
                 new StrikeSetting<bool>("StrikeVis_old_lion_court", true, () => Strings.Setting_Strike_OLC_Label),
             };
+            public static Setting<bool>[] sotoMissions =
+            {
+                new StrikeSetting<bool>("StrikeVis_cosmic_observatory", true, () => "Cosmic Observatory"),
+                new StrikeSetting<bool>("StrikeVis_temple_of_febe", true, () => "Temple of Febe"),
+               
+            };
 
             public static Setting<bool> showIbs = new("StrikeVis_ibs", true, () => Strings.Setting_Strike_IBS);
             public static Setting<bool> showEod = new("StrikeVis_eod", true, () => Strings.Setting_Strike_Eod);
+            public static Setting<bool> showSotO = new("StrikeVis_soto", true, () => "Enable Secrets of the Obscure");
             public static Setting<bool> showPriority = new("StrikeVis_priority", true, () => Strings.Setting_Stike_Priority);
             public static Setting<bool> anchorToRaids = new("RCAnchorToRaids", false, () => Strings.Settings_Strike_AnchorToRaidLabel, () => Strings.Settings_Strike_AnchorToRaidTooltip);
 

@@ -7,6 +7,7 @@ using RaidClears.Localization;
 using RaidClears.Shared.Controls;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace RaidClears.Features.Strikes.Services;
@@ -56,7 +57,9 @@ public class MapWatcherService: IDisposable
                 clearedStrikesThisReset.Add($"priority_{entry.Key.GetApiLabel()}");
 
             }
-            if (entry.Key.GetExpansionType() == StrikeMissionType.Eod && entry.Value >= Service.ResetWatcher.LastWeeklyReset)
+            if (
+                (entry.Key.GetExpansionType() == StrikeMissionType.Eod || entry.Key.GetExpansionType() == StrikeMissionType.SotO)
+                && entry.Value >= Service.ResetWatcher.LastWeeklyReset)
             {
                 clearedStrikesThisReset.Add(entry.Key.GetApiLabel());
                 if(entry.Value >= Service.ResetWatcher.LastDailyReset)
@@ -64,7 +67,9 @@ public class MapWatcherService: IDisposable
                     clearedStrikesThisReset.Add($"priority_{entry.Key.GetApiLabel()}");
                 }
             }
-            if (entry.Key.GetExpansionType() == StrikeMissionType.Eod && entry.Value >= Service.ResetWatcher.LastDailyReset)
+            if (
+                (entry.Key.GetExpansionType() == StrikeMissionType.Eod || entry.Key.GetExpansionType() == StrikeMissionType.SotO)
+                 && entry.Value >= Service.ResetWatcher.LastDailyReset)
             {
                 clearedStrikesThisReset.Add($"priority_{entry.Key.GetApiLabel()}");
             }
@@ -96,6 +101,9 @@ public class MapWatcherService: IDisposable
 
     private async void CurrentMap_MapChanged(object sender, ValueEventArgs<int> e)
     {
+#if DEBUG
+        Debug.WriteLine("Loaded Map " + e.ToString()+" "+e.Value.ToString());
+#endif
         if (Enum.IsDefined(typeof(MapIds.StrikeMaps), e.Value))
         {
             Reset();

@@ -24,7 +24,7 @@ public class StrikeSelectionView : View
             .BeginFlow(buildPanel)
             .AddSetting(_settings.StrikeVisiblePriority)
             .AddSpace();
-
+        panel.CanScroll= true;
 
         panel
             .AddSetting(_settings.StrikeVisibleIbs)
@@ -41,12 +41,10 @@ public class StrikeSelectionView : View
                     BackgroundTexture = Service.Textures!.IBSLogo
 
                 }
-                    .AddSpace()
                     .AddString(Strings.Settings_Strike_IBS_Heading)
                     .AddSetting(_settings.IbsMissions)
                     .AddSpace()
             )
-            .AddSpace()
             .AddSetting(_settings.StrikeVisibleEod)
             .AddChildPanel(
                 new FlowPanel()
@@ -61,12 +59,30 @@ public class StrikeSelectionView : View
                     BackgroundTexture = Service.Textures!.EoDLogo
 
                 }
-                .AddSpace()
                 .AddString(Strings.Settings_Strike_EOD_Heading)
                 .AddSetting(_settings.EodMissions)
                 .AddSpace()
+            )
+            .AddSetting(_settings.StrikeVisibleSotO)
+            .AddChildPanel(
+                new FlowPanel()
+                {
+                    FlowDirection = ControlFlowDirection.SingleTopToBottom,
+                    OuterControlPadding = new Vector2(20, 5),
+                    Parent = panel,
+                    ShowTint = false,
+                    ShowBorder = false,
+                    HeightSizingMode = SizingMode.AutoSize,
+                    Width = panel.Width - 40,
+                    BackgroundTexture = Service.Textures!.SotOLogo
+
+                }
+                .AddString("Enable individual Secrets of the Obscure strikes")
+                .AddSetting(_settings.SotOMissions)
+                .AddSpace()
+                .AddSpace()
+                .AddSpace()
                 .AddSpace()
             );
-
     }
 }

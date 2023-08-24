@@ -33,6 +33,8 @@ public class StrikePersistance
                     { Encounters.StrikeMission.HarvestTemple, new() },
                     { Encounters.StrikeMission.OldLionsCourt, new() },
                     { Encounters.StrikeMission.DragonStorm, new() },
+                    { Encounters.StrikeMission.CosmicObservatory, new() },
+                    { Encounters.StrikeMission.TempleOfFebe, new() },
                 };
 
     public void SaveClear(string account, Encounters.StrikeMission mission)
