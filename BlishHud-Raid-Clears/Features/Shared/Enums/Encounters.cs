@@ -6,6 +6,7 @@ public enum StrikeMissionType
 {
     Ibs,
     Eod,
+    SotO,
     Priority
 }
 
@@ -63,6 +64,9 @@ public static class Encounters
         OldLionsCourt,
 
         DragonStorm,
+
+        CosmicObservatory,
+        TempleOfFebe,
     }
 
     public enum Dungeons

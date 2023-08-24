@@ -45,7 +45,10 @@ public static class MapIds
         OldLionsCourt = 1485,
 
         DragonStorm=1409,
-        DragonStormPublic=1411
+        DragonStormPublic=1411,
+
+        CosmicObservatory=1515,
+        TempleOfFebe=1520,
     }
 
     public enum FractalMaps
