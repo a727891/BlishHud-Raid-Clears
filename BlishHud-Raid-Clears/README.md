@@ -67,5 +67,7 @@ Key Features
 * Added Dragonstorm to IBS strikes list
 ### 2.2.3 (2023-08-22)
 * Added Soto fix patch for blish corner icon offset
+### 2.3.0 (2023-08-24)
+* Added SotO Strike missions
 ---
 Heavily inspired by the same feature bundled with Gw2TaCO.
