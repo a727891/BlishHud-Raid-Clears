@@ -4,7 +4,7 @@
   "namespace": "Soeed.RaidClears",
   "package": "BlishHud-Raid-Clears.dll",
   "manifest_version": 1,
-  "description": "Track your daily and weekly PvE instance clears\nRaids, Strikes, Fracals, and Dungeons",
+  "description": "Track your daily and weekly PvE instance clears\nRaids, Strikes, Fractals, and Dungeons",
   "dependencies": {
     "bh.blishhud": ">=1.0.0"
   },
