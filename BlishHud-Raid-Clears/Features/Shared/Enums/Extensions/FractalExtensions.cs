@@ -101,7 +101,7 @@ public static class FractalExtensions
         };
     }
 
-    public static List<int> GetScales(this Encounters.Fractal value)
+/*    public static List<int> GetScales(this Encounters.Fractal value)
     {
         return value switch
         {
@@ -130,7 +130,7 @@ public static class FractalExtensions
             Encounters.Fractal.VolcanicFractal => new List<int>() { 1, 19, 28, 52, 92 },
             _ => throw new ArgumentOutOfRangeException(nameof(value), value, null)
         };
-    }
+    }*/
 
     public static Encounters.Fractal GetFractalForScale(int scale)
     {
@@ -182,7 +182,7 @@ public static class FractalExtensions
             44 => Encounters.Fractal.SolidOceanFractal,
             45 => Encounters.Fractal.AetherbladeFractal,
             46 => Encounters.Fractal.CliffsideFractal,
-            47 => Encounters.Fractal.CliffsideFractal,
+            47 => Encounters.Fractal.NightmareFractal,
             48 => Encounters.Fractal.ShatteredObservatoryFractal,
             49 => Encounters.Fractal.SunquaPeakFractal,
             50 => Encounters.Fractal.SilentSurfFractal,
