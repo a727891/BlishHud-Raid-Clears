@@ -885,7 +885,7 @@
     <comment>Checbox label - strikes are visible</comment>
   </data>
   <data name="Setting_Strike_Visible_Tooltip" xml:space="preserve">
-    <value>Show the fractals overlay on screen</value>
+    <value>Show the strikes overlay on screen</value>
   </data>
   <data name="Setting_Strike_WoJ_Label" xml:space="preserve">
     <value>Whisper of Jormag</value>

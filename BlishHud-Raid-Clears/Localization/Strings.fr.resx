@@ -188,25 +188,25 @@
     <value>Forteresse des Fidèles</value>
   </data>
   <data name="Raid_Wing_3_1_Name" xml:space="preserve">
-    <value>Assaut de la forteresse</value>
+    <value>Escorte</value>
   </data>
   <data name="Raid_Wing_3_1_Short" xml:space="preserve">
     <value>E</value>
   </data>
   <data name="Raid_Wing_3_2_Name" xml:space="preserve">
-    <value>Détruire la création de Xera</value>
+    <value>Titan du Fort</value>
   </data>
   <data name="Raid_Wing_3_2_Short" xml:space="preserve">
     <value>KC</value>
   </data>
   <data name="Raid_Wing_3_3_Name" xml:space="preserve">
-    <value>Traverser le Château corrompu</value>
+    <value> Château corrompu</value>
   </data>
   <data name="Raid_Wing_3_3_Short" xml:space="preserve">
     <value>CT</value>
   </data>
   <data name="Raid_Wing_3_4_Name" xml:space="preserve">
-    <value>Xéra</value>
+    <value>Xera</value>
   </data>
   <data name="Raid_Wing_3_4_Short" xml:space="preserve">
     <value>X</value>
@@ -236,7 +236,7 @@
     <value>S</value>
   </data>
   <data name="Raid_Wing_4_4_Name" xml:space="preserve">
-    <value>Déimos</value>
+    <value>Deimos</value>
   </data>
   <data name="Raid_Wing_4_4_Short" xml:space="preserve">
     <value>D</value>
@@ -284,7 +284,7 @@
     <value>CA</value>
   </data>
   <data name="Raid_Wing_6_2_Name" xml:space="preserve">
-    <value>Largos jumeau</value>
+    <value>Jumeaux Largos</value>
   </data>
   <data name="Raid_Wing_6_2_Short" xml:space="preserve">
     <value>TL</value>
@@ -308,19 +308,19 @@
     <value>G</value>
   </data>
   <data name="Raid_Wing_7_2_Name" xml:space="preserve">
-    <value>Cardinal Adine</value>
+    <value>Cardinal Adina</value>
   </data>
   <data name="Raid_Wing_7_2_Short" xml:space="preserve">
     <value>A</value>
   </data>
   <data name="Raid_Wing_7_3_Name" xml:space="preserve">
-    <value>Cardinal Saber</value>
+    <value>Cardinal Sabir</value>
   </data>
   <data name="Raid_Wing_7_3_Short" xml:space="preserve">
     <value>S</value>
   </data>
   <data name="Raid_Wing_7_4_Name" xml:space="preserve">
-    <value>Qadim l'incomparable</value>
+    <value>Qadim l'Inégalé</value>
   </data>
   <data name="Raid_Wing_7_4_Short" xml:space="preserve">
     <value>Q2</value>
@@ -329,7 +329,7 @@
     <value>TKoA</value>
   </data>
   <data name="SettingsPanel_Dun_Heading_General" xml:space="preserve">
-    <value>Options/Clavier</value>
+    <value>Options / Clavier</value>
   </data>
   <data name="SettingsPanel_Dun_Heading_Layout" xml:space="preserve">
     <value>Mise en page / Couleurs</value>
@@ -338,13 +338,13 @@
     <value>Sélection de donjon</value>
   </data>
   <data name="SettingsPanel_Raids_Heading_General" xml:space="preserve">
-    <value>Options/Clavier</value>
+    <value>Options / Clavier</value>
   </data>
   <data name="SettingsPanel_Raids_Heading_Layout" xml:space="preserve">
     <value>Mise en page / Couleurs</value>
   </data>
   <data name="SettingsPanel_Raids_Heading_WingSelection" xml:space="preserve">
-    <value>Sélection d'ailes</value>
+    <value>Sélection d'aile</value>
   </data>
   <data name="SettingsPanel_Raid_Visual_Colors" xml:space="preserve">
     <value>Personnalisez les couleurs en saisissant un code couleur hexadécimal</value>
@@ -354,7 +354,7 @@
     <value>(Astuce : Google "sélecteur de couleurs" pour obtenir de l'aide)</value>
   </data>
   <data name="SettingsPanel_Strikes_Heading_Selection" xml:space="preserve">
-    <value>Sélection de grèves</value>
+    <value>Sélection de mission d'attaque</value>
   </data>
   <data name="SettingsPanel_Subtitle" xml:space="preserve">
     <value>options de personnalisation</value>
@@ -370,7 +370,7 @@
     <value>Raids</value>
   </data>
   <data name="SettingsPanel_Tab_Strikes" xml:space="preserve">
-    <value>Grèves</value>
+    <value>Mission d'attaques</value>
   </data>
   <data name="Settings_Dungeon_Heading" xml:space="preserve">
     <value>Activer les donjons individuels</value>
@@ -379,34 +379,34 @@
     <value>Raccourci clavier de la fenêtre des paramètres</value>
   </data>
   <data name="Settings_Keybind_tooltip" xml:space="preserve">
-    <value>Afficher/Masquer cette fenêtre avec un raccourci clavier</value>
+    <value>Afficher / Masquer cette fenêtre avec un raccourci clavier</value>
   </data>
   <data name="Settings_Raid_Hot_Heading" xml:space="preserve">
     <value>Activer les ailes de raid Heart of Thorns individuelles</value>
   </data>
   <data name="Settings_Raid_PoF_Heading" xml:space="preserve">
-    <value>Activer les ailes individuelles du raid Path of Fire</value>
+    <value>Activer les ailes individuelles de raid Path of Fire</value>
   </data>
   <data name="Settings_RefreshNow" xml:space="preserve">
     <value>Actualiser maintenant</value>
   </data>
   <data name="Settings_Strike_AnchorToRaidLabel" xml:space="preserve">
-    <value>Ancre frappe à la superposition de raid</value>
+    <value>Ancrer les missions d'attaque à l'overlay de raid</value>
   </data>
   <data name="Settings_Strike_AnchorToRaidTooltip" xml:space="preserve">
-    <value>La superposition de frappes s'attachera à la superposition de raid lorsque la superposition de raid est déplacée</value>
+    <value>L'overlay des missions d'attaque s'attachera à l'overlay de raid lorsque ce dernier est déplacé</value>
   </data>
   <data name="Settings_Strike_Completion" xml:space="preserve">
     <value>Marquer comme terminé</value>
   </data>
   <data name="Settings_Strike_CompletionTooltip" xml:space="preserve">
-    <value>Déterminer comment les avertissements sont marqués comme effacés</value>
+    <value>Déterminer comment les missions d'attaque sont marquées comme faites</value>
   </data>
   <data name="Settings_Strike_EOD_Heading" xml:space="preserve">
-    <value>Activer les frappes individuelles de End of Dragons</value>
+    <value>Activer les missions d'attaque individuelles de End of Dragons</value>
   </data>
   <data name="Settings_Strike_IBS_Heading" xml:space="preserve">
-    <value>Activer les frappes individuelles de Icebrood Saga</value>
+    <value>Activer les missions d'attaque individuelles de l'Epopée du Givre</value>
   </data>
   <data name="Setting_APIPoll_Label" xml:space="preserve">
     <value>Actualiser les données toutes les</value>
@@ -415,7 +415,7 @@
     <value>À quelle fréquence l'API GW2 doit-elle être vérifiée pour obtenir des informations mises à jour ?</value>
   </data>
   <data name="Setting_CopyRaids" xml:space="preserve">
-    <value>Paramètres de raid de match</value>
+    <value>Faire correspondre aux paramètres de raid</value>
   </data>
   <data name="Setting_CornerIconEnable" xml:space="preserve">
     <value>Activer l'icône de la barre de menus</value>
@@ -424,103 +424,103 @@
     <value>Ajoutez une icône de barre de menu à côté de Blish en haut à gauche de votre écran</value>
   </data>
   <data name="Setting_cornerIconHelpText" xml:space="preserve">
-    <value>Quelles superpositions doivent être masquées/affichées lorsque vous cliquez avec le bouton gauche sur l'icône du menu ?</value>
+    <value>Quels overlays doivent être masqués / affichés lorsque vous cliquez avec le bouton gauche sur l'icône du menu ?</value>
   </data>
   <data name="Setting_Dun_ColFreqText_Label" xml:space="preserve">
-    <value>Couleur de texte plus fréquente</value>
+    <value>Couleur de texte Fana de donjon</value>
   </data>
   <data name="Setting_Dun_ColFreqText_Tooltip" xml:space="preserve">
-    <value>Code de couleur hexadécimal (#rrggbb) pour les chemins qui comptent pour la réalisation de fréquentation de donjon</value>
+    <value>Code de couleur hexadécimal (#rrggbb) pour les chemins qui comptent pour la réalisation de fana de donjon</value>
   </data>
   <data name="Setting_Dun_Drag_Label" xml:space="preserve">
-    <value>Déverrouiller la position de superposition de donjon</value>
+    <value>Déverrouiller la position de l'overlay de donjon</value>
   </data>
   <data name="Setting_Dun_Drag_Tooltip" xml:space="preserve">
-    <value>Cliquez et faites glisser pour repositionner la fenêtre de superposition</value>
+    <value>Cliquez et faites glisser pour repositionner la fenêtre d'overlay</value>
   </data>
   <data name="Setting_Dun_Enabled" xml:space="preserve">
     <value>Activer la fonctionnalité des donjons</value>
   </data>
   <data name="Setting_Dun_Enabled_Tooltip" xml:space="preserve">
-    <value>Activer/désactiver toutes les fonctionnalités du donjon</value>
+    <value>Activer / désactiver toutes les fonctionnalités du donjon</value>
   </data>
   <data name="Setting_Dun_Icon_Label" xml:space="preserve">
-    <value>Donjons masqués/affichés sur l'icône de la barre de menu, cliquez sur</value>
+    <value>Donjons masqués / affichés au clic sur l'icône de la barre de menu</value>
   </data>
   <data name="Setting_Dun_Icon_Tooltip" xml:space="preserve">
-    <value>La superposition de donjon se cache/s'affiche lorsque vous cliquez sur l'icône à côté de Blish en haut à gauche de l'écran</value>
+    <value>L'overlay de donjon se cache / s'affiche lorsque vous cliquez sur l'icône à côté de Blish en haut à gauche de l'écran</value>
   </data>
   <data name="Setting_Dun_Keybind_Label" xml:space="preserve">
-    <value>Afficher/Masquer le raccourci clavier</value>
+    <value>Afficher / Masquer le raccourci clavier</value>
   </data>
   <data name="Setting_Dun_Keybind_Tooltip" xml:space="preserve">
     <value></value>
   </data>
   <data name="Setting_Dun_Tooltips_Label" xml:space="preserve">
-    <value>Activer les info-bulles de survol de la souris sur la superposition</value>
+    <value>Activer les info-bulles de survol de la souris sur l'overlay</value>
   </data>
   <data name="Setting_Dun_Tooltips_Tooltip" xml:space="preserve">
     <value>Passer la souris sur un chemin affichera le nom complet</value>
   </data>
   <data name="Setting_Dun_Visible_Label" xml:space="preserve">
-    <value>Afficher la superposition des donjons</value>
+    <value>Afficher l'overlay des donjons</value>
   </data>
   <data name="Setting_Dun_Visible_Tooltip" xml:space="preserve">
-    <value>Afficher la superposition des donjons à l'écran</value>
+    <value>Afficher l'overlay des donjons à l'écran</value>
   </data>
   <data name="Setting_Raid_ColBG_Label" xml:space="preserve">
-    <value>Superposer la couleur d'arrière-plan</value>
+    <value>Couleur d'arrière-plan de l'overlay</value>
   </data>
   <data name="Setting_Raid_ColBG_Tooltip" xml:space="preserve">
-    <value>Couleur d'arrière-plan de la superposition Raid</value>
+    <value>Couleur d'arrière-plan de l'overlay de Raid</value>
   </data>
   <data name="Setting_Raid_ColClear_Label" xml:space="preserve">
-    <value>Couleur de rencontre effacée</value>
+    <value>Couleur de rencontre terminée</value>
   </data>
   <data name="Setting_Raid_ColClear_Tooltip" xml:space="preserve">
-    <value>Code de couleur hexadécimal (#rrggbb) pour les rencontres qui ont été effacées cette semaine</value>
+    <value>Code de couleur hexadécimal (#rrggbb) pour les rencontres qui ont été terminées cette semaine</value>
   </data>
   <data name="Setting_Raid_ColCotm_Label" xml:space="preserve">
-    <value>Couleur du texte Call of the Mists</value>
+    <value>Couleur du texte Appel des Brumes</value>
   </data>
   <data name="Setting_Raid_ColCotm_Tooltip" xml:space="preserve">
-    <value>Code couleur hexadécimal (#rrggbb) pour le texte Wing et Encounters pendant la semaine Call of the Mists</value>
+    <value>Code couleur hexadécimal (#rrggbb) pour le texte Aile et Rencontres pendant la semaine Appel des Brumes</value>
   </data>
   <data name="Setting_Raid_ColEmbolden_Label" xml:space="preserve">
-    <value>Couleur du texte en gras</value>
+    <value>Couleur de la Hardiesse</value>
   </data>
   <data name="Setting_Raid_ColEmbolden_Tooltip" xml:space="preserve">
-    <value>Code de couleur hexadécimal (#rrggbb) pour le texte Wing et Encounters pendant la semaine enhardi</value>
+    <value>Code de couleur hexadécimal (#rrggbb) pour le texte Aile et Recontres pendant la semaine Hardiesse</value>
   </data>
   <data name="Setting_Raid_ColNotClear_Label" xml:space="preserve">
-    <value>Couleur de rencontre non effacée</value>
+    <value>Couleur de rencontre non terminée</value>
   </data>
   <data name="Setting_Raid_ColNotClear_Tooltip" xml:space="preserve">
-    <value>Code de couleur hexadécimal (#rrggbb) pour les rencontres qui n'ont pas été effacées cette semaine</value>
+    <value>Code de couleur hexadécimal (#rrggbb) pour les rencontres qui n'ont pas été terminées cette semaine</value>
   </data>
   <data name="Setting_Raid_ColText_Label" xml:space="preserve">
-    <value>Couleur du texte de l'étiquette et de la grille</value>
+    <value>Couleur du texte de titre et de la grille</value>
   </data>
   <data name="Setting_Raid_ColText_Tooltip" xml:space="preserve">
-    <value>Code de couleur hexadécimal (#rrggbb) pour le texte de l'étiquette et de la grille</value>
+    <value>Code de couleur hexadécimal (#rrggbb) pour le texte du titre et de la grille</value>
   </data>
   <data name="Setting_Raid_Cotm_Label" xml:space="preserve">
-    <value>Mettez en surbrillance l'aile de raid hebdomadaire "Call of the Mist"</value>
+    <value>Mettez en surbrillance l'aile de raid hebdomadaire "Appel des Brumes"</value>
   </data>
   <data name="Setting_Raid_Cotm_Tooltip" xml:space="preserve">
-    <value>Colorie le texte de l'aile de raid hebdomadaire Call of the Mists\nCall of the Mists double tout l'or dans le coffre de butin du boss</value>
+    <value>Colorie le texte de l'aile de raid hebdomadaire Appel des Brumes\nAppel des Brumes double tout l'or dans le coffre de butin du boss</value>
   </data>
   <data name="Setting_Raid_Drag_Label" xml:space="preserve">
-    <value>Déverrouiller la position de superposition Raid</value>
+    <value>Déverrouiller la position de l'overlay de Raid</value>
   </data>
   <data name="Setting_Raid_Drag_Tooltip" xml:space="preserve">
-    <value>Cliquez et faites glisser pour repositionner les fenêtres de superposition</value>
+    <value>Cliquez et faites glisser pour repositionner les fenêtres d'overlay</value>
   </data>
   <data name="Setting_Raid_Embolden_Label" xml:space="preserve">
-    <value>Mettez en surbrillance l'aile de raid hebdomadaire "Enhardi"</value>
+    <value>Mettez en surbrillance l'aile de raid hebdomadaire "Hardiesse"</value>
   </data>
   <data name="Setting_Raid_Embolden_Tooltip" xml:space="preserve">
-    <value>Colore le texte de l'aile de raid enhardi hebdomadaire\nLe mode enhardi augmente la santé, les dégâts et les soins du joueur pour chaque pile</value>
+    <value>Colore le texte de l'aile de raid Hardiesse hebdomadaire\nLe mode hardiesse augmente la santé, les dégâts et les soins du joueur pour chaque charge</value>
   </data>
   <data name="Setting_Raid_Font_Label" xml:space="preserve">
     <value>Taille de la grille</value>
@@ -535,25 +535,25 @@
     <value>Caché &lt;---&gt; Entièrement visible</value>
   </data>
   <data name="Setting_Raid_Icon_Label" xml:space="preserve">
-    <value>Les raids sont masqués/affichés sur l'icône de la barre de menus, cliquez sur</value>
+    <value>Masquer / afficher les raids au clic sur l'icône de la barre de menus</value>
   </data>
   <data name="Setting_Raid_Icon_Tooltip" xml:space="preserve">
-    <value>La superposition des raids se cache/s'affiche lorsque vous cliquez sur l'icône à côté de Blish en haut à gauche de l'écran</value>
+    <value>L'overlay des raids se cache / s'affiche lorsque vous cliquez sur l'icône à côté de Blish en haut à gauche de l'écran</value>
   </data>
   <data name="Setting_Raid_Keybind_Label" xml:space="preserve">
-    <value>Afficher/Masquer le raccourci clavier</value>
+    <value>Afficher / Masquer le raccourci clavier</value>
   </data>
   <data name="Setting_Raid_Keybind_Tooltip" xml:space="preserve">
     <value></value>
   </data>
   <data name="Setting_Raid_LabelDisplay_Label" xml:space="preserve">
-    <value>Style d'étiquette</value>
+    <value>Style du titre</value>
   </data>
   <data name="Setting_Raid_LabelDisplay_Tooltip" xml:space="preserve">
     <value></value>
   </data>
   <data name="Setting_Raid_LabelOpacity_Label" xml:space="preserve">
-    <value>Opacité des étiquettes</value>
+    <value>Opacité du titre</value>
   </data>
   <data name="Setting_Raid_LabelOpacity_Tooltip" xml:space="preserve">
     <value>Caché &lt;---&gt; Entièrement visible</value>
@@ -571,103 +571,103 @@
     <value>Caché &lt;---&gt; Entièrement visible</value>
   </data>
   <data name="Setting_Raid_Tooltips_Label" xml:space="preserve">
-    <value>Activer les info-bulles de survol de la souris sur la superposition</value>
+    <value>Activer les info-bulles au survol de la souris sur l'overlay</value>
   </data>
   <data name="Setting_Raid_Tooltips_Tooltip" xml:space="preserve">
     <value>Passer la souris sur une rencontre affichera le nom complet</value>
   </data>
   <data name="Setting_Raid_Visible_Label" xml:space="preserve">
-    <value>Afficher la superposition des raids</value>
+    <value>Afficher l'overlay des raids</value>
   </data>
   <data name="Setting_Raid_Visible_Tooltip" xml:space="preserve">
-    <value>Afficher la superposition du raid à l'écran</value>
+    <value>Afficher l'overlay du raid à l'écran</value>
   </data>
   <data name="Setting_Raid_W1_Label" xml:space="preserve">
     <value>W1 / La Vallée des esprits</value>
   </data>
   <data name="Setting_Raid_W1_Tooltip" xml:space="preserve">
-    <value>Activer La Vallée des esprits sur la superposition de raid</value>
+    <value>Activer La Vallée des esprits sur l'overlay de raid</value>
   </data>
   <data name="Setting_Raid_W2_Label" xml:space="preserve">
     <value>W2 / Passage de la redemption</value>
   </data>
   <data name="Setting_Raid_W2_Tooltip" xml:space="preserve">
-    <value>Activer Passage de la redemption sur la superposition de raid</value>
+    <value>Activer Passage de la redemption sur l'overlay de raid</value>
   </data>
   <data name="Setting_Raid_W3_Label" xml:space="preserve">
     <value>W3 / Forteresse des Fidèles</value>
   </data>
   <data name="Setting_Raid_W3_Tooltip" xml:space="preserve">
-    <value>Activer Forteresse des Fidèles sur la superposition de raid</value>
+    <value>Activer Forteresse des Fidèles sur l'overlay de raid</value>
   </data>
   <data name="Setting_Raid_W4_Label" xml:space="preserve">
     <value>W4 / Bastion du pénitent</value>
   </data>
   <data name="Setting_Raid_W4_Tooltip" xml:space="preserve">
-    <value>Activer Bastion du pénitent sur la superposition de raid</value>
+    <value>Activer Bastion du pénitent sur l'overlay de raid</value>
   </data>
   <data name="Setting_Raid_W5_Label" xml:space="preserve">
     <value>W5 / Salle des chaînes</value>
   </data>
   <data name="Setting_Raid_W5_Tooltip" xml:space="preserve">
-    <value>Activer Salle des chaînes sur la superposition de raid</value>
+    <value>Activer Salle des chaînes sur l'overlay de raid</value>
   </data>
   <data name="Setting_Raid_W6_Label" xml:space="preserve">
-    <value>W6 / Pari du mythe</value>
+    <value>W6 / Gamibt de Forgeconte</value>
   </data>
   <data name="Setting_Raid_W6_Tooltip" xml:space="preserve">
-    <value>Activer Mythwright Gambit sur la superposition de raid</value>
+    <value>Activer Gambit de forgeconte sur l'overlay de raid</value>
   </data>
   <data name="Setting_Raid_W7_Label" xml:space="preserve">
     <value>W7 / La clé d'Ahdashim</value>
   </data>
   <data name="Setting_Raid_W7_Tooltip" xml:space="preserve">
-    <value>Activer la clé d'Ahdashim sur la superposition de raid</value>
+    <value>Activer la clé d'Ahdashim sur l'overlay de raid</value>
   </data>
   <data name="Setting_Stike_Priority" xml:space="preserve">
     <value>Activer les missions d'attaque prioritaire (quotidiennement)</value>
   </data>
   <data name="Setting_Strike_AH_Label" xml:space="preserve">
-    <value>Cachette des E'therlames</value>
+    <value>Cachette des Etherlames</value>
   </data>
   <data name="Setting_Strike_BS_Label" xml:space="preserve">
     <value>Désosseur</value>
   </data>
   <data name="Setting_Strike_ColBG_Label" xml:space="preserve">
-    <value>Superposer la couleur d'arrière-plan</value>
+    <value>Couleur d'arrière-plan de l'overlay</value>
   </data>
   <data name="Setting_Strike_ColBG_Tooltip" xml:space="preserve">
-    <value>Frapper la couleur d'arrière-plan de la superposition</value>
+    <value>Couleur d'arrière-plan de l'overlay des Missions d'attaque</value>
   </data>
   <data name="Setting_Strike_ColClear_Label" xml:space="preserve">
-    <value>Couleur de rencontre effacée</value>
+    <value>Couleur de rencontre terminée</value>
   </data>
   <data name="Setting_Strike_ColClear_Tooltip" xml:space="preserve">
-    <value>Code de couleur hexadécimal (#rrggbb) pour les rencontres qui ont été effacées lors de cette réinitialisation</value>
+    <value>Code de couleur hexadécimal (#rrggbb) pour les rencontres qui ont été terminées lors de cette réinitialisation</value>
   </data>
   <data name="Setting_Strike_ColNotClear_Label" xml:space="preserve">
-    <value>Couleur de rencontre non effacée</value>
+    <value>Couleur de rencontre non terminée</value>
   </data>
   <data name="Setting_Strike_ColNotClear_Tooltip" xml:space="preserve">
-    <value>Code de couleur hexadécimal (#rrggbb) pour les rencontres qui n'ont pas été effacées cette semaine</value>
+    <value>Code de couleur hexadécimal (#rrggbb) pour les rencontres qui n'ont pas été terminées cette semaine</value>
   </data>
   <data name="Setting_Strike_ColText_Label" xml:space="preserve">
-    <value>Couleur du texte de l'étiquette et de la grille</value>
+    <value>Couleur du texte du titre et de la grille</value>
   </data>
   <data name="Setting_Strike_ColText_Tooltip" xml:space="preserve">
-    <value>Code de couleur hexadécimal (#rrggbb) pour le texte de l'étiquette et de la grille</value>
+    <value>Code de couleur hexadécimal (#rrggbb) pour le texte du titre et de la grille</value>
   </data>
   <data name="Setting_Strike_CW_Label" xml:space="preserve">
     <value>Guerre froide</value>
   </data>
   <data name="Setting_Strike_Drag_Label" xml:space="preserve">
-    <value>Déverrouiller la position de superposition Strike</value>
+    <value>Déverrouiller la position de l'overlay des Missions d'attaque</value>
   </data>
   <data name="Setting_Strike_Drag_Tooltip" xml:space="preserve">
-    <value>Cliquez et faites glisser pour repositionner la fenêtre de superposition</value>
+    <value>Cliquez et faites glisser pour repositionner l'overlay</value>
   </data>
   <data name="Setting_Strike_Eod" xml:space="preserve">
-    <value>Activer la fin des dragons</value>
+    <value>Activer End of Dragons</value>
   </data>
   <data name="Setting_Strike_FoJ_Label" xml:space="preserve">
     <value>Fraenir de Jormag</value>
@@ -685,34 +685,34 @@
     <value>Caché &lt;---&gt; Entièrement visible</value>
   </data>
   <data name="Setting_Strike_HT_Label" xml:space="preserve">
-    <value>Temple de la moisson</value>
+    <value>Temple des moissons</value>
   </data>
   <data name="Setting_Strike_IBS" xml:space="preserve">
-    <value>Activer la saga du givre</value>
+    <value>Activer l'Epopée du givre</value>
   </data>
   <data name="Setting_Strike_Icon_Label" xml:space="preserve">
-    <value>Grèves masquer/afficher sur l'icône de la barre de menus cliquez sur</value>
+    <value>Masquer / afficher les Missions d'attaque au clic sur l'icône de la barre de menus</value>
   </data>
   <data name="Setting_Strike_Icon_Tooltip" xml:space="preserve">
-    <value>La superposition de grèves se cache / s'affiche lorsque vous cliquez sur l'icône à côté de Blish en haut à gauche de l'écran</value>
+    <value>L'overlay des Missions d'attaque se cache / s'affiche lorsque vous cliquez sur l'icône à côté de Blish en haut à gauche de l'écran</value>
   </data>
   <data name="Setting_Strike_Keybind_Label" xml:space="preserve">
-    <value>Afficher/Masquer le raccourci clavier</value>
+    <value>Afficher / Masquer le raccourci clavier</value>
   </data>
   <data name="Setting_Strike_Keybind_Tooltip" xml:space="preserve">
     <value></value>
   </data>
   <data name="Setting_Strike_KO_Label" xml:space="preserve">
-    <value>Belvedere de Kaineng</value>
+    <value>Belvédère de Kaineng</value>
   </data>
   <data name="Setting_Strike_LabelDisplay_Label" xml:space="preserve">
-    <value>Style d'étiquette</value>
+    <value>Style du titre</value>
   </data>
   <data name="Setting_Strike_LabelDisplay_Tooltip" xml:space="preserve">
     <value></value>
   </data>
   <data name="Setting_Strike_LabelOpacity_Label" xml:space="preserve">
-    <value>Opacité des étiquettes</value>
+    <value>Opacité du titre</value>
   </data>
   <data name="Setting_Strike_LabelOpacity_Tooltip" xml:space="preserve">
     <value>Caché &lt;---&gt; Entièrement visible</value>
@@ -724,7 +724,7 @@
     <value></value>
   </data>
   <data name="Setting_Strike_OLC_Label" xml:space="preserve">
-    <value>Ancienne Cour du Lion</value>
+    <value>Vieille Cour du Lion</value>
   </data>
   <data name="Setting_Strike_PanelOpacity_Label" xml:space="preserve">
     <value>Opacité de l'arrière-plan de la grille</value>
@@ -736,7 +736,7 @@
     <value>Col des Cimefroides</value>
   </data>
   <data name="Setting_Strike_Tooltips_Label" xml:space="preserve">
-    <value>Activer les info-bulles de survol de la souris sur la superposition</value>
+    <value>Activer les info-bulles au survol de la souris sur l'overlay</value>
   </data>
   <data name="Setting_Strike_Tooltips_Tooltip" xml:space="preserve">
     <value>Passer la souris sur une rencontre affichera le nom complet</value>
@@ -745,34 +745,34 @@
     <value>Voix et Griffe des dechus</value>
   </data>
   <data name="Setting_Strike_Visible_Label" xml:space="preserve">
-    <value>Afficher la superposition des avertissements</value>
+    <value>Afficher l'overlay des Missions d'attaque</value>
   </data>
   <data name="Setting_Strike_Visible_Tooltip" xml:space="preserve">
-    <value>Afficher la superposition des avertissements à l'écran</value>
+    <value>Afficher l'overlay des Fractales à l'écran</value>
   </data>
   <data name="Setting_Strike_WoJ_Label" xml:space="preserve">
     <value>Murmure de Jormag</value>
   </data>
   <data name="Setting_Strike_XJJ_Label" xml:space="preserve">
-    <value>Decharges de Xunlai Jade</value>
+    <value>Décharge de Xunlai Jade</value>
   </data>
   <data name="Settngs_CopyRaidTooltip" xml:space="preserve">
-    <value>Faites en sorte que tous les paramètres correspondent aux valeurs correspondantes de la superposition Raids</value>
+    <value>Faire correspondre tous les paramètres à ceux de l'overlay de Raid</value>
   </data>
   <data name="SharedKeybind" xml:space="preserve">
-    <value>Les superpositions peuvent utiliser le même raccourci clavier</value>
+    <value>Les overlays peuvent utiliser le même raccourci clavier</value>
   </data>
   <data name="StrikeGroup_EoD" xml:space="preserve">
-    <value>Fin des dragons</value>
+    <value>End of Dragons</value>
   </data>
   <data name="StrikeGroup_Eod_abbr" xml:space="preserve">
-    <value>Éod</value>
+    <value>Eod</value>
   </data>
   <data name="StrikeGroup_Icebrood" xml:space="preserve">
-    <value>Saga du givre</value>
+    <value>Epopée du givre</value>
   </data>
   <data name="StrikeGroup_Icebrood_abbr" xml:space="preserve">
-    <value>SCI</value>
+    <value>IBS</value>
   </data>
   <data name="StrikeGroup_Priority" xml:space="preserve">
     <value>Missions d'attaque prioritaire (quotidiennes)</value>
@@ -784,13 +784,13 @@
     <value>Non</value>
   </data>
   <data name="Strike_Confirm_Btn_Yes" xml:space="preserve">
-    <value>Complété</value>
+    <value>Terminé</value>
   </data>
   <data name="Strike_Confirm_Message" xml:space="preserve">
     <value>Avez-vous terminé la rencontre avec succès ?</value>
   </data>
   <data name="Strike_Short_AetherbladeHideout" xml:space="preserve">
-    <value>Ah</value>
+    <value>AH</value>
   </data>
   <data name="Strike_Short_Boneskinner" xml:space="preserve">
     <value>BS</value>
@@ -808,13 +808,13 @@
     <value>XJJ</value>
   </data>
   <data name="Strike_Short_OldLionsCourt" xml:space="preserve">
-    <value>CLO</value>
+    <value>OLC</value>
   </data>
   <data name="Strike_Short_Overlook" xml:space="preserve">
     <value>KO</value>
   </data>
   <data name="Strike_Short_Shiverpeak" xml:space="preserve">
-    <value>PS</value>
+    <value>SP</value>
   </data>
   <data name="Strike_Short_VoiceAndClaw" xml:space="preserve">
     <value>V&amp;C</value>
@@ -823,7 +823,7 @@
     <value>WoJ</value>
   </data>
   <data name="Strike_Tooltip_tomorrow" xml:space="preserve">
-    <value>Demain:</value>
+    <value>Demain :</value>
   </data>
   <data name="VisibleHide" xml:space="preserve">
     <value>Cacher</value>
@@ -832,5 +832,107 @@
   <data name="VisibleShow" xml:space="preserve">
     <value>Montrer</value>
     <comment>menubar icon context menu "Show {name}"</comment>
+  </data>
+  <data name="SettingsPanel_Fractals_Heading_Selection" xml:space="preserve">
+    <value>Sélection de Fractale</value>
+  </data>
+  <data name="SettingsPanel_Tab_Fractals" xml:space="preserve">
+    <value>Fractales des Brumes</value>
+  </data>
+  <data name="Settings_Fractals_Completion" xml:space="preserve">
+    <value>Marquer comme terminé</value>
+  </data>
+  <data name="Settings_Fractals_CompletionTooltip" xml:space="preserve">
+    <value>Choisir comment les fractales sont marquées comme terminées</value>
+  </data>
+  <data name="Setting_Fractals_ColBG_Label" xml:space="preserve">
+    <value>Couleur de l'arrière plan de l'overlay</value>
+  </data>
+  <data name="Setting_Fractals_ColBG_Tooltip" xml:space="preserve">
+    <value>Couleur de l'arrière plan des Fractales</value>
+  </data>
+  <data name="Setting_Fractals_ColClear_Label" xml:space="preserve">
+    <value>Couleur de rencontre terminée</value>
+  </data>
+  <data name="Setting_Fractals_ColClear_Tooltip" xml:space="preserve">
+    <value>Code de couleur hexadécimal (#rrggbb) pour les rencontres qui ont été terminées lors de cette réinitialisation</value>
+  </data>
+  <data name="Setting_Fractals_ColNotClear_Label" xml:space="preserve">
+    <value>Couleur de rencontre non terminée</value>
+  </data>
+  <data name="Setting_Fractals_ColNotClear_Tooltip" xml:space="preserve">
+    <value>Code de couleur hexadécimal (#rrggbb) pour les rencontres qui n'ont pas été terminées cette semaine</value>
+  </data>
+  <data name="Setting_Fractals_ColText_Label" xml:space="preserve">
+    <value>Couleur du texte du titre et de la grille</value>
+  </data>
+  <data name="Setting_Fractals_ColText_Tooltip" xml:space="preserve">
+    <value>Code de couleur hexadécimal (#rrggbb) pour le texte du titre et de la grille</value>
+  </data>
+  <data name="Setting_Fractals_Drag_Label" xml:space="preserve">
+    <value>Déverrouiller la position de l'overlay des Fractales</value>
+  </data>
+  <data name="Setting_Fractals_Drag_Tooltip" xml:space="preserve">
+    <value>Cliquez et faites glisser pour repositionner l'overlay</value>
+  </data>
+  <data name="Setting_Fractals_Font_Label" xml:space="preserve">
+    <value>Taille de la grille</value>
+  </data>
+  <data name="Setting_Fractals_Font_Tooptip" xml:space="preserve">
+    <value>Modifier la taille de la grille</value>
+  </data>
+  <data name="Setting_Fractals_GridOpacity_Label" xml:space="preserve">
+    <value>Opacité de la grille</value>
+  </data>
+  <data name="Setting_Fractals_GridOpactiy_Tooltip" xml:space="preserve">
+    <value>Caché &lt;---&gt; Entièrement visible</value>
+  </data>
+  <data name="Setting_Fractals_Icon_Label" xml:space="preserve">
+    <value>Masquer / afficher les Fractales au clic sur l'icône de la barre de menus</value>
+  </data>
+  <data name="Setting_Fractals_Icon_Tooltip" xml:space="preserve">
+    <value>L'overlay des Fractales se cache / s'affiche lorsque vous cliquez sur l'icône à côté de Blish en haut à gauche de l'écran</value>
+  </data>
+  <data name="Setting_Fractals_Keybind_Label" xml:space="preserve">
+    <value>Afficher / Masquer le raccourci clavier</value>
+  </data>
+  <data name="Setting_Fractals_LabelDisplay_Label" xml:space="preserve">
+    <value>Style du titre</value>
+  </data>
+  <data name="Setting_Fractals_LabelOpacity_Label" xml:space="preserve">
+    <value>Opacité du titre</value>
+  </data>
+  <data name="Setting_Fractals_LabelOpacity_Tooltip" xml:space="preserve">
+    <value>Caché &lt;---&gt; Entièrement visible</value>
+  </data>
+  <data name="Setting_Fractals_Layout_Label" xml:space="preserve">
+    <value>Disposition de la grille</value>
+  </data>
+  <data name="Setting_Fractals_PanelOpacity_Label" xml:space="preserve">
+    <value>Opacité de l'arrière-plan de la grille</value>
+  </data>
+  <data name="Setting_Fractals_PanelOpacity_Tooltip" xml:space="preserve">
+    <value>Caché &lt;---&gt; Entièrement visible</value>
+  </data>
+  <data name="Setting_Fractals_Tooltips_Label" xml:space="preserve">
+    <value>Activer les info-bulles au survol de la souris sur l'overlay</value>
+  </data>
+  <data name="Setting_Fractals_Tooltips_Tooltip" xml:space="preserve">
+    <value>Passer la souris sur une rencontre affichera le nom complet et la rencontre du lendemain</value>
+  </data>
+  <data name="Setting_Fractals_Visible_Label" xml:space="preserve">
+    <value>Afficher l'overlay des Fractales</value>
+  </data>
+  <data name="Fractals_Message" xml:space="preserve">
+    <value>Avez-vous terminé la rencontre avec succès ?</value>
+  </data>
+  <data name="Fractals_DailyTierN" xml:space="preserve">
+    <value>Tier quotidien (1, 2, 3, 4)</value>
+  </data>
+  <data name="Fractals_DailyRecommended" xml:space="preserve">
+    <value>Recommandées quotidennes</value>
+  </data>
+  <data name="Fractals_Selection_Prompt" xml:space="preserve">
+    <value>Activer le regroupement des fractales quotidiennes</value>
   </data>
 </root>

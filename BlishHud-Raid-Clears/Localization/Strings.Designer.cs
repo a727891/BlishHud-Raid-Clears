@@ -2014,7 +2014,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show the fractals overlay on screen.
+        ///   Looks up a localized string similar to Show the strikes overlay on screen.
         /// </summary>
         internal static string Setting_Strike_Visible_Tooltip {
             get {
