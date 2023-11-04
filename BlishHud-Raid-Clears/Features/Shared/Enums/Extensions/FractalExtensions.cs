@@ -23,7 +23,7 @@ public static class FractalExtensions
             Encounters.Fractal.MoltenFurnaceFractal => "Molten Furnace",
             Encounters.Fractal.NightmareFractal => "Nightmare",
             Encounters.Fractal.ShatteredObservatoryFractal => "Shattered Observatory",
-            Encounters.Fractal.SirensReefFractal => "Siren' Reef",
+            Encounters.Fractal.SirensReefFractal => "Siren's Reef",
             Encounters.Fractal.SilentSurfFractal => "Silent Surf",
             Encounters.Fractal.SnowblindFractal => "Snowblind",
             Encounters.Fractal.SunquaPeakFractal => "Sunqua Peak",
@@ -234,8 +234,8 @@ public static class FractalExtensions
             96 => Encounters.Fractal.AetherbladeFractal,
             97 => Encounters.Fractal.NightmareFractal,
             98 => Encounters.Fractal.ShatteredObservatoryFractal,
-            99 => Encounters.Fractal.SilentSurfFractal,
-            100 => Encounters.Fractal.SunquaPeakFractal,
+            99 => Encounters.Fractal.SunquaPeakFractal,
+            100 => Encounters.Fractal.SilentSurfFractal,
             _ => throw new ArgumentOutOfRangeException("fractal for scale", scale, null)
         };
     }
