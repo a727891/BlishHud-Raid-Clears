@@ -13,9 +13,10 @@ public static class FractalMetaData
     {
         var fractals = new List<Fractal>(){};
 
+        fractals.Add(new CMFractals("Challenge Motes", 4, "CM", new List<BoxModel>() { }, panel));
         fractals.Add(new TierNFractals("Tier #", 0, "T#", new List<BoxModel>() { }, panel));
         fractals.Add(new DailyFractal("Daily Recommended", 1, "Rec", new List<BoxModel>() { }, panel));
-        fractals.Add(new TierNTomorrow("Tomorrow T#", 1, "Tom", new List<BoxModel>() { }, panel));
+        fractals.Add(new TierNTomorrow("Tomorrow T#", 2, "Tom", new List<BoxModel>() { }, panel));
 
 
         return fractals;

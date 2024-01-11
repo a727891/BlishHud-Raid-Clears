@@ -47,7 +47,7 @@ public class Module : Blish_HUD.Modules.Module
 
     protected override Task LoadAsync()
     {
-
+        Service.InstabilitiesData = InstabilitiesData.Load();
         Service.StrikePersistance = StrikePersistance.Load();
         Service.FractalPersistance = FractalPersistance.Load();
 
