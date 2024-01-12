@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using RaidClears.Localization;
 using RaidClears.Settings.Models;
 using RaidClears.Utils;
+using System.Diagnostics;
 
 namespace RaidClears.Settings.Views.SubViews;
 
@@ -23,6 +24,7 @@ public class FractalSelectionView : View
         var panel = new FlowPanel()
            .BeginFlow(buildPanel)
            .AddString(Strings.Fractals_Selection_Prompt)
+           .AddSetting(_settings.ChallengeMotes)
            .AddSetting(_settings.DailyTierN)
            .AddSetting(_settings.DailyRecs)
            .AddSpace()
@@ -38,5 +40,21 @@ public class FractalSelectionView : View
 
         };
 
+        var thanksInvisButton = new Label()
+        {
+            Parent = buildPanel,
+            Location = new(10, buildPanel.Bottom - 50),
+            //TextColor=Color.Blue,
+            AutoSizeWidth=true,
+            Text = "Special thank you to Invisi for providing challenge mote Instabilities information"
+        };
+        thanksInvisButton.Click += (s, e) =>
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://github.com/Invisi/gw2-fotm-instabilities",
+                UseShellExecute = true
+            });
+        };
     }
 }

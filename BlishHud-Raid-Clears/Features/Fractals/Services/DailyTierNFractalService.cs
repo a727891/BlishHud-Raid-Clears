@@ -41,9 +41,9 @@ public static class DailyTierNFractalService
 
     private static string GetCMTooltip(Encounters.Fractal fractal, int scale, int today)
     {
-        var instab = String.Join(", ",Service.InstabilitiesData.GetInstabsForLevelOnDay(scale, today).ToArray());
-        var tomInstab = String.Join(", ",Service.InstabilitiesData.GetInstabsForLevelOnDay(scale, (today + 1) % 366).ToArray());
-        return $"{fractal.GetLabel()}\n\nInstabilities\n{instab}\n\nTomorrow's Instabilities\n{tomInstab}";
+        var instab = String.Join("\n\t",Service.InstabilitiesData.GetInstabsForLevelOnDay(scale, today).ToArray());
+        var tomInstab = String.Join("\n\t",Service.InstabilitiesData.GetInstabsForLevelOnDay(scale, (today + 1) % 366).ToArray());
+        return $"{fractal.GetLabel()}\n\nInstabilities\n\t{instab}\n\nTomorrow's Instabilities\n\t{tomInstab}";
     }
 
     public static IEnumerable<BoxModel> GetTomorrowTierN()

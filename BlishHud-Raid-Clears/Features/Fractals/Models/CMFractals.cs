@@ -30,7 +30,7 @@ public class CMFractals : Fractal
                 panel,
                 settings.Style.Layout
             );
-        group.VisiblityChanged(settings.DailyTierN);
+        group.VisiblityChanged(settings.ChallengeMotes);
         SetGridGroupReference(group);
 
         var labelBox = new GridBox(
