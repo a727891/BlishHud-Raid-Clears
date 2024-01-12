@@ -11,6 +11,7 @@ using Gw2Sharp.WebApi.V2.Models;
 using SharpDX.Direct3D9;
 using static RaidClears.Settings.Models.Settings;
 using System.Numerics;
+using System.Runtime.Remoting.Channels;
 
 namespace RaidClears.Features.Fractals.Services;
 
@@ -28,13 +29,21 @@ public static class DailyTierNFractalService
 
     public static IEnumerable<BoxModel> GetCMFractals()
     {
-        var CMs = new List<Encounters.Fractal> {
-                Encounters.Fractal.NightmareFractal,
-                Encounters.Fractal.ShatteredObservatoryFractal,
-                Encounters.Fractal.SunquaPeakFractal,
-                Encounters.Fractal.SilentSurfFractal
+        var today = DayOfYearIndexService.DayOfYearIndex();
+        var CMs = new List<(Encounters.Fractal fractal, int scale)> {
+                (Encounters.Fractal.NightmareFractal,97),
+                (Encounters.Fractal.ShatteredObservatoryFractal,98),
+                (Encounters.Fractal.SunquaPeakFractal,99),
+                (Encounters.Fractal.SilentSurfFractal,100)
         };
-        return CMs.Select(e => new BoxModel(e.GetApiLabel(), e.GetLabel(), e.GetLabelShort()));
+        return CMs.Select( e => new BoxModel(e.fractal.GetApiLabel(), GetCMTooltip(e.fractal, e.scale,today), e.fractal.GetLabelShort()));
+    }
+
+    private static string GetCMTooltip(Encounters.Fractal fractal, int scale, int today)
+    {
+        var instab = String.Join("\n\t",Service.InstabilitiesData.GetInstabsForLevelOnDay(scale, today).ToArray());
+        var tomInstab = String.Join("\n\t",Service.InstabilitiesData.GetInstabsForLevelOnDay(scale, (today + 1) % 366).ToArray());
+        return $"{fractal.GetLabel()}\n\nInstabilities\n\t{instab}\n\nTomorrow's Instabilities\n\t{tomInstab}";
     }
 
     public static IEnumerable<BoxModel> GetTomorrowTierN()
