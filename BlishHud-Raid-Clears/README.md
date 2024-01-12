@@ -19,7 +19,10 @@ Key Features
 
 
 ## Change Log
-
+### 2.4.0 (2024-01-11)
+* Added Fractal CM with Instabilities
+ 
+----
 ### 1.1.2 (2022-07-22)
 * Fixed Opacity settings not being applied at module load
 * Fixed FontSize scaling by changing label widths and limiting available sizes
