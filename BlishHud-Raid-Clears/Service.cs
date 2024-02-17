@@ -26,6 +26,7 @@ public static class Service
 
     public static StrikePersistance StrikePersistance { get; set; } = null!;
     public static FractalPersistance FractalPersistance { get; set; } = null!;
+    public static InstabilitiesData InstabilitiesData { get; set; } = null!;
 
     public static RaidPanel RaidWindow { get; set; } = null!;
     public static StrikesPanel StrikesWindow { get; set; } = null!;
