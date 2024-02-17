@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Blish_HUD;
+using Blish_HUD.Common.UI.Views;
 using Blish_HUD.Controls;
 using Blish_HUD.Input;
 using Blish_HUD.Settings;
@@ -49,6 +50,14 @@ public class CornerIconService : IDisposable
             CreateCornerIcon();
     }
 
+    public void UpdateAccountName(string name)
+    {
+        if(_cornerIcon is not null)
+        {
+            _cornerIcon.BasicTooltipText = $"{_tooltip}\n\nProfile: {name}";
+        }
+    }
+
     public void Dispose()
     {
         _cornerIconIsVisibleSetting.SettingChanged -= OnCornerIconIsVisibleSettingChanged;
@@ -64,7 +73,7 @@ public class CornerIconService : IDisposable
         {
             Icon = _cornerIconTexture,
             HoverIcon = _cornerIconHoverTexture,
-            BasicTooltipText = _tooltip,
+            BasicTooltipText = $"{_tooltip}\n\nProfile: {Service.CurrentAccountName}",
             Parent = GameService.Graphics.SpriteScreen,
             Priority = 2033877237 //Generated from Ecksofa's fiddle https://dotnetfiddle.net/5U0xPw
         };
