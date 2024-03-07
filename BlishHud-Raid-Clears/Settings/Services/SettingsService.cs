@@ -14,6 +14,8 @@ public class SettingService // singular because Setting"s"Service already exists
     public SettingEntry<ApiPollPeriod> ApiPollingPeriod { get; }
     public SettingEntry<KeyBinding> SettingsPanelKeyBind { get; }
     public SettingEntry<bool> GlobalCornerIconEnabled { get; }
+
+    public SettingEntry<int> CornerIconPriority { get; }
     public RaidSettings RaidSettings { get; }
     public DungeonSettings DungeonSettings { get; }
     public StrikeSettings StrikeSettings { get; }
@@ -25,6 +27,12 @@ public class SettingService // singular because Setting"s"Service already exists
             ApiPollPeriod.MINUTES_5,
             () => Strings.Setting_APIPoll_Label,
             () => Strings.Setting_APIPoll_Tooltip);
+
+        CornerIconPriority = settings.DefineSetting("RCCornerPriority",
+            53, //.947 of Int32MaxValue to match the original corner icon priority
+            () => Strings.CornerIconPriority_Label,
+            () => Strings.CornerIconPriority_Tooltlp);
+        CornerIconPriority.SetRange(0, 1000);
 
         SettingsPanelKeyBind = settings.DefineSetting("RCsettingsKeybind",
             new KeyBinding(Keys.None),

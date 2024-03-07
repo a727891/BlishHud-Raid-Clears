@@ -61,6 +61,33 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adjust where Raid Clears top-left icon appears after the Blish Icon.
+        /// </summary>
+        internal static string CornerIconPriority_Help {
+            get {
+                return ResourceManager.GetString("CornerIconPriority_Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Top-left icon sort order.
+        /// </summary>
+        internal static string CornerIconPriority_Label {
+            get {
+                return ResourceManager.GetString("CornerIconPriority_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left &lt;----&gt; Right.
+        /// </summary>
+        internal static string CornerIconPriority_Tooltlp {
+            get {
+                return ResourceManager.GetString("CornerIconPriority_Tooltlp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Daily Recommended.
         /// </summary>
         internal static string Fractals_DailyRecommended {

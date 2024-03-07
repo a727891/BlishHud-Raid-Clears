@@ -3,6 +3,7 @@ using Blish_HUD.Graphics.UI;
 using Microsoft.Xna.Framework;
 using RaidClears.Localization;
 using RaidClears.Utils;
+using System.Data.Common;
 using System.Diagnostics;
 
 namespace RaidClears.Settings.Views.SubViews;
@@ -51,8 +52,13 @@ public class MainSettingsView : View
             .AddSetting(Service.Settings.DungeonSettings.Generic.ToolbarIcon)
             .AddSetting(Service.Settings.StrikeSettings.Generic.ToolbarIcon)
             .AddSetting(Service.Settings.FractalSettings.Generic.ToolbarIcon)
-            );
-           
+            ) ;
+
+        panel.AddSpace()
+            .AddString(Strings.CornerIconPriority_Help)
+            .AddSetting(Service.Settings.CornerIconPriority);
+
+
         refreshButton.Click += (_, _) =>
         {
             Service.ApiPollingService?.Invoke();

@@ -32,6 +32,7 @@ public class CornerIconToggleMenuItem: ContextMenuStripItem
 public class CornerIconService : IDisposable
 {
     public event EventHandler<bool>? IconLeftClicked;
+
     public CornerIconService(SettingEntry<bool> cornerIconIsVisibleSetting,
                              string tooltip,
                              Texture2D defaultTexture,
@@ -45,6 +46,7 @@ public class CornerIconService : IDisposable
         _cornerIconHoverTexture      = hoverTexture;
         _contextMenuItems = contextMenuItems;
         cornerIconIsVisibleSetting.SettingChanged += OnCornerIconIsVisibleSettingChanged;
+        Service.Settings.CornerIconPriority.SettingChanged += CornerIconPriority_SettingChanged;
 
         if (cornerIconIsVisibleSetting.Value)
             CreateCornerIcon();
@@ -61,23 +63,22 @@ public class CornerIconService : IDisposable
     public void Dispose()
     {
         _cornerIconIsVisibleSetting.SettingChanged -= OnCornerIconIsVisibleSettingChanged;
-
+        Service.Settings.CornerIconPriority.SettingChanged -= CornerIconPriority_SettingChanged;
         RemoveCornerIcon();
     }
 
     private void CreateCornerIcon()
     {
         RemoveCornerIcon();
-
         _cornerIcon = new CornerIcon
         {
             Icon = _cornerIconTexture,
             HoverIcon = _cornerIconHoverTexture,
-            BasicTooltipText = $"{_tooltip}\n\nProfile: {Service.CurrentAccountName}",
+            BasicTooltipText = $"{_tooltip}\n\nAccount: {Service.CurrentAccountName}",
             Parent = GameService.Graphics.SpriteScreen,
-            Priority = 2033877237 //Generated from Ecksofa's fiddle https://dotnetfiddle.net/5U0xPw
+            Priority = (int)(Int32.MaxValue * ((1000.0f - Service.Settings.CornerIconPriority.Value) /1000.0f)) -1
         };
-
+        
         _cornerIcon.Click += OnCornerIconClicked;
         _cornerIcon.Menu = new ContextMenuStrip(() => _contextMenuItems);
     }
@@ -89,6 +90,14 @@ public class CornerIconService : IDisposable
             _cornerIcon.Click -= OnCornerIconClicked;
             _cornerIcon.Dispose();
         }
+    }
+    private void CornerIconPriority_SettingChanged(object sender, ValueChangedEventArgs<int> e)
+    {
+        if (Service.Settings.GlobalCornerIconEnabled.Value)
+        {
+            _cornerIcon.Priority = (int)(Int32.MaxValue * ((1000.0f - e.NewValue) / 1000.0f))-1;
+        }
+        
     }
 
     private void OnCornerIconIsVisibleSettingChanged(object sender, ValueChangedEventArgs<bool> e)
