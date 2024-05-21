@@ -2,6 +2,7 @@ import ctypes
 import mmap
 import time
 import sys
+import keyboard
 
 class Link(ctypes.Structure):
     _fields_ = [
@@ -46,7 +47,7 @@ class Context(ctypes.Structure):
         ("mountIndex", ctypes.c_uint8),           # 1 byte
     ]
 
-identityString ='{"name": "Deeos","profession": 4,"spec": 55,"race": 4,"map_id": 50,"world_id": 268435505,"team_color_id": 0,"commander": false,"fov": 0.873,"uisz": 1}'
+identityString ='{"name": "Deeos","profession": 4,"spec": 55,"race": 4,"map_id": 1155,"world_id": 268435505,"team_color_id": 0,"commander": false,"fov": 0.873,"uisz": 1}'
 
 class MumbleLink:
     
@@ -62,7 +63,7 @@ class MumbleLink:
     
     def write(self, uiTick, uiState, ppid):
         data=Link(1,uiTick,(0,0,0),(0,0,0),(0,0,0),"Guild Wars 2",(0,0,0),(0,0,0),(0,0,0),identityString,48)
-        ctx=Context((0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),0,0,0,0,0,uiState,0,0,0,0,0,0,0,0,ppid,9)
+        ctx=Context((0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),1155,0,0,0,144604,uiState,200,200,0,490,490,500,500,1.0,ppid,9)
         padd = Padding()
 
         databuf = ctypes.string_at(ctypes.byref(data), ctypes.sizeof(data))
@@ -80,9 +81,27 @@ class MumbleLink:
 def main(ppid):
     ml = MumbleLink()
     uiTick = 1
+    # Bitmask: Bit 1 = IsMapOpen,
+    # Bit 2 = IsCompassTopRight, 
+    # Bit 3 = DoesCompassHaveRotationEnabled, 
+    # Bit 4 = Game has focus,
+    # Bit 5 = Is in Competitive game mode, 
+    # Bit 6 = Textbox has focus, 
+    # Bit 7 = Is in Combat
     uiState= 8 # 8=Game has focus
+    uiState = uiState | 128
+
     ml.write(uiTick, uiState, ppid)
     while True:
+        # if keyboard.read_key() == "m":
+        #     if(uiState & 1 == 1 ) :
+        #         uiState = uiState - 1
+        #         print("close map")
+        #     else :
+        #         uiState = uiState + 1
+        #         print("open map")
+        # if keyboard.read_key() == "f":
+        #     print("interact pressed")
         time.sleep(0.03)
         uiTick+=1
         ml.write(uiTick, uiState, ppid)
