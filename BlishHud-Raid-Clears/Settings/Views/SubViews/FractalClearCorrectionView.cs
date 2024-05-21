@@ -43,7 +43,7 @@ public class FractalClearCorrectionView : View
 
 
         }
-        panel.AddString("Last Fractal Clears");
+        panel.AddString($"Last Fractal Clears (Profile: {Service.CurrentAccountName})");
 
     }
 }
