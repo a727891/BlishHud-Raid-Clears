@@ -10,6 +10,7 @@ using RaidClears.Settings.Controls;
 using RaidClears.Settings.Enums;
 using RaidClears.Settings.Views;
 using RaidClears.Settings.Views.Tabs;
+using RaidClears.Features.Fractals.Services;
 
 namespace RaidClears.Utils;
 
@@ -131,7 +132,7 @@ public static class FlowPanelExtensions
         return panel;
     }
 
-    public static FlowPanel AddEncounterClearStatus(this FlowPanel panel, Encounters.Fractal encounter, DateTime clearDate)
+    public static FlowPanel AddEncounterClearStatus(this FlowPanel panel, FractalMap encounter, DateTime clearDate)
     {
 
         new EncounterClearStatus(panel, encounter, clearDate);

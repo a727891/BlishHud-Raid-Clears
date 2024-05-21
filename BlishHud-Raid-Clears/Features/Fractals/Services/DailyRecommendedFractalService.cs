@@ -13,17 +13,17 @@ namespace RaidClears.Features.Fractals.Services;
 public class FractalInfo
 {
     public Encounter Encounter;
-    public Encounters.Fractal TomorrowEncounter;
+    public FractalMap TomorrowEncounter;
 
     public List<string>? Instabilities;
     public List<string>? TomorrowInstabilities;
 
-    public FractalInfo(Encounters.Fractal mission, Encounters.Fractal tomorrow)
+    public FractalInfo(FractalMap mission, FractalMap tomorrow)
     {
         Encounter = new(mission);
         TomorrowEncounter = tomorrow;
     }
-    public FractalInfo(Encounters.Fractal mission, Encounters.Fractal tomorrow, List<string>instab, List<string>tomorrowInstab)
+    public FractalInfo(FractalMap mission, FractalMap tomorrow, List<string>instab, List<string>tomorrowInstab)
     {
         Encounter = new(mission);
         TomorrowEncounter = tomorrow;
@@ -40,7 +40,7 @@ public static class DailyRecommendedFractalService
 
     public static IEnumerable<BoxModel> GetRecommendedFractals()
     {
-        return GetDailyRecommendedFractals().Select(e => new BoxModel($"{e.Encounter.id}", $"{e.Encounter.name}\n\n{Strings.Strike_Tooltip_tomorrow}\n{e.TomorrowEncounter.GetLabel()}", e.Encounter.shortName));
+        return GetDailyRecommendedFractals().Select(e => new BoxModel($"{e.Encounter.id}", $"{e.Encounter.name}\n\n{Strings.Strike_Tooltip_tomorrow}\n{e.TomorrowEncounter.Label}", e.Encounter.shortName));
     }
 
     public static IEnumerable<FractalInfo> GetDailyRecommendedFractals()
@@ -57,8 +57,8 @@ public static class DailyRecommendedFractalService
         var resultList = new List<FractalInfo>();
         for(var i=0; i< todayScales.Count(); i++)
         {
-            var todayFrac = FractalExtensions.GetFractalForScale(todayScales[i]);
-            var tomorrowFrac = FractalExtensions.GetFractalForScale(tomorrowsScales[i]);
+            var todayFrac = Service.FractalMapData.GetFractalForScale(todayScales[i]);
+            var tomorrowFrac = Service.FractalMapData.GetFractalForScale(tomorrowsScales[i]);
             resultList.Add(new FractalInfo(todayFrac, tomorrowFrac));
         }
 
@@ -68,42 +68,15 @@ public static class DailyRecommendedFractalService
 
     public static List<int> DailyRecsRotation(int index)
     {
-        //https://wiki.guildwars2.com/index.php?title=Template:Daily_Recommended_Fractal_Schedule&action=edit
-        switch (index) //Daily rotation index
+        if(Service.FractalMapData.Recs.Count >= index)
         {
-            case 0:
-                return new List<int> { 2, 37, 53 };
-            case 1:
-                return new List<int> { 6, 28, 61 };
-            case 2:
-                return new List<int> { 10, 32, 65 };
-            case 3:
-                return new List<int> { 14, 34, 74 };
-            case 4:
-                return new List<int> { 19, 37, 66 };
-            case 5:
-                return new List<int> { 15, 41, 60 };
-            case 6:
-                return new List<int> { 24, 35, 75 };
-            case 7:
-                return new List<int> { 25, 36, 69 };
-            case 8:
-                return new List<int> { 12, 40, 67 };
-            case 9:
-                return new List<int> { 8, 31, 54 };
-            case 10:
-                return new List<int> { 11, 39, 59 };
-            case 11:
-                return new List<int> { 18, 27, 64 };
-            case 12:
-                return new List<int> { 4, 30, 58 };
-            case 13:
-                return new List<int> { 16, 42, 62 };
-            case 14:
-                return new List<int> { 5, 47, 68 };
-          
-            default: return new List<int> { 97, 98, 99, 100 };
+            return Service.FractalMapData.Recs[index];
         }
+        else
+        {
+            return new List<int> {96, 97, 98, 99, 100 };
+        }
+        //https://wiki.guildwars2.com/index.php?title=Template:Daily_Recommended_Fractal_Schedule&action=edit
     }
 
 

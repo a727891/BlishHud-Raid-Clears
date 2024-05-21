@@ -24,31 +24,31 @@ public static class DailyTierNFractalService
 
     public static IEnumerable<BoxModel> GetDailyTierN()
     {
-        return GetDailyTierNFractals().Select(e => new BoxModel($"{e.Encounter.id}", $"{e.Encounter.name}\n\n{Strings.Strike_Tooltip_tomorrow}\n{e.TomorrowEncounter.GetLabel()}", e.Encounter.shortName));
+        return GetDailyTierNFractals().Select(e => new BoxModel($"{e.Encounter.id}", $"{e.Encounter.name}\n\n{Strings.Strike_Tooltip_tomorrow}\n{e.TomorrowEncounter.Label}", e.Encounter.shortName));
     }
 
     public static IEnumerable<BoxModel> GetCMFractals()
     {
         var today = DayOfYearIndexService.DayOfYearIndex();
-        var CMs = new List<(Encounters.Fractal fractal, int scale)> {
-                (Encounters.Fractal.NightmareFractal,97),
-                (Encounters.Fractal.ShatteredObservatoryFractal,98),
-                (Encounters.Fractal.SunquaPeakFractal,99),
-                (Encounters.Fractal.SilentSurfFractal,100)
-        };
-        return CMs.Select( e => new BoxModel(e.fractal.GetApiLabel(), GetCMTooltip(e.fractal, e.scale,today), e.fractal.GetLabelShort()));
+        var CMs = new List<(FractalMap fractal, int scale)> {};
+        foreach(var scale in Service.FractalMapData.ChallengeMotes)
+        {
+            CMs.Add((Service.FractalMapData.GetFractalForScale(scale), scale));
+        }
+
+        return CMs.Select( e => new BoxModel(e.fractal.ApiLabel, GetCMTooltip(e.fractal, e.scale,today), e.fractal.ShortLabel));
     }
 
-    private static string GetCMTooltip(Encounters.Fractal fractal, int scale, int today)
+    private static string GetCMTooltip(FractalMap fractal, int scale, int today)
     {
         var instab = String.Join("\n\t",Service.InstabilitiesData.GetInstabsForLevelOnDay(scale, today).ToArray());
         var tomInstab = String.Join("\n\t",Service.InstabilitiesData.GetInstabsForLevelOnDay(scale, (today + 1) % 366).ToArray());
-        return $"{fractal.GetLabel()}\n\nInstabilities\n\t{instab}\n\nTomorrow's Instabilities\n\t{tomInstab}";
+        return $"{fractal.Label}\n\nInstabilities\n\t{instab}\n\nTomorrow's Instabilities\n\t{tomInstab}";
     }
 
     public static IEnumerable<BoxModel> GetTomorrowTierN()
     {
-        return GetTomorrowTierNFractals().Select(e => new BoxModel($"{e.GetApiLabel()}", $"{e.GetLabel()}", e.GetLabelShort()));
+        return GetTomorrowTierNFractals().Select(e => new BoxModel($"{e.ApiLabel}", $"{e.Label}", e.ShortLabel));
     }
 
     public static IEnumerable<FractalInfo> GetDailyTierNFractals()
@@ -72,7 +72,7 @@ public static class DailyTierNFractalService
 
     }
 
-    public static IEnumerable<Encounters.Fractal> GetTomorrowTierNFractals()
+    public static IEnumerable<FractalMap> GetTomorrowTierNFractals()
     {
 
         var dayIndex = DayOfYearIndexService.DayOfYearIndex();
@@ -82,7 +82,7 @@ public static class DailyTierNFractalService
         
         var tomorrowsScales = DailyRecsRotation(tomorrow);
 
-        var resultList = new List<Encounters.Fractal>();
+        var resultList = new List<FractalMap>();
         for (var i = 0; i < tomorrowsScales.Count(); i++)
         {
             resultList.Add(tomorrowsScales[i]);
@@ -92,45 +92,22 @@ public static class DailyTierNFractalService
 
     }
 
-    public static List<Encounters.Fractal> DailyRecsRotation(int index)
+    public static List<FractalMap> DailyRecsRotation(int index)
     {
-        //https://wiki.guildwars2.com/index.php?title=Template:Daily_Fractal_Schedule&action=edit
-        switch (index) //Daily rotation index
+        List<FractalMap> _list = new();
+        if(Service.FractalMapData.DailyTier.Count < index)
         {
-            case 0:
-                return new List<Encounters.Fractal> { Encounters.Fractal.NightmareFractal, Encounters.Fractal.SnowblindFractal, Encounters.Fractal.VolcanicFractal };
-            case 1:
-                return new List<Encounters.Fractal> { Encounters.Fractal.AetherbladeFractal, Encounters.Fractal.UncategorizedFractal, Encounters.Fractal.ThaumanovaReactorFractal };
-            case 2:
-                return new List<Encounters.Fractal> { Encounters.Fractal.TwilightOasisFractal, Encounters.Fractal.CliffsideFractal, Encounters.Fractal.ChaosFractal };
-            case 3:
-                return new List<Encounters.Fractal> { Encounters.Fractal.DeepstoneFractal, Encounters.Fractal.CaptainMaiTrinBossFractal, Encounters.Fractal.SilentSurfFractal };
-            case 4:
-                return new List<Encounters.Fractal> { Encounters.Fractal.SnowblindFractal, Encounters.Fractal.SolidOceanFractal, Encounters.Fractal.NightmareFractal };
-            case 5:
-                return new List<Encounters.Fractal> { Encounters.Fractal.ChaosFractal, Encounters.Fractal.UncategorizedFractal, Encounters.Fractal.UrbanBattlegroundFractal };
-            case 6:
-                return new List<Encounters.Fractal> { Encounters.Fractal.SirensReefFractal, Encounters.Fractal.MoltenFurnaceFractal, Encounters.Fractal.DeepstoneFractal };
-            case 7:
-                return new List<Encounters.Fractal> { Encounters.Fractal.MoltenBossFractal, Encounters.Fractal.TwilightOasisFractal, Encounters.Fractal.UndergroundFacilityFractal };
-            case 8:
-                return new List<Encounters.Fractal> { Encounters.Fractal.VolcanicFractal, Encounters.Fractal.SwamplandFractal, Encounters.Fractal.SilentSurfFractal };
-            case 9:
-                return new List<Encounters.Fractal> { Encounters.Fractal.SnowblindFractal, Encounters.Fractal.ThaumanovaReactorFractal, Encounters.Fractal.AquaticRuinsFractal };
-            case 10:
-                return new List<Encounters.Fractal> { Encounters.Fractal.UndergroundFacilityFractal, Encounters.Fractal.UrbanBattlegroundFractal, Encounters.Fractal.SunquaPeakFractal };
-            case 11:
-                return new List<Encounters.Fractal> { Encounters.Fractal.AetherbladeFractal, Encounters.Fractal.ChaosFractal, Encounters.Fractal.NightmareFractal };
-            case 12:
-                return new List<Encounters.Fractal> { Encounters.Fractal.CliffsideFractal, Encounters.Fractal.MoltenBossFractal, Encounters.Fractal.SirensReefFractal };
-            case 13:
-                return new List<Encounters.Fractal> { Encounters.Fractal.SwamplandFractal, Encounters.Fractal.SolidOceanFractal, Encounters.Fractal.DeepstoneFractal };
-            case 14:
-                return new List<Encounters.Fractal> { Encounters.Fractal.CaptainMaiTrinBossFractal, Encounters.Fractal.ShatteredObservatoryFractal, Encounters.Fractal.MoltenBossFractal };
-
-
-            default: return new List<Encounters.Fractal> { Encounters.Fractal.NightmareFractal };
+            return _list;
         }
+
+        var dayList = Service.FractalMapData.DailyTier[index];
+        foreach(var fractalName in dayList)
+        {
+            _list.Add(Service.FractalMapData.GetFractalByName(fractalName));
+        }
+        return _list;
+
+        //https://wiki.guildwars2.com/index.php?title=Template:Daily_Fractal_Schedule&action=edit
     }
 
 

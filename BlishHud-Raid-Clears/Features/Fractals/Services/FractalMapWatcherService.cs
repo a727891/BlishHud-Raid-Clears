@@ -16,7 +16,7 @@ public class FractalMapWatcherService: IDisposable
     protected bool _isOnFractalMap = false;
     //protected bool _enteredCombat = false;
     //protected bool _leftCombat = false;
-    protected Encounters.Fractal? _fractal = null;
+    protected FractalMap? _fractal = null;
     protected string _fractalApiName = string.Empty;
     protected string _fractalName = string.Empty;
 
@@ -30,8 +30,8 @@ public class FractalMapWatcherService: IDisposable
 #if DEBUG
         Task.Delay(800).ContinueWith(_ =>
         {
-            CurrentMap_MapChanged(this, new ValueEventArgs<int>((int)MapIds.FractalMaps.AetherbladeFractal));
-            CurrentMap_MapChanged(this, new ValueEventArgs<int>((int)-1));
+            //CurrentMap_MapChanged(this, new ValueEventArgs<int>((int)MapIds.FractalMaps.AetherbladeFractal));
+            //CurrentMap_MapChanged(this, new ValueEventArgs<int>((int)-1));
 
         });
 #endif
@@ -39,7 +39,7 @@ public class FractalMapWatcherService: IDisposable
  
     public void DispatchCurrentClears()
     {
-        Dictionary<Encounters.Fractal, DateTime> clears = new();
+        Dictionary<string, DateTime> clears = new();
 
         if (!Service.FractalPersistance.AccountClears.TryGetValue(Service.CurrentAccountName, out clears))
         {
@@ -48,25 +48,24 @@ public class FractalMapWatcherService: IDisposable
 
         List<string> clearedStrikesThisReset = new();
 
-        foreach (KeyValuePair<Encounters.Fractal, DateTime> entry in clears)
+        foreach (KeyValuePair<string, DateTime> entry in clears)
         {
             if(entry.Value >= Service.ResetWatcher.LastDailyReset)
             {     
-                clearedStrikesThisReset.Add(entry.Key.GetApiLabel());
+                clearedStrikesThisReset.Add(entry.Key);
             }
         }
 
         CompletedFractal?.Invoke(this, clearedStrikesThisReset);
 
     }
-
-    public void MarkCompleted(Encounters.Fractal fractal)
+    public void MarkCompleted(FractalMap fractal)
     {
         Service.FractalPersistance.SaveClear(Service.CurrentAccountName, fractal);
         DispatchCurrentClears();
     }
 
-    public void MarkNotCompleted(Encounters.Fractal fractal)
+    public void MarkNotCompleted(FractalMap fractal)
     {
         Service.FractalPersistance.RemoveClear(Service.CurrentAccountName, fractal);
         DispatchCurrentClears();
@@ -82,13 +81,14 @@ public class FractalMapWatcherService: IDisposable
 
     private async void CurrentMap_MapChanged(object sender, ValueEventArgs<int> e)
     {
-        if (Enum.IsDefined(typeof(MapIds.FractalMaps), e.Value))
+        FractalMap? _fractalMap = Service.FractalMapData.GetFractalMapById(e.Value);
+        if (_fractalMap is not null)
         {
             Reset();
             _isOnFractalMap= true;
-            _fractalApiName = ((MapIds.FractalMaps)e.Value).GetApiLabel();
-            _fractalName = ((MapIds.FractalMaps)e.Value).GetLabel();
-            _fractal = ((MapIds.FractalMaps)e.Value).GetFractal();
+            _fractalApiName = _fractalMap.ApiLabel;
+            _fractalName = _fractalMap.Label;
+            _fractal = _fractalMap;
         }
         else
         {
@@ -101,7 +101,7 @@ public class FractalMapWatcherService: IDisposable
                             FractalComplete?.Invoke(this, _fractalApiName);
                             if (_fractal != null)
                             {
-                                MarkCompleted((Encounters.Fractal) _fractal);
+                                MarkCompleted(_fractal);
                             }
                         break;
                     case Settings.Enums.StrikeComplete.POPUP:
@@ -123,7 +123,7 @@ public class FractalMapWatcherService: IDisposable
                                 FractalComplete?.Invoke(this, _fractalApiName);
                                 if (_fractal != null)
                                 {
-                                    MarkCompleted((Encounters.Fractal)_fractal);
+                                    MarkCompleted(_fractal);
                                 }
                         }
 

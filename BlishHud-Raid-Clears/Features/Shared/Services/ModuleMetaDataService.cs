@@ -1,45 +1,25 @@
 ﻿using Newtonsoft.Json;
-using RaidClears.Features.Shared.Enums;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace RaidClears.Features.Fractals.Services;
+namespace RaidClears.Shared.Services;
 
 
 [Serializable]
-public class InstabilitiesData
+public class ModuleMetaDataService
 {
     [JsonIgnore]
-    public static string FILENAME = "instabilities.json";
+    public static string FILENAME = "clears_tracker.json";
     [JsonIgnore]
-    public static string FILE_URL = "https://bhm.blishhud.com/Soeed.RaidClears/static/fractal_instabilities.json";
+    public static string FILE_URL = "https://bhm.blishhud.com/Soeed.RaidClears/static/clears_tracker.json";
 
-    [JsonProperty("instabilities")]
-    public Dictionary<string, int[][]> Instabilities { get; set; } = new Dictionary<string, int[][]>();
+    [JsonProperty("fracal_instabilities")]
+    public string Instabilities { get; set; } = null;
 
-    [JsonProperty("instability_names")]
-    public string[] Names { get; set; } = new string[] { };
+    [JsonProperty("fractal_map_data")]
+    public string MapData { get; set; } = null;
 
-
-    public List<string> GetInstabsForLevelOnDay(int level, int day)
-    {
-        List<string> instabs = new List<string>();
-        Instabilities.TryGetValue(level.ToString(), out int[][] value);
-        if( value?.Length >= day )
-        {
-            int[] list = value[day];
-            foreach(int i in list)
-            {
-                if(Names.Length >= i)
-                {
-                    instabs.Add(Names[i]);
-                }
-            }
-        }
-        
-        return instabs;
-    }
 
 
     private static FileInfo GetConfigFileInfo()
@@ -65,7 +45,7 @@ public class InstabilitiesData
 
     }
 
-    public static InstabilitiesData Load()
+    public static ModuleMetaDataService Load()
     {
         if (GetConfigFileInfo() is { Exists: true, LastWriteTime: var lastWriteTime } configFileInfo && (DateTime.Now - lastWriteTime).TotalDays < 1)
         {
@@ -81,19 +61,19 @@ public class InstabilitiesData
         }
     }
 
-    private static InstabilitiesData LoadFileFromCache(string fileText)
+    private static ModuleMetaDataService LoadFileFromCache(string fileText)
     {
-        var loadedCharacterConfiguration = JsonConvert.DeserializeObject<InstabilitiesData>(fileText);
+        var loadedCharacterConfiguration = JsonConvert.DeserializeObject<ModuleMetaDataService>(fileText);
 
         if (loadedCharacterConfiguration == null)
         {
-            loadedCharacterConfiguration = new InstabilitiesData();
+            loadedCharacterConfiguration = new ModuleMetaDataService();
         }
 
         return loadedCharacterConfiguration;
     }
 
-    private static InstabilitiesData DownloadFile()
+    private static ModuleMetaDataService DownloadFile()
     {
         try
         {
@@ -101,11 +81,11 @@ public class InstabilitiesData
             {
                 var json = webClient.DownloadString(FILE_URL);
 
-                InstabilitiesData? instabs = JsonConvert.DeserializeObject<InstabilitiesData>(json);
+                ModuleMetaDataService? instabs = JsonConvert.DeserializeObject<ModuleMetaDataService>(json);
 
                 if (instabs == null)
                 {
-                    return new InstabilitiesData();
+                    return new ModuleMetaDataService();
                 }
                 instabs.Save();
                 return instabs;
@@ -113,7 +93,7 @@ public class InstabilitiesData
         }
         catch (Exception r)
         {
-            return new InstabilitiesData();
+            return new ModuleMetaDataService();
         }
     }
 }

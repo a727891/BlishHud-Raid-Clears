@@ -1,4 +1,5 @@
-﻿using RaidClears.Features.Shared.Enums.Extensions;
+﻿using RaidClears.Features.Fractals.Services;
+using RaidClears.Features.Shared.Enums.Extensions;
 using RaidClears.Features.Shared.Models;
 using static RaidClears.Features.Shared.Enums.Encounters;
 
@@ -14,7 +15,8 @@ public class Encounter : BoxModel
     {
     }
 
-    public Encounter(Fractal fractal) : base(fractal.GetApiLabel(), fractal.GetLabel(), fractal.GetLabelShort())
+    public Encounter(FractalMap fractal) : base(fractal.ApiLabel, fractal.Label, fractal.ShortLabel)
     {
     }
+
 }
