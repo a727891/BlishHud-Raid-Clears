@@ -47,6 +47,7 @@ public class Module : Blish_HUD.Modules.Module
 
     protected override Task LoadAsync()
     {
+        Service.FractalMapData = FractalMapData.Load();
         Service.InstabilitiesData = InstabilitiesData.Load();
         Service.StrikePersistance = StrikePersistance.Load();
         Service.FractalPersistance = FractalPersistance.Load();
@@ -90,7 +91,7 @@ public class Module : Blish_HUD.Modules.Module
         Service.CornerIcon.IconLeftClicked += CornerIcon_IconLeftClicked;
 
         Service.Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
-
+        DispatchClears();
 
         return Task.CompletedTask;
 
@@ -100,6 +101,17 @@ public class Module : Blish_HUD.Modules.Module
         };*/
 
 
+    }
+
+    private void DispatchClears()
+    {
+        Task.Run(async () =>
+        {
+            Service.CurrentAccountName = await AccountNameService.UpdateAccountName();
+            Service.MapWatcher.DispatchCurrentStrikeClears();
+            Service.FractalMapWatcher.DispatchCurrentClears();
+            Service.CornerIcon?.UpdateAccountName(Service.CurrentAccountName);
+        });
     }
 
     private void TEMP_FIX_SetTacOAsActive()
@@ -156,13 +168,7 @@ public class Module : Blish_HUD.Modules.Module
 
     private void Gw2ApiManager_SubtokenUpdated(object sender, ValueEventArgs<IEnumerable<TokenPermission>> e)
     {
-        Task.Run(async () =>
-        {
-            Service.CurrentAccountName = await AccountNameService.UpdateAccountName();
-            Service.MapWatcher.DispatchCurrentStrikeClears();
-            Service.FractalMapWatcher.DispatchCurrentClears();
-            Service.CornerIcon?.UpdateAccountName(Service.CurrentAccountName);
-        });
+        DispatchClears();
         Service.ApiPollingService?.Invoke();
     } 
 }

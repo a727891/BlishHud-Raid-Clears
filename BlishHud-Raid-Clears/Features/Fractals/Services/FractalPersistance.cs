@@ -2,6 +2,7 @@
 using RaidClears.Features.Shared.Enums;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
 using System.IO;
 
 namespace RaidClears.Features.Fractals.Services;
@@ -14,64 +15,56 @@ public class FractalPersistance
     public static string FILENAME = "fractal_clears.json";
 
     [JsonProperty("version")]
-    public string Version { get; set; } = "2.2.0";
+    public string Version { get; set; } = "3.0.0";
 
     [JsonProperty("accountClears")]
-    public Dictionary<string, Dictionary<Encounters.Fractal, DateTime>> AccountClears { get; set; } = new();
+    public Dictionary<string, Dictionary<string, DateTime>> AccountClears { get; set; } = new();
 
-    public Dictionary<Encounters.Fractal, DateTime> GetEmpty() => new Dictionary<Encounters.Fractal, DateTime>
+    public Dictionary<string, DateTime> GetEmpty() {
+        var empty = new Dictionary<string, DateTime>
                 {
                     //{ Encounters.Fractal.MistlockObservatory, new() },
-                    { Encounters.Fractal.AetherbladeFractal, new() },
-                    { Encounters.Fractal.AquaticRuinsFractal, new() },
-                    { Encounters.Fractal.CaptainMaiTrinBossFractal, new() },
-                    { Encounters.Fractal.ChaosFractal, new() },
-                    { Encounters.Fractal.CliffsideFractal, new() },
-                    { Encounters.Fractal.DeepstoneFractal, new() },
-                    { Encounters.Fractal.MoltenBossFractal, new() },
-                    { Encounters.Fractal.MoltenFurnaceFractal, new() },
-                    { Encounters.Fractal.NightmareFractal, new() },
-                    { Encounters.Fractal.ShatteredObservatoryFractal, new() },
-                    { Encounters.Fractal.SirensReefFractal, new() },
-                    { Encounters.Fractal.SilentSurfFractal, new() },
-                    { Encounters.Fractal.SnowblindFractal, new() },
-                    { Encounters.Fractal.SunquaPeakFractal, new() },
-                    { Encounters.Fractal.SolidOceanFractal, new() },
-                    { Encounters.Fractal.SwamplandFractal, new() },
-                    { Encounters.Fractal.ThaumanovaReactorFractal, new() },
-                    { Encounters.Fractal.TwilightOasisFractal, new() },
-                    { Encounters.Fractal.UncategorizedFractal, new() },
-                    { Encounters.Fractal.UndergroundFacilityFractal, new() },
-                    { Encounters.Fractal.UrbanBattlegroundFractal, new() },
-                    { Encounters.Fractal.VolcanicFractal, new() }
                 };
-
-    public void SaveClear(string account, Encounters.Fractal mission)
+        foreach(var fractal in Service.FractalMapData.Maps)
+        {
+            empty.Add(fractal.Value.ApiLabel, new());
+        }
+        return empty;
+    }
+    public void SaveClear(string account, FractalMap mission)
     {
-        Dictionary<Encounters.Fractal, DateTime> clears;
+        Dictionary<string, DateTime> clears;
         if (!AccountClears.TryGetValue(account, out clears))
         {
             clears = GetEmpty();
             AccountClears.Add(account, clears);
             // the key isn't in the dictionary.
         }
-
-        clears[mission] = DateTime.UtcNow;
-        AccountClears[account]= clears;
+        if(!clears.ContainsKey(mission.ApiLabel))
+        {
+            clears.Add(mission.ApiLabel, new());
+        }
+        clears[mission.ApiLabel] = DateTime.UtcNow;
+        AccountClears[account] = clears;
         Save();
 
     }
-    public void RemoveClear(string account, Encounters.Fractal mission)
+
+    public void RemoveClear(string account, FractalMap mission)
     {
-        Dictionary<Encounters.Fractal, DateTime> clears;
+        Dictionary<string, DateTime> clears;
         if (!AccountClears.TryGetValue(account, out clears))
         {
             clears = GetEmpty();
             AccountClears.Add(account, clears);
             // the key isn't in the dictionary.
         }
+        if (!clears.ContainsKey(mission.ApiLabel))
+        {
+            clears.Add(mission.ApiLabel, new());
+        }
 
-        clears[mission] = new DateTime();
+        clears[mission.ApiLabel] = new DateTime();
         AccountClears[account] = clears;
         Save();
     }
@@ -124,7 +117,38 @@ public class FractalPersistance
             loadedCharacterConfiguration = new FractalPersistance();
         }
 
-        return loadedCharacterConfiguration;
+        return HandleVersionUpgrade(loadedCharacterConfiguration);
+    }
+
+    private static FractalPersistance HandleVersionUpgrade(FractalPersistance data)
+    {
+        if (data.Version == "2.0.0" || data.Version=="2.2.0")
+        {
+            FractalPersistance newSaveFile = new FractalPersistance();
+            //Rename keys to remove "fractal"
+            foreach(var account in data.AccountClears)
+            {
+                Dictionary<string,DateTime> acctClears = new Dictionary<string,DateTime>();
+                foreach(var line in account.Value)
+                {
+                    var frac = Service.FractalMapData.GetFractalByName(line.Key.Replace("Fractal",""));
+                    if(frac.ApiLabel != "undefined")
+                        acctClears.Add(frac.ApiLabel, line.Value);
+                }
+                newSaveFile.AccountClears.Add(account.Key, acctClears);
+            }
+            newSaveFile.Save();
+            return newSaveFile;
+        }
+        else if(data.Version == "3.0.0")
+        {
+            return data;
+        }
+        else
+        {
+            return new FractalPersistance();
+        }
+
     }
 
     private static FractalPersistance CreateNewCharacterConfiguration()

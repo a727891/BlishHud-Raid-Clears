@@ -1,6 +1,7 @@
 ﻿using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using Microsoft.Xna.Framework;
+using RaidClears.Features.Fractals.Services;
 using RaidClears.Features.Shared.Enums;
 using RaidClears.Features.Shared.Enums.Extensions;
 using RaidClears.Localization;
@@ -26,7 +27,7 @@ public class FractalClearCorrectionView : View
         var panel = new FlowPanel()
             .BeginFlow(buildPanel);
 
-        Dictionary<Encounters.Fractal, DateTime> clears = new();
+        Dictionary<string, DateTime> clears = new();
 
         if (!Service.FractalPersistance.AccountClears.TryGetValue(Service.CurrentAccountName, out clears))
         {
@@ -34,15 +35,15 @@ public class FractalClearCorrectionView : View
         }
 
 
-        foreach (KeyValuePair<Encounters.Fractal, DateTime> entry in clears.OrderBy(p => p.Key))
+        foreach (KeyValuePair<string, DateTime> entry in clears.OrderBy(p => p.Key))
         {
 
             //panel.AddString(entry.Key.GetLabel() + ": " + entry.Value.ToString());
-            panel.AddEncounterClearStatus(entry.Key, entry.Value);
+            panel.AddEncounterClearStatus(Service.FractalMapData.GetFractalByApiName(entry.Key), entry.Value);
 
 
         }
-        panel.AddString("Last Fractal Clears");
+        panel.AddString($"Last Fractal Clears (Profile: {Service.CurrentAccountName})");
 
     }
 }

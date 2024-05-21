@@ -7,18 +7,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RaidClears.Features.Fractals.Services;
 
 namespace RaidClears.Settings.Controls;
 
 public  class EncounterClearStatus : Panel
 {
     private bool IsFractal = false;
-    private Encounters.Fractal fractal;
+    private FractalMap fractal;
     private Encounters.StrikeMission mission;
 
     private Label title = new Label();
     private Label clearDate = new Label();
-    public EncounterClearStatus(FlowPanel parent, Encounters.Fractal encounter, DateTime lastClear) : base()
+    public EncounterClearStatus(FlowPanel parent, FractalMap encounter, DateTime lastClear) : base()
     {
 
         IsFractal = true;
@@ -27,7 +28,7 @@ public  class EncounterClearStatus : Panel
         Parent = parent;
         Width = parent.Width;
 
-        Build(encounter.GetLabel(), lastClear);
+        Build(encounter.Label, lastClear);
     }
     public EncounterClearStatus(FlowPanel parent, Encounters.StrikeMission encounter, DateTime lastClear) : base()
     {

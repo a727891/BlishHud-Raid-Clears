@@ -159,31 +159,5 @@ public static class Encounters
             new Path("seer","seer", "E4"),*/
     }
 
-    public enum Fractal
-    {
-        //MistlockObservatory,
-        AetherbladeFractal,
-        AquaticRuinsFractal,
-        CaptainMaiTrinBossFractal,
-        ChaosFractal,
-        CliffsideFractal,
-        DeepstoneFractal,
-        MoltenBossFractal,
-        MoltenFurnaceFractal,
-        NightmareFractal,
-        ShatteredObservatoryFractal,
-        SirensReefFractal,
-        SilentSurfFractal,
-        SnowblindFractal,
-        SunquaPeakFractal,
-        SolidOceanFractal,
-        SwamplandFractal,
-        ThaumanovaReactorFractal,
-        TwilightOasisFractal,
-        UncategorizedFractal,
-        UndergroundFacilityFractal,
-        UrbanBattlegroundFractal,
-        VolcanicFractal
-    }
 }
 

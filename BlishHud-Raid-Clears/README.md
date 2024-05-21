@@ -19,6 +19,10 @@ Key Features
 
 
 ## Change Log
+### 2.6.0 (2024-05-21)
+* Updated for Soto fractal
+* Instabilities are loaded from bhud-static
+### 2.5.0 
 ### 2.4.0 (2024-01-11)
 * Added Fractal CM with Instabilities
  
