@@ -6,7 +6,6 @@ using RaidClears.Settings.Enums;
 using RaidClears.Settings.Models;
 using Microsoft.Xna.Framework;
 using System.Runtime.Serialization.Formatters;
-
 namespace RaidClears.Settings.Services;
 
 public class SettingService // singular because Setting"s"Service already exists in Blish
@@ -14,6 +13,7 @@ public class SettingService // singular because Setting"s"Service already exists
     public SettingEntry<ApiPollPeriod> ApiPollingPeriod { get; }
     public SettingEntry<KeyBinding> SettingsPanelKeyBind { get; }
     public SettingEntry<bool> GlobalCornerIconEnabled { get; }
+    public SettingEntry<bool> ScreenClamp { get; }
 
     public SettingEntry<int> CornerIconPriority { get; }
     public RaidSettings RaidSettings { get; }
@@ -44,6 +44,12 @@ public class SettingService // singular because Setting"s"Service already exists
             true,
             () => Strings.Setting_CornerIconEnable,
             () => Strings.Setting_CornerIconEnableTooltip);
+
+        ScreenClamp = settings.DefineSetting("RCScreenClamp",
+            true,
+            () => "Keep overlay windows on screen",
+            () => "When turned on, this will make sure that all overlay windows stay within the visible area of your screen, so they don't go off the edges"
+            );
 
         RaidSettings = new RaidSettings(settings);
         DungeonSettings = new DungeonSettings(settings);

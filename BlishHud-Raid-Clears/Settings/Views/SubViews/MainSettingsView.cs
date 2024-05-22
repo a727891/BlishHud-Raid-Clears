@@ -31,6 +31,7 @@ public class MainSettingsView : View
                 Text = Strings.Settings_RefreshNow,
             }, out var refreshButton)
             .AddSpace()
+            .AddSetting(Service.Settings.ScreenClamp)
             .AddSpace()
             .AddSetting(Service.Settings.GlobalCornerIconEnabled);
 

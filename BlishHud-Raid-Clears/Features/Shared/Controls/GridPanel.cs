@@ -1,6 +1,7 @@
 ﻿using Blish_HUD;
 using Blish_HUD.Controls;
 using Blish_HUD.Input;
+using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using RaidClears.Features.Shared.Services;
@@ -13,6 +14,7 @@ public class GridPanel : FlowPanel
     private static Vector2 DefaultPadding = new(2, 2);
 
     private readonly GenericSettings _settings;
+    private readonly SettingEntry<bool> _screenClamp;
 
     private CornerIconService? _cornerIconService;
     private KeyBindHandlerService? _keyBindService;
@@ -29,6 +31,7 @@ public class GridPanel : FlowPanel
     protected GridPanel(GenericSettings settings, Container parent)
     {
         _settings = settings;
+        _screenClamp = Service.Settings.ScreenClamp;
 
         ControlPadding = DefaultPadding;
         IgnoreMouseInput = ShouldIgnoreMouse();
@@ -42,6 +45,14 @@ public class GridPanel : FlowPanel
         _settings.Location.SettingChanged += (_, e) => Location = e.NewValue;
         _settings.PositionLock.SettingChanged += (_, _) => IgnoreMouseInput = ShouldIgnoreMouse();
         _settings.Tooltips.SettingChanged += (_, _) => IgnoreMouseInput = ShouldIgnoreMouse();
+
+        _screenClamp.SettingChanged += (_, e) =>
+        {
+            if (e.NewValue)
+            {
+                ClampToSpriteScreen();
+            }
+        };
     }
 
     protected override void DisposeControl()
@@ -77,9 +88,37 @@ public class GridPanel : FlowPanel
             if (_settings.PositionLock.Value)
             {
                 _isDraggedByMouse = false;
-                _settings.Location.Value = Location;
+                ClampToSpriteScreen();
+                
             }
         };
+    }
+
+    private void ClampToSpriteScreen()
+    {
+        if (_screenClamp.Value)
+        {
+            Point screenSize = GameService.Graphics.SpriteScreen.Size;
+            if(Location.X < 0)
+            {
+                Location = new Point(0, Location.Y);
+            }
+            if ((Location.X+Size.X) > screenSize.X)
+            {
+                Location = new Point(screenSize.X - Size.X, Location.Y);
+            }
+
+            if (Location.Y < 0)
+            {
+                Location = new Point(Location.X, 0);
+            }
+            if ((Location.Y+Size.Y) > screenSize.Y)
+            {
+                Location = new Point(Location.X, screenSize.Y - Size.Y);
+            }
+        }
+
+        _settings.Location.Value = Location;
     }
 
     private bool ShouldIgnoreMouse() => !(_settings.PositionLock.Value || _settings.Tooltips.Value);
