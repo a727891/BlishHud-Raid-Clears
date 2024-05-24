@@ -1,0 +1,116 @@
+{
+	"version":"2024-05-22T20:50:00-0500",
+	"expansions": [
+		{
+			"id":"ibs",
+			"name": "Ice Brood Saga",
+			"abbriviation":"IBS",
+			"asset":"/static/assets/ibs_strikes_texture.png",
+			"daily_priority_modulo":6,
+			"missions":[
+				{
+					"id":"cold_war",
+					"name":"Cold War",
+					"abbriviation":"CW",
+					"mapIds":[1374,1376]
+				},
+				{
+					"id":"fraenir_of_jormag",
+					"name":"Fraenir of Jormag",
+					"abbriviation":"FoJ",
+					"mapIds":[1341,1344]
+				},
+				{
+					"id":"shiverpeak_pass",
+					"name":"Shiverpeaks Pass",
+					"abbriviation":"SH",
+					"mapIds":[1331,1332]
+				},
+				{
+					"id":"voice_and_claw",
+					"name":"Voice and Claw of the Fallen",
+					"abbriviation":"V&C",
+					"mapIds":[1346,1340]
+				},
+				{
+					"id":"whisper_of_jormag",
+					"name":"Whisper of Jormag",
+					"abbriviation":"WoJ",
+					"mapIds":[1359,1357]
+				},
+				{
+					"id":"boneskinner",
+					"name":"Boneskinner",
+					"abbriviation":"Bs",
+					"mapIds":[1339,1351]
+				},
+				{
+					"id":"dragonstorm",
+					"name":"Dragonstorm",
+					"abbriviation":"DS",
+					"mapIds":[1409,1411]
+				}
+			]
+		},
+		{
+			"id":"eod",
+			"name": "End of Dragons",
+			"abbriviation":"EoD",
+			"asset":"/static/assets/eod_strikes_texture.png",
+			"daily_priority_modulo":5,
+			"missions":[
+				{
+					"id":"aetherblade_hideout",
+					"name":"Aetherblade Hideout",
+					"abbriviation":"AH",
+					"mapIds":[1432]
+				},
+				{
+					"id":"xunlai_jade_junkyard",
+					"name":"Xunlai Jade Junkyard",
+					"abbriviation":"XJJ",
+					"mapIds":[1450]
+				},
+				{
+					"id":"kaineng_overlook",
+					"name":"Kaineng Overlook",
+					"abbriviation":"KO",
+					"mapIds":[1451]
+				},
+				{
+					"id":"harvest_temple",
+					"name":"Harvest Temple",
+					"abbriviation":"HT",
+					"mapIds":[1437]
+				},
+				{
+					"id":"old_lion_court",
+					"name":"Old Lion's Court",
+					"abbriviation":"OLC",
+					"mapIds":[1485]
+				}
+			]
+		},
+		{
+			"id":"soto",
+			"name": "Secrets of the Obscure",
+			"abbriviation":"SotO",
+			"asset":"/static/assets/soto_strikes_texture.png",
+			"daily_priority_modulo":2,
+			"missions":[
+				{
+					"id":"cosmic_observatory",
+					"name":"Cosmic Observatory",
+					"abbriviation":"CO",
+					"mapIds":[1515]
+				},
+				{
+					"id":"temple_of_febe",
+					"name":"Temple of Febe",
+					"abbriviation":"ToF",
+					"mapIds":[1520]
+				}
+			]
+		}
+	]
+}
