@@ -4,7 +4,7 @@
 		"id":"priority",
 		"name": "Priority Strike Missions (Daily)",
 		"abbriviation":"priority",
-		"asset":"/texture_strike_priority.png",
+		"asset":"texture_strike_priority.png",
 		"daily_priority_modulo":0,
 		"missions":[]
 	},
@@ -13,7 +13,7 @@
 			"id":"ibs",
 			"name": "Ice Brood Saga",
 			"abbriviation":"IBS",
-			"asset":"/texture_strike_ibs.png",
+			"asset":"texture_strike_ibs.png",
 			"daily_priority_modulo":6,
 			"missions":[
 				{
@@ -64,7 +64,7 @@
 			"id":"eod",
 			"name": "End of Dragons",
 			"abbriviation":"EoD",
-			"asset":"/texture_strike_eod.png",
+			"asset":"texture_strike_eod.png",
 			"daily_priority_modulo":5,
 			"missions":[
 				{
@@ -103,7 +103,7 @@
 			"id":"soto",
 			"name": "Secrets of the Obscure",
 			"abbriviation":"SotO",
-			"asset":"/texture_strike_soto.png",
+			"asset":"texture_strike_soto.png",
 			"daily_priority_modulo":2,
 			"missions":[
 				{
