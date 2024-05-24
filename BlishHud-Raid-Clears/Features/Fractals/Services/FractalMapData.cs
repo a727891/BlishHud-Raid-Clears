@@ -138,7 +138,7 @@ public class FractalMapData
 
     public static FractalMapData Load()
     {
-        if (GetConfigFileInfo() is { Exists: true, LastWriteTime: var lastWriteTime } configFileInfo && (DateTime.Now - lastWriteTime).TotalHours < 1)
+        if (GetConfigFileInfo() is { Exists: true } configFileInfo)
         {
             using var reader = new StreamReader(configFileInfo.FullName);
             var fileText = reader.ReadToEnd();
@@ -164,7 +164,7 @@ public class FractalMapData
         return loadedCharacterConfiguration;
     }
 
-    private static FractalMapData DownloadFile()
+    public static FractalMapData DownloadFile()
     {
         try
         {

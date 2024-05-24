@@ -27,6 +27,15 @@ public class DownloadTextureService : IDisposable
         return asyncTex;
     }
 
+    public bool ValidateTextureCache(string fileName)
+    {
+        if (GetFileInfo(fileName) is { Exists: false } configFileInfo)
+        {
+            return DownloadFile(Module.STATIC_HOST_URL, fileName);
+        }
+        return true;
+        
+    }
 
     protected Texture2D LoadTexture(string fileName, Texture2D fallbackTexture)
     {

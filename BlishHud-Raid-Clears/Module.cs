@@ -17,6 +17,8 @@ using RaidClears.Features.Shared.Models;
 using RaidClears.Features.Fractals.Services;
 using Blish_HUD.Modules.Managers;
 using Blish_HUD.GameIntegration;
+using RaidClears.Shared.Services;
+
 namespace RaidClears;
 
 
@@ -48,6 +50,8 @@ public class Module : Blish_HUD.Modules.Module
 
     protected override Task LoadAsync()
     {
+        ModuleMetaDataService.CheckVersions();
+
         Service.StrikeData = StrikeData.Load();
         Service.StrikeSettings = StrikeSettingsPersistance.Load();
         Service.FractalMapData = FractalMapData.Load();

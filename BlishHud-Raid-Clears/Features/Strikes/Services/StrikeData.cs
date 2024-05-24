@@ -45,6 +45,9 @@ public class ExpansionStrikes
     [JsonProperty("daily_priority_modulo")]
     public int DailyPriorityModulo = 1;
 
+    [JsonProperty("daily_priority_offset")]
+    public int DailyPriorityOffset =0;
+
     [JsonProperty("missions")]
     public List<StrikeMission> Missions = new();
 
@@ -157,8 +160,8 @@ public class StrikeData
         List<StrikeInfo> list = new ();
         foreach(var expansion in Expansions)
         {
-            var todayIndex = index % expansion.DailyPriorityModulo;
-            var tomorrowIndex = (index+1) % expansion.DailyPriorityModulo;
+            var todayIndex = (index+expansion.DailyPriorityOffset) % expansion.DailyPriorityModulo;
+            var tomorrowIndex = (index+expansion.DailyPriorityOffset+1) % expansion.DailyPriorityModulo;
             if(expansion.Missions.Count() >= todayIndex 
                 && expansion.Missions.Count() >= tomorrowIndex)
             {
@@ -209,7 +212,7 @@ public class StrikeData
 
     public static StrikeData Load()
     {
-        if (GetConfigFileInfo() is { Exists: true, LastWriteTime: var lastWriteTime } configFileInfo && (DateTime.Now - lastWriteTime).TotalHours < 1)
+        if (GetConfigFileInfo() is { Exists: true } configFileInfo)
         {
             using var reader = new StreamReader(configFileInfo.FullName);
             var fileText = reader.ReadToEnd();
@@ -235,7 +238,7 @@ public class StrikeData
         return loadedCharacterConfiguration;
     }
 
-    private static StrikeData DownloadFile()
+    public static StrikeData DownloadFile()
     {
         try
         {

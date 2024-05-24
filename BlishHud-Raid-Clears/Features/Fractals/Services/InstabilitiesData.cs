@@ -67,7 +67,7 @@ public class InstabilitiesData
 
     public static InstabilitiesData Load()
     {
-        if (GetConfigFileInfo() is { Exists: true, LastWriteTime: var lastWriteTime } configFileInfo && (DateTime.Now - lastWriteTime).TotalDays < 1)
+        if (GetConfigFileInfo() is { Exists: true} configFileInfo)
         {
             using var reader = new StreamReader(configFileInfo.FullName);
             var fileText = reader.ReadToEnd();
@@ -93,7 +93,7 @@ public class InstabilitiesData
         return loadedCharacterConfiguration;
     }
 
-    private static InstabilitiesData DownloadFile()
+    public static InstabilitiesData DownloadFile()
     {
         try
         {

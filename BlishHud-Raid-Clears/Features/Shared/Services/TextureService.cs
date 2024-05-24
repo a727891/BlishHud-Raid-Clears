@@ -17,7 +17,7 @@ public class TextureService : IDisposable
         CornerIconTexture = contentsManager.GetTexture(@"raids\textures\raidIconDark.png");
         CornerIconHoverTexture = contentsManager.GetTexture(@"raids\textures\raidIconBright.png");
 
-        SettingWindowBackground = contentsManager.GetTexture(@"controls/window/background.png");
+        SettingWindowBackground = GetDynamicTexture("texture_background.png");
         SettingWindowEmblem = contentsManager.GetTexture(@"module_profile_hero_icon.png");
 
         SettingTabRaid = contentsManager.GetTexture(@"controls/tab_icons/raid.png");
@@ -26,12 +26,9 @@ public class TextureService : IDisposable
         SettingTabStrikes = contentsManager.GetTexture(@"controls/tab_icons/strikes.png");
         SettingTabFractals = contentsManager.GetTexture(@"controls/tab_icons/fotm.png");
 
-        EoDLogo = contentsManager.GetTexture(@"eod_strikes_texture.png");
-        IBSLogo = contentsManager.GetTexture(@"ibs_strikes_texture.png");
-        SotOLogo = contentsManager.GetTexture(@"soto_strikes_texture.png");
-        PoFLogo = contentsManager.GetTexture(@"pof_raids_texture.png");
-        HoTLogo = contentsManager.GetTexture(@"hot_raids_texture.png");
-        BaseLogo = contentsManager.GetTexture(@"base_game_texture.png");
+        PoFLogo = GetDynamicTexture("texture_raids_pof.png");
+        HoTLogo = GetDynamicTexture("texture_raids_hot.png");
+        BaseLogo = GetDynamicTexture("texture_base_logo.png");
 
     }
 
@@ -51,9 +48,6 @@ public class TextureService : IDisposable
         SettingTabGeneral.Dispose();
         SettingTabStrikes.Dispose();
         SettingTabFractals.Dispose();
-        EoDLogo.Dispose();
-        IBSLogo.Dispose();
-        SotOLogo.Dispose();
         PoFLogo.Dispose();
         HoTLogo.Dispose();
         BaseLogo.Dispose();
@@ -62,9 +56,6 @@ public class TextureService : IDisposable
 
     }
     protected DownloadTextureService _downloadTextures { get; set; }
-    public Texture2D EoDLogo { get; }
-    public Texture2D IBSLogo { get; }
-    public Texture2D SotOLogo { get; }
     public Texture2D PoFLogo { get; }
     public Texture2D HoTLogo { get; }
     public Texture2D BaseLogo { get; }
