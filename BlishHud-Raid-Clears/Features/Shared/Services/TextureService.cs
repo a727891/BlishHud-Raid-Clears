@@ -1,21 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Blish_HUD;
+using Blish_HUD.Content;
 using Blish_HUD.Modules.Managers;
 using Microsoft.Xna.Framework.Graphics;
-
 namespace RaidClears.Features.Shared.Services;
 
 public class TextureService : IDisposable
 {
     public TextureService(ContentsManager contentsManager)
     {
+        _downloadTextures = new DownloadTextureService();
+
         CornerIconTexture = contentsManager.GetTexture(@"raids\textures\raidIconDark.png");
         CornerIconHoverTexture = contentsManager.GetTexture(@"raids\textures\raidIconBright.png");
-
-        //DungeonsCornerIconTexture = contentsManager.GetTexture(@"raids\textures\dungeonIconDark.png");
-        //DungeonsCornerIconHoverTexture = contentsManager.GetTexture(@"raids\textures\dungeonIconBright.png");
-
-        //StrikesCornerIconTexture = contentsManager.GetTexture(@"raids\textures\strikes_dark.png");
-       // StrikesCornerIconHoverTexture = contentsManager.GetTexture(@"raids\textures\strikes_bright.png");
 
         SettingWindowBackground = contentsManager.GetTexture(@"controls/window/background.png");
         SettingWindowEmblem = contentsManager.GetTexture(@"module_profile_hero_icon.png");
@@ -35,12 +35,15 @@ public class TextureService : IDisposable
 
     }
 
+    public AsyncTexture2D GetDynamicTexture(string path)
+    {
+        return _downloadTextures.GetDynamicTexture(path);
+    }
+
     public void Dispose()
     {
         CornerIconTexture.Dispose();
         CornerIconHoverTexture.Dispose();
-        //DungeonsCornerIconTexture.Dispose();
-        //DungeonsCornerIconHoverTexture.Dispose();
         SettingWindowBackground.Dispose();
         SettingWindowEmblem.Dispose();
         SettingTabRaid.Dispose();
@@ -55,7 +58,10 @@ public class TextureService : IDisposable
         HoTLogo.Dispose();
         BaseLogo.Dispose();
 
+        _downloadTextures.Dispose();
+
     }
+    protected DownloadTextureService _downloadTextures { get; set; }
     public Texture2D EoDLogo { get; }
     public Texture2D IBSLogo { get; }
     public Texture2D SotOLogo { get; }
@@ -71,9 +77,5 @@ public class TextureService : IDisposable
     public Texture2D SettingTabFractals { get; }
     public Texture2D CornerIconTexture { get; }
     public Texture2D CornerIconHoverTexture { get; }
-   // public Texture2D DungeonsCornerIconTexture { get; }
-   // public Texture2D DungeonsCornerIconHoverTexture { get; }
-    //public Texture2D StrikesCornerIconTexture { get; }
-    //public Texture2D StrikesCornerIconHoverTexture { get; }
 
 }

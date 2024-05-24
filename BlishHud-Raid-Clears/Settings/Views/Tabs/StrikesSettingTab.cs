@@ -31,11 +31,16 @@ public class StrikesSettingTab : ISettingsMenuRegistrar
             new MenuItem(Strings.SettingsPanel_Raids_Heading_Layout),
             _ => new GenericStyleView(Service.Settings.StrikeSettings.Style, null, true)
         ));
-        
-        _registeredMenuItems.Add(new MenuViewItem(
+
+        /*_registeredMenuItems.Add(new MenuViewItem(
             new MenuItem(Strings.SettingsPanel_Strikes_Heading_Selection),
             _ => new StrikeSelectionView(Service.Settings.StrikeSettings)
+        ));*/
+        _registeredMenuItems.Add(new MenuViewItem(
+            new MenuItem(Strings.SettingsPanel_Strikes_Heading_Selection),
+            _ => new DynamicStrikeSelectionView()
         ));
+
         _registeredMenuItems.Add(new MenuViewItem(
             new MenuItem("Manage Clears"),
             _ => new StrikeClearCorrectionView()

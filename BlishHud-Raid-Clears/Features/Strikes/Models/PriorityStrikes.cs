@@ -30,7 +30,7 @@ public class PriorityStrikes : Strike
                 panel,
                 settings.Style.Layout
             );
-        group.VisiblityChanged(settings.StrikeVisiblePriority);
+        group.VisiblityChanged(Service.StrikeData.GetPriorityVisible());
         SetGridGroupReference(group);
 
         var labelBox = new GridBox(

@@ -24,6 +24,8 @@ public static class Service
     public static ApiPollService? ApiPollingService { get; set; }
     public static SettingsPanel SettingsWindow { get; set; } = null!;
 
+    public static StrikeData StrikeData { get; set; } = null!;
+    public static StrikeSettingsPersistance StrikeSettings { get; set; } = null!;
     public static StrikePersistance StrikePersistance { get; set; } = null!;
     public static FractalPersistance FractalPersistance { get; set; } = null!;
     public static InstabilitiesData InstabilitiesData { get; set; } = null!;

@@ -25,22 +25,37 @@ public class StrikeClearCorrectionView : View
 
         var panel = new FlowPanel()
             .BeginFlow(buildPanel);
+        panel.CanScroll= true;
 
-        Dictionary<Encounters.StrikeMission, DateTime> clears = new();
+        Dictionary<string, DateTime> clears = new();
 
         if (!Service.StrikePersistance.AccountClears.TryGetValue(Service.CurrentAccountName, out clears))
         {
             clears = new();
         }
-
-        foreach (KeyValuePair<Encounters.StrikeMission, DateTime> entry in clears.OrderBy(p => p.Key))
+        foreach(var expansion in Service.StrikeData.Expansions.OrderBy(x=>x.Name))
         {
+            panel.AddString(expansion.Name, Color.Gold);
+            foreach(var mission in expansion.Missions.OrderBy(x => x.Name)) {
+                if (clears.ContainsKey(mission.Id))
+                {
+                    panel.AddEncounterClearStatus(
+                        mission,
+                        clears[mission.Id]
+                    );
 
-            panel.AddEncounterClearStatus(entry.Key, entry.Value);
-
-
+                }
+                else
+                {
+                    panel.AddEncounterClearStatus(
+                       mission,
+                       new()
+                    );
+                }
+            }
         }
-        panel.AddString("Last Strike Mission Clears");
+       
+        panel.AddString($"Last Strike Mission Clears (Profile: {Service.CurrentAccountName})");
 
     }
 

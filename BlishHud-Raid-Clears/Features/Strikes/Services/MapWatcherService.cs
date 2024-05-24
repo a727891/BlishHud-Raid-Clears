@@ -1,6 +1,7 @@
 ﻿using Blish_HUD;
 using Gw2Sharp.Mumble;
 using Gw2Sharp.WebApi.V2.Models;
+using RaidClears.Features.Fractals.Services;
 using RaidClears.Features.Shared.Enums;
 using RaidClears.Features.Shared.Enums.Extensions;
 using RaidClears.Localization;
@@ -17,7 +18,7 @@ public class MapWatcherService: IDisposable
     protected bool _isOnStrikeMap = false;
     //protected bool _enteredCombat = false;
     //protected bool _leftCombat = false;
-    protected Encounters.StrikeMission? _strikeMission = null;
+    protected StrikeMission? _strikeMission = null;
     protected string _strikeApiName = string.Empty;
     protected string _strikeName = string.Empty;
 
@@ -31,8 +32,8 @@ public class MapWatcherService: IDisposable
 #if DEBUG
         Task.Delay(800).ContinueWith(_ =>
         {
-            CurrentMap_MapChanged(this, new ValueEventArgs<int>((int)MapIds.StrikeMaps.OldLionsCourt));
-            CurrentMap_MapChanged(this, new ValueEventArgs<int>((int)-1));
+           /* CurrentMap_MapChanged(this, new ValueEventArgs<int>((int)MapIds.StrikeMaps.OldLionsCourt));
+            CurrentMap_MapChanged(this, new ValueEventArgs<int>((int)-1));*/
 
         });
 #endif
@@ -40,7 +41,7 @@ public class MapWatcherService: IDisposable
  
     public void DispatchCurrentStrikeClears()
     {
-        Dictionary<Encounters.StrikeMission, DateTime> clears = new();
+        Dictionary<string, DateTime> clears = new();
 
         if (!Service.StrikePersistance.AccountClears.TryGetValue(Service.CurrentAccountName, out clears))
         {
@@ -49,43 +50,41 @@ public class MapWatcherService: IDisposable
 
         List<string> clearedStrikesThisReset = new();
 
-        foreach (KeyValuePair<Encounters.StrikeMission, DateTime> entry in clears)
+        foreach (KeyValuePair<string, DateTime> entry in clears)
         {
-            if(entry.Key.GetExpansionType()== StrikeMissionType.Ibs && entry.Value >= Service.ResetWatcher.LastDailyReset)
-            {     
-                clearedStrikesThisReset.Add(entry.Key.GetApiLabel());
-                clearedStrikesThisReset.Add($"priority_{entry.Key.GetApiLabel()}");
-
-            }
-            if (
-                (entry.Key.GetExpansionType() == StrikeMissionType.Eod || entry.Key.GetExpansionType() == StrikeMissionType.SotO)
-                && entry.Value >= Service.ResetWatcher.LastWeeklyReset)
+            switch(Service.StrikeData.GetStrikeMissionResetById(entry.Key))
             {
-                clearedStrikesThisReset.Add(entry.Key.GetApiLabel());
-                if(entry.Value >= Service.ResetWatcher.LastDailyReset)
-                {
-                    clearedStrikesThisReset.Add($"priority_{entry.Key.GetApiLabel()}");
-                }
-            }
-            if (
-                (entry.Key.GetExpansionType() == StrikeMissionType.Eod || entry.Key.GetExpansionType() == StrikeMissionType.SotO)
-                 && entry.Value >= Service.ResetWatcher.LastDailyReset)
-            {
-                clearedStrikesThisReset.Add($"priority_{entry.Key.GetApiLabel()}");
-            }
+                case "daily":
+                    if(entry.Value >= Service.ResetWatcher.LastDailyReset)
+                    {
+                        clearedStrikesThisReset.Add(entry.Key);
+                        clearedStrikesThisReset.Add($"priority_{entry.Key}");
+                    }
+                    break;
+                default:
+                    if (entry.Value >= Service.ResetWatcher.LastWeeklyReset)
+                    {
+                        clearedStrikesThisReset.Add(entry.Key);
+                    }
+                    if (entry.Value >= Service.ResetWatcher.LastDailyReset)
+                    {
+                        clearedStrikesThisReset.Add($"priority_{entry.Key}");
+                    }
+                    break;
+            } 
         }
 
         CompletedStrikes?.Invoke(this, clearedStrikesThisReset);
 
     }
 
-    public void MarkStrikeCompleted(Encounters.StrikeMission mission)
+    public void MarkStrikeCompleted(StrikeMission mission)
     {
         Service.StrikePersistance.SaveClear(Service.CurrentAccountName, mission);
         DispatchCurrentStrikeClears();
     }
 
-    public void MarkStrikeNotCompleted(Encounters.StrikeMission mission)
+    public void MarkStrikeNotCompleted(StrikeMission mission)
     {
         Service.StrikePersistance.RemoveClear(Service.CurrentAccountName, mission);
         DispatchCurrentStrikeClears();
@@ -104,13 +103,14 @@ public class MapWatcherService: IDisposable
 #if DEBUG
         Debug.WriteLine("Loaded Map " + e.ToString()+" "+e.Value.ToString());
 #endif
-        if (Enum.IsDefined(typeof(MapIds.StrikeMaps), e.Value))
+        StrikeMission? _strikeMap = Service.StrikeData.GetStrikeMisisonByMapId(e.Value);
+        if (_strikeMap is not null)
         {
             Reset();
             _isOnStrikeMap= true;
-            _strikeApiName = ((MapIds.StrikeMaps)e.Value).GetApiLabel();
-            _strikeName = ((MapIds.StrikeMaps)e.Value).GetLabel();
-            _strikeMission = ((MapIds.StrikeMaps)e.Value).GetStrikeMission();
+            _strikeApiName = _strikeMap.Id;
+            _strikeName = _strikeMap.Name ;
+            _strikeMission = _strikeMap;
         }
         else
         {
@@ -123,7 +123,7 @@ public class MapWatcherService: IDisposable
                             StrikeCompleted?.Invoke(this, _strikeApiName);
                             if (_strikeMission != null)
                             {
-                                MarkStrikeCompleted((Encounters.StrikeMission) _strikeMission);
+                                MarkStrikeCompleted(_strikeMission);
                             }
                         break;
                     case Settings.Enums.StrikeComplete.POPUP:
@@ -145,7 +145,7 @@ public class MapWatcherService: IDisposable
                                 StrikeCompleted?.Invoke(this, _strikeApiName);
                                 if (_strikeMission != null)
                                 {
-                                    MarkStrikeCompleted((Encounters.StrikeMission)_strikeMission);
+                                    MarkStrikeCompleted(_strikeMission);
                                 }
                         }
 

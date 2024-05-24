@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using RaidClears.Features.Shared.Enums;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,55 +13,58 @@ public class StrikePersistance
     public static string FILENAME = "strike_clears.json";
 
     [JsonProperty("version")]
-    public string Version { get; set; } = "2.0.1";
+    public string Version { get; set; } = "3.0.0";
 
     [JsonProperty("accountClears")]
-    public Dictionary<string, Dictionary<Encounters.StrikeMission, DateTime>> AccountClears { get; set; } = new();
+    public Dictionary<string, Dictionary<string, DateTime>> AccountClears { get; set; } = new();
 
-    public Dictionary<Encounters.StrikeMission, DateTime> GetEmpty() => new Dictionary<Encounters.StrikeMission, DateTime>
-                {
-                    { Encounters.StrikeMission.ColdWar,new()},
-                    { Encounters.StrikeMission.Fraenir, new()},
-                    { Encounters.StrikeMission.ShiverpeaksPass, new() },
-                    { Encounters.StrikeMission.VoiceAndClaw, new() },
-                    { Encounters.StrikeMission.Whisper, new() },
-                    { Encounters.StrikeMission.Boneskinner, new() },
-                    { Encounters.StrikeMission.AetherbladeHideout, new() },
-                    { Encounters.StrikeMission.Junkyard, new() },
-                    { Encounters.StrikeMission.Overlook, new() },
-                    { Encounters.StrikeMission.HarvestTemple, new() },
-                    { Encounters.StrikeMission.OldLionsCourt, new() },
-                    { Encounters.StrikeMission.DragonStorm, new() },
-                    { Encounters.StrikeMission.CosmicObservatory, new() },
-                    { Encounters.StrikeMission.TempleOfFebe, new() },
-                };
-
-    public void SaveClear(string account, Encounters.StrikeMission mission)
+    public Dictionary<string, DateTime> GetEmpty()
     {
-        Dictionary<Encounters.StrikeMission, DateTime> clears;
+        Dictionary<string, DateTime> list = new Dictionary<string, DateTime>();
+        foreach (var expac in Service.StrikeData.Expansions)
+        {
+            foreach (var miss in expac.Missions)
+            {
+                list.Add(miss.Id, new());
+            }
+        }
+        return list;
+    }
+
+    public void SaveClear(string account, StrikeMission mission)
+    {
+        Dictionary<string, DateTime> clears;
         if (!AccountClears.TryGetValue(account, out clears))
         {
             clears = GetEmpty();
             AccountClears.Add(account, clears);
             // the key isn't in the dictionary.
         }
+        if (!clears.ContainsKey(mission.Id))
+        {
+            clears.Add(mission.Id, new());
+        }
 
-        clears[mission] = DateTime.UtcNow;
+        clears[mission.Id] = DateTime.UtcNow;
         AccountClears[account]= clears;
         Save();
 
     }
-    public void RemoveClear(string account, Encounters.StrikeMission mission)
+    public void RemoveClear(string account, StrikeMission mission)
     {
-        Dictionary<Encounters.StrikeMission, DateTime> clears;
+        Dictionary<string, DateTime> clears;
         if (!AccountClears.TryGetValue(account, out clears))
         {
             clears = GetEmpty();
             AccountClears.Add(account, clears);
             // the key isn't in the dictionary.
         }
+        if (!clears.ContainsKey(mission.Id))
+        {
+            clears.Add(mission.Id, new());
+        }
 
-        clears[mission] = new DateTime();
+        clears[mission.Id] = new DateTime();
         AccountClears[account] = clears;
         Save();
     }
@@ -116,13 +118,70 @@ public class StrikePersistance
             loadedCharacterConfiguration = new StrikePersistance();
         }
 
-        return loadedCharacterConfiguration;
+        return HandleVersionUpgrade(loadedCharacterConfiguration);
+    }
+
+    private static StrikePersistance HandleVersionUpgrade(StrikePersistance data)
+    {
+        if (data.Version == "2.0.0" || data.Version == "2.0.1")
+        {
+            Dictionary<string, string> keyRename = new()
+            {
+                { "ColdWar", "cold_war" },
+                { "Fraenir", "fraenir_of_jormag" },
+                { "ShiverpeaksPass", "shiverpeak_pass" },
+                { "VoiceAndClaw", "voice_and_claw" },
+                { "Whisper", "whisper_of_jormag" },
+                { "Boneskinner", "boneskinner" },
+                { "AetherbladeHideout", "aetherblade_hideout" },
+                { "Junkyard", "xunlai_jade_junkyard" },
+                { "Overlook", "kaineng_overlook" },
+                { "HarvestTemple", "harvest_temple" },
+                { "OldLionsCourt", "old_lion_court" },
+                { "DragonStorm", "dragonstorm" },
+                { "CosmicObservatory", "cosmic_observatory" },
+                { "TempleOfFebe", "temple_of_febe" },
+            };
+
+            var newFile = new StrikePersistance();
+            foreach(var account in data.AccountClears)
+            {
+                var acctclears = newFile.GetEmpty();
+                foreach(var clear in account.Value)
+                {
+                    if(keyRename.TryGetValue(clear.Key, out string renameTo))
+                    {
+                        if (acctclears.ContainsKey(renameTo))
+                        {
+                            acctclears[renameTo] = clear.Value;
+                        }
+                        else
+                        {
+                            acctclears.Add(renameTo, clear.Value);
+                        }
+                    }
+                }
+                newFile.AccountClears.Add(account.Key, acctclears);
+            }
+            newFile.Save();
+
+            return newFile;
+        }
+        else if (data.Version == "3.0.0")
+        {
+            return data;
+        }
+        else
+        {
+            return new StrikePersistance();
+        }
+
     }
 
     private static StrikePersistance CreateNewCharacterConfiguration()
     {
         var newCharacterConfiguration = new StrikePersistance();
-        newCharacterConfiguration.AccountClears.Add("test", newCharacterConfiguration.GetEmpty());
+        newCharacterConfiguration.AccountClears.Add("default", newCharacterConfiguration.GetEmpty());
         newCharacterConfiguration.Save();
         return newCharacterConfiguration;
     }

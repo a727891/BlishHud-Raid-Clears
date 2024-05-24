@@ -15,7 +15,7 @@ public class StrikesPanel : GridPanel
 {
     private static StrikeSettings Settings => Service.Settings.StrikeSettings;
 
-    private readonly IEnumerable<Strike> _strikes;
+    private IEnumerable<Strike> _strikes;
     private readonly MapWatcherService _mapService;
     
     public StrikesPanel() : base(Settings.Generic, GameService.Graphics.SpriteScreen)
@@ -39,6 +39,8 @@ public class StrikesPanel : GridPanel
             )
         );
     }
+
+
     private void UpdateClearsAtReset(object sender, DateTime reset)
     {
         Service.MapWatcher.DispatchCurrentStrikeClears();
@@ -55,36 +57,14 @@ public class StrikesPanel : GridPanel
         Invalidate();
     }
 
-  /*  private void _mapService_LeftStrikeMapWithCombatStartAndEnd(object sender, string encounterId)
-    {
-        foreach (var group in _strikes)
-        {
-            foreach (var encounter in group.boxes)
-            {
-                if(encounter.id == encounterId)
-                {
-                    encounter.SetCleared(true);
-                }
-            }
-        }
-        Invalidate();
-    }*/
 
     public void ForceInvalidate()
     {
-        /*foreach(var strike in _strikes)
-        {
-            foreach( var s in strike.boxes)
-            {
-s               s.Box?.Parent.Invalidate();
-            }
-        }*/
     }
 
     protected override void DisposeControl()
     {
         base.DisposeControl();
-       // _mapService.StrikeCompleted -= _mapService_LeftStrikeMapWithCombatStartAndEnd;
         _mapService.CompletedStrikes -= _mapService_CompletedStrikes;
         Service.ResetWatcher.DailyReset -= UpdateClearsAtReset;
         Service.ResetWatcher.WeeklyReset -= UpdateClearsAtReset;

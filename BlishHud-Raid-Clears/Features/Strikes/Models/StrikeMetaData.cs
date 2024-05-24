@@ -1,4 +1,5 @@
-﻿using Blish_HUD.Settings;
+﻿using Blish_HUD.Controls;
+using Blish_HUD.Settings;
 using RaidClears.Features.Raids.Models;
 using RaidClears.Features.Shared.Controls;
 using RaidClears.Features.Shared.Enums;
@@ -6,6 +7,7 @@ using RaidClears.Features.Shared.Models;
 using RaidClears.Localization;
 using RaidClears.Settings.Models;
 using RaidClears.Utils;
+using SharpDX.Direct3D11;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +31,8 @@ public static class StrikeMetaData
                 panel,
                 settings.Style.Layout
             );
-            group.VisiblityChanged(GetStrikeGroupVisibleSettingByIndex(strike.index));
+            //group.VisiblityChanged(Service.StrikeSettings.Expansions[strike.shortName]);
+            group.VisiblityChanged(Service.StrikeData.GetExpansionVisible(Service.StrikeData.GetExpansionStrikesByName(strike.name)));
             strike.SetGridGroupReference(group);
 
             var labelBox = new GridBox(
@@ -41,7 +44,7 @@ public static class StrikeMetaData
             labelBox.LayoutChange(settings.Style.Layout);
             labelBox.LabelDisplayChange(settings.Style.LabelDisplay, strike.shortName, strike.shortName);
 
-            var allStrikes = settings.IbsMissions.Concat(settings.EodMissions).Concat(settings.SotOMissions).ToArray();
+            //var allStrikes = settings.IbsMissions.Concat(settings.EodMissions).Concat(settings.SotOMissions).ToArray();
 
             foreach (var index in Enumerable.Range(0, strike.boxes.Count()))
             {
@@ -52,10 +55,11 @@ public static class StrikeMetaData
                     encounter.shortName, encounter.name,
                     settings.Style.GridOpacity, settings.Style.FontSize
                 );
-                if (strikeIndex < allStrikes.Length)
+                /*if (strikeIndex < allStrikes.Length)
                 {
                     encounterBox.VisiblityChanged(allStrikes[strikeIndex++]);
-                }
+                }*/
+                encounterBox.VisiblityChanged(Service.StrikeData.GetMissionVisible(Service.StrikeData.GetStrikeMissionByName(encounter.name)));
                 encounterBox.TextColorSetting(settings.Style.Color.Text);
                 encounter.SetGridBoxReference(encounterBox);
                 encounter.WatchColorSettings(settings.Style.Color.Cleared, settings.Style.Color.NotCleared);
@@ -70,8 +74,14 @@ public static class StrikeMetaData
 
     private static IEnumerable<Strike> GetStrikeMetaData()
     {
+        List<Strike> strikes = new List<Strike>();
+        foreach(var expansion in Service.StrikeData.Expansions)
+        {
+            strikes.Add(new Strike(expansion));
+        }
+        return strikes;
         return new List<Strike>() {
-            new Strike(Strings.StrikeGroup_Icebrood, 8, Strings.StrikeGroup_Icebrood_abbr,
+           /* new Strike(Strings.StrikeGroup_Icebrood, 8, Strings.StrikeGroup_Icebrood_abbr,
                 new List<BoxModel>() {
                     new Encounter(Encounters.StrikeMission.ShiverpeaksPass),
                     new Encounter(Encounters.StrikeMission.Fraenir),
@@ -93,20 +103,8 @@ public static class StrikeMetaData
                 new List<BoxModel>() {
                     new Encounter(Encounters.StrikeMission.CosmicObservatory),
                     new Encounter(Encounters.StrikeMission.TempleOfFebe),
-                }),
+                }),*/
            // new PriorityStrikes("Priority Strike Missions (Daily)", 10, "PS", new List<BoxModel>() { }),
-        };
-    }
-
-    public static SettingEntry<bool> GetStrikeGroupVisibleSettingByIndex(int id)
-    {
-        return id switch
-        {
-            8 => Settings.StrikeVisibleIbs,
-            9 => Settings.StrikeVisibleEod,
-            10 => Settings.StrikeVisibleSotO,
-            11 => Settings.StrikeVisiblePriority,
-            _ => Settings.StrikeVisiblePriority
         };
     }
 }

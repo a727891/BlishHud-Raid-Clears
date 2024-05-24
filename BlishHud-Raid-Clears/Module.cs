@@ -24,6 +24,7 @@ namespace RaidClears;
 public class Module : Blish_HUD.Modules.Module
 {
     public static string DIRECTORY_PATH = "clearsTracker"; //Defined folder in manifest.json
+    public static string STATIC_HOST_URL = "https://bhm.blishhud.com/Soeed.RaidClears/static";
 
     internal static readonly Logger ModuleLogger = Logger.GetLogger<Module>();
 
@@ -47,6 +48,8 @@ public class Module : Blish_HUD.Modules.Module
 
     protected override Task LoadAsync()
     {
+        Service.StrikeData = StrikeData.Load();
+        Service.StrikeSettings = StrikeSettingsPersistance.Load();
         Service.FractalMapData = FractalMapData.Load();
         Service.InstabilitiesData = InstabilitiesData.Load();
         Service.StrikePersistance = StrikePersistance.Load();

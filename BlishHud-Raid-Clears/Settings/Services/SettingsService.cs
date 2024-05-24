@@ -91,4 +91,6 @@ public class SettingService // singular because Setting"s"Service already exists
             _ => strikeLoc.Value
        };
     }
+
+
 }

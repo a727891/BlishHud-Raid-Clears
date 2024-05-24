@@ -11,6 +11,7 @@ using RaidClears.Settings.Enums;
 using RaidClears.Settings.Views;
 using RaidClears.Settings.Views.Tabs;
 using RaidClears.Features.Fractals.Services;
+using RaidClears.Features.Strikes.Services;
 
 namespace RaidClears.Utils;
 
@@ -138,7 +139,7 @@ public static class FlowPanelExtensions
         new EncounterClearStatus(panel, encounter, clearDate);
         return panel;
     }
-    public static FlowPanel AddEncounterClearStatus(this FlowPanel panel, Encounters.StrikeMission encounter, DateTime clearDate)
+    public static FlowPanel AddEncounterClearStatus(this FlowPanel panel, StrikeMission encounter, DateTime clearDate)
     {
         new EncounterClearStatus(panel, encounter, clearDate);
         return panel;
@@ -172,8 +173,11 @@ public static class FlowPanelExtensions
         };
         return panel;
     }
-
     public static FlowPanel AddString(this FlowPanel panel, string text)
+    {
+        return panel.AddString(text, Color.White);
+    }
+    public static FlowPanel AddString(this FlowPanel panel, string text, Color color)
     {
         var _ = new Label
         {
@@ -183,6 +187,7 @@ public static class FlowPanelExtensions
             Text = text,
             WrapText = false,
             Location = new Point(25, 0),
+            TextColor= color,
         };
 
         return panel;
