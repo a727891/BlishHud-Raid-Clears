@@ -1,0 +1,7 @@
+{
+
+    "static/*.json": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  }
