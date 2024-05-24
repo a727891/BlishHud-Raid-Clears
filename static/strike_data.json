@@ -1,5 +1,5 @@
 {
-	"version":"2024-05-22T20:50:00-0500",
+	"version":"2024-05-24T15:00:00-0500",
 	"priority":{
 		"id":"priority",
 		"name": "Priority Strike Missions (Daily)",
@@ -7,6 +7,7 @@
 		"asset":"texture_strike_priority.png",
 		"resets":"daily",
 		"daily_priority_modulo":0,
+		"daily_priority_offset":0,
 		"missions":[]
 	},
 	"expansions": [
@@ -17,6 +18,7 @@
 			"asset":"texture_strike_ibs.png",
 			"resets":"daily",
 			"daily_priority_modulo":6,
+			"daily_priority_offset":0,
 			"missions":[
 				{
 					"id":"cold_war",
@@ -69,6 +71,7 @@
 			"asset":"texture_strike_eod.png",
 			"resets":"weekly",
 			"daily_priority_modulo":5,
+			"daily_priority_offset":0,
 			"missions":[
 				{
 					"id":"aetherblade_hideout",
@@ -109,6 +112,7 @@
 			"asset":"texture_strike_soto.png",
 			"resets":"weekly",
 			"daily_priority_modulo":2,
+			"daily_priority_offset":0,
 			"missions":[
 				{
 					"id":"cosmic_observatory",
