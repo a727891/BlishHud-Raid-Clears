@@ -12,7 +12,7 @@
     ["LonelyTower", "ThaumanovaReactor", "AquaticRuins"],
     ["UndergroundFacility", "UrbanBattleground", "SunquaPeak"],
     ["Aetherblade", "Chaos", "Nightmare"],
-    ["Cliffside", "MoltenBoss", "SirensReef"],
+    ["Cliffside", "LonelyTower", "SirensReef"],
     ["Swampland", "SolidOcean", "Deepstone"],
     ["CaptainMaiTrinBoss", "ShatteredObservatory", "MoltenBoss"]
   ],
@@ -33,7 +33,7 @@
     [16, 42, 62],
     [5, 47, 68]
   ],
-  "challengeMotes":[96,97,98,99,100],
+  "challengeMotes": [96, 97, 98, 99, 100],
   "maps": {
     "Aetherblade": {
       "label": "Aetherblade Retreat",
