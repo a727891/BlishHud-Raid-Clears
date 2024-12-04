@@ -46,6 +46,11 @@ public static class Encounters
         Adina,
         Sabir,
         QadimThePeerless,
+
+        Camp,
+        Decima,
+        Greer,
+        Ura
     }
     
     public enum Dungeons

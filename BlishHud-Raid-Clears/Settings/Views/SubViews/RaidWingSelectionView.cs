@@ -65,24 +65,30 @@ public class RaidWingSelectionView : View
             .AddSpace()
         );
 
-        if(DateTime.Now.Month==4 && DateTime.Now.Day==1)
-        {
-            panel.AddChildPanel(
-             new FlowPanel()
-             {
-                 FlowDirection = ControlFlowDirection.SingleTopToBottom,
-                 OuterControlPadding = new Vector2(20, 5),
-                 Parent = panel,
-                 ShowTint = false,
-                 ShowBorder = false,
-                 HeightSizingMode = SizingMode.AutoSize,
-                 Width = panel.Width - 40
-                
+        panel.AddChildPanel(
+           new FlowPanel()
+           {
+               FlowDirection = ControlFlowDirection.SingleTopToBottom,
+               OuterControlPadding = new Vector2(20, 5),
+               Parent = panel,
+               ShowTint = false,
+               ShowBorder = false,
+               HeightSizingMode = SizingMode.AutoSize,
+               Width = panel.Width - 40,
+               BackgroundTexture = Service.Textures!.JWLogo
 
-             }
-              .AddString("April Fools Joke")
-              .AddSetting(_settings.RaidWings.Skip(7).Take(1))
-          );
-        }
+           }
+           .AddSpace()
+            .AddString(Strings.Settings_Raid_JW_Heading)
+            .AddSetting(_settings.RaidWings.Skip(7).Take(1))
+            .AddSpace()
+            .AddSpace()
+            .AddSpace()
+            .AddSpace()
+            .AddSpace()
+
+
+        );
+
     }
 }

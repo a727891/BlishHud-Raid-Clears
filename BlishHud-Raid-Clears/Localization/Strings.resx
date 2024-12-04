@@ -1131,4 +1131,43 @@
   <data name="CornerIconPriority_Tooltlp" xml:space="preserve">
     <value>Left &lt;----&gt; Right</value>
   </data>
+  <data name="Raid_Wing_8" xml:space="preserve">
+    <value>Mount Balrior</value>
+  </data>
+  <data name="Raid_Wing_8_1_Name" xml:space="preserve">
+    <value>Camp</value>
+  </data>
+  <data name="Raid_Wing_8_1_Short" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="Raid_Wing_8_2_Name" xml:space="preserve">
+    <value>Decima</value>
+  </data>
+  <data name="Raid_Wing_8_2_Short" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="Raid_Wing_8_3_Name" xml:space="preserve">
+    <value>Greer</value>
+  </data>
+  <data name="Raid_Wing_8_3_Short" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="Raid_Wing_8_4_Name" xml:space="preserve">
+    <value>Ura</value>
+  </data>
+  <data name="Raid_Wing_8_4_Short" xml:space="preserve">
+    <value>U</value>
+  </data>
+  <data name="Raid_Wing_8_Short" xml:space="preserve">
+    <value>MtBal</value>
+  </data>
+  <data name="Settings_Raid_JW_Heading" xml:space="preserve">
+    <value>Enable Janthir Wilds raid wing</value>
+  </data>
+  <data name="Setting_Raid_W8_Label" xml:space="preserve">
+    <value>W8 / Mount Balrior</value>
+  </data>
+  <data name="Setting_Raid_W8_Tooltip" xml:space="preserve">
+    <value>Enable Mount Balrior on the raid overlay</value>
+  </data>
 </root>

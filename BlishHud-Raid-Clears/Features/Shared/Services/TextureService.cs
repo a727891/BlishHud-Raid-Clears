@@ -26,6 +26,7 @@ public class TextureService : IDisposable
         SettingTabStrikes = contentsManager.GetTexture(@"controls/tab_icons/strikes.png");
         SettingTabFractals = contentsManager.GetTexture(@"controls/tab_icons/fotm.png");
 
+        JWLogo = GetDynamicTexture("texture_raids_jw.png");
         PoFLogo = GetDynamicTexture("texture_raids_pof.png");
         HoTLogo = GetDynamicTexture("texture_raids_hot.png");
         BaseLogo = GetDynamicTexture("texture_base_logo.png");
@@ -48,6 +49,7 @@ public class TextureService : IDisposable
         SettingTabGeneral.Dispose();
         SettingTabStrikes.Dispose();
         SettingTabFractals.Dispose();
+        JWLogo.Dispose();
         PoFLogo.Dispose();
         HoTLogo.Dispose();
         BaseLogo.Dispose();
@@ -56,6 +58,7 @@ public class TextureService : IDisposable
 
     }
     protected DownloadTextureService _downloadTextures { get; set; }
+    public Texture2D JWLogo { get; }
     public Texture2D PoFLogo { get; }
     public Texture2D HoTLogo { get; }
     public Texture2D BaseLogo { get; }

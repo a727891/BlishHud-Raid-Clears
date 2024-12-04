@@ -41,7 +41,12 @@ public static class RaidBossesExtensions
             Encounters.RaidBosses.Adina => Strings.Raid_Wing_7_2_Name,
             Encounters.RaidBosses.Sabir => Strings.Raid_Wing_7_3_Name,
             Encounters.RaidBosses.QadimThePeerless => Strings.Raid_Wing_7_4_Name,
-            
+
+            Encounters.RaidBosses.Camp => Strings.Raid_Wing_8_1_Name,
+            Encounters.RaidBosses.Decima => Strings.Raid_Wing_8_2_Name,
+            Encounters.RaidBosses.Greer => Strings.Raid_Wing_8_3_Name,
+            Encounters.RaidBosses.Ura => Strings.Raid_Wing_8_4_Name,
+
             _ => throw new ArgumentOutOfRangeException(nameof(value), value, null)
         };
     }
@@ -81,6 +86,12 @@ public static class RaidBossesExtensions
             Encounters.RaidBosses.Adina => Strings.Raid_Wing_7_2_Short,
             Encounters.RaidBosses.Sabir => Strings.Raid_Wing_7_3_Short,
             Encounters.RaidBosses.QadimThePeerless => Strings.Raid_Wing_7_4_Short,
+
+            Encounters.RaidBosses.Camp => Strings.Raid_Wing_8_1_Short,
+            Encounters.RaidBosses.Decima => Strings.Raid_Wing_8_2_Short,
+            Encounters.RaidBosses.Greer => Strings.Raid_Wing_8_3_Short,
+            Encounters.RaidBosses.Ura => Strings.Raid_Wing_8_4_Short,
+
             _ => throw new ArgumentOutOfRangeException(nameof(value), value, null)
         };
     }
@@ -121,6 +132,12 @@ public static class RaidBossesExtensions
             Encounters.RaidBosses.Adina => "adina",
             Encounters.RaidBosses.Sabir => "sabir",
             Encounters.RaidBosses.QadimThePeerless => "qadim_the_peerless",
+
+            Encounters.RaidBosses.Camp => "camp",
+            Encounters.RaidBosses.Decima => "decima",
+            Encounters.RaidBosses.Greer => "greer",
+            Encounters.RaidBosses.Ura => "ura",
+
             _ => throw new ArgumentOutOfRangeException(nameof(value), value, null)
         };
     }

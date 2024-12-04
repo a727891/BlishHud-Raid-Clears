@@ -754,6 +754,96 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mount Balrior.
+        /// </summary>
+        internal static string Raid_Wing_8 {
+            get {
+                return ResourceManager.GetString("Raid_Wing_8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Camp.
+        /// </summary>
+        internal static string Raid_Wing_8_1_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_8_1_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to C.
+        /// </summary>
+        internal static string Raid_Wing_8_1_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_8_1_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Decima.
+        /// </summary>
+        internal static string Raid_Wing_8_2_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_8_2_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to D.
+        /// </summary>
+        internal static string Raid_Wing_8_2_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_8_2_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Greer.
+        /// </summary>
+        internal static string Raid_Wing_8_3_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_8_3_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to G.
+        /// </summary>
+        internal static string Raid_Wing_8_3_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_8_3_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ura.
+        /// </summary>
+        internal static string Raid_Wing_8_4_Name {
+            get {
+                return ResourceManager.GetString("Raid_Wing_8_4_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to U.
+        /// </summary>
+        internal static string Raid_Wing_8_4_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_8_4_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MtBal.
+        /// </summary>
+        internal static string Raid_Wing_8_Short {
+            get {
+                return ResourceManager.GetString("Raid_Wing_8_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Refresh data every.
         /// </summary>
         internal static string Setting_APIPoll_Label {
@@ -1672,6 +1762,24 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to W8 / Mount Balrior.
+        /// </summary>
+        internal static string Setting_Raid_W8_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_W8_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable Mount Balrior on the raid overlay.
+        /// </summary>
+        internal static string Setting_Raid_W8_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_W8_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enable priority strike missions (daily).
         /// </summary>
         internal static string Setting_Stike_Priority {
@@ -2118,6 +2226,15 @@ namespace RaidClears.Localization {
         internal static string Settings_Raid_Hot_Heading {
             get {
                 return ResourceManager.GetString("Settings_Raid_Hot_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable Janthir Wilds raid wing.
+        /// </summary>
+        internal static string Settings_Raid_JW_Heading {
+            get {
+                return ResourceManager.GetString("Settings_Raid_JW_Heading", resourceCulture);
             }
         }
         

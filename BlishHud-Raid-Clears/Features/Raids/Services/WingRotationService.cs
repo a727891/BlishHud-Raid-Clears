@@ -6,10 +6,12 @@ public class WeeklyWings
 {
     public int Emboldened { get; }
     public int CallOfTheMist { get; }
-    public WeeklyWings(int emboldened, int callOfTheMist)
+    public int LatestRelease { get; }
+    public WeeklyWings(int emboldened, int callOfTheMist, int latestReleaes)
     {
         Emboldened = emboldened;
         CallOfTheMist = callOfTheMist;
+        LatestRelease = latestReleaes;
     }
 }
 
@@ -27,6 +29,6 @@ public static class WingRotationService
 
         var wing = (int)Math.Floor((decimal)duration / WEEKLY_SECONDS) % NUMBER_OF_WINGS;
 
-        return new WeeklyWings(wing, (wing + 1) % NUMBER_OF_WINGS);
+        return new WeeklyWings(wing, (wing + 1) % NUMBER_OF_WINGS, 7);
     }
 }
