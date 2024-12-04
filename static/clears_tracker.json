@@ -1,7 +1,7 @@
 {
   "fractal_instabilities": "163141/2024-05-21",
-  "fractal_map_data": "2024-06-02T1950:00-0500",
-  "strike_data": "2024-05-24T15:00:00-0500",
+  "fractal_map_data": "2024-12-03T19:00:00-0500",
+  "strike_data": "2024-12-03T19:00:00-0500",
   "assets": [
     "texture_background.png",
     "texture_strike_ibs.png",
@@ -10,6 +10,7 @@
     "texture_strike_priority.png",
     "texture_raids_hot.png",
     "texture_raids_pof.png",
-    "texture_base_logo.png"
+    "texture_base_logo.png",
+    "texture_raids_jw.png"
   ]
 }
