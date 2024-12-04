@@ -22,7 +22,7 @@ public class ModuleMainSettingsView: View
 
         buildPanel.AddControl(_openSettingsButton);
 
-
+/*
         StandardButton _runSetupWizard = new StandardButton
         {
             Parent = buildPanel,
@@ -30,11 +30,11 @@ public class ModuleMainSettingsView: View
             Size = buildPanel.Size.Scale(0.20f),
             Location = buildPanel.Size.Half() - buildPanel.Size.Scale(0.20f).Half()+new Microsoft.Xna.Framework.Point(0,_openSettingsButton.Height+10),
 
-        };
+        };*/
 
 
 
         _openSettingsButton.Click += (_, _) => Service.SettingsWindow.Show();
-        _runSetupWizard.Click += (_, _) => Service.SettingsWindow.Show();
-    }
+/*        _runSetupWizard.Click += (_, _) => Service.SettingsWindow.Show();
+*/    }
 }
