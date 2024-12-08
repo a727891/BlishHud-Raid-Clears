@@ -26,7 +26,7 @@
           "encounters": [
             {
               "name": "Vale Guardian",
-              "api_id": "value_guardian",
+              "api_id": "vale_guardian",
               "abbriviation": "VG"
             },
             {
