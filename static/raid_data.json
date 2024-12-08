@@ -1,0 +1,289 @@
+{
+  "version": "2024-12-07T20:08:00-0500",
+  "secondsInWeek": 604800,
+  "aerodrome": {
+    "name": "Lions Arch Aerodrome",
+    "mapId": 0,
+    "abbriviation": "AD"
+  },
+  "expansions": [
+    {
+      "id": "hot",
+      "name": "Heart of Thorns",
+      "abbriviation": "HoT",
+      "asset": "texture_raids_hot.png",
+      "wings": [
+        {
+          "id": "spirit_vale",
+          "number": 1,
+          "name": "Spirit Vale",
+          "abbriviation": "SV",
+          "mapId": 0,
+          "call_of_mists_timestamp": 1655710200,
+          "call_of_mists_weeks": 7,
+          "emboldened_timestamp": 1656315000,
+          "emboldened_weeks": 7,
+          "encounters": [
+            {
+              "name": "Vale Guardian",
+              "api_id": "value_guardian",
+              "abbriviation": "VG"
+            },
+            {
+              "name": "Spirit Woods",
+              "api_id": "spirit_woods",
+              "abbriviation": "SW"
+            },
+            {
+              "name": "Gorseval",
+              "api_id": "gorseval",
+              "abbriviation": "G"
+            },
+            {
+              "name": "Sabetha",
+              "api_id": "sabetha",
+              "abbriviation": "S"
+            }
+          ]
+        },
+        {
+          "id": "salvation_pass",
+          "number": 2,
+          "name": "Salvation Pass",
+          "abbriviation": "SP",
+          "mapId": 0,
+          "call_of_mists_timestamp": 1656315000,
+          "call_of_mists_weeks": 7,
+          "emboldened_timestamp": 1656919800,
+          "emboldened_weeks": 7,
+          "encounters": [
+            {
+              "name": "Slothasor",
+              "api_id": "slothasor",
+              "abbriviation": "S"
+            },
+            {
+              "name": "Bandit Trio",
+              "api_id": "bandit_trio",
+              "abbriviation": "B3"
+            },
+            {
+              "name": "Matthias Gabrel",
+              "api_id": "matthias",
+              "abbriviation": "M"
+            }
+          ]
+        },
+        {
+          "id": "stronghold_of_the_faithful",
+          "number": 3,
+          "name": "Stonghold of the Falthful",
+          "abbriviation": "SotF",
+          "mapId": 0,
+          "call_of_mists_timestamp": 1656919800,
+          "call_of_mists_weeks": 7,
+          "emboldened_timestamp": 1657524600,
+          "emboldened_weeks": 7,
+          "encounters": [
+            {
+              "name": "Escort",
+              "api_id": "escort",
+              "abbriviation": "E"
+            },
+            {
+              "name": "Keep Construct",
+              "api_id": "keep_construct",
+              "abbriviation": "KC"
+            },
+            {
+              "name": "Twisted Castle",
+              "api_id": "twisted_castle",
+              "abbriviation": "TC"
+            },
+            {
+              "name": "Xera",
+              "api_id": "xera",
+              "abbriviation": "X"
+            }
+          ]
+        },
+        {
+          "id": "bastion_of_the_penitent",
+          "number": 4,
+          "name": "Bastion of the Penitent",
+          "abbriviation": "BotP",
+          "mapId": 0,
+          "call_of_mists_timestamp": 1657524600,
+          "call_of_mists_weeks": 7,
+          "emboldened_timestamp": 1658129400,
+          "emboldened_weeks": 7,
+          "encounters": [
+            {
+              "name": "Cairn the Indominable",
+              "api_id": "cairn",
+              "abbriviation": "C"
+            },
+            {
+              "name": "Mursaat Overseer",
+              "api_id": "mursaat_overseer",
+              "abbriviation": "MO"
+            },
+            {
+              "name": "Samarog",
+              "api_id": "samarog",
+              "abbriviation": "S"
+            },
+            {
+              "name": "Deimos",
+              "api_id": "deimos",
+              "abbriviation": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pof",
+      "name": "Path of File",
+      "abbriviation": "PoF",
+      "asset": "texture_raids_pof.png",
+      "wings": [
+        {
+          "id": "hall_of_chains",
+          "number": 5,
+          "name": "Hall of Chains",
+          "abbriviation": "HoC",
+          "mapId": 0,
+          "call_of_mists_timestamp": 1658129400,
+          "call_of_mists_weeks": 7,
+          "emboldened_timestamp": 1658734200,
+          "emboldened_weeks": 7,
+          "encounters": [
+            {
+              "name": "Soulless Horror",
+              "api_id": "soulless_horror",
+              "abbriviation": "SH"
+            },
+            {
+              "name": "River of Souls",
+              "api_id": "river_of_souls",
+              "abbriviation": "R"
+            },
+            {
+              "name": "Statues of Grenth",
+              "api_id": "statues_of_grenth",
+              "abbriviation": "S"
+            },
+            {
+              "name": "Dhuum",
+              "api_id": "voice_in_the_void",
+              "abbriviation": "D"
+            }
+          ]
+        },
+        {
+          "id": "mythwright_gambit",
+          "number": 6,
+          "name": "Mythwright Gambit",
+          "abbriviation": "MG",
+          "mapId": 0,
+          "call_of_mists_timestamp": 1658734200,
+          "call_of_mists_weeks": 7,
+          "emboldened_timestamp": 1659339000,
+          "emboldened_weeks": 7,
+          "encounters": [
+            {
+              "name": "Conjured Amalgamate",
+              "api_id": "conjured_amalgamate",
+              "abbriviation": "CA"
+            },
+            {
+              "name": "Twin Largos",
+              "api_id": "twin_largos",
+              "abbriviation": "TL"
+            },
+            {
+              "name": "Qadim",
+              "api_id": "qadim",
+              "abbriviation": "Q1"
+            }
+          ]
+        },
+        {
+          "id": "key_of_ahdashim",
+          "number": 7,
+          "name": "The Key of Ahdashim",
+          "abbriviation": "TKoA",
+          "mapId": 0,
+          "call_of_mists_timestamp": 1659339000,
+          "call_of_mists_weeks": 7,
+          "emboldened_timestamp": 1659943800,
+          "emboldened_weeks": 7,
+          "encounters": [
+            {
+              "name": "Gate",
+              "api_id": "gate",
+              "abbriviation": "G"
+            },
+            {
+              "name": "Cardinal Adina",
+              "api_id": "adina",
+              "abbriviation": "A"
+            },
+            {
+              "name": "Cardinal Sabir",
+              "api_id": "sabir",
+              "abbriviation": "S"
+            },
+            {
+              "name": "Qadim the Peerless",
+              "api_id": "qadim_the_peerless",
+              "abbriviation": "Q2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "janthir_wilds",
+      "name": "Janthir Wilds",
+      "abbriviation": "JW",
+      "asset": "texture_raids_jw.png",
+      "wings": [
+        {
+          "id": "mount_balrior",
+          "number": 8,
+          "name": "MtBal",
+          "abbriviation": "TKoA",
+          "mapId": 0,
+          "call_of_mists_timestamp": 1733184000,
+          "call_of_mists_weeks": 1,
+          "emboldened_timestamp": 0,
+          "emboldened_weeks": -1,
+          "encounters": [
+            {
+              "name": "Camp",
+              "api_id": "camp",
+              "abbriviation": "C"
+            },
+            {
+              "name": "Decima",
+              "api_id": "decima",
+              "abbriviation": "D"
+            },
+            {
+              "name": "Greer",
+              "api_id": "greer",
+              "abbriviation": "G"
+            },
+            {
+              "name": "Ura",
+              "api_id": "ura",
+              "abbriviation": "U"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
