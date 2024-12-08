@@ -34,7 +34,7 @@ public class RaidWing
     [JsonProperty("abbriviation")]
     public string Abbriviation = "undefined";
 
-    [JsonProperty("mapIds")]
+    [JsonProperty("mapId")]
     public int MapId = -1;
 
     [JsonProperty("call_of_mists_timestamp")]
@@ -82,7 +82,7 @@ public class AeroDrome
     [JsonProperty("abbriviation")]
     public string Abbriviation = "undefined";
 
-    [JsonProperty("mapIds")]
+    [JsonProperty("mapId")]
     public int MapId = -1;
 }
 
