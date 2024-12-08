@@ -6,6 +6,7 @@ using RaidClears.Features.Raids.Services;
 using RaidClears.Features.Shared.Controls;
 using RaidClears.Features.Shared.Enums;
 using RaidClears.Features.Shared.Models;
+using RaidClears.Features.Strikes.Models;
 using RaidClears.Localization;
 using RaidClears.Settings.Models;
 using RaidClears.Utils;
@@ -74,6 +75,23 @@ public static class WingFactory
 
     private static List<Wing> GetWingMetaData()
     {
+
+        List<Wing> raids = new List<Wing>();
+        foreach (var expansion in Service.RaidData.Expansions)
+        {
+            foreach(var wing in expansion.Wings)
+            {
+                var encounters = new List<BoxModel>();
+                foreach (var encounter in wing.Encounters)
+                {
+                    encounters.Add(new Encounter(encounter));
+                }
+                var wingModel = new Wing(wing.Name, wing.Number-1, wing.Abbriviation, encounters.ToArray());
+                raids.Add(wingModel);
+            }
+            
+        }
+        return raids;
         return new List<Wing> {
             new Wing(Strings.Raid_Wing_1, 0, Strings.Raid_Wing_1_Short,
                 new BoxModel[] {

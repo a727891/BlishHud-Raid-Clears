@@ -3,6 +3,7 @@ using RaidClears.Features.Dungeons;
 using RaidClears.Features.Fractals;
 using RaidClears.Features.Fractals.Services;
 using RaidClears.Features.Raids;
+using RaidClears.Features.Raids.Services;
 using RaidClears.Features.Shared.Services;
 using RaidClears.Features.Strikes;
 using RaidClears.Features.Strikes.Services;
@@ -31,6 +32,7 @@ public static class Service
     public static InstabilitiesData InstabilitiesData { get; set; } = null!;
     public static FractalMapData FractalMapData { get; set; } = null!;
 
+    public static RaidData RaidData { get; set; } = null!;
     public static RaidPanel RaidWindow { get; set; } = null!;
     public static StrikesPanel StrikesWindow { get; set; } = null!;
     public static FractalsPanel FractalWindow { get; set; } = null!;

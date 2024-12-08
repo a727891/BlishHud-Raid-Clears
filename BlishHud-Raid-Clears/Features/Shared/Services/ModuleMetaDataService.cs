@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using RaidClears.Features.Fractals.Services;
+using RaidClears.Features.Raids.Services;
 using RaidClears.Features.Shared.Services;
 using RaidClears.Features.Strikes.Services;
 using System;
@@ -25,6 +26,9 @@ public class ModuleMetaDataService
 
     [JsonProperty("strike_data")]
     public string StrikeDataVersion { get; set; } = null;
+
+    [JsonProperty("raid_data")]
+    public string RaidDataVersion { get; set; } = null;
 
     [JsonProperty("assets")]
     public List<string> Assets { get; set; } = new();
@@ -63,6 +67,7 @@ public class ModuleMetaDataService
         {
             Module.ModuleLogger.Info($"JSON File: Instababilites are current on version {webFile.InstabilitiesVersion}");
         }
+
         if(webFile.FractalMapVersion!= localFile.FractalMapVersion)
         {
             FractalMapData.DownloadFile();
@@ -72,6 +77,7 @@ public class ModuleMetaDataService
         {
             Module.ModuleLogger.Info($"JSON File: Fractal Map Data is current on version {webFile.FractalMapVersion}");
         }
+
         if (webFile.StrikeDataVersion!= localFile.StrikeDataVersion)
         {
             StrikeData.DownloadFile();
@@ -81,6 +87,17 @@ public class ModuleMetaDataService
         {
             Module.ModuleLogger.Info($"JSON File: Strike Data is current on version {webFile.StrikeDataVersion}");
         }
+
+        if (webFile.RaidDataVersion != localFile.RaidDataVersion)
+        {
+            RaidData.DownloadFile();
+            Module.ModuleLogger.Info($"JSON File: Raid Data UPDATED to version {webFile.RaidDataVersion}");
+        }
+        else
+        {
+            Module.ModuleLogger.Info($"JSON File: Raid Data is current on version {webFile.RaidDataVersion}");
+        }
+
         webFile.Save();
         webFile.ValidateAssetCache(webFile.Assets);
     }
