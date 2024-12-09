@@ -1,7 +1,4 @@
-﻿using Blish_HUD.Settings;
-using Microsoft.Xna.Framework;
-using RaidClears.Localization;
-using RaidClears.Utils;
+﻿using RaidClears.Utils;
 using RaidClears.Features.Shared.Controls;
 using RaidClears.Features.Shared.Services;
 using RaidClears.Features.Raids.Models;
@@ -10,18 +7,18 @@ using RaidClears.Features.Raids.Services;
 using RaidClears.Settings.Models;
 using Blish_HUD;
 using Blish_HUD.Controls;
+using System.Collections.Generic;
 
 namespace RaidClears.Features.Raids;
 
 public class RaidPanel : GridPanel
 {
+    private readonly IEnumerable<Wing> Wings = new List<Wing>();
     private static RaidSettings Settings => Service.Settings.RaidSettings;
     public RaidPanel(
     ) : base(Settings.Generic, GameService.Graphics.SpriteScreen)
     {
-        var weeklyWings = WingRotationService.GetWeeklyWings();
-
-        var wings = WingFactory.Create(this, weeklyWings);
+        Wings = WingFactory.Create(this);
 
         Service.ApiPollingService!.ApiPollingTrigger += (_, _) =>
         {
@@ -29,7 +26,7 @@ public class RaidPanel : GridPanel
             {
                 var weeklyClears = await GetCurrentClearsService.GetClearsFromApi();
 
-                foreach (var wing in wings)
+                foreach (var wing in Wings)
                 {
                     foreach (var encounter in wing.boxes)
                     {
@@ -42,16 +39,7 @@ public class RaidPanel : GridPanel
 
         (this as FlowPanel).LayoutChange(Settings.Style.Layout);
         (this as GridPanel).BackgroundColorChange(Settings.Style.BgOpacity, Settings.Style.Color.Background);
-/*
-        RegisterCornerIconService(
-            new CornerIcon(
-                Settings.Generic.ToolbarIcon,
-                Settings.Generic.Visible,
-                "removed string resource",
-                Service.Textures!.CornerIconTexture,
-                Service.Textures!.CornerIconHoverTexture
-            )
-        );*/
+
         RegisterKeyBindService(
             new KeyBindHandlerService(
                 Settings.Generic.ShowHideKeyBind,
@@ -60,9 +48,24 @@ public class RaidPanel : GridPanel
         );
     }
 
-   /* protected void DoUpdate()
-    {
-        base.DoUpdate();
-    }*/
+    public void UpdateEncounterLabel(string encounterApiId, string newLabel) {
+        foreach (var wing in Wings)
+        {
+            if (wing.id == encounterApiId)
+            {
+                wing.GroupLabel.Text = newLabel;
+                return;
+            }
+            foreach (var encounter in wing.boxes)
+            {
+                if(encounter.id == encounterApiId)
+                {
+                    encounter.SetLabel(newLabel);
+                    return;
+                }
+                
+            }
+        }
+    }
 
 }

@@ -10,11 +10,13 @@ using RaidClears.Features.Strikes.Services;
 using RaidClears.Settings.Controls;
 using RaidClears.Settings.Models;
 using RaidClears.Settings.Services;
+using System;
 
 namespace RaidClears;
 
 public static class Service 
 {
+    public static Random Random { get; set; } = new Random();
     public static string CurrentAccountName { get; set; } = AccountNameService.DEFAULT_ACCOUNT_NAME;
     public static Module ModuleInstance { get; set; } = null!;
     public static SettingService Settings { get; set; } = null!;
@@ -26,6 +28,7 @@ public static class Service
     public static SettingsPanel SettingsWindow { get; set; } = null!;
 
     public static StrikeData StrikeData { get; set; } = null!;
+    public static RaidSettingsPersistance RaidSettings { get; set; } = null!;
     public static StrikeSettingsPersistance StrikeSettings { get; set; } = null!;
     public static StrikePersistance StrikePersistance { get; set; } = null!;
     public static FractalPersistance FractalPersistance { get; set; } = null!;

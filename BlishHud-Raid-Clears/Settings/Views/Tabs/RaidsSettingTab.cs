@@ -36,7 +36,12 @@ public class RaidsSettingTab : ISettingsMenuRegistrar
         
         _registeredMenuItems.Add(new MenuViewItem(
             new MenuItem(Strings.SettingsPanel_Raids_Heading_WingSelection),
-            _ => new RaidWingSelectionView(Service.Settings.RaidSettings)
+            _ => new DynamicRaidSelectionView()
+        ));
+
+        _registeredMenuItems.Add(new MenuViewItem(
+            new MenuItem("Customize Labels"),
+            _ => new RaidLabelCustomizationView()
         ));
     }
     

@@ -45,7 +45,7 @@ public static class Settings
         {
             public static class Color
             {
-                public static Setting<string> uncleared = new("DunColNotCleared", Colors.SoftRed, () => Strings.Setting_Raid_ColNotClear_Label, () => Strings.Setting_Raid_ColNotClear_Tooltip);
+                public static Setting<string> uncleared = new("DunColNotCleared", Colors.LightGray, () => Strings.Setting_Raid_ColNotClear_Label, () => Strings.Setting_Raid_ColNotClear_Tooltip);
                 public static Setting<string> cleared = new("DunColCleared", Colors.Green, () => Strings.Setting_Raid_ColClear_Label, () => Strings.Setting_Raid_ColClear_Tooltip);
                 public static Setting<string> text = new("DunColText", Colors.White, () => Strings.Setting_Raid_ColText_Label, () => Strings.Setting_Raid_ColText_Tooltip); 
                 public static Setting<string> frequenter = new("DunColFreq", Colors.Yellow, () => Strings.Setting_Dun_ColFreqText_Label, () => Strings.Setting_Dun_ColFreqText_Tooltip); 
@@ -96,7 +96,7 @@ public static class Settings
         {
             public static class Color
             {
-                public static Setting<string> uncleared = new("colNotCleared", Colors.SoftRed, () => Strings.Setting_Raid_ColNotClear_Label, () => Strings.Setting_Raid_ColNotClear_Tooltip);
+                public static Setting<string> uncleared = new("colNotCleared", Colors.LightGray, () => Strings.Setting_Raid_ColNotClear_Label, () => Strings.Setting_Raid_ColNotClear_Tooltip);
                 public static Setting<string> cleared = new("colCleared", Colors.Green, () => Strings.Setting_Raid_ColClear_Label, () => Strings.Setting_Raid_ColClear_Tooltip);
                 public static Setting<string> text = new("colText", Colors.White, () => Strings.Setting_Raid_ColText_Label, () => Strings.Setting_Raid_ColText_Tooltip);
                 public static Setting<string> cotm = new("colCotm", Colors.Yellow, () => Strings.Setting_Raid_ColCotm_Label, () => Strings.Setting_Raid_ColCotm_Tooltip);
@@ -136,7 +136,7 @@ public static class Settings
         {
             public static class Color
             {
-                public static Setting<string> uncleared = new("StkcolNotCleared", Colors.SoftRed, () => Strings.Setting_Strike_ColNotClear_Label, () => Strings.Setting_Strike_ColNotClear_Tooltip);
+                public static Setting<string> uncleared = new("StkcolNotCleared", Colors.LightGray, () => Strings.Setting_Strike_ColNotClear_Label, () => Strings.Setting_Strike_ColNotClear_Tooltip);
                 public static Setting<string> cleared = new("StkColCleared", Colors.Green, () => Strings.Setting_Strike_ColClear_Label, () => Strings.Setting_Strike_ColClear_Tooltip);
                 public static Setting<string> text = new("StkColText", Colors.White, () => Strings.Setting_Strike_ColText_Label, () => Strings.Setting_Strike_ColText_Tooltip);
                 public static Setting<string> background = new("colStrikeBG", Colors.Black, () => Strings.Setting_Strike_ColBG_Label, () => Strings.Setting_Strike_ColBG_Tooltip);
@@ -205,7 +205,7 @@ public static class Settings
         {
             public static class Color
             {
-                public static Setting<string> uncleared = new("FraccolNotCleared", Colors.SoftRed, () => Strings.Setting_Fractals_ColNotClear_Label, () => Strings.Setting_Fractals_ColNotClear_Tooltip);
+                public static Setting<string> uncleared = new("FraccolNotCleared", Colors.LightGray, () => Strings.Setting_Fractals_ColNotClear_Label, () => Strings.Setting_Fractals_ColNotClear_Tooltip);
                 public static Setting<string> cleared = new("FracColCleared", Colors.Green, () => Strings.Setting_Fractals_ColClear_Label, () => Strings.Setting_Fractals_ColClear_Tooltip);
                 public static Setting<string> text = new("FracColText", Colors.White, () => Strings.Setting_Fractals_ColText_Label, () => Strings.Setting_Fractals_ColText_Tooltip);
                 public static Setting<string> background = new("colFracBG", Colors.Black, () => Strings.Setting_Fractals_ColBG_Label, () => Strings.Setting_Fractals_ColBG_Tooltip);

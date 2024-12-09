@@ -1,58 +1,7 @@
-﻿using RaidClears.Features.Shared.Models;
-
-namespace RaidClears.Features.Shared.Enums;
-
-public enum StrikeMissionType
-{
-    Ibs,
-    Eod,
-    SotO,
-    Priority
-}
+﻿namespace RaidClears.Features.Shared.Enums;
 
 public static class Encounters
 {
-    public enum RaidBosses
-    {
-        ValeGuardian,
-        SpiritWoods,
-        Gorseval,
-        Sabetha,
-        
-        Slothasor,
-        BanditTrio,
-        Matthias,
-        
-        Escort,
-        KeepConstruct,
-        TwistedCastle,
-        Xera,
-        
-        Cairn,
-        MursaatOverseer,
-        Samarog,
-        Deimos,
-        
-        SoulessHorror,
-        RiverOfSouls,
-        StatuesOfGrenth,
-        VoiceInTheVoid,
-        
-        ConjuredAmalgamate,
-        TwinLargos,
-        Qadim,
-        
-        Gate,
-        Adina,
-        Sabir,
-        QadimThePeerless,
-
-        Camp,
-        Decima,
-        Greer,
-        Ura
-    }
-    
     public enum Dungeons
     {
         AscalonianCatacombs,

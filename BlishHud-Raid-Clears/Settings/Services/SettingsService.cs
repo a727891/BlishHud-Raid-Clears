@@ -15,6 +15,8 @@ public class SettingService // singular because Setting"s"Service already exists
     public SettingEntry<bool> GlobalCornerIconEnabled { get; }
     public SettingEntry<bool> ScreenClamp { get; }
 
+    public SettingEntry<bool> OrganicGridBoxBackgrounds { get; }
+
     public SettingEntry<int> CornerIconPriority { get; }
     public RaidSettings RaidSettings { get; }
     public DungeonSettings DungeonSettings { get; }
@@ -49,6 +51,12 @@ public class SettingService // singular because Setting"s"Service already exists
             true,
             () => "Keep overlay windows on screen",
             () => "When turned on, this will make sure that all overlay windows stay within the visible area of your screen, so they don't go off the edges"
+            );
+
+        OrganicGridBoxBackgrounds = settings.DefineSetting("RCStylize",
+            true,
+            () => "'GW2 Style' background boxes",
+            () => "On: Backgrounds will appear with fuzzy edges more akin to GW2's style,\nOff: Background will be rectangles"
             );
 
         RaidSettings = new RaidSettings(settings);

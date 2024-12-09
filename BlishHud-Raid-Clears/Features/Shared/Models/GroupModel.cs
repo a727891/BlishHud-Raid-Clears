@@ -7,6 +7,7 @@ namespace RaidClears.Features.Shared.Models;
 public class GroupModel
 {
     public string name;
+    public string id;
     public int index;
     public string shortName;
     public IEnumerable<BoxModel> boxes;
@@ -14,9 +15,10 @@ public class GroupModel
     public GridGroup GridGroup { get; private set; }
     public GridBox GroupLabel { get; private set; }
 
-    public GroupModel(string name, int index, string shortName, IEnumerable<BoxModel>  boxes)
+    public GroupModel(string name, string id, int index, string shortName, IEnumerable<BoxModel>  boxes)
     {
         this.name = name;
+        this.id = id;
         this.index = index;
         this.shortName = shortName;
         this.boxes = boxes;

@@ -43,4 +43,12 @@ public class BoxModel
         Box.BackgroundColor = cleared ? _colorCleared : _colorNotCleared;
         _isCleared = cleared;
     }
+
+    public void SetLabel(string label)
+    {
+        shortName = label;
+        Box.Text = label;
+        Box.Invalidate();
+    }
+
 }

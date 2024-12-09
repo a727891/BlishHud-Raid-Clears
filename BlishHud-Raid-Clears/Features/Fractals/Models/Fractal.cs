@@ -4,9 +4,9 @@ using RaidClears.Features.Shared.Models;
 
 namespace RaidClears.Features.Fractals.Models;
 
-public class Fractal : Wing
+public class Fractal : GroupModel
 {
-    public Fractal(string name, int index, string shortName, IEnumerable<BoxModel> boxes) : base(name, index, shortName, boxes)
+    public Fractal(string name, int index, string shortName, IEnumerable<BoxModel> boxes) : base(name, shortName, index, shortName, boxes)
     {
 
     }

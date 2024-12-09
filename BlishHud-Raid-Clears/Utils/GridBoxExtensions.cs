@@ -52,8 +52,12 @@ public static class GridBoxExtensions
         falseColor.SettingChanged += (_, e) => CalculateConditionalTextColor(box, condition.Value, trueColor.Value, e.NewValue);
     }
     
-    public static void VisiblityChanged(this GridBox panel, SettingEntry<bool> setting)
+    public static void VisiblityChanged(this GridBox panel, SettingEntry<bool>? setting)
     {
+        if (setting==null)
+        {
+            return;
+        }
         setting.SettingChanged += (_, e) =>
         {
             panel.Visible = e.NewValue;

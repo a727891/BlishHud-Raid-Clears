@@ -5,14 +5,14 @@ using RaidClears.Features.Strikes.Services;
 
 namespace RaidClears.Features.Strikes.Models;
 
-public class Strike : Wing
+public class Strike : GroupModel
 {
     public ExpansionStrikes Expansion;
-    public Strike(string name, int index, string shortName, IEnumerable<BoxModel> boxes) : base(name, index, shortName, boxes)
+    public Strike(string name, int index, string shortName, IEnumerable<BoxModel> boxes) : base(name, shortName, index, shortName, boxes)
     {
         
     }
-    public Strike(ExpansionStrikes expansion) : base(expansion.Name, 0, expansion.Abbriviation, expansion.GetEncounters())
+    public Strike(ExpansionStrikes expansion) : base(expansion.Name, expansion.Id, 0, expansion.Abbriviation, expansion.GetEncounters())
     {
         Expansion = expansion;
     }

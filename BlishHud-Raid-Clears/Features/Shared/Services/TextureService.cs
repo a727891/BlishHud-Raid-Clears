@@ -13,6 +13,11 @@ public class TextureService : IDisposable
     public TextureService(ContentsManager contentsManager)
     {
         _downloadTextures = new DownloadTextureService();
+        GridBoxBackgroundTexture = new();
+        for (int i = 1; i <=7; i++)
+        {
+            GridBoxBackgroundTexture.Add(contentsManager.GetTexture($"white{i}.png"));
+        }
 
         CornerIconTexture = contentsManager.GetTexture(@"raids\textures\raidIconDark.png");
         CornerIconHoverTexture = contentsManager.GetTexture(@"raids\textures\raidIconBright.png");
@@ -40,6 +45,10 @@ public class TextureService : IDisposable
 
     public void Dispose()
     {
+        foreach(var t in GridBoxBackgroundTexture)
+        {
+            t.Dispose();
+        }
         CornerIconTexture.Dispose();
         CornerIconHoverTexture.Dispose();
         SettingWindowBackground.Dispose();
@@ -71,5 +80,6 @@ public class TextureService : IDisposable
     public Texture2D SettingTabFractals { get; }
     public Texture2D CornerIconTexture { get; }
     public Texture2D CornerIconHoverTexture { get; }
+    public List<Texture2D> GridBoxBackgroundTexture { get; }
 
 }

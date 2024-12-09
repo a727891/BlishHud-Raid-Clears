@@ -9,14 +9,9 @@ namespace RaidClears.Features.Raids.Models;
 
 public class Encounter : BoxModel
 {
-    public Encounter(RaidBosses boss) : base(boss.GetApiLabel(), boss.GetLabel(), boss.GetLabelShort())
-    {
-    }
-
-    public Encounter(RaidEncounter enc) : base(enc.ApiId, enc.Name, enc.Abbriviation)
+    public Encounter(RaidEncounter enc) : base(enc.ApiId, enc.Name, Service.RaidSettings.GetEncounterLabel(enc))
     { 
     }
-
 
     public Encounter(StrikeMission boss) : base(boss.Id, boss.Name, boss.Abbriviation)
     {

@@ -180,7 +180,7 @@ public static class DungeonFactory
 }
 public class Dungeon : GroupModel
 {
-    public Dungeon(string name, int index, string shortName, BoxModel[] boxes) : base(name, index, shortName, boxes)
+    public Dungeon(string name, int index, string shortName, BoxModel[] boxes) : base(name, shortName, index, shortName, boxes)
     {
     }
 }

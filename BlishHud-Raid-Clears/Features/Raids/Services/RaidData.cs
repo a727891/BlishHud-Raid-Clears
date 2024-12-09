@@ -4,87 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using RaidClears.Features.Raids.Models;
 
 namespace RaidClears.Features.Raids.Services;
-
-[Serializable]
-public class RaidEncounter
-{
-    [JsonProperty("name")]
-    public string Name = "undefined";
-
-    [JsonProperty("api_id")]
-    public string ApiId = "undefined";
-
-    [JsonProperty("abbriviation")]
-    public string Abbriviation = "undefined";
-}
-[Serializable]
-public class RaidWing
-{
-    [JsonProperty("id")]
-    public string Id = "undefined";
-
-    [JsonProperty("number")]
-    public int Number = -1;
-
-    [JsonProperty("name")]
-    public string Name = "undefined";
-
-    [JsonProperty("abbriviation")]
-    public string Abbriviation = "undefined";
-
-    [JsonProperty("mapId")]
-    public int MapId = -1;
-
-    [JsonProperty("call_of_mists_timestamp")]
-    public int CallOfTheMistsTimestamp = -1;
-
-    [JsonProperty("call_of_mists_weeks")]
-    public int CallOfTheMistsWeeks = -1;
-
-    [JsonProperty("emboldened_timestamp")]
-    public int EmboldenedTimestamp = -1;
-
-    [JsonProperty("emboldened_weeks")]
-    public int EmboldendedWeeks = -1;
-
-    [JsonProperty("encounters")]
-    public List<RaidEncounter> Encounters = new();
-
-
-}
-[Serializable]
-public class ExpansionRaid
-{
-    [JsonProperty("id")]
-    public string Id = "undefined";
-
-    [JsonProperty("name")]
-    public string Name = "undefined";
-
-    [JsonProperty("abbriviation")]
-    public string Abbriviation = "undefined";
-
-    [JsonProperty("asset")]
-    public string asset = "missing.png";
-
-    [JsonProperty("wings")]
-    public List<RaidWing> Wings = new();
-
-}
-
-public class AeroDrome
-{
-    [JsonProperty("id")]
-    public string Name = "undefined";
-
-    [JsonProperty("abbriviation")]
-    public string Abbriviation = "undefined";
-
-    [JsonProperty("mapId")]
-    public int MapId = -1;
-}
 
 [Serializable]
 public class RaidData
@@ -101,7 +23,7 @@ public class RaidData
     public int SecondsInWeek { get; set; } = -1;
 
     [JsonProperty("aerodrome")]
-    public AeroDrome AeroDrome { get; set; } = new();
+    public Aerodrome AeroDrome { get; set; } = new();
 
     [JsonProperty("expansions")]
     public List<ExpansionRaid> Expansions { get; set; } = new();
@@ -146,16 +68,45 @@ public class RaidData
         }
         return new RaidWing();
     }
-    public RaidWing GetStrikeMissionByName(string name)
+    public RaidWing GetRaidWingByZeroIndex(int idx)
     {
         foreach (var expansion in Expansions)
         {
             foreach (var wing in expansion.Wings)
             {
-                if (wing.Name == name) return wing;
+                if (wing.Number == (idx+1)) return wing;
             }
         }
         return new RaidWing();
+    }
+    public RaidWing GetRaidWingByIndex(int idx)
+    {
+        foreach (var expansion in Expansions)
+        {
+            foreach (var wing in expansion.Wings)
+            {
+                if (wing.Number == (idx)) return wing;
+            }
+        }
+        return new RaidWing();
+    }
+    public RaidEncounter GetRaidEncounterByApiId(string apiId)
+    {
+        foreach (var expansion in Expansions)
+        {
+            foreach (var wing in expansion.Wings)
+            {
+                foreach(var enc in wing.Encounters)
+                {
+                    if(enc.ApiId == apiId) return enc;
+                }
+                if(wing.Id == apiId)
+                {
+                    return wing.ToRaidEncounter();
+                }
+            }
+        }
+        return new RaidEncounter();
     }
 
 

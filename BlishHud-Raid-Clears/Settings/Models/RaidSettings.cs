@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Blish_HUD.Settings;
+using RaidClears.Features.Raids.Services;
 
 namespace RaidClears.Settings.Models;
 
@@ -56,5 +57,53 @@ public class RaidSettings
 
         RaidPanelColorEmbolden = settings.DefineSetting(Settings.Raids.Style.Color.embolden);
         RaidPanelColorCotm = settings.DefineSetting(Settings.Raids.Style.Color.cotm);
+    }
+
+    /**
+     * Used to convert existing settings to new settings JSON file
+     */
+    public void ConvertToJsonFile(RaidSettingsPersistance json, RaidData raidData)
+    {
+        foreach(var expansion in raidData.Expansions)
+        {
+            SetExpansionValue(json, expansion.Id, true);
+            foreach(var wing in expansion.Wings)
+            {
+                if (RaidWings.Count() >= wing.Number)
+                {
+                    SetWingValue(json, wing.Id, RaidWings.ToArray()[wing.Number-1].Value);
+                }
+                else
+                {
+                    SetWingValue(json, wing.Id, true);
+                }
+                foreach(var encounter in wing.Encounters)
+                {
+                    SetEncounterValue(json, encounter.ApiId, true);
+                }
+            }
+        }
+       
+    }
+    private void SetExpansionValue(RaidSettingsPersistance json, string id, bool value)
+    {
+        if (json.Expansions.ContainsKey(id))
+        {
+            json.Expansions[id] = value;
+        }
+    }
+    private void SetWingValue(RaidSettingsPersistance json, string id, bool value)
+    {
+        if (json.Wings.ContainsKey(id))
+        {
+            json.Wings[id] = value;
+        }
+    }
+    private void SetEncounterValue(RaidSettingsPersistance json, string id, bool value)
+    {
+        if (json.Encounters.ContainsKey(id))
+        {
+            json.Encounters[id] = value;
+        }
     }
 }

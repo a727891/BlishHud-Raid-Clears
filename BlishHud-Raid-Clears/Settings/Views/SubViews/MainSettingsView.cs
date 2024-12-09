@@ -1,6 +1,8 @@
-﻿using Blish_HUD.Controls;
+﻿using Blish_HUD;
+using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using Microsoft.Xna.Framework;
+using RaidClears.Features.Shared.Controls;
 using RaidClears.Localization;
 using RaidClears.Utils;
 using System.Data.Common;
@@ -14,7 +16,8 @@ public class MainSettingsView : View
     {
         base.Build(buildPanel);
 
-        var panel = new FlowPanel()
+        var panel = new FlowPanel();
+        panel
             .BeginFlow(buildPanel, new Point(-95, 0), new Point(0, 5))
             .AddFlowControl(new StandardButton
             {
@@ -31,10 +34,17 @@ public class MainSettingsView : View
                 Text = Strings.Settings_RefreshNow,
             }, out var refreshButton)
             .AddSpace()
+            .AddSetting(Service.Settings.OrganicGridBoxBackgrounds)
+            .AddControl(new GridBox(panel, "Demo", "Example encounter box", Service.Settings.RaidSettings.Style.GridOpacity, Service.Settings.RaidSettings.Style.FontSize), out var grid);
+
+            (panel as FlowPanel).AddSpace()
             .AddSetting(Service.Settings.ScreenClamp)
             .AddSpace()
             .AddSetting(Service.Settings.GlobalCornerIconEnabled);
 
+        (grid as GridBox).BackgroundColor = Service.Settings.RaidSettings.Style.Color.Cleared.Value.ToString().HexToXnaColor() ;
+        grid.Location += new Point(20, 0);
+        
         panel.AddChildPanel(
             new FlowPanel()
             {

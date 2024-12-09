@@ -1,13 +1,52 @@
 ﻿using Blish_HUD;
 using Blish_HUD.Controls;
+using Blish_HUD.Controls.Effects;
 using Blish_HUD.Settings;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended;
 using RaidClears.Settings.Enums;
-
+using System;
 
 namespace RaidClears.Features.Shared.Controls;
 
+public class MyEffect : ControlEffect
+{
+    private readonly Texture2D texture;
+    private readonly Rectangle boundChange;
+    public Color Tint { get; set; } = Color.Transparent;
+    public MyEffect(Control assignedControl) : base(assignedControl)
+    {
+        var i = Service.Random.Next(Service.Textures!.GridBoxBackgroundTexture.Count);
+        texture = Service.Textures.GridBoxBackgroundTexture[i];
+        boundChange = new Rectangle(
+            Service.Random.Next(0, 3),
+            Service.Random.Next(0, 2),
+            Service.Random.Next(-3, 0),
+            Service.Random.Next(-2,0)
+            );
+    }
+
+    protected override SpriteBatchParameters GetSpriteBatchParameters()
+    {
+        return new SpriteBatchParameters();
+    }
+    public override void PaintEffect(SpriteBatch spriteBatch, Rectangle bounds)
+    {
+        if (Service.Settings.OrganicGridBoxBackgrounds.Value)
+        {
+            
+            spriteBatch.DrawOnCtrl(AssignedControl, texture, bounds.Add(boundChange), Tint);
+        }
+        else
+        {
+            spriteBatch.DrawOnCtrl(AssignedControl, ContentService.Textures.Pixel, bounds, Tint);
+        }
+    }
+}
 public class GridBox : Label
 {
+    protected MyEffect bgtexture { get; set; }
     public GridBox(
         Container parent,
         string title,
@@ -25,6 +64,22 @@ public class GridBox : Label
 
         OpacityChange(opacity);
         FontSizeChange(fontSize);
+        bgtexture = new MyEffect(this);
+        EffectBehind = (ControlEffect)bgtexture;
+    }
+
+    new public Color BackgroundColor
+    {
+        get
+        {
+            return bgtexture.Tint;
+            //return _backgroundColor;
+        }
+        set
+        {
+            bgtexture.Tint = value;
+            //SetProperty(ref _backgroundColor, value, invalidateLayout: false, "BackgroundColor");
+        }
     }
 
     private void OpacityChange(SettingEntry<float> opacity )
@@ -106,4 +161,6 @@ public class GridBox : Label
             default: return 40;
         }
     }
+
+
 }

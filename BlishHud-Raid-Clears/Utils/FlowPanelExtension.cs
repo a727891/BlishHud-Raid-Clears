@@ -94,7 +94,7 @@ public static class FlowPanelExtensions
         return BeginFlow(panel, parent, new Point(0), new Point(0));
     }
 
-    public static FlowPanel AddSetting(this FlowPanel panel, SettingEntry setting)
+    public static FlowPanel AddSetting(this FlowPanel panel, SettingEntry setting, int? width=null)
     {
         var viewContainer = new ViewContainer
         {
@@ -103,23 +103,23 @@ public static class FlowPanelExtensions
 
         if (setting.SettingType == typeof(bool))
         {
-            viewContainer.Show(FixedWidthBoolSettingView.FromSetting((SettingEntry<bool>)setting, panel.Width));
+            viewContainer.Show(FixedWidthBoolSettingView.FromSetting((SettingEntry<bool>)setting, width??panel.Width));
         }
         else
         {
-            viewContainer.Show(SettingView.FromType(setting, panel.Width));
+            viewContainer.Show(SettingView.FromType(setting, width??panel.Width));
         }
         
         return panel;
     }
-    
-    public static FlowPanel AddSetting(this FlowPanel panel, IEnumerable<SettingEntry>? settings)
+
+    public static FlowPanel AddSetting(this FlowPanel panel, IEnumerable<SettingEntry>? settings, int? width=null)
     {
         if (settings is null) return panel;
         
         foreach (var setting in settings)
         {
-            panel.AddSetting(setting);
+            panel.AddSetting(setting, width);
         }
         return panel;
     }
@@ -170,6 +170,15 @@ public static class FlowPanelExtensions
         var _ = new ViewContainer
         {
             Parent = panel,
+        };
+        return panel;
+    }
+    public static FlowPanel AddHorizontalSpace(this FlowPanel panel, int width)
+    {
+        var _ = new ViewContainer
+        {
+            Parent = panel,
+            Width= width
         };
         return panel;
     }
