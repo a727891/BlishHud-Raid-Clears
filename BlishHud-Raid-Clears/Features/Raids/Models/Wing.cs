@@ -92,62 +92,6 @@ public static class WingFactory
             
         }
         return raids;
-        return new List<Wing> {
-            new Wing(Strings.Raid_Wing_1, 0, Strings.Raid_Wing_1_Short,
-                new BoxModel[] {
-                    new Encounter(Encounters.RaidBosses.ValeGuardian),
-                    new Encounter(Encounters.RaidBosses.SpiritWoods),
-                    new Encounter(Encounters.RaidBosses.Gorseval),
-                    new Encounter(Encounters.RaidBosses.Sabetha),
-                }),
-            new Wing(Strings.Raid_Wing_2, 1, Strings.Raid_Wing_2_Short,
-                new BoxModel[] {
-                    new Encounter(Encounters.RaidBosses.Slothasor),
-                    new Encounter(Encounters.RaidBosses.BanditTrio),
-                    new Encounter(Encounters.RaidBosses.Matthias),
-                }),
-            new Wing(Strings.Raid_Wing_3, 2, Strings.Raid_Wing_3_Short,
-                new BoxModel[] {
-                    new Encounter(Encounters.RaidBosses.Escort),
-                    new Encounter(Encounters.RaidBosses.KeepConstruct),
-                    new Encounter(Encounters.RaidBosses.TwistedCastle),
-                    new Encounter(Encounters.RaidBosses.Xera),
-                }),
-            new Wing(Strings.Raid_Wing_4, 3, Strings.Raid_Wing_4_Short,
-                new BoxModel[] {
-                    new Encounter(Encounters.RaidBosses.Cairn),
-                    new Encounter(Encounters.RaidBosses.MursaatOverseer),
-                    new Encounter(Encounters.RaidBosses.Samarog),
-                    new Encounter(Encounters.RaidBosses.Deimos),
-                }),
-            new Wing(Strings.Raid_Wing_5, 4, Strings.Raid_Wing_5_Short,
-                new BoxModel[] {
-                    new Encounter(Encounters.RaidBosses.SoulessHorror),
-                    new Encounter(Encounters.RaidBosses.RiverOfSouls),
-                    new Encounter(Encounters.RaidBosses.StatuesOfGrenth),
-                    new Encounter(Encounters.RaidBosses.VoiceInTheVoid),
-                }),
-            new Wing(Strings.Raid_Wing_6, 5, Strings.Raid_Wing_6_Short,
-                new BoxModel[] {
-                    new Encounter(Encounters.RaidBosses.ConjuredAmalgamate),
-                    new Encounter(Encounters.RaidBosses.TwinLargos),
-                    new Encounter(Encounters.RaidBosses.Qadim),
-                }),
-            new Wing(Strings.Raid_Wing_7, 6, Strings.Raid_Wing_7_Short,
-                new BoxModel[] {
-                    new Encounter(Encounters.RaidBosses.Gate),
-                    new Encounter(Encounters.RaidBosses.Adina),
-                    new Encounter(Encounters.RaidBosses.Sabir),
-                    new Encounter(Encounters.RaidBosses.QadimThePeerless),
-                }),
-            new Wing(Strings.Raid_Wing_8, 7, Strings.Raid_Wing_8_Short,
-                new BoxModel[] {
-                    new Encounter(Encounters.RaidBosses.Camp),
-                    new Encounter(Encounters.RaidBosses.Decima),
-                    new Encounter(Encounters.RaidBosses.Greer),
-                    new Encounter(Encounters.RaidBosses.Ura),
-                })
-        };
     }
 }
 public class Wing : GroupModel

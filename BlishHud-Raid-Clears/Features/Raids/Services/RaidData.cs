@@ -10,7 +10,7 @@ namespace RaidClears.Features.Raids.Services;
 [Serializable]
 public class RaidEncounter
 {
-    [JsonProperty("id")]
+    [JsonProperty("name")]
     public string Name = "undefined";
 
     [JsonProperty("api_id")]
