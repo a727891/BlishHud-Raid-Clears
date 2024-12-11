@@ -1,5 +1,5 @@
 {
-  "version": "2024-12-08T15:34:00-0500",
+  "version": "2024-12-10T21:00:00-0500",
   "secondsInWeek": 604800,
   "aerodrome": {
     "name": "Lions Arch Aerodrome",
@@ -27,22 +27,26 @@
             {
               "name": "Vale Guardian",
               "api_id": "vale_guardian",
-              "abbriviation": "VG"
+              "abbriviation": "VG",
+              "asssetId": 0
             },
             {
               "name": "Spirit Woods",
               "api_id": "spirit_woods",
-              "abbriviation": "SW"
+              "abbriviation": "SW",
+              "asssetId": 0
             },
             {
               "name": "Gorseval",
               "api_id": "gorseval",
-              "abbriviation": "G"
+              "abbriviation": "G",
+              "asssetId": 0
             },
             {
               "name": "Sabetha",
               "api_id": "sabetha",
-              "abbriviation": "S"
+              "abbriviation": "S",
+              "asssetId": 0
             }
           ]
         },
@@ -60,17 +64,20 @@
             {
               "name": "Slothasor",
               "api_id": "slothasor",
-              "abbriviation": "S"
+              "abbriviation": "S",
+              "asssetId": 0
             },
             {
               "name": "Bandit Trio",
               "api_id": "bandit_trio",
-              "abbriviation": "B3"
+              "abbriviation": "B3",
+              "asssetId": 0
             },
             {
               "name": "Matthias Gabrel",
               "api_id": "matthias",
-              "abbriviation": "M"
+              "abbriviation": "M",
+              "asssetId": 0
             }
           ]
         },
@@ -88,22 +95,26 @@
             {
               "name": "Escort",
               "api_id": "escort",
-              "abbriviation": "E"
+              "abbriviation": "E",
+              "asssetId": 0
             },
             {
               "name": "Keep Construct",
               "api_id": "keep_construct",
-              "abbriviation": "KC"
+              "abbriviation": "KC",
+              "asssetId": 0
             },
             {
               "name": "Twisted Castle",
               "api_id": "twisted_castle",
-              "abbriviation": "TC"
+              "abbriviation": "TC",
+              "asssetId": 0
             },
             {
               "name": "Xera",
               "api_id": "xera",
-              "abbriviation": "X"
+              "abbriviation": "X",
+              "asssetId": 0
             }
           ]
         },
@@ -121,22 +132,26 @@
             {
               "name": "Cairn the Indominable",
               "api_id": "cairn",
-              "abbriviation": "C"
+              "abbriviation": "C",
+              "asssetId": 0
             },
             {
               "name": "Mursaat Overseer",
               "api_id": "mursaat_overseer",
-              "abbriviation": "MO"
+              "abbriviation": "MO",
+              "asssetId": 0
             },
             {
               "name": "Samarog",
               "api_id": "samarog",
-              "abbriviation": "S"
+              "abbriviation": "S",
+              "asssetId": 0
             },
             {
               "name": "Deimos",
               "api_id": "deimos",
-              "abbriviation": "D"
+              "abbriviation": "D",
+              "asssetId": 0
             }
           ]
         }
@@ -162,22 +177,26 @@
             {
               "name": "Soulless Horror",
               "api_id": "soulless_horror",
-              "abbriviation": "SH"
+              "abbriviation": "SH",
+              "asssetId": 0
             },
             {
               "name": "River of Souls",
               "api_id": "river_of_souls",
-              "abbriviation": "R"
+              "abbriviation": "R",
+              "asssetId": 0
             },
             {
               "name": "Statues of Grenth",
               "api_id": "statues_of_grenth",
-              "abbriviation": "S"
+              "abbriviation": "S",
+              "asssetId": 0
             },
             {
               "name": "Dhuum",
               "api_id": "voice_in_the_void",
-              "abbriviation": "D"
+              "abbriviation": "D",
+              "asssetId": 0
             }
           ]
         },
@@ -195,17 +214,20 @@
             {
               "name": "Conjured Amalgamate",
               "api_id": "conjured_amalgamate",
-              "abbriviation": "CA"
+              "abbriviation": "CA",
+              "asssetId": 0
             },
             {
               "name": "Twin Largos",
               "api_id": "twin_largos",
-              "abbriviation": "TL"
+              "abbriviation": "TL",
+              "asssetId": 0
             },
             {
               "name": "Qadim",
               "api_id": "qadim",
-              "abbriviation": "Q1"
+              "abbriviation": "Q1",
+              "asssetId": 0
             }
           ]
         },
@@ -223,22 +245,26 @@
             {
               "name": "Gate",
               "api_id": "gate",
-              "abbriviation": "G"
+              "abbriviation": "G",
+              "asssetId": 0
             },
             {
               "name": "Cardinal Adina",
               "api_id": "adina",
-              "abbriviation": "A"
+              "abbriviation": "A",
+              "asssetId": 0
             },
             {
               "name": "Cardinal Sabir",
               "api_id": "sabir",
-              "abbriviation": "S"
+              "abbriviation": "S",
+              "asssetId": 0
             },
             {
               "name": "Qadim the Peerless",
               "api_id": "qadim_the_peerless",
-              "abbriviation": "Q2"
+              "abbriviation": "Q2",
+              "asssetId": 0
             }
           ]
         }
@@ -264,22 +290,26 @@
             {
               "name": "Camp",
               "api_id": "camp",
-              "abbriviation": "C"
+              "abbriviation": "C",
+              "asssetId": 0
             },
             {
               "name": "Decima",
               "api_id": "decima",
-              "abbriviation": "D"
+              "abbriviation": "D",
+              "asssetId": 0
             },
             {
               "name": "Greer",
               "api_id": "greer",
-              "abbriviation": "G"
+              "abbriviation": "G",
+              "asssetId": 0
             },
             {
               "name": "Ura",
               "api_id": "ura",
-              "abbriviation": "U"
+              "abbriviation": "U",
+              "asssetId": 0
             }
           ]
         }

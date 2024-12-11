@@ -298,5 +298,25 @@
     "98": "SunquaPeak",
     "99": "SilentSurf",
     "100": "LonelyTower"
-  }
+  },
+  "instabilityAssets": [
+    { "name": "Adrenaline Rush", "assetId": 0 },
+    { "name": "Afflicted", "assetId": 0 },
+    { "name": "Boon Overload", "assetId": 0 },
+    { "name": "Flux Bomb", "assetId": 0 },
+    { "name": "Fractal Vindicators", "assetId": 0 },
+    { "name": "Frailty", "assetId": 0 },
+    { "name": "Hamstrung", "assetId": 0 },
+    { "name": "Last Laugh", "assetId": 0 },
+    { "name": "Mists Convergence", "assetId": 0 },
+    { "name": "No Pain,No Gain", "assetId": 0 },
+    { "name": "Outflanked", "assetId": 0 },
+    { "name": "Social Awkwardness", "assetId": 0 },
+    { "name": "Stick Together", "assetId": 0 },
+    { "name": "Sugar Rush", "assetId": 0 },
+    { "name": "Toxic Trail", "assetId": 0 },
+    { "name": "Vengeance", "assetId": 0 },
+    { "name": "We Bleed Fire", "assetId": 0 },
+    { "name": "Toxic Sickness", "assetId": 0 }
+  ]
 }

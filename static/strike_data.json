@@ -1,5 +1,5 @@
 {
-  "version": "2024-12-03T19:00:00-0500",
+  "version": "2024-12-10T21:00:00-0500",
   "priority": {
     "id": "priority",
     "name": "Priority Strike Missions (Daily)",
@@ -24,42 +24,49 @@
           "id": "cold_war",
           "name": "Cold War",
           "abbriviation": "CW",
+          "assetId": 0,
           "mapIds": [1374, 1376]
         },
         {
           "id": "fraenir_of_jormag",
           "name": "Fraenir of Jormag",
           "abbriviation": "FoJ",
+          "assetId": 0,
           "mapIds": [1341, 1344]
         },
         {
           "id": "shiverpeak_pass",
           "name": "Shiverpeaks Pass",
           "abbriviation": "SH",
+          "assetId": 0,
           "mapIds": [1331, 1332]
         },
         {
           "id": "voice_and_claw",
           "name": "Voice and Claw of the Fallen",
           "abbriviation": "V&C",
+          "assetId": 0,
           "mapIds": [1346, 1340]
         },
         {
           "id": "whisper_of_jormag",
           "name": "Whisper of Jormag",
           "abbriviation": "WoJ",
+          "assetId": 0,
           "mapIds": [1359, 1357]
         },
         {
           "id": "boneskinner",
           "name": "Boneskinner",
           "abbriviation": "Bs",
+          "assetId": 0,
           "mapIds": [1339, 1351]
         },
         {
           "id": "dragonstorm",
           "name": "Dragonstorm",
           "abbriviation": "DS",
+          "assetId": 0,
           "mapIds": [1409, 1411]
         }
       ]
@@ -77,30 +84,35 @@
           "id": "aetherblade_hideout",
           "name": "Aetherblade Hideout",
           "abbriviation": "AH",
+          "assetId": 0,
           "mapIds": [1432]
         },
         {
           "id": "xunlai_jade_junkyard",
           "name": "Xunlai Jade Junkyard",
           "abbriviation": "XJJ",
+          "assetId": 0,
           "mapIds": [1450]
         },
         {
           "id": "kaineng_overlook",
           "name": "Kaineng Overlook",
           "abbriviation": "KO",
+          "assetId": 0,
           "mapIds": [1451]
         },
         {
           "id": "harvest_temple",
           "name": "Harvest Temple",
           "abbriviation": "HT",
+          "assetId": 0,
           "mapIds": [1437]
         },
         {
           "id": "old_lion_court",
           "name": "Old Lion's Court",
           "abbriviation": "OLC",
+          "assetId": 0,
           "mapIds": [1485]
         }
       ]
@@ -118,12 +130,14 @@
           "id": "cosmic_observatory",
           "name": "Cosmic Observatory",
           "abbriviation": "CO",
+          "assetId": 0,
           "mapIds": [1515]
         },
         {
           "id": "temple_of_febe",
           "name": "Temple of Febe",
           "abbriviation": "ToF",
+          "assetId": 0,
           "mapIds": [1520]
         }
       ]
