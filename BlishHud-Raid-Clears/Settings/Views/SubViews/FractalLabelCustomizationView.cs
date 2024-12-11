@@ -13,9 +13,9 @@ using System.Linq;
 
 namespace RaidClears.Settings.Views.SubViews;
 
-public class RaidLabelCustomizationView : View
+public class FractalLabelCustomizationView : View
 {
-    public RaidLabelCustomizationView()
+    public FractalLabelCustomizationView()
     {
   
     }
@@ -31,21 +31,20 @@ public class RaidLabelCustomizationView : View
         Dictionary<string, DateTime> clears = new();
 
         
-        foreach(var expansion in Service.RaidData.Expansions)
+        foreach(var map in Service.FractalMapData.Maps)
         {
-            panel.AddString(expansion.Name, Color.Gold);
-            foreach(var wing in expansion.Wings) {
-                panel.AddControl(new EncounterLabelCustomerizer(panel, Service.RaidSettings, wing, Color.Gray));
-                foreach(var encounter in wing.Encounters)
-                {
-                    var customerizer = new EncounterLabelCustomerizer(panel, Service.RaidSettings, encounter);
-                    panel.AddControl(customerizer);
-                }
-                panel.AddSpace();
+            
+            panel.AddControl(new EncounterLabelCustomerizer(panel, Service.FractalPersistance, map.Value.ToEncounterInterface() , Color.White));
+            /*foreach(var mission in expansion.Missions)
+            {
+                var customerizer = new EncounterLabelCustomerizer(panel, Service.StrikeSettings, mission);
+                panel.AddControl(customerizer);
             }
+            panel.AddSpace();*/
+            
         }
        
-        panel.AddString($"Customize Raid Boss Labels");
+        panel.AddString($"Customize Strike Mission Labels");
 
     }
 

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using RaidClears.Features.Shared.Models;
 using System;
 using System.Collections.Generic;
 
@@ -6,19 +7,10 @@ namespace RaidClears.Features.Raids.Models;
 
 
 [Serializable]
-public class RaidWing
+public class RaidWing : EncounterInterface
 {
-    [JsonProperty("id")]
-    public string Id = "undefined";
-
     [JsonProperty("number")]
     public int Number = -1;
-
-    [JsonProperty("name")]
-    public string Name = "undefined";
-
-    [JsonProperty("abbriviation")]
-    public string Abbriviation = "undefined";
 
     [JsonProperty("mapId")]
     public int MapId = -1;

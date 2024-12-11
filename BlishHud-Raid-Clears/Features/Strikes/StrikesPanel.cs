@@ -73,4 +73,25 @@ public class StrikesPanel : GridPanel
             strike.Dispose();
         }
     }
+
+    public void UpdateEncounterLabel(string encounterApiId, string newLabel)
+    {
+        foreach (var expansion in _strikes)
+        {
+            if (expansion.id == encounterApiId)
+            {
+                expansion.GroupLabel.Text = newLabel;
+                return;
+            }
+            foreach (var encounter in expansion.boxes)
+            {
+                if (encounter.id == encounterApiId)
+                {
+                    encounter.SetLabel(newLabel);
+                    //return;//Keep going for priority strikes
+                }
+
+            }
+        }
+    }
 }

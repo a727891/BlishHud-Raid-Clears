@@ -1,12 +1,15 @@
 ﻿using Blish_HUD;
+using Blish_HUD.Common.UI.Views;
 using Blish_HUD.Controls;
 using Blish_HUD.Controls.Effects;
+using Blish_HUD.Graphics.UI;
 using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using RaidClears.Settings.Enums;
 using System;
+using System.Threading.Tasks;
 
 namespace RaidClears.Features.Shared.Controls;
 
@@ -44,6 +47,7 @@ public class MyEffect : ControlEffect
         }
     }
 }
+
 public class GridBox : Label
 {
     protected MyEffect bgtexture { get; set; }

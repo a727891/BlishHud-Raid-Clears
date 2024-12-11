@@ -1,4 +1,5 @@
 ﻿using RaidClears.Features.Raids.Models;
+using RaidClears.Features.Strikes.Models;
 using RaidClears.Features.Shared.Enums;
 using RaidClears.Features.Shared.Enums.Extensions;
 using RaidClears.Features.Shared.Models;

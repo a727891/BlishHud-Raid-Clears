@@ -4,32 +4,36 @@ using System;
 using RaidClears.Features.Fractals.Services;
 using RaidClears.Features.Strikes.Services;
 using RaidClears.Features.Raids.Models;
+using RaidClears.Features.Shared.Models;
+using RaidClears.Features.Raids.Services;
 
 namespace RaidClears.Settings.Controls;
 
 public  class EncounterLabelCustomerizer : Panel
 {
-
+    private Labelable _labelable;
     private Label title = new Label();
     private Label abbrivLabel = new Label();
-    public EncounterLabelCustomerizer(FlowPanel parent, RaidEncounter encounter, Color? labelColor = null) : base()
+    public EncounterLabelCustomerizer(FlowPanel parent, Labelable labelable, EncounterInterface encounter, Color? labelColor = null) : base()
     {
+        _labelable = labelable;
         Parent = parent;
         Width = parent.Width-10;
         Padding = new Thickness(0, 10);
 
-        Build(encounter.Name, encounter.Abbriviation, encounter.ApiId, labelColor);
+        Build(encounter.Name, encounter.Abbriviation, encounter.Id, labelColor);
     }
-    public EncounterLabelCustomerizer(FlowPanel parent, RaidWing wing, Color? labelColor = null) : base()
+    public EncounterLabelCustomerizer(FlowPanel parent, Labelable labelable, RaidEncounter encounter, Color? labelColor = null) : base()
     {
+        _labelable = labelable;
         Parent = parent;
         Width = parent.Width - 10;
         Padding = new Thickness(0, 10);
 
-        Build(wing.Name, wing.Abbriviation, wing.Id, labelColor);
+        Build(encounter.Name, encounter.Abbriviation, encounter.ApiId, labelColor);
     }
 
-    protected void Build(string Name, string abbriv, string apiId, Color? color = null)
+    protected void Build(string Name, string abbriv, string id, Color? color = null)
     {
         if (color == null)
         {
@@ -47,7 +51,7 @@ public  class EncounterLabelCustomerizer : Panel
         };
         var customized = new TextBox()
         {
-            Text = Service.RaidSettings.GetEncounterLabel(apiId),
+            Text = _labelable.GetEncounterLabel(id),
             Parent = this,
             Location = new(col1 + 5, 0),
             Width = colN,
@@ -61,10 +65,10 @@ public  class EncounterLabelCustomerizer : Panel
             Width = colN,
         };
 
-        customized.TextChanged += (s, e) => { Service.RaidSettings.SetEncounterLabel(apiId, customized.Text); };
+        customized.TextChanged += (s, e) => { _labelable.SetEncounterLabel(id, customized.Text); };
         defaultbtn.Click += (s, e) => {
             customized.Text = abbriv;
-            Service.RaidSettings.SetEncounterLabel(apiId, abbriv); 
+            Service.RaidSettings.SetEncounterLabel(id, abbriv); 
         };
     }
 

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using RaidClears.Features.Shared.Models;
 using System;
 
 
@@ -6,15 +7,10 @@ namespace RaidClears.Features.Raids.Models;
 
 
 [Serializable]
-public class RaidEncounter
+public class RaidEncounter : EncounterInterface
 {
-    [JsonProperty("name")]
-    public string Name = "undefined";
-
     [JsonProperty("api_id")]
     public string ApiId = "undefined";
 
-    [JsonProperty("abbriviation")]
-    public string Abbriviation = "undefined";
 }
 

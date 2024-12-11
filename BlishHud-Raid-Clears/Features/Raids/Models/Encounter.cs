@@ -2,7 +2,7 @@
 using RaidClears.Features.Raids.Services;
 using RaidClears.Features.Shared.Enums.Extensions;
 using RaidClears.Features.Shared.Models;
-using RaidClears.Features.Strikes.Services;
+using RaidClears.Features.Strikes.Models;
 using static RaidClears.Features.Shared.Enums.Encounters;
 
 namespace RaidClears.Features.Raids.Models;

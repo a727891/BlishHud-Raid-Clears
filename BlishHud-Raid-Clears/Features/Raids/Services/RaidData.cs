@@ -106,7 +106,10 @@ public class RaidData
                 }
             }
         }
-        return new RaidEncounter();
+        return new RaidEncounter()
+        {
+            Abbriviation = apiId
+        };
     }
 
 

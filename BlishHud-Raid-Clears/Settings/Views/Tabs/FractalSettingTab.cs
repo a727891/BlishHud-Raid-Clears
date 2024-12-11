@@ -37,6 +37,11 @@ public class FractalSettingTab : ISettingsMenuRegistrar
         ));
 
         _registeredMenuItems.Add(new MenuViewItem(
+            new MenuItem("Customize Labels"),
+            _ => new FractalLabelCustomizationView()
+        ));
+
+        _registeredMenuItems.Add(new MenuViewItem(
             new MenuItem("Manage Clears"),
             _ => new FractalClearCorrectionView()
         ));

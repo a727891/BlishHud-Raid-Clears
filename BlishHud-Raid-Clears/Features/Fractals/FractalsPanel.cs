@@ -80,4 +80,25 @@ s               s.Box?.Parent.Invalidate();
             strike.Dispose();
         }
     }
+
+    public void UpdateEncounterLabel(string encounterApiId, string newLabel)
+    {
+        foreach (var fractalGroup in _fractals)
+        {
+            if (fractalGroup.id == encounterApiId)
+            {
+                fractalGroup.GroupLabel.Text = newLabel;
+                return;
+            }
+            foreach (var fractal in fractalGroup.boxes)
+            {
+                if (fractal.id == encounterApiId)
+                {
+                    fractal.SetLabel(newLabel);
+                    return;
+                }
+
+            }
+        }
+    }
 }

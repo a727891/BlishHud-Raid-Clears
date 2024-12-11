@@ -24,7 +24,6 @@ public static class StrikeMetaData
     {
         var settings = Service.Settings.StrikeSettings;
         var strikes = GetStrikeMetaData().ToList();
-        var strikeIndex = 0;
         foreach (var strike in strikes)
         {
             var group = new GridGroup(
@@ -66,7 +65,7 @@ public static class StrikeMetaData
             }
         }
 
-        strikes.Add(new PriorityStrikes(Strings.StrikeGroup_Priority, 11, Strings.StrikeGroup_Priority_abbr, new List<BoxModel>() { }, panel));
+        strikes.Add(new PriorityStrikes(Strings.StrikeGroup_Priority, Strings.StrikeGroup_Priority_abbr, 11, Strings.StrikeGroup_Priority_abbr, new List<BoxModel>() { }, panel));
 
 
         return strikes;
@@ -80,31 +79,5 @@ public static class StrikeMetaData
             strikes.Add(new Strike(expansion));
         }
         return strikes;
-        return new List<Strike>() {
-           /* new Strike(Strings.StrikeGroup_Icebrood, 8, Strings.StrikeGroup_Icebrood_abbr,
-                new List<BoxModel>() {
-                    new Encounter(Encounters.StrikeMission.ShiverpeaksPass),
-                    new Encounter(Encounters.StrikeMission.Fraenir),
-                    new Encounter(Encounters.StrikeMission.VoiceAndClaw),
-                    new Encounter(Encounters.StrikeMission.Whisper),
-                    new Encounter(Encounters.StrikeMission.Boneskinner),
-                    new Encounter(Encounters.StrikeMission.ColdWar),
-                    new Encounter(Encounters.StrikeMission.DragonStorm)
-                }),
-            new Strike(Strings.StrikeGroup_EoD, 9, Strings.StrikeGroup_Eod_abbr,
-                new List<BoxModel>() {
-                    new Encounter(Encounters.StrikeMission.AetherbladeHideout),
-                    new Encounter(Encounters.StrikeMission.Junkyard),
-                    new Encounter(Encounters.StrikeMission.Overlook),
-                    new Encounter(Encounters.StrikeMission.HarvestTemple),
-                    new Encounter(Encounters.StrikeMission.OldLionsCourt),
-                }),
-            new Strike("Secrets of the Obscure", 10, "SotO",
-                new List<BoxModel>() {
-                    new Encounter(Encounters.StrikeMission.CosmicObservatory),
-                    new Encounter(Encounters.StrikeMission.TempleOfFebe),
-                }),*/
-           // new PriorityStrikes("Priority Strike Missions (Daily)", 10, "PS", new List<BoxModel>() { }),
-        };
     }
 }

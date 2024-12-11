@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using RaidClears.Features.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,7 +7,6 @@ using System.Linq;
 using System.Linq.Expressions;
 
 namespace RaidClears.Features.Fractals.Services;
-
 
 public class FractalMap
 {
@@ -24,6 +24,16 @@ public class FractalMap
 
     [JsonProperty("id")]
     public int MapId = 0;
+
+    public EncounterInterface ToEncounterInterface()
+    {
+        return new EncounterInterface()
+        {
+            Id = ApiLabel,
+            Name = Label,
+            Abbriviation = ShortLabel
+        };
+    }
 }
 
 [Serializable]
@@ -50,9 +60,20 @@ public class FractalMapData
     [JsonProperty("scales")]
     public Dictionary<string, string> Scales { get; set; } = new();
 
+    [JsonProperty("instabailityAinstabilityAssetsssets")]
+    public List<Dictionary<string, int>> InstabilityAssets = new();
 
     private List<int>? _mapIds = null;
 
+
+    public int GetInstabilityAssetIdByName(string name)
+    {
+        foreach(var line in InstabilityAssets)
+        {
+            
+        }
+        return 0;
+    }
     
     public FractalMap GetFractalForScale(int scale)
     {

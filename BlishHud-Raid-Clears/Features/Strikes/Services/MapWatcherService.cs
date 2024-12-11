@@ -1,4 +1,5 @@
 ﻿using Blish_HUD;
+using RaidClears.Features.Strikes.Models;
 using RaidClears.Localization;
 using RaidClears.Shared.Controls;
 using System;

@@ -32,7 +32,7 @@ public class BoxModel
         Box.Invalidate();
     }
 
-    public void SetGridBoxReference(GridBox box)
+    public virtual void SetGridBoxReference(GridBox box)
     {
         Box = box;
         Box.BackgroundColor = _colorUnknown;
