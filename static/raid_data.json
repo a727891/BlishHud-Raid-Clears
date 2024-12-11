@@ -3,7 +3,7 @@
   "secondsInWeek": 604800,
   "aerodrome": {
     "name": "Lions Arch Aerodrome",
-    "mapId": 0,
+    "mapId": 1155,
     "abbriviation": "AD"
   },
   "expansions": [
@@ -18,7 +18,7 @@
           "number": 1,
           "name": "Spirit Vale",
           "abbriviation": "SV",
-          "mapId": 0,
+          "mapId": 1062,
           "call_of_mists_timestamp": 1655710200,
           "call_of_mists_weeks": 7,
           "emboldened_timestamp": 1656315000,
@@ -28,25 +28,25 @@
               "name": "Vale Guardian",
               "api_id": "vale_guardian",
               "abbriviation": "VG",
-              "asssetId": 0
+              "asssetId": 1301792
             },
             {
               "name": "Spirit Woods",
               "api_id": "spirit_woods",
               "abbriviation": "SW",
-              "asssetId": 0
+              "asssetId": 1301728
             },
             {
               "name": "Gorseval",
               "api_id": "gorseval",
               "abbriviation": "G",
-              "asssetId": 0
+              "asssetId": 1301787
             },
             {
               "name": "Sabetha",
               "api_id": "sabetha",
               "abbriviation": "S",
-              "asssetId": 0
+              "asssetId": 1301795
             }
           ]
         },
@@ -55,7 +55,7 @@
           "number": 2,
           "name": "Salvation Pass",
           "abbriviation": "SP",
-          "mapId": 0,
+          "mapId": 1149,
           "call_of_mists_timestamp": 1656315000,
           "call_of_mists_weeks": 7,
           "emboldened_timestamp": 1656919800,
@@ -65,19 +65,19 @@
               "name": "Slothasor",
               "api_id": "slothasor",
               "abbriviation": "S",
-              "asssetId": 0
+              "asssetId": 1377392
             },
             {
               "name": "Bandit Trio",
               "api_id": "bandit_trio",
               "abbriviation": "B3",
-              "asssetId": 0
+              "asssetId": 1377389
             },
             {
               "name": "Matthias Gabrel",
               "api_id": "matthias",
               "abbriviation": "M",
-              "asssetId": 0
+              "asssetId": 1377391
             }
           ]
         },
@@ -86,7 +86,7 @@
           "number": 3,
           "name": "Stonghold of the Falthful",
           "abbriviation": "SotF",
-          "mapId": 0,
+          "mapId": 1156,
           "call_of_mists_timestamp": 1656919800,
           "call_of_mists_weeks": 7,
           "emboldened_timestamp": 1657524600,
@@ -96,25 +96,25 @@
               "name": "Escort",
               "api_id": "escort",
               "abbriviation": "E",
-              "asssetId": 0
+              "asssetId": 1451172
             },
             {
               "name": "Keep Construct",
               "api_id": "keep_construct",
               "abbriviation": "KC",
-              "asssetId": 0
+              "asssetId": 1451173
             },
             {
               "name": "Twisted Castle",
               "api_id": "twisted_castle",
               "abbriviation": "TC",
-              "asssetId": 0
+              "asssetId": 1451294
             },
             {
               "name": "Xera",
               "api_id": "xera",
               "abbriviation": "X",
-              "asssetId": 0
+              "asssetId": 1451174
             }
           ]
         },
@@ -123,7 +123,7 @@
           "number": 4,
           "name": "Bastion of the Penitent",
           "abbriviation": "BotP",
-          "mapId": 0,
+          "mapId": 1188,
           "call_of_mists_timestamp": 1657524600,
           "call_of_mists_weeks": 7,
           "emboldened_timestamp": 1658129400,
@@ -133,25 +133,25 @@
               "name": "Cairn the Indominable",
               "api_id": "cairn",
               "abbriviation": "C",
-              "asssetId": 0
+              "asssetId": 1633961
             },
             {
               "name": "Mursaat Overseer",
               "api_id": "mursaat_overseer",
               "abbriviation": "MO",
-              "asssetId": 0
+              "asssetId": 1633963
             },
             {
               "name": "Samarog",
               "api_id": "samarog",
               "abbriviation": "S",
-              "asssetId": 0
+              "asssetId": 1633967
             },
             {
               "name": "Deimos",
               "api_id": "deimos",
               "abbriviation": "D",
-              "asssetId": 0
+              "asssetId": 1633966
             }
           ]
         }
@@ -168,7 +168,7 @@
           "number": 5,
           "name": "Hall of Chains",
           "abbriviation": "HoC",
-          "mapId": 0,
+          "mapId": 1264,
           "call_of_mists_timestamp": 1658129400,
           "call_of_mists_weeks": 7,
           "emboldened_timestamp": 1658734200,
@@ -178,25 +178,25 @@
               "name": "Soulless Horror",
               "api_id": "soulless_horror",
               "abbriviation": "SH",
-              "asssetId": 0
+              "asssetId": 1894936
             },
             {
               "name": "River of Souls",
               "api_id": "river_of_souls",
               "abbriviation": "R",
-              "asssetId": 0
+              "asssetId": 1894803
             },
             {
               "name": "Statues of Grenth",
               "api_id": "statues_of_grenth",
               "abbriviation": "S",
-              "asssetId": 0
+              "asssetId": 1894799
             },
             {
               "name": "Dhuum",
               "api_id": "voice_in_the_void",
               "abbriviation": "D",
-              "asssetId": 0
+              "asssetId": 1894937
             }
           ]
         },
@@ -205,7 +205,7 @@
           "number": 6,
           "name": "Mythwright Gambit",
           "abbriviation": "MG",
-          "mapId": 0,
+          "mapId": 1303,
           "call_of_mists_timestamp": 1658734200,
           "call_of_mists_weeks": 7,
           "emboldened_timestamp": 1659339000,
@@ -215,19 +215,19 @@
               "name": "Conjured Amalgamate",
               "api_id": "conjured_amalgamate",
               "abbriviation": "CA",
-              "asssetId": 0
+              "asssetId": 2039286
             },
             {
               "name": "Twin Largos",
               "api_id": "twin_largos",
               "abbriviation": "TL",
-              "asssetId": 0
+              "asssetId": 2038615
             },
             {
               "name": "Qadim",
               "api_id": "qadim",
               "abbriviation": "Q1",
-              "asssetId": 0
+              "asssetId": 2038618
             }
           ]
         },
@@ -236,7 +236,7 @@
           "number": 7,
           "name": "The Key of Ahdashim",
           "abbriviation": "TKoA",
-          "mapId": 0,
+          "mapId": 1323,
           "call_of_mists_timestamp": 1659339000,
           "call_of_mists_weeks": 7,
           "emboldened_timestamp": 1659943800,
@@ -246,25 +246,25 @@
               "name": "Gate",
               "api_id": "gate",
               "abbriviation": "G",
-              "asssetId": 0
+              "asssetId": 2155913
             },
             {
               "name": "Cardinal Adina",
               "api_id": "adina",
               "abbriviation": "A",
-              "asssetId": 0
+              "asssetId": 1766806
             },
             {
               "name": "Cardinal Sabir",
               "api_id": "sabir",
               "abbriviation": "S",
-              "asssetId": 0
+              "asssetId": 1766790
             },
             {
               "name": "Qadim the Peerless",
               "api_id": "qadim_the_peerless",
               "abbriviation": "Q2",
-              "asssetId": 0
+              "asssetId": 2155914
             }
           ]
         }
@@ -281,7 +281,7 @@
           "number": 8,
           "name": "Mount Balrior",
           "abbriviation": "MtBal",
-          "mapId": 0,
+          "mapId": 1564,
           "call_of_mists_timestamp": 1733184000,
           "call_of_mists_weeks": 1,
           "emboldened_timestamp": 0,
@@ -291,25 +291,25 @@
               "name": "Camp",
               "api_id": "camp",
               "abbriviation": "C",
-              "asssetId": 0
+              "asssetId": 3442796
             },
             {
               "name": "Decima",
               "api_id": "decima",
               "abbriviation": "D",
-              "asssetId": 0
+              "asssetId": 3375072
             },
             {
               "name": "Greer",
               "api_id": "greer",
               "abbriviation": "G",
-              "asssetId": 0
+              "asssetId": 3441685
             },
             {
               "name": "Ura",
               "api_id": "ura",
               "abbriviation": "U",
-              "asssetId": 0
+              "asssetId": 3441855
             }
           ]
         }
