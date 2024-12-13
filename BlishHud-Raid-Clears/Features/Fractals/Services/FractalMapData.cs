@@ -60,21 +60,27 @@ public class FractalMapData
     [JsonProperty("scales")]
     public Dictionary<string, string> Scales { get; set; } = new();
 
-    [JsonProperty("instabailityAinstabilityAssetsssets")]
-    public List<Dictionary<string, int>> InstabilityAssets = new();
+    [JsonProperty("instabilityAssets")]
+    public Dictionary<string, int> InstabilityAssets = new();
 
     private List<int>? _mapIds = null;
 
 
     public int GetInstabilityAssetIdByName(string name)
     {
-        foreach(var line in InstabilityAssets)
+        if (InstabilityAssets.TryGetValue(name, out var assetId))
         {
-            
+            return assetId;
         }
         return 0;
     }
-    
+    public List<int> GetInstabilityAssetIdByNames(List<string> names)
+    {
+        
+        return names.Select(GetInstabilityAssetIdByName).ToList();
+        
+    }
+
     public FractalMap GetFractalForScale(int scale)
     {
         if (!Scales.ContainsKey(scale.ToString()))

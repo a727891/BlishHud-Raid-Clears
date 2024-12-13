@@ -30,23 +30,13 @@ public static class DailyTierNFractalService
 
     public static IEnumerable<(BoxModel box, FractalMap fractalMap, int scale)> GetCMFractals()
     {
-        var today = DayOfYearIndexService.DayOfYearIndex();
-        var CMs = new List<(BoxModel box, FractalMap fractal, int scale)> { };
-        foreach (var scale in Service.FractalMapData.ChallengeMotes)
-        {
-            var map = Service.FractalMapData.GetFractalForScale(scale);
-            var tool = GetCMTooltip(map, scale, today);
-            CMs.Add(
-                (
-                    new BoxModel(map.ApiLabel, tool, map.ShortLabel),
-                    map,
-                    scale
-                )
-            );
-                
-        }
-        return CMs;
+        return BuildToolTipData(Service.FractalMapData.ChallengeMotes.Select(Service.FractalMapData.GetFractalForScale));
     }
+    public static IEnumerable<(BoxModel box, FractalMap fractalMap, int scale)> GetTomorrowTierNForTooltip()
+    {
+        return BuildToolTipData(GetTomorrowTierNFractals());
+    }
+
 
     private static string GetCMTooltip(FractalMap fractal, int scale, int today)
     {
@@ -55,10 +45,27 @@ public static class DailyTierNFractalService
         return $"{fractal.Label}\n\nInstabilities\n    {instab}\n\nTomorrow's Instabilities\n    {tomInstab}";
     }
 
-    public static IEnumerable<BoxModel> GetTomorrowTierN()
+    public static IEnumerable<(BoxModel box, FractalMap fractalMap, int scale)> BuildToolTipData(IEnumerable<FractalMap> fractals)
     {
-        return GetTomorrowTierNFractals().Select(e => new BoxModel($"{e.ApiLabel}", $"{e.Label}", e.ShortLabel));
+        var today = DayOfYearIndexService.DayOfYearIndex();
+        var CMs = new List<(BoxModel box, FractalMap fractal, int scale)> { };
+
+        foreach (var map in fractals)
+        {
+            var scales = map.Scales;
+            //var tool = GetCMTooltip(map, scales.Last(), today);
+            CMs.Add(
+                (
+                    new BoxModel(map.ApiLabel, "", Service.FractalPersistance.GetEncounterLabel(map.ApiLabel)),
+                    map,
+                    scales.Last()
+                )
+            );
+        }
+        return CMs;
     }
+
+
 
     public static IEnumerable<FractalInfo> GetDailyTierNFractals()
     {

@@ -24,10 +24,6 @@ public abstract class Labelable
     public abstract void SetEncounterLabel(string encounterApiId, string label);
     public string GetEncounterLabel(string encounterApiId)
     {
-        if(encounterApiId== "voice_and_claw")
-        {
-            Debug.WriteLine("test");
-        }
         if(EncounterLabels.TryGetValue(encounterApiId,out var value)){
             return value;
         }

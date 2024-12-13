@@ -64,14 +64,11 @@ public class CMFractals : Fractal
                 encounter.shortName, encounter.name,
                 Settings.Style.GridOpacity, Settings.Style.FontSize
             );
-            if (scale <99)
-            {
-                var fractalTooptip = new CmTooltip();
-                fractalTooptip.Fractal = new CMInterface(map, scale, DayOfYearIndexService.DayOfYearIndex());
-                encounterBox.Tooltip = fractalTooptip;
-
-
-            }
+            
+            var fractalTooptip = new CmTooltip();
+            fractalTooptip.Fractal = new CMInterface(map, scale, DayOfYearIndexService.DayOfYearIndex());
+            encounterBox.Tooltip = fractalTooptip;
+                        
             encounterBox.TextColorSetting(Settings.Style.Color.Text);
             encounter.SetGridBoxReference(encounterBox);
             encounter.WatchColorSettings(Settings.Style.Color.Cleared, Settings.Style.Color.NotCleared);
