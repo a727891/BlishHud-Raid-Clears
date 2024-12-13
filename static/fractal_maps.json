@@ -299,24 +299,24 @@
     "99": "SilentSurf",
     "100": "LonelyTower"
   },
-  "instabilityAssets": [
-    { "name": "Adrenaline Rush", "assetId": 1948133 },
-    { "name": "Afflicted", "assetId": 1948134 },
-    { "name": "Boon Overload", "assetId": 2084733 },
-    { "name": "Flux Bomb", "assetId": 1948135 },
-    { "name": "Fractal Vindicators", "assetId": 1948142 },
-    { "name": "Frailty", "assetId": 2084735 },
-    { "name": "Hamstrung", "assetId": 1948136 },
-    { "name": "Last Laugh", "assetId": 1948137 },
-    { "name": "Mists Convergence", "assetId": 1948138 },
-    { "name": "No Pain,No Gain", "assetId": 1948139 },
-    { "name": "Outflanked", "assetId": 2084736 },
-    { "name": "Social Awkwardness", "assetId": 1948140 },
-    { "name": "Stick Together", "assetId": 2084738 },
-    { "name": "Sugar Rush", "assetId": 2084739 },
-    { "name": "Toxic Trail", "assetId": 1948141 },
-    { "name": "Vengeance", "assetId": 2084741 },
-    { "name": "We Bleed Fire", "assetId": 2084742 },
-    { "name": "Toxic Sickness", "assetId": 2084734 }
-  ]
+  "instabilityAssets": {
+    "Adrenaline Rush": 1948133,
+    "Afflicted": 1948134,
+    "Boon Overload": 2084733,
+    "Flux Bomb": 1948135,
+    "Fractal Vindicators": 1948142,
+    "Frailty": 2084735,
+    "Hamstrung": 1948136,
+    "Last Laugh": 1948137,
+    "Mists Convergence": 1948138,
+    "No Pain,No Gain": 1948139,
+    "Outflanked": 2084736,
+    "Social Awkwardness": 1948140,
+    "Stick Together": 2084738,
+    "Sugar Rush": 2084739,
+    "Toxic Trail": 1948141,
+    "Vengeance": 2084741,
+    "We Bleed Fire": 2084742,
+    "Toxic Sickness": 2084734
+  }
 }
