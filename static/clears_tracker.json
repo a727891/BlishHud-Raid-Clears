@@ -13,5 +13,14 @@
     "texture_raids_pof.png",
     "texture_base_logo.png",
     "texture_raids_jw.png"
+  ],
+  "gridbox_masks": [
+    "gridbox_masks/01.png",
+    "gridbox_masks/02.png",
+    "gridbox_masks/03.png",
+    "gridbox_masks/04.png",
+    "gridbox_masks/05.png",
+    "gridbox_masks/06.png",
+    "gridbox_masks/07.png"
   ]
 }
