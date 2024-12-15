@@ -1,12 +1,15 @@
 ﻿using Blish_HUD;
+using Blish_HUD.Common.UI.Views;
 using Blish_HUD.Controls;
 using Blish_HUD.Controls.Effects;
+using Blish_HUD.Graphics.UI;
 using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using RaidClears.Settings.Enums;
 using System;
+using System.Threading.Tasks;
 
 namespace RaidClears.Features.Shared.Controls;
 
@@ -17,8 +20,7 @@ public class MyEffect : ControlEffect
     public Color Tint { get; set; } = Color.Transparent;
     public MyEffect(Control assignedControl) : base(assignedControl)
     {
-        var i = Service.Random.Next(Service.Textures!.GridBoxBackgroundTexture.Count);
-        texture = Service.Textures.GridBoxBackgroundTexture[i];
+        texture = Service.Textures!.GetRandomGridBoxMask();
         boundChange = new Rectangle(
             Service.Random.Next(0, 3),
             Service.Random.Next(0, 2),
@@ -44,6 +46,7 @@ public class MyEffect : ControlEffect
         }
     }
 }
+
 public class GridBox : Label
 {
     protected MyEffect bgtexture { get; set; }

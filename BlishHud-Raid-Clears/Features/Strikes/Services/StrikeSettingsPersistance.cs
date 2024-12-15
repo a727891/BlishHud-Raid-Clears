@@ -1,6 +1,8 @@
 ﻿using Blish_HUD.Settings;
 using Newtonsoft.Json;
+using RaidClears.Features.Raids.Services;
 using RaidClears.Features.Shared.Enums;
+using RaidClears.Features.Strikes.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,8 +11,12 @@ namespace RaidClears.Features.Strikes.Services;
 
 
 [Serializable]
-public class StrikeSettingsPersistance
+public class StrikeSettingsPersistance : Labelable
 {
+    public StrikeSettingsPersistance() {
+        _isStrike = true;
+    }
+
     public event EventHandler<bool>? StrikeSettingsChanged;
 
     [JsonIgnore]
@@ -44,6 +50,23 @@ public class StrikeSettingsPersistance
                 Missions.Add(miss.Id, true);
             }
         }
+    }
+
+    public override void SetEncounterLabel(string encounterApiId, string label)
+    {
+        if (EncounterLabels.ContainsKey(encounterApiId))
+        {
+            EncounterLabels.Remove(encounterApiId);
+        }
+        if (EncounterLabels.ContainsKey($"priority_{encounterApiId}"))
+        {
+            EncounterLabels.Remove($"priority_{encounterApiId}");
+        }
+        EncounterLabels.Add(encounterApiId, label);
+        EncounterLabels.Add($"priority_{encounterApiId}", label);
+        Service.StrikesWindow.UpdateEncounterLabel(encounterApiId, label);
+        Service.StrikesWindow.UpdateEncounterLabel($"priority_{encounterApiId}", label);
+        Save();
     }
 
     public SettingEntry<bool> GetPriorityVisible(ExpansionStrikes priority)
@@ -122,7 +145,7 @@ public class StrikeSettingsPersistance
         return setting;
     }
 
-    public void Save()
+    public override void Save()
     {
         var configFileInfo = GetConfigFileInfo();
 

@@ -1,4 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using Blish_HUD.Settings;
+using Newtonsoft.Json;
+using RaidClears.Features.Raids.Models;
+using RaidClears.Features.Raids.Services;
 using RaidClears.Features.Shared.Enums;
 using System;
 using System.Collections.Generic;
@@ -9,8 +12,14 @@ namespace RaidClears.Features.Fractals.Services;
 
 
 [Serializable]
-public class FractalPersistance
+public class FractalPersistance : Labelable
 {
+
+    public FractalPersistance()
+    {
+        _isFractal = true;
+    }
+
     [JsonIgnore]
     public static string FILENAME = "fractal_clears.json";
 
@@ -31,6 +40,19 @@ public class FractalPersistance
         }
         return empty;
     }
+
+
+    public override void SetEncounterLabel(string encounterApiId, string label)
+    {
+        if (EncounterLabels.ContainsKey(encounterApiId))
+        {
+            EncounterLabels.Remove(encounterApiId);
+        }
+        EncounterLabels.Add(encounterApiId, label);
+        Service.FractalWindow.UpdateEncounterLabel(encounterApiId, label);
+        Save();
+    }
+
     public void SaveClear(string account, FractalMap mission)
     {
         Dictionary<string, DateTime> clears;
@@ -69,7 +91,7 @@ public class FractalPersistance
         Save();
     }
 
-    public void Save()
+    public override void Save()
     {
         //PluginLog.Verbose($"{DateTime.Now} - {CharacterData.Name} Saved");
 

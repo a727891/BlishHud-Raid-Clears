@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using RaidClears.Features.Fractals.Models;
+using RaidClears.Features.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,7 +8,6 @@ using System.Linq;
 using System.Linq.Expressions;
 
 namespace RaidClears.Features.Fractals.Services;
-
 
 public class FractalMap
 {
@@ -24,6 +25,16 @@ public class FractalMap
 
     [JsonProperty("id")]
     public int MapId = 0;
+
+    public EncounterInterface ToEncounterInterface()
+    {
+        return new EncounterInterface()
+        {
+            Id = ApiLabel,
+            Name = Label,
+            Abbriviation = ShortLabel
+        };
+    }
 }
 
 [Serializable]
@@ -43,6 +54,34 @@ public class FractalMapData
     [JsonProperty("maps")]
     public Dictionary<string, FractalMap> Maps { get; set; } = new();
 
+    [JsonIgnore]
+    public List<EncounterInterface> Categories { get; set; } = new(){
+        new()
+        {
+            Name=Fractal.ChallengeMoteLabel,
+            Id=Fractal.ChallengeMoteId,
+            Abbriviation=Fractal.ChallengeMoteId
+        },
+        new()
+        {
+            Name=Fractal.TomorrowLabel,
+            Id=Fractal.TomorrowId,
+            Abbriviation=Fractal.TomorrowId
+        },
+        new()
+        {
+            Name=Fractal.TierNLabel,
+            Id=Fractal.TierNId,
+            Abbriviation=Fractal.TierNId
+        },
+        new()
+        {
+            Name=Fractal.RecLabel,
+            Id=Fractal.RecId,
+            Abbriviation=Fractal.RecId
+        },
+    };
+
         
     [JsonProperty("challengeMotes")]
     public int[] ChallengeMotes { get; set; } = new int[] { };
@@ -50,10 +89,27 @@ public class FractalMapData
     [JsonProperty("scales")]
     public Dictionary<string, string> Scales { get; set; } = new();
 
+    [JsonProperty("instabilityAssets")]
+    public Dictionary<string, int> InstabilityAssets = new();
 
     private List<int>? _mapIds = null;
 
-    
+
+    public int GetInstabilityAssetIdByName(string name)
+    {
+        if (InstabilityAssets.TryGetValue(name, out var assetId))
+        {
+            return assetId;
+        }
+        return 0;
+    }
+    public List<int> GetInstabilityAssetIdByNames(List<string> names)
+    {
+        
+        return names.Select(GetInstabilityAssetIdByName).ToList();
+        
+    }
+
     public FractalMap GetFractalForScale(int scale)
     {
         if (!Scales.ContainsKey(scale.ToString()))
@@ -85,7 +141,12 @@ public class FractalMapData
         {
             if (map.ApiLabel == name) return map;
         }
-        return new FractalMap();
+        return new FractalMap() { 
+            Label= name,
+            ShortLabel= name,
+            ApiLabel = name,
+        };
+
     }
 
     public FractalMap? GetFractalMapById(int mapId)

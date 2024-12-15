@@ -12,6 +12,7 @@ using SharpDX.Direct3D9;
 using static RaidClears.Settings.Models.Settings;
 using System.Numerics;
 using System.Runtime.Remoting.Channels;
+using Blish_HUD.Controls;
 
 namespace RaidClears.Features.Fractals.Services;
 
@@ -27,29 +28,36 @@ public static class DailyTierNFractalService
         return GetDailyTierNFractals().Select(e => new BoxModel($"{e.Encounter.id}", $"{e.Encounter.name}\n\n{Strings.Strike_Tooltip_tomorrow}\n{e.TomorrowEncounter.Label}", e.Encounter.shortName));
     }
 
-    public static IEnumerable<BoxModel> GetCMFractals()
+    public static IEnumerable<(BoxModel box, FractalMap fractalMap, int scale)> GetCMFractals()
+    {
+        return BuildToolTipData(Service.FractalMapData.ChallengeMotes.Select(Service.FractalMapData.GetFractalForScale));
+    }
+    public static IEnumerable<(BoxModel box, FractalMap fractalMap, int scale)> GetTomorrowTierNForTooltip()
+    {
+        return BuildToolTipData(GetTomorrowTierNFractals());
+    }
+
+    public static IEnumerable<(BoxModel box, FractalMap fractalMap, int scale)> BuildToolTipData(IEnumerable<FractalMap> fractals)
     {
         var today = DayOfYearIndexService.DayOfYearIndex();
-        var CMs = new List<(FractalMap fractal, int scale)> {};
-        foreach(var scale in Service.FractalMapData.ChallengeMotes)
+        var CMs = new List<(BoxModel box, FractalMap fractal, int scale)> { };
+
+        foreach (var map in fractals)
         {
-            CMs.Add((Service.FractalMapData.GetFractalForScale(scale), scale));
+            var scales = map.Scales;
+            //var tool = GetCMTooltip(map, scales.Last(), today);
+            CMs.Add(
+                (
+                    new BoxModel(map.ApiLabel, "", Service.FractalPersistance.GetEncounterLabel(map.ApiLabel)),
+                    map,
+                    scales.Last()
+                )
+            );
         }
-
-        return CMs.Select( e => new BoxModel(e.fractal.ApiLabel, GetCMTooltip(e.fractal, e.scale,today), e.fractal.ShortLabel));
+        return CMs;
     }
 
-    private static string GetCMTooltip(FractalMap fractal, int scale, int today)
-    {
-        var instab = String.Join("\n\t",Service.InstabilitiesData.GetInstabsForLevelOnDay(scale, today).ToArray());
-        var tomInstab = String.Join("\n\t",Service.InstabilitiesData.GetInstabsForLevelOnDay(scale, (today + 1) % 366).ToArray());
-        return $"{fractal.Label}\n\nInstabilities\n\t{instab}\n\nTomorrow's Instabilities\n\t{tomInstab}";
-    }
 
-    public static IEnumerable<BoxModel> GetTomorrowTierN()
-    {
-        return GetTomorrowTierNFractals().Select(e => new BoxModel($"{e.ApiLabel}", $"{e.Label}", e.ShortLabel));
-    }
 
     public static IEnumerable<FractalInfo> GetDailyTierNFractals()
     {

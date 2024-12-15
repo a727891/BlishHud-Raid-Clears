@@ -42,6 +42,11 @@ public class StrikesSettingTab : ISettingsMenuRegistrar
         ));
 
         _registeredMenuItems.Add(new MenuViewItem(
+            new MenuItem("Customize Labels"),
+            _ => new StrikeLabelCustomizationView()
+        ));
+
+        _registeredMenuItems.Add(new MenuViewItem(
             new MenuItem("Manage Clears"),
             _ => new StrikeClearCorrectionView()
         ));

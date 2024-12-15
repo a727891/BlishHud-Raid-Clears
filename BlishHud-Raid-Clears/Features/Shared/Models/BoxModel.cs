@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using RaidClears.Features.Raids;
 using RaidClears.Features.Shared.Controls;
 
 namespace RaidClears.Features.Shared.Models;
@@ -9,6 +10,8 @@ public class BoxModel
     public string name;
     public string shortName;
     private bool _isCleared;
+
+    protected RaidTooltipView _tooltip = null;
 
     public GridBox Box { get; private set; }
 
@@ -32,10 +35,14 @@ public class BoxModel
         Box.Invalidate();
     }
 
-    public void SetGridBoxReference(GridBox box)
+    public virtual void SetGridBoxReference(GridBox box)
     {
         Box = box;
         Box.BackgroundColor = _colorUnknown;
+        if(_tooltip!= null)
+        {
+            Box.Tooltip = _tooltip;
+        }
     }
 
     public void SetCleared(bool cleared)

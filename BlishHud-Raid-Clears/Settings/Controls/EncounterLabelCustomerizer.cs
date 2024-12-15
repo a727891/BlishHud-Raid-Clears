@@ -4,37 +4,44 @@ using System;
 using RaidClears.Features.Fractals.Services;
 using RaidClears.Features.Strikes.Services;
 using RaidClears.Features.Raids.Models;
+using RaidClears.Features.Shared.Models;
+using RaidClears.Features.Raids.Services;
 
 namespace RaidClears.Settings.Controls;
 
 public  class EncounterLabelCustomerizer : Panel
 {
-
+    private Labelable _labelable;
     private Label title = new Label();
+    private TextBox input = new TextBox();
     private Label abbrivLabel = new Label();
-    public EncounterLabelCustomerizer(FlowPanel parent, RaidEncounter encounter, Color? labelColor = null) : base()
+    private StandardButton resetBtn = new StandardButton();
+    public EncounterLabelCustomerizer(FlowPanel parent, Labelable labelable, EncounterInterface encounter, Color? labelColor = null) : base()
     {
+        _labelable = labelable;
         Parent = parent;
         Width = parent.Width-10;
         Padding = new Thickness(0, 10);
 
-        Build(encounter.Name, encounter.Abbriviation, encounter.ApiId, labelColor);
+        Build(encounter.Name, encounter.Abbriviation, encounter.Id, labelColor);
     }
-    public EncounterLabelCustomerizer(FlowPanel parent, RaidWing wing, Color? labelColor = null) : base()
+    public EncounterLabelCustomerizer(FlowPanel parent, Labelable labelable, RaidEncounter encounter, Color? labelColor = null) : base()
     {
+        _labelable = labelable;
         Parent = parent;
         Width = parent.Width - 10;
         Padding = new Thickness(0, 10);
 
-        Build(wing.Name, wing.Abbriviation, wing.Id, labelColor);
+        Build(encounter.Name, encounter.Abbriviation, encounter.ApiId, labelColor);
     }
 
-    protected void Build(string Name, string abbriv, string apiId, Color? color = null)
+    protected void Build(string Name, string abbriv, string id, Color? color = null)
     {
         if (color == null)
         {
             color = Color.White;
         }
+        var userLabel = _labelable.GetEncounterLabel(id);
         var col1 = (this.Width-30) / 3;
         var colN = ((2 * col1) - 5) / 3;
         title = new Label()
@@ -45,26 +52,40 @@ public  class EncounterLabelCustomerizer : Panel
             Width = col1,
             TextColor= (Color)color
         };
-        var customized = new TextBox()
+        input = new TextBox()
         {
-            Text = Service.RaidSettings.GetEncounterLabel(apiId),
+            Text = userLabel,
             Parent = this,
             Location = new(col1 + 5, 0),
             Width = colN,
         
         };
-        var defaultbtn = new StandardButton()
+        resetBtn = new StandardButton()
         {
-            Text = $"Default to '{abbriv}'",
+            Text = $"Reset to '{abbriv}'",
             Parent = this,
             Location = new(col1 + colN + 10, 0),
             Width = colN,
         };
+        if(abbriv == userLabel)
+        {
+            resetBtn.Hide();
+        }
 
-        customized.TextChanged += (s, e) => { Service.RaidSettings.SetEncounterLabel(apiId, customized.Text); };
-        defaultbtn.Click += (s, e) => {
-            customized.Text = abbriv;
-            Service.RaidSettings.SetEncounterLabel(apiId, abbriv); 
+        input.TextChanged += (s, e) => {
+            _labelable.SetEncounterLabel(id, input.Text);
+            if(input.Text == abbriv)
+            {
+                resetBtn.Hide();
+            }
+            {
+                resetBtn.Show();
+            }
+        };
+        resetBtn.Click += (s, e) => {
+            input.Text = abbriv;
+            Service.RaidSettings.SetEncounterLabel(id, abbriv); 
+            resetBtn.Hide();
         };
     }
 

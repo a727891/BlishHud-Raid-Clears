@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RaidClears.Features.Fractals.Services;
 using RaidClears.Features.Strikes.Services;
+using RaidClears.Features.Strikes.Models;
 
 namespace RaidClears.Settings.Controls;
 

@@ -9,8 +9,13 @@ namespace RaidClears.Features.Raids.Services;
 
 
 [Serializable]
-public class RaidSettingsPersistance
+public class RaidSettingsPersistance : Labelable
 {
+    public RaidSettingsPersistance()
+    {
+        _isRaid = true;
+    }
+
     public event EventHandler<bool>? RaidSettingsChanged;
 
     [JsonIgnore]
@@ -33,8 +38,6 @@ public class RaidSettingsPersistance
     [JsonProperty("encounters")]
     public Dictionary<string, bool> Encounters { get; set; } = new();
 
-    [JsonProperty("encounterLabels")]
-    public Dictionary<string, string> EncounterLabels { get; set; } = new();
 
 
     public void DefineEmpty()
@@ -53,29 +56,15 @@ public class RaidSettingsPersistance
         }
     }
 
-    public void SetEncounterLabel(string encounterApiId, string label)
+    public override void SetEncounterLabel(string encounterApiId, string label)
     {
-        if(EncounterLabels.ContainsKey(encounterApiId))
+        if (EncounterLabels.ContainsKey(encounterApiId))
         {
             EncounterLabels.Remove(encounterApiId);
         }
         EncounterLabels.Add(encounterApiId, label);
         Service.RaidWindow.UpdateEncounterLabel(encounterApiId, label);
         Save();
-    }
-    public string GetEncounterLabel(string encounterApiId)
-    {
-        if(EncounterLabels.TryGetValue(encounterApiId,out var value)){
-            return value;
-        }
-        return Service.RaidData.GetRaidEncounterByApiId(encounterApiId).Abbriviation;
-    }
-    public string GetEncounterLabel(RaidEncounter enc)
-    {
-        if (EncounterLabels.TryGetValue(enc.ApiId, out var value)){
-            return value;
-        }
-        return enc.Abbriviation;
     }
 
     public SettingEntry<bool> GetExpansionVisible(ExpansionRaid expac)
@@ -186,7 +175,7 @@ public class RaidSettingsPersistance
 
     
 
-    public void Save()
+    public override void Save()
     {
         var configFileInfo = GetConfigFileInfo();
 

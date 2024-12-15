@@ -2,6 +2,7 @@
 using Blish_HUD.Graphics.UI;
 using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
+using RaidClears.Features.Strikes.Models;
 using RaidClears.Features.Strikes.Services;
 using RaidClears.Localization;
 using RaidClears.Settings.Models;

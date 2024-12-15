@@ -33,6 +33,9 @@ public class ModuleMetaDataService
     [JsonProperty("assets")]
     public List<string> Assets { get; set; } = new();
 
+    [JsonProperty("gridbox_masks")]
+    public List<string> GridBoxMasks { get; set; } = new();
+
 
     private static FileInfo GetConfigFileInfo()
     {
@@ -99,15 +102,20 @@ public class ModuleMetaDataService
         }
 
         webFile.Save();
-        webFile.ValidateAssetCache(webFile.Assets);
+        webFile.ValidateAssetCache(webFile.Assets, webFile.GridBoxMasks);
     }
-    public void ValidateAssetCache(List<string> assets)
+    public void ValidateAssetCache(List<string> assets, List<string>gridboxMasks)
     {
         DownloadTextureService _textures = new DownloadTextureService();
 
         foreach (string asset in assets)
         {
             _textures.ValidateTextureCache(asset);
+        }
+        foreach (string asset in gridboxMasks)
+        {
+            _textures.ValidateTextureCache(asset);
+            Service.Textures!.AddGridBoxMask(asset);
         }
     }
     public static ModuleMetaDataService Load()

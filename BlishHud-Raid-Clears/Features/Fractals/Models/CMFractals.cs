@@ -9,6 +9,7 @@ using RaidClears.Features.Shared.Models;
 using RaidClears.Features.Fractals.Services;
 using RaidClears.Settings.Models;
 using RaidClears.Utils;
+using RaidClears.Features.Shared.Services;
 
 namespace RaidClears.Features.Fractals.Models;
 
@@ -16,7 +17,8 @@ public class CMFractals : Fractal
 {
     private readonly FractalSettings settings = Service.Settings.FractalSettings;
     private static FractalSettings Settings => Service.Settings.FractalSettings;
-    public CMFractals(string name, int index, string shortName, IEnumerable<BoxModel> boxes, Container panel) : base(name, index, shortName, boxes)
+    public CMFractals(Container panel) :
+           base(ChallengeMoteLabel, 4, ChallengeMoteId, new List<BoxModel>() { })
     {
         Service.ResetWatcher.DailyReset += ResetWatcher_DailyReset;
         InitGroup(panel);
@@ -56,14 +58,18 @@ public class CMFractals : Fractal
 
         var dailies = DailyTierNFractalService.GetCMFractals();
         var newList = new List<BoxModel>();
-        foreach (var encounter in dailies)
+        foreach ((var encounter,var map, var scale) in dailies)
         {
             var encounterBox = new GridBox(
                 this.GridGroup,
                 encounter.shortName, encounter.name,
                 Settings.Style.GridOpacity, Settings.Style.FontSize
             );
-
+            
+            var fractalTooptip = new CmTooltip();
+            fractalTooptip.Fractal = new CMInterface(map, scale, DayOfYearIndexService.DayOfYearIndex());
+            encounterBox.Tooltip = fractalTooptip;
+                        
             encounterBox.TextColorSetting(Settings.Style.Color.Text);
             encounter.SetGridBoxReference(encounterBox);
             encounter.WatchColorSettings(Settings.Style.Color.Cleared, Settings.Style.Color.NotCleared);

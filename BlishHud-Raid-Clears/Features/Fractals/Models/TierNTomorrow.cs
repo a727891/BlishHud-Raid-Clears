@@ -9,6 +9,7 @@ using RaidClears.Features.Shared.Models;
 using RaidClears.Features.Fractals.Services;
 using RaidClears.Settings.Models;
 using RaidClears.Utils;
+using RaidClears.Features.Shared.Services;
 
 namespace RaidClears.Features.Fractals.Models;
 
@@ -16,7 +17,8 @@ public class TierNTomorrow : Fractal
 {
     private readonly FractalSettings settings = Service.Settings.FractalSettings;
     private static FractalSettings Settings => Service.Settings.FractalSettings;
-    public TierNTomorrow(string name, int index, string shortName, IEnumerable<BoxModel> boxes, Container panel) : base(name, index, shortName, boxes)
+    public TierNTomorrow(Container panel) : 
+        base(TomorrowLabel, 2, TomorrowId, new List<BoxModel>() { })
     {
         Service.ResetWatcher.DailyReset += ResetWatcher_DailyReset;
         InitGroup(panel);
@@ -54,15 +56,19 @@ public class TierNTomorrow : Fractal
     protected void InitTierNFractals()
     {
 
-        var dailies = DailyTierNFractalService.GetTomorrowTierN();
+        var dailies = DailyTierNFractalService.GetTomorrowTierNForTooltip();
         var newList = new List<BoxModel>();
-        foreach (var encounter in dailies)
+        foreach ((var encounter, var map, var scale) in dailies)
         {
             var encounterBox = new GridBox(
                 this.GridGroup,
                 encounter.shortName, encounter.name,
                 Settings.Style.GridOpacity, Settings.Style.FontSize
             );
+
+            var fractalTooptip = new CmTooltip();
+            fractalTooptip.Fractal = new CMInterface(map, scale, DayOfYearIndexService.DayOfYearIndex());
+            encounterBox.Tooltip = fractalTooptip;
 
             encounterBox.TextColorSetting(Settings.Style.Color.Text);
             encounter.SetGridBoxReference(encounterBox);

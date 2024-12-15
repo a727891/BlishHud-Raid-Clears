@@ -11,7 +11,7 @@ using RaidClears.Settings.Enums;
 using RaidClears.Settings.Views;
 using RaidClears.Settings.Views.Tabs;
 using RaidClears.Features.Fractals.Services;
-using RaidClears.Features.Strikes.Services;
+using RaidClears.Features.Strikes.Models;
 
 namespace RaidClears.Utils;
 

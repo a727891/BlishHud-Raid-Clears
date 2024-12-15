@@ -1,67 +1,12 @@
 ﻿using Blish_HUD.Settings;
 using Newtonsoft.Json;
-using RaidClears.Features.Raids.Models;
-using RaidClears.Features.Shared.Models;
 using RaidClears.Features.Strikes.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
 
 namespace RaidClears.Features.Strikes.Services;
-
-public class StrikeMission
-{
-    [JsonProperty("id")]
-    public string Id = "undefined";
-
-    [JsonProperty("name")]
-    public string Name = "undefined";
-
-    [JsonProperty("abbriviation")]
-    public string Abbriviation = "undefined";
-
-    [JsonProperty("mapIds")]
-    public List<int> MapIds = new();
-}
-public class ExpansionStrikes
-{
-    [JsonProperty("id")]
-    public string Id = "undefined";
-
-    [JsonProperty("name")]
-    public string Name = "undefined";
-
-    [JsonProperty("abbriviation")]
-    public string Abbriviation = "undefined";
-
-    [JsonProperty("asset")]
-    public string asset = "missing.png";
-
-    [JsonProperty("resets")]
-    public string Resets = "weekly";
-
-    [JsonProperty("daily_priority_modulo")]
-    public int DailyPriorityModulo = 1;
-
-    [JsonProperty("daily_priority_offset")]
-    public int DailyPriorityOffset =0;
-
-    [JsonProperty("missions")]
-    public List<StrikeMission> Missions = new();
-
-
-    public List<BoxModel> GetEncounters()
-    {
-        List<BoxModel> missionslist = new();
-        foreach (var mission in Missions)
-        {
-            missionslist.Add(new Encounter(mission));
-        }
-        return missionslist;
-    }
-}
 
 [Serializable]
 public class StrikeData
@@ -95,7 +40,10 @@ public class StrikeData
         {
             if (expansion.Name == name) return expansion;
         }
-        return new ExpansionStrikes();
+        return new ExpansionStrikes()
+        {
+            Name = name
+        };
     }
 
     public StrikeMission? GetStrikeMisisonByMapId(int id)
@@ -116,6 +64,10 @@ public class StrikeData
     {
         foreach(var expansion in Expansions)
         {
+            if (expansion.Id == name)
+            {
+                return expansion.ToStrikeMission();
+            }
             foreach(var mission in expansion.Missions)
             {
                 if(mission.Id == name)
@@ -124,12 +76,19 @@ public class StrikeData
                 }
             }
         }
-        return new StrikeMission();
+        return new StrikeMission()
+        {
+            Id = name
+        };
     }
     public StrikeMission GetStrikeMissionByName(string name)
     {
         foreach (var expansion in Expansions)
         {
+            if (expansion.Id == name)
+            {
+
+            }
             foreach (var mission in expansion.Missions)
             {
                 if (mission.Name == name)
@@ -138,7 +97,10 @@ public class StrikeData
                 }
             }
         }
-        return new StrikeMission();
+        return new StrikeMission()
+        {
+            Name = name
+        };
     }
     public string GetStrikeMissionResetById(string name)
     {

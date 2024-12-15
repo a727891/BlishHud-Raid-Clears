@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using RaidClears.Features.Strikes.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
