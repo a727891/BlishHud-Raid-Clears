@@ -1,5 +1,5 @@
 {
-  "version": "2024-12-10T21:00:00-0500",
+  "version": "2024-12-14T22:27:00-0500",
   "secondsInWeek": 604800,
   "aerodrome": {
     "name": "Lions Arch Aerodrome",
@@ -28,25 +28,25 @@
               "name": "Vale Guardian",
               "api_id": "vale_guardian",
               "abbriviation": "VG",
-              "asssetId": 1301792
+              "assetId": 1301792
             },
             {
               "name": "Spirit Woods",
               "api_id": "spirit_woods",
               "abbriviation": "SW",
-              "asssetId": 1301728
+              "assetId": 1301728
             },
             {
               "name": "Gorseval",
               "api_id": "gorseval",
               "abbriviation": "G",
-              "asssetId": 1301787
+              "assetId": 1301787
             },
             {
               "name": "Sabetha",
               "api_id": "sabetha",
               "abbriviation": "S",
-              "asssetId": 1301795
+              "assetId": 1301795
             }
           ]
         },
@@ -65,19 +65,19 @@
               "name": "Slothasor",
               "api_id": "slothasor",
               "abbriviation": "S",
-              "asssetId": 1377392
+              "assetId": 1377392
             },
             {
               "name": "Bandit Trio",
               "api_id": "bandit_trio",
               "abbriviation": "B3",
-              "asssetId": 1377389
+              "assetId": 1377389
             },
             {
               "name": "Matthias Gabrel",
               "api_id": "matthias",
               "abbriviation": "M",
-              "asssetId": 1377391
+              "assetId": 1377391
             }
           ]
         },
@@ -96,25 +96,25 @@
               "name": "Escort",
               "api_id": "escort",
               "abbriviation": "E",
-              "asssetId": 1451172
+              "assetId": 1451172
             },
             {
               "name": "Keep Construct",
               "api_id": "keep_construct",
               "abbriviation": "KC",
-              "asssetId": 1451173
+              "assetId": 1451173
             },
             {
               "name": "Twisted Castle",
               "api_id": "twisted_castle",
               "abbriviation": "TC",
-              "asssetId": 1451294
+              "assetId": 1451294
             },
             {
               "name": "Xera",
               "api_id": "xera",
               "abbriviation": "X",
-              "asssetId": 1451174
+              "assetId": 1451174
             }
           ]
         },
@@ -133,25 +133,25 @@
               "name": "Cairn the Indominable",
               "api_id": "cairn",
               "abbriviation": "C",
-              "asssetId": 1633961
+              "assetId": 1633961
             },
             {
               "name": "Mursaat Overseer",
               "api_id": "mursaat_overseer",
               "abbriviation": "MO",
-              "asssetId": 1633963
+              "assetId": 1633963
             },
             {
               "name": "Samarog",
               "api_id": "samarog",
               "abbriviation": "S",
-              "asssetId": 1633967
+              "assetId": 1633967
             },
             {
               "name": "Deimos",
               "api_id": "deimos",
               "abbriviation": "D",
-              "asssetId": 1633966
+              "assetId": 1633966
             }
           ]
         }
@@ -178,25 +178,25 @@
               "name": "Soulless Horror",
               "api_id": "soulless_horror",
               "abbriviation": "SH",
-              "asssetId": 1894936
+              "assetId": 1894936
             },
             {
               "name": "River of Souls",
               "api_id": "river_of_souls",
               "abbriviation": "R",
-              "asssetId": 1894803
+              "assetId": 1894803
             },
             {
               "name": "Statues of Grenth",
               "api_id": "statues_of_grenth",
               "abbriviation": "S",
-              "asssetId": 1894799
+              "assetId": 1894799
             },
             {
               "name": "Dhuum",
               "api_id": "voice_in_the_void",
               "abbriviation": "D",
-              "asssetId": 1894937
+              "assetId": 1894937
             }
           ]
         },
@@ -215,19 +215,19 @@
               "name": "Conjured Amalgamate",
               "api_id": "conjured_amalgamate",
               "abbriviation": "CA",
-              "asssetId": 2039286
+              "assetId": 2039286
             },
             {
               "name": "Twin Largos",
               "api_id": "twin_largos",
               "abbriviation": "TL",
-              "asssetId": 2038615
+              "assetId": 2038615
             },
             {
               "name": "Qadim",
               "api_id": "qadim",
               "abbriviation": "Q1",
-              "asssetId": 2038618
+              "assetId": 2038618
             }
           ]
         },
@@ -246,25 +246,25 @@
               "name": "Gate",
               "api_id": "gate",
               "abbriviation": "G",
-              "asssetId": 2155913
+              "assetId": 2155913
             },
             {
               "name": "Cardinal Adina",
               "api_id": "adina",
               "abbriviation": "A",
-              "asssetId": 1766806
+              "assetId": 1766806
             },
             {
               "name": "Cardinal Sabir",
               "api_id": "sabir",
               "abbriviation": "S",
-              "asssetId": 1766790
+              "assetId": 1766790
             },
             {
               "name": "Qadim the Peerless",
               "api_id": "qadim_the_peerless",
               "abbriviation": "Q2",
-              "asssetId": 2155914
+              "assetId": 2155914
             }
           ]
         }
@@ -291,25 +291,25 @@
               "name": "Camp",
               "api_id": "camp",
               "abbriviation": "C",
-              "asssetId": 3442796
+              "assetId": 3442796
             },
             {
               "name": "Decima",
               "api_id": "decima",
               "abbriviation": "D",
-              "asssetId": 3375072
+              "assetId": 3375072
             },
             {
               "name": "Greer",
               "api_id": "greer",
               "abbriviation": "G",
-              "asssetId": 3441685
+              "assetId": 3441685
             },
             {
               "name": "Ura",
               "api_id": "ura",
               "abbriviation": "U",
-              "asssetId": 3441855
+              "assetId": 3441855
             }
           ]
         }
