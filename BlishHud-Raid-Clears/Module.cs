@@ -51,6 +51,7 @@ public class Module : Blish_HUD.Modules.Module
 
     protected override Task LoadAsync()
     {
+        Service.Textures = new TextureService(Service.ContentsManager);
         ModuleMetaDataService.CheckVersions();
 
         Service.RaidData = RaidData.Load();
@@ -63,7 +64,6 @@ public class Module : Blish_HUD.Modules.Module
         Service.FractalPersistance = FractalPersistance.Load();
 
         Service.ApiPollingService = new ApiPollService(Service.Settings.ApiPollingPeriod);
-        Service.Textures = new TextureService(Service.ContentsManager);
 
         Service.ResetWatcher = new ResetsWatcherService();
         Service.MapWatcher = new MapWatcherService();

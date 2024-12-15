@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using RaidClears.Features.Fractals.Models;
 using RaidClears.Features.Shared.Models;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,34 @@ public class FractalMapData
 
     [JsonProperty("maps")]
     public Dictionary<string, FractalMap> Maps { get; set; } = new();
+
+    [JsonIgnore]
+    public List<EncounterInterface> Categories { get; set; } = new(){
+        new()
+        {
+            Name=Fractal.ChallengeMoteLabel,
+            Id=Fractal.ChallengeMoteId,
+            Abbriviation=Fractal.ChallengeMoteId
+        },
+        new()
+        {
+            Name=Fractal.TomorrowLabel,
+            Id=Fractal.TomorrowId,
+            Abbriviation=Fractal.TomorrowId
+        },
+        new()
+        {
+            Name=Fractal.TierNLabel,
+            Id=Fractal.TierNId,
+            Abbriviation=Fractal.TierNId
+        },
+        new()
+        {
+            Name=Fractal.RecLabel,
+            Id=Fractal.RecId,
+            Abbriviation=Fractal.RecId
+        },
+    };
 
         
     [JsonProperty("challengeMotes")]
@@ -112,7 +141,12 @@ public class FractalMapData
         {
             if (map.ApiLabel == name) return map;
         }
-        return new FractalMap();
+        return new FractalMap() { 
+            Label= name,
+            ShortLabel= name,
+            ApiLabel = name,
+        };
+
     }
 
     public FractalMap? GetFractalMapById(int mapId)

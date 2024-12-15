@@ -1,6 +1,6 @@
 {
   "name": "Clears Tracker",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "namespace": "Soeed.RaidClears",
   "package": "BlishHud-Raid-Clears.dll",
   "manifest_version": 1,

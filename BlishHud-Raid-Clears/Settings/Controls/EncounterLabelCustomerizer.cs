@@ -13,7 +13,9 @@ public  class EncounterLabelCustomerizer : Panel
 {
     private Labelable _labelable;
     private Label title = new Label();
+    private TextBox input = new TextBox();
     private Label abbrivLabel = new Label();
+    private StandardButton resetBtn = new StandardButton();
     public EncounterLabelCustomerizer(FlowPanel parent, Labelable labelable, EncounterInterface encounter, Color? labelColor = null) : base()
     {
         _labelable = labelable;
@@ -39,6 +41,7 @@ public  class EncounterLabelCustomerizer : Panel
         {
             color = Color.White;
         }
+        var userLabel = _labelable.GetEncounterLabel(id);
         var col1 = (this.Width-30) / 3;
         var colN = ((2 * col1) - 5) / 3;
         title = new Label()
@@ -49,26 +52,40 @@ public  class EncounterLabelCustomerizer : Panel
             Width = col1,
             TextColor= (Color)color
         };
-        var customized = new TextBox()
+        input = new TextBox()
         {
-            Text = _labelable.GetEncounterLabel(id),
+            Text = userLabel,
             Parent = this,
             Location = new(col1 + 5, 0),
             Width = colN,
         
         };
-        var defaultbtn = new StandardButton()
+        resetBtn = new StandardButton()
         {
-            Text = $"Default to '{abbriv}'",
+            Text = $"Reset to '{abbriv}'",
             Parent = this,
             Location = new(col1 + colN + 10, 0),
             Width = colN,
         };
+        if(abbriv == userLabel)
+        {
+            resetBtn.Hide();
+        }
 
-        customized.TextChanged += (s, e) => { _labelable.SetEncounterLabel(id, customized.Text); };
-        defaultbtn.Click += (s, e) => {
-            customized.Text = abbriv;
+        input.TextChanged += (s, e) => {
+            _labelable.SetEncounterLabel(id, input.Text);
+            if(input.Text == abbriv)
+            {
+                resetBtn.Hide();
+            }
+            {
+                resetBtn.Show();
+            }
+        };
+        resetBtn.Click += (s, e) => {
+            input.Text = abbriv;
             Service.RaidSettings.SetEncounterLabel(id, abbriv); 
+            resetBtn.Hide();
         };
     }
 

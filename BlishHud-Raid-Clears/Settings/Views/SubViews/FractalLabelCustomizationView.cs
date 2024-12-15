@@ -30,21 +30,25 @@ public class FractalLabelCustomizationView : View
 
         Dictionary<string, DateTime> clears = new();
 
-        
-        foreach(var map in Service.FractalMapData.Maps)
+        foreach(var category in Service.FractalMapData.Categories)
         {
-            
+            panel.AddControl(
+                new EncounterLabelCustomerizer(
+                    panel, Service.FractalPersistance, 
+                    category, 
+                    Color.Gold
+                )
+            );
+
+        }
+        panel.AddSpace();
+
+        foreach (var map in Service.FractalMapData.Maps)
+        {
             panel.AddControl(new EncounterLabelCustomerizer(panel, Service.FractalPersistance, map.Value.ToEncounterInterface() , Color.White));
-            /*foreach(var mission in expansion.Missions)
-            {
-                var customerizer = new EncounterLabelCustomerizer(panel, Service.StrikeSettings, mission);
-                panel.AddControl(customerizer);
-            }
-            panel.AddSpace();*/
-            
         }
        
-        panel.AddString($"Customize Strike Mission Labels");
+        panel.AddString($"Customize Fractal Labels");
 
     }
 

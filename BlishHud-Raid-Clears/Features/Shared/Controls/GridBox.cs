@@ -20,8 +20,7 @@ public class MyEffect : ControlEffect
     public Color Tint { get; set; } = Color.Transparent;
     public MyEffect(Control assignedControl) : base(assignedControl)
     {
-        var i = Service.Random.Next(Service.Textures!.GridBoxBackgroundTexture.Count);
-        texture = Service.Textures.GridBoxBackgroundTexture[i];
+        texture = Service.Textures!.GetRandomGridBoxMask();
         boundChange = new Rectangle(
             Service.Random.Next(0, 3),
             Service.Random.Next(0, 2),

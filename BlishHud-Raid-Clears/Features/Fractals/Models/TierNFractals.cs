@@ -16,7 +16,8 @@ public class TierNFractals : Fractal
 {
     private readonly FractalSettings settings = Service.Settings.FractalSettings;
     private static FractalSettings Settings => Service.Settings.FractalSettings;
-    public TierNFractals(string name, int index, string shortName, IEnumerable<BoxModel> boxes, Container panel) : base(name, index, shortName, boxes)
+    public TierNFractals(Container panel) : 
+        base(TierNLabel, 0, TierNId, new List<BoxModel>() { })
     {
         Service.ResetWatcher.DailyReset += ResetWatcher_DailyReset;
         InitGroup(panel);

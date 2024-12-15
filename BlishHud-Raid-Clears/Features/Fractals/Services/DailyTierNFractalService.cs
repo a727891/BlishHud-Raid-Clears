@@ -37,14 +37,6 @@ public static class DailyTierNFractalService
         return BuildToolTipData(GetTomorrowTierNFractals());
     }
 
-
-    private static string GetCMTooltip(FractalMap fractal, int scale, int today)
-    {
-        var instab = String.Join("\n    ",Service.InstabilitiesData.GetInstabsForLevelOnDay(scale, today).ToArray());
-        var tomInstab = String.Join("\n    ",Service.InstabilitiesData.GetInstabsForLevelOnDay(scale, (today + 1) % 366).ToArray());
-        return $"{fractal.Label}\n\nInstabilities\n    {instab}\n\nTomorrow's Instabilities\n    {tomInstab}";
-    }
-
     public static IEnumerable<(BoxModel box, FractalMap fractalMap, int scale)> BuildToolTipData(IEnumerable<FractalMap> fractals)
     {
         var today = DayOfYearIndexService.DayOfYearIndex();

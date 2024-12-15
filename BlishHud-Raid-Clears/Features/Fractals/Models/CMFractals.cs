@@ -17,7 +17,8 @@ public class CMFractals : Fractal
 {
     private readonly FractalSettings settings = Service.Settings.FractalSettings;
     private static FractalSettings Settings => Service.Settings.FractalSettings;
-    public CMFractals(string name, int index, string shortName, IEnumerable<BoxModel> boxes, Container panel) : base(name, index, shortName, boxes)
+    public CMFractals(Container panel) :
+           base(ChallengeMoteLabel, 4, ChallengeMoteId, new List<BoxModel>() { })
     {
         Service.ResetWatcher.DailyReset += ResetWatcher_DailyReset;
         InitGroup(panel);

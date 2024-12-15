@@ -18,5 +18,5 @@ public class EncounterInterface
     public string Abbriviation = "undefined";
 
     [JsonProperty("assetId")]
-    public int? AssetId = 0;
+    public int AssetId = 0;
 }

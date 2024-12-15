@@ -13,11 +13,6 @@ public class TextureService : IDisposable
     public TextureService(ContentsManager contentsManager)
     {
         _downloadTextures = new DownloadTextureService();
-        GridBoxBackgroundTexture = new();
-        for (int i = 1; i <=7; i++)
-        {
-            GridBoxBackgroundTexture.Add(contentsManager.GetTexture($"white{i}.png"));
-        }
 
         CornerIconTexture = contentsManager.GetTexture(@"raids\textures\raidIconDark.png");
         CornerIconHoverTexture = contentsManager.GetTexture(@"raids\textures\raidIconBright.png");
@@ -42,6 +37,19 @@ public class TextureService : IDisposable
 
     }
 
+    public void AddGridBoxMask(string path)
+    {
+        GridBoxBackgroundTexture.Add(GetDynamicTexture(path));
+    }
+    public AsyncTexture2D GetRandomGridBoxMask()
+    {
+        if (GridBoxBackgroundTexture.Count > 0)
+        {
+            return GridBoxBackgroundTexture[Service.Random.Next(GridBoxBackgroundTexture.Count)];
+        }
+        return ContentService.Textures.Pixel;
+    }
+
     public AsyncTexture2D GetDynamicTexture(string path)
     {
         return _downloadTextures.GetDynamicTexture(path);
@@ -59,10 +67,8 @@ public class TextureService : IDisposable
 
     public void Dispose()
     {
-        foreach(var t in GridBoxBackgroundTexture)
-        {
-            t.Dispose();
-        }
+        GridBoxBackgroundTexture.Clear();
+
         CornerIconTexture.Dispose();
         CornerIconHoverTexture.Dispose();
         SettingWindowBackground.Dispose();
@@ -94,6 +100,6 @@ public class TextureService : IDisposable
     public AsyncTexture2D SettingTabFractals { get; }
     public Texture2D CornerIconTexture { get; }
     public Texture2D CornerIconHoverTexture { get; }
-    public List<Texture2D> GridBoxBackgroundTexture { get; }
+    public List<AsyncTexture2D> GridBoxBackgroundTexture { get; private set; } = new();
 
 }
