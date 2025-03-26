@@ -1,5 +1,5 @@
 {
-  "version": "2024-12-14T22:27:00-0500",
+  "version": "2025-03-26T11:21:00-0600",
   "secondsInWeek": 604800,
   "aerodrome": {
     "name": "Lions Arch Aerodrome",
@@ -19,10 +19,10 @@
           "name": "Spirit Vale",
           "abbriviation": "SV",
           "mapId": 1062,
-          "call_of_mists_timestamp": 1655710200,
-          "call_of_mists_weeks": 7,
-          "emboldened_timestamp": 1656315000,
-          "emboldened_weeks": 7,
+          "call_of_mists_timestamp": 1739197800,
+          "call_of_mists_weeks": 8,
+          "emboldened_timestamp": 1739802600,
+          "emboldened_weeks": 8,
           "encounters": [
             {
               "name": "Vale Guardian",
@@ -56,10 +56,10 @@
           "name": "Salvation Pass",
           "abbriviation": "SP",
           "mapId": 1149,
-          "call_of_mists_timestamp": 1656315000,
-          "call_of_mists_weeks": 7,
-          "emboldened_timestamp": 1656919800,
-          "emboldened_weeks": 7,
+          "call_of_mists_timestamp": 1739802600,
+          "call_of_mists_weeks": 8,
+          "emboldened_timestamp": 1740407400,
+          "emboldened_weeks": 8,
           "encounters": [
             {
               "name": "Slothasor",
@@ -87,10 +87,10 @@
           "name": "Stonghold of the Falthful",
           "abbriviation": "SotF",
           "mapId": 1156,
-          "call_of_mists_timestamp": 1656919800,
-          "call_of_mists_weeks": 7,
-          "emboldened_timestamp": 1657524600,
-          "emboldened_weeks": 7,
+          "call_of_mists_timestamp": 1740407400,
+          "call_of_mists_weeks": 8,
+          "emboldened_timestamp": 1741012200,
+          "emboldened_weeks": 8,
           "encounters": [
             {
               "name": "Escort",
@@ -124,10 +124,10 @@
           "name": "Bastion of the Penitent",
           "abbriviation": "BotP",
           "mapId": 1188,
-          "call_of_mists_timestamp": 1657524600,
-          "call_of_mists_weeks": 7,
-          "emboldened_timestamp": 1658129400,
-          "emboldened_weeks": 7,
+          "call_of_mists_timestamp": 1741012200,
+          "call_of_mists_weeks": 8,
+          "emboldened_timestamp": 1741617000,
+          "emboldened_weeks": 8,
           "encounters": [
             {
               "name": "Cairn the Indominable",
@@ -169,10 +169,10 @@
           "name": "Hall of Chains",
           "abbriviation": "HoC",
           "mapId": 1264,
-          "call_of_mists_timestamp": 1658129400,
-          "call_of_mists_weeks": 7,
-          "emboldened_timestamp": 1658734200,
-          "emboldened_weeks": 7,
+          "call_of_mists_timestamp": 1741617000,
+          "call_of_mists_weeks": 8,
+          "emboldened_timestamp": 1742221800,
+          "emboldened_weeks": 8,
           "encounters": [
             {
               "name": "Soulless Horror",
@@ -206,10 +206,10 @@
           "name": "Mythwright Gambit",
           "abbriviation": "MG",
           "mapId": 1303,
-          "call_of_mists_timestamp": 1658734200,
-          "call_of_mists_weeks": 7,
-          "emboldened_timestamp": 1659339000,
-          "emboldened_weeks": 7,
+          "call_of_mists_timestamp": 1742221800,
+          "call_of_mists_weeks": 8,
+          "emboldened_timestamp": 1742826600,
+          "emboldened_weeks": 8,
           "encounters": [
             {
               "name": "Conjured Amalgamate",
@@ -237,10 +237,10 @@
           "name": "The Key of Ahdashim",
           "abbriviation": "TKoA",
           "mapId": 1323,
-          "call_of_mists_timestamp": 1659339000,
-          "call_of_mists_weeks": 7,
-          "emboldened_timestamp": 1659943800,
-          "emboldened_weeks": 7,
+          "call_of_mists_timestamp": 1742826600,
+          "call_of_mists_weeks": 8,
+          "emboldened_timestamp": 1743431400,
+          "emboldened_weeks": 8,
           "encounters": [
             {
               "name": "Gate",
@@ -282,10 +282,10 @@
           "name": "Mount Balrior",
           "abbriviation": "MtBal",
           "mapId": 1564,
-          "call_of_mists_timestamp": 1733184000,
-          "call_of_mists_weeks": 1,
-          "emboldened_timestamp": 0,
-          "emboldened_weeks": -1,
+          "call_of_mists_timestamp": 1742221800,
+          "call_of_mists_weeks": 8,
+          "emboldened_timestamp": 1744036200,
+          "emboldened_weeks": 8,
           "encounters": [
             {
               "name": "Camp",
