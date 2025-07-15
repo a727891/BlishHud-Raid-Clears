@@ -43,7 +43,7 @@ public class FractalMapData
     [JsonIgnore]
     public static string FILENAME = "fractal_maps.json";
     [JsonIgnore]
-    public static string FILE_URL = "https://bhm.blishhud.com/Soeed.RaidClears/static/fractal_maps.json";
+    public static string FILE_URL = $"{Module.STATIC_HOST_URL}/fractal_maps.json";
 
     [JsonProperty("DailyTier")]
     public List<List<string>> DailyTier { get; set; } = new();

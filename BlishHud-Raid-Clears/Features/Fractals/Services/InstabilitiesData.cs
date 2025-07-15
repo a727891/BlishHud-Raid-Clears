@@ -13,7 +13,7 @@ public class InstabilitiesData
     [JsonIgnore]
     public static string FILENAME = "instabilities.json";
     [JsonIgnore]
-    public static string FILE_URL = "https://bhm.blishhud.com/Soeed.RaidClears/static/fractal_instabilities.json";
+    public static string FILE_URL = $"{Module.STATIC_HOST_URL}/fractal_instabilities.json";
 
     [JsonProperty("instabilities")]
     public Dictionary<string, int[][]> Instabilities { get; set; } = new Dictionary<string, int[][]>();

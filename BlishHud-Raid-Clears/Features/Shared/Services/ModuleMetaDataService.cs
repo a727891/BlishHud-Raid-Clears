@@ -16,7 +16,7 @@ public class ModuleMetaDataService
     [JsonIgnore]
     public static string FILENAME = "clears_tracker.json";
     [JsonIgnore]
-    public static string FILE_URL = "https://bhm.blishhud.com/Soeed.RaidClears/static/clears_tracker.json";
+    public static string FILE_URL = $"{Module.STATIC_HOST_URL}clears_tracker.json";
 
     [JsonProperty("fractal_instabilities")]
     public string InstabilitiesVersion { get; set; } = null;
