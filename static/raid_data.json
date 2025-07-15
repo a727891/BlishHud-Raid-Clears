@@ -1,5 +1,5 @@
 {
-  "version": "2025-03-26T11:27:00-0600",
+  "version": "2025-07-15T15:05:00-0500",
   "secondsInWeek": 604800,
   "aerodrome": {
     "name": "Lions Arch Aerodrome",
@@ -159,7 +159,7 @@
     },
     {
       "id": "pof",
-      "name": "Path of File",
+      "name": "Path of Fire",
       "abbriviation": "PoF",
       "asset": "texture_raids_pof.png",
       "wings": [
@@ -314,6 +314,13 @@
           ]
         }
       ]
+    },
+    {
+      "id": "visions_of_eternity",
+      "name": "Visions of Eternity",
+      "abbriviation": "VoE",
+      "asset": "texture_raids_voe.png",
+      "wings": []
     }
   ]
 }
