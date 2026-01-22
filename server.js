@@ -8,6 +8,11 @@ const PORT = 3000;
 // Enable CORS for all routes
 app.use(cors());
 
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.url}`);
+    next();
+})
+
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname,'static')));
 
@@ -27,9 +32,8 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`🚀 What Am I Playing dev server running on http://localhost:${PORT}`);
-    console.log(`📄 Roles config available at http://localhost:${PORT}/roles.json`);
-    console.log(`💚 Health check at http://localhost:${PORT}/health`);
+    console.log(`Clears Tracker static host dev server running on http://localhost:${PORT}`);
+    console.log(`Health check at http://localhost:${PORT}/health`);
     console.log('');
     console.log('Press Ctrl+C to stop the server');
 }); 
