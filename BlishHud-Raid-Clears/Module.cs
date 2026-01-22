@@ -33,6 +33,7 @@ public class Module : Blish_HUD.Modules.Module
     public static string STATIC_HOST_URL = "https://bhm.blishhud.com/Soeed.RaidClears/static";
 #endif
 
+
     internal static readonly Logger ModuleLogger = Logger.GetLogger<Module>();
 
     [ImportingConstructor]
@@ -50,10 +51,9 @@ public class Module : Blish_HUD.Modules.Module
 
     protected override void Initialize()
     {
-        this.TEMP_FIX_SetTacOAsActive();
     }
 
-    protected override Task LoadAsync()
+    protected override async Task LoadAsync()
     {
         Service.Textures = new TextureService(Service.ContentsManager);
         ModuleMetaDataService.CheckVersions();
@@ -79,17 +79,18 @@ public class Module : Blish_HUD.Modules.Module
         Service.FractalWindow = new Features.Fractals.FractalsPanel();
         Service.DungeonWindow = new Features.Dungeons.DungeonPanel();
 
+        try
+        {
+            var refreshApiContextMenu = new ContextMenuStripItem(Strings.Settings_RefreshNow);
+            refreshApiContextMenu.Click += (s, e) => Service.ApiPollingService?.Invoke();
 
-        var refreshApiContextMenu = new ContextMenuStripItem(Strings.Settings_RefreshNow);
-        refreshApiContextMenu.Click += (s, e) => Service.ApiPollingService?.Invoke();
-
-        Service.CornerIcon = new CornerIconService(
-            Service.Settings.GlobalCornerIconEnabled,
-            Strings.Module_Title,
-            Service.Textures!.CornerIconTexture,
-            Service.Textures!.CornerIconHoverTexture,
-            new List<ContextMenuStripItem>()
-            {
+            Service.CornerIcon = new CornerIconService(
+                Service.Settings.GlobalCornerIconEnabled,
+                Strings.Module_Title,
+                Service.Textures!.CornerIconTexture,
+                Service.Textures!.CornerIconHoverTexture,
+                new List<ContextMenuStripItem>()
+                {
                 new CornerIconToggleMenuItem(Service.SettingsWindow, Strings.ModuleSettings_OpenSettings),
                 new ContextMenuStripItemSeparator(),
                 new CornerIconToggleMenuItem(Service.Settings.RaidSettings.Generic.Visible, Strings.SettingsPanel_Tab_Raids),
@@ -99,15 +100,21 @@ public class Module : Blish_HUD.Modules.Module
                 new ContextMenuStripItemSeparator(),
                 refreshApiContextMenu
 
+                }
+            );
+            if (Service.CornerIcon != null)
+            {
+                Service.CornerIcon.IconLeftClicked += CornerIcon_IconLeftClicked;
             }
-        );
 
-        Service.CornerIcon.IconLeftClicked += CornerIcon_IconLeftClicked;
+            Service.Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
+            DispatchClears();
+        }
+        catch (System.Exception e)
+        {
+            ModuleLogger.Error(e, "Error loading module");
+        }
 
-        Service.Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
-        DispatchClears();
-
-        return Task.CompletedTask;
 
         /*GameService.Overlay.UserLocaleChanged += (s, e) =>
         {
@@ -128,24 +135,13 @@ public class Module : Blish_HUD.Modules.Module
         });
     }
 
-    private void TEMP_FIX_SetTacOAsActive()
-    {
-        // SOTO Fix
-        if (System.DateTime.UtcNow.Date >= new System.DateTime(2023, 8, 22, 0, 0, 0, System.DateTimeKind.Utc) && Program.OverlayVersion < new SemVer.Version(1, 1, 0))
-        {
-            try
-            {
-                var tacoActive = typeof(TacOIntegration).GetProperty(nameof(TacOIntegration.TacOIsRunning)).GetSetMethod(true);
-                tacoActive?.Invoke(GameService.GameIntegration.TacO, new object[] { true });
-            }
-            catch { /* NOOP */ }
-        }
-    }
-
     protected override void Unload()
     {
         Service.Gw2ApiManager.SubtokenUpdated -= Gw2ApiManager_SubtokenUpdated;
-        Service.CornerIcon.IconLeftClicked -= CornerIcon_IconLeftClicked;
+        if (Service.CornerIcon != null)
+        {
+            Service.CornerIcon.IconLeftClicked -= CornerIcon_IconLeftClicked;
+        }
 
         Service.ContentsManager?.Dispose();
         Service.Textures?.Dispose();
