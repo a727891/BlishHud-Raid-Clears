@@ -39,11 +39,12 @@ public static class DailyTierNFractalService
 
     public static IEnumerable<(BoxModel box, FractalMap fractalMap, int scale)> BuildToolTipData(IEnumerable<FractalMap> fractals)
     {
-        var today = DayOfYearIndexService.DayOfYearIndex();
+        //var today = DayOfYearIndexService.DayOfYearIndex();
         var CMs = new List<(BoxModel box, FractalMap fractal, int scale)> { };
 
         foreach (var map in fractals)
         {
+            if (map.Scales.Count < 1) continue;
             var scales = map.Scales;
             //var tool = GetCMTooltip(map, scales.Last(), today);
             CMs.Add(
