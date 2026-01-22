@@ -26,8 +26,15 @@ public static class GridBoxExtensions
                 box.Show();
                 box.Text = GetLabelText(args.NewValue, shortText, longText);
             }
+            try
+            {
+                box.Parent.Invalidate();
 
-            box.Parent.Invalidate();
+            }
+            catch (Exception ex)
+            {
+                Logger.GetLogger<Module>().Warn(ex.Message);
+            }
         });
 
         labelDisplay.SettingChanged += settingChangedDelegate;
