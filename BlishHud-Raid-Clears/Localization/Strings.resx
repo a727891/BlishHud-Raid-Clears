@@ -437,10 +437,10 @@
     <value>General</value>
   </data>
   <data name="SettingsPanel_Tab_Raids" xml:space="preserve">
-    <value>Raid Wings   -    Multiple Raid Boss Instances</value>
+    <value>Raid Wings</value>
   </data>
   <data name="SettingsPanel_Tab_Strikes" xml:space="preserve">
-    <value>Raid Encounters   -    Single Raid Boss Instances</value>
+    <value>Raid Encounters</value>
   </data>
   <data name="Settings_Dungeon_Heading" xml:space="preserve">
     <value>Enable individual Dungeons</value>

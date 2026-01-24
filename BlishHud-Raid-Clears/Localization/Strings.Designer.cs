@@ -2644,7 +2644,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Raid Wings   -    Multiple Raid Boss Instances.
+        ///   Looks up a localized string similar to Raid Wings.
         /// </summary>
         internal static string SettingsPanel_Tab_Raids {
             get {
@@ -2653,7 +2653,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Raid Encounters   -    Single Raid Boss Instances.
+        ///   Looks up a localized string similar to Raid Encounters.
         /// </summary>
         internal static string SettingsPanel_Tab_Strikes {
             get {
