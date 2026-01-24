@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using System.Diagnostics;
 using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using Blish_HUD.Settings;
@@ -39,11 +40,25 @@ public class GenericStyleView : View
             .AddSetting(_settings.BgOpacity)
             .AddSpace()
             .AddString(Strings.SettingsPanel_Raid_Visual_Colors)
-            .AddString(Strings.SettingsPanel_Raid_Visual_ColorsTip)
+            .AddFlowControl(new StandardButton
+            {
+                Text = Strings.SettingsPanel_Raid_Visual_ColorPickerButton,
+                BasicTooltipText = Strings.SettingsPanel_Raid_Visual_ColorPickerButtonTooltip,
+                Width = 200
+            }, out var colorPickerButton)
             .AddSettingColor(_settings.Color.NotCleared)
             .AddSettingColor(_settings.Color.Cleared)
             .AddSettingColor(_settings.Color.Text)
             .AddSettingColor(_extraSettings);
+
+        colorPickerButton.Click += (_, _) =>
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://htmlcolorcodes.com/color-picker/",
+                UseShellExecute = true
+            });
+        };
 
         if (_showCopyRaids)
         {

@@ -423,6 +423,14 @@
     <value>(Tip: Google 'color picker' for help)</value>
     <comment>help text to find a color picker gui</comment>
   </data>
+  <data name="SettingsPanel_Raid_Visual_ColorPickerButton" xml:space="preserve">
+    <value>Open Color Picker</value>
+    <comment>Button text to open a color picker tool in the browser</comment>
+  </data>
+  <data name="SettingsPanel_Raid_Visual_ColorPickerButtonTooltip" xml:space="preserve">
+    <value>Opens a color picker tool in your browser</value>
+    <comment>Tooltip text for the color picker button</comment>
+  </data>
   <data name="SettingsPanel_Strikes_Heading_Selection" xml:space="preserve">
     <value>Raid Encounters Selection</value>
   </data>

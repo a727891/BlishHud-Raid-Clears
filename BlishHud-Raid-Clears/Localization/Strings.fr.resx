@@ -353,8 +353,14 @@
   <data name="SettingsPanel_Raid_Visual_ColorsTip" xml:space="preserve">
     <value>(Astuce : Google "sélecteur de couleurs" pour obtenir de l'aide)</value>
   </data>
+  <data name="SettingsPanel_Raid_Visual_ColorPickerButton" xml:space="preserve">
+    <value>Ouvrir le sélecteur de couleurs</value>
+  </data>
+  <data name="SettingsPanel_Raid_Visual_ColorPickerButtonTooltip" xml:space="preserve">
+    <value>Ouvre un outil de sélection de couleurs dans votre navigateur</value>
+  </data>
   <data name="SettingsPanel_Strikes_Heading_Selection" xml:space="preserve">
-    <value>Sélection de mission d'attaque</value>
+    <value>Sélection de combats de raid</value>
   </data>
   <data name="SettingsPanel_Subtitle" xml:space="preserve">
     <value>options de personnalisation</value>
@@ -370,7 +376,7 @@
     <value>Raids</value>
   </data>
   <data name="SettingsPanel_Tab_Strikes" xml:space="preserve">
-    <value>Mission d'attaques</value>
+    <value>Combats de raid</value>
   </data>
   <data name="Settings_Dungeon_Heading" xml:space="preserve">
     <value>Activer les donjons individuels</value>
@@ -391,22 +397,22 @@
     <value>Actualiser maintenant</value>
   </data>
   <data name="Settings_Strike_AnchorToRaidLabel" xml:space="preserve">
-    <value>Ancrer les missions d'attaque à l'overlay de raid</value>
+    <value>Ancrer les combats de raid à l'overlay de raid</value>
   </data>
   <data name="Settings_Strike_AnchorToRaidTooltip" xml:space="preserve">
-    <value>L'overlay des missions d'attaque s'attachera à l'overlay de raid lorsque ce dernier est déplacé</value>
+    <value>L'overlay des combats de raid s'attachera à l'overlay de raid lorsque ce dernier est déplacé</value>
   </data>
   <data name="Settings_Strike_Completion" xml:space="preserve">
     <value>Marquer comme terminé</value>
   </data>
   <data name="Settings_Strike_CompletionTooltip" xml:space="preserve">
-    <value>Déterminer comment les missions d'attaque sont marquées comme faites</value>
+    <value>Déterminer comment les combats de raid sont marqués comme faits</value>
   </data>
   <data name="Settings_Strike_EOD_Heading" xml:space="preserve">
-    <value>Activer les missions d'attaque individuelles de End of Dragons</value>
+    <value>Activer les combats de raid individuels de End of Dragons</value>
   </data>
   <data name="Settings_Strike_IBS_Heading" xml:space="preserve">
-    <value>Activer les missions d'attaque individuelles de l'Epopée du Givre</value>
+    <value>Activer les combats de raid individuels de l'Epopée du Givre</value>
   </data>
   <data name="Setting_APIPoll_Label" xml:space="preserve">
     <value>Actualiser les données toutes les</value>
@@ -625,7 +631,7 @@
     <value>Activer la clé d'Ahdashim sur l'overlay de raid</value>
   </data>
   <data name="Setting_Stike_Priority" xml:space="preserve">
-    <value>Activer les missions d'attaque prioritaire (quotidiennement)</value>
+    <value>Activer les combats de raid prioritaires (quotidiennement)</value>
   </data>
   <data name="Setting_Strike_AH_Label" xml:space="preserve">
     <value>Cachette des Etherlames</value>
@@ -637,7 +643,7 @@
     <value>Couleur d'arrière-plan de l'overlay</value>
   </data>
   <data name="Setting_Strike_ColBG_Tooltip" xml:space="preserve">
-    <value>Couleur d'arrière-plan de l'overlay des Missions d'attaque</value>
+    <value>Couleur d'arrière-plan de l'overlay des combats de raid</value>
   </data>
   <data name="Setting_Strike_ColClear_Label" xml:space="preserve">
     <value>Couleur de rencontre terminée</value>
@@ -661,7 +667,7 @@
     <value>Guerre froide</value>
   </data>
   <data name="Setting_Strike_Drag_Label" xml:space="preserve">
-    <value>Déverrouiller la position de l'overlay des Missions d'attaque</value>
+    <value>Déverrouiller la position de l'overlay des combats de raid</value>
   </data>
   <data name="Setting_Strike_Drag_Tooltip" xml:space="preserve">
     <value>Cliquez et faites glisser pour repositionner l'overlay</value>
@@ -691,10 +697,10 @@
     <value>Activer l'Epopée du givre</value>
   </data>
   <data name="Setting_Strike_Icon_Label" xml:space="preserve">
-    <value>Masquer / afficher les Missions d'attaque au clic sur l'icône de la barre de menus</value>
+    <value>Masquer / afficher les combats de raid au clic sur l'icône de la barre de menus</value>
   </data>
   <data name="Setting_Strike_Icon_Tooltip" xml:space="preserve">
-    <value>L'overlay des Missions d'attaque se cache / s'affiche lorsque vous cliquez sur l'icône à côté de Blish en haut à gauche de l'écran</value>
+    <value>L'overlay des combats de raid se cache / s'affiche lorsque vous cliquez sur l'icône à côté de Blish en haut à gauche de l'écran</value>
   </data>
   <data name="Setting_Strike_Keybind_Label" xml:space="preserve">
     <value>Afficher / Masquer le raccourci clavier</value>
@@ -745,10 +751,10 @@
     <value>Voix et Griffe des dechus</value>
   </data>
   <data name="Setting_Strike_Visible_Label" xml:space="preserve">
-    <value>Afficher l'overlay des Missions d'attaque</value>
+    <value>Afficher l'overlay des combats de raid</value>
   </data>
   <data name="Setting_Strike_Visible_Tooltip" xml:space="preserve">
-    <value>Afficher l'overlay des Fractales à l'écran</value>
+    <value>Afficher l'overlay des combats de raid à l'écran</value>
   </data>
   <data name="Setting_Strike_WoJ_Label" xml:space="preserve">
     <value>Murmure de Jormag</value>
@@ -775,7 +781,7 @@
     <value>IBS</value>
   </data>
   <data name="StrikeGroup_Priority" xml:space="preserve">
-    <value>Missions d'attaque prioritaire (quotidiennes)</value>
+    <value>Combats de raid prioritaires (quotidiens)</value>
   </data>
   <data name="StrikeGroup_Priority_abbr" xml:space="preserve">
     <value>PS</value>
@@ -1026,7 +1032,7 @@
     <value>Recommandées quotidennes</value>
   </data>
   <data name="StrikeLabelCustomization_Heading" xml:space="preserve">
-    <value>Personnaliser les étiquettes des rencontres de raid</value>
+    <value>Personnaliser les étiquettes des combats de raid</value>
   </data>
   <data name="RaidLabelCustomization_Heading" xml:space="preserve">
     <value>Personnaliser les étiquettes des boss des ailes de raid</value>
@@ -1041,16 +1047,16 @@
     <value>{0} ({1})</value>
   </data>
   <data name="StrikeClearCorrection_LastClears" xml:space="preserve">
-    <value>Derniers nettoyages des rencontres de raid (Profil : {0})</value>
+    <value>Derniers nettoyages des combats de raid (Profil : {0})</value>
   </data>
   <data name="FractalClearCorrection_LastClears" xml:space="preserve">
     <value>Derniers nettoyages des fractales (Profil : {0})</value>
   </data>
   <data name="DynamicStrikeSelection_DisplayExpansion" xml:space="preserve">
-    <value>Afficher {0} Rencontres de Raid</value>
+    <value>Afficher {0} combats de raid</value>
   </data>
   <data name="DynamicStrikeSelection_DisplayIndividual" xml:space="preserve">
-    <value>Afficher les rencontres individuelles de {0} Raid</value>
+    <value>Afficher les combats de raid individuels de {0}</value>
   </data>
   <data name="EncounterLabelCustomerizer_ResetTo" xml:space="preserve">
     <value>Réinitialiser à '{0}'</value>
@@ -1065,7 +1071,7 @@
     <value>Activer {0} sur la superposition de donjon</value>
   </data>
   <data name="Settings_EnableStrike" xml:space="preserve">
-    <value>Activer {0} sur la superposition des rencontres de raid</value>
+    <value>Activer {0} sur la superposition des combats de raid</value>
   </data>
   <data name="Settings_ScreenClamp_Label" xml:space="preserve">
     <value>Garder les fenêtres de superposition à l'écran</value>

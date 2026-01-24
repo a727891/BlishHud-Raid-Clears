@@ -2591,6 +2591,24 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open Color Picker.
+        /// </summary>
+        internal static string SettingsPanel_Raid_Visual_ColorPickerButton {
+            get {
+                return ResourceManager.GetString("SettingsPanel_Raid_Visual_ColorPickerButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opens a color picker tool in your browser.
+        /// </summary>
+        internal static string SettingsPanel_Raid_Visual_ColorPickerButtonTooltip {
+            get {
+                return ResourceManager.GetString("SettingsPanel_Raid_Visual_ColorPickerButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Customize the colors by entering a Hex color code.
         /// </summary>
         internal static string SettingsPanel_Raid_Visual_Colors {

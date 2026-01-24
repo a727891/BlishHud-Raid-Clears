@@ -353,8 +353,14 @@
   <data name="SettingsPanel_Raid_Visual_ColorsTip" xml:space="preserve">
     <value>(Tipp: Google 'Color Picker' als Hilfe)</value>
   </data>
+  <data name="SettingsPanel_Raid_Visual_ColorPickerButton" xml:space="preserve">
+    <value>Farbauswahl öffnen</value>
+  </data>
+  <data name="SettingsPanel_Raid_Visual_ColorPickerButtonTooltip" xml:space="preserve">
+    <value>Öffnet ein Farbauswahl-Tool in Ihrem Browser</value>
+  </data>
   <data name="SettingsPanel_Strikes_Heading_Selection" xml:space="preserve">
-    <value>Angriffsmissionsauswahl</value>
+    <value>Schlachtzugbegegnungsauswahl</value>
   </data>
   <data name="SettingsPanel_Subtitle" xml:space="preserve">
     <value>Anpassungsmöglichkeiten</value>
@@ -370,7 +376,7 @@
     <value>Schlachtzug</value>
   </data>
   <data name="SettingsPanel_Tab_Strikes" xml:space="preserve">
-    <value>Angriffsmissionen</value>
+    <value>Schlachtzugbegegnungen</value>
   </data>
   <data name="Settings_Dungeon_Heading" xml:space="preserve">
     <value>Aktiviere einzelnes Verlies</value>
@@ -391,22 +397,22 @@
     <value>Jetzt aktualisieren</value>
   </data>
   <data name="Settings_Strike_AnchorToRaidLabel" xml:space="preserve">
-    <value>Anker schlägt im Schlachtzug-Overlay ein</value>
+    <value>Schlachtzugbegegnungen am Schlachtzug-Overlay verankern</value>
   </data>
   <data name="Settings_Strike_AnchorToRaidTooltip" xml:space="preserve">
-    <value>Das Angriffsmissionen-Overlay wird an das Schlachtzüge-Overlay angehängt, wenn das Schlachtzüge-Overlay verschoben wird</value>
+    <value>Das Schlachtzugbegegnungs-Overlay wird an das Schlachtzüge-Overlay angehängt, wenn das Schlachtzüge-Overlay verschoben wird</value>
   </data>
   <data name="Settings_Strike_Completion" xml:space="preserve">
     <value>als abgeschlossen markieren</value>
   </data>
   <data name="Settings_Strike_CompletionTooltip" xml:space="preserve">
-    <value>Festlegen wie Angriffsmissionen als abgeschlossen markiert werden</value>
+    <value>Festlegen wie Schlachtzugbegegnungen als abgeschlossen markiert werden</value>
   </data>
   <data name="Settings_Strike_EOD_Heading" xml:space="preserve">
-    <value>Aktiviert individuelle End of Dragon Angriffsmissionen</value>
+    <value>Aktiviert individuelle End of Dragons Schlachtzugbegegnungen</value>
   </data>
   <data name="Settings_Strike_IBS_Heading" xml:space="preserve">
-    <value>Aktiviert individuelle Eisbrut-Saga Angriffsmissionen</value>
+    <value>Aktiviert individuelle Eisbrut-Saga Schlachtzugbegegnungen</value>
   </data>
   <data name="Setting_APIPoll_Label" xml:space="preserve">
     <value>Alle Daten aktualisieren</value>
@@ -625,7 +631,7 @@
     <value>Aktiviere den Schlüssel von Ahdashim im Schlachtzug-Overlay</value>
   </data>
   <data name="Setting_Stike_Priority" xml:space="preserve">
-    <value>Priority-Angriffsmissionen aktivieren (täglich)</value>
+    <value>Priority-Schlachtzugbegegnungen aktivieren (täglich)</value>
   </data>
   <data name="Setting_Strike_AH_Label" xml:space="preserve">
     <value>Ätherklingen-Unterschlupf</value>
@@ -637,7 +643,7 @@
     <value>Hintergrundfarbe überlagern</value>
   </data>
   <data name="Setting_Strike_ColBG_Tooltip" xml:space="preserve">
-    <value>Angriffsmission-Overlay-Hintergrundfarbe</value>
+    <value>Schlachtzugbegegnungs-Overlay-Hintergrundfarbe</value>
   </data>
   <data name="Setting_Strike_ColClear_Label" xml:space="preserve">
     <value>Farbe für erledigte Begegnung</value>
@@ -661,7 +667,7 @@
     <value>Kalter Krieg</value>
   </data>
   <data name="Setting_Strike_Drag_Label" xml:space="preserve">
-    <value>Löse Fixierung der Angriffsmission-Overlay-Position</value>
+    <value>Löse Fixierung der Schlachtzugbegegnungs-Overlay-Position</value>
   </data>
   <data name="Setting_Strike_Drag_Tooltip" xml:space="preserve">
     <value>Anklicken und ziehen, um das Überlagerungsfenster neu zu positionieren</value>
@@ -691,10 +697,10 @@
     <value>Eisbrut-Saga aktivieren</value>
   </data>
   <data name="Setting_Strike_Icon_Label" xml:space="preserve">
-    <value>Schlachtzüge verbergen/anzeigen auf Menüleistensymbol klicken</value>
+    <value>Schlachtzugbegegnungen verbergen/anzeigen auf Menüleistensymbol klicken</value>
   </data>
   <data name="Setting_Strike_Icon_Tooltip" xml:space="preserve">
-    <value>Schlachtzüge Overlay wird ausgeblendet/angezeigt, wenn auf das Symbol neben Blish oben links auf dem Bildschirm geklickt wird</value>
+    <value>Schlachtzugbegegnungs-Overlay wird ausgeblendet/angezeigt, wenn auf das Symbol neben Blish oben links auf dem Bildschirm geklickt wird</value>
   </data>
   <data name="Setting_Strike_Keybind_Label" xml:space="preserve">
     <value>Tastenbelegung ein-/ausblenden</value>
@@ -745,10 +751,10 @@
     <value>Stimme und Klaue der Gefallenen</value>
   </data>
   <data name="Setting_Strike_Visible_Label" xml:space="preserve">
-    <value>Angriffsmissionen overlay anzeigen</value>
+    <value>Schlachtzugbegegnungs-Overlay anzeigen</value>
   </data>
   <data name="Setting_Strike_Visible_Tooltip" xml:space="preserve">
-    <value>Zeigt das Schlachtzüge-Overlay auf dem Bildschirm an</value>
+    <value>Zeigt das Schlachtzugbegegnungs-Overlay auf dem Bildschirm an</value>
   </data>
   <data name="Setting_Strike_WoJ_Label" xml:space="preserve">
     <value>Gifuster des Jormag</value>
@@ -1035,7 +1041,7 @@
     <value>Täglich empfohlen</value>
   </data>
   <data name="StrikeLabelCustomization_Heading" xml:space="preserve">
-    <value>Schlachtzug-Begegnungsbeschriftungen anpassen</value>
+    <value>Schlachtzugbegegnungsbeschriftungen anpassen</value>
   </data>
   <data name="RaidLabelCustomization_Heading" xml:space="preserve">
     <value>Schlachtzug-Flügel-Boss-Beschriftungen anpassen</value>
@@ -1050,16 +1056,16 @@
     <value>{0} ({1})</value>
   </data>
   <data name="StrikeClearCorrection_LastClears" xml:space="preserve">
-    <value>Letzte Schlachtzug-Begegnungs-Löschungen (Profil: {0})</value>
+    <value>Letzte Schlachtzugbegegnungs-Löschungen (Profil: {0})</value>
   </data>
   <data name="FractalClearCorrection_LastClears" xml:space="preserve">
     <value>Letzte Fraktal-Löschungen (Profil: {0})</value>
   </data>
   <data name="DynamicStrikeSelection_DisplayExpansion" xml:space="preserve">
-    <value>{0} Schlachtzug-Begegnungen anzeigen</value>
+    <value>{0} Schlachtzugbegegnungen anzeigen</value>
   </data>
   <data name="DynamicStrikeSelection_DisplayIndividual" xml:space="preserve">
-    <value>Einzelne {0} Schlachtzug-Begegnungen anzeigen</value>
+    <value>Einzelne {0} Schlachtzugbegegnungen anzeigen</value>
   </data>
   <data name="EncounterLabelCustomerizer_ResetTo" xml:space="preserve">
     <value>Zurücksetzen auf '{0}'</value>
@@ -1074,7 +1080,7 @@
     <value>{0} im Verlies-Overlay aktivieren</value>
   </data>
   <data name="Settings_EnableStrike" xml:space="preserve">
-    <value>{0} im Schlachtzug-Begegnungs-Overlay aktivieren</value>
+    <value>{0} im Schlachtzugbegegnungs-Overlay aktivieren</value>
   </data>
   <data name="Settings_ScreenClamp_Label" xml:space="preserve">
     <value>Overlay-Fenster auf dem Bildschirm halten</value>

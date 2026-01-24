@@ -353,6 +353,12 @@
   <data name="SettingsPanel_Raid_Visual_ColorsTip" xml:space="preserve">
     <value>(Consejo: Google 'selector de color' para obtener ayuda)</value>
   </data>
+  <data name="SettingsPanel_Raid_Visual_ColorPickerButton" xml:space="preserve">
+    <value>Abrir selector de color</value>
+  </data>
+  <data name="SettingsPanel_Raid_Visual_ColorPickerButtonTooltip" xml:space="preserve">
+    <value>Abre una herramienta de selector de color en tu navegador</value>
+  </data>
   <data name="SettingsPanel_Strikes_Heading_Selection" xml:space="preserve">
     <value>Selección de misiones de ataque</value>
   </data>
