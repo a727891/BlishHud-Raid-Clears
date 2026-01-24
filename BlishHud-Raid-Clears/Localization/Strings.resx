@@ -1025,6 +1025,22 @@
     <value>Determine how fractals are marked as cleared</value>
     <comment>Dropdown asking if Fractals are auto-completed or prompted with a yes/no window</comment>
   </data>
+  <data name="Settings_Fractals_ShowChallengeMotes" xml:space="preserve">
+    <value>Show Challenge Motes</value>
+    <comment>Checkbox label for showing challenge mote fractals</comment>
+  </data>
+  <data name="Settings_Fractals_ShowChallengeMotes_Tooltip" xml:space="preserve">
+    <value>Display the CM fractals, hover tooltip shows Instabilities</value>
+    <comment>Tooltip for challenge motes checkbox</comment>
+  </data>
+  <data name="Settings_Fractals_TomorrowTier" xml:space="preserve">
+    <value>Tomorrow's Tier</value>
+    <comment>Checkbox label for showing tomorrow's tier fractals</comment>
+  </data>
+  <data name="Settings_Fractals_TomorrowTier_Tooltip" xml:space="preserve">
+    <value>Show tomorrow's TierN fractals. Useful for statics that pre-clear before reset</value>
+    <comment>Tooltip for tomorrow's tier checkbox</comment>
+  </data>
   <data name="Setting_Fractals_ColBG_Label" xml:space="preserve">
     <value>Overlay background color</value>
   </data>
@@ -1329,6 +1345,10 @@
   <data name="Settings_Raid_ExpansionVisible_Description" xml:space="preserve">
     <value>Show all Raid Wings for '{0}' on the Raid Wings Overlay</value>
     <comment>Setting description for enabling raid expansion. {0} is the expansion name</comment>
+  </data>
+  <data name="Settings_Fractal_ChallengeMoteVisible_Description" xml:space="preserve">
+    <value>Show or hide {0} challenge mote</value>
+    <comment>Setting description for enabling/disabling individual challenge mote fractals. {0} is the fractal name</comment>
   </data>
   <data name="Settings_Raid_EnableExpansion" xml:space="preserve">
     <value>Enable {0}</value>

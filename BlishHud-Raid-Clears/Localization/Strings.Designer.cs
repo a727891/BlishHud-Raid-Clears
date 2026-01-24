@@ -2392,6 +2392,15 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show or hide {0} challenge mote.
+        /// </summary>
+        internal static string Settings_Fractal_ChallengeMoteVisible_Description {
+            get {
+                return ResourceManager.GetString("Settings_Fractal_ChallengeMoteVisible_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mark complete.
         /// </summary>
         internal static string Settings_Fractals_Completion {
@@ -2406,6 +2415,42 @@ namespace RaidClears.Localization {
         internal static string Settings_Fractals_CompletionTooltip {
             get {
                 return ResourceManager.GetString("Settings_Fractals_CompletionTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Challenge Motes.
+        /// </summary>
+        internal static string Settings_Fractals_ShowChallengeMotes {
+            get {
+                return ResourceManager.GetString("Settings_Fractals_ShowChallengeMotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display the CM fractals, hover tooltip shows Instabilities.
+        /// </summary>
+        internal static string Settings_Fractals_ShowChallengeMotes_Tooltip {
+            get {
+                return ResourceManager.GetString("Settings_Fractals_ShowChallengeMotes_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tomorrow&apos;s Tier.
+        /// </summary>
+        internal static string Settings_Fractals_TomorrowTier {
+            get {
+                return ResourceManager.GetString("Settings_Fractals_TomorrowTier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show tomorrow&apos;s TierN fractals. Useful for statics that pre-clear before reset.
+        /// </summary>
+        internal static string Settings_Fractals_TomorrowTier_Tooltip {
+            get {
+                return ResourceManager.GetString("Settings_Fractals_TomorrowTier_Tooltip", resourceCulture);
             }
         }
         

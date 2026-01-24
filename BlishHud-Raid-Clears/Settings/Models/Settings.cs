@@ -232,10 +232,10 @@ public static class Settings
 
         public static class Module
         {
-            public static Setting<bool> showCMs = new("FractalCM", true, () => "Show Challenge Motes",()=>"Display the CM fractals, hover tooltip shows Instabilities");
+            public static Setting<bool> showCMs = new("FractalCM", true, () => Strings.Settings_Fractals_ShowChallengeMotes, () => Strings.Settings_Fractals_ShowChallengeMotes_Tooltip);
             public static Setting<bool> showTierN = new("FractalTierN", true, () => Strings.Fractals_DailyTierN);
             public static Setting<bool> showRecs = new("FractalRecs", true, () => Strings.Fractals_DailyRecommended);
-            public static Setting<bool> tomorrow = new("FractalTierTomorrow", false, () => "Tomorrow's Tier",()=>"Show tomorow's TierN fractals. Useful for statics that pre-clear before reset");
+            public static Setting<bool> tomorrow = new("FractalTierTomorrow", false, () => Strings.Settings_Fractals_TomorrowTier, () => Strings.Settings_Fractals_TomorrowTier_Tooltip);
 
             public static Setting<StrikeComplete> completionMethod = new("RCFractalComplete", StrikeComplete.MAP_CHANGE, () => Strings.Settings_Strike_Completion, () => Strings.Settings_Fractals_Completion);
 

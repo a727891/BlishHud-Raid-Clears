@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using Blish_HUD.Controls;
 using Blish_HUD.Settings;
@@ -69,6 +69,9 @@ public class CMFractals : Fractal
             var fractalTooptip = new CmTooltip();
             fractalTooptip.Fractal = new CMInterface(map, scale, DayOfYearIndexService.DayOfYearIndex());
             encounterBox.Tooltip = fractalTooptip;
+            
+            // Use individual challenge mote visibility setting
+            encounterBox.VisiblityChanged(Service.FractalSettings.GetChallengeMoteVisibleByApiId(encounter.id));
                         
             encounterBox.TextColorSetting(Settings.Style.Color.Text);
             encounter.SetGridBoxReference(encounterBox);

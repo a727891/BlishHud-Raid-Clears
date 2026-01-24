@@ -857,6 +857,18 @@
   <data name="Settings_Fractals_CompletionTooltip" xml:space="preserve">
     <value>Determinar cómo se marcan los fractales como completados</value>
   </data>
+  <data name="Settings_Fractals_ShowChallengeMotes" xml:space="preserve">
+    <value>Mostrar motes de desafío</value>
+  </data>
+  <data name="Settings_Fractals_ShowChallengeMotes_Tooltip" xml:space="preserve">
+    <value>Mostrar los fractales CM, el tooltip al pasar el mouse muestra las inestabilidades</value>
+  </data>
+  <data name="Settings_Fractals_TomorrowTier" xml:space="preserve">
+    <value>Nivel de mañana</value>
+  </data>
+  <data name="Settings_Fractals_TomorrowTier_Tooltip" xml:space="preserve">
+    <value>Mostrar los fractales TierN de mañana. Útil para estáticos que pre-limpian antes del reinicio</value>
+  </data>
   <data name="Setting_Fractals_ColBG_Label" xml:space="preserve">
     <value>Color de fondo de superposición</value>
   </data>
@@ -1114,6 +1126,9 @@
   </data>
   <data name="Settings_Raid_ExpansionVisible_Description" xml:space="preserve">
     <value>Mostrar todas las alas de incursión para '{0}' en la superposición de alas de incursión</value>
+  </data>
+  <data name="Settings_Fractal_ChallengeMoteVisible_Description" xml:space="preserve">
+    <value>Mostrar u ocultar mote de desafío {0}</value>
   </data>
   <data name="Settings_Raid_EnableExpansion" xml:space="preserve">
     <value>Activar {0}</value>

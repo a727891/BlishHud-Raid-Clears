@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Threading.Tasks;
 using Blish_HUD;
@@ -68,6 +68,7 @@ public class Module : Blish_HUD.Modules.Module
         Service.InstabilitiesData = InstabilitiesData.Load();
         Service.StrikePersistance = StrikePersistance.Load();
         Service.FractalPersistance = FractalPersistance.Load();
+        Service.FractalSettings = FractalSettingsPersistance.Load();
 
         Service.ApiPollingService = new ApiPollService(Service.Settings.ApiPollingPeriod);
 

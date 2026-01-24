@@ -1,4 +1,4 @@
-﻿using Blish_HUD.Modules.Managers;
+using Blish_HUD.Modules.Managers;
 using RaidClears.Features.Dungeons;
 using RaidClears.Features.Fractals;
 using RaidClears.Features.Fractals.Services;
@@ -32,6 +32,7 @@ public static class Service
     public static StrikeSettingsPersistance StrikeSettings { get; set; } = null!;
     public static StrikePersistance StrikePersistance { get; set; } = null!;
     public static FractalPersistance FractalPersistance { get; set; } = null!;
+    public static FractalSettingsPersistance FractalSettings { get; set; } = null!;
     public static InstabilitiesData InstabilitiesData { get; set; } = null!;
     public static FractalMapData FractalMapData { get; set; } = null!;
 
