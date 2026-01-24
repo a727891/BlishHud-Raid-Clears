@@ -1,4 +1,4 @@
-﻿using Blish_HUD;
+using Blish_HUD;
 using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using Microsoft.Xna.Framework;
@@ -37,7 +37,7 @@ public class MainSettingsView : View
             }, out var refreshButton)
             .AddSpace()
             .AddSetting(Service.Settings.OrganicGridBoxBackgrounds)
-            .AddControl(new GridBox(panel, "Demo", "Example encounter box", Service.Settings.RaidSettings.Style.GridOpacity, Service.Settings.RaidSettings.Style.FontSize), out var grid);
+            .AddControl(new GridBox(panel, Strings.Settings_Main_Demo, Strings.Settings_Main_ExampleEncounterBox, Service.Settings.RaidSettings.Style.GridOpacity, Service.Settings.RaidSettings.Style.FontSize), out var grid);
 
             (panel as FlowPanel).AddSpace()
             .AddSetting(Service.Settings.ScreenClamp)

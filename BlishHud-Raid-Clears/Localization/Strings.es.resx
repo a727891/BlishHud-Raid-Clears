@@ -362,6 +362,12 @@
   <data name="SettingsPanel_Strikes_Heading_Selection" xml:space="preserve">
     <value>Selección de misiones de ataque</value>
   </data>
+  <data name="SettingsPanel_Strikes_Heading_CustomizeLabels" xml:space="preserve">
+    <value>Personalizar etiquetas</value>
+  </data>
+  <data name="SettingsPanel_Strikes_Heading_ManageClears" xml:space="preserve">
+    <value>Gestionar completados</value>
+  </data>
   <data name="SettingsPanel_Subtitle" xml:space="preserve">
     <value>opciones de personalización</value>
     <comment>Subtitle on the settings panel header</comment>
@@ -1093,5 +1099,23 @@
   </data>
   <data name="Settings_OrganicGridBoxBackgrounds_Tooltip" xml:space="preserve">
     <value>Activado: Los fondos aparecerán con bordes difusos más similares al estilo de GW2,&#xA;Desactivado: El fondo será rectángulos</value>
+  </data>
+  <data name="Settings_Main_Demo" xml:space="preserve">
+    <value>Demo</value>
+  </data>
+  <data name="Settings_Main_ExampleEncounterBox" xml:space="preserve">
+    <value>Caja de encuentro de ejemplo</value>
+  </data>
+  <data name="Settings_Raid_EncounterVisible_Description" xml:space="preserve">
+    <value>Mostrar {0} en la superposición de ala de incursión</value>
+  </data>
+  <data name="Settings_Raid_WingVisible_Description" xml:space="preserve">
+    <value>Mostrar {0} en la superposición de ala de incursión</value>
+  </data>
+  <data name="Settings_Raid_ExpansionVisible_Description" xml:space="preserve">
+    <value>Mostrar todas las alas de incursión para '{0}' en la superposición de alas de incursión</value>
+  </data>
+  <data name="Settings_Raid_EnableExpansion" xml:space="preserve">
+    <value>Activar {0}</value>
   </data>
 </root>

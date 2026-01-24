@@ -1,6 +1,7 @@
 using Blish_HUD.Settings;
 using Newtonsoft.Json;
 using RaidClears.Features.Raids.Models;
+using RaidClears.Localization;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -83,8 +84,8 @@ public class RaidSettingsPersistance : Labelable
         var setting = new SettingEntry<bool>()
         {
             Value = Expansions[expac.Id],
-            GetDescriptionFunc = () => $"",
-            GetDisplayNameFunc = () => $"Enable {expac.Name}"
+            GetDescriptionFunc = () => string.Format(Strings.Settings_Raid_ExpansionVisible_Description, expac.Name),
+            GetDisplayNameFunc = () => string.Format(Strings.Settings_Raid_EnableExpansion, expac.Name)
         };
         setting.SettingChanged += (_, e) =>
         {
@@ -114,7 +115,7 @@ public class RaidSettingsPersistance : Labelable
         var setting = new SettingEntry<bool>()
         {
             Value = Wings[raidWing.Id],
-            GetDescriptionFunc = () => $"Show {raidWing.Name} on the raid overlay",
+            GetDescriptionFunc = () => string.Format(Strings.Settings_Raid_WingVisible_Description, raidWing.Name),
             GetDisplayNameFunc = () => $"{raidWing.Name}"
         };
         setting.SettingChanged += (_, e) =>
@@ -141,7 +142,7 @@ public class RaidSettingsPersistance : Labelable
         var setting = new SettingEntry<bool>()
         {
             Value = Encounters[encounter.ApiId],
-            GetDescriptionFunc = () => $"Show {encounter.Name} on the raid overlay",
+            GetDescriptionFunc = () => string.Format(Strings.Settings_Raid_EncounterVisible_Description, encounter.Name),
             GetDisplayNameFunc = () => $"{encounter.Abbriviation}"
         };
         setting.SettingChanged += (_, e) =>

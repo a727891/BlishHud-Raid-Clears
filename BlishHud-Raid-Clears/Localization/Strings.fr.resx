@@ -362,6 +362,12 @@
   <data name="SettingsPanel_Strikes_Heading_Selection" xml:space="preserve">
     <value>Sélection de combat de raid</value>
   </data>
+  <data name="SettingsPanel_Strikes_Heading_CustomizeLabels" xml:space="preserve">
+    <value>Personnaliser les étiquettes</value>
+  </data>
+  <data name="SettingsPanel_Strikes_Heading_ManageClears" xml:space="preserve">
+    <value>Gérer les complétions</value>
+  </data>
   <data name="SettingsPanel_Subtitle" xml:space="preserve">
     <value>options de personnalisation</value>
     <comment>Subtitle on the settings panel header</comment>
@@ -1084,5 +1090,23 @@
   </data>
   <data name="Settings_OrganicGridBoxBackgrounds_Tooltip" xml:space="preserve">
     <value>Activé : Les arrière-plans apparaîtront avec des bords flous plus proches du style de GW2,&#xA;Désactivé : L'arrière-plan sera des rectangles</value>
+  </data>
+  <data name="Settings_Main_Demo" xml:space="preserve">
+    <value>Démo</value>
+  </data>
+  <data name="Settings_Main_ExampleEncounterBox" xml:space="preserve">
+    <value>Exemple de boîte de combat</value>
+  </data>
+  <data name="Settings_Raid_EncounterVisible_Description" xml:space="preserve">
+    <value>Afficher {0} sur la superposition d'aile de raid</value>
+  </data>
+  <data name="Settings_Raid_WingVisible_Description" xml:space="preserve">
+    <value>Afficher {0} sur la superposition d'aile de raid</value>
+  </data>
+  <data name="Settings_Raid_ExpansionVisible_Description" xml:space="preserve">
+    <value>Afficher toutes les ailes de raid pour '{0}' sur la superposition d'ailes de raid</value>
+  </data>
+  <data name="Settings_Raid_EnableExpansion" xml:space="preserve">
+    <value>Activer {0}</value>
   </data>
 </root>

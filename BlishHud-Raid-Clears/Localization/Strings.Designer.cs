@@ -2428,6 +2428,24 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Demo.
+        /// </summary>
+        internal static string Settings_Main_Demo {
+            get {
+                return ResourceManager.GetString("Settings_Main_Demo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Example encounter box.
+        /// </summary>
+        internal static string Settings_Main_ExampleEncounterBox {
+            get {
+                return ResourceManager.GetString("Settings_Main_ExampleEncounterBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &apos;GW2 Style&apos; background boxes.
         /// </summary>
         internal static string Settings_OrganicGridBoxBackgrounds_Label {
@@ -2443,6 +2461,33 @@ namespace RaidClears.Localization {
         internal static string Settings_OrganicGridBoxBackgrounds_Tooltip {
             get {
                 return ResourceManager.GetString("Settings_OrganicGridBoxBackgrounds_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable {0}.
+        /// </summary>
+        internal static string Settings_Raid_EnableExpansion {
+            get {
+                return ResourceManager.GetString("Settings_Raid_EnableExpansion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show {0} on the Raid Wing overlay.
+        /// </summary>
+        internal static string Settings_Raid_EncounterVisible_Description {
+            get {
+                return ResourceManager.GetString("Settings_Raid_EncounterVisible_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show all Raid Wings for &apos;{0}&apos; on the Raid Wings Overlay.
+        /// </summary>
+        internal static string Settings_Raid_ExpansionVisible_Description {
+            get {
+                return ResourceManager.GetString("Settings_Raid_ExpansionVisible_Description", resourceCulture);
             }
         }
         
@@ -2470,6 +2515,15 @@ namespace RaidClears.Localization {
         internal static string Settings_Raid_PoF_Heading {
             get {
                 return ResourceManager.GetString("Settings_Raid_PoF_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show {0} on the Raid Wing overlay.
+        /// </summary>
+        internal static string Settings_Raid_WingVisible_Description {
+            get {
+                return ResourceManager.GetString("Settings_Raid_WingVisible_Description", resourceCulture);
             }
         }
         
@@ -2650,6 +2704,24 @@ namespace RaidClears.Localization {
         internal static string SettingsPanel_Raids_Heading_WingSelection {
             get {
                 return ResourceManager.GetString("SettingsPanel_Raids_Heading_WingSelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customize Labels.
+        /// </summary>
+        internal static string SettingsPanel_Strikes_Heading_CustomizeLabels {
+            get {
+                return ResourceManager.GetString("SettingsPanel_Strikes_Heading_CustomizeLabels", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manage Clears.
+        /// </summary>
+        internal static string SettingsPanel_Strikes_Heading_ManageClears {
+            get {
+                return ResourceManager.GetString("SettingsPanel_Strikes_Heading_ManageClears", resourceCulture);
             }
         }
         

@@ -1,4 +1,4 @@
-﻿using Blish_HUD.Controls;
+using Blish_HUD.Controls;
 using Blish_HUD.Settings;
 using Newtonsoft.Json;
 using RaidClears.Features.Raids.Models;
@@ -36,6 +36,29 @@ public class ExpansionStrikes : EncounterInterface
     [JsonProperty("missions")]
     public List<StrikeMission> Missions = new();
 
+    [JsonProperty("name")]
+    private string _name = "undefined";
+
+    [JsonProperty("abbriviation")]
+    private string _abbriviation = "undefined";
+
+    /// <summary>
+    /// Returns the localized name based on user locale, falling back to default name if localization is not available.
+    /// </summary>
+    public new string Name
+    {
+        get => GetLocalizedName(_name);
+        set => _name = value;
+    }
+
+    /// <summary>
+    /// Returns the localized abbreviation based on user locale, falling back to default abbreviation if localization is not available.
+    /// </summary>
+    public new string Abbriviation
+    {
+        get => GetLocalizedAbbreviation(_abbriviation);
+        set => _abbriviation = value;
+    }
 
     public List<BoxModel> GetEncounters()
     {

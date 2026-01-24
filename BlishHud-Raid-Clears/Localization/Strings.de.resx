@@ -362,6 +362,12 @@
   <data name="SettingsPanel_Strikes_Heading_Selection" xml:space="preserve">
     <value>Schlachtzugbegegnungsauswahl</value>
   </data>
+  <data name="SettingsPanel_Strikes_Heading_CustomizeLabels" xml:space="preserve">
+    <value>Beschriftungen anpassen</value>
+  </data>
+  <data name="SettingsPanel_Strikes_Heading_ManageClears" xml:space="preserve">
+    <value>Aufgabenabschlüsse verwalten</value>
+  </data>
   <data name="SettingsPanel_Subtitle" xml:space="preserve">
     <value>Anpassungsmöglichkeiten</value>
     <comment>Subtitle on the settings panel header</comment>
@@ -1093,5 +1099,23 @@
   </data>
   <data name="Settings_OrganicGridBoxBackgrounds_Tooltip" xml:space="preserve">
     <value>Ein: Hintergründe erscheinen mit unscharfen Kanten, ähnlicher dem GW2-Stil,&#xA;Aus: Hintergrund wird Rechtecke sein</value>
+  </data>
+  <data name="Settings_Main_Demo" xml:space="preserve">
+    <value>Demo</value>
+  </data>
+  <data name="Settings_Main_ExampleEncounterBox" xml:space="preserve">
+    <value>Beispiel-Kampfbox</value>
+  </data>
+  <data name="Settings_Raid_EncounterVisible_Description" xml:space="preserve">
+    <value>{0} im Schlachtzugflügel-Overlay anzeigen</value>
+  </data>
+  <data name="Settings_Raid_WingVisible_Description" xml:space="preserve">
+    <value>{0} im Schlachtzugflügel-Overlay anzeigen</value>
+  </data>
+  <data name="Settings_Raid_ExpansionVisible_Description" xml:space="preserve">
+    <value>Alle Schlachtzugflügel für '{0}' im Schlachtzugflügel-Overlay anzeigen</value>
+  </data>
+  <data name="Settings_Raid_EnableExpansion" xml:space="preserve">
+    <value>{0} aktivieren</value>
   </data>
 </root>

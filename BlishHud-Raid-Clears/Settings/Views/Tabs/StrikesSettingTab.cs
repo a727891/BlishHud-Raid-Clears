@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Blish_HUD.Controls;
@@ -42,12 +42,12 @@ public class StrikesSettingTab : ISettingsMenuRegistrar
         ));
 
         _registeredMenuItems.Add(new MenuViewItem(
-            new MenuItem("Customize Labels"),
+            new MenuItem(Strings.SettingsPanel_Strikes_Heading_CustomizeLabels),
             _ => new StrikeLabelCustomizationView()
         ));
 
         _registeredMenuItems.Add(new MenuViewItem(
-            new MenuItem("Manage Clears"),
+            new MenuItem(Strings.SettingsPanel_Strikes_Heading_ManageClears),
             _ => new StrikeClearCorrectionView()
         ));
         

@@ -13,10 +13,10 @@ public class EncounterInterface
     [JsonProperty("id")]
     public string Id = "undefined";
 
-    [JsonProperty("name")]
+    [JsonIgnore]
     public string Name = "undefined";
 
-    [JsonProperty("abbriviation")]
+    [JsonIgnore]
     public string Abbriviation = "undefined";
 
     [JsonProperty("assetId")]
