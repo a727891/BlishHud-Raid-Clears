@@ -44,7 +44,7 @@ public class GenericStyleView : View
             {
                 Text = Strings.SettingsPanel_Raid_Visual_ColorPickerButton,
                 BasicTooltipText = Strings.SettingsPanel_Raid_Visual_ColorPickerButtonTooltip,
-                Width = 200
+                Width = 300
             }, out var colorPickerButton)
             .AddSettingColor(_settings.Color.NotCleared)
             .AddSettingColor(_settings.Color.Cleared)

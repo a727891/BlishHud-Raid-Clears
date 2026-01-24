@@ -1011,10 +1011,10 @@
     <value>----------</value>
   </data>
   <data name="EncounterClearStatus_MarkComplete" xml:space="preserve">
-    <value>Marcar como completado</value>
+    <value>Marcar completado</value>
   </data>
   <data name="EncounterClearStatus_RemoveClear" xml:space="preserve">
-    <value>Eliminar completado</value>
+    <value>Eliminar</value>
   </data>
   <data name="CMTooltip_Instabilities" xml:space="preserve">
     <value>Inestabilidades</value>

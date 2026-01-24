@@ -7,13 +7,27 @@ using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using Blish_HUD;
+using Gw2Sharp.WebApi;
 
 namespace RaidClears.Features.Fractals.Services;
 
 public class FractalMap
 {
     [JsonProperty("label")]
-    public string Label = "undefined";
+    private string _label = "undefined";
+
+    [JsonProperty("localizedNames")]
+    private LocalizedStrings? LocalizedNames { get; set; }
+
+    /// <summary>
+    /// Returns the localized label based on user locale, falling back to default label if localization is not available.
+    /// </summary>
+    public string Label
+    {
+        get => GetLocalizedName(_label);
+        set => _label = value;
+    }
 
     [JsonProperty("short")]
     public string ShortLabel = "undefined";
@@ -26,6 +40,44 @@ public class FractalMap
 
     [JsonProperty("id")]
     public int MapId = 0;
+
+    /// <summary>
+    /// Gets the localized name based on user locale, falling back to default label if localization is not available.
+    /// </summary>
+    private string GetLocalizedName(string defaultLabel)
+    {
+        var locale = GetUserLocale();
+        var localizedName = LocalizedNames?.GetValue(locale);
+        return localizedName ?? defaultLabel;
+    }
+
+    /// <summary>
+    /// Gets the user's locale as a string code (en, fr, de, es).
+    /// </summary>
+    private string GetUserLocale()
+    {
+        try
+        {
+            var userLocaleSetting = GameService.Overlay.UserLocale;
+            if (userLocaleSetting == null) return "en";
+            
+            var locale = userLocaleSetting.Value;
+            return locale switch
+            {
+                Locale.English => "en",
+                Locale.French => "fr",
+                Locale.German => "de",
+                Locale.Spanish => "es",
+                Locale.Korean => "en", // Fallback to English if not supported
+                Locale.Chinese => "en", // Fallback to English if not supported
+                _ => "en"
+            };
+        }
+        catch
+        {
+            return "en";
+        }
+    }
 
     public EncounterInterface ToEncounterInterface()
     {
