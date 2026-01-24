@@ -12,6 +12,18 @@
       "name": "Heart of Thorns",
       "abbriviation": "HoT",
       "asset": "texture_raids_hot.png",
+      "localizedNames": {
+        "en": "Heart of Thorns",
+        "fr": "Cœur de Maguuma",
+        "de": "Herz der Nebel",
+        "es": "Corazón de la Cima"
+      },
+      "localizedAbbreviations": {
+        "en": "HoT",
+        "fr": "HoT",
+        "de": "HoT",
+        "es": "HoT"
+      },
       "wings": [
         {
           "id": "spirit_vale",
@@ -19,6 +31,18 @@
           "name": "Spirit Vale",
           "abbriviation": "SV",
           "mapId": 1062,
+          "localizedNames": {
+            "en": "Spirit Vale",
+            "fr": "La Vallée des esprits",
+            "de": "Geistertal",
+            "es": "Valle Espiritual"
+          },
+          "localizedAbbreviations": {
+            "en": "SV",
+            "fr": "SV",
+            "de": "SV",
+            "es": "SV"
+          },
           "call_of_mists_timestamp": 1739197800,
           "call_of_mists_weeks": 8,
           "emboldened_timestamp": 1739802600,
@@ -28,25 +52,73 @@
               "name": "Vale Guardian",
               "api_id": "vale_guardian",
               "abbriviation": "VG",
-              "assetId": 1301792
+              "assetId": 1301792,
+              "localizedNames": {
+                "en": "Vale Guardian",
+                "fr": "Gardien de la Vallée",
+                "de": "Talwächter",
+                "es": "Guardián del valle"
+              },
+              "localizedAbbreviations": {
+                "en": "VG",
+                "fr": "GdlV",
+                "de": "VG",
+                "es": "VG"
+              }
             },
             {
               "name": "Spirit Woods",
               "api_id": "spirit_woods",
               "abbriviation": "SW",
-              "assetId": 1301728
+              "assetId": 1301728,
+              "localizedNames": {
+                "en": "Spirit Run",
+                "fr": "Les Bois des esprits",
+                "de": "Geisterlauf",
+                "es": "Bosques espirituales"
+              },
+              "localizedAbbreviations": {
+                "en": "SR",
+                "fr": "SR",
+                "de": "SR",
+                "es": "SR"
+              }
             },
             {
               "name": "Gorseval",
               "api_id": "gorseval",
               "abbriviation": "G",
-              "assetId": 1301787
+              "assetId": 1301787,
+              "localizedNames": {
+                "en": "Gorseval",
+                "fr": "Gorseval le Disparate",
+                "de": "Gorseval",
+                "es": "Gorseval el Múltiple"
+              },
+              "localizedAbbreviations": {
+                "en": "G",
+                "fr": "G",
+                "de": "G",
+                "es": "G"
+              }
             },
             {
               "name": "Sabetha",
               "api_id": "sabetha",
               "abbriviation": "S",
-              "assetId": 1301795
+              "assetId": 1301795,
+              "localizedNames": {
+                "en": "Sabetha",
+                "fr": "Sabetha la saboteuse",
+                "de": "Sabetha",
+                "es": "Sabetha la Saboteadora"
+              },
+              "localizedAbbreviations": {
+                "en": "S",
+                "fr": "S",
+                "de": "S",
+                "es": "S"
+              }
             }
           ]
         },
@@ -56,6 +128,18 @@
           "name": "Salvation Pass",
           "abbriviation": "SP",
           "mapId": 1149,
+          "localizedNames": {
+            "en": "Salvation Pass",
+            "fr": "Passage de la rédemption",
+            "de": "Erlösungspass",
+            "es": "Paso de la Salvación"
+          },
+          "localizedAbbreviations": {
+            "en": "SP",
+            "fr": "SP",
+            "de": "SP",
+            "es": "SP"
+          },
           "call_of_mists_timestamp": 1739802600,
           "call_of_mists_weeks": 8,
           "emboldened_timestamp": 1740407400,
@@ -65,19 +149,55 @@
               "name": "Slothasor",
               "api_id": "slothasor",
               "abbriviation": "S",
-              "assetId": 1377392
+              "assetId": 1377392,
+              "localizedNames": {
+                "en": "Slothasor",
+                "fr": "Paressor",
+                "de": "Faultierion",
+                "es": "Perezón"
+              },
+              "localizedAbbreviations": {
+                "en": "S",
+                "fr": "S",
+                "de": "S",
+                "es": "S"
+              }
             },
             {
               "name": "Bandit Trio",
               "api_id": "bandit_trio",
               "abbriviation": "B3",
-              "assetId": 1377389
+              "assetId": 1377389,
+              "localizedNames": {
+                "en": "Bandit Trio",
+                "fr": "Trio de bandits",
+                "de": "Banditen-Trio",
+                "es": "Campamento de prisioneros"
+              },
+              "localizedAbbreviations": {
+                "en": "B3",
+                "fr": "B3",
+                "de": "B3",
+                "es": "B3"
+              }
             },
             {
               "name": "Matthias Gabrel",
               "api_id": "matthias",
               "abbriviation": "M",
-              "assetId": 1377391
+              "assetId": 1377391,
+              "localizedNames": {
+                "en": "Matthias Gabrel",
+                "fr": "Matthias Gabrel",
+                "de": "Mathias Gabriel",
+                "es": "Matías Gabrel"
+              },
+              "localizedAbbreviations": {
+                "en": "M",
+                "fr": "M",
+                "de": "M",
+                "es": "M"
+              }
             }
           ]
         },
@@ -87,6 +207,18 @@
           "name": "Stonghold of the Falthful",
           "abbriviation": "SotF",
           "mapId": 1156,
+          "localizedNames": {
+            "en": "Stronghold of the Faithful",
+            "fr": "Forteresse des Fidèles",
+            "de": "Festung der Treuen",
+            "es": "Foraleza de los Fieles"
+          },
+          "localizedAbbreviations": {
+            "en": "SotF",
+            "fr": "SotF",
+            "de": "SofF",
+            "es": "SotF"
+          },
           "call_of_mists_timestamp": 1740407400,
           "call_of_mists_weeks": 8,
           "emboldened_timestamp": 1741012200,
@@ -96,25 +228,73 @@
               "name": "Escort",
               "api_id": "escort",
               "abbriviation": "E",
-              "assetId": 1451172
+              "assetId": 1451172,
+              "localizedNames": {
+                "en": "Escort",
+                "fr": "Escorte",
+                "de": "Belagert die Festung",
+                "es": "Asedio a la fortaleza"
+              },
+              "localizedAbbreviations": {
+                "en": "E",
+                "fr": "E",
+                "de": "E",
+                "es": "E"
+              }
             },
             {
               "name": "Keep Construct",
               "api_id": "keep_construct",
               "abbriviation": "KC",
-              "assetId": 1451173
+              "assetId": 1451173,
+              "localizedNames": {
+                "en": "Keep Construct",
+                "fr": "Titan du Fort",
+                "de": "Festenkonstrukt",
+                "es": "Ensamblaje de la fortaleza"
+              },
+              "localizedAbbreviations": {
+                "en": "KC",
+                "fr": "KC",
+                "de": "KC",
+                "es": "KC"
+              }
             },
             {
               "name": "Twisted Castle",
               "api_id": "twisted_castle",
               "abbriviation": "TC",
-              "assetId": 1451294
+              "assetId": 1451294,
+              "localizedNames": {
+                "en": "Twisted Castle",
+                "fr": " Château corrompu",
+                "de": "Verdrehtes Schloss",
+                "es": "Castillo Retorcido"
+              },
+              "localizedAbbreviations": {
+                "en": "TC",
+                "fr": "CT",
+                "de": "TC",
+                "es": "TC"
+              }
             },
             {
               "name": "Xera",
               "api_id": "xera",
               "abbriviation": "X",
-              "assetId": 1451174
+              "assetId": 1451174,
+              "localizedNames": {
+                "en": "Xera",
+                "fr": "Xera",
+                "de": "Xera",
+                "es": "Xera"
+              },
+              "localizedAbbreviations": {
+                "en": "X",
+                "fr": "X",
+                "de": "X",
+                "es": "X"
+              }
             }
           ]
         },
@@ -124,6 +304,18 @@
           "name": "Bastion of the Penitent",
           "abbriviation": "BotP",
           "mapId": 1188,
+          "localizedNames": {
+            "en": "Bastion of the Penitent",
+            "fr": "Bastion du pénitent",
+            "de": "Bastion der Büßfertigen",
+            "es": "Bastión del Penitente"
+          },
+          "localizedAbbreviations": {
+            "en": "BotP",
+            "fr": "BotP",
+            "de": "BotP",
+            "es": "BotP"
+          },
           "call_of_mists_timestamp": 1741012200,
           "call_of_mists_weeks": 8,
           "emboldened_timestamp": 1741617000,
@@ -133,25 +325,73 @@
               "name": "Cairn the Indominable",
               "api_id": "cairn",
               "abbriviation": "C",
-              "assetId": 1633961
+              "assetId": 1633961,
+              "localizedNames": {
+                "en": "Cairn the Indominable",
+                "fr": "Cairn l'indomptable",
+                "de": "Cairn der Unbeugsame",
+                "es": "Cairn el Indomable"
+              },
+              "localizedAbbreviations": {
+                "en": "C",
+                "fr": "C",
+                "de": "C",
+                "es": "C"
+              }
             },
             {
               "name": "Mursaat Overseer",
               "api_id": "mursaat_overseer",
               "abbriviation": "MO",
-              "assetId": 1633963
+              "assetId": 1633963,
+              "localizedNames": {
+                "en": "Mursaat Overseer",
+                "fr": "Surveillant Mursaat",
+                "de": "Mursaat-Aufseher",
+                "es": "Dirigente mursaat"
+              },
+              "localizedAbbreviations": {
+                "en": "MO",
+                "fr": "MO",
+                "de": "MO",
+                "es": "MO"
+              }
             },
             {
               "name": "Samarog",
               "api_id": "samarog",
               "abbriviation": "S",
-              "assetId": 1633967
+              "assetId": 1633967,
+              "localizedNames": {
+                "en": "Samarog",
+                "fr": "Samarog",
+                "de": "Samarog",
+                "es": "Samarog"
+              },
+              "localizedAbbreviations": {
+                "en": "S",
+                "fr": "S",
+                "de": "S",
+                "es": "S"
+              }
             },
             {
               "name": "Deimos",
               "api_id": "deimos",
               "abbriviation": "D",
-              "assetId": 1633966
+              "assetId": 1633966,
+              "localizedNames": {
+                "en": "Deimos",
+                "fr": "Deimos",
+                "de": "Deimos",
+                "es": "Deimos"
+              },
+              "localizedAbbreviations": {
+                "en": "D",
+                "fr": "D",
+                "de": "D",
+                "es": "D"
+              }
             }
           ]
         }
@@ -162,6 +402,18 @@
       "name": "Path of Fire",
       "abbriviation": "PoF",
       "asset": "texture_raids_pof.png",
+      "localizedNames": {
+        "en": "Path of Fire",
+        "fr": "Sentier de Feu",
+        "de": "Pfad des Feuers",
+        "es": "Sendero del Fuego"
+      },
+      "localizedAbbreviations": {
+        "en": "PoF",
+        "fr": "PoF",
+        "de": "PoF",
+        "es": "PoF"
+      },
       "wings": [
         {
           "id": "hall_of_chains",
@@ -169,6 +421,18 @@
           "name": "Hall of Chains",
           "abbriviation": "HoC",
           "mapId": 1264,
+          "localizedNames": {
+            "en": "Hall of Chains",
+            "fr": "Salle des chaînes",
+            "de": "Halle der Ketten",
+            "es": "Sala de las Cadenas"
+          },
+          "localizedAbbreviations": {
+            "en": "HoC",
+            "fr": "HoC",
+            "de": "HoC",
+            "es": "HoC"
+          },
           "call_of_mists_timestamp": 1741617000,
           "call_of_mists_weeks": 8,
           "emboldened_timestamp": 1742221800,
@@ -178,25 +442,73 @@
               "name": "Soulless Horror",
               "api_id": "soulless_horror",
               "abbriviation": "SH",
-              "assetId": 1894936
+              "assetId": 1894936,
+              "localizedNames": {
+                "en": "Soulless Horror",
+                "fr": "Horreur sans âme",
+                "de": "Seelenloser Schrecken",
+                "es": "Horror sin alma"
+              },
+              "localizedAbbreviations": {
+                "en": "SH",
+                "fr": "SH",
+                "de": "SH",
+                "es": "SH"
+              }
             },
             {
               "name": "River of Souls",
               "api_id": "river_of_souls",
               "abbriviation": "R",
-              "assetId": 1894803
+              "assetId": 1894803,
+              "localizedNames": {
+                "en": "River of Souls",
+                "fr": "Rivière des âmes",
+                "de": "Fluss der Seelen",
+                "es": "río de las almas"
+              },
+              "localizedAbbreviations": {
+                "en": "R",
+                "fr": "R",
+                "de": "R",
+                "es": "R"
+              }
             },
             {
               "name": "Statues of Grenth",
               "api_id": "statues_of_grenth",
               "abbriviation": "S",
-              "assetId": 1894799
+              "assetId": 1894799,
+              "localizedNames": {
+                "en": "Statues of Grenth",
+                "fr": "Statues de Grenth",
+                "de": "Statuen des Grenth",
+                "es": "estatuas de grenth"
+              },
+              "localizedAbbreviations": {
+                "en": "S",
+                "fr": "S",
+                "de": "S",
+                "es": "S"
+              }
             },
             {
               "name": "Dhuum",
               "api_id": "voice_in_the_void",
               "abbriviation": "D",
-              "assetId": 1894937
+              "assetId": 1894937,
+              "localizedNames": {
+                "en": "Dhuum",
+                "fr": "Dhuum",
+                "de": "Dhuum",
+                "es": "Dhuum"
+              },
+              "localizedAbbreviations": {
+                "en": "D",
+                "fr": "D",
+                "de": "D",
+                "es": "D"
+              }
             }
           ]
         },
@@ -206,6 +518,18 @@
           "name": "Mythwright Gambit",
           "abbriviation": "MG",
           "mapId": 1303,
+          "localizedNames": {
+            "en": "Mythwright Gambit",
+            "fr": "Gambit de forgeconte",
+            "de": "Mythenschreiber - Wagnis",
+            "es": "Táctica del Forjador de Mitos"
+          },
+          "localizedAbbreviations": {
+            "en": "MG",
+            "fr": "MG",
+            "de": "MG",
+            "es": "MG"
+          },
           "call_of_mists_timestamp": 1742221800,
           "call_of_mists_weeks": 8,
           "emboldened_timestamp": 1742826600,
@@ -215,19 +539,55 @@
               "name": "Conjured Amalgamate",
               "api_id": "conjured_amalgamate",
               "abbriviation": "CA",
-              "assetId": 2039286
+              "assetId": 2039286,
+              "localizedNames": {
+                "en": "Conjured Amalgamate",
+                "fr": "Amalgame conjuré",
+                "de": "Beschworene Verschmelzung",
+                "es": "Amalgamado conjurado"
+              },
+              "localizedAbbreviations": {
+                "en": "CA",
+                "fr": "CA",
+                "de": "CA",
+                "es": "CA"
+              }
             },
             {
               "name": "Twin Largos",
               "api_id": "twin_largos",
               "abbriviation": "TL",
-              "assetId": 2038615
+              "assetId": 2038615,
+              "localizedNames": {
+                "en": "Twin Largos",
+                "fr": "Jumeaux Largos",
+                "de": "Zwillings-Largos (Nikare und Kenut)",
+                "es": "Largos gemelos (Nikare y Kenut)"
+              },
+              "localizedAbbreviations": {
+                "en": "TL",
+                "fr": "TL",
+                "de": "TL",
+                "es": "TL"
+              }
             },
             {
               "name": "Qadim",
               "api_id": "qadim",
               "abbriviation": "Q1",
-              "assetId": 2038618
+              "assetId": 2038618,
+              "localizedNames": {
+                "en": "Qadim",
+                "fr": "Qadim",
+                "de": "Qadim",
+                "es": "Qadim"
+              },
+              "localizedAbbreviations": {
+                "en": "Q1",
+                "fr": "Q1",
+                "de": "Q1",
+                "es": "Q1"
+              }
             }
           ]
         },
@@ -237,6 +597,18 @@
           "name": "The Key of Ahdashim",
           "abbriviation": "TKoA",
           "mapId": 1323,
+          "localizedNames": {
+            "en": "The Key of Ahdashim",
+            "fr": "La clé d'Ahdashim",
+            "de": "Der Schlüssel von Ahdashim",
+            "es": "La Llave de Ahdashim"
+          },
+          "localizedAbbreviations": {
+            "en": "TKoA",
+            "fr": "TKoA",
+            "de": "TKoA",
+            "es": "TKoA"
+          },
           "call_of_mists_timestamp": 1742826600,
           "call_of_mists_weeks": 8,
           "emboldened_timestamp": 1743431400,
@@ -246,25 +618,73 @@
               "name": "Gate",
               "api_id": "gate",
               "abbriviation": "G",
-              "assetId": 2155913
+              "assetId": 2155913,
+              "localizedNames": {
+                "en": "Gate",
+                "fr": "Portail",
+                "de": "Tor",
+                "es": "Puerta"
+              },
+              "localizedAbbreviations": {
+                "en": "G",
+                "fr": "G",
+                "de": "G",
+                "es": "G"
+              }
             },
             {
               "name": "Cardinal Adina",
               "api_id": "adina",
               "abbriviation": "A",
-              "assetId": 1766806
+              "assetId": 1766806,
+              "localizedNames": {
+                "en": "Cardinal Adina",
+                "fr": "Cardinal Adina",
+                "de": "Kardinal Adina",
+                "es": "Cardenal Adina"
+              },
+              "localizedAbbreviations": {
+                "en": "A",
+                "fr": "A",
+                "de": "A",
+                "es": "A"
+              }
             },
             {
               "name": "Cardinal Sabir",
               "api_id": "sabir",
               "abbriviation": "S",
-              "assetId": 1766790
+              "assetId": 1766790,
+              "localizedNames": {
+                "en": "Cardinal Sabir",
+                "fr": "Cardinal Sabir",
+                "de": "Kardinal Sabir",
+                "es": "Cardenal Sabir"
+              },
+              "localizedAbbreviations": {
+                "en": "S",
+                "fr": "S",
+                "de": "S",
+                "es": "S"
+              }
             },
             {
               "name": "Qadim the Peerless",
               "api_id": "qadim_the_peerless",
               "abbriviation": "Q2",
-              "assetId": 2155914
+              "assetId": 2155914,
+              "localizedNames": {
+                "en": "Qadim the Peerless",
+                "fr": "Qadim l'Inégalé",
+                "de": "Qadim der Unvergleichliche",
+                "es": "Qadim el Simpar"
+              },
+              "localizedAbbreviations": {
+                "en": "Q2",
+                "fr": "Q2",
+                "de": "Q2",
+                "es": "Q2"
+              }
             }
           ]
         }
@@ -275,6 +695,18 @@
       "name": "Janthir Wilds",
       "abbriviation": "JW",
       "asset": "texture_raids_jw.png",
+      "localizedNames": {
+        "en": "Janthir Wilds",
+        "fr": "Terres Sauvages de Janthir",
+        "de": "Janthir-Wildnis",
+        "es": "Tierras Salvajes de Janthir"
+      },
+      "localizedAbbreviations": {
+        "en": "JW",
+        "fr": "JW",
+        "de": "JW",
+        "es": "JW"
+      },
       "wings": [
         {
           "id": "mount_balrior",
@@ -282,6 +714,18 @@
           "name": "Mount Balrior",
           "abbriviation": "MtBal",
           "mapId": 1564,
+          "localizedNames": {
+            "en": "Mount Balrior",
+            "fr": "Mont Balrior",
+            "de": "Berg Balrior",
+            "es": "Monte Balrior"
+          },
+          "localizedAbbreviations": {
+            "en": "MtBal",
+            "fr": "MtBal",
+            "de": "MtBal",
+            "es": "MtBal"
+          },
           "call_of_mists_timestamp": 1743431400,
           "call_of_mists_weeks": 8,
           "emboldened_timestamp": 1744036200,
@@ -291,25 +735,73 @@
               "name": "Camp",
               "api_id": "camp",
               "abbriviation": "C",
-              "assetId": 3442796
+              "assetId": 3442796,
+              "localizedNames": {
+                "en": null,
+                "fr": null,
+                "de": null,
+                "es": null
+              },
+              "localizedAbbreviations": {
+                "en": null,
+                "fr": null,
+                "de": null,
+                "es": null
+              }
             },
             {
               "name": "Decima",
               "api_id": "decima",
               "abbriviation": "D",
-              "assetId": 3375072
+              "assetId": 3375072,
+              "localizedNames": {
+                "en": null,
+                "fr": null,
+                "de": null,
+                "es": null
+              },
+              "localizedAbbreviations": {
+                "en": null,
+                "fr": null,
+                "de": null,
+                "es": null
+              }
             },
             {
               "name": "Greer",
               "api_id": "greer",
               "abbriviation": "G",
-              "assetId": 3441685
+              "assetId": 3441685,
+              "localizedNames": {
+                "en": null,
+                "fr": null,
+                "de": null,
+                "es": null
+              },
+              "localizedAbbreviations": {
+                "en": null,
+                "fr": null,
+                "de": null,
+                "es": null
+              }
             },
             {
               "name": "Ura",
               "api_id": "ura",
               "abbriviation": "U",
-              "assetId": 3441855
+              "assetId": 3441855,
+              "localizedNames": {
+                "en": null,
+                "fr": null,
+                "de": null,
+                "es": null
+              },
+              "localizedAbbreviations": {
+                "en": null,
+                "fr": null,
+                "de": null,
+                "es": null
+              }
             }
           ]
         }
