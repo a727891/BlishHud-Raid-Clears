@@ -1,4 +1,4 @@
-﻿using Blish_HUD.Controls;
+using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using Microsoft.Xna.Framework;
 using RaidClears.Features.Shared.Enums;
@@ -43,7 +43,7 @@ public class StrikeLabelCustomizationView : View
             
         }
        
-        panel.AddString($"Customize Strike Mission Labels");
+        panel.AddString(Strings.StrikeLabelCustomization_Heading);
 
     }
 

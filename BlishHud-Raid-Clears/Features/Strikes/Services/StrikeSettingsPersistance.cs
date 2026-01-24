@@ -1,8 +1,9 @@
-﻿using Blish_HUD.Settings;
+using Blish_HUD.Settings;
 using Newtonsoft.Json;
 using RaidClears.Features.Raids.Services;
 using RaidClears.Features.Shared.Enums;
 using RaidClears.Features.Strikes.Models;
+using RaidClears.Localization;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -80,7 +81,7 @@ public class StrikeSettingsPersistance : Labelable
         {
             Value = Priority,
             GetDescriptionFunc = () => $"",
-            GetDisplayNameFunc = () => $"Enable {priority.Name}"
+            GetDisplayNameFunc = () => string.Format(Strings.StrikeSettings_EnablePriority, priority.Name)
         };
         setting.SettingChanged += (_, e) =>
         {
@@ -106,7 +107,7 @@ public class StrikeSettingsPersistance : Labelable
         {
             Value = Expansions[expac.Id],
             GetDescriptionFunc = () => $"",
-            GetDisplayNameFunc = () => $"Enable {expac.Name}"
+            GetDisplayNameFunc = () => string.Format(Strings.StrikeSettings_EnableExpansion, expac.Name)
         };
         setting.SettingChanged += (_, e) =>
         {

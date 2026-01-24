@@ -1,4 +1,4 @@
-﻿using Blish_HUD.Controls;
+using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using Microsoft.Xna.Framework;
 using RaidClears.Features.Shared.Enums;
@@ -48,7 +48,7 @@ public class FractalLabelCustomizationView : View
             panel.AddControl(new EncounterLabelCustomerizer(panel, Service.FractalPersistance, map.Value.ToEncounterInterface() , Color.White));
         }
        
-        panel.AddString($"Customize Fractal Labels");
+        panel.AddString(Strings.FractalLabelCustomization_Heading);
 
     }
 

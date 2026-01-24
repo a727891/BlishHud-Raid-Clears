@@ -1,4 +1,4 @@
-﻿using Blish_HUD.Controls;
+using Blish_HUD.Controls;
 using Microsoft.Xna.Framework;
 using RaidClears.Features.Shared.Enums;
 using RaidClears.Features.Shared.Enums.Extensions;
@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using RaidClears.Features.Fractals.Services;
 using RaidClears.Features.Strikes.Services;
 using RaidClears.Features.Strikes.Models;
+using RaidClears.Localization;
 
 namespace RaidClears.Settings.Controls;
 
@@ -64,7 +65,7 @@ public  class EncounterClearStatus : Panel
         {
             Service.MapWatcher.MarkStrikeNotCompleted(mission);
         }
-        clearDate.Text = "----------";
+        clearDate.Text = Strings.EncounterClearStatus_NoClearDate;
 
     }
 
@@ -81,14 +82,14 @@ public  class EncounterClearStatus : Panel
         };
         clearDate = new Label()
         {
-            Text = datetime.Year==1 ? "----------" : datetime.ToShortDateString(),
+            Text = datetime.Year==1 ? Strings.EncounterClearStatus_NoClearDate : datetime.ToShortDateString(),
             Parent = this,
             Location = new(col1+5, 0),
             Width = colN
         };
         var complete = new StandardButton()
         {
-            Text = "Mark Complete",
+            Text = Strings.EncounterClearStatus_MarkComplete,
             Parent = this,
             Location = new(col1+colN + 5, 0),
             Width = colN,
@@ -96,7 +97,7 @@ public  class EncounterClearStatus : Panel
         };
         var clear = new StandardButton()
         {
-            Text = "Remove Clear",
+            Text = Strings.EncounterClearStatus_RemoveClear,
             Parent = this,
             Location = new(col1 + colN +colN + 5, 0),
             Width = colN

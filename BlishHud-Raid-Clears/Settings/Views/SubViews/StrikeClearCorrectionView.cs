@@ -1,4 +1,4 @@
-﻿using Blish_HUD.Controls;
+using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using Microsoft.Xna.Framework;
 using RaidClears.Features.Shared.Enums;
@@ -55,7 +55,7 @@ public class StrikeClearCorrectionView : View
             }
         }
        
-        panel.AddString($"Last Strike Mission Clears (Profile: {Service.CurrentAccountName})");
+        panel.AddString(string.Format(Strings.StrikeClearCorrection_LastClears, Service.CurrentAccountName));
 
     }
 

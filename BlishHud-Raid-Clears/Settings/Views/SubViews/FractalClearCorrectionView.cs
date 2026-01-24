@@ -1,4 +1,4 @@
-﻿using Blish_HUD.Controls;
+using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using Microsoft.Xna.Framework;
 using RaidClears.Features.Fractals.Services;
@@ -43,7 +43,7 @@ public class FractalClearCorrectionView : View
 
 
         }
-        panel.AddString($"Last Fractal Clears (Profile: {Service.CurrentAccountName})");
+        panel.AddString(string.Format(Strings.FractalClearCorrection_LastClears, Service.CurrentAccountName));
 
     }
 }

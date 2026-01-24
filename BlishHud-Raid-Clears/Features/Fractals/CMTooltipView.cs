@@ -1,4 +1,4 @@
-﻿using RaidClears.Utils.Kenedia;
+using RaidClears.Utils.Kenedia;
 using Blish_HUD.Controls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -130,8 +130,8 @@ public class CmTooltip : Blish_HUD.Controls.Tooltip
             _instabIcons.Add(icon);
             index++;
         });
-        _title.Text = $"{map.Label} ({Service.FractalPersistance.GetEncounterLabel(map.ApiLabel)})";
-        _id.Text = $"Scale: {scale}";
+        _title.Text = string.Format(Strings.CMTooltip_Title, map.Label, Service.FractalPersistance.GetEncounterLabel(map.ApiLabel));
+        _id.Text = string.Format(Strings.CMTooltip_Scale, scale);
        /* _instabs.Text = string.Join("\n",instabs);
         _tomorrowInstabs.Text = string.Join("\n",tomorrowInstabs);*/
         
@@ -160,10 +160,10 @@ public class CmTooltip : Blish_HUD.Controls.Tooltip
 
         _image.Draw(this, spriteBatch);
         spriteBatch.DrawStringOnCtrl(
-            this, "Instabilities", GameService.Content.DefaultFont14, _instabsTitle, Color.Chartreuse
+            this, Strings.CMTooltip_Instabilities, GameService.Content.DefaultFont14, _instabsTitle, Color.Chartreuse
         );
         spriteBatch.DrawStringOnCtrl(
-            this, "Tomorrow", GameService.Content.DefaultFont14, _tomorrowInstabsTitle, Color.Chartreuse
+            this, Strings.CMTooltip_Tomorrow, GameService.Content.DefaultFont14, _tomorrowInstabsTitle, Color.Chartreuse
         );
         var i = 0;
         _instabIcons.ForEach(icon => {

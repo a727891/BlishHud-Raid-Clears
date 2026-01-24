@@ -1,4 +1,4 @@
-﻿using Blish_HUD.Controls;
+using Blish_HUD.Controls;
 using Microsoft.Xna.Framework;
 using System;
 using RaidClears.Features.Fractals.Services;
@@ -6,6 +6,7 @@ using RaidClears.Features.Strikes.Services;
 using RaidClears.Features.Raids.Models;
 using RaidClears.Features.Shared.Models;
 using RaidClears.Features.Raids.Services;
+using RaidClears.Localization;
 
 namespace RaidClears.Settings.Controls;
 
@@ -62,7 +63,7 @@ public  class EncounterLabelCustomerizer : Panel
         };
         resetBtn = new StandardButton()
         {
-            Text = $"Reset to '{abbriv}'",
+            Text = string.Format(Strings.EncounterLabelCustomerizer_ResetTo, abbriv),
             Parent = this,
             Location = new(col1 + colN + 10, 0),
             Width = colN,

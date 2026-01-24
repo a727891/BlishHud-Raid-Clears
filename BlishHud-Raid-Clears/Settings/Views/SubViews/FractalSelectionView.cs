@@ -1,4 +1,4 @@
-﻿using Blish_HUD.Controls;
+using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using Microsoft.Xna.Framework;
 using RaidClears.Localization;
@@ -46,7 +46,7 @@ public class FractalSelectionView : View
             Location = new(10, buildPanel.Bottom - 50),
             //TextColor=Color.Blue,
             AutoSizeWidth=true,
-            Text = "Special thank you to Invisi for providing challenge mote Instabilities information"
+            Text = Strings.FractalSelection_ThanksInvisi
         };
         thanksInvisButton.Click += (s, e) =>
         {

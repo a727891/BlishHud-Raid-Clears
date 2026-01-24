@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -413,7 +413,7 @@
     <value>Layout / Colors</value>
   </data>
   <data name="SettingsPanel_Raids_Heading_WingSelection" xml:space="preserve">
-    <value>Wing Selection</value>
+    <value>Raid Wing Selection</value>
   </data>
   <data name="SettingsPanel_Raid_Visual_Colors" xml:space="preserve">
     <value>Customize the colors by entering a Hex color code</value>
@@ -424,7 +424,7 @@
     <comment>help text to find a color picker gui</comment>
   </data>
   <data name="SettingsPanel_Strikes_Heading_Selection" xml:space="preserve">
-    <value>Strikes Selection</value>
+    <value>Raid Encounters Selection</value>
   </data>
   <data name="SettingsPanel_Subtitle" xml:space="preserve">
     <value>customization options</value>
@@ -437,10 +437,10 @@
     <value>General</value>
   </data>
   <data name="SettingsPanel_Tab_Raids" xml:space="preserve">
-    <value>Raids</value>
+    <value>Raid Wings   -    Multiple Raid Boss Instances</value>
   </data>
   <data name="SettingsPanel_Tab_Strikes" xml:space="preserve">
-    <value>Strikes</value>
+    <value>Raid Encounters   -    Single Raid Boss Instances</value>
   </data>
   <data name="Settings_Dungeon_Heading" xml:space="preserve">
     <value>Enable individual Dungeons</value>
@@ -464,11 +464,11 @@
     <comment>button to trigger api refresh</comment>
   </data>
   <data name="Settings_Strike_AnchorToRaidLabel" xml:space="preserve">
-    <value>Anchor strikes to the raid overlay</value>
+    <value>Anchor Raid Encounters to the Raid Wings overlay</value>
     <comment>checkbox - strikes attach to raids overlay</comment>
   </data>
   <data name="Settings_Strike_AnchorToRaidTooltip" xml:space="preserve">
-    <value>The strikes overlay will attach to the raid overlay when the raid overlay is moved</value>
+    <value>The Raid Encounters overlay will attach to the Raid Wings overlay when the Raid Wings overlay is moved</value>
     <comment>checkbox - strikes attach to raids overlay</comment>
   </data>
   <data name="Settings_Strike_Completion" xml:space="preserve">
@@ -476,14 +476,14 @@
     <comment>dropdown label for strike completion options</comment>
   </data>
   <data name="Settings_Strike_CompletionTooltip" xml:space="preserve">
-    <value>Determine how strikes are marked as cleared</value>
+    <value>Determine how Raid Encounters are marked as cleared</value>
     <comment>Dropdown asking if strikes are auto-completed or prompted with a yes/no window</comment>
   </data>
   <data name="Settings_Strike_EOD_Heading" xml:space="preserve">
-    <value>Enable individual End of Dragons strikes</value>
+    <value>Enable individual End of Dragons Raid Encounters</value>
   </data>
   <data name="Settings_Strike_IBS_Heading" xml:space="preserve">
-    <value>Enable individual Icebrood Saga strikes</value>
+    <value>Enable individual Icebrood Saga Raid Encounters</value>
   </data>
   <data name="Setting_APIPoll_Label" xml:space="preserve">
     <value>Refresh data every</value>
@@ -493,7 +493,7 @@
     <value>How often should the GW2 API be checked for updated information?</value>
   </data>
   <data name="Setting_CopyRaids" xml:space="preserve">
-    <value>Match raid settings</value>
+    <value>Match Raid Wing settings</value>
     <comment>button - copy style settings from raids</comment>
   </data>
   <data name="Setting_CornerIconEnable" xml:space="preserve">
@@ -563,7 +563,7 @@
     <value>Raid overlay background color</value>
   </data>
   <data name="Setting_Raid_ColClear_Label" xml:space="preserve">
-    <value>Cleared encounter color</value>
+    <value>Cleared Encounter color</value>
     <comment>Box color when a raid encounter is cleared/done</comment>
   </data>
   <data name="Setting_Raid_ColClear_Tooltip" xml:space="preserve">
@@ -611,7 +611,7 @@
     <comment>checkbox - color call of the mists wing's text color</comment>
   </data>
   <data name="Setting_Raid_Drag_Label" xml:space="preserve">
-    <value>Unlock Raid overlay position</value>
+    <value>Unlock Raid Wings overlay position</value>
     <comment>checkbox - raids overlay draggable</comment>
   </data>
   <data name="Setting_Raid_Drag_Tooltip" xml:space="preserve">
@@ -639,10 +639,10 @@
     <value>Hidden &lt;---&gt; Fully Visible</value>
   </data>
   <data name="Setting_Raid_Icon_Label" xml:space="preserve">
-    <value>Raids hide/show on menubar icon click</value>
+    <value>Raid Wings hide/show on menubar icon click</value>
   </data>
   <data name="Setting_Raid_Icon_Tooltip" xml:space="preserve">
-    <value>Raids overlay hides/shows when clicking the icon next to Blish in the top-left of the screen</value>
+    <value>Raid Wings overlay hides/shows when clicking the icon next to Blish in the top-left of the screen</value>
   </data>
   <data name="Setting_Raid_Keybind_Label" xml:space="preserve">
     <value>Show/Hide keybind</value>
@@ -682,11 +682,11 @@
     <value>Hovering the mouse over an encounter will display the full name</value>
   </data>
   <data name="Setting_Raid_Visible_Label" xml:space="preserve">
-    <value>Show Raids overlay</value>
+    <value>Show Raid Wings overlay</value>
     <comment>checkbox - raids overlay visible</comment>
   </data>
   <data name="Setting_Raid_Visible_Tooltip" xml:space="preserve">
-    <value>Show the raid overlay on screen</value>
+    <value>Show the Raid Wings overlay on screen</value>
     <comment>checkbox - raids overlay visible</comment>
   </data>
   <data name="Setting_Raid_W1_Label" xml:space="preserve">
@@ -694,7 +694,7 @@
     <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W1_Tooltip" xml:space="preserve">
-    <value>Enable Spirit Vale on the raid overlay</value>
+    <value>Enable Spirit Vale on the Raid Wings overlay</value>
     <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W2_Label" xml:space="preserve">
@@ -702,7 +702,7 @@
     <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W2_Tooltip" xml:space="preserve">
-    <value>Enable Salvation Pass on the raid overlay</value>
+    <value>Enable Salvation Pass on the Raid Wings overlay</value>
     <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W3_Label" xml:space="preserve">
@@ -710,7 +710,7 @@
     <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W3_Tooltip" xml:space="preserve">
-    <value>Enable Stronghold of the Faithful on the raid overlay</value>
+    <value>Enable Stronghold of the Faithful on the Raid Wings overlay</value>
     <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W4_Label" xml:space="preserve">
@@ -718,7 +718,7 @@
     <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W4_Tooltip" xml:space="preserve">
-    <value>Enable Bastion of the Penitent on the raid overlay</value>
+    <value>Enable Bastion of the Penitent on the Raid Wings overlay</value>
     <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W5_Label" xml:space="preserve">
@@ -726,7 +726,7 @@
     <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W5_Tooltip" xml:space="preserve">
-    <value>Enable Hall of Chains on the raid overlay</value>
+    <value>Enable Hall of Chains on the Raid Wings overlay</value>
     <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W6_Label" xml:space="preserve">
@@ -734,7 +734,7 @@
     <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W6_Tooltip" xml:space="preserve">
-    <value>Enable Mythwright Gambit on the raid overlay</value>
+    <value>Enable Mythwright Gambit on the Raid Wings overlay</value>
     <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W7_Label" xml:space="preserve">
@@ -742,11 +742,11 @@
     <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Raid_W7_Tooltip" xml:space="preserve">
-    <value>Enable The Key of Ahdashim on the raid overlay</value>
+    <value>Enable The Key of Ahdashim on the Raid Wings overlay</value>
     <comment>checkbox - wing visible on overlay</comment>
   </data>
   <data name="Setting_Stike_Priority" xml:space="preserve">
-    <value>Enable priority strike missions (daily)</value>
+    <value>Enable priority missions (daily)</value>
     <comment>checkbox - daily strike group visible on overlay</comment>
   </data>
   <data name="Setting_Strike_AH_Label" xml:space="preserve">
@@ -761,7 +761,7 @@
     <value>Overlay background color</value>
   </data>
   <data name="Setting_Strike_ColBG_Tooltip" xml:space="preserve">
-    <value>Strike overlay background color</value>
+    <value>Raid Encounters overlay background color</value>
   </data>
   <data name="Setting_Strike_ColClear_Label" xml:space="preserve">
     <value>Cleared encounter color</value>
@@ -792,7 +792,7 @@
     <comment>encounter full name</comment>
   </data>
   <data name="Setting_Strike_Drag_Label" xml:space="preserve">
-    <value>Unlock Strike overlay position</value>
+    <value>Unlock Raid Encounters overlay position</value>
   </data>
   <data name="Setting_Strike_Drag_Tooltip" xml:space="preserve">
     <value>Click and drag to reposition the overlay window</value>
@@ -824,10 +824,10 @@
     <value>Enable Icebrood Saga</value>
   </data>
   <data name="Setting_Strike_Icon_Label" xml:space="preserve">
-    <value>Strikes hide/show on menubar icon click</value>
+    <value>Raid Encounters hide/show on menubar icon click</value>
   </data>
   <data name="Setting_Strike_Icon_Tooltip" xml:space="preserve">
-    <value>Strikes overlay hides/shows when clicking the icon next to Blish in the top-left of the screen</value>
+    <value>Raid Encounters overlay hides/shows when clicking the icon next to Blish in the top-left of the screen</value>
   </data>
   <data name="Setting_Strike_Keybind_Label" xml:space="preserve">
     <value>Show/Hide keybind</value>
@@ -881,11 +881,11 @@
     <value>Voice and Claw of the Fallen</value>
   </data>
   <data name="Setting_Strike_Visible_Label" xml:space="preserve">
-    <value>Show strikes overlay</value>
+    <value>Show Raid Encounters overlay</value>
     <comment>Checbox label - strikes are visible</comment>
   </data>
   <data name="Setting_Strike_Visible_Tooltip" xml:space="preserve">
-    <value>Show the strikes overlay on screen</value>
+    <value>Show the Raid Encounters overlay on screen</value>
   </data>
   <data name="Setting_Strike_WoJ_Label" xml:space="preserve">
     <value>Whisper of Jormag</value>
@@ -896,7 +896,7 @@
     <comment>encounter full name</comment>
   </data>
   <data name="Settngs_CopyRaidTooltip" xml:space="preserve">
-    <value>Make all settings match the coresponding values from Raids overlay</value>
+    <value>Make all settings match the corresponding values from Raid Wings overlay</value>
     <comment>button to copy raid settings tooltip</comment>
   </data>
   <data name="SharedKeybind" xml:space="preserve">
@@ -920,11 +920,11 @@
     <comment>Abbr Text for IBS Strike group</comment>
   </data>
   <data name="StrikeGroup_Priority" xml:space="preserve">
-    <value>Priority Strike Missions (Daily)</value>
+    <value>Priority Missions (Daily)</value>
     <comment>Full Text for daily Strike group</comment>
   </data>
   <data name="StrikeGroup_Priority_abbr" xml:space="preserve">
-    <value>PS</value>
+    <value>PM</value>
     <comment>Abbr Text for daily Strike group</comment>
   </data>
   <data name="Strike_Confirm_Btn_No" xml:space="preserve">
@@ -1123,7 +1123,7 @@
     <value />
   </data>
   <data name="CornerIconPriority_Help" xml:space="preserve">
-    <value>Adjust where Raid Clears top-left icon appears after the Blish Icon</value>
+    <value>Adjust where Clears Tracker top-left icon appears after the Blish Icon</value>
   </data>
   <data name="CornerIconPriority_Label" xml:space="preserve">
     <value>Top-left icon sort order</value>
@@ -1168,6 +1168,114 @@
     <value>W8 / Mount Balrior</value>
   </data>
   <data name="Setting_Raid_W8_Tooltip" xml:space="preserve">
-    <value>Enable Mount Balrior on the raid overlay</value>
+    <value>Enable Mount Balrior on the Raid Wings overlay</value>
+  </data>
+  <data name="EncounterClearStatus_NoClearDate" xml:space="preserve">
+    <value>----------</value>
+    <comment>Placeholder text when no clear date is set</comment>
+  </data>
+  <data name="EncounterClearStatus_MarkComplete" xml:space="preserve">
+    <value>Mark Complete</value>
+    <comment>Button text to mark an encounter as complete</comment>
+  </data>
+  <data name="EncounterClearStatus_RemoveClear" xml:space="preserve">
+    <value>Remove Clear</value>
+    <comment>Button text to remove a clear status</comment>
+  </data>
+  <data name="CMTooltip_Instabilities" xml:space="preserve">
+    <value>Instabilities</value>
+    <comment>Label for instabilities section in fractal tooltip</comment>
+  </data>
+  <data name="CMTooltip_Tomorrow" xml:space="preserve">
+    <value>Tomorrow</value>
+    <comment>Label for tomorrow section in fractal tooltip</comment>
+  </data>
+  <data name="ModuleSettings_SetupWizard" xml:space="preserve">
+    <value>Setup Wizard</value>
+    <comment>Button text for setup wizard (currently commented out)</comment>
+  </data>
+  <data name="FractalSelection_ThanksInvisi" xml:space="preserve">
+    <value>Special thank you to Invisi for providing challenge mote Instabilities information</value>
+    <comment>Thank you message for Invisi's contribution</comment>
+  </data>
+  <data name="ConfirmDialog_OK" xml:space="preserve">
+    <value>OK</value>
+    <comment>Default OK button text in confirmation dialog</comment>
+  </data>
+  <data name="ConfirmDialog_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>Default Cancel button text in confirmation dialog</comment>
+  </data>
+  <data name="Fractal_ChallengeMoteLabel" xml:space="preserve">
+    <value>Challenge Mote</value>
+    <comment>Label for challenge mote fractal type</comment>
+  </data>
+  <data name="Fractal_TomorrowLabel" xml:space="preserve">
+    <value>Tomorrow T#</value>
+    <comment>Label for tomorrow tier fractal type (the # is literal)</comment>
+  </data>
+  <data name="Fractal_TierNLabel" xml:space="preserve">
+    <value>Tier #</value>
+    <comment>Label for tier N fractal type (the # is literal)</comment>
+  </data>
+  <data name="Fractal_RecLabel" xml:space="preserve">
+    <value>Daily Recommended</value>
+    <comment>Label for daily recommended fractal type</comment>
+  </data>
+  <data name="StrikeLabelCustomization_Heading" xml:space="preserve">
+    <value>Customize Raid Encounter Labels</value>
+    <comment>Section heading for strike label customization</comment>
+  </data>
+  <data name="RaidLabelCustomization_Heading" xml:space="preserve">
+    <value>Customize Raid Wing Boss Labels</value>
+    <comment>Section heading for raid label customization</comment>
+  </data>
+  <data name="FractalLabelCustomization_Heading" xml:space="preserve">
+    <value>Customize Fractal Labels</value>
+    <comment>Section heading for fractal label customization</comment>
+  </data>
+  <data name="CMTooltip_Scale" xml:space="preserve">
+    <value>Scale: {0}</value>
+    <comment>Fractal scale display in tooltip. {0} is the scale number (e.g., 1-100)</comment>
+  </data>
+  <data name="CMTooltip_Title" xml:space="preserve">
+    <value>{0} ({1})</value>
+    <comment>Fractal tooltip title with map label and custom label. {0} is the map label, {1} is the custom encounter label</comment>
+  </data>
+  <data name="StrikeClearCorrection_LastClears" xml:space="preserve">
+    <value>Last Raid Encounters Clears (Profile: {0})</value>
+    <comment>Section heading showing last clears with profile name. {0} is the current account/profile name</comment>
+  </data>
+  <data name="FractalClearCorrection_LastClears" xml:space="preserve">
+    <value>Last Fractal Clears (Profile: {0})</value>
+    <comment>Section heading showing last fractal clears with profile name. {0} is the current account/profile name</comment>
+  </data>
+  <data name="DynamicStrikeSelection_DisplayExpansion" xml:space="preserve">
+    <value>Display {0} Raid Encounters</value>
+    <comment>Heading for displaying expansion strikes. {0} is the expansion name (e.g., "End of Dragons", "Icebrood Saga")</comment>
+  </data>
+  <data name="DynamicStrikeSelection_DisplayIndividual" xml:space="preserve">
+    <value>Display individual {0} Raid Encounters</value>
+    <comment>Heading for displaying individual expansion strikes. {0} is the expansion name (e.g., "End of Dragons", "Icebrood Saga")</comment>
+  </data>
+  <data name="EncounterLabelCustomerizer_ResetTo" xml:space="preserve">
+    <value>Reset to '{0}'</value>
+    <comment>Button text to reset label to default abbreviation. {0} is the default abbreviation (e.g., "VG", "AH")</comment>
+  </data>
+  <data name="StrikeSettings_EnablePriority" xml:space="preserve">
+    <value>Enable {0}</value>
+    <comment>Setting label to enable priority strikes. {0} is the priority group name</comment>
+  </data>
+  <data name="StrikeSettings_EnableExpansion" xml:space="preserve">
+    <value>Enable {0}</value>
+    <comment>Setting label to enable expansion strikes. {0} is the expansion name (e.g., "End of Dragons")</comment>
+  </data>
+  <data name="Settings_EnableDungeon" xml:space="preserve">
+    <value>Enable {0} on the dungeon overlay</value>
+    <comment>Setting description for enabling dungeon paths. {0} is the dungeon path name</comment>
+  </data>
+  <data name="Settings_EnableStrike" xml:space="preserve">
+    <value>Enable {0} on the raid encounter overlay</value>
+    <comment>Setting description for enabling strike missions. {0} is the strike mission name</comment>
   </data>
 </root>

@@ -1,4 +1,4 @@
-﻿using Blish_HUD.Controls;
+using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using Blish_HUD.Settings;
 using Microsoft.Xna.Framework;
@@ -52,7 +52,7 @@ public class DynamicStrikeSelectionView : View
                 BackgroundTexture = Service.Textures!.GetDynamicTexture(expac.asset)
 
             }
-            .AddString($"Display {expac.Name} strike missions")
+            .AddString(string.Format(Strings.DynamicStrikeSelection_DisplayExpansion, expac.Name))
             .AddSetting(_data.GetPriorityVisible())
             .AddSpace()
         );
@@ -80,7 +80,7 @@ public class DynamicStrikeSelectionView : View
                 BackgroundTexture = Service.Textures!.GetDynamicTexture(expac.asset)
 
             }
-            .AddString($"Display individual {expac.Name} strike missions")
+            .AddString(string.Format(Strings.DynamicStrikeSelection_DisplayIndividual, expac.Name))
             .AddSetting(expansionMissions)
             .AddSpace(), out var childPanel
         ) ;

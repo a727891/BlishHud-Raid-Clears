@@ -1,4 +1,4 @@
-﻿using Blish_HUD.Controls;
+using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using Microsoft.Xna.Framework;
 using RaidClears.Features.Shared.Enums;
@@ -45,7 +45,7 @@ public class RaidLabelCustomizationView : View
             }
         }
        
-        panel.AddString($"Customize Raid Boss Labels");
+        panel.AddString(Strings.RaidLabelCustomization_Heading);
 
     }
 

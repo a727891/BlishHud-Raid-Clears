@@ -1,4 +1,4 @@
-﻿
+
 using Blish_HUD;
 using Blish_HUD.Content;
 using Blish_HUD.Controls;
@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using RaidClears.Utils;
+using RaidClears.Localization;
 
 namespace RaidClears.Shared.Controls;
 public enum DialogResult
@@ -40,8 +41,8 @@ public class ConfirmDialog : Container
     private FlowPanel _buttonPanel;
     private (StandardButton Button, DialogResult Result)[] _buttons = new (StandardButton Button, DialogResult Result)[]
     {
-        (new StandardButton() {Text = "OK"}, DialogResult.OK),
-        (new StandardButton() {Text = "Cancel"}, DialogResult.Cancel)
+        (new StandardButton() {Text = Strings.ConfirmDialog_OK}, DialogResult.OK),
+        (new StandardButton() {Text = Strings.ConfirmDialog_Cancel}, DialogResult.Cancel)
     };
 
     private int _selectedButtonIndex = 0;

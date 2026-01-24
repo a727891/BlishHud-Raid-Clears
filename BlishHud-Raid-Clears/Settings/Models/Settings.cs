@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Blish_HUD;
 using Blish_HUD.Input;
 using Blish_HUD.Settings;
@@ -21,10 +21,10 @@ public record Setting<T>(string Key, T DefaultValue, Func<string>? Name = null, 
 }
 
 public record DungeonSetting<T>(string Key, T DefaultValue, Func<string>? Name = null) :
-    Setting<T>(Key, DefaultValue, Name, () => $"Enable {Name?.Invoke()} on the dungeon overlay");
+    Setting<T>(Key, DefaultValue, Name, () => string.Format(Strings.Settings_EnableDungeon, Name?.Invoke() ?? ""));
 
 public record StrikeSetting<T>(string Key, T DefaultValue, Func<string>? Name = null) :
-    Setting<T>(Key, DefaultValue, Name, () => $"Enable {Name?.Invoke()} on the strike overlay");
+    Setting<T>(Key, DefaultValue, Name, () => string.Format(Strings.Settings_EnableStrike, Name?.Invoke() ?? ""));
 
 public static class Settings
 {

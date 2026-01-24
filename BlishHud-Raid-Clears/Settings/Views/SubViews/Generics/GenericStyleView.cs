@@ -52,7 +52,9 @@ public class GenericStyleView : View
                 .AddFlowControl(new StandardButton
                 {
                     Text = Strings.Setting_CopyRaids,
-                    BasicTooltipText = Strings.Settngs_CopyRaidTooltip
+                    BasicTooltipText = Strings.Settngs_CopyRaidTooltip,
+                    Width = 300
+
                 }, out var CopySettingsButton);
 
             CopySettingsButton.Click += (_, _) =>

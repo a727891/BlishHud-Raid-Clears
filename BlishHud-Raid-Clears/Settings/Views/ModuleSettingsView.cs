@@ -1,4 +1,4 @@
-﻿using Blish_HUD.Controls;
+using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using RaidClears.Localization;
 using RaidClears.Utils;
@@ -26,7 +26,7 @@ public class ModuleMainSettingsView: View
         StandardButton _runSetupWizard = new StandardButton
         {
             Parent = buildPanel,
-            Text = "Setup Wizard",
+            Text = Strings.ModuleSettings_SetupWizard,
             Size = buildPanel.Size.Scale(0.20f),
             Location = buildPanel.Size.Half() - buildPanel.Size.Scale(0.20f).Half()+new Microsoft.Xna.Framework.Point(0,_openSettingsButton.Height+10),
 

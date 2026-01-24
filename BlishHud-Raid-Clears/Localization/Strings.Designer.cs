@@ -61,7 +61,61 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Adjust where Raid Clears top-left icon appears after the Blish Icon.
+        ///   Looks up a localized string similar to Instabilities.
+        /// </summary>
+        internal static string CMTooltip_Instabilities {
+            get {
+                return ResourceManager.GetString("CMTooltip_Instabilities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scale: {0}.
+        /// </summary>
+        internal static string CMTooltip_Scale {
+            get {
+                return ResourceManager.GetString("CMTooltip_Scale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} ({1}).
+        /// </summary>
+        internal static string CMTooltip_Title {
+            get {
+                return ResourceManager.GetString("CMTooltip_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tomorrow.
+        /// </summary>
+        internal static string CMTooltip_Tomorrow {
+            get {
+                return ResourceManager.GetString("CMTooltip_Tomorrow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string ConfirmDialog_Cancel {
+            get {
+                return ResourceManager.GetString("ConfirmDialog_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        internal static string ConfirmDialog_OK {
+            get {
+                return ResourceManager.GetString("ConfirmDialog_OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adjust where Clears Tracker top-left icon appears after the Blish Icon.
         /// </summary>
         internal static string CornerIconPriority_Help {
             get {
@@ -84,6 +138,114 @@ namespace RaidClears.Localization {
         internal static string CornerIconPriority_Tooltlp {
             get {
                 return ResourceManager.GetString("CornerIconPriority_Tooltlp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display {0} Raid Encounters.
+        /// </summary>
+        internal static string DynamicStrikeSelection_DisplayExpansion {
+            get {
+                return ResourceManager.GetString("DynamicStrikeSelection_DisplayExpansion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display individual {0} Raid Encounters.
+        /// </summary>
+        internal static string DynamicStrikeSelection_DisplayIndividual {
+            get {
+                return ResourceManager.GetString("DynamicStrikeSelection_DisplayIndividual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mark Complete.
+        /// </summary>
+        internal static string EncounterClearStatus_MarkComplete {
+            get {
+                return ResourceManager.GetString("EncounterClearStatus_MarkComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ----------.
+        /// </summary>
+        internal static string EncounterClearStatus_NoClearDate {
+            get {
+                return ResourceManager.GetString("EncounterClearStatus_NoClearDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Clear.
+        /// </summary>
+        internal static string EncounterClearStatus_RemoveClear {
+            get {
+                return ResourceManager.GetString("EncounterClearStatus_RemoveClear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset to &apos;{0}&apos;.
+        /// </summary>
+        internal static string EncounterLabelCustomerizer_ResetTo {
+            get {
+                return ResourceManager.GetString("EncounterLabelCustomerizer_ResetTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Challenge Mote.
+        /// </summary>
+        internal static string Fractal_ChallengeMoteLabel {
+            get {
+                return ResourceManager.GetString("Fractal_ChallengeMoteLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Daily Recommended.
+        /// </summary>
+        internal static string Fractal_RecLabel {
+            get {
+                return ResourceManager.GetString("Fractal_RecLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tier #.
+        /// </summary>
+        internal static string Fractal_TierNLabel {
+            get {
+                return ResourceManager.GetString("Fractal_TierNLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tomorrow T#.
+        /// </summary>
+        internal static string Fractal_TomorrowLabel {
+            get {
+                return ResourceManager.GetString("Fractal_TomorrowLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Fractal Clears (Profile: {0}).
+        /// </summary>
+        internal static string FractalClearCorrection_LastClears {
+            get {
+                return ResourceManager.GetString("FractalClearCorrection_LastClears", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customize Fractal Labels.
+        /// </summary>
+        internal static string FractalLabelCustomization_Heading {
+            get {
+                return ResourceManager.GetString("FractalLabelCustomization_Heading", resourceCulture);
             }
         }
         
@@ -124,6 +286,15 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Special thank you to Invisi for providing challenge mote Instabilities information.
+        /// </summary>
+        internal static string FractalSelection_ThanksInvisi {
+            get {
+                return ResourceManager.GetString("FractalSelection_ThanksInvisi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clears Tracker.
         /// </summary>
         internal static string Module_Title {
@@ -138,6 +309,15 @@ namespace RaidClears.Localization {
         internal static string ModuleSettings_OpenSettings {
             get {
                 return ResourceManager.GetString("ModuleSettings_OpenSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Setup Wizard.
+        /// </summary>
+        internal static string ModuleSettings_SetupWizard {
+            get {
+                return ResourceManager.GetString("ModuleSettings_SetupWizard", resourceCulture);
             }
         }
         
@@ -844,6 +1024,15 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Customize Raid Wing Boss Labels.
+        /// </summary>
+        internal static string RaidLabelCustomization_Heading {
+            get {
+                return ResourceManager.GetString("RaidLabelCustomization_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Refresh data every.
         /// </summary>
         internal static string Setting_APIPoll_Label {
@@ -862,7 +1051,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Match raid settings.
+        ///   Looks up a localized string similar to Match Raid Wing settings.
         /// </summary>
         internal static string Setting_CopyRaids {
             get {
@@ -1312,7 +1501,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cleared encounter color.
+        ///   Looks up a localized string similar to Cleared Encounter color.
         /// </summary>
         internal static string Setting_Raid_ColClear_Label {
             get {
@@ -1420,7 +1609,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unlock Raid overlay position.
+        ///   Looks up a localized string similar to Unlock Raid Wings overlay position.
         /// </summary>
         internal static string Setting_Raid_Drag_Label {
             get {
@@ -1492,7 +1681,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Raids hide/show on menubar icon click.
+        ///   Looks up a localized string similar to Raid Wings hide/show on menubar icon click.
         /// </summary>
         internal static string Setting_Raid_Icon_Label {
             get {
@@ -1501,7 +1690,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Raids overlay hides/shows when clicking the icon next to Blish in the top-left of the screen.
+        ///   Looks up a localized string similar to Raid Wings overlay hides/shows when clicking the icon next to Blish in the top-left of the screen.
         /// </summary>
         internal static string Setting_Raid_Icon_Tooltip {
             get {
@@ -1618,7 +1807,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show Raids overlay.
+        ///   Looks up a localized string similar to Show Raid Wings overlay.
         /// </summary>
         internal static string Setting_Raid_Visible_Label {
             get {
@@ -1627,7 +1816,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show the raid overlay on screen.
+        ///   Looks up a localized string similar to Show the Raid Wings overlay on screen.
         /// </summary>
         internal static string Setting_Raid_Visible_Tooltip {
             get {
@@ -1645,7 +1834,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable Spirit Vale on the raid overlay.
+        ///   Looks up a localized string similar to Enable Spirit Vale on the Raid Wings overlay.
         /// </summary>
         internal static string Setting_Raid_W1_Tooltip {
             get {
@@ -1663,7 +1852,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable Salvation Pass on the raid overlay.
+        ///   Looks up a localized string similar to Enable Salvation Pass on the Raid Wings overlay.
         /// </summary>
         internal static string Setting_Raid_W2_Tooltip {
             get {
@@ -1681,7 +1870,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable Stronghold of the Faithful on the raid overlay.
+        ///   Looks up a localized string similar to Enable Stronghold of the Faithful on the Raid Wings overlay.
         /// </summary>
         internal static string Setting_Raid_W3_Tooltip {
             get {
@@ -1699,7 +1888,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable Bastion of the Penitent on the raid overlay.
+        ///   Looks up a localized string similar to Enable Bastion of the Penitent on the Raid Wings overlay.
         /// </summary>
         internal static string Setting_Raid_W4_Tooltip {
             get {
@@ -1717,7 +1906,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable Hall of Chains on the raid overlay.
+        ///   Looks up a localized string similar to Enable Hall of Chains on the Raid Wings overlay.
         /// </summary>
         internal static string Setting_Raid_W5_Tooltip {
             get {
@@ -1735,7 +1924,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable Mythwright Gambit on the raid overlay.
+        ///   Looks up a localized string similar to Enable Mythwright Gambit on the Raid Wings overlay.
         /// </summary>
         internal static string Setting_Raid_W6_Tooltip {
             get {
@@ -1753,7 +1942,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable The Key of Ahdashim on the raid overlay.
+        ///   Looks up a localized string similar to Enable The Key of Ahdashim on the Raid Wings overlay.
         /// </summary>
         internal static string Setting_Raid_W7_Tooltip {
             get {
@@ -1771,7 +1960,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable Mount Balrior on the raid overlay.
+        ///   Looks up a localized string similar to Enable Mount Balrior on the Raid Wings overlay.
         /// </summary>
         internal static string Setting_Raid_W8_Tooltip {
             get {
@@ -1780,7 +1969,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable priority strike missions (daily).
+        ///   Looks up a localized string similar to Enable priority missions (daily).
         /// </summary>
         internal static string Setting_Stike_Priority {
             get {
@@ -1816,7 +2005,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Strike overlay background color.
+        ///   Looks up a localized string similar to Raid Encounters overlay background color.
         /// </summary>
         internal static string Setting_Strike_ColBG_Tooltip {
             get {
@@ -1888,7 +2077,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unlock Strike overlay position.
+        ///   Looks up a localized string similar to Unlock Raid Encounters overlay position.
         /// </summary>
         internal static string Setting_Strike_Drag_Label {
             get {
@@ -1978,7 +2167,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Strikes hide/show on menubar icon click.
+        ///   Looks up a localized string similar to Raid Encounters hide/show on menubar icon click.
         /// </summary>
         internal static string Setting_Strike_Icon_Label {
             get {
@@ -1987,7 +2176,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Strikes overlay hides/shows when clicking the icon next to Blish in the top-left of the screen.
+        ///   Looks up a localized string similar to Raid Encounters overlay hides/shows when clicking the icon next to Blish in the top-left of the screen.
         /// </summary>
         internal static string Setting_Strike_Icon_Tooltip {
             get {
@@ -2140,7 +2329,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show strikes overlay.
+        ///   Looks up a localized string similar to Show Raid Encounters overlay.
         /// </summary>
         internal static string Setting_Strike_Visible_Label {
             get {
@@ -2149,7 +2338,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show the strikes overlay on screen.
+        ///   Looks up a localized string similar to Show the Raid Encounters overlay on screen.
         /// </summary>
         internal static string Setting_Strike_Visible_Tooltip {
             get {
@@ -2181,6 +2370,24 @@ namespace RaidClears.Localization {
         internal static string Settings_Dungeon_Heading {
             get {
                 return ResourceManager.GetString("Settings_Dungeon_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable {0} on the dungeon overlay.
+        /// </summary>
+        internal static string Settings_EnableDungeon {
+            get {
+                return ResourceManager.GetString("Settings_EnableDungeon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable {0} on the raid encounter overlay.
+        /// </summary>
+        internal static string Settings_EnableStrike {
+            get {
+                return ResourceManager.GetString("Settings_EnableStrike", resourceCulture);
             }
         }
         
@@ -2257,7 +2464,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Anchor strikes to the raid overlay.
+        ///   Looks up a localized string similar to Anchor Raid Encounters to the Raid Wings overlay.
         /// </summary>
         internal static string Settings_Strike_AnchorToRaidLabel {
             get {
@@ -2266,7 +2473,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The strikes overlay will attach to the raid overlay when the raid overlay is moved.
+        ///   Looks up a localized string similar to The Raid Encounters overlay will attach to the Raid Wings overlay when the Raid Wings overlay is moved.
         /// </summary>
         internal static string Settings_Strike_AnchorToRaidTooltip {
             get {
@@ -2284,7 +2491,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Determine how strikes are marked as cleared.
+        ///   Looks up a localized string similar to Determine how Raid Encounters are marked as cleared.
         /// </summary>
         internal static string Settings_Strike_CompletionTooltip {
             get {
@@ -2293,7 +2500,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable individual End of Dragons strikes.
+        ///   Looks up a localized string similar to Enable individual End of Dragons Raid Encounters.
         /// </summary>
         internal static string Settings_Strike_EOD_Heading {
             get {
@@ -2302,7 +2509,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable individual Icebrood Saga strikes.
+        ///   Looks up a localized string similar to Enable individual Icebrood Saga Raid Encounters.
         /// </summary>
         internal static string Settings_Strike_IBS_Heading {
             get {
@@ -2383,7 +2590,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wing Selection.
+        ///   Looks up a localized string similar to Raid Wing Selection.
         /// </summary>
         internal static string SettingsPanel_Raids_Heading_WingSelection {
             get {
@@ -2392,7 +2599,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Strikes Selection.
+        ///   Looks up a localized string similar to Raid Encounters Selection.
         /// </summary>
         internal static string SettingsPanel_Strikes_Heading_Selection {
             get {
@@ -2437,7 +2644,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Raids.
+        ///   Looks up a localized string similar to Raid Wings   -    Multiple Raid Boss Instances.
         /// </summary>
         internal static string SettingsPanel_Tab_Raids {
             get {
@@ -2446,7 +2653,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Strikes.
+        ///   Looks up a localized string similar to Raid Encounters   -    Single Raid Boss Instances.
         /// </summary>
         internal static string SettingsPanel_Tab_Strikes {
             get {
@@ -2455,7 +2662,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Make all settings match the coresponding values from Raids overlay.
+        ///   Looks up a localized string similar to Make all settings match the corresponding values from Raid Wings overlay.
         /// </summary>
         internal static string Settngs_CopyRaidTooltip {
             get {
@@ -2608,6 +2815,15 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last Raid Encounters Clears (Profile: {0}).
+        /// </summary>
+        internal static string StrikeClearCorrection_LastClears {
+            get {
+                return ResourceManager.GetString("StrikeClearCorrection_LastClears", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to End of Dragons.
         /// </summary>
         internal static string StrikeGroup_EoD {
@@ -2644,7 +2860,7 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Priority Strike Missions (Daily).
+        ///   Looks up a localized string similar to Priority Missions (Daily).
         /// </summary>
         internal static string StrikeGroup_Priority {
             get {
@@ -2653,11 +2869,38 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PS.
+        ///   Looks up a localized string similar to PM.
         /// </summary>
         internal static string StrikeGroup_Priority_abbr {
             get {
                 return ResourceManager.GetString("StrikeGroup_Priority_abbr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customize Raid Encounter Labels.
+        /// </summary>
+        internal static string StrikeLabelCustomization_Heading {
+            get {
+                return ResourceManager.GetString("StrikeLabelCustomization_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable {0}.
+        /// </summary>
+        internal static string StrikeSettings_EnableExpansion {
+            get {
+                return ResourceManager.GetString("StrikeSettings_EnableExpansion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable {0}.
+        /// </summary>
+        internal static string StrikeSettings_EnablePriority {
+            get {
+                return ResourceManager.GetString("StrikeSettings_EnablePriority", resourceCulture);
             }
         }
         
