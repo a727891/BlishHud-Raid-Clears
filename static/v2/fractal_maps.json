@@ -40,140 +40,260 @@
       "short": "Aeth",
       "api": "aetherblade",
       "scales": [14, 45, 65, 70, 93],
-      "id": 956
+      "id": 956,
+      "localizedNames": {
+        "en": "Aetherblade",
+        "fr": "Refuge étherlame",
+        "de": "Ätherklingen-Zuflucht",
+        "es": "Filoetéreo"
+      }
     },
     "AquaticRuins": {
       "label": "Aquatic Ruins",
       "short": "Aqua",
       "api": "aquatic_ruins",
       "scales": [7, 26, 61, 76],
-      "id": 951
+      "id": 951,
+      "localizedNames": {
+        "en": "Aquatic Ruins",
+        "fr": "Ruines aquatiques",
+        "de": "Unterwasserruinen",
+        "es": "Ruinas Acuáticas"
+      }
     },
     "CaptainMaiTrinBoss": {
       "label": "Captain Mai Trin Boss",
       "short": "Mai",
       "api": "mai_trin_boss",
       "scales": [18, 42, 71, 95],
-      "id": 960
+      "id": 960,
+      "localizedNames": {
+        "en": "Captain Mai Trin Boss",
+        "fr": "Boss capitaine Mai Trin",
+        "de": "Kapitän Mai Trin Boss",
+        "es": "Jefa Capitana Mai Trin"
+      }
     },
     "Chaos": {
       "label": "Chaos",
       "short": "Chaos",
       "api": "chaos",
       "scales": [13, 30, 38, 63, 88, 97],
-      "id": 1164
+      "id": 1164,
+      "localizedNames": {
+        "en": "Chaos",
+        "fr": "Chaos",
+        "de": "Chaos",
+        "es": "Caos"
+      }
     },
     "Cliffside": {
       "label": "Cliffside",
       "short": "Clff",
       "api": "cliffside",
       "scales": [6, 46, 68, 94],
-      "id": 952
+      "id": 952,
+      "localizedNames": {
+        "en": "Cliffside",
+        "fr": "Flanc de falaise",
+        "de": "Felswand",
+        "es": "Despeñadero"
+      }
     },
     "Deepstone": {
       "label": "Deepstone",
       "short": "Deep",
       "api": "deepstone",
       "scales": [11, 33, 67, 84],
-      "id": 1290
+      "id": 1290,
+      "localizedNames": {
+        "en": "Deepstone",
+        "fr": "Roche des abysses",
+        "de": "Tiefenstein",
+        "es": "Rocahonda"
+      }
     },
     "Kinfall": {
       "label": "Kinfall",
       "short": "Kin",
       "api": "kinfall",
       "scales": [17, 38, 70, 95],
-      "id": 1584
+      "id": 1584,
+      "localizedNames": {
+        "en": "Kinfall",
+        "fr": "Deuil du foyer",
+        "de": "Sippenfall",
+        "es": "Hecatombe Allegada"
+      }
     },
     "LonelyTower": {
       "label": "Lonely Tower",
       "short": "LTow",
       "api": "lonely_tower",
       "scales": [25, 50, 75, 100],
-      "id": 1538
+      "id": 1538,
+      "localizedNames": {
+        "en": "Lonely Tower",
+        "fr": "Tour solitaire",
+        "de": "Einsamer Turm",
+        "es": "Torre Solitaria"
+      }
     },
     "MoltenBoss": {
       "label": "Molten Boss",
       "short": "MBoss",
       "api": "molten_boss",
       "scales": [10, 40, 69, 90],
-      "id": 959
+      "id": 959,
+      "localizedNames": {
+        "en": "Molten Boss",
+        "fr": "Boss de la Fusion",
+        "de": "Feuriger Boss",
+        "es": "Jefes Fundidos"
+      }
     },
     "MoltenFurnace": {
       "label": "Molten Furnace",
       "short": "MFurn",
       "api": "molten_furnace",
       "scales": [9, 17, 39, 58, 83],
-      "id": 955
+      "id": 955,
+      "localizedNames": {
+        "en": "Molten Furnace",
+        "fr": "Fournaise de la Fusion",
+        "de": "Feuriger Hochofen",
+        "es": "Fragua Fundida"
+      }
     },
     "Nightmare": {
       "label": "Nightmare",
       "short": "Night",
       "api": "nightmare",
       "scales": [22, 47, 72, 96],
-      "id": 1177
+      "id": 1177,
+      "localizedNames": {
+        "en": "Nightmare",
+        "fr": "Cauchemars",
+        "de": "Albtraum",
+        "es": "Pesadilla"
+      }
     },
     "ShatteredObservatory": {
       "label": "Shattered Observatory",
       "short": "S Obs",
       "api": "shattered_observatory",
       "scales": [23, 48, 73, 97],
-      "id": 1205
+      "id": 1205,
+      "localizedNames": {
+        "en": "Shattered Observatory",
+        "fr": "Observatoire détruit",
+        "de": "Zerschmettertes Observatorium",
+        "es": "Observatorio Asolado"
+      }
     },
     "SirensReef": {
       "label": "Siren's Reef",
       "short": "Siren",
       "api": "sirens_reef",
       "scales": [12, 37, 54, 78],
-      "id": 1309
+      "id": 1309,
+      "localizedNames": {
+        "en": "Siren's Reef",
+        "fr": "Récif de la sirène",
+        "de": "Riff der Sirene",
+        "es": "Arrecife de la Sirena"
+      }
     },
     "SilentSurf": {
       "label": "Silent Surf",
       "short": "Surf",
       "api": "silent_surf",
       "scales": [21, 43, 66, 99],
-      "id": 1500
+      "id": 1500,
+      "localizedNames": {
+        "en": "Silent Surf",
+        "fr": "Ressac silencieux",
+        "de": "Stumme Brandung",
+        "es": "Oleaje Silencioso"
+      }
     },
     "Snowblind": {
       "label": "Snowblind",
       "short": "Snow",
       "api": "snowblind",
       "scales": [3, 27, 51, 86],
-      "id": 948
+      "id": 948,
+      "localizedNames": {
+        "en": "Snowblind",
+        "fr": "Aveugleneige",
+        "de": "Schneeblind",
+        "es": "Ceguera de la Nieve"
+      }
     },
     "SunquaPeak": {
       "label": "Sunqua Peak",
       "short": "Sun",
       "api": "sunqua_peak",
       "scales": [24, 49, 74, 98],
-      "id": 1384
+      "id": 1384,
+      "localizedNames": {
+        "en": "Sunqua Peak",
+        "fr": "Pic de Sunqua",
+        "de": "Sunqua-Gipfel",
+        "es": "Pico de Sunqua"
+      }
     },
     "SolidOcean": {
       "label": "Solid Ocean",
       "short": "S Ocn",
       "api": "solid_ocean",
       "scales": [20, 35, 44, 60, 80],
-      "id": 958
+      "id": 958,
+      "localizedNames": {
+        "en": "Solid Ocean",
+        "fr": "Océan solide",
+        "de": "Solider Ozean",
+        "es": "Océano Sólido"
+      }
     },
     "Swampland": {
       "label": "Swampland",
       "short": "Swmp",
       "api": "swampland",
       "scales": [5, 32, 56, 77, 89],
-      "id": 949
+      "id": 949,
+      "localizedNames": {
+        "en": "Swampland",
+        "fr": "Marais",
+        "de": "Sumpfland",
+        "es": "Cenagal"
+      }
     },
     "ThaumanovaReactor": {
       "label": "Thaumanova Reactor",
       "short": "Thau",
       "api": "thaumanova_reactor",
       "scales": [15, 34, 55, 64, 82],
-      "id": 957
+      "id": 957,
+      "localizedNames": {
+        "en": "Thaumanova Reactor",
+        "fr": "Réacteur de Thaumanova",
+        "de": "Thaumanova-Reaktor",
+        "es": "Reactor Taumanova"
+      }
     },
     "TwilightOasis": {
       "label": "Twilight Oasis",
       "short": "Twil",
       "api": "twilight_oasis",
       "scales": [16, 41, 59, 87],
-      "id": 1267
+      "id": 1267,
+      "localizedNames": {
+        "en": "Twilight Oasis",
+        "fr": "Oasis du crépuscule",
+        "de": "Zwielichtoase",
+        "es": "Oasis del Crepúsculo"
+      }
     },
     "Uncategorized": {
       "label": "Uncategorized",
@@ -187,7 +307,13 @@
       "short": "U Fac",
       "api": "underground_facility",
       "scales": [8, 29, 53, 81],
-      "id": 953
+      "id": 953,
+      "localizedNames": {
+        "en": "Underground Facility",
+        "fr": "Complexe souterrain",
+        "de": "Untergrundeinrichtung",
+        "es": "Instalación Subterránea"
+      }
     },
     "UrbanBattleground": {
       "label": "Urban Battleground",
@@ -201,7 +327,13 @@
       "short": "Vol",
       "api": "volcanic",
       "scales": [1, 19, 28, 52, 92],
-      "id": 954
+      "id": 954,
+      "localizedNames": {
+        "en": "Volcanic",
+        "fr": "Volcanique",
+        "de": "Vulkanisch",
+        "es": "Volcánico"
+      }
     }
   },
   "scales": {
