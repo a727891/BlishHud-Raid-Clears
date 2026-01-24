@@ -360,7 +360,7 @@
     <value>Ouvre un outil de sélection de couleurs dans votre navigateur</value>
   </data>
   <data name="SettingsPanel_Strikes_Heading_Selection" xml:space="preserve">
-    <value>Sélection de combats de raid</value>
+    <value>Sélection de combat de raid</value>
   </data>
   <data name="SettingsPanel_Subtitle" xml:space="preserve">
     <value>options de personnalisation</value>
