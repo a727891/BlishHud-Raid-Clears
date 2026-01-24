@@ -14,9 +14,9 @@
       "asset": "texture_raids_hot.png",
       "localizedNames": {
         "en": "Heart of Thorns",
-        "fr": "Cœur de Maguuma",
-        "de": "Herz der Nebel",
-        "es": "Corazón de la Cima"
+        "fr": "Heart of Thorns",
+        "de": "Heart of Thorns",
+        "es": "Heart of Thorns"
       },
       "localizedAbbreviations": {
         "en": "HoT",
@@ -267,13 +267,13 @@
               "assetId": 1451294,
               "localizedNames": {
                 "en": "Twisted Castle",
-                "fr": " Château corrompu",
+                "fr": "Château corrompu",
                 "de": "Verdrehtes Schloss",
                 "es": "Castillo Retorcido"
               },
               "localizedAbbreviations": {
                 "en": "TC",
-                "fr": "CT",
+                "fr": "TC",
                 "de": "TC",
                 "es": "TC"
               }
@@ -404,9 +404,9 @@
       "asset": "texture_raids_pof.png",
       "localizedNames": {
         "en": "Path of Fire",
-        "fr": "Sentier de Feu",
-        "de": "Pfad des Feuers",
-        "es": "Sendero del Fuego"
+        "fr": "Path of Fire",
+        "de": "Path of Fire",
+        "es": "Path of Fire"
       },
       "localizedAbbreviations": {
         "en": "PoF",
@@ -639,7 +639,7 @@
               "assetId": 1766806,
               "localizedNames": {
                 "en": "Cardinal Adina",
-                "fr": "Cardinal Adina",
+                "fr": "Cardinale Adina",
                 "de": "Kardinal Adina",
                 "es": "Cardenal Adina"
               },
@@ -697,9 +697,9 @@
       "asset": "texture_raids_jw.png",
       "localizedNames": {
         "en": "Janthir Wilds",
-        "fr": "Terres Sauvages de Janthir",
-        "de": "Janthir-Wildnis",
-        "es": "Tierras Salvajes de Janthir"
+        "fr": "Janthir Wilds",
+        "de": "Janthir Wilds",
+        "es": "Janthir Wilds"
       },
       "localizedAbbreviations": {
         "en": "JW",
@@ -718,7 +718,7 @@
             "en": "Mount Balrior",
             "fr": "Mont Balrior",
             "de": "Berg Balrior",
-            "es": "Monte Balrior"
+            "es": "Mont Balrior"
           },
           "localizedAbbreviations": {
             "en": "MtBal",
@@ -737,16 +737,16 @@
               "abbriviation": "C",
               "assetId": 3442796,
               "localizedNames": {
-                "en": null,
+                "en": "Camp",
                 "fr": null,
                 "de": null,
                 "es": null
               },
               "localizedAbbreviations": {
-                "en": null,
-                "fr": null,
-                "de": null,
-                "es": null
+                "en": "C",
+                "fr": "C",
+                "de": "C",
+                "es": "C"
               }
             },
             {
@@ -755,16 +755,16 @@
               "abbriviation": "D",
               "assetId": 3375072,
               "localizedNames": {
-                "en": null,
-                "fr": null,
-                "de": null,
-                "es": null
+                "en": "Decima, the Stormsinger",
+                "fr": "Decima, l'antienne de la tempête",
+                "de": "Decima, die Sturmsängerin",
+                "es": "Decima, la Invocatormentas"
               },
               "localizedAbbreviations": {
-                "en": null,
-                "fr": null,
-                "de": null,
-                "es": null
+                "en": "D",
+                "fr": "D",
+                "de": "D",
+                "es": "D"
               }
             },
             {
@@ -773,16 +773,16 @@
               "abbriviation": "G",
               "assetId": 3441685,
               "localizedNames": {
-                "en": null,
-                "fr": null,
-                "de": null,
-                "es": null
+                "en": "Greer, the Blightbringer",
+                "fr": "Greer, le porte-fléau",
+                "de": "Greer, der Pestilenzbringer",
+                "es": "Greer, el Portarruina"
               },
               "localizedAbbreviations": {
-                "en": null,
-                "fr": null,
-                "de": null,
-                "es": null
+                "en": "G",
+                "fr": "G",
+                "de": "G",
+                "es": "G"
               }
             },
             {
@@ -791,16 +791,16 @@
               "abbriviation": "U",
               "assetId": 3441855,
               "localizedNames": {
-                "en": null,
-                "fr": null,
-                "de": null,
-                "es": null
+                "en": "Ura, the Steamshrieker",
+                "fr": "Ura, la vapeur fulminante ",
+                "de": "Ura, die Dampfkreischerin",
+                "es": "Ura, la Aulladora de Vapores"
               },
               "localizedAbbreviations": {
-                "en": null,
-                "fr": null,
-                "de": null,
-                "es": null
+                "en": "U",
+                "fr": "U",
+                "de": "U",
+                "es": "U"
               }
             }
           ]

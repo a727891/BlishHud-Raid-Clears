@@ -3,11 +3,17 @@
   "priority": {
     "id": "priority",
     "name": "Priority Raid Encounters (Daily)",
-    "abbriviation": "priority",
+    "abbriviation": "P",
     "asset": "texture_strike_priority.png",
     "resets": "daily",
     "daily_priority_modulo": 0,
     "daily_priority_offset": 0,
+    "localizedNames": {
+      "en": "Priority Missions (Daily)",
+      "fr": "Combats de raid prioritaires (quotidiens)",
+      "de": "Priority-Schlachtzüge-Missionen (täglich)",
+      "es": "Misiones de ataque prioritario (diario)"
+    },
     "missions": []
   },
   "expansions": [
@@ -17,6 +23,18 @@
       "abbriviation": "IBS",
       "asset": "texture_strike_ibs.png",
       "resets": "weekly",
+      "localizedNames": {
+        "en": "Icebrood Saga",
+        "fr": "Icebrood Saga",
+        "de": "Icebrood Saga",
+        "es": "Icebrood Saga"
+      },
+      "localizedAbbreviations": {
+        "en": "IBS",
+        "fr": "IBS",
+        "de": "IBS",
+        "es": "IBS"
+      },
       "daily_priority_modulo": 6,
       "daily_priority_offset": 0,
       "missions": [
@@ -161,6 +179,18 @@
       "abbriviation": "EoD",
       "asset": "texture_strike_eod.png",
       "resets": "weekly",
+      "localizedNames": {
+        "en": "End of Dragons",
+        "fr": "End of Dragons",
+        "de": "End of Dragons",
+        "es": "End of Dragons"
+      },
+      "localizedAbbreviations": {
+        "en": "EoD",
+        "fr": "EoD",
+        "de": "EoD",
+        "es": "EoD"
+      },
       "daily_priority_modulo": 5,
       "daily_priority_offset": 0,
       "missions": [
@@ -267,6 +297,18 @@
       "abbriviation": "SotO",
       "asset": "texture_strike_soto.png",
       "resets": "weekly",
+      "localizedNames": {
+        "en": "Secrets of the Obscure",
+        "fr": "Secrets of the Obscure",
+        "de": "Secrets of the Obscure",
+        "es": "Secrets of the Obscure"
+      },
+      "localizedAbbreviations": {
+        "en": "SotO",
+        "fr": "SotO",
+        "de": "SotO",
+        "es": "SotO"
+      },
       "daily_priority_modulo": 2,
       "daily_priority_offset": 0,
       "missions": [
@@ -316,6 +358,18 @@
       "abbriviation": "VoE",
       "asset": "texture_raids_voe.png",
       "resets": "weekly",
+      "localizedNames": {
+        "en": "Visions of Eternity",
+        "fr": "Visions of Eternity",
+        "de": "Visions of Eternity",
+        "es": "Visions of Eternity"
+      },
+      "localizedAbbreviations": {
+        "en": "VoE",
+        "fr": "VoE",
+        "de": "VoE",
+        "es": "VoE"
+      },
       "daily_priority_modulo": 100,
       "daily_priority_offset": 100,
       "missions": [
