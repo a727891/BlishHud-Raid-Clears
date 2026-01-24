@@ -45,6 +45,15 @@ public  class EncounterLabelCustomerizer : Panel
 
         Build(encounter.Name, encounter.Abbriviation, encounter.Id, labelColor);
     }
+    public EncounterLabelCustomerizer(FlowPanel parent, Labelable labelable, RaidWing encounter, Color? labelColor = null) : base()
+    {
+        _labelable = labelable;
+        Parent = parent;
+        Width = parent.Width - 10;
+        Padding = new Thickness(0, 10);
+
+        Build(encounter.Name, encounter.Abbriviation, encounter.Id, labelColor);
+    }
 
     protected void Build(string Name, string abbriv, string id, Color? color = null)
     {
