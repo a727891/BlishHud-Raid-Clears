@@ -1278,4 +1278,20 @@
     <value>Enable {0} on the raid encounter overlay</value>
     <comment>Setting description for enabling strike missions. {0} is the strike mission name</comment>
   </data>
+  <data name="Settings_ScreenClamp_Label" xml:space="preserve">
+    <value>Keep overlay windows on screen</value>
+    <comment>Setting label for screen clamp feature</comment>
+  </data>
+  <data name="Settings_ScreenClamp_Tooltip" xml:space="preserve">
+    <value>When turned on, this will make sure that all overlay windows stay within the visible area of your screen, so they don't go off the edges</value>
+    <comment>Setting tooltip explaining the screen clamp feature</comment>
+  </data>
+  <data name="Settings_OrganicGridBoxBackgrounds_Label" xml:space="preserve">
+    <value>'GW2 Style' background boxes</value>
+    <comment>Setting label for organic/stylized background boxes</comment>
+  </data>
+  <data name="Settings_OrganicGridBoxBackgrounds_Tooltip" xml:space="preserve">
+    <value>On: Backgrounds will appear with fuzzy edges more akin to GW2's style,&#xA;Off: Background will be rectangles</value>
+    <comment>Setting tooltip explaining the organic grid box backgrounds feature. &#xA; is a newline character</comment>
+  </data>
 </root>

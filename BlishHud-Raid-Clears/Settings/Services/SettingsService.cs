@@ -1,4 +1,4 @@
-﻿using Blish_HUD.Input;
+using Blish_HUD.Input;
 using Blish_HUD.Settings;
 using RaidClears.Localization;
 using Microsoft.Xna.Framework.Input;
@@ -49,14 +49,14 @@ public class SettingService // singular because Setting"s"Service already exists
 
         ScreenClamp = settings.DefineSetting("RCScreenClamp",
             true,
-            () => "Keep overlay windows on screen",
-            () => "When turned on, this will make sure that all overlay windows stay within the visible area of your screen, so they don't go off the edges"
+            () => Strings.Settings_ScreenClamp_Label,
+            () => Strings.Settings_ScreenClamp_Tooltip
             );
 
         OrganicGridBoxBackgrounds = settings.DefineSetting("RCStylize",
             true,
-            () => "'GW2 Style' background boxes",
-            () => "On: Backgrounds will appear with fuzzy edges more akin to GW2's style,\nOff: Background will be rectangles"
+            () => Strings.Settings_OrganicGridBoxBackgrounds_Label,
+            () => Strings.Settings_OrganicGridBoxBackgrounds_Tooltip
             );
 
         RaidSettings = new RaidSettings(settings);

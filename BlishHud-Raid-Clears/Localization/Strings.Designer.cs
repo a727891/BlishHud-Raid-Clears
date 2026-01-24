@@ -2428,6 +2428,25 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &apos;GW2 Style&apos; background boxes.
+        /// </summary>
+        internal static string Settings_OrganicGridBoxBackgrounds_Label {
+            get {
+                return ResourceManager.GetString("Settings_OrganicGridBoxBackgrounds_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to On: Backgrounds will appear with fuzzy edges more akin to GW2&apos;s style,
+        ///Off: Background will be rectangles.
+        /// </summary>
+        internal static string Settings_OrganicGridBoxBackgrounds_Tooltip {
+            get {
+                return ResourceManager.GetString("Settings_OrganicGridBoxBackgrounds_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enable individual Heart of Thorns raid wings.
         /// </summary>
         internal static string Settings_Raid_Hot_Heading {
@@ -2460,6 +2479,24 @@ namespace RaidClears.Localization {
         internal static string Settings_RefreshNow {
             get {
                 return ResourceManager.GetString("Settings_RefreshNow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep overlay windows on screen.
+        /// </summary>
+        internal static string Settings_ScreenClamp_Label {
+            get {
+                return ResourceManager.GetString("Settings_ScreenClamp_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When turned on, this will make sure that all overlay windows stay within the visible area of your screen, so they don&apos;t go off the edges.
+        /// </summary>
+        internal static string Settings_ScreenClamp_Tooltip {
+            get {
+                return ResourceManager.GetString("Settings_ScreenClamp_Tooltip", resourceCulture);
             }
         }
         
