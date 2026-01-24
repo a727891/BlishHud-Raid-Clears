@@ -22,7 +22,8 @@ public class MainSettingsView : View
             .AddFlowControl(new StandardButton
             {
                 Text = Strings.PatchNotes,
-                BasicTooltipText = Strings.PatchNotes_Tooltip
+                BasicTooltipText = Strings.PatchNotes_Tooltip,
+                Width = 300
             }, out var patchNotesButton)
             .AddSpace()
             .AddSetting(Service.Settings.SettingsPanelKeyBind)
@@ -32,6 +33,7 @@ public class MainSettingsView : View
             .AddFlowControl(new StandardButton
             {
                 Text = Strings.Settings_RefreshNow,
+                Width = 300
             }, out var refreshButton)
             .AddSpace()
             .AddSetting(Service.Settings.OrganicGridBoxBackgrounds)
