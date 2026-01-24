@@ -77,7 +77,7 @@ public class DownloadTextureService : IDisposable
                 var moduleDirectory = Service.DirectoriesManager.GetFullDirectoryPath(Module.DIRECTORY_PATH);
 
                 var savePath = $@"{moduleDirectory}\{fileName}";
-                webClient.DownloadFile($"{url}/{fileName}",savePath);
+                webClient.DownloadFile($"{url}{fileName}",savePath);
                 return true;
             }
         }

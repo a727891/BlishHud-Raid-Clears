@@ -14,7 +14,7 @@ public class StrikeData
     [JsonIgnore]
     public static string FILENAME = "strike_data.json";
     [JsonIgnore]
-    public static string FILE_URL = $"{Module.STATIC_HOST_URL}/strike_data.json";
+    public static string FILE_URL = $"{Module.STATIC_HOST_URL}{Module.STATIC_HOST_API_VERSION}{FILENAME}";
 
     [JsonProperty("version")]
     public string Version { get; set; } = "";

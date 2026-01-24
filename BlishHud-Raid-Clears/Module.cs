@@ -28,9 +28,11 @@ public class Module : Blish_HUD.Modules.Module
 {
     public static string DIRECTORY_PATH = "clearsTracker"; //Defined folder in manifest.json
 #if DEBUG
-    public static string STATIC_HOST_URL = "http://localhost:3000";
+    public static string STATIC_HOST_URL = "http://localhost:3000/";
+    public static string STATIC_HOST_API_VERSION = "v2/";
 #else
-    public static string STATIC_HOST_URL = "https://bhm.blishhud.com/Soeed.RaidClears/static";
+    public static string STATIC_HOST_URL = "https://bhm.blishhud.com/Soeed.RaidClears/static/";
+    public static string STATIC_HOST_API_VERSION = "v2/";
 #endif
 
 
