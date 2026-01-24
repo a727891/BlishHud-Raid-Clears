@@ -1,0 +1,171 @@
+{
+  "version": "2026-01-23T22:58:00-0500",
+  "priority": {
+    "id": "priority",
+    "name": "Priority Raid Encounters (Daily)",
+    "abbriviation": "priority",
+    "asset": "texture_strike_priority.png",
+    "resets": "daily",
+    "daily_priority_modulo": 0,
+    "daily_priority_offset": 0,
+    "missions": []
+  },
+  "expansions": [
+    {
+      "id": "ibs",
+      "name": "Ice Brood Saga",
+      "abbriviation": "IBS",
+      "asset": "texture_strike_ibs.png",
+      "resets": "daily",
+      "daily_priority_modulo": 6,
+      "daily_priority_offset": 0,
+      "missions": [
+        {
+          "id": "cold_war",
+          "name": "Cold War",
+          "abbriviation": "CW",
+          "assetId": 2293648,
+          "mapIds": [1374, 1376]
+        },
+        {
+          "id": "fraenir_of_jormag",
+          "name": "Fraenir of Jormag",
+          "abbriviation": "FoJ",
+          "assetId": 2200036,
+          "mapIds": [1341, 1344]
+        },
+        {
+          "id": "shiverpeak_pass",
+          "name": "Shiverpeaks Pass",
+          "abbriviation": "SH",
+          "assetId": 2221486,
+          "mapIds": [1331, 1332]
+        },
+        {
+          "id": "voice_and_claw",
+          "name": "Voice and Claw of the Fallen",
+          "abbriviation": "V&C",
+          "assetId": 771054,
+          "mapIds": [1346, 1340]
+        },
+        {
+          "id": "whisper_of_jormag",
+          "name": "Whisper of Jormag",
+          "abbriviation": "WoJ",
+          "assetId": 2247615,
+          "mapIds": [1359, 1357]
+        },
+        {
+          "id": "boneskinner",
+          "name": "Boneskinner",
+          "abbriviation": "Bs",
+          "assetId": 2221487,
+          "mapIds": [1339, 1351]
+        },
+        {
+          "id": "dragonstorm",
+          "name": "Dragonstorm",
+          "abbriviation": "DS",
+          "assetId": 930971,
+          "mapIds": [1409, 1411]
+        }
+      ]
+    },
+    {
+      "id": "eod",
+      "name": "End of Dragons",
+      "abbriviation": "EoD",
+      "asset": "texture_strike_eod.png",
+      "resets": "weekly",
+      "daily_priority_modulo": 5,
+      "daily_priority_offset": 0,
+      "missions": [
+        {
+          "id": "aetherblade_hideout",
+          "name": "Aetherblade Hideout",
+          "abbriviation": "AH",
+          "assetId": 740290,
+          "mapIds": [1432]
+        },
+        {
+          "id": "xunlai_jade_junkyard",
+          "name": "Xunlai Jade Junkyard",
+          "abbriviation": "XJJ",
+          "assetId": 638233,
+          "mapIds": [1450]
+        },
+        {
+          "id": "kaineng_overlook",
+          "name": "Kaineng Overlook",
+          "abbriviation": "KO",
+          "assetId": 66059,
+          "mapIds": [1451]
+        },
+        {
+          "id": "harvest_temple",
+          "name": "Harvest Temple",
+          "abbriviation": "HT",
+          "assetId": 3004306,
+          "mapIds": [1437]
+        },
+        {
+          "id": "old_lion_court",
+          "name": "Old Lion's Court",
+          "abbriviation": "OLC",
+          "assetId": 2759435,
+          "mapIds": [1485]
+        }
+      ]
+    },
+    {
+      "id": "soto",
+      "name": "Secrets of the Obscure",
+      "abbriviation": "SotO",
+      "asset": "texture_strike_soto.png",
+      "resets": "weekly",
+      "daily_priority_modulo": 2,
+      "daily_priority_offset": 0,
+      "missions": [
+        {
+          "id": "cosmic_observatory",
+          "name": "Cosmic Observatory",
+          "abbriviation": "CO",
+          "assetId": 3122208,
+          "mapIds": [1515]
+        },
+        {
+          "id": "temple_of_febe",
+          "name": "Temple of Febe",
+          "abbriviation": "ToF",
+          "assetId": 3122206,
+          "mapIds": [1520]
+        }
+      ]
+    },
+    {
+      "id": "voe",
+      "name": "Visions of Eternity",
+      "abbriviation": "VoE",
+      "asset": "texture_raids_voe.png",
+      "resets": "weekly",
+      "daily_priority_modulo": 100,
+      "daily_priority_offset": 100,
+      "missions": [
+        {
+          "id": "voe_1",
+          "name": "Voe1????",
+          "abbriviation": "VoE1",
+          "assetId": 3442796,
+          "mapIds": [-2]
+        },
+        {
+          "id": "voe_2",
+          "name": "Voe2????",
+          "abbriviation": "VoE2",
+          "assetId": 3442796,
+          "mapIds": [-3]
+        }
+      ]
+    }
+  ]
+}

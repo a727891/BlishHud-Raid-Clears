@@ -1,0 +1,27 @@
+{
+  "fractal_instabilities": "151657/2025-06-03",
+  "fractal_map_data": "2026-01-23T22:58:00-0500",
+  "strike_data": "2026-01-23T22:58:00-0500",
+  "raid_data": "2026-01-23T22:58:00-0500",
+  "assets": [
+    "texture_background.png",
+    "texture_strike_ibs.png",
+    "texture_strike_eod.png",
+    "texture_strike_soto.png",
+    "texture_strike_priority.png",
+    "texture_raids_hot.png",
+    "texture_raids_pof.png",
+    "texture_base_logo.png",
+    "texture_raids_jw.png",
+    "texture_raids_voe.png"
+  ],
+  "gridbox_masks": [
+    "mask_01.png",
+    "mask_02.png",
+    "mask_03.png",
+    "mask_04.png",
+    "mask_05.png",
+    "mask_06.png",
+    "mask_07.png"
+  ]
+}
