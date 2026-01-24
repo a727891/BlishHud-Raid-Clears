@@ -1,9 +1,10 @@
-﻿using Blish_HUD.Settings;
+using Blish_HUD.Settings;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using RaidClears.Features.Raids.Models;
 
 namespace RaidClears.Features.Raids.Services;
@@ -126,7 +127,7 @@ public class RaidData
 
         var serializedContents = JsonConvert.SerializeObject(this, Formatting.None);
 
-        using var writer = new StreamWriter(configFileInfo.FullName);
+        using var writer = new StreamWriter(configFileInfo.FullName, false, Encoding.UTF8);
         writer.Write(serializedContents);
         writer.Close();
 
@@ -136,7 +137,7 @@ public class RaidData
     {
         if (GetConfigFileInfo() is { Exists: true } configFileInfo)
         {
-            using var reader = new StreamReader(configFileInfo.FullName);
+            using var reader = new StreamReader(configFileInfo.FullName, Encoding.UTF8);
             var fileText = reader.ReadToEnd();
             reader.Close();
 
@@ -162,6 +163,7 @@ public class RaidData
         try
         {
             using var webClient = new System.Net.WebClient();
+            webClient.Encoding = Encoding.UTF8;
             var json = webClient.DownloadString(FILE_URL);
 
             RaidData? data = JsonConvert.DeserializeObject<RaidData>(json);

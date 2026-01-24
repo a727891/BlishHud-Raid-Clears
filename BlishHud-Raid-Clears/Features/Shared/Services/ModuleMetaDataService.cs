@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using RaidClears.Features.Fractals.Services;
 using RaidClears.Features.Raids.Services;
 using RaidClears.Features.Shared.Services;
@@ -6,6 +6,7 @@ using RaidClears.Features.Strikes.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace RaidClears.Shared.Services;
 
@@ -50,7 +51,7 @@ public class ModuleMetaDataService
 
         var serializedContents = JsonConvert.SerializeObject(this, Formatting.None);
 
-        using var writer = new StreamWriter(configFileInfo.FullName);
+        using var writer = new StreamWriter(configFileInfo.FullName, false, Encoding.UTF8);
         writer.Write(serializedContents);
         writer.Close();
 
@@ -122,7 +123,7 @@ public class ModuleMetaDataService
     {
         if (GetConfigFileInfo() is { Exists: true } configFileInfo)
         {
-            using var reader = new StreamReader(configFileInfo.FullName);
+            using var reader = new StreamReader(configFileInfo.FullName, Encoding.UTF8);
             var fileText = reader.ReadToEnd();
             reader.Close();
 
@@ -152,6 +153,7 @@ public class ModuleMetaDataService
         {
             using (var webClient = new System.Net.WebClient())
             {
+                webClient.Encoding = Encoding.UTF8;
                 var json = webClient.DownloadString(FILE_URL);
 
                 ModuleMetaDataService? metaFile = JsonConvert.DeserializeObject<ModuleMetaDataService>(json);

@@ -1,8 +1,9 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using RaidClears.Features.Shared.Enums;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace RaidClears.Features.Fractals.Services;
 
@@ -57,7 +58,7 @@ public class InstabilitiesData
 
         var serializedContents = JsonConvert.SerializeObject(this, Formatting.None);
 
-        using var writer = new StreamWriter(configFileInfo.FullName);
+        using var writer = new StreamWriter(configFileInfo.FullName, false, Encoding.UTF8);
         writer.Write(serializedContents);
         writer.Close();
 
@@ -69,7 +70,7 @@ public class InstabilitiesData
     {
         if (GetConfigFileInfo() is { Exists: true} configFileInfo)
         {
-            using var reader = new StreamReader(configFileInfo.FullName);
+            using var reader = new StreamReader(configFileInfo.FullName, Encoding.UTF8);
             var fileText = reader.ReadToEnd();
             reader.Close();
 
@@ -99,6 +100,7 @@ public class InstabilitiesData
         {
             using (var webClient = new System.Net.WebClient())
             {
+                webClient.Encoding = Encoding.UTF8;
                 var json = webClient.DownloadString(FILE_URL);
 
                 InstabilitiesData? instabs = JsonConvert.DeserializeObject<InstabilitiesData>(json);

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using System;
 using RaidClears.Features.Fractals.Services;
 using RaidClears.Features.Strikes.Services;
+using RaidClears.Features.Strikes.Models;
 using RaidClears.Features.Raids.Models;
 using RaidClears.Features.Shared.Models;
 using RaidClears.Features.Raids.Services;
@@ -35,6 +36,15 @@ public  class EncounterLabelCustomerizer : Panel
 
         Build(encounter.Name, encounter.Abbriviation, encounter.ApiId, labelColor);
     }
+    public EncounterLabelCustomerizer(FlowPanel parent, Labelable labelable, StrikeMission encounter, Color? labelColor = null) : base()
+    {
+        _labelable = labelable;
+        Parent = parent;
+        Width = parent.Width - 10;
+        Padding = new Thickness(0, 10);
+
+        Build(encounter.Name, encounter.Abbriviation, encounter.Id, labelColor);
+    }
 
     protected void Build(string Name, string abbriv, string id, Color? color = null)
     {
@@ -43,8 +53,10 @@ public  class EncounterLabelCustomerizer : Panel
             color = Color.White;
         }
         var userLabel = _labelable.GetEncounterLabel(id);
-        var col1 = (this.Width-30) / 3;
-        var colN = ((2 * col1) - 5) / 3;
+        var col1 = (this.Width - 30) / 3;
+        var remainingWidth = (2 * col1) - 5;
+        var inputWidth = remainingWidth / 3;
+        var resetBtnWidth = (2 * remainingWidth) / 3;
         title = new Label()
         {
             Text = Name,
@@ -58,15 +70,15 @@ public  class EncounterLabelCustomerizer : Panel
             Text = userLabel,
             Parent = this,
             Location = new(col1 + 5, 0),
-            Width = colN,
+            Width = inputWidth,
         
         };
         resetBtn = new StandardButton()
         {
             Text = string.Format(Strings.EncounterLabelCustomerizer_ResetTo, abbriv),
             Parent = this,
-            Location = new(col1 + colN + 10, 0),
-            Width = colN,
+            Location = new(col1 + inputWidth + 10, 0),
+            Width = resetBtnWidth,
         };
         if(abbriv == userLabel)
         {
@@ -85,7 +97,7 @@ public  class EncounterLabelCustomerizer : Panel
         };
         resetBtn.Click += (s, e) => {
             input.Text = abbriv;
-            Service.RaidSettings.SetEncounterLabel(id, abbriv); 
+            _labelable.SetEncounterLabel(id, abbriv); 
             resetBtn.Hide();
         };
     }

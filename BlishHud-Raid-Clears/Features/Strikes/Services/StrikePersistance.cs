@@ -1,8 +1,9 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using RaidClears.Features.Strikes.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace RaidClears.Features.Strikes.Services;
 
@@ -79,7 +80,7 @@ public class StrikePersistance
 
         var serializedContents = JsonConvert.SerializeObject(this, Formatting.Indented);
 
-        using var writer = new StreamWriter(configFileInfo.FullName);
+        using var writer = new StreamWriter(configFileInfo.FullName, false, Encoding.UTF8);
         writer.Write(serializedContents);
         writer.Close();
 
@@ -98,7 +99,7 @@ public class StrikePersistance
     {
         if (GetConfigFileInfo() is { Exists: true } configFileInfo)
         {
-            using var reader = new StreamReader(configFileInfo.FullName);
+            using var reader = new StreamReader(configFileInfo.FullName, Encoding.UTF8);
             var fileText = reader.ReadToEnd();
             reader.Close();
 

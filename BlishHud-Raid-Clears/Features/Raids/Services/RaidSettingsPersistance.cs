@@ -1,9 +1,10 @@
-﻿using Blish_HUD.Settings;
+using Blish_HUD.Settings;
 using Newtonsoft.Json;
 using RaidClears.Features.Raids.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace RaidClears.Features.Raids.Services;
 
@@ -181,7 +182,7 @@ public class RaidSettingsPersistance : Labelable
 
         var serializedContents = JsonConvert.SerializeObject(this, Formatting.Indented);
 
-        using var writer = new StreamWriter(configFileInfo.FullName);
+        using var writer = new StreamWriter(configFileInfo.FullName, false, Encoding.UTF8);
         writer.Write(serializedContents);
         writer.Close();
         RaidSettingsChanged?.Invoke(this, true);
@@ -199,7 +200,7 @@ public class RaidSettingsPersistance : Labelable
     {
         if (GetConfigFileInfo() is { Exists: true } configFileInfo)
         {
-            using var reader = new StreamReader(configFileInfo.FullName);
+            using var reader = new StreamReader(configFileInfo.FullName, Encoding.UTF8);
             var fileText = reader.ReadToEnd();
             reader.Close();
 

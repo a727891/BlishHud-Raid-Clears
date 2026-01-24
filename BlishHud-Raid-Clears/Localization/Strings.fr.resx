@@ -996,10 +996,10 @@
     <value>----------</value>
   </data>
   <data name="EncounterClearStatus_MarkComplete" xml:space="preserve">
-    <value>Marquer comme terminé</value>
+    <value>Marquer terminé</value>
   </data>
   <data name="EncounterClearStatus_RemoveClear" xml:space="preserve">
-    <value>Retirer le nettoyage</value>
+    <value>Retirer</value>
   </data>
   <data name="CMTooltip_Instabilities" xml:space="preserve">
     <value>Instabilités</value>

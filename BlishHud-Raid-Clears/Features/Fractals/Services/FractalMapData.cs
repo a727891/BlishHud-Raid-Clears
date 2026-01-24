@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using RaidClears.Features.Fractals.Models;
 using RaidClears.Features.Shared.Models;
 using System;
@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Text;
 
 namespace RaidClears.Features.Fractals.Services;
 
@@ -189,7 +190,7 @@ public class FractalMapData
 
         var serializedContents = JsonConvert.SerializeObject(this, Formatting.None);
 
-        using var writer = new StreamWriter(configFileInfo.FullName);
+        using var writer = new StreamWriter(configFileInfo.FullName, false, Encoding.UTF8);
         writer.Write(serializedContents);
         writer.Close();
 
@@ -231,6 +232,7 @@ public class FractalMapData
         {
             using (var webClient = new System.Net.WebClient())
             {
+                webClient.Encoding = Encoding.UTF8;
                 var json = webClient.DownloadString(FILE_URL);
 
                 FractalMapData? data = JsonConvert.DeserializeObject<FractalMapData>(json);
