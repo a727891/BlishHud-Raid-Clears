@@ -84,10 +84,10 @@
           "assetId": 771054,
           "mapIds": [1346, 1340],
           "localizedNames": {
-            "en": "Voice and Claw of the Fallen",
-            "fr": "Voix et Griffe des dechus",
-            "de": "Stimme und Klaue der Gefallenen",
-            "es": "Voz y Garra de los Caídos"
+            "en": "Voice of the Fallen and Claw of the Fallen",
+            "fr": "Voix et Griffe des déchus",
+            "de": "Stimme der Gefallenen und Klaue der Gefallenen",
+            "es": "Voz de los Caídos y Garra de los Caídos"
           },
           "localizedAbbreviations": {
             "en": "V&C",
@@ -105,7 +105,7 @@
           "localizedNames": {
             "en": "Whisper of Jormag",
             "fr": "Murmure de Jormag",
-            "de": "Gifuster des Jormag",
+            "de": "Geflüster des Jormag",
             "es": "Susurro de Jormag"
           },
           "localizedAbbreviations": {
@@ -118,7 +118,7 @@
         {
           "id": "boneskinner",
           "name": "Boneskinner",
-          "abbriviation": "Bs",
+          "abbriviation": "BS",
           "assetId": 2221487,
           "mapIds": [1339, 1351],
           "localizedNames": {
@@ -131,7 +131,7 @@
             "en": "BS",
             "fr": "BS",
             "de": "BS",
-            "es": "licenciatura"
+            "es": "BS"
           }
         },
         {
@@ -141,16 +141,16 @@
           "assetId": 930971,
           "mapIds": [1409, 1411],
           "localizedNames": {
-            "en": null,
-            "fr": null,
-            "de": null,
-            "es": null
+            "en": "Dragonstorm",
+            "fr": "Tempête de dragons",
+            "de": "Drachensturm",
+            "es": "Tormenta Dracónica"
           },
           "localizedAbbreviations": {
-            "en": null,
-            "fr": null,
-            "de": null,
-            "es": null
+            "en": "DS",
+            "fr": "DS",
+            "de": "DS",
+            "es": "DS"
           }
         }
       ]
@@ -172,15 +172,15 @@
           "mapIds": [1432],
           "localizedNames": {
             "en": "Aetherblade Hideout",
-            "fr": "Cachette des Etherlames",
-            "de": "Ätherklingen-Unterschlupf",
-            "es": "Escondite Fileotero"
+            "fr": "Antre étherlame",
+            "de": "Ätherklingen-Versteck",
+            "es": "Escondite Filoetéreo"
           },
           "localizedAbbreviations": {
             "en": "AH",
             "fr": "AH",
             "de": "AH",
-            "es": "Ah"
+            "es": "AH"
           }
         },
         {
@@ -193,7 +193,7 @@
             "en": "Xunlai Jade Junkyard",
             "fr": "Décharge de Xunlai Jade",
             "de": "Xunlai-Jade-Schrottplatz",
-            "es": "Chararreria de Xunlai Jade"
+            "es": "Chatarrería de Xunlai Jade"
           },
           "localizedAbbreviations": {
             "en": "XJJ",
@@ -231,7 +231,7 @@
             "en": "Harvest Temple",
             "fr": "Temple des moissons",
             "de": "Erntetempel",
-            "es": "Templo de la cosecha"
+            "es": "Templo de la Cosecha"
           },
           "localizedAbbreviations": {
             "en": "HT",
@@ -248,9 +248,9 @@
           "mapIds": [1485],
           "localizedNames": {
             "en": "Old Lion's Court",
-            "fr": "Vieille Cour du Lion",
+            "fr": "Cour du vieux Lion",
             "de": "Alter Löwenhof",
-            "es": "Viega Corte del León"
+            "es": "Vieja Corte del León"
           },
           "localizedAbbreviations": {
             "en": "OLC",
@@ -277,16 +277,16 @@
           "assetId": 3122208,
           "mapIds": [1515],
           "localizedNames": {
-            "en": null,
-            "fr": null,
-            "de": null,
-            "es": null
+            "en": "Cosmic Observatory",
+            "fr": "Observatoire cosmique",
+            "de": "Kosmisches Observatorium",
+            "es": "Observatorio Cósmico"
           },
           "localizedAbbreviations": {
-            "en": null,
-            "fr": null,
-            "de": null,
-            "es": null
+            "en": "CO",
+            "fr": "CO",
+            "de": "CO",
+            "es": "CO"
           }
         },
         {
@@ -296,16 +296,16 @@
           "assetId": 3122206,
           "mapIds": [1520],
           "localizedNames": {
-            "en": null,
-            "fr": null,
-            "de": null,
-            "es": null
+            "en": "Temple of Febe",
+            "fr": "Temple de Febe",
+            "de": "Tempel von Febe",
+            "es": "Templo de Febe"
           },
           "localizedAbbreviations": {
-            "en": null,
-            "fr": null,
-            "de": null,
-            "es": null
+            "en": "ToF",
+            "fr": "ToF",
+            "de": "ToF",
+            "es": "ToF"
           }
         }
       ]
