@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -832,5 +832,260 @@
   <data name="VisibleShow" xml:space="preserve">
     <value>Zeigen</value>
     <comment>menubar icon context menu "Show {name}"</comment>
+  </data>
+  <data name="SettingsPanel_Fractals_Heading_Selection" xml:space="preserve">
+    <value>Fraktal-Auswahl</value>
+  </data>
+  <data name="SettingsPanel_Tab_Fractals" xml:space="preserve">
+    <value>Fraktale des Nebels</value>
+  </data>
+  <data name="Settings_Fractals_Completion" xml:space="preserve">
+    <value>Als abgeschlossen markieren</value>
+  </data>
+  <data name="Settings_Fractals_CompletionTooltip" xml:space="preserve">
+    <value>Festlegen, wie Fraktale als abgeschlossen markiert werden</value>
+  </data>
+  <data name="Setting_Fractals_ColBG_Label" xml:space="preserve">
+    <value>Overlay-Hintergrundfarbe</value>
+  </data>
+  <data name="Setting_Fractals_ColBG_Tooltip" xml:space="preserve">
+    <value>Fraktal-Overlay-Hintergrundfarbe</value>
+  </data>
+  <data name="Setting_Fractals_ColClear_Label" xml:space="preserve">
+    <value>Farbe für erledigte Begegnung</value>
+  </data>
+  <data name="Setting_Fractals_ColClear_Tooltip" xml:space="preserve">
+    <value>Hex-Farbcode (#rrggbb) für Begegnungen, die bei diesem Reset gelöscht wurden</value>
+  </data>
+  <data name="Setting_Fractals_ColNotClear_Label" xml:space="preserve">
+    <value>Nicht gelöschte Begegnungsfarbe</value>
+  </data>
+  <data name="Setting_Fractals_ColNotClear_Tooltip" xml:space="preserve">
+    <value>Hex-Farbcode (#rrggbb) für Begegnungen, die bei diesem Reset nicht abgeschlossen wurden</value>
+  </data>
+  <data name="Setting_Fractals_ColText_Label" xml:space="preserve">
+    <value>Beschriftungs- und Rastertextfarbe</value>
+  </data>
+  <data name="Setting_Fractals_ColText_Tooltip" xml:space="preserve">
+    <value>Hex-Farbcode (#rrggbb) für Label- und Rastertext</value>
+  </data>
+  <data name="Setting_Fractals_Drag_Label" xml:space="preserve">
+    <value>Löse Fixierung der Fraktal-Overlay-Position</value>
+  </data>
+  <data name="Setting_Fractals_Drag_Tooltip" xml:space="preserve">
+    <value>Anklicken und ziehen, um das Overlay-Fenster neu zu positionieren</value>
+  </data>
+  <data name="Setting_Fractals_Font_Label" xml:space="preserve">
+    <value>Gittergröße</value>
+  </data>
+  <data name="Setting_Fractals_Font_Tooptip" xml:space="preserve">
+    <value>Ändert die Gittergröße</value>
+  </data>
+  <data name="Setting_Fractals_GridOpacity_Label" xml:space="preserve">
+    <value>Rasterdeckkraft</value>
+  </data>
+  <data name="Setting_Fractals_GridOpactiy_Tooltip" xml:space="preserve">
+    <value>Versteckt &lt;---&gt; Vollständig sichtbar</value>
+  </data>
+  <data name="Setting_Fractals_Icon_Label" xml:space="preserve">
+    <value>Fraktale verstecken/anzeigen bei Klick auf Menüleisten-Icon</value>
+  </data>
+  <data name="Setting_Fractals_Icon_Tooltip" xml:space="preserve">
+    <value>Das Fraktal-Overlay wird ausgeblendet/angezeigt, wenn Sie auf das Symbol neben Blish oben links auf dem Bildschirm klicken</value>
+  </data>
+  <data name="Setting_Fractals_Keybind_Label" xml:space="preserve">
+    <value>Tastenbelegung ein-/ausblenden</value>
+  </data>
+  <data name="Setting_Fractals_Keybind_Tooltip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Setting_Fractals_LabelDisplay_Label" xml:space="preserve">
+    <value>Etikettenstil</value>
+  </data>
+  <data name="Setting_Fractals_LabelDisplay_Tooltip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Setting_Fractals_LabelOpacity_Label" xml:space="preserve">
+    <value>Deckkraft des Etiketts</value>
+  </data>
+  <data name="Setting_Fractals_LabelOpacity_Tooltip" xml:space="preserve">
+    <value>Versteckt &lt;---&gt; Vollständig sichtbar</value>
+  </data>
+  <data name="Setting_Fractals_Layout_Label" xml:space="preserve">
+    <value>Gitterstruktur</value>
+  </data>
+  <data name="Setting_Fractals_Layout_Tooltip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Setting_Fractals_PanelOpacity_Label" xml:space="preserve">
+    <value>Deckkraft des Gitterhintergrunds</value>
+  </data>
+  <data name="Setting_Fractals_PanelOpacity_Tooltip" xml:space="preserve">
+    <value>Versteckt &lt;---&gt; Vollständig sichtbar</value>
+  </data>
+  <data name="Setting_Fractals_Tooltips_Label" xml:space="preserve">
+    <value>Mauszeiger-QuickInfos auf Overlay aktivieren</value>
+  </data>
+  <data name="Setting_Fractals_Tooltips_Tooltip" xml:space="preserve">
+    <value>Wenn die Maus über eine Begegnung bewegt wird, wird der vollständige Name und die morgige Begegnung angezeigt</value>
+  </data>
+  <data name="Setting_Fractals_Visible_Label" xml:space="preserve">
+    <value>Fraktal-Overlay anzeigen</value>
+  </data>
+  <data name="Fractals_Message" xml:space="preserve">
+    <value>Hast du die Begegnung erfolgreich abgeschlossen?</value>
+  </data>
+  <data name="Fractals_DailyTierN" xml:space="preserve">
+    <value>Tägliche Stufe (1,2,3,4)</value>
+  </data>
+  <data name="Fractals_DailyRecommended" xml:space="preserve">
+    <value>Täglich empfohlen</value>
+  </data>
+  <data name="Fractals_Selection_Prompt" xml:space="preserve">
+    <value>Tägliche Fraktal-Gruppierungen aktivieren</value>
+  </data>
+  <data name="Setting_Fractals_Visible_Tooltip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="CornerIconPriority_Help" xml:space="preserve">
+    <value>Anpassen, wo das Clears Tracker-Symbol oben links nach dem Blish-Symbol erscheint</value>
+  </data>
+  <data name="CornerIconPriority_Label" xml:space="preserve">
+    <value>Sortierreihenfolge des Symbols oben links</value>
+  </data>
+  <data name="CornerIconPriority_Tooltlp" xml:space="preserve">
+    <value>Links &lt;----&gt; Rechts</value>
+  </data>
+  <data name="Raid_Wing_8" xml:space="preserve">
+    <value>Berg Balrior</value>
+  </data>
+  <data name="Raid_Wing_8_1_Name" xml:space="preserve">
+    <value>Lager</value>
+  </data>
+  <data name="Raid_Wing_8_1_Short" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="Raid_Wing_8_2_Name" xml:space="preserve">
+    <value>Decima</value>
+  </data>
+  <data name="Raid_Wing_8_2_Short" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="Raid_Wing_8_3_Name" xml:space="preserve">
+    <value>Greer</value>
+  </data>
+  <data name="Raid_Wing_8_3_Short" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="Raid_Wing_8_4_Name" xml:space="preserve">
+    <value>Ura</value>
+  </data>
+  <data name="Raid_Wing_8_4_Short" xml:space="preserve">
+    <value>U</value>
+  </data>
+  <data name="Raid_Wing_8_Short" xml:space="preserve">
+    <value>MtBal</value>
+  </data>
+  <data name="Settings_Raid_JW_Heading" xml:space="preserve">
+    <value>Aktiviere Janthir Wilds Schlachtzug-Flügel</value>
+  </data>
+  <data name="Setting_Raid_W8_Label" xml:space="preserve">
+    <value>W8 / Berg Balrior</value>
+  </data>
+  <data name="Setting_Raid_W8_Tooltip" xml:space="preserve">
+    <value>Aktiviere Berg Balrior im Schlachtzug-Overlay</value>
+  </data>
+  <data name="EncounterClearStatus_NoClearDate" xml:space="preserve">
+    <value>----------</value>
+  </data>
+  <data name="EncounterClearStatus_MarkComplete" xml:space="preserve">
+    <value>Als abgeschlossen markieren</value>
+  </data>
+  <data name="EncounterClearStatus_RemoveClear" xml:space="preserve">
+    <value>Löschung entfernen</value>
+  </data>
+  <data name="CMTooltip_Instabilities" xml:space="preserve">
+    <value>Instabilitäten</value>
+  </data>
+  <data name="CMTooltip_Tomorrow" xml:space="preserve">
+    <value>Morgen</value>
+  </data>
+  <data name="ModuleSettings_SetupWizard" xml:space="preserve">
+    <value>Einrichtungsassistent</value>
+  </data>
+  <data name="FractalSelection_ThanksInvisi" xml:space="preserve">
+    <value>Besonderer Dank an Invisi für die Bereitstellung von Challenge-Mote-Instabilitätsinformationen</value>
+  </data>
+  <data name="ConfirmDialog_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ConfirmDialog_Cancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="Fractal_ChallengeMoteLabel" xml:space="preserve">
+    <value>Herausforderungs-Mote</value>
+  </data>
+  <data name="Fractal_TomorrowLabel" xml:space="preserve">
+    <value>Morgen T#</value>
+  </data>
+  <data name="Fractal_TierNLabel" xml:space="preserve">
+    <value>Stufe #</value>
+  </data>
+  <data name="Fractal_RecLabel" xml:space="preserve">
+    <value>Täglich empfohlen</value>
+  </data>
+  <data name="StrikeLabelCustomization_Heading" xml:space="preserve">
+    <value>Schlachtzug-Begegnungsbeschriftungen anpassen</value>
+  </data>
+  <data name="RaidLabelCustomization_Heading" xml:space="preserve">
+    <value>Schlachtzug-Flügel-Boss-Beschriftungen anpassen</value>
+  </data>
+  <data name="FractalLabelCustomization_Heading" xml:space="preserve">
+    <value>Fraktal-Beschriftungen anpassen</value>
+  </data>
+  <data name="CMTooltip_Scale" xml:space="preserve">
+    <value>Stufe: {0}</value>
+  </data>
+  <data name="CMTooltip_Title" xml:space="preserve">
+    <value>{0} ({1})</value>
+  </data>
+  <data name="StrikeClearCorrection_LastClears" xml:space="preserve">
+    <value>Letzte Schlachtzug-Begegnungs-Löschungen (Profil: {0})</value>
+  </data>
+  <data name="FractalClearCorrection_LastClears" xml:space="preserve">
+    <value>Letzte Fraktal-Löschungen (Profil: {0})</value>
+  </data>
+  <data name="DynamicStrikeSelection_DisplayExpansion" xml:space="preserve">
+    <value>{0} Schlachtzug-Begegnungen anzeigen</value>
+  </data>
+  <data name="DynamicStrikeSelection_DisplayIndividual" xml:space="preserve">
+    <value>Einzelne {0} Schlachtzug-Begegnungen anzeigen</value>
+  </data>
+  <data name="EncounterLabelCustomerizer_ResetTo" xml:space="preserve">
+    <value>Zurücksetzen auf '{0}'</value>
+  </data>
+  <data name="StrikeSettings_EnablePriority" xml:space="preserve">
+    <value>{0} aktivieren</value>
+  </data>
+  <data name="StrikeSettings_EnableExpansion" xml:space="preserve">
+    <value>{0} aktivieren</value>
+  </data>
+  <data name="Settings_EnableDungeon" xml:space="preserve">
+    <value>{0} im Verlies-Overlay aktivieren</value>
+  </data>
+  <data name="Settings_EnableStrike" xml:space="preserve">
+    <value>{0} im Schlachtzug-Begegnungs-Overlay aktivieren</value>
+  </data>
+  <data name="Settings_ScreenClamp_Label" xml:space="preserve">
+    <value>Overlay-Fenster auf dem Bildschirm halten</value>
+  </data>
+  <data name="Settings_ScreenClamp_Tooltip" xml:space="preserve">
+    <value>Wenn aktiviert, stellt dies sicher, dass alle Overlay-Fenster im sichtbaren Bereich Ihres Bildschirms bleiben, damit sie nicht über die Ränder hinausgehen</value>
+  </data>
+  <data name="Settings_OrganicGridBoxBackgrounds_Label" xml:space="preserve">
+    <value>'GW2-Stil' Hintergrundboxen</value>
+  </data>
+  <data name="Settings_OrganicGridBoxBackgrounds_Tooltip" xml:space="preserve">
+    <value>Ein: Hintergründe erscheinen mit unscharfen Kanten, ähnlicher dem GW2-Stil,&#xA;Aus: Hintergrund wird Rechtecke sein</value>
   </data>
 </root>

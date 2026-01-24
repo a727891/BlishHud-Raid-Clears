@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -830,7 +830,262 @@
     <comment>menubar icon context menu "Hide {name}"</comment>
   </data>
   <data name="VisibleShow" xml:space="preserve">
-    <value>Espectáculo</value>
+    <value>Mostrar</value>
     <comment>menubar icon context menu "Show {name}"</comment>
+  </data>
+  <data name="SettingsPanel_Fractals_Heading_Selection" xml:space="preserve">
+    <value>Selección de Fractales</value>
+  </data>
+  <data name="SettingsPanel_Tab_Fractals" xml:space="preserve">
+    <value>Fractales de la Niebla</value>
+  </data>
+  <data name="Settings_Fractals_Completion" xml:space="preserve">
+    <value>Marcar como completado</value>
+  </data>
+  <data name="Settings_Fractals_CompletionTooltip" xml:space="preserve">
+    <value>Determinar cómo se marcan los fractales como completados</value>
+  </data>
+  <data name="Setting_Fractals_ColBG_Label" xml:space="preserve">
+    <value>Color de fondo de superposición</value>
+  </data>
+  <data name="Setting_Fractals_ColBG_Tooltip" xml:space="preserve">
+    <value>Color de fondo de la superposición de fractales</value>
+  </data>
+  <data name="Setting_Fractals_ColClear_Label" xml:space="preserve">
+    <value>Color de encuentro completado</value>
+  </data>
+  <data name="Setting_Fractals_ColClear_Tooltip" xml:space="preserve">
+    <value>Código de color hexadecimal (#rrggbb) para encuentros que se han completado en este reinicio</value>
+  </data>
+  <data name="Setting_Fractals_ColNotClear_Label" xml:space="preserve">
+    <value>Color de encuentro no completado</value>
+  </data>
+  <data name="Setting_Fractals_ColNotClear_Tooltip" xml:space="preserve">
+    <value>Código de color hexadecimal (#rrggbb) para encuentros que no se han completado en este reinicio</value>
+  </data>
+  <data name="Setting_Fractals_ColText_Label" xml:space="preserve">
+    <value>Color del texto de etiqueta y cuadrícula</value>
+  </data>
+  <data name="Setting_Fractals_ColText_Tooltip" xml:space="preserve">
+    <value>Código de color hexadecimal (#rrggbb) para el texto de etiqueta y cuadrícula</value>
+  </data>
+  <data name="Setting_Fractals_Drag_Label" xml:space="preserve">
+    <value>Desbloquear posición de superposición de fractales</value>
+  </data>
+  <data name="Setting_Fractals_Drag_Tooltip" xml:space="preserve">
+    <value>Haz clic y arrastra para reposicionar la ventana de superposición</value>
+  </data>
+  <data name="Setting_Fractals_Font_Label" xml:space="preserve">
+    <value>Tamaño de cuadrícula</value>
+  </data>
+  <data name="Setting_Fractals_Font_Tooptip" xml:space="preserve">
+    <value>Cambiar el tamaño de la cuadrícula</value>
+  </data>
+  <data name="Setting_Fractals_GridOpacity_Label" xml:space="preserve">
+    <value>Opacidad de cuadrícula</value>
+  </data>
+  <data name="Setting_Fractals_GridOpactiy_Tooltip" xml:space="preserve">
+    <value>Oculto &lt;---&gt; Totalmente visible</value>
+  </data>
+  <data name="Setting_Fractals_Icon_Label" xml:space="preserve">
+    <value>Fractales ocultar/mostrar al hacer clic en el icono de la barra de menú</value>
+  </data>
+  <data name="Setting_Fractals_Icon_Tooltip" xml:space="preserve">
+    <value>La superposición de fractales se oculta/muestra al hacer clic en el icono junto a Blish en la esquina superior izquierda de la pantalla</value>
+  </data>
+  <data name="Setting_Fractals_Keybind_Label" xml:space="preserve">
+    <value>Atajo de teclado mostrar/ocultar</value>
+  </data>
+  <data name="Setting_Fractals_Keybind_Tooltip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Setting_Fractals_LabelDisplay_Label" xml:space="preserve">
+    <value>Estilo de etiqueta</value>
+  </data>
+  <data name="Setting_Fractals_LabelDisplay_Tooltip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Setting_Fractals_LabelOpacity_Label" xml:space="preserve">
+    <value>Opacidad de etiqueta</value>
+  </data>
+  <data name="Setting_Fractals_LabelOpacity_Tooltip" xml:space="preserve">
+    <value>Oculto &lt;---&gt; Totalmente visible</value>
+  </data>
+  <data name="Setting_Fractals_Layout_Label" xml:space="preserve">
+    <value>Diseño de cuadrícula</value>
+  </data>
+  <data name="Setting_Fractals_Layout_Tooltip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Setting_Fractals_PanelOpacity_Label" xml:space="preserve">
+    <value>Opacidad del fondo de cuadrícula</value>
+  </data>
+  <data name="Setting_Fractals_PanelOpacity_Tooltip" xml:space="preserve">
+    <value>Oculto &lt;---&gt; Totalmente visible</value>
+  </data>
+  <data name="Setting_Fractals_Tooltips_Label" xml:space="preserve">
+    <value>Activar información sobre herramientas al pasar el mouse sobre la superposición</value>
+  </data>
+  <data name="Setting_Fractals_Tooltips_Tooltip" xml:space="preserve">
+    <value>Al pasar el mouse sobre un encuentro, se mostrará el nombre completo y el encuentro de mañana</value>
+  </data>
+  <data name="Setting_Fractals_Visible_Label" xml:space="preserve">
+    <value>Mostrar superposición de fractales</value>
+  </data>
+  <data name="Fractals_Message" xml:space="preserve">
+    <value>¿Completaste el encuentro con éxito?</value>
+  </data>
+  <data name="Fractals_DailyTierN" xml:space="preserve">
+    <value>Nivel diario (1,2,3,4)</value>
+  </data>
+  <data name="Fractals_DailyRecommended" xml:space="preserve">
+    <value>Recomendado diario</value>
+  </data>
+  <data name="Fractals_Selection_Prompt" xml:space="preserve">
+    <value>Activar agrupaciones diarias de fractales</value>
+  </data>
+  <data name="Setting_Fractals_Visible_Tooltip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="CornerIconPriority_Help" xml:space="preserve">
+    <value>Ajustar dónde aparece el icono de Clears Tracker en la esquina superior izquierda después del icono de Blish</value>
+  </data>
+  <data name="CornerIconPriority_Label" xml:space="preserve">
+    <value>Orden de clasificación del icono superior izquierdo</value>
+  </data>
+  <data name="CornerIconPriority_Tooltlp" xml:space="preserve">
+    <value>Izquierda &lt;----&gt; Derecha</value>
+  </data>
+  <data name="Raid_Wing_8" xml:space="preserve">
+    <value>Monte Balrior</value>
+  </data>
+  <data name="Raid_Wing_8_1_Name" xml:space="preserve">
+    <value>Campamento</value>
+  </data>
+  <data name="Raid_Wing_8_1_Short" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="Raid_Wing_8_2_Name" xml:space="preserve">
+    <value>Decima</value>
+  </data>
+  <data name="Raid_Wing_8_2_Short" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="Raid_Wing_8_3_Name" xml:space="preserve">
+    <value>Greer</value>
+  </data>
+  <data name="Raid_Wing_8_3_Short" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="Raid_Wing_8_4_Name" xml:space="preserve">
+    <value>Ura</value>
+  </data>
+  <data name="Raid_Wing_8_4_Short" xml:space="preserve">
+    <value>U</value>
+  </data>
+  <data name="Raid_Wing_8_Short" xml:space="preserve">
+    <value>MtBal</value>
+  </data>
+  <data name="Settings_Raid_JW_Heading" xml:space="preserve">
+    <value>Activar ala de incursión de Tierras Salvajes de Janthir</value>
+  </data>
+  <data name="Setting_Raid_W8_Label" xml:space="preserve">
+    <value>W8 / Monte Balrior</value>
+  </data>
+  <data name="Setting_Raid_W8_Tooltip" xml:space="preserve">
+    <value>Activar Monte Balrior en la superposición de Alas de Incursión</value>
+  </data>
+  <data name="EncounterClearStatus_NoClearDate" xml:space="preserve">
+    <value>----------</value>
+  </data>
+  <data name="EncounterClearStatus_MarkComplete" xml:space="preserve">
+    <value>Marcar como completado</value>
+  </data>
+  <data name="EncounterClearStatus_RemoveClear" xml:space="preserve">
+    <value>Eliminar completado</value>
+  </data>
+  <data name="CMTooltip_Instabilities" xml:space="preserve">
+    <value>Inestabilidades</value>
+  </data>
+  <data name="CMTooltip_Tomorrow" xml:space="preserve">
+    <value>Mañana</value>
+  </data>
+  <data name="ModuleSettings_SetupWizard" xml:space="preserve">
+    <value>Asistente de configuración</value>
+  </data>
+  <data name="FractalSelection_ThanksInvisi" xml:space="preserve">
+    <value>Agradecimiento especial a Invisi por proporcionar información sobre inestabilidades de moto de desafío</value>
+  </data>
+  <data name="ConfirmDialog_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ConfirmDialog_Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Fractal_ChallengeMoteLabel" xml:space="preserve">
+    <value>Moto de Desafío</value>
+  </data>
+  <data name="Fractal_TomorrowLabel" xml:space="preserve">
+    <value>Mañana N#</value>
+  </data>
+  <data name="Fractal_TierNLabel" xml:space="preserve">
+    <value>Nivel #</value>
+  </data>
+  <data name="Fractal_RecLabel" xml:space="preserve">
+    <value>Recomendado diario</value>
+  </data>
+  <data name="StrikeLabelCustomization_Heading" xml:space="preserve">
+    <value>Personalizar etiquetas de encuentros de incursión</value>
+  </data>
+  <data name="RaidLabelCustomization_Heading" xml:space="preserve">
+    <value>Personalizar etiquetas de jefes de alas de incursión</value>
+  </data>
+  <data name="FractalLabelCustomization_Heading" xml:space="preserve">
+    <value>Personalizar etiquetas de fractales</value>
+  </data>
+  <data name="CMTooltip_Scale" xml:space="preserve">
+    <value>Nivel: {0}</value>
+  </data>
+  <data name="CMTooltip_Title" xml:space="preserve">
+    <value>{0} ({1})</value>
+  </data>
+  <data name="StrikeClearCorrection_LastClears" xml:space="preserve">
+    <value>Últimos encuentros de incursión completados (Perfil: {0})</value>
+  </data>
+  <data name="FractalClearCorrection_LastClears" xml:space="preserve">
+    <value>Últimos fractales completados (Perfil: {0})</value>
+  </data>
+  <data name="DynamicStrikeSelection_DisplayExpansion" xml:space="preserve">
+    <value>Mostrar {0} Encuentros de Incursión</value>
+  </data>
+  <data name="DynamicStrikeSelection_DisplayIndividual" xml:space="preserve">
+    <value>Mostrar encuentros individuales de {0} Incursión</value>
+  </data>
+  <data name="EncounterLabelCustomerizer_ResetTo" xml:space="preserve">
+    <value>Restablecer a '{0}'</value>
+  </data>
+  <data name="StrikeSettings_EnablePriority" xml:space="preserve">
+    <value>Activar {0}</value>
+  </data>
+  <data name="StrikeSettings_EnableExpansion" xml:space="preserve">
+    <value>Activar {0}</value>
+  </data>
+  <data name="Settings_EnableDungeon" xml:space="preserve">
+    <value>Activar {0} en la superposición de mazmorras</value>
+  </data>
+  <data name="Settings_EnableStrike" xml:space="preserve">
+    <value>Activar {0} en la superposición de encuentros de incursión</value>
+  </data>
+  <data name="Settings_ScreenClamp_Label" xml:space="preserve">
+    <value>Mantener ventanas de superposición en pantalla</value>
+  </data>
+  <data name="Settings_ScreenClamp_Tooltip" xml:space="preserve">
+    <value>Cuando está activado, esto asegura que todas las ventanas de superposición permanezcan dentro del área visible de tu pantalla, para que no se salgan de los bordes</value>
+  </data>
+  <data name="Settings_OrganicGridBoxBackgrounds_Label" xml:space="preserve">
+    <value>Cajas de fondo 'Estilo GW2'</value>
+  </data>
+  <data name="Settings_OrganicGridBoxBackgrounds_Tooltip" xml:space="preserve">
+    <value>Activado: Los fondos aparecerán con bordes difusos más similares al estilo de GW2,&#xA;Desactivado: El fondo será rectángulos</value>
   </data>
 </root>

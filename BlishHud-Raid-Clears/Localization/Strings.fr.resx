@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -934,5 +934,149 @@
   </data>
   <data name="Fractals_Selection_Prompt" xml:space="preserve">
     <value>Activer le regroupement des fractales quotidiennes</value>
+  </data>
+  <data name="Setting_Fractals_Visible_Tooltip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="CornerIconPriority_Help" xml:space="preserve">
+    <value>Ajuster où l'icône Clears Tracker en haut à gauche apparaît après l'icône Blish</value>
+  </data>
+  <data name="CornerIconPriority_Label" xml:space="preserve">
+    <value>Ordre de tri de l'icône en haut à gauche</value>
+  </data>
+  <data name="CornerIconPriority_Tooltlp" xml:space="preserve">
+    <value>Gauche &lt;----&gt; Droite</value>
+  </data>
+  <data name="Raid_Wing_8" xml:space="preserve">
+    <value>Mont Balrior</value>
+  </data>
+  <data name="Raid_Wing_8_1_Name" xml:space="preserve">
+    <value>Camp</value>
+  </data>
+  <data name="Raid_Wing_8_1_Short" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="Raid_Wing_8_2_Name" xml:space="preserve">
+    <value>Decima</value>
+  </data>
+  <data name="Raid_Wing_8_2_Short" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="Raid_Wing_8_3_Name" xml:space="preserve">
+    <value>Greer</value>
+  </data>
+  <data name="Raid_Wing_8_3_Short" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="Raid_Wing_8_4_Name" xml:space="preserve">
+    <value>Ura</value>
+  </data>
+  <data name="Raid_Wing_8_4_Short" xml:space="preserve">
+    <value>U</value>
+  </data>
+  <data name="Raid_Wing_8_Short" xml:space="preserve">
+    <value>MtBal</value>
+  </data>
+  <data name="Settings_Raid_JW_Heading" xml:space="preserve">
+    <value>Activer l'aile de raid des Terres Sauvages de Janthir</value>
+  </data>
+  <data name="Setting_Raid_W8_Label" xml:space="preserve">
+    <value>W8 / Mont Balrior</value>
+  </data>
+  <data name="Setting_Raid_W8_Tooltip" xml:space="preserve">
+    <value>Activer Mont Balrior sur la superposition des Ailes de Raid</value>
+  </data>
+  <data name="EncounterClearStatus_NoClearDate" xml:space="preserve">
+    <value>----------</value>
+  </data>
+  <data name="EncounterClearStatus_MarkComplete" xml:space="preserve">
+    <value>Marquer comme terminé</value>
+  </data>
+  <data name="EncounterClearStatus_RemoveClear" xml:space="preserve">
+    <value>Retirer le nettoyage</value>
+  </data>
+  <data name="CMTooltip_Instabilities" xml:space="preserve">
+    <value>Instabilités</value>
+  </data>
+  <data name="CMTooltip_Tomorrow" xml:space="preserve">
+    <value>Demain</value>
+  </data>
+  <data name="ModuleSettings_SetupWizard" xml:space="preserve">
+    <value>Assistant de configuration</value>
+  </data>
+  <data name="FractalSelection_ThanksInvisi" xml:space="preserve">
+    <value>Remerciement spécial à Invisi pour avoir fourni des informations sur les instabilités du défi mote</value>
+  </data>
+  <data name="ConfirmDialog_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ConfirmDialog_Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Fractal_ChallengeMoteLabel" xml:space="preserve">
+    <value>Défi Mote</value>
+  </data>
+  <data name="Fractal_TomorrowLabel" xml:space="preserve">
+    <value>Demain N#</value>
+  </data>
+  <data name="Fractal_TierNLabel" xml:space="preserve">
+    <value>Niveau #</value>
+  </data>
+  <data name="Fractal_RecLabel" xml:space="preserve">
+    <value>Recommandées quotidennes</value>
+  </data>
+  <data name="StrikeLabelCustomization_Heading" xml:space="preserve">
+    <value>Personnaliser les étiquettes des rencontres de raid</value>
+  </data>
+  <data name="RaidLabelCustomization_Heading" xml:space="preserve">
+    <value>Personnaliser les étiquettes des boss des ailes de raid</value>
+  </data>
+  <data name="FractalLabelCustomization_Heading" xml:space="preserve">
+    <value>Personnaliser les étiquettes des fractales</value>
+  </data>
+  <data name="CMTooltip_Scale" xml:space="preserve">
+    <value>Niveau : {0}</value>
+  </data>
+  <data name="CMTooltip_Title" xml:space="preserve">
+    <value>{0} ({1})</value>
+  </data>
+  <data name="StrikeClearCorrection_LastClears" xml:space="preserve">
+    <value>Derniers nettoyages des rencontres de raid (Profil : {0})</value>
+  </data>
+  <data name="FractalClearCorrection_LastClears" xml:space="preserve">
+    <value>Derniers nettoyages des fractales (Profil : {0})</value>
+  </data>
+  <data name="DynamicStrikeSelection_DisplayExpansion" xml:space="preserve">
+    <value>Afficher {0} Rencontres de Raid</value>
+  </data>
+  <data name="DynamicStrikeSelection_DisplayIndividual" xml:space="preserve">
+    <value>Afficher les rencontres individuelles de {0} Raid</value>
+  </data>
+  <data name="EncounterLabelCustomerizer_ResetTo" xml:space="preserve">
+    <value>Réinitialiser à '{0}'</value>
+  </data>
+  <data name="StrikeSettings_EnablePriority" xml:space="preserve">
+    <value>Activer {0}</value>
+  </data>
+  <data name="StrikeSettings_EnableExpansion" xml:space="preserve">
+    <value>Activer {0}</value>
+  </data>
+  <data name="Settings_EnableDungeon" xml:space="preserve">
+    <value>Activer {0} sur la superposition de donjon</value>
+  </data>
+  <data name="Settings_EnableStrike" xml:space="preserve">
+    <value>Activer {0} sur la superposition des rencontres de raid</value>
+  </data>
+  <data name="Settings_ScreenClamp_Label" xml:space="preserve">
+    <value>Garder les fenêtres de superposition à l'écran</value>
+  </data>
+  <data name="Settings_ScreenClamp_Tooltip" xml:space="preserve">
+    <value>Lorsqu'il est activé, cela garantit que toutes les fenêtres de superposition restent dans la zone visible de votre écran, afin qu'elles ne sortent pas des bords</value>
+  </data>
+  <data name="Settings_OrganicGridBoxBackgrounds_Label" xml:space="preserve">
+    <value>Boîtes d'arrière-plan 'Style GW2'</value>
+  </data>
+  <data name="Settings_OrganicGridBoxBackgrounds_Tooltip" xml:space="preserve">
+    <value>Activé : Les arrière-plans apparaîtront avec des bords flous plus proches du style de GW2,&#xA;Désactivé : L'arrière-plan sera des rectangles</value>
   </data>
 </root>
