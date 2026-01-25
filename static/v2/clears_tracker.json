@@ -23,5 +23,7 @@
     "mask_05.png",
     "mask_06.png",
     "mask_07.png"
-  ]
+  ],
+  "motd": "Thanks for using Clears Tracker!\n\nCheck out the updated raid boss tooltips!",
+  "motd_id": "2026-01-24-004"
 }
