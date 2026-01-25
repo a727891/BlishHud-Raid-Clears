@@ -1354,4 +1354,16 @@
     <value>Enable {0}</value>
     <comment>Setting label to enable raid expansion. {0} is the expansion name (e.g., "Heart of Thorns", "Path of Fire")</comment>
   </data>
+  <data name="Tooltip_PowerDamage" xml:space="preserve">
+    <value>Power Damage</value>
+    <comment>Label for power damage type in raid encounter tooltip</comment>
+  </data>
+  <data name="Tooltip_ConditionDamage" xml:space="preserve">
+    <value>Condition Damage</value>
+    <comment>Label for condition damage type in raid encounter tooltip</comment>
+  </data>
+  <data name="Tooltip_DefianceBreak" xml:space="preserve">
+    <value>Defiance Break</value>
+    <comment>Label for defiance break indicator in raid encounter tooltip</comment>
+  </data>
 </root>

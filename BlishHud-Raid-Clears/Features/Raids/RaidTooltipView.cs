@@ -1,4 +1,4 @@
-﻿using RaidClears.Utils.Kenedia;
+using RaidClears.Utils.Kenedia;
 using Blish_HUD.Controls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -28,6 +28,12 @@ public class RaidTooltipView : Blish_HUD.Controls.Tooltip
     private readonly Label _title;
     private readonly Label _id;
     private readonly Blish_HUD.Controls.Image _icon;
+    private readonly Blish_HUD.Controls.Image _powerIcon;
+    private readonly Label _powerLabel;
+    private readonly Blish_HUD.Controls.Image _condiIcon;
+    private readonly Label _condiLabel;
+    private readonly Blish_HUD.Controls.Image _defianceIcon;
+    private readonly Label _defianceLabel;
  
 
     private RaidEncounter _encounter;
@@ -67,7 +73,72 @@ public class RaidTooltipView : Blish_HUD.Controls.Tooltip
             Font = Content.DefaultFont12,
             TextColor = Color.White * 0.8F,
         };
-        
+
+        _powerIcon = new()
+        {
+            Parent = this,
+            Height = 20,
+            Width = 20,
+            Texture = ContentService.Textures.Pixel,
+            Location = new() { X = 0, Y = 0 },
+            Visible = false
+        };
+
+        _powerLabel = new()
+        {
+            Parent = this,
+            Height = Content.DefaultFont12.LineHeight,
+            AutoSizeWidth = true,
+            Location = new() { X = 0, Y = 0 },
+            Font = Content.DefaultFont12,
+            TextColor = Color.White * 0.9F,
+            Text = Strings.Tooltip_PowerDamage,
+            Visible = false
+        };
+
+        _condiIcon = new()
+        {
+            Parent = this,
+            Height = 20,
+            Width = 20,
+            Texture = ContentService.Textures.Pixel,
+            Location = new() { X = 0, Y = 0 },
+            Visible = false
+        };
+
+        _condiLabel = new()
+        {
+            Parent = this,
+            Height = Content.DefaultFont12.LineHeight,
+            AutoSizeWidth = true,
+            Location = new() { X = 0, Y = 0 },
+            Font = Content.DefaultFont12,
+            TextColor = Color.White * 0.9F,
+            Text = Strings.Tooltip_ConditionDamage,
+            Visible = false
+        };
+
+        _defianceIcon = new()
+        {
+            Parent = this,
+            Height = 20,
+            Width = 20,
+            Texture = ContentService.Textures.Pixel,
+            Location = new() { X = 0, Y = 0 },
+            Visible = false
+        };
+
+        _defianceLabel = new()
+        {
+            Parent = this,
+            Height = Content.DefaultFont12.LineHeight,
+            AutoSizeWidth = true,
+            Location = new() { X = 0, Y = 0 },
+            Font = Content.DefaultFont12,
+            TextColor = new Color(57, 172, 161),
+            Text = Strings.Tooltip_DefianceBreak,
+            Visible = false
+        };
 
     }
 
@@ -86,6 +157,69 @@ public class RaidTooltipView : Blish_HUD.Controls.Tooltip
         {
             _icon.Texture = Service.Textures!.DatAsset(e.NewValue.AssetId);
         }
+
+        // Set damage type icons (stacked vertically)
+        var raidData = Service.RaidData;
+        int yOffset = _icon.Bottom + 5;
+        int xOffset = _icon.Left;
+
+        if (raidData != null)
+        {
+            if (e.NewValue.PowerFavored)
+            {
+                _powerIcon.Texture = Service.Textures!.DatAsset(raidData.PowerDamageAssetId);
+                _powerIcon.Location = new(xOffset, yOffset);
+                _powerIcon.Visible = true;
+                _powerLabel.Location = new(_powerIcon.Right + 5, yOffset);
+                _powerLabel.Visible = true;
+                yOffset += 25;
+            }
+            else
+            {
+                _powerIcon.Visible = false;
+                _powerLabel.Visible = false;
+            }
+
+            if (e.NewValue.CondiFavored)
+            {
+                _condiIcon.Texture = Service.Textures!.DatAsset(raidData.CondiDamageAssetId);
+                _condiIcon.Location = new(xOffset, yOffset);
+                _condiIcon.Visible = true;
+                _condiLabel.Location = new(_condiIcon.Right + 5, yOffset);
+                _condiLabel.Visible = true;
+                yOffset += 25;
+            }
+            else
+            {
+                _condiIcon.Visible = false;
+                _condiLabel.Visible = false;
+            }
+
+            if (e.NewValue.NeedsDefianceBreak && raidData.DefianceAssetId > 0)
+            {
+                _defianceIcon.Texture = Service.Textures!.DatAsset(raidData.DefianceAssetId);
+                _defianceIcon.Location = new(xOffset, yOffset);
+                _defianceIcon.Visible = true;
+                _defianceLabel.Location = new(_defianceIcon.Right + 5, yOffset);
+                _defianceLabel.Visible = true;
+            }
+            else
+            {
+                _defianceIcon.Visible = false;
+                _defianceLabel.Visible = false;
+            }
+        }
+        else
+        {
+            _powerIcon.Visible = false;
+            _powerLabel.Visible = false;
+            _condiIcon.Visible = false;
+            _condiLabel.Visible = false;
+            _defianceIcon.Visible = false;
+            _defianceLabel.Visible = false;
+        }
+
+        Invalidate();
     }
 
     public StrikeMission StrikeMission
@@ -122,8 +256,23 @@ public class RaidTooltipView : Blish_HUD.Controls.Tooltip
 
     public override void RecalculateLayout()
     {
-        base.Size = new(230, 58);
-        base.ContentRegion = new Rectangle(5, 5, 220, 48);
+        int height = 58;
+        int contentHeight = 48;
+
+        // Damage type indicators and defiance break (stacked vertically)
+        int indicatorCount = 0;
+        if (_powerIcon != null && _powerIcon.Visible) indicatorCount++;
+        if (_condiIcon != null && _condiIcon.Visible) indicatorCount++;
+        if (_defianceIcon != null && _defianceIcon.Visible) indicatorCount++;
+
+        if (indicatorCount > 0)
+        {
+            height += indicatorCount * 25;
+            contentHeight += indicatorCount * 25;
+        }
+
+        base.Size = new(230, height);
+        base.ContentRegion = new Rectangle(5, 5, 220, contentHeight);
     }
 
     protected override void DisposeControl()

@@ -1133,4 +1133,13 @@
   <data name="Settings_Raid_EnableExpansion" xml:space="preserve">
     <value>Activar {0}</value>
   </data>
+  <data name="Tooltip_PowerDamage" xml:space="preserve">
+    <value>Daño de poder</value>
+  </data>
+  <data name="Tooltip_ConditionDamage" xml:space="preserve">
+    <value>Daño de condición</value>
+  </data>
+  <data name="Tooltip_DefianceBreak" xml:space="preserve">
+    <value>Ruptura de desafío</value>
+  </data>
 </root>

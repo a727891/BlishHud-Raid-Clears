@@ -18,6 +18,15 @@ public class RaidEncounter : EncounterInterface
     [JsonProperty("abbriviation")]
     private string _abbriviation = "undefined";
 
+    [JsonProperty("powerFavored")]
+    public bool PowerFavored { get; set; } = false;
+
+    [JsonProperty("condiFavored")]
+    public bool CondiFavored { get; set; } = false;
+
+    [JsonProperty("needsDefianceBreak")]
+    public bool NeedsDefianceBreak { get; set; } = false;
+
     /// <summary>
     /// Returns the localized name based on user locale, falling back to default name if localization is not available.
     /// </summary>

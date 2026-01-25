@@ -23,6 +23,15 @@ public class RaidData
     [JsonProperty("secondsInWeek")]
     public int SecondsInWeek { get; set; } = -1;
 
+    [JsonProperty("powerDamageAssetId")]
+    public int PowerDamageAssetId { get; set; } = 993687;
+
+    [JsonProperty("condiDamageAssetId")]
+    public int CondiDamageAssetId { get; set; } = 156600;
+
+    [JsonProperty("defianceAssetId")]
+    public int DefianceAssetId { get; set; } = 0;
+
     [JsonProperty("aerodrome")]
     public Aerodrome AeroDrome { get; set; } = new();
 

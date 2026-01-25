@@ -3077,6 +3077,33 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Condition Damage.
+        /// </summary>
+        internal static string Tooltip_ConditionDamage {
+            get {
+                return ResourceManager.GetString("Tooltip_ConditionDamage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Defiance Break.
+        /// </summary>
+        internal static string Tooltip_DefianceBreak {
+            get {
+                return ResourceManager.GetString("Tooltip_DefianceBreak", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power Damage.
+        /// </summary>
+        internal static string Tooltip_PowerDamage {
+            get {
+                return ResourceManager.GetString("Tooltip_PowerDamage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hide.
         /// </summary>
         internal static string VisibleHide {
