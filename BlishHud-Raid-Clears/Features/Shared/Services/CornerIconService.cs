@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Blish_HUD;
-using Blish_HUD.Common.UI.Views;
 using Blish_HUD.Controls;
 using Blish_HUD.Input;
 using Blish_HUD.Settings;

@@ -1,8 +1,4 @@
 ﻿using Blish_HUD;
-using Gw2Sharp.Mumble;
-using Gw2Sharp.WebApi.V2.Models;
-using RaidClears.Features.Shared.Enums;
-using RaidClears.Features.Shared.Enums.Extensions;
 using RaidClears.Localization;
 using RaidClears.Shared.Controls;
 using System;

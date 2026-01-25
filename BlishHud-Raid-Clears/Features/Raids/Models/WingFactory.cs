@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Blish_HUD.Settings;
 using RaidClears.Features.Shared.Controls;
 using RaidClears.Features.Shared.Models;

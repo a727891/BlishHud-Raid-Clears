@@ -1,14 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Blish_HUD.Controls;
-using Blish_HUD.Settings;
-using RaidClears.Features.Raids.Models;
-using RaidClears.Features.Shared.Controls;
-using RaidClears.Features.Shared.Enums;
-using RaidClears.Features.Shared.Models;
-using RaidClears.Features.Fractals.Services;
-using RaidClears.Settings.Models;
-using RaidClears.Utils;
+﻿using RaidClears.Features.Fractals.Services;
 
 namespace RaidClears.Features.Fractals.Models;
 

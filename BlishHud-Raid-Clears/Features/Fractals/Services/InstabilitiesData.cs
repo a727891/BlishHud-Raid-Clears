@@ -1,5 +1,4 @@
 using Newtonsoft.Json;
-using RaidClears.Features.Shared.Enums;
 using System;
 using System.Collections.Generic;
 using System.IO;

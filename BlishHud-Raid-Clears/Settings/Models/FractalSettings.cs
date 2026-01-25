@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Blish_HUD.Settings;
-using RaidClears.Features.Shared.Enums;
+﻿using Blish_HUD.Settings;
 using RaidClears.Settings.Enums;
 
 namespace RaidClears.Settings.Models;

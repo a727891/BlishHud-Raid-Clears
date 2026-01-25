@@ -1,11 +1,6 @@
 using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
-using Microsoft.Xna.Framework;
-using RaidClears.Features.Fractals.Services;
-using RaidClears.Features.Shared.Enums;
-using RaidClears.Features.Shared.Enums.Extensions;
 using RaidClears.Localization;
-using RaidClears.Settings.Models;
 using RaidClears.Utils;
 using System;
 using System.Collections.Generic;

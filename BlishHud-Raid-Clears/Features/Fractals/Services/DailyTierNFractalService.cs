@@ -1,18 +1,8 @@
-﻿using RaidClears.Features.Raids.Models;
-using RaidClears.Features.Shared.Enums;
-using RaidClears.Features.Shared.Enums.Extensions;
-using RaidClears.Features.Shared.Models;
-using System;
+﻿using RaidClears.Features.Shared.Models;
 using System.Collections.Generic;
 using System.Linq;
 using RaidClears.Localization;
 using RaidClears.Features.Shared.Services;
-using Gw2Sharp.WebApi.V2.Models;
-using SharpDX.Direct3D9;
-using static RaidClears.Settings.Models.Settings;
-using System.Numerics;
-using System.Runtime.Remoting.Channels;
-using Blish_HUD.Controls;
 
 namespace RaidClears.Features.Fractals.Services;
 

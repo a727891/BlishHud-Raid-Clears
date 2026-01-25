@@ -1,6 +1,5 @@
 using Blish_HUD.Settings;
 using Newtonsoft.Json;
-using RaidClears.Features.Fractals.Models;
 using RaidClears.Localization;
 using System;
 using System.Collections.Generic;

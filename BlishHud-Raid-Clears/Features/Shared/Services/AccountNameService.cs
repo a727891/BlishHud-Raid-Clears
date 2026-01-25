@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Blish_HUD;
 using Gw2Sharp.WebApi.V2.Models;
 
 

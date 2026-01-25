@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework;
 using RaidClears.Features.Strikes.Models;
 using RaidClears.Features.Strikes.Services;
 using RaidClears.Localization;
-using RaidClears.Settings.Models;
 using RaidClears.Utils;
 using System.Collections.Generic;
 

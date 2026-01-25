@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using Blish_HUD.Settings;
-using Gw2Sharp.WebApi.V2.Models;
 using RaidClears.Features.Shared.Controls;
 using RaidClears.Features.Shared.Models;
 using RaidClears.Settings.Models;

@@ -1,20 +1,8 @@
-using Blish_HUD.Controls;
-using Blish_HUD.Settings;
 using Newtonsoft.Json;
 using RaidClears.Features.Raids.Models;
-using RaidClears.Features.Shared.Controls;
-using RaidClears.Features.Shared.Enums;
 using RaidClears.Features.Shared.Models;
-using RaidClears.Features.Strikes.Services;
-using RaidClears.Localization;
-using RaidClears.Settings.Models;
-using RaidClears.Utils;
-using SharpDX.Direct3D11;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RaidClears.Features.Strikes.Models;
 

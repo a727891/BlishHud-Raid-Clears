@@ -1,12 +1,10 @@
 using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
-using Microsoft.Xna.Framework;
 using RaidClears.Localization;
 using RaidClears.Settings.Models;
 using RaidClears.Utils;
 using System.Diagnostics;
 using System.Collections.Generic;
-using System.Linq;
 using Blish_HUD.Settings;
 using RaidClears.Features.Fractals.Services;
 

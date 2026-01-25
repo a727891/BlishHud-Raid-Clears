@@ -8,7 +8,6 @@ using RaidClears.Features.Shared.Services;
 using RaidClears.Features.Strikes;
 using RaidClears.Features.Strikes.Services;
 using RaidClears.Settings.Controls;
-using RaidClears.Settings.Models;
 using RaidClears.Settings.Services;
 using System;
 

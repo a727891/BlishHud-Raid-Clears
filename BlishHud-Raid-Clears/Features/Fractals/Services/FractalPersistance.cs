@@ -1,11 +1,7 @@
-using Blish_HUD.Settings;
 using Newtonsoft.Json;
-using RaidClears.Features.Raids.Models;
 using RaidClears.Features.Raids.Services;
-using RaidClears.Features.Shared.Enums;
 using System;
 using System.Collections.Generic;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
 

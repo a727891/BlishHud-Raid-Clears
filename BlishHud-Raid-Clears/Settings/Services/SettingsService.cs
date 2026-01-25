@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework.Input;
 using RaidClears.Settings.Enums;
 using RaidClears.Settings.Models;
 using Microsoft.Xna.Framework;
-using System.Runtime.Serialization.Formatters;
 namespace RaidClears.Settings.Services;
 
 public class SettingService // singular because Setting"s"Service already exists in Blish

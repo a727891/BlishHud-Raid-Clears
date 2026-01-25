@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using Blish_HUD.Settings;
-using Microsoft.Xna.Framework;
 using RaidClears.Localization;
 using RaidClears.Settings.Models;
 using RaidClears.Utils;

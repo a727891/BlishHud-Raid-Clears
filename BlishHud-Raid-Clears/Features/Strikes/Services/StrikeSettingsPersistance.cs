@@ -1,7 +1,6 @@
 using Blish_HUD.Settings;
 using Newtonsoft.Json;
 using RaidClears.Features.Raids.Services;
-using RaidClears.Features.Shared.Enums;
 using RaidClears.Features.Strikes.Models;
 using RaidClears.Localization;
 using System;

@@ -15,8 +15,6 @@ using RaidClears.Features.Strikes.Services;
 using Blish_HUD.Controls;
 using RaidClears.Features.Shared.Models;
 using RaidClears.Features.Fractals.Services;
-using Blish_HUD.Modules.Managers;
-using Blish_HUD.GameIntegration;
 using RaidClears.Shared.Services;
 using RaidClears.Features.Raids.Services;
 

@@ -1,6 +1,4 @@
-using Microsoft.Xna.Framework;
 using Newtonsoft.Json;
-using RaidClears.Features.Shared.Controls;
 using System;
 using Blish_HUD;
 using Gw2Sharp.WebApi;

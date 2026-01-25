@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 using RaidClears.Localization;
 using RaidClears.Settings.Models;
 using RaidClears.Utils;
-using System;
 using System.Linq;
 
 namespace RaidClears.Settings.Views.SubViews;

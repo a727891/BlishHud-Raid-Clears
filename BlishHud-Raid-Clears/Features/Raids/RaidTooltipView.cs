@@ -1,23 +1,12 @@
 using RaidClears.Utils.Kenedia;
 using Blish_HUD.Controls;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static Blish_HUD.ContentService;
-using Gw2Sharp.WebApi;
-using RaidClears.Features.Fractals.Services;
-using Gw2Sharp.WebApi.V2.Models;
 using RaidClears.Localization;
 using Color = Microsoft.Xna.Framework.Color;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
-using RaidClears.Features.Fractals.Models;
-using System.Linq;
 using Blish_HUD;
-using System.Collections.Generic;
-using Blish_HUD.Content;
-using System;
-using System.Drawing;
 using RaidClears.Features.Raids.Models;
-using SharpDX.Direct2D1.Effects;
 using RaidClears.Features.Strikes.Models;
 
 namespace RaidClears.Features.Raids;

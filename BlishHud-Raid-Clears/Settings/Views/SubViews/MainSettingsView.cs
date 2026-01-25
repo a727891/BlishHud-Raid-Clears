@@ -1,11 +1,9 @@
-using Blish_HUD;
 using Blish_HUD.Controls;
 using Blish_HUD.Graphics.UI;
 using Microsoft.Xna.Framework;
 using RaidClears.Features.Shared.Controls;
 using RaidClears.Localization;
 using RaidClears.Utils;
-using System.Data.Common;
 using System.Diagnostics;
 
 namespace RaidClears.Settings.Views.SubViews;

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using RaidClears.Features.Raids.Models;
 using RaidClears.Features.Shared.Models;
 using RaidClears.Localization;
 

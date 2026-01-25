@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using RaidClears.Features.Raids.Models;
 using RaidClears.Features.Shared.Models;
-using RaidClears.Features.Strikes.Services;
 
 namespace RaidClears.Features.Strikes.Models;
 

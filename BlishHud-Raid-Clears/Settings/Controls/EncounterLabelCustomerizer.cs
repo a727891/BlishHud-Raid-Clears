@@ -1,8 +1,5 @@
 using Blish_HUD.Controls;
 using Microsoft.Xna.Framework;
-using System;
-using RaidClears.Features.Fractals.Services;
-using RaidClears.Features.Strikes.Services;
 using RaidClears.Features.Strikes.Models;
 using RaidClears.Features.Raids.Models;
 using RaidClears.Features.Shared.Models;

@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Blish_HUD;
 using Blish_HUD.Controls;
-using Blish_HUD.Settings.UI.Views;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using RaidClears.Localization;
