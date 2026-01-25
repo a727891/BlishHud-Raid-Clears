@@ -17,6 +17,7 @@ public class SettingService // singular because Setting"s"Service already exists
     public SettingEntry<bool> OrganicGridBoxBackgrounds { get; }
 
     public SettingEntry<int> CornerIconPriority { get; }
+    public SettingEntry<string> LastShownMotdId { get; }
     public RaidSettings RaidSettings { get; }
     public DungeonSettings DungeonSettings { get; }
     public StrikeSettings StrikeSettings { get; }
@@ -34,6 +35,11 @@ public class SettingService // singular because Setting"s"Service already exists
             () => Strings.CornerIconPriority_Label,
             () => Strings.CornerIconPriority_Tooltlp);
         CornerIconPriority.SetRange(0, 1000);
+
+        LastShownMotdId = settings.DefineSetting("RCLastShownMotdId",
+            "",
+            () => "",
+            () => "");
 
         SettingsPanelKeyBind = settings.DefineSetting("RCsettingsKeybind",
             new KeyBinding(Keys.None),

@@ -17,6 +17,7 @@ using RaidClears.Features.Shared.Models;
 using RaidClears.Features.Fractals.Services;
 using RaidClears.Shared.Services;
 using RaidClears.Features.Raids.Services;
+using System;
 
 namespace RaidClears;
 
@@ -56,7 +57,7 @@ public class Module : Blish_HUD.Modules.Module
     protected override async Task LoadAsync()
     {
         Service.Textures = new TextureService(Service.ContentsManager);
-        ModuleMetaDataService.CheckVersions();
+        var metadata = ModuleMetaDataService.CheckVersions();
 
         Service.RaidData = RaidData.Load();
         Service.StrikeData = StrikeData.Load();
@@ -90,6 +91,8 @@ public class Module : Blish_HUD.Modules.Module
                 Strings.Module_Title,
                 Service.Textures!.CornerIconTexture,
                 Service.Textures!.CornerIconHoverTexture,
+                Service.Textures!.CornerIconNotificationTexture,
+                Service.Textures!.CornerIconNotificationHoverTexture,
                 new List<ContextMenuStripItem>()
                 {
                 new CornerIconToggleMenuItem(Service.SettingsWindow, Strings.ModuleSettings_OpenSettings),
@@ -106,6 +109,8 @@ public class Module : Blish_HUD.Modules.Module
             if (Service.CornerIcon != null)
             {
                 Service.CornerIcon.IconLeftClicked += CornerIcon_IconLeftClicked;
+                // Check for MOTD after corner icon is created
+                CheckMotd(metadata);
             }
 
             Service.Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
@@ -181,5 +186,30 @@ public class Module : Blish_HUD.Modules.Module
     {
         DispatchClears();
         Service.ApiPollingService?.Invoke();
-    } 
+    }
+
+    private void CheckMotd(ModuleMetaDataService metadata)
+    {
+        try
+        {
+            // Check if there's a new MOTD
+            if (!string.IsNullOrEmpty(metadata.Motd) && !string.IsNullOrEmpty(metadata.MotdId))
+            {
+                var lastShownId = Service.Settings.LastShownMotdId.Value;
+                
+                // If this is a new message, show notification
+       
+                if (Service.CornerIcon != null)
+                {
+                    Service.CornerIcon.SetCurrentMotdId(metadata.MotdId);
+                    Service.CornerIcon.SetNotificationState(lastShownId != metadata.MotdId, metadata.Motd);
+                }
+                
+            }
+        }
+        catch (Exception ex)
+        {
+            ModuleLogger.Warn(ex, "Error checking MOTD");
+        }
+    }
 }

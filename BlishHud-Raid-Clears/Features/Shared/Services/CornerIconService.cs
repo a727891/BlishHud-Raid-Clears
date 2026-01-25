@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Blish_HUD;
 using Blish_HUD.Controls;
@@ -36,6 +36,8 @@ public class CornerIconService : IDisposable
                              string tooltip,
                              Texture2D defaultTexture,
                              Texture2D hoverTexture,
+                             Texture2D notificationTexture,
+                             Texture2D notificationHoverTexture,
                              IEnumerable<ContextMenuStripItem> contextMenuItems
     )
     {
@@ -43,7 +45,10 @@ public class CornerIconService : IDisposable
         _cornerIconIsVisibleSetting  = cornerIconIsVisibleSetting;
         _cornerIconTexture           = defaultTexture;
         _cornerIconHoverTexture      = hoverTexture;
+        _cornerIconNotificationTexture = notificationTexture;
+        _cornerIconNotificationHoverTexture = notificationHoverTexture;
         _contextMenuItems = contextMenuItems;
+        _hasNotification = false;
         cornerIconIsVisibleSetting.SettingChanged += OnCornerIconIsVisibleSettingChanged;
         Service.Settings.CornerIconPriority.SettingChanged += CornerIconPriority_SettingChanged;
 
@@ -53,10 +58,56 @@ public class CornerIconService : IDisposable
 
     public void UpdateAccountName(string name)
     {
-        if(_cornerIcon is not null)
+        if(_tooltipView is not null)
         {
-            _cornerIcon.BasicTooltipText = $"{_tooltip}\n\nProfile: {name}";
+            _tooltipView.UpdateAccountName(name);
         }
+    }
+
+    public void SetNotificationState(bool hasNotification, string? motdMessage = null)
+    {
+        _hasNotification = hasNotification;
+        _motdMessage = motdMessage;
+        
+        if (_cornerIcon is not null)
+        {
+            UpdateIconTextures();
+            UpdateTooltip();
+        }
+        
+        if (_tooltipView is not null)
+        {
+            _tooltipView.MotdMessage = motdMessage;
+        }
+    }
+
+    private void UpdateIconTextures()
+    {
+        if (_cornerIcon is null) return;
+
+        if (_hasNotification)
+        {
+            _cornerIcon.Icon = _cornerIconNotificationTexture;
+            _cornerIcon.HoverIcon = _cornerIconNotificationHoverTexture;
+        }
+        else
+        {
+            _cornerIcon.Icon = _cornerIconTexture;
+            _cornerIcon.HoverIcon = _cornerIconHoverTexture;
+        }
+    }
+
+    private void UpdateTooltip()
+    {
+        if (_cornerIcon is null || _tooltipView is null) return;
+
+        // Use custom tooltip view instead of BasicTooltipText
+        _cornerIcon.BasicTooltipText = null;
+        _cornerIcon.Tooltip = _tooltipView;
+        
+        // Update tooltip content
+        _tooltipView.MotdMessage = _motdMessage;
+        _tooltipView.UpdateAccountName(Service.CurrentAccountName);
     }
 
     public void Dispose()
@@ -64,21 +115,35 @@ public class CornerIconService : IDisposable
         _cornerIconIsVisibleSetting.SettingChanged -= OnCornerIconIsVisibleSettingChanged;
         Service.Settings.CornerIconPriority.SettingChanged -= CornerIconPriority_SettingChanged;
         RemoveCornerIcon();
+        _tooltipView?.Dispose();
     }
 
     private void CreateCornerIcon()
     {
         RemoveCornerIcon();
+        
+        // Initialize tooltip view if not already created
+        if (_tooltipView == null)
+        {
+            _tooltipView = new CornerIconTooltipView();
+            _tooltipView.UpdateAccountName(Service.CurrentAccountName);
+            if (!string.IsNullOrEmpty(_motdMessage))
+            {
+                _tooltipView.MotdMessage = _motdMessage;
+            }
+        }
+        
         _cornerIcon = new CornerIcon
         {
-            Icon = _cornerIconTexture,
-            HoverIcon = _cornerIconHoverTexture,
-            BasicTooltipText = $"{_tooltip}\n\nAccount: {Service.CurrentAccountName}",
             Parent = GameService.Graphics.SpriteScreen,
             Priority = (int)(Int32.MaxValue * ((1000.0f - Service.Settings.CornerIconPriority.Value) /1000.0f)) -1
         };
         
+        UpdateIconTextures();
+        UpdateTooltip();
+        
         _cornerIcon.Click += OnCornerIconClicked;
+        _cornerIcon.MouseEntered += OnCornerIconMouseEntered;
         _cornerIcon.Menu = new ContextMenuStrip(() => _contextMenuItems);
     }
 
@@ -87,12 +152,13 @@ public class CornerIconService : IDisposable
         if (_cornerIcon is not null)
         {
             _cornerIcon.Click -= OnCornerIconClicked;
+            _cornerIcon.MouseEntered -= OnCornerIconMouseEntered;
             _cornerIcon.Dispose();
         }
     }
     private void CornerIconPriority_SettingChanged(object sender, ValueChangedEventArgs<int> e)
     {
-        if (Service.Settings.GlobalCornerIconEnabled.Value)
+        if (Service.Settings.GlobalCornerIconEnabled.Value && _cornerIcon != null)
         {
             _cornerIcon.Priority = (int)(Int32.MaxValue * ((1000.0f - e.NewValue) / 1000.0f))-1;
         }
@@ -110,10 +176,40 @@ public class CornerIconService : IDisposable
     {
         IconLeftClicked?.Invoke(this,true);
     }
+
+    private void OnCornerIconMouseEntered(object sender, MouseEventArgs e)
+    {
+        // When user hovers over the icon (tooltip is shown), hide the notification dot
+        // but keep the MOTD message in the tooltip
+        if (_hasNotification)
+        {
+            _hasNotification = false;
+            UpdateIconTextures();
+            // Don't call UpdateTooltip() here - keep the MOTD in the tooltip
+            
+            // Mark this message as seen
+            if (!string.IsNullOrEmpty(_currentMotdId) && Service.Settings != null)
+            {
+                Service.Settings.LastShownMotdId.Value = _currentMotdId;
+            }
+        }
+    }
+
+    public void SetCurrentMotdId(string? motdId)
+    {
+        _currentMotdId = motdId;
+    }
+
     private readonly IEnumerable<ContextMenuStripItem> _contextMenuItems;
     private readonly Texture2D _cornerIconTexture;
     private readonly Texture2D _cornerIconHoverTexture;
+    private readonly Texture2D _cornerIconNotificationTexture;
+    private readonly Texture2D _cornerIconNotificationHoverTexture;
     private readonly SettingEntry<bool> _cornerIconIsVisibleSetting;
     private readonly string _tooltip;
-    private CornerIcon _cornerIcon;
+    private CornerIcon? _cornerIcon;
+    private CornerIconTooltipView? _tooltipView;
+    private bool _hasNotification;
+    private string? _motdMessage;
+    private string? _currentMotdId;
 }

@@ -37,6 +37,12 @@ public class ModuleMetaDataService
     [JsonProperty("gridbox_masks")]
     public List<string> GridBoxMasks { get; set; } = new();
 
+    [JsonProperty("motd")]
+    public string? Motd { get; set; } = null;
+
+    [JsonProperty("motd_id")]
+    public string? MotdId { get; set; } = null;
+
 
     private static FileInfo GetConfigFileInfo()
     {
@@ -57,7 +63,7 @@ public class ModuleMetaDataService
 
     }
 
-    public static void CheckVersions()
+    public static ModuleMetaDataService CheckVersions()
     {
         ModuleMetaDataService webFile = DownloadFile();
         ModuleMetaDataService localFile = Load();
@@ -104,6 +110,8 @@ public class ModuleMetaDataService
 
         webFile.Save();
         webFile.ValidateAssetCache(webFile.Assets, webFile.GridBoxMasks);
+        
+        return webFile;
     }
     public void ValidateAssetCache(List<string> assets, List<string>gridboxMasks)
     {

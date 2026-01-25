@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Blish_HUD;
@@ -15,6 +15,8 @@ public class TextureService : IDisposable
 
         CornerIconTexture = contentsManager.GetTexture(@"raids\textures\raidIconDark.png");
         CornerIconHoverTexture = contentsManager.GetTexture(@"raids\textures\raidIconBright.png");
+        CornerIconNotificationTexture = contentsManager.GetTexture(@"raids\textures\cornerIcon_notification.png");
+        CornerIconNotificationHoverTexture = contentsManager.GetTexture(@"raids\textures\cornerIcon_notification_hover.png");
 
         SettingWindowBackground = GetDynamicTexture("texture_background.png");
         SettingWindowEmblem = contentsManager.GetTexture(@"module_profile_hero_icon.png");
@@ -70,6 +72,8 @@ public class TextureService : IDisposable
 
         CornerIconTexture.Dispose();
         CornerIconHoverTexture.Dispose();
+        CornerIconNotificationTexture.Dispose();
+        CornerIconNotificationHoverTexture.Dispose();
         SettingWindowBackground.Dispose();
         SettingWindowEmblem.Dispose();
         //SettingTabRaid.Dispose();
@@ -99,6 +103,8 @@ public class TextureService : IDisposable
     public AsyncTexture2D SettingTabFractals { get; }
     public Texture2D CornerIconTexture { get; }
     public Texture2D CornerIconHoverTexture { get; }
+    public Texture2D CornerIconNotificationTexture { get; }
+    public Texture2D CornerIconNotificationHoverTexture { get; }
     public List<AsyncTexture2D> GridBoxBackgroundTexture { get; private set; } = new();
 
 }
