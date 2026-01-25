@@ -1,6 +1,9 @@
 {
   "version": "2026-01-23T22:58:00-0500",
   "secondsInWeek": 604800,
+  "powerDamageAssetId": 993687,
+  "condiDamageAssetId": 156600,
+  "defianceAssetId": 1938788,
   "aerodrome": {
     "name": "Lions Arch Aerodrome",
     "mapId": 1155,
@@ -53,6 +56,9 @@
               "api_id": "vale_guardian",
               "abbriviation": "VG",
               "assetId": 1301792,
+              "powerFavored": true,
+              "condiFavored": true,
+              "needsDefianceBreak": true,
               "localizedNames": {
                 "en": "Vale Guardian",
                 "fr": "Gardien de la Vallée",
@@ -71,6 +77,9 @@
               "api_id": "spirit_woods",
               "abbriviation": "SW",
               "assetId": 1301728,
+              "powerFavored": false,
+              "condiFavored": false,
+              "needsDefianceBreak": false,
               "localizedNames": {
                 "en": "Spirit Run",
                 "fr": "Les Bois des esprits",
@@ -89,6 +98,9 @@
               "api_id": "gorseval",
               "abbriviation": "G",
               "assetId": 1301787,
+              "powerFavored": true,
+              "condiFavored": false,
+              "needsDefianceBreak": true,
               "localizedNames": {
                 "en": "Gorseval",
                 "fr": "Gorseval le Disparate",
@@ -107,6 +119,9 @@
               "api_id": "sabetha",
               "abbriviation": "S",
               "assetId": 1301795,
+              "powerFavored": true,
+              "condiFavored": false,
+              "needsDefianceBreak": false,
               "localizedNames": {
                 "en": "Sabetha",
                 "fr": "Sabetha la saboteuse",
@@ -150,6 +165,9 @@
               "api_id": "slothasor",
               "abbriviation": "S",
               "assetId": 1377392,
+              "powerFavored": false,
+              "condiFavored": true,
+              "needsDefianceBreak": true,
               "localizedNames": {
                 "en": "Slothasor",
                 "fr": "Paressor",
@@ -168,6 +186,9 @@
               "api_id": "bandit_trio",
               "abbriviation": "B3",
               "assetId": 1377389,
+              "powerFavored": true,
+              "condiFavored": false,
+              "needsDefianceBreak": false,
               "localizedNames": {
                 "en": "Bandit Trio",
                 "fr": "Trio de bandits",
@@ -186,6 +207,9 @@
               "api_id": "matthias",
               "abbriviation": "M",
               "assetId": 1377391,
+              "powerFavored": false,
+              "condiFavored": true,
+              "needsDefianceBreak": true,
               "localizedNames": {
                 "en": "Matthias Gabrel",
                 "fr": "Matthias Gabrel",
@@ -229,6 +253,9 @@
               "api_id": "escort",
               "abbriviation": "E",
               "assetId": 1451172,
+              "powerFavored": false,
+              "condiFavored": false,
+              "needsDefianceBreak": false,
               "localizedNames": {
                 "en": "Escort",
                 "fr": "Escorte",
@@ -247,6 +274,9 @@
               "api_id": "keep_construct",
               "abbriviation": "KC",
               "assetId": 1451173,
+              "powerFavored": true,
+              "condiFavored": false,
+              "needsDefianceBreak": true,
               "localizedNames": {
                 "en": "Keep Construct",
                 "fr": "Titan du Fort",
@@ -265,6 +295,9 @@
               "api_id": "twisted_castle",
               "abbriviation": "TC",
               "assetId": 1451294,
+              "powerFavored": false,
+              "condiFavored": false,
+              "needsDefianceBreak": false,
               "localizedNames": {
                 "en": "Twisted Castle",
                 "fr": "Château corrompu",
@@ -283,6 +316,9 @@
               "api_id": "xera",
               "abbriviation": "X",
               "assetId": 1451174,
+              "powerFavored": true,
+              "condiFavored": false,
+              "needsDefianceBreak": true,
               "localizedNames": {
                 "en": "Xera",
                 "fr": "Xera",
@@ -326,6 +362,9 @@
               "api_id": "cairn",
               "abbriviation": "C",
               "assetId": 1633961,
+              "powerFavored": false,
+              "condiFavored": true,
+              "needsDefianceBreak": false,
               "localizedNames": {
                 "en": "Cairn the Indominable",
                 "fr": "Cairn l'indomptable",
@@ -344,6 +383,9 @@
               "api_id": "mursaat_overseer",
               "abbriviation": "MO",
               "assetId": 1633963,
+              "powerFavored": true,
+              "condiFavored": false,
+              "needsDefianceBreak": false,
               "localizedNames": {
                 "en": "Mursaat Overseer",
                 "fr": "Surveillant Mursaat",
@@ -362,6 +404,9 @@
               "api_id": "samarog",
               "abbriviation": "S",
               "assetId": 1633967,
+              "powerFavored": true,
+              "condiFavored": false,
+              "needsDefianceBreak": true,
               "localizedNames": {
                 "en": "Samarog",
                 "fr": "Samarog",
@@ -380,6 +425,9 @@
               "api_id": "deimos",
               "abbriviation": "D",
               "assetId": 1633966,
+              "powerFavored": false,
+              "condiFavored": true,
+              "needsDefianceBreak": false,
               "localizedNames": {
                 "en": "Deimos",
                 "fr": "Deimos",
@@ -443,6 +491,9 @@
               "api_id": "soulless_horror",
               "abbriviation": "SH",
               "assetId": 1894936,
+              "powerFavored": false,
+              "condiFavored": true,
+              "needsDefianceBreak": true,
               "localizedNames": {
                 "en": "Soulless Horror",
                 "fr": "Horreur sans âme",
@@ -461,6 +512,9 @@
               "api_id": "river_of_souls",
               "abbriviation": "R",
               "assetId": 1894803,
+              "powerFavored": false,
+              "condiFavored": false,
+              "needsDefianceBreak": false,
               "localizedNames": {
                 "en": "River of Souls",
                 "fr": "Rivière des âmes",
@@ -479,6 +533,9 @@
               "api_id": "statues_of_grenth",
               "abbriviation": "S",
               "assetId": 1894799,
+              "powerFavored": false,
+              "condiFavored": false,
+              "needsDefianceBreak": false,
               "localizedNames": {
                 "en": "Statues of Grenth",
                 "fr": "Statues de Grenth",
@@ -497,6 +554,9 @@
               "api_id": "voice_in_the_void",
               "abbriviation": "D",
               "assetId": 1894937,
+              "powerFavored": true,
+              "condiFavored": false,
+              "needsDefianceBreak": false,
               "localizedNames": {
                 "en": "Dhuum",
                 "fr": "Dhuum",
@@ -540,6 +600,9 @@
               "api_id": "conjured_amalgamate",
               "abbriviation": "CA",
               "assetId": 2039286,
+              "powerFavored": true,
+              "condiFavored": false,
+              "needsDefianceBreak": false,
               "localizedNames": {
                 "en": "Conjured Amalgamate",
                 "fr": "Amalgame conjuré",
@@ -558,6 +621,9 @@
               "api_id": "twin_largos",
               "abbriviation": "TL",
               "assetId": 2038615,
+              "powerFavored": false,
+              "condiFavored": true,
+              "needsDefianceBreak": true,
               "localizedNames": {
                 "en": "Twin Largos",
                 "fr": "Jumeaux Largos",
@@ -576,6 +642,9 @@
               "api_id": "qadim",
               "abbriviation": "Q1",
               "assetId": 2038618,
+              "powerFavored": true,
+              "condiFavored": false,
+              "needsDefianceBreak": true,
               "localizedNames": {
                 "en": "Qadim",
                 "fr": "Qadim",
@@ -619,6 +688,9 @@
               "api_id": "gate",
               "abbriviation": "G",
               "assetId": 2155913,
+              "powerFavored": false,
+              "condiFavored": false,
+              "needsDefianceBreak": false,
               "localizedNames": {
                 "en": "Gate",
                 "fr": "Portail",
@@ -637,6 +709,9 @@
               "api_id": "adina",
               "abbriviation": "A",
               "assetId": 1766806,
+              "powerFavored": true,
+              "condiFavored": false,
+              "needsDefianceBreak": false,
               "localizedNames": {
                 "en": "Cardinal Adina",
                 "fr": "Cardinale Adina",
@@ -655,6 +730,9 @@
               "api_id": "sabir",
               "abbriviation": "S",
               "assetId": 1766790,
+              "powerFavored": true,
+              "condiFavored": false,
+              "needsDefianceBreak": true,
               "localizedNames": {
                 "en": "Cardinal Sabir",
                 "fr": "Cardinal Sabir",
@@ -673,6 +751,9 @@
               "api_id": "qadim_the_peerless",
               "abbriviation": "Q2",
               "assetId": 2155914,
+              "powerFavored": false,
+              "condiFavored": true,
+              "needsDefianceBreak": true,
               "localizedNames": {
                 "en": "Qadim the Peerless",
                 "fr": "Qadim l'Inégalé",
@@ -736,6 +817,9 @@
               "api_id": "camp",
               "abbriviation": "C",
               "assetId": 3442796,
+              "powerFavored": false,
+              "condiFavored": false,
+              "needsDefianceBreak": false,
               "localizedNames": {
                 "en": "Camp",
                 "fr": null,
@@ -754,6 +838,9 @@
               "api_id": "decima",
               "abbriviation": "D",
               "assetId": 3375072,
+              "powerFavored": true,
+              "condiFavored": true,
+              "needsDefianceBreak": true,
               "localizedNames": {
                 "en": "Decima, the Stormsinger",
                 "fr": "Decima, l'antienne de la tempête",
@@ -772,6 +859,9 @@
               "api_id": "greer",
               "abbriviation": "G",
               "assetId": 3441685,
+              "powerFavored": true,
+              "condiFavored": true,
+              "needsDefianceBreak": true,
               "localizedNames": {
                 "en": "Greer, the Blightbringer",
                 "fr": "Greer, le porte-fléau",
@@ -790,6 +880,9 @@
               "api_id": "ura",
               "abbriviation": "U",
               "assetId": 3441855,
+              "powerFavored": true,
+              "condiFavored": true,
+              "needsDefianceBreak": true,
               "localizedNames": {
                 "en": "Ura, the Steamshrieker",
                 "fr": "Ura, la vapeur fulminante ",
