@@ -25,13 +25,11 @@ public class RaidTooltipView : Blish_HUD.Controls.Tooltip
     private readonly Label _defianceLabel;
  
 
-    private RaidEncounter _encounter;
-    private StrikeMission _strikeMission;
+    private RaidEncounter _encounter = new();
+    private StrikeMission _strikeMission = new();
 
     public RaidTooltipView()
     {
-       
-        Rectangle imageBounds;
         // _image.Texture = Service.Textures!.SettingTabFractals;
         // _image.Bounds = imageBounds = new(4, 4, 48, 48);
 
