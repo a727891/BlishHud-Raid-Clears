@@ -1,118 +1,94 @@
 # Clears Tracker
-(formerly Raid Clears)
+*(formerly Raid Clears)*
 
-Add a small grid to the screen showing raid encounter weekly clear status.
+A Blish HUD module that displays your weekly raid, ~~strike~~ raid encounter, fractal, and dungeon clear status in an elegant, customizable overlay.
 
-Requires an active API token for account+progression.
+---
 
+## For support, bug reports, or feature requests, please visit the [Blish HUD Discord](https://discord.gg/FYKN3qh) or open an issue on GitHub.
 
-Key Features
-- Configurable size
-- Label options for the wings (number, abbriv, none)
-- Horizontal or Vertical layouts (New -Single Row layout)
-- Option to hide wings from the display.
-- Optional mouse over to read boss/wing names
-- Opacity/Transparency settings
-- Optional Corner Icon next to Blish to hide/show the clears screen
-- Keybind support to hide/show the clears screen
-- Selectable API polling rate
+---
 
+## Overview
+
+Clears Tracker automatically tracks your weekly PvE instance clears using the Guild Wars 2 API. The module displays your progress through raids, strikes, fractals, and dungeons in an easy-to-read grid format that you can customize to match your preferences.
+
+## Requirements
+
+- **Blish HUD** (v1.0.0 or higher)
+- **Guild Wars 2 API Token** with the following permissions:
+  - `account` (required)
+  - `progression` (required)
+
+## Features
+
+### Core Functionality
+- **Automatic Tracking** - Fetches clear data directly from the Guild Wars 2 API
+- **Multiple Content Types** - Track Raids, Strikes, Fractals, and Dungeons
+- **Real-time Updates** - Configurable API polling rate for up-to-date information
+- **Weekly Reset Tracking** - Automatically resets clears on weekly reset
+
+### Customization Options
+- **Layout Options** - Horizontal, Vertical, Single Row, or Single Column layouts
+- **Label Display** - Choose between full names, abbreviations, or numbers
+- **Custom Labels** - Customize individual encounter labels
+- **Color Customization** - Full color control for cleared/uncleared states and backgrounds
+- **Font Size** - Adjustable font sizes for better readability
+- **Opacity Controls** - Fine-tune transparency for labels, grids, and backgrounds
+- **Visibility Controls** - Show/hide individual wings, encounters, or entire content types
+
+### User Experience
+- **Corner Icon** - Quick access with tooltip showing account name and MOTD
+- **Notification System** - Visual indicator for new messages and updates
+- **Keybind Support** - Assign hotkeys to quickly show/hide panels
+- **Screen Clamping** - Optional setting to keep overlays within screen bounds
+- **Tooltips** - Hover over encounters for detailed information including damage types and break bars
+- **Drag & Drop** - Reposition panels anywhere on your screen (when unlocked)
+
+### Advanced Features
+- **Automatic Updates** - Fractal and strike data automatically updates from static hosting
+- **Internationalization** - Multi-language support with localization
+- **Clear Management** - Manual clear correction tools for edge cases
+- **Stylized Boxes** - Optional organic grid box backgrounds
+
+## Installation
+
+1. Install [Blish HUD](https://blishhud.com/)
+2. Open Blish HUD and navigate to the **Modules** tab
+3. Search for "Clears Tracker" or "Raid Clears"
+4. Click **Install**
+5. Configure your API token in Blish HUD settings (Account → API Key)
+6. The module will automatically start tracking your clears!
+
+## Usage
+
+Once installed, the module will display panels for each enabled content type. Use the corner icon (top-right of screen) to:
+- **Left-click** - Toggle visibility of all panels
+- **Right-click** - Open context menu with additional options
+- **Hover** - View account name and any important messages
+
+Access settings by right-clicking the corner icon and selecting "Open Settings", or through Blish HUD's module settings page.
 
 ## Change Log
-### 3.3.1 (2026-01-25)
-* Added corner icon tooltip with account name and MOTD support
-* Added corner icon notification dot for new messages
-* Added raid boss damage type and break bar tooltips
-* Added fractal CM selection settings
-* Improved internationalization (i18n) support
-* Fixed localization issues for fractal maps and raid wings
-* Fixed UTF-8 encoding issues in dynamic labels
 
-### 3.3.0 (2026-01-23)
-* Renamed "Strikes" to "Raid Encounters" throughout the module
-* Added config file API versioning and unified file names
-* Moved most strings to resource files for better localization
-* Added open color picker button in settings
-* Added Janthir Wilds raid support
-* Improved French translations (Thanks Naru!)
-* Made settings window buttons wider to accommodate longer translations
+See [CHANGELOG.md](CHANGELOG.md) for a complete list of changes and version history.
 
-### 3.2.0 (2024-12-14)
-* Added fancy tooltips with encounter information
-* Added label customization for encounters
-* Added more fine-grain visibility controls
-* Added stylized boxes option
-* Added raid wing visibility controls
+## Credits
 
-### 3.0.0 (2024-05-24)
-* Updated for May 2024 game patch
-* Added Lonely Tower fractal
-* Added "Keep overlays on screen" setting to prevent dragging windows outside screen bounds
-* Adjusted Fractal Recs and Fractal DailyTier with known data
-* Automatic Fractal and Strike updates - data now downloaded from BlishHUD static hosting on module load
-* Automatic Fractal Instabilities updates from static hosting
-* Reduced module size by pushing image assets to static hosting
+**Developers:**
+- **Soeed** - Primary developer
+- **Abbadon** - Contributor
 
-### 2.6.1 (2024-05-22)
-* Version bump for public repo release
-* Added screen-clamp setting
-### 2.6.0 (2024-05-21)
-* Updated for Soto fractal
-* Instabilities are loaded from bhud-static
-* Fractal data is loaded from bhud-static
-### 2.5.0 
-### 2.4.0 (2024-01-11)
-* Added Fractal CM with Instabilities
- 
-----
-### 1.1.2 (2022-07-22)
-* Fixed Opacity settings not being applied at module load
-* Fixed FontSize scaling by changing label widths and limiting available sizes
-* Added ApiPollPeriod setting to increase or decrease polling rate
-
-### 1.1.1 (2022-07-21)
-* Added IsInGame and MapOpen filter checks to hide the panel properly
-
-### 1.1.0 (2022-07-21)
-* Rewrote using Eksofa's SDK style repo.
-
-### 1.2.0 (2022-07-31)
-* Added Dunegon tracking
-
-### 1.3.0 (2022-10-23)
-* Added Call of the Mists and Emboldened
-
-### 1.4.0 (2022-12-31)
-* Added color customization
-
-### 1.4.1 (2023-01-11)
-* Settings are expanded by default
-
-### 2.0.0 (2023-02-01)
-* Rewrite
-* Added strike functionality
-### 2.0.1 (2023-02-12)
-* version bump for 2.0.0 full release
-### 2.0.2 (2023-02-13)
-* Fixed keybinds not activating
-### 2.0.3 (2023-02-26)
-* Fixed race condition on 
-### 2.0.4 (2023-03-01)
-* Fixed daily strike index using Anets day of year index calculation
-### 2.0.5 (2023-03-19)
-* Added Wing 8 for april fools joke
-### 2.1.0 (2023-04-20)
-
-### 2.2.0 (2023-06-28)
-* Added Silent Surf support
-### 2.2.1 (2023-07-12)
-* Finalized Silent Surf fractal changes
-* Added strike and fractal clear management setting page.
-### 2.2.2 (2023-07-30)
-* Added Dragonstorm to IBS strikes list
-### 2.2.3 (2023-08-22)
-* Added Soto fix patch for blish corner icon offset
-### 2.3.0 (2023-08-24)
-* Added SotO Strike missions
----
+**Inspiration:**
 Heavily inspired by the same feature bundled with Gw2TaCO.
+
+**Translations:**
+- French translations by Naru
+
+---
+
+## Links
+
+- [Blish HUD Module Page](https://blishhud.com/modules/?module=Soeed.RaidClears)
+- [GitHub Repository](https://github.com/a727891/BlishHud-Raid-Clears)
+
