@@ -19,6 +19,40 @@ Key Features
 
 
 ## Change Log
+### 3.3.1 (2026-01-25)
+* Added corner icon tooltip with account name and MOTD support
+* Added corner icon notification dot for new messages
+* Added raid boss damage type and break bar tooltips
+* Added fractal CM selection settings
+* Improved internationalization (i18n) support
+* Fixed localization issues for fractal maps and raid wings
+* Fixed UTF-8 encoding issues in dynamic labels
+
+### 3.3.0 (2026-01-23)
+* Renamed "Strikes" to "Raid Encounters" throughout the module
+* Added config file API versioning and unified file names
+* Moved most strings to resource files for better localization
+* Added open color picker button in settings
+* Added Janthir Wilds raid support
+* Improved French translations (Thanks Naru!)
+* Made settings window buttons wider to accommodate longer translations
+
+### 3.2.0 (2024-12-14)
+* Added fancy tooltips with encounter information
+* Added label customization for encounters
+* Added more fine-grain visibility controls
+* Added stylized boxes option
+* Added raid wing visibility controls
+
+### 3.0.0 (2024-05-24)
+* Updated for May 2024 game patch
+* Added Lonely Tower fractal
+* Added "Keep overlays on screen" setting to prevent dragging windows outside screen bounds
+* Adjusted Fractal Recs and Fractal DailyTier with known data
+* Automatic Fractal and Strike updates - data now downloaded from BlishHUD static hosting on module load
+* Automatic Fractal Instabilities updates from static hosting
+* Reduced module size by pushing image assets to static hosting
+
 ### 2.6.1 (2024-05-22)
 * Version bump for public repo release
 * Added screen-clamp setting
