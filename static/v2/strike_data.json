@@ -374,11 +374,11 @@
       "daily_priority_offset": 100,
       "missions": [
         {
-          "id": "voe_1",
-          "name": "Voe1????",
-          "abbriviation": "VoE1",
+          "id": "guardians_glade",
+          "name": "Guardian's Glade",
+          "abbriviation": "GG",
           "assetId": 3442796,
-          "mapIds": [-2],
+          "mapIds": [1609],
           "localizedNames": {
             "en": null,
             "fr": null,
