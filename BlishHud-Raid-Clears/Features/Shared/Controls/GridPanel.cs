@@ -1,4 +1,4 @@
-﻿using Blish_HUD;
+using Blish_HUD;
 using Blish_HUD.Controls;
 using Blish_HUD.Input;
 using Blish_HUD.Settings;
@@ -6,6 +6,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using RaidClears.Features.Shared.Services;
 using RaidClears.Settings.Models;
+using RaidClears.Settings.Enums;
+using System;
 
 namespace RaidClears.Features.Shared.Controls;
 
@@ -70,6 +72,41 @@ public class GridPanel : FlowPanel
             Location += nOffset;
 
             _dragStart = GameService.Input.Mouse.Position;
+            SyncAnchoredPanelDuringDrag();
+        }
+    }
+
+    private void SyncAnchoredPanelDuringDrag()
+    {
+        if (!Service.Settings.StrikeSettings.AnchorToRaidPanel.Value)
+            return;
+
+        var raidPanel = Service.RaidWindow;
+        var strikesPanel = Service.StrikesWindow;
+        if (raidPanel == null || strikesPanel == null)
+            return;
+
+        var padding = raidPanel.ControlPadding.ToPoint();
+        var layout = Service.Settings.RaidSettings.Style.Layout.Value;
+
+        if (ReferenceEquals(this, raidPanel))
+        {
+            var strikeLoc = layout is Layout.Horizontal or Layout.SingleRow
+                ? Location + new Point(Size.X + padding.X, 0)
+                : Location + new Point(0, Size.Y + padding.Y);
+            strikesPanel.Location = strikeLoc;
+        }
+        else if (ReferenceEquals(this, strikesPanel))
+        {
+            var raidLoc = layout is Layout.Horizontal or Layout.SingleRow
+                ? Location - new Point(raidPanel.Size.X + padding.X, 0)
+                : Location - new Point(0, raidPanel.Size.Y + padding.Y);
+            raidPanel.Location = raidLoc;
+           
+            var strikeLoc = layout is Layout.Horizontal or Layout.SingleRow
+                ? raidPanel.Location + new Point(raidPanel.Size.X + padding.X, 0)
+                : raidPanel.Location + new Point(0, raidPanel.Size.Y + padding.Y);
+            strikesPanel.Location = strikeLoc;
         }
     }
 
@@ -89,7 +126,9 @@ public class GridPanel : FlowPanel
             {
                 _isDraggedByMouse = false;
                 ClampToSpriteScreen();
-                
+                // When anchor is on and we just finished dragging the strikes panel, persist raid location
+                if (Service.Settings.StrikeSettings.AnchorToRaidPanel.Value && ReferenceEquals(this, Service.StrikesWindow))
+                    Service.Settings.RaidSettings.Generic.Location.Value = Service.RaidWindow.Location;
             }
         };
     }
@@ -116,9 +155,8 @@ public class GridPanel : FlowPanel
             {
                 Location = new Point(Location.X, screenSize.Y - Size.Y);
             }
+            SyncAnchoredPanelDuringDrag();
         }
-
-        _settings.Location.Value = Location;
     }
 
     private bool ShouldIgnoreMouse() => !(_settings.PositionLock.Value || _settings.Tooltips.Value);
