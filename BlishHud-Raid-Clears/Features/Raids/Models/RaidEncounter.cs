@@ -28,6 +28,12 @@ public class RaidEncounter : EncounterInterface
     public bool NeedsDefianceBreak { get; set; } = false;
 
     /// <summary>
+    /// Optional GW2 achievement ID for the boss mentor achievement (e.g. Vale Guardian: 9105). Null when the encounter has no mentor achievement.
+    /// </summary>
+    [JsonProperty("mentor_achievement_id", NullValueHandling = NullValueHandling.Ignore)]
+    public int? MentorAchievementId { get; set; }
+
+    /// <summary>
     /// Returns the localized name based on user locale, falling back to default name if localization is not available.
     /// </summary>
     public new string Name

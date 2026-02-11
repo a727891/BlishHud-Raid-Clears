@@ -1,4 +1,4 @@
-﻿using RaidClears.Utils;
+using RaidClears.Utils;
 using RaidClears.Features.Shared.Controls;
 using RaidClears.Features.Shared.Services;
 using RaidClears.Features.Raids.Models;
@@ -33,6 +33,9 @@ public class RaidPanel : GridPanel
                         encounter.SetCleared(weeklyClears.Contains(encounter.id));
                     }
                 }
+
+                await Service.MentorAchievementProgress.RefreshFromApiAsync();
+
                 Invalidate();
             });
         };

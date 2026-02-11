@@ -39,6 +39,7 @@ public static class Service
     public static FractalMapData FractalMapData { get; set; } = null!;
 
     public static RaidData RaidData { get; set; } = null!;
+    public static MentorAchievementProgressService MentorAchievementProgress { get; set; } = null!;
     public static RaidPanel RaidWindow { get; set; } = null!;
     public static StrikesPanel StrikesWindow { get; set; } = null!;
     public static FractalsPanel FractalWindow { get; set; } = null!;

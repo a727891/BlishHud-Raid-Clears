@@ -60,6 +60,8 @@ public class Module : Blish_HUD.Modules.Module
         var metadata = ModuleMetaDataService.CheckVersions();
 
         Service.RaidData = RaidData.Load();
+        Service.MentorAchievementProgress = new MentorAchievementProgressService(Service.RaidData);
+        Service.MentorAchievementProgress.LoadCache();
         Service.StrikeData = StrikeData.Load();
         Service.DailyBountyData = DailyBountyDataService.Load();
         Service.RaidSettings = RaidSettingsPersistance.Load();
@@ -139,6 +141,7 @@ public class Module : Blish_HUD.Modules.Module
             Service.MapWatcher.DispatchCurrentStrikeClears();
             Service.FractalMapWatcher.DispatchCurrentClears();
             Service.CornerIcon?.UpdateAccountName(Service.CurrentAccountName);
+            await Service.MentorAchievementProgress.RefreshFromApiAsync();
         });
     }
 
