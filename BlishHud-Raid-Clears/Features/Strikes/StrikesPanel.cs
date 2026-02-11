@@ -1,4 +1,4 @@
-﻿using RaidClears.Utils;
+using RaidClears.Utils;
 using RaidClears.Features.Shared.Services;
 using RaidClears.Features.Shared.Controls;
 using RaidClears.Features.Strikes.Models;
@@ -49,6 +49,10 @@ public class StrikesPanel : GridPanel
     {
         foreach (var group in _strikes)
         {
+            if (group is DailyBountyTomorrow)
+            {
+                continue;
+            }
             foreach (var encounter in group.boxes)
             {
                 encounter.SetCleared(strikesCompletedThisReset.Contains(encounter.id));

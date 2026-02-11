@@ -4,6 +4,7 @@ using RaidClears.Features.Fractals;
 using RaidClears.Features.Fractals.Services;
 using RaidClears.Features.Raids;
 using RaidClears.Features.Raids.Services;
+using RaidClears.Features.Shared.Models;
 using RaidClears.Features.Shared.Services;
 using RaidClears.Features.Strikes;
 using RaidClears.Features.Strikes.Services;
@@ -25,6 +26,8 @@ public static class Service
     public static TextureService? Textures { get; set; }
     public static ApiPollService? ApiPollingService { get; set; }
     public static SettingsPanel SettingsWindow { get; set; } = null!;
+
+    public static DailyBountyData DailyBountyData { get; set; } = null!;
 
     public static StrikeData StrikeData { get; set; } = null!;
     public static RaidSettingsPersistance RaidSettings { get; set; } = null!;

@@ -116,17 +116,6 @@ public static class Settings
         {
             public static Setting<bool> highlightEmbolden = new("RCEmbolden", true, () => Strings.Setting_Raid_Embolden_Label, () => Strings.Setting_Raid_Embolden_Tooltip);
             public static Setting<bool> highlightCotm = new("RCCotM", true, () => Strings.Setting_Raid_Cotm_Label, () => Strings.Setting_Raid_Cotm_Tooltip);
-            
-            public static Setting<bool>[] raidWings = {
-                new("RCw1",true,() => Strings.Setting_Raid_W1_Label,() => Strings.Setting_Raid_W1_Tooltip),
-                new("RCw2",true,() => Strings.Setting_Raid_W2_Label,() => Strings.Setting_Raid_W2_Tooltip),
-                new("RCw3",true,() => Strings.Setting_Raid_W3_Label,() => Strings.Setting_Raid_W3_Tooltip),
-                new("RCw4",true,() => Strings.Setting_Raid_W4_Label,() => Strings.Setting_Raid_W4_Tooltip),
-                new("RCw5",true,() => Strings.Setting_Raid_W5_Label,() => Strings.Setting_Raid_W5_Tooltip),
-                new("RCw6",true,() => Strings.Setting_Raid_W6_Label,() => Strings.Setting_Raid_W6_Tooltip),
-                new("RCw7",true,() => Strings.Setting_Raid_W7_Label,() => Strings.Setting_Raid_W7_Tooltip),
-                new("RCw8",true,() => Strings.Setting_Raid_W8_Label,() => Strings.Setting_Raid_W8_Tooltip),
-            };
         }
     }
 
@@ -163,38 +152,7 @@ public static class Settings
 
         public static class Module
         {
-            public static Setting<bool>[] ibsMissions =
-            {
-                new StrikeSetting<bool>("StrikeVis_shiverpeak_pass", true, () => Strings.Setting_Strike_SP_Label),
-                new StrikeSetting<bool>("StrikeVis_fraenir_of_jormag", true, () => Strings.Setting_Strike_FoJ_Label),
-                new StrikeSetting<bool>("StrikeVis_voice_and_claw", true, () => Strings.Setting_Strike_VandC_Label),
-                new StrikeSetting<bool>("StrikeVis_whisper_of_jormag", true, () => Strings.Setting_Strike_WoJ_Label),
-                new StrikeSetting<bool>("StrikeVis_boneskinner", true, () => Strings.Setting_Strike_BS_Label),
-                new StrikeSetting<bool>("StrikeVis_cold_war", true, () => Strings.Setting_Strike_CW_Label),
-                new StrikeSetting<bool>("StrikeVis_dragonstorm", true, () => "Dragonstorm"),
-            };
-
-            public static Setting<bool>[] eodMissions =
-            {
-                new StrikeSetting<bool>("StrikeVis_aetherblade_hideout", true, () => Strings.Setting_Strike_AH_Label),
-                new StrikeSetting<bool>("StrikeVis_xunlai_jade_junkyard", true, () => Strings.Setting_Strike_XJJ_Label),
-                new StrikeSetting<bool>("StrikeVis_kaineng_overlook", true, () => Strings.Setting_Strike_KO_Label),
-                new StrikeSetting<bool>("StrikeVis_harvest_temple", true, () => Strings.Setting_Strike_HT_Label),
-                new StrikeSetting<bool>("StrikeVis_old_lion_court", true, () => Strings.Setting_Strike_OLC_Label),
-            };
-            public static Setting<bool>[] sotoMissions =
-            {
-                new StrikeSetting<bool>("StrikeVis_cosmic_observatory", true, () => "Cosmic Observatory"),
-                new StrikeSetting<bool>("StrikeVis_temple_of_febe", true, () => "Temple of Febe"),
-               
-            };
-
-            public static Setting<bool> showIbs = new("StrikeVis_ibs", true, () => Strings.Setting_Strike_IBS);
-            public static Setting<bool> showEod = new("StrikeVis_eod", true, () => Strings.Setting_Strike_Eod);
-            public static Setting<bool> showSotO = new("StrikeVis_soto", true, () => "Enable Secrets of the Obscure");
-            public static Setting<bool> showPriority = new("StrikeVis_priority", true, () => Strings.Setting_Stike_Priority);
             public static Setting<bool> anchorToRaids = new("RCAnchorToRaids", false, () => Strings.Settings_Strike_AnchorToRaidLabel, () => Strings.Settings_Strike_AnchorToRaidTooltip);
-
             public static Setting<StrikeComplete> strikeCompletion = new("RCStrikeComplete", StrikeComplete.MAP_CHANGE, () => Strings.Settings_Strike_Completion, () => Strings.Settings_Strike_CompletionTooltip);
         }
     }

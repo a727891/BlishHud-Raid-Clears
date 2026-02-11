@@ -34,6 +34,9 @@ public class StrikeSettingsPersistance : Labelable
     [JsonProperty("priority")]
     public bool Priority { get; set; } = true;
 
+    [JsonProperty("tomorrow_bounties")]
+    public bool TomorrowBounties { get; set; } = false;
+
 
     [JsonProperty("expansions")]
     public Dictionary<string, bool> Expansions { get; set; } = new();
@@ -72,9 +75,10 @@ public class StrikeSettingsPersistance : Labelable
 
     public SettingEntry<bool> GetPriorityVisible(ExpansionStrikes priority)
     {
-        if (VirtualSettingsEnties.ContainsKey("priority"))
+        const string key = "priority";
+        if (VirtualSettingsEnties.ContainsKey(key))
         {
-            return VirtualSettingsEnties["priority"];
+            return VirtualSettingsEnties[key];
         }
 
         var setting = new SettingEntry<bool>()
@@ -88,7 +92,29 @@ public class StrikeSettingsPersistance : Labelable
             Priority = e.NewValue;
             Save();
         };
-        VirtualSettingsEnties.Add("priority", setting);
+        VirtualSettingsEnties.Add(key, setting);
+        return setting;
+    }
+    public SettingEntry<bool> GetTomorrowBountiesVisible(ExpansionStrikes priority)
+    {
+        const string key = "priority_tomorrow";
+        if (VirtualSettingsEnties.ContainsKey(key))
+        {
+            return VirtualSettingsEnties[key];
+        }
+
+        var setting = new SettingEntry<bool>()
+        {
+            Value = TomorrowBounties,
+            GetDescriptionFunc = () => string.Empty,
+            GetDisplayNameFunc = () => string.Format(Strings.StrikeSettings_EnablePriority, priority.Name)
+        };
+        setting.SettingChanged += (_, e) =>
+        {
+            TomorrowBounties = e.NewValue;
+            Save();
+        };
+        VirtualSettingsEnties.Add(key, setting);
         return setting;
     }
     public SettingEntry<bool> GetExpansionVisible(ExpansionStrikes expac)
@@ -210,7 +236,7 @@ public class StrikeSettingsPersistance : Labelable
     {
         var newCharacterConfiguration = new StrikeSettingsPersistance();
         newCharacterConfiguration.DefineEmpty();
-        Service.Settings.StrikeSettings.ConvertToJsonFile(newCharacterConfiguration);
+        //Service.Settings.StrikeSettings.ConvertToJsonFile(newCharacterConfiguration);
         newCharacterConfiguration.Save();
         return newCharacterConfiguration;
     }

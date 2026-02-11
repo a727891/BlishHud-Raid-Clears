@@ -466,7 +466,7 @@
     <value>Tastenbelegung ein-/ausblenden</value>
   </data>
   <data name="Setting_Dun_Keybind_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Dun_Tooltips_Label" xml:space="preserve">
     <value>Aktiviert Mauszeiger-QuickInfos auf dem Overlay</value>
@@ -556,13 +556,13 @@
     <value>Tastenbelegung ein-/ausblenden</value>
   </data>
   <data name="Setting_Raid_Keybind_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Raid_LabelDisplay_Label" xml:space="preserve">
     <value>Etikettenstil</value>
   </data>
   <data name="Setting_Raid_LabelDisplay_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Raid_LabelOpacity_Label" xml:space="preserve">
     <value>Deckkraft des Etiketts</value>
@@ -574,7 +574,7 @@
     <value>Gitterstruktur</value>
   </data>
   <data name="Setting_Raid_Layout_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Raid_PanelOpacity_Label" xml:space="preserve">
     <value>Deckkraft des Gitterhintergrunds</value>
@@ -635,9 +635,6 @@
   </data>
   <data name="Setting_Raid_W7_Tooltip" xml:space="preserve">
     <value>Aktiviere den Schlüssel von Ahdashim im Schlachtzug-Overlay</value>
-  </data>
-  <data name="Setting_Stike_Priority" xml:space="preserve">
-    <value>Priority-Schlachtzugbegegnungen aktivieren (täglich)</value>
   </data>
   <data name="Setting_Strike_AH_Label" xml:space="preserve">
     <value>Ätherklingen-Unterschlupf</value>
@@ -712,7 +709,7 @@
     <value>Tastenbelegung ein-/ausblenden</value>
   </data>
   <data name="Setting_Strike_Keybind_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Strike_KO_Label" xml:space="preserve">
     <value>Kaineng-Aussichtspunkt</value>
@@ -721,7 +718,7 @@
     <value>Etikettenstil</value>
   </data>
   <data name="Setting_Strike_LabelDisplay_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Strike_LabelOpacity_Label" xml:space="preserve">
     <value>Deckkraft des Etiketts</value>
@@ -733,7 +730,7 @@
     <value>Gitterstruktur</value>
   </data>
   <data name="Setting_Strike_Layout_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Strike_OLC_Label" xml:space="preserve">
     <value>Alter Löwenhof</value>
@@ -785,12 +782,6 @@
   </data>
   <data name="StrikeGroup_Icebrood_abbr" xml:space="preserve">
     <value>RDS</value>
-  </data>
-  <data name="StrikeGroup_Priority" xml:space="preserve">
-    <value>Priority-Schlachtzüge-Missionen (täglich)</value>
-  </data>
-  <data name="StrikeGroup_Priority_abbr" xml:space="preserve">
-    <value>PS</value>
   </data>
   <data name="Strike_Confirm_Btn_No" xml:space="preserve">
     <value>NEIN</value>
@@ -921,13 +912,13 @@
     <value>Tastenbelegung ein-/ausblenden</value>
   </data>
   <data name="Setting_Fractals_Keybind_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Fractals_LabelDisplay_Label" xml:space="preserve">
     <value>Etikettenstil</value>
   </data>
   <data name="Setting_Fractals_LabelDisplay_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Fractals_LabelOpacity_Label" xml:space="preserve">
     <value>Deckkraft des Etiketts</value>
@@ -939,7 +930,7 @@
     <value>Gitterstruktur</value>
   </data>
   <data name="Setting_Fractals_Layout_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Fractals_PanelOpacity_Label" xml:space="preserve">
     <value>Deckkraft des Gitterhintergrunds</value>
@@ -969,7 +960,7 @@
     <value>Tägliche Fraktal-Gruppierungen aktivieren</value>
   </data>
   <data name="Setting_Fractals_Visible_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="CornerIconPriority_Help" xml:space="preserve">
     <value>Anpassen, wo das Clears Tracker-Symbol oben links nach dem Blish-Symbol erscheint</value>
@@ -1110,7 +1101,8 @@
     <value>'GW2-Stil' Hintergrundboxen</value>
   </data>
   <data name="Settings_OrganicGridBoxBackgrounds_Tooltip" xml:space="preserve">
-    <value>Ein: Hintergründe erscheinen mit unscharfen Kanten, ähnlicher dem GW2-Stil,&#xA;Aus: Hintergrund wird Rechtecke sein</value>
+    <value>Ein: Hintergründe erscheinen mit unscharfen Kanten, ähnlicher dem GW2-Stil,
+Aus: Hintergrund wird Rechtecke sein</value>
   </data>
   <data name="Settings_Main_Demo" xml:space="preserve">
     <value>Demo</value>

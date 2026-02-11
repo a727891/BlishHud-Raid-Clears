@@ -29,7 +29,7 @@ public class RaidSettings
             Visible = settings.DefineSetting(Settings.Raids.General.visible),
         };
         
-        RaidWings = Settings.Raids.Module.raidWings.Select(settings.DefineSetting).ToArray();
+        // RaidWings = Settings.Raids.Module.raidWings.Select(settings.DefineSetting).ToArray();
         
         RaidPanelHighlightEmbolden = settings.DefineSetting(Settings.Raids.Module.highlightEmbolden);
         RaidPanelHighlightCotM = settings.DefineSetting(Settings.Raids.Module.highlightCotm);
@@ -57,53 +57,66 @@ public class RaidSettings
 
         RaidPanelColorEmbolden = settings.DefineSetting(Settings.Raids.Style.Color.embolden);
         RaidPanelColorCotm = settings.DefineSetting(Settings.Raids.Style.Color.cotm);
+
+        CleanUpOldSettings(settings);
     }
 
-    /**
-     * Used to convert existing settings to new settings JSON file
-     */
-    public void ConvertToJsonFile(RaidSettingsPersistance json, RaidData raidData)
-    {
-        foreach(var expansion in raidData.Expansions)
-        {
-            SetExpansionValue(json, expansion.Id, true);
-            foreach(var wing in expansion.Wings)
-            {
-                if (RaidWings.Count() >= wing.Number)
-                {
-                    SetWingValue(json, wing.Id, RaidWings.ToArray()[wing.Number-1].Value);
-                }
-                else
-                {
-                    SetWingValue(json, wing.Id, true);
-                }
-                foreach(var encounter in wing.Encounters)
-                {
-                    SetEncounterValue(json, encounter.ApiId, true);
-                }
-            }
-        }
+    public void CleanUpOldSettings(SettingCollection settings){
+        settings.UndefineSetting("RCw1");
+        settings.UndefineSetting("RCw2");
+        settings.UndefineSetting("RCw3");
+        settings.UndefineSetting("RCw4");
+        settings.UndefineSetting("RCw5");
+        settings.UndefineSetting("RCw6");
+        settings.UndefineSetting("RCw7");
+        settings.UndefineSetting("RCw8");
+    }
+
+    // /**
+    //  * Used to convert existing settings to new settings JSON file
+    //  */
+    // public void ConvertToJsonFile(RaidSettingsPersistance json, RaidData raidData)
+    // {
+    //     foreach(var expansion in raidData.Expansions)
+    //     {
+    //         SetExpansionValue(json, expansion.Id, true);
+    //         foreach(var wing in expansion.Wings)
+    //         {
+    //             if (RaidWings.Count() >= wing.Number)
+    //             {
+    //                 SetWingValue(json, wing.Id, RaidWings.ToArray()[wing.Number-1].Value);
+    //             }
+    //             else
+    //             {
+    //                 SetWingValue(json, wing.Id, true);
+    //             }
+    //             foreach(var encounter in wing.Encounters)
+    //             {
+    //                 SetEncounterValue(json, encounter.ApiId, true);
+    //             }
+    //         }
+    //     }
        
-    }
-    private void SetExpansionValue(RaidSettingsPersistance json, string id, bool value)
-    {
-        if (json.Expansions.ContainsKey(id))
-        {
-            json.Expansions[id] = value;
-        }
-    }
-    private void SetWingValue(RaidSettingsPersistance json, string id, bool value)
-    {
-        if (json.Wings.ContainsKey(id))
-        {
-            json.Wings[id] = value;
-        }
-    }
-    private void SetEncounterValue(RaidSettingsPersistance json, string id, bool value)
-    {
-        if (json.Encounters.ContainsKey(id))
-        {
-            json.Encounters[id] = value;
-        }
-    }
+    // }
+    // private void SetExpansionValue(RaidSettingsPersistance json, string id, bool value)
+    // {
+    //     if (json.Expansions.ContainsKey(id))
+    //     {
+    //         json.Expansions[id] = value;
+    //     }
+    // }
+    // private void SetWingValue(RaidSettingsPersistance json, string id, bool value)
+    // {
+    //     if (json.Wings.ContainsKey(id))
+    //     {
+    //         json.Wings[id] = value;
+    //     }
+    // }
+    // private void SetEncounterValue(RaidSettingsPersistance json, string id, bool value)
+    // {
+    //     if (json.Encounters.ContainsKey(id))
+    //     {
+    //         json.Encounters[id] = value;
+    //     }
+    // }
 }

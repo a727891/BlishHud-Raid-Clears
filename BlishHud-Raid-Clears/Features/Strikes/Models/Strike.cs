@@ -6,7 +6,7 @@ namespace RaidClears.Features.Strikes.Models;
 public class Strike : GroupModel
 {
     public ExpansionStrikes Expansion;
-    public Strike(string name, string id, int index, string shortName, IEnumerable<BoxModel> boxes) : base(name, shortName, index, shortName, boxes)
+    public Strike(string name, string id, int index, string shortName, IEnumerable<BoxModel> boxes) : base(name, id, index, shortName, boxes)
     {
         
     }

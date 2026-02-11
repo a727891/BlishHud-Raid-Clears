@@ -114,6 +114,19 @@ public class RaidData
                 }
             }
         }
+        //Fallback to Strikes
+        var strike = Service.StrikeData.GetStrikeMissionById(apiId);
+        if (strike.Name != "undefined")
+        {
+            return new RaidEncounter()
+            {
+                Abbriviation = strike.Abbriviation,
+                ApiId = strike.Id,
+                AssetId = strike.AssetId,
+                Name = strike.Name,
+                Id = strike.Id
+            };
+        }
         return new RaidEncounter()
         {
             Abbriviation = apiId

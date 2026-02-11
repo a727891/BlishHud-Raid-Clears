@@ -56,8 +56,16 @@ public static class StrikeMetaData
             }
         }
 
-        strikes.Add(new PriorityStrikes(Service.StrikeData.Priority.Name, Service.StrikeData.Priority.Abbriviation, 11, Service.StrikeData.Priority.Abbriviation, new List<BoxModel>() { }, panel));
+        if (Service.DailyBountyData.Enabled)
+        {
+            var priorityMeta = Service.StrikeData.Priority;
+            var todayShortName = Service.StrikeSettings.GetEncounterLabel(priorityMeta.Id);
+            strikes.Add(new DailyBounty(priorityMeta.Name, priorityMeta.Id, 12, todayShortName, new List<BoxModel>() { }, panel));
 
+            var tomorrowMeta = Service.StrikeData.PriorityTomorrow;
+            var tomorrowShortName = Service.StrikeSettings.GetEncounterLabel(tomorrowMeta.Id);
+            strikes.Add(new DailyBountyTomorrow(tomorrowMeta.Name, tomorrowMeta.Id, 13, tomorrowShortName, new List<BoxModel>() { }, panel));
+        }
 
         return strikes;
     }

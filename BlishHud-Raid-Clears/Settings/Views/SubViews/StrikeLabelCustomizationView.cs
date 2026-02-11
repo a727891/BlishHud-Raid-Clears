@@ -26,7 +26,14 @@ public class StrikeLabelCustomizationView : View
 
         Dictionary<string, DateTime> clears = new();
 
-        
+        // Daily Raid Bounties and Tomorrow's Raid Bounties category labels
+        if (Service.DailyBountyData != null && Service.DailyBountyData.Enabled)
+        {
+            panel.AddControl(new EncounterLabelCustomerizer(panel, Service.StrikeSettings, Service.StrikeData.Priority, Color.Gold));
+            panel.AddControl(new EncounterLabelCustomerizer(panel, Service.StrikeSettings, Service.StrikeData.PriorityTomorrow, Color.Gold));
+            panel.AddSpace();
+        }
+
         foreach(var expansion in Service.StrikeData.Expansions)
         {
             panel.AddControl(new EncounterLabelCustomerizer(panel, Service.StrikeSettings, expansion, Color.Gold));

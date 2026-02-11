@@ -1969,15 +1969,6 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable priority missions (daily).
-        /// </summary>
-        internal static string Setting_Stike_Priority {
-            get {
-                return ResourceManager.GetString("Setting_Stike_Priority", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Aetherblade Hideout.
         /// </summary>
         internal static string Setting_Strike_AH_Label {
@@ -3028,24 +3019,6 @@ namespace RaidClears.Localization {
         internal static string StrikeGroup_Icebrood_abbr {
             get {
                 return ResourceManager.GetString("StrikeGroup_Icebrood_abbr", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Priority Missions (Daily).
-        /// </summary>
-        internal static string StrikeGroup_Priority {
-            get {
-                return ResourceManager.GetString("StrikeGroup_Priority", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to PM.
-        /// </summary>
-        internal static string StrikeGroup_Priority_abbr {
-            get {
-                return ResourceManager.GetString("StrikeGroup_Priority_abbr", resourceCulture);
             }
         }
         

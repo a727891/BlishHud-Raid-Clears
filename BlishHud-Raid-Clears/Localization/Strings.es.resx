@@ -466,7 +466,7 @@
     <value>Mostrar/Ocultar combinación de teclas</value>
   </data>
   <data name="Setting_Dun_Keybind_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Dun_Tooltips_Label" xml:space="preserve">
     <value>Habilitar la información sobre herramientas al pasar el mouse sobre la superposición</value>
@@ -556,13 +556,13 @@
     <value>Mostrar/Ocultar combinación de teclas</value>
   </data>
   <data name="Setting_Raid_Keybind_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Raid_LabelDisplay_Label" xml:space="preserve">
     <value>Estilo de etiqueta</value>
   </data>
   <data name="Setting_Raid_LabelDisplay_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Raid_LabelOpacity_Label" xml:space="preserve">
     <value>Opacidad de la etiqueta</value>
@@ -574,7 +574,7 @@
     <value>Diseño de cuadrícula</value>
   </data>
   <data name="Setting_Raid_Layout_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Raid_PanelOpacity_Label" xml:space="preserve">
     <value>Opacidad de fondo de cuadrícula</value>
@@ -635,9 +635,6 @@
   </data>
   <data name="Setting_Raid_W7_Tooltip" xml:space="preserve">
     <value>Habilita The Key of Ahdashim en la superposición de raid</value>
-  </data>
-  <data name="Setting_Stike_Priority" xml:space="preserve">
-    <value>Habilitar misiones de ataque prioritario (diario)</value>
   </data>
   <data name="Setting_Strike_AH_Label" xml:space="preserve">
     <value>Escondite Fileotero</value>
@@ -712,7 +709,7 @@
     <value>Mostrar/Ocultar combinación de teclas</value>
   </data>
   <data name="Setting_Strike_Keybind_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Strike_KO_Label" xml:space="preserve">
     <value>Mirador de Kaineng</value>
@@ -721,7 +718,7 @@
     <value>Estilo de etiqueta</value>
   </data>
   <data name="Setting_Strike_LabelDisplay_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Strike_LabelOpacity_Label" xml:space="preserve">
     <value>Opacidad de la etiqueta</value>
@@ -733,7 +730,7 @@
     <value>Diseño de cuadrícula</value>
   </data>
   <data name="Setting_Strike_Layout_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Strike_OLC_Label" xml:space="preserve">
     <value>Viega Corte del León</value>
@@ -786,12 +783,6 @@
   <data name="StrikeGroup_Icebrood_abbr" xml:space="preserve">
     <value>SII</value>
   </data>
-  <data name="StrikeGroup_Priority" xml:space="preserve">
-    <value>Misiones de ataque prioritario (diario)</value>
-  </data>
-  <data name="StrikeGroup_Priority_abbr" xml:space="preserve">
-    <value>PD</value>
-  </data>
   <data name="Strike_Confirm_Btn_No" xml:space="preserve">
     <value>No</value>
   </data>
@@ -833,9 +824,6 @@
   </data>
   <data name="Strike_Short_Whisper" xml:space="preserve">
     <value>WoJ</value>
-  </data>
-  <data name="Strike_Tooltip_tomorrow" xml:space="preserve">
-    <value>Mañana:</value>
   </data>
   <data name="VisibleHide" xml:space="preserve">
     <value>Esconder</value>
@@ -921,13 +909,13 @@
     <value>Atajo de teclado mostrar/ocultar</value>
   </data>
   <data name="Setting_Fractals_Keybind_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Fractals_LabelDisplay_Label" xml:space="preserve">
     <value>Estilo de etiqueta</value>
   </data>
   <data name="Setting_Fractals_LabelDisplay_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Fractals_LabelOpacity_Label" xml:space="preserve">
     <value>Opacidad de etiqueta</value>
@@ -939,7 +927,7 @@
     <value>Diseño de cuadrícula</value>
   </data>
   <data name="Setting_Fractals_Layout_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Fractals_PanelOpacity_Label" xml:space="preserve">
     <value>Opacidad del fondo de cuadrícula</value>
@@ -969,7 +957,7 @@
     <value>Activar agrupaciones diarias de fractales</value>
   </data>
   <data name="Setting_Fractals_Visible_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="CornerIconPriority_Help" xml:space="preserve">
     <value>Ajustar dónde aparece el icono de Clears Tracker en la esquina superior izquierda después del icono de Blish</value>
@@ -1110,7 +1098,8 @@
     <value>Cajas de fondo 'Estilo GW2'</value>
   </data>
   <data name="Settings_OrganicGridBoxBackgrounds_Tooltip" xml:space="preserve">
-    <value>Activado: Los fondos aparecerán con bordes difusos más similares al estilo de GW2,&#xA;Desactivado: El fondo será rectángulos</value>
+    <value>Activado: Los fondos aparecerán con bordes difusos más similares al estilo de GW2,
+Desactivado: El fondo será rectángulos</value>
   </data>
   <data name="Settings_Main_Demo" xml:space="preserve">
     <value>Demo</value>

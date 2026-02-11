@@ -761,10 +761,6 @@
     <value>Enable The Key of Ahdashim on the Raid Wings overlay</value>
     <comment>checkbox - wing visible on overlay</comment>
   </data>
-  <data name="Setting_Stike_Priority" xml:space="preserve">
-    <value>Enable priority missions (daily)</value>
-    <comment>checkbox - daily strike group visible on overlay</comment>
-  </data>
   <data name="Setting_Strike_AH_Label" xml:space="preserve">
     <value>Aetherblade Hideout</value>
     <comment>encounter full name</comment>
@@ -934,14 +930,6 @@
   <data name="StrikeGroup_Icebrood_abbr" xml:space="preserve">
     <value>IBS</value>
     <comment>Abbr Text for IBS Strike group</comment>
-  </data>
-  <data name="StrikeGroup_Priority" xml:space="preserve">
-    <value>Priority Missions (Daily)</value>
-    <comment>Full Text for daily Strike group</comment>
-  </data>
-  <data name="StrikeGroup_Priority_abbr" xml:space="preserve">
-    <value>PM</value>
-    <comment>Abbr Text for daily Strike group</comment>
   </data>
   <data name="Strike_Confirm_Btn_No" xml:space="preserve">
     <value>No</value>
@@ -1323,8 +1311,10 @@
     <comment>Setting label for organic/stylized background boxes</comment>
   </data>
   <data name="Settings_OrganicGridBoxBackgrounds_Tooltip" xml:space="preserve">
-    <value>On: Backgrounds will appear with fuzzy edges more akin to GW2's style,&#xA;Off: Background will be rectangles</value>
-    <comment>Setting tooltip explaining the organic grid box backgrounds feature. &#xA; is a newline character</comment>
+    <value>On: Backgrounds will appear with fuzzy edges more akin to GW2's style,
+Off: Background will be rectangles</value>
+    <comment>Setting tooltip explaining the organic grid box backgrounds feature. 
+ is a newline character</comment>
   </data>
   <data name="Settings_Main_Demo" xml:space="preserve">
     <value>Demo</value>

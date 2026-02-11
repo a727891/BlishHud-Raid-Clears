@@ -23,6 +23,8 @@ public class StrikeData
     [JsonProperty("priority")]
     public ExpansionStrikes Priority { get; set; } = new();
 
+    [JsonProperty("priority_tomorrow")]
+    public ExpansionStrikes PriorityTomorrow { get; set; } = new();
 
     [JsonProperty("expansions")]
     public List<ExpansionStrikes> Expansions { get; set; } = new ();
@@ -77,9 +79,18 @@ public class StrikeData
                 }
             }
         }
+        if(Priority.Id == name)
+        {
+            return Priority.ToStrikeMission();
+        }
+        if(PriorityTomorrow.Id == name)
+        {
+            return PriorityTomorrow.ToStrikeMission();
+        }
         return new StrikeMission()
         {
-            Id = name
+            Id = name,
+            Name = "GetStrikeMissionById Failed"
         };
     }
     public StrikeMission GetStrikeMissionByName(string name)
@@ -138,11 +149,14 @@ public class StrikeData
         }
 
         return list;
-
     }
     public SettingEntry<bool> GetPriorityVisible()
     {
         return Service.StrikeSettings.GetPriorityVisible(Priority);
+    }
+    public SettingEntry<bool> GetTomorrowBountiesVisible()
+    {
+        return Service.StrikeSettings.GetTomorrowBountiesVisible(PriorityTomorrow);
     }
     public SettingEntry<bool> GetExpansionVisible(ExpansionStrikes expac)
     {

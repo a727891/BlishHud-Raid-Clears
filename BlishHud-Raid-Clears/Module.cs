@@ -61,6 +61,7 @@ public class Module : Blish_HUD.Modules.Module
 
         Service.RaidData = RaidData.Load();
         Service.StrikeData = StrikeData.Load();
+        Service.DailyBountyData = DailyBountyDataService.Load();
         Service.RaidSettings = RaidSettingsPersistance.Load();
         Service.StrikeSettings = StrikeSettingsPersistance.Load();
         Service.FractalMapData = FractalMapData.Load();

@@ -241,7 +241,7 @@ public class RaidSettingsPersistance : Labelable
     {
         var newCharacterConfiguration = new RaidSettingsPersistance();
         newCharacterConfiguration.DefineEmpty();
-        Service.Settings.RaidSettings.ConvertToJsonFile(newCharacterConfiguration, Service.RaidData);
+        //Service.Settings.RaidSettings.ConvertToJsonFile(newCharacterConfiguration, Service.RaidData);
         newCharacterConfiguration.Save();
         return newCharacterConfiguration;
     }

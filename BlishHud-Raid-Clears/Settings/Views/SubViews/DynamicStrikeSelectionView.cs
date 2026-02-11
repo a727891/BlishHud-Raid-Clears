@@ -53,6 +53,7 @@ public class DynamicStrikeSelectionView : View
             }
             .AddString(string.Format(Strings.DynamicStrikeSelection_DisplayExpansion, expac.Name))
             .AddSetting(_data.GetPriorityVisible())
+            .AddSetting(_data.GetTomorrowBountiesVisible())
             .AddSpace()
         );
     }

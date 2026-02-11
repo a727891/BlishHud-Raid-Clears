@@ -466,7 +466,7 @@
     <value>Afficher / Masquer le raccourci clavier</value>
   </data>
   <data name="Setting_Dun_Keybind_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Dun_Tooltips_Label" xml:space="preserve">
     <value>Activer les info-bulles de survol de la souris sur l'overlay</value>
@@ -556,13 +556,13 @@
     <value>Afficher / Masquer le raccourci clavier</value>
   </data>
   <data name="Setting_Raid_Keybind_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Raid_LabelDisplay_Label" xml:space="preserve">
     <value>Style du titre</value>
   </data>
   <data name="Setting_Raid_LabelDisplay_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Raid_LabelOpacity_Label" xml:space="preserve">
     <value>Opacité du titre</value>
@@ -574,7 +574,7 @@
     <value>Disposition de la grille</value>
   </data>
   <data name="Setting_Raid_Layout_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Raid_PanelOpacity_Label" xml:space="preserve">
     <value>Opacité de l'arrière-plan de la grille</value>
@@ -635,9 +635,6 @@
   </data>
   <data name="Setting_Raid_W7_Tooltip" xml:space="preserve">
     <value>Activer la clé d'Ahdashim sur l'overlay de raid</value>
-  </data>
-  <data name="Setting_Stike_Priority" xml:space="preserve">
-    <value>Activer les combats de raid prioritaires (quotidiennement)</value>
   </data>
   <data name="Setting_Strike_AH_Label" xml:space="preserve">
     <value>Cachette des Etherlames</value>
@@ -712,7 +709,7 @@
     <value>Afficher / Masquer le raccourci clavier</value>
   </data>
   <data name="Setting_Strike_Keybind_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Strike_KO_Label" xml:space="preserve">
     <value>Belvédère de Kaineng</value>
@@ -721,7 +718,7 @@
     <value>Style du titre</value>
   </data>
   <data name="Setting_Strike_LabelDisplay_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Strike_LabelOpacity_Label" xml:space="preserve">
     <value>Opacité du titre</value>
@@ -733,7 +730,7 @@
     <value>Disposition de la grille</value>
   </data>
   <data name="Setting_Strike_Layout_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Setting_Strike_OLC_Label" xml:space="preserve">
     <value>Vieille Cour du Lion</value>
@@ -785,12 +782,6 @@
   </data>
   <data name="StrikeGroup_Icebrood_abbr" xml:space="preserve">
     <value>IBS</value>
-  </data>
-  <data name="StrikeGroup_Priority" xml:space="preserve">
-    <value>Combats de raid prioritaires (quotidiens)</value>
-  </data>
-  <data name="StrikeGroup_Priority_abbr" xml:space="preserve">
-    <value>PS</value>
   </data>
   <data name="Strike_Confirm_Btn_No" xml:space="preserve">
     <value>Non</value>
@@ -960,7 +951,7 @@
     <value>Activer le regroupement des fractales quotidiennes</value>
   </data>
   <data name="Setting_Fractals_Visible_Tooltip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="CornerIconPriority_Help" xml:space="preserve">
     <value>Ajuster où l'icône Clears Tracker en haut à gauche apparaît après l'icône Blish</value>
@@ -1101,7 +1092,8 @@
     <value>Boîtes d'arrière-plan 'Style GW2'</value>
   </data>
   <data name="Settings_OrganicGridBoxBackgrounds_Tooltip" xml:space="preserve">
-    <value>Activé : Les arrière-plans apparaîtront avec des bords flous plus proches du style de GW2,&#xA;Désactivé : L'arrière-plan sera des rectangles</value>
+    <value>Activé : Les arrière-plans apparaîtront avec des bords flous plus proches du style de GW2,
+Désactivé : L'arrière-plan sera des rectangles</value>
   </data>
   <data name="Settings_Main_Demo" xml:space="preserve">
     <value>Démo</value>
