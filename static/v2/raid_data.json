@@ -1,9 +1,10 @@
 {
-  "version": "2026-01-24T20:40:00-0500",
+  "version": "2026-02-11T20:40:00-0500",
   "secondsInWeek": 604800,
   "powerDamageAssetId": 993687,
   "condiDamageAssetId": 156600,
   "defianceAssetId": 1938788,
+  "mentorAssetId": 155062,
   "aerodrome": {
     "name": "Lions Arch Aerodrome",
     "mapId": 1155,
