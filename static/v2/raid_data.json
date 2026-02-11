@@ -70,7 +70,8 @@
                 "fr": "GdlV",
                 "de": "VG",
                 "es": "VG"
-              }
+              },
+              "mentor_achievement_id": 9105
             },
             {
               "name": "Spirit Woods",
@@ -112,7 +113,8 @@
                 "fr": "G",
                 "de": "G",
                 "es": "G"
-              }
+              },
+              "mentor_achievement_id": 9169
             },
             {
               "name": "Sabetha",
@@ -133,7 +135,8 @@
                 "fr": "S",
                 "de": "S",
                 "es": "S"
-              }
+              },
+              "mentor_achievement_id": 9140
             }
           ]
         },
@@ -179,7 +182,8 @@
                 "fr": "S",
                 "de": "S",
                 "es": "S"
-              }
+              },
+              "mentor_achievement_id": 9151
             },
             {
               "name": "Bandit Trio",
@@ -221,7 +225,8 @@
                 "fr": "M",
                 "de": "M",
                 "es": "M"
-              }
+              },
+              "mentor_achievement_id": 9170
             }
           ]
         },
@@ -288,7 +293,8 @@
                 "fr": "KC",
                 "de": "KC",
                 "es": "KC"
-              }
+              },
+              "mentor_achievement_id": 9136
             },
             {
               "name": "Twisted Castle",
@@ -330,7 +336,8 @@
                 "fr": "X",
                 "de": "X",
                 "es": "X"
-              }
+              },
+              "mentor_achievement_id": 9157
             }
           ]
         },
@@ -376,7 +383,8 @@
                 "fr": "C",
                 "de": "C",
                 "es": "C"
-              }
+              },
+              "mentor_achievement_id": 9104
             },
             {
               "name": "Mursaat Overseer",
@@ -397,7 +405,8 @@
                 "fr": "MO",
                 "de": "MO",
                 "es": "MO"
-              }
+              },
+              "mentor_achievement_id": 9117
             },
             {
               "name": "Samarog",
@@ -418,7 +427,8 @@
                 "fr": "S",
                 "de": "S",
                 "es": "S"
-              }
+              },
+              "mentor_achievement_id": 9186
             },
             {
               "name": "Deimos",
@@ -439,7 +449,8 @@
                 "fr": "D",
                 "de": "D",
                 "es": "D"
-              }
+              },
+              "mentor_achievement_id": 9166
             }
           ]
         }
@@ -505,7 +516,8 @@
                 "fr": "SH",
                 "de": "SH",
                 "es": "SH"
-              }
+              },
+              "mentor_achievement_id": 9133
             },
             {
               "name": "River of Souls",
@@ -568,7 +580,8 @@
                 "fr": "D",
                 "de": "D",
                 "es": "D"
-              }
+              },
+              "mentor_achievement_id": 9167
             }
           ]
         },
@@ -614,7 +627,8 @@
                 "fr": "CA",
                 "de": "CA",
                 "es": "CA"
-              }
+              },
+              "mentor_achievement_id": 9171
             },
             {
               "name": "Twin Largos",
@@ -635,7 +649,8 @@
                 "fr": "TL",
                 "de": "TL",
                 "es": "TL"
-              }
+              },
+              "mentor_achievement_id": 9100
             },
             {
               "name": "Qadim",
@@ -656,7 +671,8 @@
                 "fr": "Q1",
                 "de": "Q1",
                 "es": "Q1"
-              }
+              },
+              "mentor_achievement_id": 9113
             }
           ]
         },
@@ -723,7 +739,8 @@
                 "fr": "A",
                 "de": "A",
                 "es": "A"
-              }
+              },
+              "mentor_achievement_id": 9143
             },
             {
               "name": "Cardinal Sabir",
@@ -744,7 +761,8 @@
                 "fr": "S",
                 "de": "S",
                 "es": "S"
-              }
+              },
+              "mentor_achievement_id": 9165
             },
             {
               "name": "Qadim the Peerless",
@@ -765,7 +783,8 @@
                 "fr": "Q2",
                 "de": "Q2",
                 "es": "Q2"
-              }
+              },
+              "mentor_achievement_id": 9174
             }
           ]
         }
@@ -852,7 +871,8 @@
                 "fr": "D",
                 "de": "D",
                 "es": "D"
-              }
+              },
+              "mentor_achievement_id": 8469
             },
             {
               "name": "Greer",
@@ -873,7 +893,8 @@
                 "fr": "G",
                 "de": "G",
                 "es": "G"
-              }
+              },
+              "mentor_achievement_id": 8499
             },
             {
               "name": "Ura",
@@ -894,7 +915,8 @@
                 "fr": "U",
                 "de": "U",
                 "es": "U"
-              }
+              },
+              "mentor_achievement_id": 8462
             }
           ]
         }

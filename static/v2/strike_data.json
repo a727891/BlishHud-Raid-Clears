@@ -2,17 +2,33 @@
   "version": "2026-02-03T17:08:00-0500",
   "priority": {
     "id": "priority",
-    "name": "Priority Raid Encounters (Daily)",
-    "abbriviation": "P",
+    "name": "Daily Raid Bounties",
+    "abbriviation": "DRB",
     "asset": "texture_strike_priority.png",
     "resets": "daily",
     "daily_priority_modulo": 0,
     "daily_priority_offset": 0,
     "localizedNames": {
-      "en": "Priority Missions (Daily)",
-      "fr": "Combats de raid prioritaires (quotidiens)",
-      "de": "Priority-Schlachtzüge-Missionen (täglich)",
-      "es": "Misiones de ataque prioritario (diario)"
+      "en": "Daily Raid Bounties",
+      "fr": "Contrats de raid quotidiens",
+      "de": "Tägliche Raid-Belohnungen",
+      "es": "Recompensas de raid diarias"
+    },
+    "missions": []
+  },
+  "priority_tomorrow": {
+    "id": "priority_tomorrow",
+    "name": "Tomorrow's Raid Bounties",
+    "abbriviation": "DRB+",
+    "asset": "texture_strike_priority.png",
+    "resets": "daily",
+    "daily_priority_modulo": 0,
+    "daily_priority_offset": 0,
+    "localizedNames": {
+      "en": "Tomorrow's Raid Bounties",
+      "fr": "Contrats de raid de demain",
+      "de": "Morgige Raid-Belohnungen",
+      "es": "Recompensas de raid de mañana"
     },
     "missions": []
   },
