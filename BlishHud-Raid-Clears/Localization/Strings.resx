@@ -626,6 +626,14 @@
     <value>Colors the text for the weekly Call of the Mists raid wing\nCall of the Mists doubles all gold in the boss loot chest</value>
     <comment>checkbox - color call of the mists wing's text color</comment>
   </data>
+  <data name="Setting_Raid_MentorProgress_Label" xml:space="preserve">
+    <value>Show mentor achievement progress</value>
+    <comment>checkbox - show raid boss mentor progress in tooltips and fetch from API</comment>
+  </data>
+  <data name="Setting_Raid_MentorProgress_Tooltip" xml:space="preserve">
+    <value>Show your raid mentor achievement progress in raid boss tooltips.  (Restart module to take effect)</value>
+    <comment>tooltip for mentor progress setting</comment>
+  </data>
   <data name="Setting_Raid_Drag_Label" xml:space="preserve">
     <value>Unlock Raid Wings overlay position</value>
     <comment>checkbox - raids overlay draggable</comment>
@@ -1355,5 +1363,13 @@ Off: Background will be rectangles</value>
   <data name="Tooltip_DefianceBreak" xml:space="preserve">
     <value>Defiance Break</value>
     <comment>Label for defiance break indicator in raid encounter tooltip</comment>
+  </data>
+  <data name="Tooltip_MentorDone" xml:space="preserve">
+    <value>Mentor: Done</value>
+    <comment>Mentor achievement completed in raid encounter tooltip</comment>
+  </data>
+  <data name="Tooltip_MentorProgress" xml:space="preserve">
+    <value>Mentor: {0} / {1}</value>
+    <comment>Mentor achievement progress (current/max) in raid encounter tooltip. {0}=current, {1}=max</comment>
   </data>
 </root>

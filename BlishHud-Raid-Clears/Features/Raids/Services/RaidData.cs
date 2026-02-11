@@ -30,6 +30,9 @@ public class RaidData
     [JsonProperty("defianceAssetId")]
     public int DefianceAssetId { get; set; } = 0;
 
+    [JsonProperty("mentorAssetId")]
+    public int MentorAssetId { get; set; } = 155062;
+
     [JsonProperty("aerodrome")]
     public Aerodrome AeroDrome { get; set; } = new();
 

@@ -141,7 +141,8 @@ public class Module : Blish_HUD.Modules.Module
             Service.MapWatcher.DispatchCurrentStrikeClears();
             Service.FractalMapWatcher.DispatchCurrentClears();
             Service.CornerIcon?.UpdateAccountName(Service.CurrentAccountName);
-            await Service.MentorAchievementProgress.RefreshFromApiAsync();
+            if (Service.Settings.RaidSettings.RaidPanelMentorProgress.Value)
+                await Service.MentorAchievementProgress.RefreshFromApiAsync();
         });
     }
 

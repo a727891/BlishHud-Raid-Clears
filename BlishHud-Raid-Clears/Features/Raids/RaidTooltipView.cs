@@ -8,6 +8,7 @@ using Rectangle = Microsoft.Xna.Framework.Rectangle;
 using Blish_HUD;
 using RaidClears.Features.Raids.Models;
 using RaidClears.Features.Strikes.Models;
+using RaidClears;
 
 namespace RaidClears.Features.Raids;
 
@@ -23,7 +24,8 @@ public class RaidTooltipView : Blish_HUD.Controls.Tooltip
     private readonly Label _condiLabel;
     private readonly Blish_HUD.Controls.Image _defianceIcon;
     private readonly Label _defianceLabel;
- 
+    private readonly Blish_HUD.Controls.Image _mentorIcon;
+    private readonly Label _mentorLabel;
 
     private RaidEncounter _encounter = new();
     private StrikeMission _strikeMission = new();
@@ -127,6 +129,26 @@ public class RaidTooltipView : Blish_HUD.Controls.Tooltip
             Visible = false
         };
 
+        _mentorIcon = new()
+        {
+            Parent = this,
+            Height = 20,
+            Width = 20,
+            Texture = ContentService.Textures.Pixel,
+            Location = new() { X = 0, Y = 0 },
+            Visible = false
+        };
+
+        _mentorLabel = new()
+        {
+            Parent = this,
+            Height = Content.DefaultFont12.LineHeight,
+            AutoSizeWidth = true,
+            Location = new() { X = 0, Y = 0 },
+            Font = Content.DefaultFont12,
+            TextColor = Color.White * 0.85f,
+            Visible = false
+        };
     }
 
     public RaidEncounter Encoutner
@@ -189,11 +211,55 @@ public class RaidTooltipView : Blish_HUD.Controls.Tooltip
                 _defianceIcon.Visible = true;
                 _defianceLabel.Location = new(_defianceIcon.Right + 5, yOffset);
                 _defianceLabel.Visible = true;
+                yOffset += 25;
             }
             else
             {
                 _defianceIcon.Visible = false;
                 _defianceLabel.Visible = false;
+            }
+
+            // Mentor achievement progress (final line; icon + text, blank line above if other callouts present) — only when setting enabled
+            var mentorEnabled = Service.Settings?.RaidSettings?.RaidPanelMentorProgress?.Value == true;
+            var hasOtherCallouts = _powerIcon.Visible || _condiIcon.Visible || _defianceIcon.Visible;
+            if (mentorEnabled && e.NewValue.MentorAchievementId is int mentorId)
+            {
+                if (hasOtherCallouts)
+                    yOffset += 12; // blank line above mentor progress
+
+                var progress = Service.MentorAchievementProgress?.Progress;
+                _mentorIcon.Visible = raidData.MentorAssetId > 0;
+                if (_mentorIcon.Visible)
+                {
+                    _mentorIcon.Texture = Service.Textures!.DatAsset(raidData.MentorAssetId);
+                    _mentorIcon.Location = new(xOffset, yOffset);
+                }
+
+                if (progress != null && progress.TryGetValue(mentorId, out var entry))
+                {
+                    _mentorLabel.Text = entry.Done
+                        ? Strings.Tooltip_MentorDone
+                        : string.Format(Strings.Tooltip_MentorProgress, entry.Current, entry.Max);
+                    _mentorLabel.Location = _mentorIcon.Visible
+                        ? new(_mentorIcon.Right + 5, yOffset)
+                        : new(xOffset + 5, yOffset); // +5 left padding to avoid clipping
+                    _mentorLabel.Visible = true;
+                }
+                else
+                {
+                    _mentorLabel.Text = string.Format(Strings.Tooltip_MentorProgress, 0, "?");
+                    _mentorLabel.Location = _mentorIcon.Visible
+                        ? new(_mentorIcon.Right + 5, yOffset)
+                        : new(xOffset + 5, yOffset);
+                    _mentorLabel.Visible = true;
+                }
+
+                yOffset += 25;
+            }
+            else
+            {
+                _mentorIcon.Visible = false;
+                _mentorLabel.Visible = false;
             }
         }
         else
@@ -204,6 +270,8 @@ public class RaidTooltipView : Blish_HUD.Controls.Tooltip
             _condiLabel.Visible = false;
             _defianceIcon.Visible = false;
             _defianceLabel.Visible = false;
+            _mentorIcon.Visible = false;
+            _mentorLabel.Visible = false;
         }
 
         Invalidate();
@@ -256,6 +324,18 @@ public class RaidTooltipView : Blish_HUD.Controls.Tooltip
         {
             height += indicatorCount * 25;
             contentHeight += indicatorCount * 25;
+        }
+
+        // Mentor progress line (with blank line above if other callouts present)
+        if (_mentorIcon != null && _mentorIcon.Visible)
+        {
+            if (indicatorCount > 0)
+            {
+                height += 12;
+                contentHeight += 12;
+            }
+            height += 25;
+            contentHeight += 25;
         }
 
         base.Size = new(230, height);

@@ -116,6 +116,7 @@ public static class Settings
         {
             public static Setting<bool> highlightEmbolden = new("RCEmbolden", true, () => Strings.Setting_Raid_Embolden_Label, () => Strings.Setting_Raid_Embolden_Tooltip);
             public static Setting<bool> highlightCotm = new("RCCotM", true, () => Strings.Setting_Raid_Cotm_Label, () => Strings.Setting_Raid_Cotm_Tooltip);
+            public static Setting<bool> mentorProgress = new("RCMentorProgress", true, () => Strings.Setting_Raid_MentorProgress_Label, () => Strings.Setting_Raid_MentorProgress_Tooltip);
         }
     }
 

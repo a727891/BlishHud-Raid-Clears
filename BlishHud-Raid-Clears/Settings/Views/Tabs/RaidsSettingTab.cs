@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Blish_HUD.Controls;
@@ -24,6 +24,7 @@ public class RaidsSettingTab : ISettingsMenuRegistrar
             {
                 Service.Settings.RaidSettings.RaidPanelHighlightEmbolden,
                 Service.Settings.RaidSettings.RaidPanelHighlightCotM,
+                Service.Settings.RaidSettings.RaidPanelMentorProgress,
             })));
         
         _registeredMenuItems.Add(new MenuViewItem(

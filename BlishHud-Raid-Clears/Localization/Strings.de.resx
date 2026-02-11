@@ -522,6 +522,12 @@
   <data name="Setting_Raid_Cotm_Tooltip" xml:space="preserve">
     <value>Färbt den Text für den wöchentlichen Schlachtzug-Flügel „Call of the Mists“.\nCall of the Mists verdoppelt das gesamte Gold in der Boss-Beutetruhe</value>
   </data>
+  <data name="Setting_Raid_MentorProgress_Label" xml:space="preserve">
+    <value>Mentor-Fortschritt anzeigen</value>
+  </data>
+  <data name="Setting_Raid_MentorProgress_Tooltip" xml:space="preserve">
+    <value>Zeigt Ihren Raid-Mentor-Fortschritt in Boss-Tooltips an. (Modul neu starten, um zu wirken)</value>
+  </data>
   <data name="Setting_Raid_Drag_Label" xml:space="preserve">
     <value>Löse Fixierung der Schlachtzug-Overlay-Position</value>
   </data>
@@ -1133,5 +1139,11 @@ Aus: Hintergrund wird Rechtecke sein</value>
   </data>
   <data name="Tooltip_DefianceBreak" xml:space="preserve">
     <value>Bruchleiste brechen</value>
+  </data>
+  <data name="Tooltip_MentorDone" xml:space="preserve">
+    <value>Mentor: Abgeschlossen</value>
+  </data>
+  <data name="Tooltip_MentorProgress" xml:space="preserve">
+    <value>Mentor: {0} / {1}</value>
   </data>
 </root>

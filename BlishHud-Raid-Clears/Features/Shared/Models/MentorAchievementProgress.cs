@@ -39,3 +39,27 @@ public sealed class MentorAchievementProgressCache
     [JsonProperty("achievements")]
     public List<MentorAchievementProgressEntry> Achievements { get; set; } = new();
 }
+
+/// <summary>
+/// Cached definition data for mentor achievements (max tier count per achievement).
+/// </summary>
+public sealed class MentorAchievementDefinitionEntry
+{
+    [JsonProperty("id")]
+    public int Id { get; set; }
+
+    [JsonProperty("max")]
+    public int Max { get; set; }
+}
+
+public sealed class MentorAchievementDefinitionCache
+{
+    [JsonProperty("version")]
+    public string Version { get; set; } = "1.0";
+
+    [JsonProperty("updated_utc")]
+    public string? UpdatedUtc { get; set; }
+
+    [JsonProperty("achievements")]
+    public List<MentorAchievementDefinitionEntry> Achievements { get; set; } = new();
+}

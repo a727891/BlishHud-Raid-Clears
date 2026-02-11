@@ -34,7 +34,8 @@ public class RaidPanel : GridPanel
                     }
                 }
 
-                await Service.MentorAchievementProgress.RefreshFromApiAsync();
+                if (Settings.RaidPanelMentorProgress.Value)
+                    await Service.MentorAchievementProgress.RefreshFromApiAsync();
 
                 Invalidate();
             });

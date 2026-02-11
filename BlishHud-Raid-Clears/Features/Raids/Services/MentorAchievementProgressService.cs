@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Blish_HUD;
-using Gw2Sharp.WebApi.V2.Models;
 using Newtonsoft.Json;
 using RaidClears.Features.Raids.Models;
 using RaidClears.Features.Shared.Models;
 using RaidClears;
+using Gw2Sharp.WebApi.V2.Models;
 
 namespace RaidClears.Features.Raids.Services;
 
@@ -20,6 +20,7 @@ namespace RaidClears.Features.Raids.Services;
 public class MentorAchievementProgressService
 {
     private const string CacheFilename = "mentor_achievement_progress.json";
+    private const string DefinitionCacheFilename = "mentor_achievement_definitions.json";
 
     private static readonly List<TokenPermission> NecessaryPermissions = new()
     {
@@ -29,6 +30,7 @@ public class MentorAchievementProgressService
 
     private readonly object _progressLock = new();
     private Dictionary<int, MentorAchievementProgressEntry> _progress = new();
+    private readonly Dictionary<int, int> _definitionMax = new();
     private readonly RaidData _raidData;
 
     public MentorAchievementProgressService(RaidData raidData)
@@ -80,6 +82,8 @@ public class MentorAchievementProgressService
     /// </summary>
     public void LoadCache()
     {
+        LoadDefinitionCache();
+
         var path = GetCacheFilePath();
         if (!System.IO.File.Exists(path))
             return;
@@ -116,6 +120,9 @@ public class MentorAchievementProgressService
     /// </summary>
     public async Task RefreshFromApiAsync()
     {
+        if (Service.Settings?.RaidSettings?.RaidPanelMentorProgress?.Value != true)
+            return;
+
         var gw2ApiManager = Service.Gw2ApiManager;
         var logger = Logger.GetLogger<Module>();
 
@@ -128,8 +135,11 @@ public class MentorAchievementProgressService
 
         try
         {
+            // Ensure we have correct max values from the public achievement definitions.
+            await Task.Run(() => EnsureDefinitions(mentorIds));
+
             var allAchievements = await gw2ApiManager.Gw2ApiClient.V2.Account.Achievements.GetAsync();
-            var list = allAchievements?.ToList() ?? new List<AccountAchievement>();
+            var list = allAchievements?.ToList() ?? new List<Gw2Sharp.WebApi.V2.Models.AccountAchievement>();
 
             var newProgress = new Dictionary<int, MentorAchievementProgressEntry>();
             foreach (var ach in list)
@@ -137,11 +147,13 @@ public class MentorAchievementProgressService
                 if (!mentorIds.Contains(ach.Id))
                     continue;
 
+                var maxFromDef = _definitionMax.TryGetValue(ach.Id, out var defMax) ? defMax : ach.Max;
+
                 newProgress[ach.Id] = new MentorAchievementProgressEntry
                 {
                     Id = ach.Id,
                     Current = ach.Current,
-                    Max = ach.Max,
+                    Max = maxFromDef,
                     Done = ach.Done
                 };
             }
@@ -166,6 +178,114 @@ public class MentorAchievementProgressService
         {
             logger.Warn(ex, "Failed to fetch mentor achievement progress from API");
         }
+    }
+
+    private void LoadDefinitionCache()
+    {
+        var path = GetDefinitionCacheFilePath();
+        if (!System.IO.File.Exists(path))
+            return;
+
+        try
+        {
+            using var reader = new System.IO.StreamReader(path, Encoding.UTF8);
+            var json = reader.ReadToEnd();
+            var cache = JsonConvert.DeserializeObject<MentorAchievementDefinitionCache>(json);
+            if (cache?.Achievements == null || cache.Achievements.Count == 0)
+                return;
+
+            _definitionMax.Clear();
+            foreach (var entry in cache.Achievements)
+            {
+                _definitionMax[entry.Id] = entry.Max;
+            }
+        }
+        catch (Exception ex)
+        {
+            Logger.GetLogger<Module>().Warn(ex, "Failed to load mentor achievement definition cache");
+        }
+    }
+
+    private void EnsureDefinitions(IReadOnlyCollection<int> mentorIds)
+    {
+        var missing = mentorIds.Where(id => !_definitionMax.ContainsKey(id)).ToList();
+        if (missing.Count == 0)
+            return;
+
+        try
+        {
+            // The public achievements endpoint is unauthenticated.
+            const string baseUrl = "https://api.guildwars2.com/v2/achievements?ids=";
+            using var webClient = new System.Net.WebClient();
+
+            // We have a small fixed set of mentor IDs, so a single request is fine.
+            var url = baseUrl + string.Join(",", missing);
+            var json = webClient.DownloadString(url);
+
+            var defs = JsonConvert.DeserializeObject<List<AchievementDefinitionDto>>(json) ?? new List<AchievementDefinitionDto>();
+            foreach (var def in defs)
+            {
+                if (def.Tiers == null || def.Tiers.Count == 0)
+                    continue;
+
+                var max = def.Tiers.Max(t => t.Count);
+                _definitionMax[def.Id] = max;
+            }
+
+            SaveDefinitionCache();
+        }
+        catch (Exception ex)
+        {
+            Logger.GetLogger<Module>().Warn(ex, "Failed to download mentor achievement definitions");
+        }
+    }
+
+    private void SaveDefinitionCache()
+    {
+        try
+        {
+            var cache = new MentorAchievementDefinitionCache
+            {
+                UpdatedUtc = DateTime.UtcNow.ToString("o"),
+                Achievements = _definitionMax
+                    .Select(kv => new MentorAchievementDefinitionEntry { Id = kv.Key, Max = kv.Value })
+                    .ToList()
+            };
+
+            var path = GetDefinitionCacheFilePath();
+            var dir = Path.GetDirectoryName(path);
+            if (!string.IsNullOrEmpty(dir) && !System.IO.Directory.Exists(dir))
+                System.IO.Directory.CreateDirectory(dir);
+
+            using var writer = new System.IO.StreamWriter(path, false, Encoding.UTF8);
+            writer.Write(JsonConvert.SerializeObject(cache, Formatting.Indented));
+        }
+        catch (Exception ex)
+        {
+            Logger.GetLogger<Module>().Warn(ex, "Failed to save mentor achievement definition cache");
+        }
+    }
+
+    private string GetDefinitionCacheFilePath()
+    {
+        var dir = Service.DirectoriesManager.GetFullDirectoryPath(Module.DIRECTORY_PATH);
+        return Path.Combine(dir, DefinitionCacheFilename);
+    }
+
+    // DTOs for the public /v2/achievements endpoint (only fields we care about).
+    private sealed class AchievementDefinitionDto
+    {
+        [JsonProperty("id")]
+        public int Id { get; set; }
+
+        [JsonProperty("tiers")]
+        public List<AchievementTierDto> Tiers { get; set; } = new();
+    }
+
+    private sealed class AchievementTierDto
+    {
+        [JsonProperty("count")]
+        public int Count { get; set; }
     }
 
     private static bool ProgressEquals(

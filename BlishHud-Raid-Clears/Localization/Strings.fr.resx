@@ -522,6 +522,12 @@
   <data name="Setting_Raid_Cotm_Tooltip" xml:space="preserve">
     <value>Colorie le texte de l'aile de raid hebdomadaire Appel des Brumes\nAppel des Brumes double tout l'or dans le coffre de butin du boss</value>
   </data>
+  <data name="Setting_Raid_MentorProgress_Label" xml:space="preserve">
+    <value>Afficher la progression du mentor</value>
+  </data>
+  <data name="Setting_Raid_MentorProgress_Tooltip" xml:space="preserve">
+    <value>Afficher votre progression de mentor de raid dans les infobulles des boss. (Redémarrer le module pour appliquer)</value>
+  </data>
   <data name="Setting_Raid_Drag_Label" xml:space="preserve">
     <value>Déverrouiller la position de l'overlay de Raid</value>
   </data>
@@ -1124,5 +1130,11 @@ Désactivé : L'arrière-plan sera des rectangles</value>
   </data>
   <data name="Tooltip_DefianceBreak" xml:space="preserve">
     <value>Rupture de défi</value>
+  </data>
+  <data name="Tooltip_MentorDone" xml:space="preserve">
+    <value>Mentor : Terminé</value>
+  </data>
+  <data name="Tooltip_MentorProgress" xml:space="preserve">
+    <value>Mentor : {0} / {1}</value>
   </data>
 </root>
