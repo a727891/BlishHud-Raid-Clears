@@ -523,10 +523,16 @@
     <value>Färbt den Text für den wöchentlichen Schlachtzug-Flügel „Call of the Mists“.\nCall of the Mists verdoppelt das gesamte Gold in der Boss-Beutetruhe</value>
   </data>
   <data name="Setting_Raid_MentorProgress_Label" xml:space="preserve">
-    <value>Mentor-Fortschritt anzeigen</value>
+    <value>Mentor-Erfolgsfortschritt verfolgen</value>
   </data>
   <data name="Setting_Raid_MentorProgress_Tooltip" xml:space="preserve">
     <value>Zeigt Ihren Raid-Mentor-Fortschritt in Boss-Tooltips an. (Modul neu starten, um zu wirken)</value>
+  </data>
+  <data name="Setting_Raid_MentorProgressPopup_Label" xml:space="preserve">
+    <value>Mentor-Fortschritt-Popup anzeigen</value>
+  </data>
+  <data name="Setting_Raid_MentorProgressPopup_Tooltip" xml:space="preserve">
+    <value>Zeigt ein Popup, wenn der Mentor-Fortschritt steigt (Tracking erforderlich).</value>
   </data>
   <data name="Setting_Raid_Drag_Label" xml:space="preserve">
     <value>Löse Fixierung der Schlachtzug-Overlay-Position</value>

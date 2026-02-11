@@ -136,6 +136,24 @@ public class RaidData
         };
     }
 
+    /// <summary>
+    /// Gets the raid encounter that has the given mentor achievement ID, or null if not found.
+    /// </summary>
+    public RaidEncounter? GetEncounterByMentorAchievementId(int mentorAchievementId)
+    {
+        foreach (var expansion in Expansions)
+        {
+            foreach (var wing in expansion.Wings)
+            {
+                foreach (var enc in wing.Encounters)
+                {
+                    if (enc.MentorAchievementId == mentorAchievementId)
+                        return enc;
+                }
+            }
+        }
+        return null;
+    }
 
     private static FileInfo GetConfigFileInfo()
     {

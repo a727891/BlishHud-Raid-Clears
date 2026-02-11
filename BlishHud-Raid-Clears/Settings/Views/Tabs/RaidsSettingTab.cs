@@ -25,6 +25,7 @@ public class RaidsSettingTab : ISettingsMenuRegistrar
                 Service.Settings.RaidSettings.RaidPanelHighlightEmbolden,
                 Service.Settings.RaidSettings.RaidPanelHighlightCotM,
                 Service.Settings.RaidSettings.RaidPanelMentorProgress,
+                Service.Settings.RaidSettings.RaidPanelMentorProgressPopup,
             })));
         
         _registeredMenuItems.Add(new MenuViewItem(

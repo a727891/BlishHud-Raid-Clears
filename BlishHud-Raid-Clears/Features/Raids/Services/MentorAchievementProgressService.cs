@@ -53,9 +53,9 @@ public class MentorAchievementProgressService
     }
 
     /// <summary>
-    /// Raised when progress has been updated (from API or cache) and the data has changed from the previous state.
+    /// Raised when progress has been updated (from API or cache) and at least one mentor achievement gained progress (current increased).
     /// </summary>
-    public event EventHandler? ProgressUpdated;
+    public event EventHandler<MentorProgressUpdatedEventArgs>? ProgressUpdated;
 
     /// <summary>
     /// Collects all mentor achievement IDs from raid encounters.
@@ -158,11 +158,18 @@ public class MentorAchievementProgressService
                 };
             }
 
+            List<MentorProgressChange>? increases = null;
             bool changed = false;
             lock (_progressLock)
             {
                 if (!ProgressEquals(_progress, newProgress))
                 {
+                    increases = new List<MentorProgressChange>();
+                    foreach (var kv in newProgress)
+                    {
+                        if (_progress.TryGetValue(kv.Key, out var old) && kv.Value.Current > old.Current)
+                            increases.Add(new MentorProgressChange { AchievementId = kv.Key, PreviousCurrent = old.Current, NewCurrent = kv.Value.Current });
+                    }
                     _progress = newProgress;
                     changed = true;
                 }
@@ -171,7 +178,8 @@ public class MentorAchievementProgressService
             if (changed)
             {
                 SaveCache(newProgress);
-                ProgressUpdated?.Invoke(this, EventArgs.Empty);
+                if (increases != null && increases.Count > 0)
+                    ProgressUpdated?.Invoke(this, new MentorProgressUpdatedEventArgs { Changes = increases });
             }
         }
         catch (Exception ex)

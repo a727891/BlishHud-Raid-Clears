@@ -14,6 +14,7 @@ public class RaidSettings
     public SettingEntry<bool> RaidPanelHighlightEmbolden { get; set; }
     public SettingEntry<bool> RaidPanelHighlightCotM { get; set; }
     public SettingEntry<bool> RaidPanelMentorProgress { get; set; }
+    public SettingEntry<bool> RaidPanelMentorProgressPopup { get; set; }
     public SettingEntry<string> RaidPanelColorEmbolden { get; set; }
     public SettingEntry<string> RaidPanelColorCotm { get; set; }
     
@@ -35,6 +36,7 @@ public class RaidSettings
         RaidPanelHighlightEmbolden = settings.DefineSetting(Settings.Raids.Module.highlightEmbolden);
         RaidPanelHighlightCotM = settings.DefineSetting(Settings.Raids.Module.highlightCotm);
         RaidPanelMentorProgress = settings.DefineSetting(Settings.Raids.Module.mentorProgress);
+        RaidPanelMentorProgressPopup = settings.DefineSetting(Settings.Raids.Module.mentorProgressPopup);
         
         Style = new DisplayStyle
         {

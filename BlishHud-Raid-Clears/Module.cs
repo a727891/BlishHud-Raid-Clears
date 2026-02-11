@@ -117,6 +117,7 @@ public class Module : Blish_HUD.Modules.Module
             }
 
             Service.Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
+            Service.MentorAchievementProgress.ProgressUpdated += MentorAchievementProgress_ProgressUpdated;
             DispatchClears();
         }
         catch (System.Exception e)
@@ -148,6 +149,7 @@ public class Module : Blish_HUD.Modules.Module
 
     protected override void Unload()
     {
+        Service.MentorAchievementProgress.ProgressUpdated -= MentorAchievementProgress_ProgressUpdated;
         Service.Gw2ApiManager.SubtokenUpdated -= Gw2ApiManager_SubtokenUpdated;
         if (Service.CornerIcon != null)
         {
@@ -191,6 +193,45 @@ public class Module : Blish_HUD.Modules.Module
     {
         DispatchClears();
         Service.ApiPollingService?.Invoke();
+    }
+
+    private void MentorAchievementProgress_ProgressUpdated(object? sender, MentorProgressUpdatedEventArgs e)
+    {
+        if (Service.Settings?.RaidSettings?.RaidPanelMentorProgress?.Value != true
+            || Service.Settings?.RaidSettings?.RaidPanelMentorProgressPopup?.Value != true)
+            return;
+        if (e.Changes.Count == 0)
+            return;
+        var raidData = Service.RaidData;
+        var progress = Service.MentorAchievementProgress?.Progress;
+        if (raidData == null || progress == null)
+            return;
+        var changes = new List<MentorProgressChange>(e.Changes);
+        const int popupWidth = 300;
+        const int popupHeight = 72;
+        const int gap = 8;
+        const int margin = 20;
+        GameService.Graphics.QueueMainThreadRender(_ =>
+        {
+            var screenSize = GameService.Graphics.SpriteScreen.Size;
+            int x = screenSize.X - popupWidth - margin;
+            int y = margin + 60;
+            foreach (var change in changes)
+            {
+                if (change.Delta <= 0)
+                    continue;
+                var encounter = raidData.GetEncounterByMentorAchievementId(change.AchievementId);
+                string bossName = encounter?.Name ?? $"Achievement {change.AchievementId}";
+                int max = progress.TryGetValue(change.AchievementId, out var entry) ? entry.Max : change.NewCurrent;
+                int iconAssetId = (encounter != null && encounter.AssetId > 0) ? encounter.AssetId : raidData.MentorAssetId;
+                var popup = new Features.Raids.MentorProgressPopupPanel(bossName, change.NewCurrent, max, change.Delta, iconAssetId)
+                {
+                    Parent = GameService.Graphics.SpriteScreen,
+                    Location = new Point(x, y)
+                };
+                y += popupHeight + gap;
+            }
+        });
     }
 
     private void CheckMotd(ModuleMetaDataService metadata)

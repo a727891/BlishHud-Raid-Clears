@@ -627,12 +627,20 @@
     <comment>checkbox - color call of the mists wing's text color</comment>
   </data>
   <data name="Setting_Raid_MentorProgress_Label" xml:space="preserve">
-    <value>Show mentor achievement progress</value>
+    <value>Track Mentor Achievement Progress</value>
     <comment>checkbox - show raid boss mentor progress in tooltips and fetch from API</comment>
   </data>
   <data name="Setting_Raid_MentorProgress_Tooltip" xml:space="preserve">
     <value>Show your raid mentor achievement progress in raid boss tooltips.  (Restart module to take effect)</value>
     <comment>tooltip for mentor progress setting</comment>
+  </data>
+  <data name="Setting_Raid_MentorProgressPopup_Label" xml:space="preserve">
+    <value>Show mentor progress popup</value>
+    <comment>checkbox - show celebratory popup when mentor progress increases</comment>
+  </data>
+  <data name="Setting_Raid_MentorProgressPopup_Tooltip" xml:space="preserve">
+    <value>Show a popup when mentor progress increases (tracking must be enabled).</value>
+    <comment>tooltip for mentor progress popup setting</comment>
   </data>
   <data name="Setting_Raid_Drag_Label" xml:space="preserve">
     <value>Unlock Raid Wings overlay position</value>

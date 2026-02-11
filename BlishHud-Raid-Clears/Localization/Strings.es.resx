@@ -523,10 +523,16 @@
     <value>Colorea el texto del ala de incursión semanal La Llamada de la Niebla\nLa Llamada de la Niebla duplica todo el oro en el cofre de botín del jefe</value>
   </data>
   <data name="Setting_Raid_MentorProgress_Label" xml:space="preserve">
-    <value>Mostrar progreso de mentor</value>
+    <value>Rastrear progreso de logro de mentor</value>
   </data>
   <data name="Setting_Raid_MentorProgress_Tooltip" xml:space="preserve">
     <value>Mostrar tu progreso de mentor de incursión en los tooltips de jefes. (Reinicia el módulo para que surta efecto)</value>
+  </data>
+  <data name="Setting_Raid_MentorProgressPopup_Label" xml:space="preserve">
+    <value>Mostrar popup de progreso de mentor</value>
+  </data>
+  <data name="Setting_Raid_MentorProgressPopup_Tooltip" xml:space="preserve">
+    <value>Mostrar un popup cuando aumenta el progreso de mentor (requiere seguimiento activado).</value>
   </data>
   <data name="Setting_Raid_Drag_Label" xml:space="preserve">
     <value>Desbloquear la posición de superposición de incursión</value>

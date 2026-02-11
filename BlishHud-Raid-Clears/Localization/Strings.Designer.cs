@@ -1627,6 +1627,24 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show mentor progress popup.
+        /// </summary>
+        internal static string Setting_Raid_MentorProgressPopup_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_MentorProgressPopup_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show a popup when your raid mentor achievement progress increases..
+        /// </summary>
+        internal static string Setting_Raid_MentorProgressPopup_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_MentorProgressPopup_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unlock Raid Wings overlay position.
         /// </summary>
         internal static string Setting_Raid_Drag_Label {
