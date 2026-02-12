@@ -2,6 +2,13 @@
 
 All notable changes to Clears Tracker will be documented in this file.
 
+## 3.4.1 (2026-02-12)
+* Fixed DRB `priority_` ids
+## 3.4.0 (2026-02-11)
+* Added DailyBounties
+* Added Raid Mentory tracking
+* Dragging Raids/Strikes moves the other in real time when anchored
+
 ## 3.3.1 (2026-01-25)
 * Added corner icon tooltip with account name and MOTD support
 * Added corner icon notification dot for new messages
