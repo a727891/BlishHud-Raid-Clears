@@ -16,13 +16,12 @@ public static class DailyBountyService
     {
         var bountyData = Service.DailyBountyData;
         var raidData = Service.RaidData;
-        var strikeData = Service.StrikeData;
         if (bountyData == null || !bountyData.Enabled)
             return Enumerable.Empty<Encounter>();
 
         var dayIndex = PriorityRotationService.DayOfYearIndex();
 
-        return GetDayOfYearBounties(dayIndex, bountyData, raidData, strikeData);
+        return GetDayOfYearBounties(dayIndex, bountyData, raidData);
     }
 
     public static IEnumerable<Encounter> GetTomorrowBounties()
@@ -35,10 +34,10 @@ public static class DailyBountyService
 
         var dayIndex = PriorityRotationService.DayOfYearIndex() + 1;
 
-        return GetDayOfYearBounties(dayIndex, bountyData, raidData, strikeData);
+        return GetDayOfYearBounties(dayIndex, bountyData, raidData, "tomorrow_");
     }
 
-    private static IEnumerable<Encounter> GetDayOfYearBounties(int dayIndex, DailyBountyData bountyData, RaidData raidData, StrikeData strikeData)
+    private static IEnumerable<Encounter> GetDayOfYearBounties(int dayIndex, DailyBountyData bountyData, RaidData raidData, string prefix = "priority_")
     {
         // New per-slot rotation model (bossSlots).
         // When bossSlots is populated, we derive today's encounters by
@@ -67,7 +66,7 @@ public static class DailyBountyService
                 });
             }
 
-            return ResolveBountyEncounters(references, raidData, strikeData);
+            return ResolveBountyEncounters(references, raidData, prefix);
         }
 
         // Legacy rotation model: single list-of-lists indexed by day-of-year.
@@ -75,14 +74,14 @@ public static class DailyBountyService
         if (legacyIndex < bountyData.Rotation.Count)
         {
             var references = bountyData.Rotation[legacyIndex];
-            return ResolveBountyEncounters(references, raidData, strikeData);
+            return ResolveBountyEncounters(references, raidData, prefix);
         }
 
         return Enumerable.Empty<Encounter>();
     }
 
 
-    private static IEnumerable<Encounter> ResolveBountyEncounters(List<BountyEncounterReference> references, RaidData raidData, StrikeData strikeData)
+    private static IEnumerable<Encounter> ResolveBountyEncounters(List<BountyEncounterReference> references, RaidData raidData, string prefix = "priority_")
     {
         var encounters = new List<Encounter>();
 
@@ -93,6 +92,8 @@ public static class DailyBountyService
             Encounter encounter;
             if (raidEncounter != null)
             {
+                raidEncounter.Id = $"{prefix}{raidEncounter.Id}";
+                raidEncounter.ApiId = $"{prefix}{raidEncounter.ApiId}";
                 encounter = new Encounter(raidEncounter);
                 encounters.Add(encounter);
             }
