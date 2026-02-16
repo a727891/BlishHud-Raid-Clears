@@ -4,7 +4,7 @@
   "fractal_map_data": "2026-01-24T20:40:00-0500",
   "strike_data": "2026-02-03T17:08:00-0500",
   "raid_data": "2026-02-11T20:40:00-0500",
-  "daily_bounties": "2026-02-11T17:08:00-0500",
+  "daily_bounties": "2026-02-16T17:08:00-0500",
   "assets": [
     "texture_background.png",
     "texture_strike_ibs.png",
@@ -26,6 +26,6 @@
     "mask_06.png",
     "mask_07.png"
   ],
-  "motd": "New Version of Clears Tracker is here!\n\nAdded Daily Raid Bounties and\nMentor Achievement Progress tracking!",
-  "motd_id": "2026-02-11-001"
+  "motd": "Dhuum Daily Bounty is now fixed.\n\nAdditional minor bug fixes will be coming this week.",
+  "motd_id": "2026-02-16-001"
 }

@@ -1,6 +1,6 @@
 {
   "enabled": true,
-  "version": "2026-02-10T00:00:00.000Z",
+  "version": "2026-02-16T17:08:00-0500Z",
   "name": "Daily Raid Bounties",
   "abbreviation": "DRB",
   "localizedNames": {
@@ -72,7 +72,7 @@
         "qadim_the_peerless",
         "soulless_horror",
         "harvest_temple",
-        "dhuum",
+        "voice_in_the_void",
         "greer"
       ]
     }
