@@ -126,9 +126,11 @@ public class GridPanel : FlowPanel
             {
                 _isDraggedByMouse = false;
                 ClampToSpriteScreen();
-                // When anchor is on and we just finished dragging the strikes panel, persist raid location
-                if (Service.Settings.StrikeSettings.AnchorToRaidPanel.Value && ReferenceEquals(this, Service.StrikesWindow))
+                // Persist raid location when raid panel is dragged, or when strikes panel is dragged with anchor on
+                if (ReferenceEquals(this, Service.RaidWindow)
+                    || (Service.Settings.StrikeSettings.AnchorToRaidPanel.Value && ReferenceEquals(this, Service.StrikesWindow)))
                     Service.Settings.RaidSettings.Generic.Location.Value = Service.RaidWindow.Location;
+                    Service.Settings.StrikeSettings.Generic.Location.Value = Service.StrikesWindow.Location;
             }
         };
     }

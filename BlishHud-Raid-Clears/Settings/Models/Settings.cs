@@ -101,6 +101,7 @@ public static class Settings
                 public static Setting<string> text = new("colText", Colors.White, () => Strings.Setting_Raid_ColText_Label, () => Strings.Setting_Raid_ColText_Tooltip);
                 public static Setting<string> cotm = new("colCotm", Colors.Yellow, () => Strings.Setting_Raid_ColCotm_Label, () => Strings.Setting_Raid_ColCotm_Tooltip);
                 public static Setting<string> embolden = new("colEmbolden", Colors.Blue, () => Strings.Setting_Raid_ColEmbolden_Label, () => Strings.Setting_Raid_ColEmbolden_Tooltip);
+                public static Setting<string> nonWeeklyBounty = new("colNonWeeklyBounty", Colors.Orange, () => Strings.Setting_Raid_ColNonWeeklyBounty_Label, () => Strings.Setting_Raid_ColNonWeeklyBounty_Tooltip);
                 public static Setting<string> background = new("colRaidBG", Colors.Black, () => Strings.Setting_Raid_ColBG_Label, () => Strings.Setting_Raid_ColBG_Tooltip);
             }
             
@@ -116,8 +117,10 @@ public static class Settings
         {
             public static Setting<bool> highlightEmbolden = new("RCEmbolden", true, () => Strings.Setting_Raid_Embolden_Label, () => Strings.Setting_Raid_Embolden_Tooltip);
             public static Setting<bool> highlightCotm = new("RCCotM", true, () => Strings.Setting_Raid_Cotm_Label, () => Strings.Setting_Raid_Cotm_Tooltip);
+            public static Setting<bool> highlightNonWeeklyBounty = new("RCNonWeeklyBounty", true, () => Strings.Setting_Raid_NonWeeklyBounty_Label, () => Strings.Setting_Raid_NonWeeklyBounty_Tooltip);
+            public static Setting<bool> omitEventEncounters = new("RCOmitEventEncounters", true, () => Strings.Setting_Raid_OmitEventEncounters_Label, () => Strings.Setting_Raid_OmitEventEncounters_Tooltip);
             public static Setting<bool> mentorProgress = new("RCMentorProgress", true, () => Strings.Setting_Raid_MentorProgress_Label, () => Strings.Setting_Raid_MentorProgress_Tooltip);
-            public static Setting<bool> mentorProgressPopup = new("RCMentorProgressPopup", true, () => Strings.Setting_Raid_MentorProgressPopup_Label, () => Strings.Setting_Raid_MentorProgressPopup_Tooltip);
+            public static Setting<bool> mentorProgressPopup = new("RCMentorProgressPopup", false, () => Strings.Setting_Raid_MentorProgressPopup_Label, () => Strings.Setting_Raid_MentorProgressPopup_Tooltip);
         }
     }
 

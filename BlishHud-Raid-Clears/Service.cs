@@ -51,4 +51,5 @@ public static class Service
     public static FractalMapWatcherService FractalMapWatcher { get; set; } = null!;
 
     public static ResetsWatcherService ResetWatcher { get; set; } = null!;
+    public static WeeklyBountyEncountersService WeeklyBountyEncounters { get; set; } = null!;
 }

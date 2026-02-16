@@ -1555,6 +1555,24 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Non-weekly bounty encounter color.
+        /// </summary>
+        internal static string Setting_Raid_ColNonWeeklyBounty_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_ColNonWeeklyBounty_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hex color code (#rrggbb) for uncleared encounters that will not appear as daily bounties for the rest of this week.
+        /// </summary>
+        internal static string Setting_Raid_ColNonWeeklyBounty_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_ColNonWeeklyBounty_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Non-cleared encounter color.
         /// </summary>
         internal static string Setting_Raid_ColNotClear_Label {
@@ -1677,6 +1695,42 @@ namespace RaidClears.Localization {
         internal static string Setting_Raid_Embolden_Tooltip {
             get {
                 return ResourceManager.GetString("Setting_Raid_Embolden_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Highlight non-weekly bounty encounters.
+        /// </summary>
+        internal static string Setting_Raid_NonWeeklyBounty_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_NonWeeklyBounty_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Highlight encounters that will not have a daily bounty for the remainder of the week.
+        /// </summary>
+        internal static string Setting_Raid_NonWeeklyBounty_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_NonWeeklyBounty_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do not highlight event encounters as non-weekly.
+        /// </summary>
+        internal static string Setting_Raid_OmitEventEncounters_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_OmitEventEncounters_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When highlight non-weekly bounties is active, do not highlight event encounters. (e.g. Spirit Woods, Twisted Castle, etc).
+        /// </summary>
+        internal static string Setting_Raid_OmitEventEncounters_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_OmitEventEncounters_Tooltip", resourceCulture);
             }
         }
         

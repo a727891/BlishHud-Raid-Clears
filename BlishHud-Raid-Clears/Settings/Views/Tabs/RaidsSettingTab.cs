@@ -24,6 +24,8 @@ public class RaidsSettingTab : ISettingsMenuRegistrar
             {
                 Service.Settings.RaidSettings.RaidPanelHighlightEmbolden,
                 Service.Settings.RaidSettings.RaidPanelHighlightCotM,
+                Service.Settings.RaidSettings.RaidPanelHighlightNonWeeklyBounty,
+                Service.Settings.RaidSettings.RaidPanelOmitEventEncounters,
                 Service.Settings.RaidSettings.RaidPanelMentorProgress,
                 Service.Settings.RaidSettings.RaidPanelMentorProgressPopup,
             })));
@@ -33,7 +35,8 @@ public class RaidsSettingTab : ISettingsMenuRegistrar
             _ => new GenericStyleView(Service.Settings.RaidSettings.Style, new List<SettingEntry<string>>
             {
                 Service.Settings.RaidSettings.RaidPanelColorEmbolden,
-                Service.Settings.RaidSettings.RaidPanelColorCotm
+                Service.Settings.RaidSettings.RaidPanelColorCotm,
+                Service.Settings.RaidSettings.RaidPanelColorNonWeeklyBounty
             })));
         
         _registeredMenuItems.Add(new MenuViewItem(

@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using RaidClears.Features.Raids;
 using RaidClears.Features.Shared.Controls;
 
@@ -10,6 +10,9 @@ public class BoxModel
     public string name;
     public string shortName;
     private bool _isCleared;
+
+    /// <summary>True if this encounter has been cleared this week (used for background color logic).</summary>
+    public bool IsCleared => _isCleared;
 
     protected RaidTooltipView _tooltip = null;
 

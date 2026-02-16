@@ -17,7 +17,10 @@ public class RaidSettings
     public SettingEntry<bool> RaidPanelMentorProgressPopup { get; set; }
     public SettingEntry<string> RaidPanelColorEmbolden { get; set; }
     public SettingEntry<string> RaidPanelColorCotm { get; set; }
-    
+    public SettingEntry<string> RaidPanelColorNonWeeklyBounty { get; set; }
+    public SettingEntry<bool> RaidPanelHighlightNonWeeklyBounty { get; set; }
+    public SettingEntry<bool> RaidPanelOmitEventEncounters { get; set; }
+
     public RaidSettings(SettingCollection settings)
     {
         Generic = new GenericSettings
@@ -35,6 +38,8 @@ public class RaidSettings
         
         RaidPanelHighlightEmbolden = settings.DefineSetting(Settings.Raids.Module.highlightEmbolden);
         RaidPanelHighlightCotM = settings.DefineSetting(Settings.Raids.Module.highlightCotm);
+        RaidPanelHighlightNonWeeklyBounty = settings.DefineSetting(Settings.Raids.Module.highlightNonWeeklyBounty);
+        RaidPanelOmitEventEncounters = settings.DefineSetting(Settings.Raids.Module.omitEventEncounters);
         RaidPanelMentorProgress = settings.DefineSetting(Settings.Raids.Module.mentorProgress);
         RaidPanelMentorProgressPopup = settings.DefineSetting(Settings.Raids.Module.mentorProgressPopup);
         
@@ -61,6 +66,7 @@ public class RaidSettings
 
         RaidPanelColorEmbolden = settings.DefineSetting(Settings.Raids.Style.Color.embolden);
         RaidPanelColorCotm = settings.DefineSetting(Settings.Raids.Style.Color.cotm);
+        RaidPanelColorNonWeeklyBounty = settings.DefineSetting(Settings.Raids.Style.Color.nonWeeklyBounty);
 
         CleanUpOldSettings(settings);
     }

@@ -10,6 +10,12 @@ namespace RaidClears.Features.Raids.Services;
 [Serializable]
 public class RaidData
 {
+    private static readonly HashSet<string> DefaultEventEncounterApiIds = new(StringComparer.OrdinalIgnoreCase)
+    {
+        "spirit_woods", "bandit_trio", "escort", "twisted_castle",
+        "river_of_souls", "statues_of_grenth", "gate", "camp"
+    };
+
     [JsonIgnore]
     public static string FILENAME = "raid_data.json";
     [JsonIgnore]
@@ -20,6 +26,10 @@ public class RaidData
 
     [JsonProperty("secondsInWeek")]
     public int SecondsInWeek { get; set; } = -1;
+
+    /// <summary>Api_ids of "event" encounters that players often prefer to skip (e.g. Spirit Woods, Escort).</summary>
+    [JsonProperty("eventEncounterApiIds")]
+    public List<string> EventEncounterApiIds { get; set; } = new();
 
     [JsonProperty("powerDamageAssetId")]
     public int PowerDamageAssetId { get; set; } = 993687;
@@ -79,6 +89,15 @@ public class RaidData
         }
         return new RaidWing();
     }
+    public bool IsEventEncounter(string apiId)
+    {
+        if (string.IsNullOrEmpty(apiId)) return false;
+        var set = (EventEncounterApiIds != null && EventEncounterApiIds.Count > 0)
+            ? new HashSet<string>(EventEncounterApiIds, StringComparer.OrdinalIgnoreCase)
+            : DefaultEventEncounterApiIds;
+        return set.Contains(apiId);
+    }
+
     public RaidWing GetRaidWingByZeroIndex(int idx)
     {
         foreach (var expansion in Expansions)

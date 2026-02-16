@@ -8,4 +8,5 @@ public static class Colors
     public const string Yellow = "#F3F527";
     public const string Black = "#000000";
     public const string Blue = "#202090";
+    public const string Orange = "#CC8800";
 }

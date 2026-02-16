@@ -37,6 +37,46 @@ public static class DailyBountyService
         return GetDayOfYearBounties(dayIndex, bountyData, raidData, "tomorrow_");
     }
 
+    /// <summary>
+    /// Returns raid encounter ApiIds that are daily bounties for the given day-of-year index.
+    /// Used to build the weekly bounty set without mutating raid data.
+    /// </summary>
+    public static IEnumerable<string> GetBountyEncounterApiIdsForDay(int dayIndex)
+    {
+        var bountyData = Service.DailyBountyData;
+        if (bountyData == null || !bountyData.Enabled)
+            yield break;
+
+        if (bountyData.BossSlots != null && bountyData.BossSlots.Count > 0)
+        {
+            foreach (var slot in bountyData.BossSlots)
+            {
+                if (slot.Encounters == null || slot.Encounters.Count == 0)
+                    continue;
+
+                var modulo = slot.Encounters.Count;
+                var indexForSlot = (dayIndex + slot.Offset) % modulo;
+                if (indexForSlot < 0)
+                    indexForSlot += modulo;
+
+                var encounterId = slot.Encounters[indexForSlot];
+                if (!string.IsNullOrWhiteSpace(encounterId))
+                    yield return encounterId;
+            }
+            yield break;
+        }
+
+        var legacyIndex = (dayIndex + bountyData.Offset) % bountyData.Modulo;
+        if (legacyIndex < bountyData.Rotation.Count)
+        {
+            foreach (var reference in bountyData.Rotation[legacyIndex])
+            {
+                if (!string.IsNullOrWhiteSpace(reference.EncounterId))
+                    yield return reference.EncounterId;
+            }
+        }
+    }
+
     private static IEnumerable<Encounter> GetDayOfYearBounties(int dayIndex, DailyBountyData bountyData, RaidData raidData, string prefix = "priority_")
     {
         // New per-slot rotation model (bossSlots).

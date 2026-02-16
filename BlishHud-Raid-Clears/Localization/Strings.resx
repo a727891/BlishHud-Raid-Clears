@@ -602,6 +602,14 @@
     <value>Hex color code (#rrggbb) for Wing and Encounters text during the Emboldened week</value>
     <comment>emboldened text color</comment>
   </data>
+  <data name="Setting_Raid_ColNonWeeklyBounty_Label" xml:space="preserve">
+    <value>Non-weekly bounty encounter color</value>
+    <comment>background color for uncleared encounters that won't be daily bounties this week</comment>
+  </data>
+  <data name="Setting_Raid_ColNonWeeklyBounty_Tooltip" xml:space="preserve">
+    <value>Hex color code (#rrggbb) for uncleared encounters that will not appear as daily bounties for the rest of this week</value>
+    <comment>non-weekly bounty background color</comment>
+  </data>
   <data name="Setting_Raid_ColNotClear_Label" xml:space="preserve">
     <value>Non-cleared encounter color</value>
     <comment>Box color when a raid encounter is not cleared/done</comment>
@@ -657,6 +665,22 @@
   <data name="Setting_Raid_Embolden_Tooltip" xml:space="preserve">
     <value>Colors the text for the weekly Emboldened raid wing\nEmbolden mode increases player health, damage, and healing for each stack</value>
     <comment>checkbox - color embolden wing's text color</comment>
+  </data>
+  <data name="Setting_Raid_NonWeeklyBounty_Label" xml:space="preserve">
+    <value>Highlight non-weekly bounty encounters</value>
+    <comment>checkbox - highlight encounters that will not have a daily bounty for the remainder of the week</comment>
+  </data>
+  <data name="Setting_Raid_NonWeeklyBounty_Tooltip" xml:space="preserve">
+    <value>Highlight encounters that will not have a daily bounty for the remainder of the week.</value>
+    <comment>tooltip for non-weekly bounty highlight</comment>
+  </data>
+  <data name="Setting_Raid_OmitEventEncounters_Label" xml:space="preserve">
+    <value>Do not highlight event encounters as non-weekly</value>
+    <comment>checkbox - when highlight non-weekly bounties is active, do not highlight event encounters</comment>
+  </data>
+  <data name="Setting_Raid_OmitEventEncounters_Tooltip" xml:space="preserve">
+    <value>When highlight non-weekly bounties is active, do not highlight event encounters. (e.g. Spirit Woods, Twisted Castle, etc)</value>
+    <comment>tooltip for omit event encounters from non-weekly highlight</comment>
   </data>
   <data name="Setting_Raid_Font_Label" xml:space="preserve">
     <value>Grid size</value>

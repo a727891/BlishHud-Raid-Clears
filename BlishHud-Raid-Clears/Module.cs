@@ -75,6 +75,8 @@ public class Module : Blish_HUD.Modules.Module
         Service.ApiPollingService = new ApiPollService(Service.Settings.ApiPollingPeriod);
 
         Service.ResetWatcher = new ResetsWatcherService();
+        Service.WeeklyBountyEncounters = new WeeklyBountyEncountersService();
+        Service.ResetWatcher.DailyReset += (_, _) => Service.WeeklyBountyEncounters.Rebuild();
         Service.MapWatcher = new MapWatcherService();
         Service.FractalMapWatcher = new FractalMapWatcherService();
 
