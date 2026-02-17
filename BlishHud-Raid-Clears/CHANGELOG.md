@@ -2,6 +2,14 @@
 
 All notable changes to Clears Tracker will be documented in this file.
 
+## 3.5.0 (2026-02-17)
+* **Daily raid bounty tracking via API** – Bounty completion state is now fetched from the API and reflected in the UI
+* **Unified raids and strikes** – Shared `BossEncounter` model and `IEncounter`/`IExpansion` APIs; removed duplicate RaidEncounter/StrikeMission types; raid and strike labels and tooltips use a single encounter-based flow
+* **Daily raid bounties fixes** – Custom labels and visibility for bounty encounters no longer persist `priority_`/`tomorrow_` in settings JSON; storage uses normalized keys; migration merges legacy prefixed keys into base ids; strike missions in bounties use strike labelables and update when labels change
+* **Removed old strike daily priority** – Replaced by raid bounties; removed strike Priority/Tomorrow sections, DailyBounty/DailyBountyTomorrow strike groups, and related settings
+* **Non-weekly highlight** – Raid encounters can be highlighted when they are daily bounties (non-weekly)
+* **Panel location** – Fixed panel save location and updated default positions
+
 ## 3.4.1 (2026-02-12)
 * Fixed DRB `priority_` ids
 ## 3.4.0 (2026-02-11)
