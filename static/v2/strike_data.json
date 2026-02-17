@@ -294,7 +294,10 @@
             "fr": "HT",
             "de": "HT",
             "es": "HT"
-          }
+          },
+          "powerFavored": true,
+          "condiFavored": false,
+          "needsDefianceBreak": false
         },
         {
           "id": "old_lion_court",
@@ -314,7 +317,10 @@
             "fr": "OLC",
             "de": "OLC",
             "es": "OLC"
-          }
+          },
+          "powerFavored": true,
+          "condiFavored": false,
+          "needsDefianceBreak": true
         }
       ]
     },
@@ -407,6 +413,7 @@
           "name": "Guardian's Glade",
           "abbriviation": "GG",
           "assetId": 3442796,
+          "minikela": 3744706,
           "mapIds": [1609],
           "daily_bounty_achievement_id": 9158,
           "localizedNames": {
