@@ -1,5 +1,5 @@
-﻿using Blish_HUD;
-using RaidClears.Features.Strikes.Models;
+using Blish_HUD;
+using RaidClears.Features.Shared.Models;
 using RaidClears.Localization;
 using RaidClears.Shared.Controls;
 using System;
@@ -14,7 +14,7 @@ public class MapWatcherService: IDisposable
     protected bool _isOnStrikeMap = false;
     //protected bool _enteredCombat = false;
     //protected bool _leftCombat = false;
-    protected StrikeMission? _strikeMission = null;
+    protected BossEncounter? _strikeMission = null;
     protected string _strikeApiName = string.Empty;
     protected string _strikeName = string.Empty;
 
@@ -74,13 +74,13 @@ public class MapWatcherService: IDisposable
 
     }
 
-    public void MarkStrikeCompleted(StrikeMission mission)
+    public void MarkStrikeCompleted(BossEncounter mission)
     {
         Service.StrikePersistance.SaveClear(Service.CurrentAccountName, mission);
         DispatchCurrentStrikeClears();
     }
 
-    public void MarkStrikeNotCompleted(StrikeMission mission)
+    public void MarkStrikeNotCompleted(BossEncounter mission)
     {
         Service.StrikePersistance.RemoveClear(Service.CurrentAccountName, mission);
         DispatchCurrentStrikeClears();
@@ -99,13 +99,13 @@ public class MapWatcherService: IDisposable
 #if DEBUG
         Debug.WriteLine("Loaded Map " + e.ToString()+" "+e.Value.ToString());
 #endif
-        StrikeMission? _strikeMap = Service.StrikeData.GetStrikeMisisonByMapId(e.Value);
+        BossEncounter? _strikeMap = Service.StrikeData.GetBossEncounterByMapId(e.Value);
         if (_strikeMap is not null)
         {
             Reset();
-            _isOnStrikeMap= true;
-            _strikeApiName = _strikeMap.Id;
-            _strikeName = _strikeMap.Name ;
+            _isOnStrikeMap = true;
+            _strikeApiName = _strikeMap.EncounterId;
+            _strikeName = _strikeMap.Name;
             _strikeMission = _strikeMap;
         }
         else

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Blish_HUD.Controls;
 using Blish_HUD.Settings;
@@ -9,7 +9,7 @@ using RaidClears.Settings.Enums;
 using RaidClears.Settings.Views;
 using RaidClears.Settings.Views.Tabs;
 using RaidClears.Features.Fractals.Services;
-using RaidClears.Features.Strikes.Models;
+using RaidClears.Features.Shared.Models;
 
 namespace RaidClears.Utils;
 
@@ -137,7 +137,7 @@ public static class FlowPanelExtensions
         new EncounterClearStatus(panel, encounter, clearDate);
         return panel;
     }
-    public static FlowPanel AddEncounterClearStatus(this FlowPanel panel, StrikeMission encounter, DateTime clearDate)
+    public static FlowPanel AddEncounterClearStatus(this FlowPanel panel, BossEncounter encounter, DateTime clearDate)
     {
         new EncounterClearStatus(panel, encounter, clearDate);
         return panel;

@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using RaidClears.Features.Raids.Models;
+using Newtonsoft.Json;
+using RaidClears.Features.Shared;
 using RaidClears.Features.Shared.Models;
 using System;
 using System.Collections.Generic;
@@ -21,30 +21,28 @@ public abstract class Labelable
     public abstract void SetEncounterLabel(string encounterApiId, string label);
     public string GetEncounterLabel(string encounterApiId)
     {
-        if(EncounterLabels.TryGetValue(encounterApiId,out var value)){
+        if (EncounterLabels.TryGetValue(encounterApiId, out var value))
             return value;
-        }
+        var storageKey = StorageKeyPrefixes.NormalizeStorageKey(encounterApiId);
+        if (storageKey != encounterApiId && EncounterLabels.TryGetValue(storageKey, out value))
+            return value;
+
+        var lookupId = storageKey;
         if (_isRaid)
-        {
-            return Service.RaidData.GetRaidEncounterByApiId(encounterApiId).Abbriviation;
-        }
-        else if(_isStrike)
-        {
-            return Service.StrikeData.GetStrikeMissionById(encounterApiId).Abbriviation;
-        }else if (_isFractal)
-        {
+            return Service.RaidData.GetRaidEncounterByApiId(lookupId).Abbriviation;
+        if (_isStrike)
+            return Service.StrikeData.GetBossEncounterById(lookupId).Abbriviation;
+        if (_isFractal)
             return Service.FractalMapData.GetFractalByApiName(encounterApiId).ShortLabel;
-        }
-        else
-        {
-            return "undefined";
-        }
+        return "undefined";
     }
-    public string GetEncounterLabel(RaidEncounter enc)
+    public string GetEncounterLabel(BossEncounter enc)
     {
-        if (EncounterLabels.TryGetValue(enc.ApiId, out var value)){
+        if (EncounterLabels.TryGetValue(enc.EncounterId, out var value))
             return value;
-        }
+        var storageKey = StorageKeyPrefixes.NormalizeStorageKey(enc.EncounterId);
+        if (storageKey != enc.EncounterId && EncounterLabels.TryGetValue(storageKey, out value))
+            return value;
         return enc.Abbriviation;
     }
     public string GetEncounterLabel(EncounterInterface enc)

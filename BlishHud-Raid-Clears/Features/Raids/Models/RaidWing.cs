@@ -28,38 +28,15 @@ public class RaidWing : EncounterInterface
     public int EmboldendedWeeks = -1;
 
     [JsonProperty("encounters")]
-    public List<RaidEncounter> Encounters = new();
+    public List<BossEncounter> Encounters = new();
 
-    [JsonProperty("name")]
-    private string _name = "undefined";
-
-    [JsonProperty("abbriviation")]
-    private string _abbriviation = "undefined";
-
-    /// <summary>
-    /// Returns the localized name based on user locale, falling back to default name if localization is not available.
-    /// </summary>
-    public new string Name
+    public BossEncounter ToBossEncounter()
     {
-        get => GetLocalizedName(_name);
-        set => _name = value;
-    }
-
-    /// <summary>
-    /// Returns the localized abbreviation based on user locale, falling back to default abbreviation if localization is not available.
-    /// </summary>
-    public new string Abbriviation
-    {
-        get => GetLocalizedAbbreviation(_abbriviation);
-        set => _abbriviation = value;
-    }
-
-    public RaidEncounter ToRaidEncounter()
-    {
-        return new RaidEncounter()
+        return new BossEncounter()
         {
             Name = Name,
             ApiId = Id,
+            Id = Id,
             Abbriviation = Abbriviation,
         };
     }

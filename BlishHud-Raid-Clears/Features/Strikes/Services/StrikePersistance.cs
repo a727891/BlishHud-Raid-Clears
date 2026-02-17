@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using RaidClears.Features.Shared.Models;
 using RaidClears.Features.Strikes.Models;
 using System;
 using System.Collections.Generic;
@@ -27,46 +28,40 @@ public class StrikePersistance
         {
             foreach (var miss in expac.Missions)
             {
-                list.Add(miss.Id, new());
+                list.Add(miss.EncounterId, new());
             }
         }
         return list;
     }
 
-    public void SaveClear(string account, StrikeMission mission)
+    public void SaveClear(string account, BossEncounter mission)
     {
+        var id = mission.EncounterId;
         Dictionary<string, DateTime> clears;
         if (!AccountClears.TryGetValue(account, out clears))
         {
             clears = GetEmpty();
             AccountClears.Add(account, clears);
-            // the key isn't in the dictionary.
         }
-        if (!clears.ContainsKey(mission.Id))
-        {
-            clears.Add(mission.Id, new());
-        }
-
-        clears[mission.Id] = DateTime.UtcNow;
-        AccountClears[account]= clears;
+        if (!clears.ContainsKey(id))
+            clears.Add(id, new());
+        clears[id] = DateTime.UtcNow;
+        AccountClears[account] = clears;
         Save();
-
     }
-    public void RemoveClear(string account, StrikeMission mission)
+
+    public void RemoveClear(string account, BossEncounter mission)
     {
+        var id = mission.EncounterId;
         Dictionary<string, DateTime> clears;
         if (!AccountClears.TryGetValue(account, out clears))
         {
             clears = GetEmpty();
             AccountClears.Add(account, clears);
-            // the key isn't in the dictionary.
         }
-        if (!clears.ContainsKey(mission.Id))
-        {
-            clears.Add(mission.Id, new());
-        }
-
-        clears[mission.Id] = new DateTime();
+        if (!clears.ContainsKey(id))
+            clears.Add(id, new());
+        clears[id] = new DateTime();
         AccountClears[account] = clears;
         Save();
     }

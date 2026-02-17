@@ -7,10 +7,13 @@ using System.Collections.Generic;
 namespace RaidClears.Features.Strikes.Models;
 
 [Serializable]
-public class ExpansionStrikes : EncounterInterface
+public class ExpansionStrikes : EncounterInterface, IExpansion<BossEncounter>
 {
     [JsonProperty("asset")]
     public string asset = "missing.png";
+
+    [JsonIgnore]
+    public string Asset => asset;
 
     [JsonProperty("resets")]
     public string Resets = "weekly";
@@ -22,45 +25,27 @@ public class ExpansionStrikes : EncounterInterface
     public int DailyPriorityOffset = 0;
 
     [JsonProperty("missions")]
-    public List<StrikeMission> Missions = new();
+    public List<BossEncounter> Missions = new();
 
-    [JsonProperty("name")]
-    private string _name = "undefined";
+    [JsonIgnore]
+    public IReadOnlyList<BossEncounter> Children => Missions;
 
-    [JsonProperty("abbriviation")]
-    private string _abbriviation = "undefined";
-
-    /// <summary>
-    /// Returns the localized name based on user locale, falling back to default name if localization is not available.
-    /// </summary>
-    public new string Name
-    {
-        get => GetLocalizedName(_name);
-        set => _name = value;
-    }
-
-    /// <summary>
-    /// Returns the localized abbreviation based on user locale, falling back to default abbreviation if localization is not available.
-    /// </summary>
-    public new string Abbriviation
-    {
-        get => GetLocalizedAbbreviation(_abbriviation);
-        set => _abbriviation = value;
-    }
+    // IExpansion Id is backed by EncounterInterface.Id
+    string IExpansion<BossEncounter>.Id => Id;
 
     public List<BoxModel> GetEncounters()
     {
         List<BoxModel> missionslist = new();
         foreach (var mission in Missions)
         {
-            missionslist.Add(new Encounter(mission));
+            missionslist.Add(new Encounter(mission, isStrike: true));
         }
         return missionslist;
     }
 
-    public StrikeMission ToStrikeMission()
+    public BossEncounter ToBossEncounter()
     {
-        return new StrikeMission()
+        return new BossEncounter()
         {
             Name = Name,
             Id = Id,

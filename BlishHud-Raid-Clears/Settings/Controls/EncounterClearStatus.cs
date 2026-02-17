@@ -1,37 +1,33 @@
 using Blish_HUD.Controls;
 using System;
 using RaidClears.Features.Fractals.Services;
-using RaidClears.Features.Strikes.Models;
+using RaidClears.Features.Shared.Models;
 using RaidClears.Localization;
 
 namespace RaidClears.Settings.Controls;
 
-public  class EncounterClearStatus : Panel
+public class EncounterClearStatus : Panel
 {
     private bool IsFractal = false;
     private FractalMap fractal;
-    private StrikeMission mission;
+    private BossEncounter mission;
 
     private Label title = new Label();
     private Label clearDate = new Label();
     public EncounterClearStatus(FlowPanel parent, FractalMap encounter, DateTime lastClear) : base()
     {
-
         IsFractal = true;
-        fractal= encounter;
-
+        fractal = encounter;
         Parent = parent;
-        Width = parent.Width-10;
-
+        Width = parent.Width - 10;
         Build(encounter.Label, lastClear);
     }
-    public EncounterClearStatus(FlowPanel parent, StrikeMission encounter, DateTime lastClear) : base()
+    public EncounterClearStatus(FlowPanel parent, BossEncounter encounter, DateTime lastClear) : base()
     {
         IsFractal = false;
-        mission= encounter;
-
-        Parent= parent;
-        Width = parent.Width-10;
+        mission = encounter;
+        Parent = parent;
+        Width = parent.Width - 10;
         Build(encounter.Name, lastClear);
     }
 

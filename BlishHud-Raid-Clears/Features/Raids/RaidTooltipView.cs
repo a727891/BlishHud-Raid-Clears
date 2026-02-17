@@ -7,7 +7,7 @@ using Color = Microsoft.Xna.Framework.Color;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 using Blish_HUD;
 using RaidClears.Features.Raids.Models;
-using RaidClears.Features.Strikes.Models;
+using RaidClears.Features.Shared.Models;
 using RaidClears;
 
 namespace RaidClears.Features.Raids;
@@ -27,8 +27,7 @@ public class RaidTooltipView : Blish_HUD.Controls.Tooltip
     private readonly Blish_HUD.Controls.Image _mentorIcon;
     private readonly Label _mentorLabel;
 
-    private RaidEncounter _encounter = new();
-    private StrikeMission _strikeMission = new();
+    private BossEncounter _encounter = new();
 
     public RaidTooltipView()
     {
@@ -151,30 +150,31 @@ public class RaidTooltipView : Blish_HUD.Controls.Tooltip
         };
     }
 
-    public RaidEncounter Encoutner
+    public BossEncounter Encounter
     {
-        get => _encounter; set => Common.SetProperty(ref _encounter, value, ApplyEncounter);
+        get => _encounter;
+        set => Common.SetProperty(ref _encounter, value ?? new BossEncounter(), ApplyEncounter);
     }
-    private void ApplyEncounter(object sender, Utils.Kenedia.ValueChangedEventArgs<RaidEncounter> e)
-    {
-        if(e.NewValue ==null) { 
-            return;
-        }
-        _title.Text = $"{e.NewValue.Name}";
-        _id.Text = $"({Service.RaidSettings.GetEncounterLabel(e.NewValue.ApiId)})";
-        if(e.NewValue.AssetId > 0)
-        {
-            _icon.Texture = Service.Textures!.DatAsset(e.NewValue.AssetId);
-        }
 
-        // Set damage type icons (stacked vertically)
-        var raidData = Service.RaidData;
+    private void ApplyEncounter(object sender, Utils.Kenedia.ValueChangedEventArgs<BossEncounter> e)
+    {
+        if (e.NewValue == null) return;
+
+        var enc = e.NewValue;
+        _title.Text = enc.Name;
+        _id.Text = enc.IsStrike
+            ? $"({Service.StrikeSettings.GetEncounterLabel(enc)})"
+            : $"({Service.RaidSettings.GetEncounterLabel(enc)})";
+        if (enc.AssetId > 0)
+            _icon.Texture = Service.Textures!.DatAsset(enc.AssetId);
+
         int yOffset = _icon.Bottom + 5;
         int xOffset = _icon.Left;
+        var raidData = Service.RaidData;
 
         if (raidData != null)
         {
-            if (e.NewValue.PowerFavored)
+            if (enc.PowerFavored)
             {
                 _powerIcon.Texture = Service.Textures!.DatAsset(raidData.PowerDamageAssetId);
                 _powerIcon.Location = new(xOffset, yOffset);
@@ -189,7 +189,7 @@ public class RaidTooltipView : Blish_HUD.Controls.Tooltip
                 _powerLabel.Visible = false;
             }
 
-            if (e.NewValue.CondiFavored)
+            if (enc.CondiFavored)
             {
                 _condiIcon.Texture = Service.Textures!.DatAsset(raidData.CondiDamageAssetId);
                 _condiIcon.Location = new(xOffset, yOffset);
@@ -204,7 +204,7 @@ public class RaidTooltipView : Blish_HUD.Controls.Tooltip
                 _condiLabel.Visible = false;
             }
 
-            if (e.NewValue.NeedsDefianceBreak && raidData.DefianceAssetId > 0)
+            if (enc.NeedsDefianceBreak && raidData.DefianceAssetId > 0)
             {
                 _defianceIcon.Texture = Service.Textures!.DatAsset(raidData.DefianceAssetId);
                 _defianceIcon.Location = new(xOffset, yOffset);
@@ -219,13 +219,11 @@ public class RaidTooltipView : Blish_HUD.Controls.Tooltip
                 _defianceLabel.Visible = false;
             }
 
-            // Mentor achievement progress (final line; icon + text, blank line above if other callouts present) — only when setting enabled
             var mentorEnabled = Service.Settings?.RaidSettings?.RaidPanelMentorProgress?.Value == true;
             var hasOtherCallouts = _powerIcon.Visible || _condiIcon.Visible || _defianceIcon.Visible;
-            if (mentorEnabled && e.NewValue.MentorAchievementId is int mentorId)
+            if (mentorEnabled && enc.MentorAchievementId is int mentorId)
             {
-                if (hasOtherCallouts)
-                    yOffset += 12; // blank line above mentor progress
+                if (hasOtherCallouts) yOffset += 12;
 
                 var progress = Service.MentorAchievementProgress?.Progress;
                 _mentorIcon.Visible = raidData.MentorAssetId > 0;
@@ -240,20 +238,15 @@ public class RaidTooltipView : Blish_HUD.Controls.Tooltip
                     _mentorLabel.Text = entry.Done
                         ? Strings.Tooltip_MentorDone
                         : string.Format(Strings.Tooltip_MentorProgress, entry.Current, entry.Max);
-                    _mentorLabel.Location = _mentorIcon.Visible
-                        ? new(_mentorIcon.Right + 5, yOffset)
-                        : new(xOffset + 5, yOffset); // +5 left padding to avoid clipping
+                    _mentorLabel.Location = _mentorIcon.Visible ? new(_mentorIcon.Right + 5, yOffset) : new(xOffset + 5, yOffset);
                     _mentorLabel.Visible = true;
                 }
                 else
                 {
                     _mentorLabel.Text = string.Format(Strings.Tooltip_MentorProgress, 0, "?");
-                    _mentorLabel.Location = _mentorIcon.Visible
-                        ? new(_mentorIcon.Right + 5, yOffset)
-                        : new(xOffset + 5, yOffset);
+                    _mentorLabel.Location = _mentorIcon.Visible ? new(_mentorIcon.Right + 5, yOffset) : new(xOffset + 5, yOffset);
                     _mentorLabel.Visible = true;
                 }
-
                 yOffset += 25;
             }
             else
@@ -275,24 +268,6 @@ public class RaidTooltipView : Blish_HUD.Controls.Tooltip
         }
 
         Invalidate();
-    }
-
-    public StrikeMission StrikeMission
-    {
-        get => _strikeMission; set => Common.SetProperty(ref _strikeMission, value, ApplyStrikeMission);
-    }
-    private void ApplyStrikeMission(object sender, Utils.Kenedia.ValueChangedEventArgs<StrikeMission> e)
-    {
-        if (e.NewValue == null)
-        {
-            return;
-        }
-        _title.Text = $"{e.NewValue.Name}";
-        _id.Text = $"({Service.StrikeSettings.GetEncounterLabel(e.NewValue.Id)})";
-        if (e.NewValue.AssetId > 0)
-        {
-            _icon.Texture = Service.Textures!.DatAsset(e.NewValue.AssetId);
-        }
     }
 
     public override void Draw(SpriteBatch spriteBatch, Rectangle drawBounds, Rectangle scissor)

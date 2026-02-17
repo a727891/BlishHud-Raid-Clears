@@ -1,5 +1,6 @@
 using Blish_HUD.Settings;
 using Newtonsoft.Json;
+using RaidClears.Features.Shared.Models;
 using RaidClears.Features.Strikes.Models;
 using System;
 using System.Collections.Generic;
@@ -49,70 +50,49 @@ public class StrikeData
         };
     }
 
-    public StrikeMission? GetStrikeMisisonByMapId(int id)
+    public BossEncounter? GetBossEncounterByMapId(int id)
     {
-        foreach(var expansion in Expansions)
+        foreach (var expansion in Expansions)
         {
-            foreach(var mission in expansion.Missions){
+            foreach (var mission in expansion.Missions)
+            {
                 if (mission.MapIds.Contains(id))
-                {
                     return mission;
-                }
             }
         }
         return null;
     }
 
-    public StrikeMission GetStrikeMissionById(string name)
-    {
-        foreach(var expansion in Expansions)
-        {
-            if (expansion.Id == name)
-            {
-                return expansion.ToStrikeMission();
-            }
-            foreach(var mission in expansion.Missions)
-            {
-                if(mission.Id == name)
-                {
-                    return mission;
-                }
-            }
-        }
-        if(Priority.Id == name)
-        {
-            return Priority.ToStrikeMission();
-        }
-        if(PriorityTomorrow.Id == name)
-        {
-            return PriorityTomorrow.ToStrikeMission();
-        }
-        return new StrikeMission()
-        {
-            Id = name,
-            Name = "GetStrikeMissionById Failed"
-        };
-    }
-    public StrikeMission GetStrikeMissionByName(string name)
+    public BossEncounter GetBossEncounterById(string name)
     {
         foreach (var expansion in Expansions)
         {
             if (expansion.Id == name)
+                return expansion.ToBossEncounter();
+            foreach (var mission in expansion.Missions)
             {
-
+                if (mission.Id == name)
+                    return mission;
             }
+        }
+        if (Priority.Id == name)
+            return Priority.ToBossEncounter();
+        if (PriorityTomorrow.Id == name)
+            return PriorityTomorrow.ToBossEncounter();
+        return new BossEncounter() { Id = name, Name = "GetBossEncounterById Failed" };
+    }
+
+    public BossEncounter GetBossEncounterByName(string name)
+    {
+        foreach (var expansion in Expansions)
+        {
             foreach (var mission in expansion.Missions)
             {
                 if (mission.Name == name)
-                {
                     return mission;
-                }
             }
         }
-        return new StrikeMission()
-        {
-            Name = name
-        };
+        return new BossEncounter() { Name = name };
     }
     public string GetStrikeMissionResetById(string name)
     {
@@ -162,7 +142,7 @@ public class StrikeData
     {
         return Service.StrikeSettings.GetExpansionVisible(expac);
     }
-    public SettingEntry<bool> GetMissionVisible(StrikeMission mission)
+    public SettingEntry<bool> GetMissionVisible(BossEncounter mission)
     {
         return Service.StrikeSettings.GetMissionVisible(mission);
     }

@@ -85,17 +85,14 @@ public class StrikesPanel : GridPanel
             if (expansion.id == encounterApiId)
             {
                 expansion.GroupLabel.Text = newLabel;
-                return;
+                expansion.GroupLabel.Invalidate();
             }
             foreach (var encounter in expansion.boxes)
             {
                 if (encounter.id == encounterApiId)
-                {
                     encounter.SetLabel(newLabel);
-                    //return;//Keep going for priority strikes
-                }
-
             }
         }
+        Invalidate();
     }
 }

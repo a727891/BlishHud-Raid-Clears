@@ -1,11 +1,14 @@
 using Blish_HUD.Settings;
 using Newtonsoft.Json;
 using RaidClears.Features.Raids.Services;
+using RaidClears.Features.Shared;
+using RaidClears.Features.Shared.Models;
 using RaidClears.Features.Strikes.Models;
 using RaidClears.Localization;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace RaidClears.Features.Strikes.Services;
@@ -23,11 +26,25 @@ public class StrikeSettingsPersistance : Labelable
     [JsonIgnore]
     public static string FILENAME = "strike_settings.json";
 
+    private const string CURRENT_VERSION = "3.5.0";
+
+    /// <summary>Versions we accept; unknown versions cause a fresh config.</summary>
+    private static readonly HashSet<string> SupportedVersions = new(StringComparer.Ordinal)
+    {
+        "3.0.0", CURRENT_VERSION
+    };
+
+    /// <summary>Legacy versions that need MigratePriorityKeysFromStorage before upgrading to CURRENT_VERSION.</summary>
+    private static readonly HashSet<string> VersionsRequiringPriorityMigration = new(StringComparer.Ordinal)
+    {
+        "3.0.0"
+    };
+
     [JsonIgnore]
     protected Dictionary<string, SettingEntry<bool>> VirtualSettingsEnties = new();
 
     [JsonProperty("version")]
-    public string Version { get; set; } = "3.0.0";
+    public string Version { get; set; } = CURRENT_VERSION;
 
 
 
@@ -58,18 +75,14 @@ public class StrikeSettingsPersistance : Labelable
 
     public override void SetEncounterLabel(string encounterApiId, string label)
     {
-        if (EncounterLabels.ContainsKey(encounterApiId))
-        {
-            EncounterLabels.Remove(encounterApiId);
-        }
-        if (EncounterLabels.ContainsKey($"priority_{encounterApiId}"))
-        {
-            EncounterLabels.Remove($"priority_{encounterApiId}");
-        }
-        EncounterLabels.Add(encounterApiId, label);
-        EncounterLabels.Add($"priority_{encounterApiId}", label);
+        var storageKey = StorageKeyPrefixes.NormalizeStorageKey(encounterApiId);
+        if (EncounterLabels.ContainsKey(storageKey))
+            EncounterLabels.Remove(storageKey);
+        EncounterLabels.Add(storageKey, label);
+
         Service.StrikesWindow.UpdateEncounterLabel(encounterApiId, label);
-        Service.StrikesWindow.UpdateEncounterLabel($"priority_{encounterApiId}", label);
+        Service.StrikesWindow.UpdateEncounterLabel(StorageKeyPrefixes.Priority + storageKey, label);
+        Service.StrikesWindow.UpdateEncounterLabel(StorageKeyPrefixes.Tomorrow + storageKey, label);
         Save();
     }
 
@@ -144,31 +157,29 @@ public class StrikeSettingsPersistance : Labelable
         VirtualSettingsEnties.Add(expac.Id, setting);
         return setting;
     }
-    public SettingEntry<bool> GetMissionVisible(StrikeMission mission)
+    public SettingEntry<bool> GetMissionVisible(BossEncounter mission)
     {
-        if (VirtualSettingsEnties.ContainsKey(mission.Id))
+        var id = StorageKeyPrefixes.NormalizeStorageKey(mission.EncounterId);
+        if (VirtualSettingsEnties.ContainsKey(id))
+            return VirtualSettingsEnties[id];
+        if (!Missions.ContainsKey(id))
         {
-            return VirtualSettingsEnties[mission.Id];
-        }
-        if (!Missions.ContainsKey(mission.Id))
-        {
-            Missions.Add(mission.Id, true);
+            Missions.Add(id, true);
             Save();
         }
 
         var setting = new SettingEntry<bool>()
         {
-            Value = Missions[mission.Id],
-            GetDescriptionFunc = () => $"",
-            GetDisplayNameFunc = () => $"{mission.Name}"
+            Value = Missions[id],
+            GetDescriptionFunc = () => "",
+            GetDisplayNameFunc = () => mission.Name
         };
         setting.SettingChanged += (_, e) =>
         {
-            Missions[mission.Id] = e.NewValue;
+            Missions[id] = e.NewValue;
             Save();
         };
-
-        VirtualSettingsEnties.Add(mission.Id, setting);
+        VirtualSettingsEnties.Add(id, setting);
         return setting;
     }
 
@@ -222,14 +233,43 @@ public class StrikeSettingsPersistance : Labelable
 
     private static StrikeSettingsPersistance HandleVersionUpgrade(StrikeSettingsPersistance data)
     {
-        if (data.Version == "3.0.0")
-        {
-            return data;
-        }
-        else
-        {
+        if (!SupportedVersions.Contains(data.Version))
             return new StrikeSettingsPersistance();
+        if (data.Version == CURRENT_VERSION)
+            return data;
+
+        if (VersionsRequiringPriorityMigration.Contains(data.Version))
+            MigratePriorityKeysFromStorage(data);
+        data.Version = CURRENT_VERSION;
+        data.Save();
+        return data;
+    }
+
+    /// <summary>Merge priority_ keys into base keys and remove priority_ entries so JSON stays clean. Returns true if any change was made.</summary>
+    private static bool MigratePriorityKeysFromStorage(StrikeSettingsPersistance data)
+    {
+        var changed = false;
+        foreach (var key in data.EncounterLabels.Keys.ToList())
+        {
+            if (key == "priority" || key == "priority_tomorrow") continue;
+            if (!key.StartsWith(StorageKeyPrefixes.Priority, StringComparison.Ordinal) && !key.StartsWith(StorageKeyPrefixes.Tomorrow, StringComparison.Ordinal)) continue;
+            var baseKey = key.StartsWith(StorageKeyPrefixes.Priority, StringComparison.Ordinal) ? key.Substring(StorageKeyPrefixes.Priority.Length) : key.Substring(StorageKeyPrefixes.Tomorrow.Length);
+            if (!data.EncounterLabels.ContainsKey(baseKey))
+                data.EncounterLabels[baseKey] = data.EncounterLabels[key];
+            data.EncounterLabels.Remove(key);
+            changed = true;
         }
+        foreach (var key in data.Missions.Keys.ToList())
+        {
+            if (key == "priority" || key == "priority_tomorrow") continue;
+            if (!key.StartsWith(StorageKeyPrefixes.Priority, StringComparison.Ordinal) && !key.StartsWith(StorageKeyPrefixes.Tomorrow, StringComparison.Ordinal)) continue;
+            var baseKey = key.StartsWith(StorageKeyPrefixes.Priority, StringComparison.Ordinal) ? key.Substring(StorageKeyPrefixes.Priority.Length) : key.Substring(StorageKeyPrefixes.Tomorrow.Length);
+            if (!data.Missions.ContainsKey(baseKey))
+                data.Missions[baseKey] = data.Missions[key];
+            data.Missions.Remove(key);
+            changed = true;
+        }
+        return changed;
     }
 
     private static StrikeSettingsPersistance CreateNewCharacterConfiguration()

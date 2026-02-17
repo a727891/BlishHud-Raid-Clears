@@ -6,36 +6,20 @@ using System.Collections.Generic;
 namespace RaidClears.Features.Raids.Models;
 
 [Serializable]
-public class ExpansionRaid : EncounterInterface
+public class ExpansionRaid : EncounterInterface, IExpansion<RaidWing>
 {
     [JsonProperty("asset")]
     public string asset = "missing.png";
 
+    [JsonIgnore]
+    public string Asset => asset;
+
     [JsonProperty("wings")]
     public List<RaidWing> Wings = new();
 
-    [JsonProperty("name")]
-    private string _name = "undefined";
+    [JsonIgnore]
+    public IReadOnlyList<RaidWing> Children => Wings;
 
-    [JsonProperty("abbriviation")]
-    private string _abbriviation = "undefined";
-
-    /// <summary>
-    /// Returns the localized name based on user locale, falling back to default name if localization is not available.
-    /// </summary>
-    public new string Name
-    {
-        get => GetLocalizedName(_name);
-        set => _name = value;
-    }
-
-    /// <summary>
-    /// Returns the localized abbreviation based on user locale, falling back to default abbreviation if localization is not available.
-    /// </summary>
-    public new string Abbriviation
-    {
-        get => GetLocalizedAbbreviation(_abbriviation);
-        set => _abbriviation = value;
-    }
-
+    // IExpansion Id is backed by EncounterInterface.Id
+    string IExpansion<RaidWing>.Id => Id;
 }

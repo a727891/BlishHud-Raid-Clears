@@ -86,22 +86,25 @@ public class RaidPanel : GridPanel
         Invalidate();
     }
 
-    public void UpdateEncounterLabel(string encounterApiId, string newLabel) {
+    public void UpdateEncounterLabel(string encounterApiId, string newLabel)
+    {
         foreach (var wing in Wings)
         {
             if (wing.id == encounterApiId)
             {
                 wing.GroupLabel.Text = newLabel;
+                wing.GroupLabel.Invalidate();
+                Invalidate();
                 return;
             }
             foreach (var encounter in wing.boxes)
             {
-                if(encounter.id == encounterApiId)
+                if (encounter.id == encounterApiId)
                 {
                     encounter.SetLabel(newLabel);
+                    Invalidate();
                     return;
                 }
-                
             }
         }
     }

@@ -21,7 +21,7 @@ public static class DailyBountyService
 
         var dayIndex = PriorityRotationService.DayOfYearIndex();
 
-        return GetDayOfYearBounties(dayIndex, bountyData, raidData);
+        return GetDayOfYearBounties(dayIndex, bountyData, raidData, StorageKeyPrefixes.Priority);
     }
 
     public static IEnumerable<Encounter> GetTomorrowBounties()
@@ -34,7 +34,7 @@ public static class DailyBountyService
 
         var dayIndex = PriorityRotationService.DayOfYearIndex() + 1;
 
-        return GetDayOfYearBounties(dayIndex, bountyData, raidData, "tomorrow_");
+        return GetDayOfYearBounties(dayIndex, bountyData, raidData, StorageKeyPrefixes.Tomorrow);
     }
 
     /// <summary>
@@ -77,7 +77,7 @@ public static class DailyBountyService
         }
     }
 
-    private static IEnumerable<Encounter> GetDayOfYearBounties(int dayIndex, DailyBountyData bountyData, RaidData raidData, string prefix = "priority_")
+    private static IEnumerable<Encounter> GetDayOfYearBounties(int dayIndex, DailyBountyData bountyData, RaidData raidData, string prefix)
     {
         // New per-slot rotation model (bossSlots).
         // When bossSlots is populated, we derive today's encounters by
@@ -121,7 +121,7 @@ public static class DailyBountyService
     }
 
 
-    private static IEnumerable<Encounter> ResolveBountyEncounters(List<BountyEncounterReference> references, RaidData raidData, string prefix = "priority_")
+    private static IEnumerable<Encounter> ResolveBountyEncounters(List<BountyEncounterReference> references, RaidData raidData, string prefix)
     {
         var encounters = new List<Encounter>();
 
@@ -129,13 +129,25 @@ public static class DailyBountyService
         {
             var raidEncounter = raidData.GetRaidEncounterByApiId(reference.EncounterId);
 
-            Encounter encounter;
             if (raidEncounter != null)
             {
-                raidEncounter.Id = $"{prefix}{raidEncounter.Id}";
-                raidEncounter.ApiId = $"{prefix}{raidEncounter.ApiId}";
-                encounter = new Encounter(raidEncounter);
-                encounters.Add(encounter);
+                // Use a copy with prefixed ids so we never mutate the shared RaidData.Expansions.
+                var baseApiId = raidEncounter.ApiId != null && raidEncounter.ApiId != "undefined" ? raidEncounter.ApiId : raidEncounter.Id;
+                var copy = new BossEncounter
+                {
+                    Id = prefix + raidEncounter.Id,
+                    ApiId = prefix + baseApiId,
+                    Name = raidEncounter.Name,
+                    Abbriviation = raidEncounter.Abbriviation,
+                    AssetId = raidEncounter.AssetId,
+                    MapIds = raidEncounter.MapIds ?? new List<int>(),
+                    DailyBountyAchievementId = raidEncounter.DailyBountyAchievementId,
+                    MentorAchievementId = raidEncounter.MentorAchievementId,
+                    PowerFavored = raidEncounter.PowerFavored,
+                    CondiFavored = raidEncounter.CondiFavored,
+                    NeedsDefianceBreak = raidEncounter.NeedsDefianceBreak
+                };
+                encounters.Add(new Encounter(copy, isStrike: raidEncounter.IsStrike));
             }
             else
             {

@@ -11,11 +11,11 @@ public class EncounterInterface
     [JsonProperty("id")]
     public string Id = "undefined";
 
-    [JsonIgnore]
-    public string Name = "undefined";
+    [JsonProperty("name")]
+    protected string _name = "undefined";
 
-    [JsonIgnore]
-    public string Abbriviation = "undefined";
+    [JsonProperty("abbriviation")]
+    protected string _abbriviation = "undefined";
 
     [JsonProperty("assetId")]
     public int AssetId = 0;
@@ -25,6 +25,24 @@ public class EncounterInterface
 
     [JsonProperty("localizedAbbreviations")]
     protected LocalizedStrings? LocalizedAbbreviations { get; set; }
+
+    /// <summary>
+    /// Returns the localized name based on user locale, falling back to default name if localization is not available.
+    /// </summary>
+    public virtual string Name
+    {
+        get => GetLocalizedName(_name);
+        set => _name = value;
+    }
+
+    /// <summary>
+    /// Returns the localized abbreviation based on user locale, falling back to default abbreviation if localization is not available.
+    /// </summary>
+    public virtual string Abbriviation
+    {
+        get => GetLocalizedAbbreviation(_abbriviation);
+        set => _abbriviation = value;
+    }
 
     /// <summary>
     /// Gets the localized name based on user locale, falling back to default Name if localization is not available.

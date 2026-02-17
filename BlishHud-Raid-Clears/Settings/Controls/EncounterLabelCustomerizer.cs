@@ -1,9 +1,9 @@
 using Blish_HUD.Controls;
 using Microsoft.Xna.Framework;
-using RaidClears.Features.Strikes.Models;
 using RaidClears.Features.Raids.Models;
 using RaidClears.Features.Shared.Models;
 using RaidClears.Features.Raids.Services;
+using RaidClears.Features.Strikes.Models;
 using RaidClears.Localization;
 
 namespace RaidClears.Settings.Controls;
@@ -24,23 +24,13 @@ public  class EncounterLabelCustomerizer : Panel
 
         Build(encounter.Name, encounter.Abbriviation, encounter.Id, labelColor);
     }
-    public EncounterLabelCustomerizer(FlowPanel parent, Labelable labelable, RaidEncounter encounter, Color? labelColor = null) : base()
+    public EncounterLabelCustomerizer(FlowPanel parent, Labelable labelable, BossEncounter encounter, Color? labelColor = null) : base()
     {
         _labelable = labelable;
         Parent = parent;
         Width = parent.Width - 10;
         Padding = new Thickness(0, 10);
-
-        Build(encounter.Name, encounter.Abbriviation, encounter.ApiId, labelColor);
-    }
-    public EncounterLabelCustomerizer(FlowPanel parent, Labelable labelable, StrikeMission encounter, Color? labelColor = null) : base()
-    {
-        _labelable = labelable;
-        Parent = parent;
-        Width = parent.Width - 10;
-        Padding = new Thickness(0, 10);
-
-        Build(encounter.Name, encounter.Abbriviation, encounter.Id, labelColor);
+        Build(encounter.Name, encounter.Abbriviation, encounter.EncounterId, labelColor);
     }
     public EncounterLabelCustomerizer(FlowPanel parent, Labelable labelable, RaidWing encounter, Color? labelColor = null) : base()
     {

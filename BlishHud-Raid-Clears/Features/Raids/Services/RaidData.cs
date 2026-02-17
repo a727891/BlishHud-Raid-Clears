@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using RaidClears.Features.Raids.Models;
+using RaidClears.Features.Shared.Models;
 
 namespace RaidClears.Features.Raids.Services;
 
@@ -120,46 +121,41 @@ public class RaidData
         }
         return new RaidWing();
     }
-    public RaidEncounter GetRaidEncounterByApiId(string apiId)
+    public BossEncounter GetRaidEncounterByApiId(string apiId)
     {
         foreach (var expansion in Expansions)
         {
             foreach (var wing in expansion.Wings)
             {
-                foreach(var enc in wing.Encounters)
+                foreach (var enc in wing.Encounters)
                 {
-                    if(enc.ApiId == apiId) return enc;
+                    if (enc.ApiId == apiId) return enc;
                 }
-                if(wing.Id == apiId)
-                {
-                    return wing.ToRaidEncounter();
-                }
+                if (wing.Id == apiId)
+                    return wing.ToBossEncounter();
             }
         }
-        //Fallback to Strikes
-        var strike = Service.StrikeData.GetStrikeMissionById(apiId);
+        var strike = Service.StrikeData.GetBossEncounterById(apiId);
         if (strike.Name != "undefined")
         {
-            return new RaidEncounter()
+            return new BossEncounter()
             {
                 Abbriviation = strike.Abbriviation,
                 ApiId = strike.Id,
+                Id = strike.Id,
                 AssetId = strike.AssetId,
                 Name = strike.Name,
-                Id = strike.Id,
-                DailyBountyAchievementId = strike.DailyBountyAchievementId
+                MapIds = strike.MapIds != null && strike.MapIds.Count > 0 ? new List<int>(strike.MapIds) : new List<int>(),
+                DailyBountyAchievementId = strike.DailyBountyAchievementId,
             };
         }
-        return new RaidEncounter()
-        {
-            Abbriviation = apiId
-        };
+        return new BossEncounter() { Abbriviation = apiId };
     }
 
     /// <summary>
     /// Gets the raid encounter that has the given mentor achievement ID, or null if not found.
     /// </summary>
-    public RaidEncounter? GetEncounterByMentorAchievementId(int mentorAchievementId)
+    public BossEncounter? GetEncounterByMentorAchievementId(int mentorAchievementId)
     {
         foreach (var expansion in Expansions)
         {

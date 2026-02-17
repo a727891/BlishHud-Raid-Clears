@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Blish_HUD.Settings;
 using RaidClears.Features.Shared.Controls;
 using RaidClears.Features.Shared.Models;
@@ -85,7 +85,7 @@ public static class WingFactory
                 var encounters = new List<BoxModel>();
                 foreach (var encounter in wing.Encounters)
                 {
-                    encounters.Add(new Encounter(encounter));
+                    encounters.Add(new Encounter(encounter, isStrike: false));
                 }
                 var wingModel = new Wing(wing.Name, wing.Id, wing.Number-1, wing.Abbriviation, encounters.ToArray());
                 raids.Add(wingModel);

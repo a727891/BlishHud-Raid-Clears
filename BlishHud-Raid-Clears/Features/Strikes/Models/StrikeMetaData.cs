@@ -49,7 +49,7 @@ public static class StrikeMetaData
                 {
                     encounterBox.VisiblityChanged(allStrikes[strikeIndex++]);
                 }*/
-                encounterBox.VisiblityChanged(Service.StrikeData.GetMissionVisible(Service.StrikeData.GetStrikeMissionByName(encounter.name)));
+                encounterBox.VisiblityChanged(Service.StrikeData.GetMissionVisible(Service.StrikeData.GetBossEncounterByName(encounter.name)));
                 encounterBox.TextColorSetting(settings.Style.Color.Text);
                 encounter.SetGridBoxReference(encounterBox);
                 encounter.WatchColorSettings(settings.Style.Color.Cleared, settings.Style.Color.NotCleared);
@@ -58,13 +58,13 @@ public static class StrikeMetaData
 
         if (Service.DailyBountyData.Enabled)
         {
-            var priorityMeta = Service.StrikeData.Priority;
-            var todayShortName = Service.StrikeSettings.GetEncounterLabel(priorityMeta.Id);
-            strikes.Add(new DailyBounty(priorityMeta.Name, priorityMeta.Id, 12, todayShortName, new List<BoxModel>() { }, panel));
+           var priorityMeta = Service.StrikeData.Priority;
+           var todayShortName = Service.StrikeSettings.GetEncounterLabel(priorityMeta.Id);
+           strikes.Add(new DailyBounty(priorityMeta.Name, priorityMeta.Id, 12, todayShortName, new List<BoxModel>() { }, panel));
 
-            var tomorrowMeta = Service.StrikeData.PriorityTomorrow;
-            var tomorrowShortName = Service.StrikeSettings.GetEncounterLabel(tomorrowMeta.Id);
-            strikes.Add(new DailyBountyTomorrow(tomorrowMeta.Name, tomorrowMeta.Id, 13, tomorrowShortName, new List<BoxModel>() { }, panel));
+           var tomorrowMeta = Service.StrikeData.PriorityTomorrow;
+           var tomorrowShortName = Service.StrikeSettings.GetEncounterLabel(tomorrowMeta.Id);
+           strikes.Add(new DailyBountyTomorrow(tomorrowMeta.Name, tomorrowMeta.Id, 13, tomorrowShortName, new List<BoxModel>() { }, panel));
         }
 
         return strikes;
