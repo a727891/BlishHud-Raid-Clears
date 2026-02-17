@@ -131,6 +131,7 @@ public class GridPanel : FlowPanel
                     || (Service.Settings.StrikeSettings.AnchorToRaidPanel.Value && ReferenceEquals(this, Service.StrikesWindow)))
                     Service.Settings.RaidSettings.Generic.Location.Value = Service.RaidWindow.Location;
                     Service.Settings.StrikeSettings.Generic.Location.Value = Service.StrikesWindow.Location;
+                _settings.Location.Value = Location;
             }
         };
     }
