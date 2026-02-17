@@ -60,6 +60,7 @@
           "abbriviation": "CW",
           "assetId": 2293648,
           "mapIds": [1374, 1376],
+          "daily_bounty_achievement_id": 9115,
           "localizedNames": {
             "en": "Cold War",
             "fr": "Guerre froide",
@@ -79,6 +80,7 @@
           "abbriviation": "FoJ",
           "assetId": 2200036,
           "mapIds": [1341, 1344],
+          "daily_bounty_achievement_id": 9139,
           "localizedNames": {
             "en": "Fraenir of Jormag",
             "fr": "Fraenir de Jormag",
@@ -98,6 +100,7 @@
           "abbriviation": "SH",
           "assetId": 2221486,
           "mapIds": [1331, 1332],
+          "daily_bounty_achievement_id": 9121,
           "localizedNames": {
             "en": "Shiverpeaks Pass",
             "fr": "Col des Cimefroides",
@@ -117,6 +120,7 @@
           "abbriviation": "V&C",
           "assetId": 771054,
           "mapIds": [1346, 1340],
+          "daily_bounty_achievement_id": 9175,
           "localizedNames": {
             "en": "Voice of the Fallen and Claw of the Fallen",
             "fr": "Voix et Griffe des déchus",
@@ -136,6 +140,7 @@
           "abbriviation": "WoJ",
           "assetId": 2247615,
           "mapIds": [1359, 1357],
+          "daily_bounty_achievement_id": 9131,
           "localizedNames": {
             "en": "Whisper of Jormag",
             "fr": "Murmure de Jormag",
@@ -155,6 +160,7 @@
           "abbriviation": "BS",
           "assetId": 2221487,
           "mapIds": [1339, 1351],
+          "daily_bounty_achievement_id": 9197,
           "localizedNames": {
             "en": "Boneskinner",
             "fr": "Désosseur",
@@ -216,6 +222,7 @@
           "abbriviation": "AH",
           "assetId": 740290,
           "mapIds": [1432],
+          "daily_bounty_achievement_id": 9153,
           "localizedNames": {
             "en": "Aetherblade Hideout",
             "fr": "Antre étherlame",
@@ -235,6 +242,7 @@
           "abbriviation": "XJJ",
           "assetId": 638233,
           "mapIds": [1450],
+          "daily_bounty_achievement_id": 9196,
           "localizedNames": {
             "en": "Xunlai Jade Junkyard",
             "fr": "Décharge de Xunlai Jade",
@@ -254,6 +262,7 @@
           "abbriviation": "KO",
           "assetId": 66059,
           "mapIds": [1451],
+          "daily_bounty_achievement_id": 9179,
           "localizedNames": {
             "en": "Kaineng Overlook",
             "fr": "Belvédère de Kaineng",
@@ -273,6 +282,7 @@
           "abbriviation": "HT",
           "assetId": 3004306,
           "mapIds": [1437],
+          "daily_bounty_achievement_id": 9168,
           "localizedNames": {
             "en": "Harvest Temple",
             "fr": "Temple des moissons",
@@ -292,6 +302,7 @@
           "abbriviation": "OLC",
           "assetId": 2759435,
           "mapIds": [1485],
+          "daily_bounty_achievement_id": 9138,
           "localizedNames": {
             "en": "Old Lion's Court",
             "fr": "Cour du vieux Lion",
@@ -334,6 +345,7 @@
           "abbriviation": "CO",
           "assetId": 3122208,
           "mapIds": [1515],
+          "daily_bounty_achievement_id": 9155,
           "localizedNames": {
             "en": "Cosmic Observatory",
             "fr": "Observatoire cosmique",
@@ -353,6 +365,7 @@
           "abbriviation": "ToF",
           "assetId": 3122206,
           "mapIds": [1520],
+          "daily_bounty_achievement_id": 9134,
           "localizedNames": {
             "en": "Temple of Febe",
             "fr": "Temple de Febe",
@@ -395,6 +408,7 @@
           "abbriviation": "GG",
           "assetId": 3442796,
           "mapIds": [1609],
+          "daily_bounty_achievement_id": 9158,
           "localizedNames": {
             "en": null,
             "fr": null,

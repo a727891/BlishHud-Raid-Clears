@@ -72,7 +72,8 @@
                 "de": "VG",
                 "es": "VG"
               },
-              "mentor_achievement_id": 9105
+              "mentor_achievement_id": 9105,
+              "daily_bounty_achievement_id": 9126
             },
             {
               "name": "Spirit Woods",
@@ -115,7 +116,8 @@
                 "de": "G",
                 "es": "G"
               },
-              "mentor_achievement_id": 9169
+              "mentor_achievement_id": 9169,
+              "daily_bounty_achievement_id": 9122
             },
             {
               "name": "Sabetha",
@@ -137,7 +139,8 @@
                 "de": "S",
                 "es": "S"
               },
-              "mentor_achievement_id": 9140
+              "mentor_achievement_id": 9140,
+              "daily_bounty_achievement_id": 9185
             }
           ]
         },
@@ -227,7 +230,8 @@
                 "de": "M",
                 "es": "M"
               },
-              "mentor_achievement_id": 9170
+              "mentor_achievement_id": 9170,
+              "daily_bounty_achievement_id": 9160
             }
           ]
         },
@@ -295,7 +299,8 @@
                 "de": "KC",
                 "es": "KC"
               },
-              "mentor_achievement_id": 9136
+              "mentor_achievement_id": 9136,
+              "daily_bounty_achievement_id": 9163
             },
             {
               "name": "Twisted Castle",
@@ -338,7 +343,8 @@
                 "de": "X",
                 "es": "X"
               },
-              "mentor_achievement_id": 9157
+              "mentor_achievement_id": 9157,
+              "daily_bounty_achievement_id": 9107
             }
           ]
         },
@@ -385,7 +391,8 @@
                 "de": "C",
                 "es": "C"
               },
-              "mentor_achievement_id": 9104
+              "mentor_achievement_id": 9104,
+              "daily_bounty_achievement_id": 9109
             },
             {
               "name": "Mursaat Overseer",
@@ -407,7 +414,8 @@
                 "de": "MO",
                 "es": "MO"
               },
-              "mentor_achievement_id": 9117
+              "mentor_achievement_id": 9117,
+              "daily_bounty_achievement_id": 9192
             },
             {
               "name": "Samarog",
@@ -429,7 +437,8 @@
                 "de": "S",
                 "es": "S"
               },
-              "mentor_achievement_id": 9186
+              "mentor_achievement_id": 9186,
+              "daily_bounty_achievement_id": 9103
             },
             {
               "name": "Deimos",
@@ -451,7 +460,8 @@
                 "de": "D",
                 "es": "D"
               },
-              "mentor_achievement_id": 9166
+              "mentor_achievement_id": 9166,
+              "daily_bounty_achievement_id": 9176
             }
           ]
         }
@@ -582,7 +592,8 @@
                 "de": "D",
                 "es": "D"
               },
-              "mentor_achievement_id": 9167
+              "mentor_achievement_id": 9167,
+              "daily_bounty_achievement_id": 9191
             }
           ]
         },
@@ -629,7 +640,8 @@
                 "de": "CA",
                 "es": "CA"
               },
-              "mentor_achievement_id": 9171
+              "mentor_achievement_id": 9171,
+              "daily_bounty_achievement_id": 9119
             },
             {
               "name": "Twin Largos",
@@ -651,7 +663,8 @@
                 "de": "TL",
                 "es": "TL"
               },
-              "mentor_achievement_id": 9100
+              "mentor_achievement_id": 9100,
+              "daily_bounty_achievement_id": 9162
             },
             {
               "name": "Qadim",
@@ -673,7 +686,8 @@
                 "de": "Q1",
                 "es": "Q1"
               },
-              "mentor_achievement_id": 9113
+              "mentor_achievement_id": 9113,
+              "daily_bounty_achievement_id": 9201
             }
           ]
         },
@@ -741,7 +755,8 @@
                 "de": "A",
                 "es": "A"
               },
-              "mentor_achievement_id": 9143
+              "mentor_achievement_id": 9143,
+              "daily_bounty_achievement_id": 9145
             },
             {
               "name": "Cardinal Sabir",
@@ -763,7 +778,8 @@
                 "de": "S",
                 "es": "S"
               },
-              "mentor_achievement_id": 9165
+              "mentor_achievement_id": 9165,
+              "daily_bounty_achievement_id": 9127
             },
             {
               "name": "Qadim the Peerless",
@@ -785,7 +801,8 @@
                 "de": "Q2",
                 "es": "Q2"
               },
-              "mentor_achievement_id": 9174
+              "mentor_achievement_id": 9174,
+              "daily_bounty_achievement_id": 9124
             }
           ]
         }
@@ -873,7 +890,8 @@
                 "de": "D",
                 "es": "D"
               },
-              "mentor_achievement_id": 8469
+              "mentor_achievement_id": 8469,
+              "daily_bounty_achievement_id": 9137
             },
             {
               "name": "Greer",
@@ -895,7 +913,8 @@
                 "de": "G",
                 "es": "G"
               },
-              "mentor_achievement_id": 8499
+              "mentor_achievement_id": 8499,
+              "daily_bounty_achievement_id": 9161
             },
             {
               "name": "Ura",
@@ -917,7 +936,8 @@
                 "de": "U",
                 "es": "U"
               },
-              "mentor_achievement_id": 8462
+              "mentor_achievement_id": 8462,
+              "daily_bounty_achievement_id": 9189
             }
           ]
         }

@@ -1,6 +1,7 @@
 {
   "enabled": true,
   "version": "2026-02-16T17:08:00-0500Z",
+  "dailyBountyCategoryUrl": "https://api.guildwars2.com/v2/achievements/categories/475",
   "name": "Daily Raid Bounties",
   "abbreviation": "DRB",
   "localizedNames": {
