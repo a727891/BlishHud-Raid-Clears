@@ -64,6 +64,7 @@ public class Module : Blish_HUD.Modules.Module
         Service.MentorAchievementProgress.LoadCache();
         Service.StrikeData = StrikeData.Load();
         Service.DailyBountyData = DailyBountyDataService.Load();
+        Service.DailyBountyProgress = new DailyBountyProgressService();
         Service.RaidSettings = RaidSettingsPersistance.Load();
         Service.StrikeSettings = StrikeSettingsPersistance.Load();
         Service.FractalMapData = FractalMapData.Load();

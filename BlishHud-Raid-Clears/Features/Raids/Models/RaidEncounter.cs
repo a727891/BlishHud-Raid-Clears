@@ -34,6 +34,13 @@ public class RaidEncounter : EncounterInterface
     public int? MentorAchievementId { get; set; }
 
     /// <summary>
+    /// Optional GW2 achievement ID for the Daily Raid Bounty (e.g. Cairn: 9109). Used to mark bounty clears from the official API.
+    /// See https://wiki.guildwars2.com/wiki/Daily_Raid_Bounties for the full list.
+    /// </summary>
+    [JsonProperty("daily_bounty_achievement_id", NullValueHandling = NullValueHandling.Ignore)]
+    public int? DailyBountyAchievementId { get; set; }
+
+    /// <summary>
     /// Returns the localized name based on user locale, falling back to default name if localization is not available.
     /// </summary>
     public new string Name

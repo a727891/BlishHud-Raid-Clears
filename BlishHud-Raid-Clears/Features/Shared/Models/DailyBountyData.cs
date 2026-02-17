@@ -11,6 +11,13 @@ public class DailyBountyData
     [JsonProperty("enabled")]
     public bool Enabled { get; set; } = false;
 
+    /// <summary>
+    /// Official GW2 API URL for the Daily Raid Bounties achievement category (e.g. category 475).
+    /// Used to fetch achievement IDs for marking bounty clears. Remotely updatable via JSON.
+    /// </summary>
+    [JsonProperty("dailyBountyCategoryUrl")]
+    public string DailyBountyCategoryUrl { get; set; } = "https://api.guildwars2.com/v2/achievements/categories/475";
+
     [JsonProperty("version")]
     public string Version { get; set; } = "";
 

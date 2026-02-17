@@ -146,7 +146,8 @@ public class RaidData
                 ApiId = strike.Id,
                 AssetId = strike.AssetId,
                 Name = strike.Name,
-                Id = strike.Id
+                Id = strike.Id,
+                DailyBountyAchievementId = strike.DailyBountyAchievementId
             };
         }
         return new RaidEncounter()

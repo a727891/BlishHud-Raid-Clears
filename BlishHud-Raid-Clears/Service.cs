@@ -28,6 +28,7 @@ public static class Service
     public static SettingsPanel SettingsWindow { get; set; } = null!;
 
     public static DailyBountyData DailyBountyData { get; set; } = null!;
+    public static DailyBountyProgressService DailyBountyProgress { get; set; } = null!;
 
     public static StrikeData StrikeData { get; set; } = null!;
     public static RaidSettingsPersistance RaidSettings { get; set; } = null!;

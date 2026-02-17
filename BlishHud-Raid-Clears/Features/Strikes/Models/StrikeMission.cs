@@ -9,6 +9,12 @@ public class StrikeMission: EncounterInterface
     [JsonProperty("mapIds")]
     public List<int> MapIds = new();
 
+    /// <summary>
+    /// Optional GW2 achievement ID for the Daily Raid Bounty when this strike is a bounty (e.g. Kaineng Overlook: 9179).
+    /// </summary>
+    [JsonProperty("daily_bounty_achievement_id", NullValueHandling = NullValueHandling.Ignore)]
+    public int? DailyBountyAchievementId { get; set; }
+
     [JsonProperty("name")]
     private string _name = "undefined";
 
