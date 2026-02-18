@@ -26,6 +26,6 @@
     "mask_06.png",
     "mask_07.png"
   ],
-  "motd": "Dhuum Daily Bounty is now fixed.\n\nAdditional minor bug fixes will be coming this week.",
-  "motd_id": "2026-02-16-001"
+  "motd": "3.5.0 is now live.\n\nThe orange colored raid bosses are the encounters that will not be daily bounties for the rest of the week.\nYou can disable this in the settings.",
+  "motd_id": "2026-02-18-001"
 }
