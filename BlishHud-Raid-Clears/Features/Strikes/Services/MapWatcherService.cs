@@ -94,62 +94,62 @@ public class MapWatcherService: IDisposable
         _strikeName = string.Empty;
     }
 
+    /// <summary>Marks the current strike as completed (MAP_CHANGE or POPUP) and resets state. Call when leaving a strike map to a non-strike map or when entering a different strike map.</summary>
+    private async Task CompleteAndResetStrikeAsync()
+    {
+        if (!_isOnStrikeMap || _strikeMission == null) return;
+
+        switch (Service.Settings.StrikeSettings.StrikeCompletion.Value)
+        {
+            case Settings.Enums.StrikeComplete.MAP_CHANGE:
+                StrikeCompleted?.Invoke(this, _strikeApiName);
+                MarkStrikeCompleted(_strikeMission);
+                break;
+            case Settings.Enums.StrikeComplete.POPUP:
+                var dialog = new ConfirmDialog(
+                    _strikeName,
+                    Strings.Strike_Confirm_Message,
+                    new[] {
+                        new ButtonDefinition(Strings.Strike_Confirm_Btn_Yes, DialogResult.OK),
+                        new ButtonDefinition(Strings.Strike_Confirm_Btn_No, DialogResult.Cancel)
+                    });
+                var result = await dialog.ShowDialog();
+                dialog.Dispose();
+                if (result == DialogResult.OK)
+                {
+                    StrikeCompleted?.Invoke(this, _strikeApiName);
+                    MarkStrikeCompleted(_strikeMission);
+                }
+                break;
+        }
+        Reset();
+    }
+
     private async void CurrentMap_MapChanged(object sender, ValueEventArgs<int> e)
     {
 #if DEBUG
         Debug.WriteLine("Loaded Map " + e.ToString()+" "+e.Value.ToString());
 #endif
-        BossEncounter? _strikeMap = Service.StrikeData.GetBossEncounterByMapId(e.Value);
-        if (_strikeMap is not null)
+        BossEncounter? newStrike = Service.StrikeData.GetBossEncounterByMapId(e.Value);
+        if (newStrike is not null)
         {
+            // Entering a strike map. If we were on a different strike, mark the previous one completed first (supports direct raid-to-raid travel).
+            bool wasOnDifferentStrike = _isOnStrikeMap && _strikeMission != null && newStrike.EncounterId != _strikeMission.EncounterId;
+            if (wasOnDifferentStrike)
+                await CompleteAndResetStrikeAsync();
+
             Reset();
             _isOnStrikeMap = true;
-            _strikeApiName = _strikeMap.EncounterId;
-            _strikeName = _strikeMap.Name;
-            _strikeMission = _strikeMap;
+            _strikeApiName = newStrike.EncounterId;
+            _strikeName = newStrike.Name;
+            _strikeMission = newStrike;
         }
         else
         {
+            // Left to a non-strike map; mark current strike completed if we were on one.
             if (_isOnStrikeMap)
             {
-                switch (Service.Settings.StrikeSettings.StrikeCompletion.Value)
-                {
-                    case Settings.Enums.StrikeComplete.MAP_CHANGE:
-                            //trigger update
-                            StrikeCompleted?.Invoke(this, _strikeApiName);
-                            if (_strikeMission != null)
-                            {
-                                MarkStrikeCompleted(_strikeMission);
-                            }
-                        break;
-                    case Settings.Enums.StrikeComplete.POPUP:
-                            //Ask user
-                            var dialog = new ConfirmDialog(
-                                _strikeName,
-                                Strings.Strike_Confirm_Message,
-                                new[] {
-                                    new ButtonDefinition(Strings.Strike_Confirm_Btn_Yes, DialogResult.OK),
-                                    new ButtonDefinition(Strings.Strike_Confirm_Btn_No, DialogResult.Cancel)
-                                });
-
-                            var result = await dialog.ShowDialog();
-                            dialog.Dispose();
-
-                            if (result == DialogResult.OK)
-                            {
-
-                                StrikeCompleted?.Invoke(this, _strikeApiName);
-                                if (_strikeMission != null)
-                                {
-                                    MarkStrikeCompleted(_strikeMission);
-                                }
-                        }
-
-                    
-                        break;
-                    default: break;
-                }
-                Reset();
+                await CompleteAndResetStrikeAsync();
             }
         }
     }

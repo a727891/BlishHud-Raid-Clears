@@ -1,4 +1,4 @@
-﻿using Blish_HUD;
+using Blish_HUD;
 using RaidClears.Localization;
 using RaidClears.Shared.Controls;
 using System;
@@ -75,59 +75,59 @@ public class FractalMapWatcherService: IDisposable
         _fractalName = string.Empty;
     }
 
+    /// <summary>Marks the current fractal as completed (MAP_CHANGE or POPUP) and resets state. Call when leaving a fractal map to a non-fractal map or when entering a different fractal map.</summary>
+    private async Task CompleteAndResetFractalAsync()
+    {
+        if (!_isOnFractalMap || _fractal == null) return;
+
+        switch (Service.Settings.FractalSettings.CompletionMethod.Value)
+        {
+            case Settings.Enums.StrikeComplete.MAP_CHANGE:
+                FractalComplete?.Invoke(this, _fractalApiName);
+                MarkCompleted(_fractal);
+                break;
+            case Settings.Enums.StrikeComplete.POPUP:
+                var dialog = new ConfirmDialog(
+                    _fractalName,
+                    Strings.Strike_Confirm_Message,
+                    new[] {
+                        new ButtonDefinition(Strings.Strike_Confirm_Btn_Yes, DialogResult.OK),
+                        new ButtonDefinition(Strings.Strike_Confirm_Btn_No, DialogResult.Cancel)
+                    });
+                var result = await dialog.ShowDialog();
+                dialog.Dispose();
+                if (result == DialogResult.OK)
+                {
+                    FractalComplete?.Invoke(this, _fractalApiName);
+                    MarkCompleted(_fractal);
+                }
+                break;
+        }
+        Reset();
+    }
+
     private async void CurrentMap_MapChanged(object sender, ValueEventArgs<int> e)
     {
-        FractalMap? _fractalMap = Service.FractalMapData.GetFractalMapById(e.Value);
-        if (_fractalMap is not null)
+        FractalMap? newFractal = Service.FractalMapData.GetFractalMapById(e.Value);
+        if (newFractal is not null)
         {
+            // Entering a fractal map. If we were on a different fractal, mark the previous one completed first (supports direct fractal-to-fractal travel).
+            bool wasOnDifferentFractal = _isOnFractalMap && _fractal != null && newFractal.ApiLabel != _fractal.ApiLabel;
+            if (wasOnDifferentFractal)
+                await CompleteAndResetFractalAsync();
+
             Reset();
-            _isOnFractalMap= true;
-            _fractalApiName = _fractalMap.ApiLabel;
-            _fractalName = _fractalMap.Label;
-            _fractal = _fractalMap;
+            _isOnFractalMap = true;
+            _fractalApiName = newFractal.ApiLabel;
+            _fractalName = newFractal.Label;
+            _fractal = newFractal;
         }
         else
         {
+            // Left to a non-fractal map; mark current fractal completed if we were on one.
             if (_isOnFractalMap)
             {
-                switch (Service.Settings.FractalSettings.CompletionMethod.Value)
-                {
-                    case Settings.Enums.StrikeComplete.MAP_CHANGE:
-                            //trigger update
-                            FractalComplete?.Invoke(this, _fractalApiName);
-                            if (_fractal != null)
-                            {
-                                MarkCompleted(_fractal);
-                            }
-                        break;
-                    case Settings.Enums.StrikeComplete.POPUP:
-                            //Ask user
-                            var dialog = new ConfirmDialog(
-                                _fractalName,
-                                Strings.Strike_Confirm_Message,
-                                new[] {
-                                    new ButtonDefinition(Strings.Strike_Confirm_Btn_Yes, DialogResult.OK),
-                                    new ButtonDefinition(Strings.Strike_Confirm_Btn_No, DialogResult.Cancel)
-                                });
-
-                            var result = await dialog.ShowDialog();
-                            dialog.Dispose();
-
-                            if (result == DialogResult.OK)
-                            {
-
-                                FractalComplete?.Invoke(this, _fractalApiName);
-                                if (_fractal != null)
-                                {
-                                    MarkCompleted(_fractal);
-                                }
-                        }
-
-                    
-                        break;
-                    default: break;
-                }
-                Reset();
+                await CompleteAndResetFractalAsync();
             }
         }
     }
