@@ -2,6 +2,8 @@
 
 All notable changes to Clears Tracker will be documented in this file.
 
+## 3.5.1 (2026-02-18)
+* Fixed raid encounter completion trigger when map changes from raid-to-raid without leaving a raid map
 ## 3.5.0 (2026-02-17)
 * **Daily raid bounty tracking via API** – Bounty completion state is now fetched from the API and reflected in the UI
 * **Unified raids and strikes** – Shared `BossEncounter` model and `IEncounter`/`IExpansion` APIs; removed duplicate RaidEncounter/StrikeMission types; raid and strike labels and tooltips use a single encounter-based flow
