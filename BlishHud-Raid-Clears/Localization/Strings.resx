@@ -650,6 +650,18 @@
     <value>Show a popup when mentor progress increases (tracking must be enabled).</value>
     <comment>tooltip for mentor progress popup setting</comment>
   </data>
+  <data name="Setting_Raid_MentorProgressPopupReposition_Label" xml:space="preserve">
+    <value>Reposition mentor progress popup</value>
+    <comment>checkbox - show draggable example popup to set position; uncheck to lock position</comment>
+  </data>
+  <data name="Setting_Raid_MentorProgressPopupReposition_Tooltip" xml:space="preserve">
+    <value>When enabled, a sample popup appears that you can drag to set where mentor progress popups appear. Disable to lock the position.</value>
+    <comment>tooltip for reposition mentor popup setting</comment>
+  </data>
+  <data name="MentorProgress_ExamplePopup_Title" xml:space="preserve">
+    <value>Example Mentor Progress Update</value>
+    <comment>title text on the draggable example popup used when repositioning mentor progress popups</comment>
+  </data>
   <data name="Setting_Raid_Drag_Label" xml:space="preserve">
     <value>Unlock Raid Wings overlay position</value>
     <comment>checkbox - raids overlay draggable</comment>

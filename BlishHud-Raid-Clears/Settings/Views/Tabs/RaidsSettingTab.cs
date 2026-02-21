@@ -28,6 +28,7 @@ public class RaidsSettingTab : ISettingsMenuRegistrar
                 Service.Settings.RaidSettings.RaidPanelOmitEventEncounters,
                 Service.Settings.RaidSettings.RaidPanelMentorProgress,
                 Service.Settings.RaidSettings.RaidPanelMentorProgressPopup,
+                Service.Settings.RaidSettings.RaidPanelMentorProgressPopupReposition,
             })));
         
         _registeredMenuItems.Add(new MenuViewItem(

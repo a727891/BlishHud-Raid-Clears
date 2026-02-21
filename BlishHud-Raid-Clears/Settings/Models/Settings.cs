@@ -121,6 +121,9 @@ public static class Settings
             public static Setting<bool> omitEventEncounters = new("RCOmitEventEncounters", true, () => Strings.Setting_Raid_OmitEventEncounters_Label, () => Strings.Setting_Raid_OmitEventEncounters_Tooltip);
             public static Setting<bool> mentorProgress = new("RCMentorProgress", true, () => Strings.Setting_Raid_MentorProgress_Label, () => Strings.Setting_Raid_MentorProgress_Tooltip);
             public static Setting<bool> mentorProgressPopup = new("RCMentorProgressPopup", false, () => Strings.Setting_Raid_MentorProgressPopup_Label, () => Strings.Setting_Raid_MentorProgressPopup_Tooltip);
+            public static Setting<bool> mentorProgressPopupReposition = new("RCMentorProgressPopupReposition", false, () => Strings.Setting_Raid_MentorProgressPopupReposition_Label, () => Strings.Setting_Raid_MentorProgressPopupReposition_Tooltip);
+            /// <summary>Saved position for mentor progress popups. (-1,-1) means use default (top-right).</summary>
+            public static Setting<Point> mentorProgressPopupPosition = new("RCMentorProgressPopupPosition", new Point(-1, -1));
         }
     }
 

@@ -534,6 +534,15 @@
   <data name="Setting_Raid_MentorProgressPopup_Tooltip" xml:space="preserve">
     <value>Afficher une popup quand la progression de mentor augmente (suivi requis).</value>
   </data>
+  <data name="Setting_Raid_MentorProgressPopupReposition_Label" xml:space="preserve">
+    <value>Repositionner la popup de progression du mentor</value>
+  </data>
+  <data name="Setting_Raid_MentorProgressPopupReposition_Tooltip" xml:space="preserve">
+    <value>Quand activé, une popup exemple apparaît que vous pouvez faire glisser pour définir où s'affichent les popups de progression du mentor. Désactiver pour verrouiller la position.</value>
+  </data>
+  <data name="MentorProgress_ExamplePopup_Title" xml:space="preserve">
+    <value>Exemple de mise à jour de progression du mentor</value>
+  </data>
   <data name="Setting_Raid_Drag_Label" xml:space="preserve">
     <value>Déverrouiller la position de l'overlay de Raid</value>
   </data>

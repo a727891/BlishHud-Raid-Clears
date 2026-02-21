@@ -16,6 +16,7 @@ using Blish_HUD.Controls;
 using RaidClears.Features.Shared.Models;
 using RaidClears.Features.Fractals.Services;
 using RaidClears.Shared.Services;
+using RaidClears.Features.Raids;
 using RaidClears.Features.Raids.Services;
 using System;
 
@@ -25,6 +26,7 @@ namespace RaidClears;
 [Export(typeof(Blish_HUD.Modules.Module))]
 public class Module : Blish_HUD.Modules.Module
 {
+    private MentorProgressExamplePopupPanel? _mentorProgressExamplePopup;
     public static string DIRECTORY_PATH = "clearsTracker"; //Defined folder in manifest.json
 #if DEBUG
     public static string STATIC_HOST_URL = "http://localhost:3000/";
@@ -121,6 +123,8 @@ public class Module : Blish_HUD.Modules.Module
 
             Service.Gw2ApiManager.SubtokenUpdated += Gw2ApiManager_SubtokenUpdated;
             Service.MentorAchievementProgress.ProgressUpdated += MentorAchievementProgress_ProgressUpdated;
+            Service.Settings.RaidSettings.RaidPanelMentorProgressPopupReposition.SettingChanged += MentorProgressPopupReposition_SettingChanged;
+            UpdateMentorProgressExamplePopup(Service.Settings.RaidSettings.RaidPanelMentorProgressPopupReposition.Value);
             DispatchClears();
         }
         catch (System.Exception e)
@@ -152,6 +156,8 @@ public class Module : Blish_HUD.Modules.Module
 
     protected override void Unload()
     {
+        Service.Settings.RaidSettings.RaidPanelMentorProgressPopupReposition.SettingChanged -= MentorProgressPopupReposition_SettingChanged;
+        RemoveMentorProgressExamplePopup();
         Service.MentorAchievementProgress.ProgressUpdated -= MentorAchievementProgress_ProgressUpdated;
         Service.Gw2ApiManager.SubtokenUpdated -= Gw2ApiManager_SubtokenUpdated;
         if (Service.CornerIcon != null)
@@ -183,6 +189,7 @@ public class Module : Blish_HUD.Modules.Module
         Service.StrikesWindow?.Update();
         Service.FractalWindow?.Update();
         Service.ResetWatcher?.Update(gameTime);
+        _mentorProgressExamplePopup?.UpdateDrag();
     }
     private void CornerIcon_IconLeftClicked(object sender, bool e)
     {
@@ -214,11 +221,22 @@ public class Module : Blish_HUD.Modules.Module
         const int popupHeight = 72;
         const int gap = 8;
         const int margin = 20;
+        var savedPos = Service.Settings.RaidSettings.RaidPanelMentorProgressPopupPosition.Value;
         GameService.Graphics.QueueMainThreadRender(_ =>
         {
             var screenSize = GameService.Graphics.SpriteScreen.Size;
-            int x = screenSize.X - popupWidth - margin;
-            int y = margin + 60;
+            int x;
+            int y;
+            if (savedPos.X >= 0 && savedPos.Y >= 0)
+            {
+                x = savedPos.X;
+                y = savedPos.Y;
+            }
+            else
+            {
+                x = screenSize.X - popupWidth - margin;
+                y = margin + 60;
+            }
             foreach (var change in changes)
             {
                 if (change.Delta <= 0)
@@ -234,6 +252,61 @@ public class Module : Blish_HUD.Modules.Module
                 };
                 y += popupHeight + gap;
             }
+        });
+    }
+
+    private void MentorProgressPopupReposition_SettingChanged(object sender, ValueChangedEventArgs<bool> e)
+    {
+        UpdateMentorProgressExamplePopup(e.NewValue);
+    }
+
+    private void UpdateMentorProgressExamplePopup(bool repositionEnabled)
+    {
+        GameService.Graphics.QueueMainThreadRender(_ =>
+        {
+            if (repositionEnabled)
+            {
+                if (_mentorProgressExamplePopup != null)
+                    return;
+                const int popupWidth = 300;
+                const int margin = 20;
+                var savedPos = Service.Settings.RaidSettings.RaidPanelMentorProgressPopupPosition.Value;
+                int x;
+                int y;
+                if (savedPos.X >= 0 && savedPos.Y >= 0)
+                {
+                    x = savedPos.X;
+                    y = savedPos.Y;
+                }
+                else
+                {
+                    var screenSize = GameService.Graphics.SpriteScreen.Size;
+                    x = screenSize.X - popupWidth - margin;
+                    y = margin + 60;
+                }
+                _mentorProgressExamplePopup = new MentorProgressExamplePopupPanel
+                {
+                    Parent = GameService.Graphics.SpriteScreen,
+                    Location = new Point(x, y)
+                };
+            }
+            else
+            {
+                RemoveMentorProgressExamplePopup();
+            }
+        });
+    }
+
+    private void RemoveMentorProgressExamplePopup()
+    {
+        GameService.Graphics.QueueMainThreadRender(_ =>
+        {
+            if (_mentorProgressExamplePopup == null)
+                return;
+            var pos = _mentorProgressExamplePopup.Location;
+            Service.Settings.RaidSettings.RaidPanelMentorProgressPopupPosition.Value = pos;
+            _mentorProgressExamplePopup.Dispose();
+            _mentorProgressExamplePopup = null;
         });
     }
 

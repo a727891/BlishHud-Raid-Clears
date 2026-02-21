@@ -2,6 +2,10 @@
 
 All notable changes to Clears Tracker will be documented in this file.
 
+## 3.6.0 (2026-02-18)
+* **Mentor progress popup repositioning** – New setting to show a draggable example popup so you can choose where mentor progress popups appear; disable the setting to lock the position
+* Localized mentor progress repositioning setting and example popup title (DE, FR, ES)
+
 ## 3.5.1 (2026-02-18)
 * Fixed raid encounter completion trigger when map changes from raid-to-raid without leaving a raid map
 ## 3.5.0 (2026-02-17)

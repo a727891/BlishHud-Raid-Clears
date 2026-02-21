@@ -1663,6 +1663,33 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reposition mentor progress popup.
+        /// </summary>
+        internal static string Setting_Raid_MentorProgressPopupReposition_Label {
+            get {
+                return ResourceManager.GetString("Setting_Raid_MentorProgressPopupReposition_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When enabled, a sample popup appears that you can drag to set where mentor progress popups appear. Disable to lock the position..
+        /// </summary>
+        internal static string Setting_Raid_MentorProgressPopupReposition_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Raid_MentorProgressPopupReposition_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Example Mentor Progress Update.
+        /// </summary>
+        internal static string MentorProgress_ExamplePopup_Title {
+            get {
+                return ResourceManager.GetString("MentorProgress_ExamplePopup_Title", resourceCulture);
+            }
+        }
+         
+        /// <summary>
         ///   Looks up a localized string similar to Unlock Raid Wings overlay position.
         /// </summary>
         internal static string Setting_Raid_Drag_Label {
