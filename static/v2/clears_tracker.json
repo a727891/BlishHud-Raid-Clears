@@ -26,6 +26,6 @@
     "mask_06.png",
     "mask_07.png"
   ],
-  "motd": "3.5.0 is now live.\n\nThe orange colored raid bosses are the encounters that will not be daily bounties for the rest of the week.\nYou can disable this in the settings.\n\nA fix for raid encounter tracking (ie IBS5) is coming soon.",
-  "motd_id": "2026-02-18-002"
+  "motd": "3.6.0 is now live.\n\nThe orange colored raid bosses are the encounters that will not be daily bounties for the rest of the week.\nYou can disable this in the settings.",
+  "motd_id": "2026-02-21-001"
 }
