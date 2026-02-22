@@ -1,5 +1,5 @@
 {
-  "version": "2026-02-03T17:08:00-0500",
+  "version": "2026-02-22T12:00:00-0500",
   "priority": {
     "id": "priority",
     "name": "Daily Raid Bounties",
@@ -32,6 +32,26 @@
     },
     "missions": []
   },
+  "weekly_achievement_id": 9125,
+  "weekly_achievement_bit_strike_ids": [
+    "shiverpeak_pass",
+    "fraenir_of_jormag",
+    "voice_and_claw",
+    "whisper_of_jormag",
+    "boneskinner",
+    "cold_war",
+    "aetherblade_hideout",
+    "xunlai_jade_junkyard",
+    "kaineng_overlook",
+    "harvest_temple",
+    "cosmic_observatory",
+    "temple_of_febe",
+    "old_lion_court",
+    "guardians_glade"
+  ],
+  "map_tracked_strike_ids": [
+    "dragonstorm"
+  ],
   "expansions": [
     {
       "id": "ibs",
@@ -180,6 +200,7 @@
           "abbriviation": "DS",
           "assetId": 930971,
           "mapIds": [1409, 1411],
+          "resets": "daily",
           "localizedNames": {
             "en": "Dragonstorm",
             "fr": "Tempête de dragons",
