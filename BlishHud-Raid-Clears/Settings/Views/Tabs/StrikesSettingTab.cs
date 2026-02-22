@@ -23,13 +23,17 @@ public class StrikesSettingTab : ISettingsMenuRegistrar
             _ => new GenericGeneralView(Service.Settings.StrikeSettings.Generic, new List<SettingEntry>
             {
                 // Service.Settings.StrikeSettings.StrikeCompletion,
-                Service.Settings.StrikeSettings.AnchorToRaidPanel
+                Service.Settings.StrikeSettings.AnchorToRaidPanel,
+                Service.Settings.StrikeSettings.StrikePanelHighlightNonWeeklyBounty
             })
         ));
 
         _registeredMenuItems.Add(new MenuViewItem(
             new MenuItem(Strings.SettingsPanel_Raids_Heading_Layout),
-            _ => new GenericStyleView(Service.Settings.StrikeSettings.Style, null, true)
+            _ => new GenericStyleView(Service.Settings.StrikeSettings.Style, new List<SettingEntry<string>>
+            {
+                Service.Settings.StrikeSettings.StrikePanelColorNonWeeklyBounty
+            }, true)
         ));
 
         /*_registeredMenuItems.Add(new MenuViewItem(

@@ -851,6 +851,20 @@
     <value>Hex color code (#rrggbb) for label and grid text</value>
     <comment>strike overlay text color</comment>
   </data>
+  <data name="Setting_Strike_ColNonWeeklyBounty_Label" xml:space="preserve">
+    <value>Non-weekly bounty encounter color</value>
+    <comment>strike panel non-weekly bounty background color</comment>
+  </data>
+  <data name="Setting_Strike_ColNonWeeklyBounty_Tooltip" xml:space="preserve">
+    <value>Background color for strike encounters that will not be daily bounties this week</value>
+  </data>
+  <data name="Setting_Strike_NonWeeklyBounty_Label" xml:space="preserve">
+    <value>Highlight non-weekly bounty encounters</value>
+    <comment>strike panel highlight non-weekly bounty</comment>
+  </data>
+  <data name="Setting_Strike_NonWeeklyBounty_Tooltip" xml:space="preserve">
+    <value>Highlight strike encounters that will not be daily bounties for the rest of the week</value>
+  </data>
   <data name="Setting_Strike_CW_Label" xml:space="preserve">
     <value>Cold War</value>
     <comment>encounter full name</comment>

@@ -2176,6 +2176,42 @@ namespace RaidClears.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Non-weekly bounty encounter color.
+        /// </summary>
+        internal static string Setting_Strike_ColNonWeeklyBounty_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_ColNonWeeklyBounty_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Background color for strike encounters that will not be daily bounties this week.
+        /// </summary>
+        internal static string Setting_Strike_ColNonWeeklyBounty_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Strike_ColNonWeeklyBounty_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Highlight non-weekly bounty encounters.
+        /// </summary>
+        internal static string Setting_Strike_NonWeeklyBounty_Label {
+            get {
+                return ResourceManager.GetString("Setting_Strike_NonWeeklyBounty_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Highlight strike encounters that will not be daily bounties for the rest of the week.
+        /// </summary>
+        internal static string Setting_Strike_NonWeeklyBounty_Tooltip {
+            get {
+                return ResourceManager.GetString("Setting_Strike_NonWeeklyBounty_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cold War.
         /// </summary>
         internal static string Setting_Strike_CW_Label {

@@ -699,6 +699,18 @@
   <data name="Setting_Strike_ColText_Tooltip" xml:space="preserve">
     <value>Code de couleur hexadécimal (#rrggbb) pour le texte du titre et de la grille</value>
   </data>
+  <data name="Setting_Strike_ColNonWeeklyBounty_Label" xml:space="preserve">
+    <value>Couleur des rencontres de prime non hebdomadaire</value>
+  </data>
+  <data name="Setting_Strike_ColNonWeeklyBounty_Tooltip" xml:space="preserve">
+    <value>Couleur de fond pour les rencontres de strike qui ne seront pas des primes quotidiennes cette semaine</value>
+  </data>
+  <data name="Setting_Strike_NonWeeklyBounty_Label" xml:space="preserve">
+    <value>Mettre en évidence les rencontres de prime non hebdomadaires</value>
+  </data>
+  <data name="Setting_Strike_NonWeeklyBounty_Tooltip" xml:space="preserve">
+    <value>Mettre en évidence les rencontres de strike qui ne seront pas des primes quotidiennes le reste de la semaine</value>
+  </data>
   <data name="Setting_Strike_CW_Label" xml:space="preserve">
     <value>Guerre froide</value>
   </data>

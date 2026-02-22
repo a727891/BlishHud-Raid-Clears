@@ -32,6 +32,11 @@ public class StrikesPanel : GridPanel
 
         Service.ApiPollingService!.ApiPollingTrigger += OnApiPollingTrigger;
 
+        Settings.Style.Color.Cleared.SettingChanged += (_, _) => ApplyEncounterBackgroundColors();
+        Settings.Style.Color.NotCleared.SettingChanged += (_, _) => ApplyEncounterBackgroundColors();
+        Settings.StrikePanelColorNonWeeklyBounty.SettingChanged += (_, _) => ApplyEncounterBackgroundColors();
+        Settings.StrikePanelHighlightNonWeeklyBounty.SettingChanged += (_, _) => ApplyEncounterBackgroundColors();
+
         (this as FlowPanel).LayoutChange(Settings.Style.Layout);
         (this as GridPanel).BackgroundColorChange(Settings.Style.BgOpacity, Settings.Style.Color.Background);
 
@@ -41,6 +46,8 @@ public class StrikesPanel : GridPanel
                 Settings.Generic.Visible
             )
         );
+
+        ApplyEncounterBackgroundColors();
     }
 
 
@@ -70,6 +77,33 @@ public class StrikesPanel : GridPanel
                 encounter.SetCleared(strikesCompletedThisReset.Contains(encounter.id));
             }
         }
+        ApplyEncounterBackgroundColors();
+    }
+
+    /// <summary>Applies background colors to all strike encounter boxes. Cleared uses cleared color; uncleared uses non-weekly bounty color when enabled and not in weekly set, otherwise uncleared color. Daily Bounty / Daily Bounty Tomorrow groups are skipped.</summary>
+    private void ApplyEncounterBackgroundColors()
+    {
+        var clearedColor = Settings.Style.Color.Cleared.Value.HexToXnaColor();
+        var notClearedColor = Settings.Style.Color.NotCleared.Value.HexToXnaColor();
+        var nonWeeklyColor = Settings.StrikePanelColorNonWeeklyBounty.Value.HexToXnaColor();
+        var highlightNonWeekly = Settings.StrikePanelHighlightNonWeeklyBounty.Value;
+        var weeklyBounties = Service.WeeklyBountyEncounters;
+
+        foreach (var group in _strikes)
+        {
+            if (group is DailyBounty || group is DailyBountyTomorrow)
+                continue;
+            foreach (var encounter in group.boxes)
+            {
+                if (encounter.IsCleared)
+                    encounter.Box.BackgroundColor = clearedColor;
+                else if (highlightNonWeekly && weeklyBounties != null && !weeklyBounties.IsWeeklyBounty(encounter.id))
+                    encounter.Box.BackgroundColor = nonWeeklyColor;
+                else
+                    encounter.Box.BackgroundColor = notClearedColor;
+            }
+        }
+
         Invalidate();
     }
 

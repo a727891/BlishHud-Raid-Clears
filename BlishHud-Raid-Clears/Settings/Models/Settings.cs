@@ -136,6 +136,7 @@ public static class Settings
                 public static Setting<string> uncleared = new("StkcolNotCleared", Colors.LightGray, () => Strings.Setting_Strike_ColNotClear_Label, () => Strings.Setting_Strike_ColNotClear_Tooltip);
                 public static Setting<string> cleared = new("StkColCleared", Colors.Green, () => Strings.Setting_Strike_ColClear_Label, () => Strings.Setting_Strike_ColClear_Tooltip);
                 public static Setting<string> text = new("StkColText", Colors.White, () => Strings.Setting_Strike_ColText_Label, () => Strings.Setting_Strike_ColText_Tooltip);
+                public static Setting<string> nonWeeklyBounty = new("StkColNonWeeklyBounty", Colors.Orange, () => Strings.Setting_Strike_ColNonWeeklyBounty_Label, () => Strings.Setting_Strike_ColNonWeeklyBounty_Tooltip);
                 public static Setting<string> background = new("colStrikeBG", Colors.Black, () => Strings.Setting_Strike_ColBG_Label, () => Strings.Setting_Strike_ColBG_Tooltip);
             }
             
@@ -162,6 +163,7 @@ public static class Settings
         {
             public static Setting<bool> anchorToRaids = new("RCAnchorToRaids", false, () => Strings.Settings_Strike_AnchorToRaidLabel, () => Strings.Settings_Strike_AnchorToRaidTooltip);
             public static Setting<StrikeComplete> strikeCompletion = new("RCStrikeComplete", StrikeComplete.MAP_CHANGE, () => Strings.Settings_Strike_Completion, () => Strings.Settings_Strike_CompletionTooltip);
+            public static Setting<bool> highlightNonWeeklyBounty = new("RCStkNonWeeklyBounty", true, () => Strings.Setting_Strike_NonWeeklyBounty_Label, () => Strings.Setting_Strike_NonWeeklyBounty_Tooltip);
         }
     }
 
