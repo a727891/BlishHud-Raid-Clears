@@ -23,8 +23,7 @@ public class MapWatcherService: IDisposable
 
     public MapWatcherService()
     {
-        // Strikes clear dispatch via map changes disabled (clears from API only).
-        // GameService.Gw2Mumble.CurrentMap.MapChanged += CurrentMap_MapChanged;
+        GameService.Gw2Mumble.CurrentMap.MapChanged += CurrentMap_MapChanged;
 
 #if DEBUG
         Task.Delay(800).ContinueWith(_ =>
@@ -95,10 +94,12 @@ public class MapWatcherService: IDisposable
         _strikeName = string.Empty;
     }
 
-    /// <summary>Marks the current strike as completed (MAP_CHANGE or POPUP) and resets state. Call when leaving a strike map to a non-strike map or when entering a different strike map.</summary>
+    /// <summary>Marks the current strike as completed (MAP_CHANGE or POPUP) and resets state. Only runs for map-tracked strikes (e.g. Dragonstorm); API-tracked strikes are not updated here.</summary>
     private async Task CompleteAndResetStrikeAsync()
     {
         if (!_isOnStrikeMap || _strikeMission == null) return;
+        if (!Service.StrikeData.IsMapTracked(_strikeMission.EncounterId))
+            return;
 
         switch (Service.Settings.StrikeSettings.StrikeCompletion.Value)
         {
@@ -157,7 +158,7 @@ public class MapWatcherService: IDisposable
 
     public void Dispose()
     {
-        // GameService.Gw2Mumble.CurrentMap.MapChanged -= CurrentMap_MapChanged;
+        GameService.Gw2Mumble.CurrentMap.MapChanged -= CurrentMap_MapChanged;
         //GameService.Gw2Mumble.PlayerCharacter.IsInCombatChanged -= PlayerCharacter_IsInCombatChanged;
     }
 }

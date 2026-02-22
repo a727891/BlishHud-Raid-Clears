@@ -35,6 +35,10 @@ public class StrikeData
     [JsonProperty("weekly_achievement_bit_strike_ids")]
     public List<string> WeeklyAchievementBitStrikeIds { get; set; } = new();
 
+    /// <summary>Strike encounter ids that are tracked by map change only (not in API). e.g. Dragonstorm (daily, no achievement).</summary>
+    [JsonProperty("map_tracked_strike_ids")]
+    public List<string> MapTrackedStrikeIds { get; set; } = new();
+
     [JsonProperty("expansions")]
     public List<ExpansionStrikes> Expansions { get; set; } = new ();
 
@@ -110,11 +114,17 @@ public class StrikeData
             {
                 if (mission.Id == name)
                 {
-                    return expansion.Resets;
+                    return !string.IsNullOrEmpty(mission.Resets) ? mission.Resets : expansion.Resets;
                 }
             }
         }
         return "weekly";
+    }
+
+    /// <summary>True if this strike is tracked by map change only (not in weekly achievement API).</summary>
+    public bool IsMapTracked(string encounterId)
+    {
+        return MapTrackedStrikeIds != null && MapTrackedStrikeIds.Contains(encounterId);
     }
 
     public List<StrikeInfo> GetPriorityStrikes(int index)
