@@ -27,6 +27,18 @@ public class StrikeData
     [JsonProperty("priority_tomorrow")]
     public ExpansionStrikes PriorityTomorrow { get; set; } = new();
 
+    /// <summary>GW2 achievement ID for weekly raid encounters (strikes). When set, strike clears are synced from account achievement bits on API refresh.</summary>
+    [JsonProperty("weekly_achievement_id")]
+    public int WeeklyAchievementId { get; set; }
+
+    /// <summary>Strike encounter ids in achievement bit order (bit 0 = first id, bit 1 = second, etc.). Used to map achievement bits to strike ids.</summary>
+    [JsonProperty("weekly_achievement_bit_strike_ids")]
+    public List<string> WeeklyAchievementBitStrikeIds { get; set; } = new();
+
+    /// <summary>Strike encounter ids that are tracked by map change only (not in API). e.g. Dragonstorm (daily, no achievement).</summary>
+    [JsonProperty("map_tracked_strike_ids")]
+    public List<string> MapTrackedStrikeIds { get; set; } = new();
+
     [JsonProperty("expansions")]
     public List<ExpansionStrikes> Expansions { get; set; } = new ();
 
@@ -102,11 +114,17 @@ public class StrikeData
             {
                 if (mission.Id == name)
                 {
-                    return expansion.Resets;
+                    return !string.IsNullOrEmpty(mission.Resets) ? mission.Resets : expansion.Resets;
                 }
             }
         }
         return "weekly";
+    }
+
+    /// <summary>True if this strike is tracked by map change only (not in weekly achievement API).</summary>
+    public bool IsMapTracked(string encounterId)
+    {
+        return MapTrackedStrikeIds != null && MapTrackedStrikeIds.Contains(encounterId);
     }
 
     public List<StrikeInfo> GetPriorityStrikes(int index)

@@ -35,6 +35,10 @@ public class BossEncounter : EncounterInterface, IEncounter
     [JsonProperty("daily_bounty_achievement_id", NullValueHandling = NullValueHandling.Ignore)]
     public int? DailyBountyAchievementId { get; set; }
 
+    /// <summary>Optional per-mission reset override for strikes (e.g. "daily" for Dragonstorm). When set, overrides expansion default.</summary>
+    [JsonProperty("resets", NullValueHandling = NullValueHandling.Ignore)]
+    public string Resets { get; set; } = string.Empty;
+
     /// <summary>Stable id for lookups: raids use ApiId, strikes use Id.</summary>
     public string EncounterId => ApiId != null && ApiId != "undefined" ? ApiId : Id;
 

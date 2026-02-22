@@ -2,6 +2,13 @@
 
 All notable changes to Clears Tracker will be documented in this file.
 
+## 3.7.0 (2026-02-22)
+* **Strike clears from API** – Weekly strike completion is now synced from the GW2 account achievement (Weekly Raid Encounters, ID 9125). Clears are updated on API refresh; map-change completion is disabled for API-tracked strikes so daily bounty state is not overwritten.
+* **Strikes non-weekly highlight** – Strike panel now has its own "Highlight non-weekly bounty encounters" and "Non-weekly bounty encounter color" settings (independent of raids). "Copy from Raids" in Strikes Layout syncs these values from raid settings.
+* **Dragonstorm (map-tracked)** – Dragonstorm is a daily-reward strike not in the API. It is tracked by map change only: leaving the Dragonstorm map marks it completed for the day. It uses a daily reset; other IBS strikes remain weekly and API-tracked.
+* **Strike data** – Added `map_tracked_strike_ids` and optional per-mission `resets` in strike_data.json; StrikeData exposes `IsMapTracked()` and uses mission-level reset when set (e.g. Dragonstorm `"resets": "daily"`).
+* **Manage Clears** – Strike "Manage Clears" settings entry is hidden (clears are driven by API and map-tracked strikes only).
+
 ## 3.6.0 (2026-02-18)
 * **Mentor progress popup repositioning** – New setting to show a draggable example popup so you can choose where mentor progress popups appear; disable the setting to lock the position
 * Localized mentor progress repositioning setting and example popup title (DE, FR, ES)

@@ -88,6 +88,11 @@ public class SettingService // singular because Setting"s"Service already exists
         settings.Color.Cleared.Value = RaidSettings.Style.Color.Cleared.Value;
         settings.Color.Text.Value = RaidSettings.Style.Color.Text.Value;
 
+        if (ReferenceEquals(settings, StrikeSettings.Style))
+        {
+            StrikeSettings.StrikePanelColorNonWeeklyBounty.Value = RaidSettings.RaidPanelColorNonWeeklyBounty.Value;
+            StrikeSettings.StrikePanelHighlightNonWeeklyBounty.Value = RaidSettings.RaidPanelHighlightNonWeeklyBounty.Value;
+        }
     }
 
     public void AlignStrikesWithRaidPanel()

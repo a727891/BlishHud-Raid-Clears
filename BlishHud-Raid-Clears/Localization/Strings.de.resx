@@ -699,6 +699,18 @@
   <data name="Setting_Strike_ColText_Tooltip" xml:space="preserve">
     <value>Hex-Farbcode (#rrggbb) für Label- und Rastertext</value>
   </data>
+  <data name="Setting_Strike_ColNonWeeklyBounty_Label" xml:space="preserve">
+    <value>Farbe für Begegnungen ohne wöchentliche Prämie</value>
+  </data>
+  <data name="Setting_Strike_ColNonWeeklyBounty_Tooltip" xml:space="preserve">
+    <value>Hintergrundfarbe für Strike-Begegnungen, die diese Woche keine Tagesprämien sein werden</value>
+  </data>
+  <data name="Setting_Strike_NonWeeklyBounty_Label" xml:space="preserve">
+    <value>Begegnungen ohne wöchentliche Prämie hervorheben</value>
+  </data>
+  <data name="Setting_Strike_NonWeeklyBounty_Tooltip" xml:space="preserve">
+    <value>Strike-Begegnungen hervorheben, die für den Rest der Woche keine Tagesprämien sein werden</value>
+  </data>
   <data name="Setting_Strike_CW_Label" xml:space="preserve">
     <value>Kalter Krieg</value>
   </data>

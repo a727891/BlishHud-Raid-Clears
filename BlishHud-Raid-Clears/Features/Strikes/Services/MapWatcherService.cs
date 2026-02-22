@@ -54,7 +54,7 @@ public class MapWatcherService: IDisposable
                     if(entry.Value >= Service.ResetWatcher.LastDailyReset)
                     {
                         clearedStrikesThisReset.Add(entry.Key);
-                        clearedStrikesThisReset.Add($"priority_{entry.Key}");
+                        //clearedStrikesThisReset.Add($"priority_{entry.Key}");
                     }
                     break;
                 default:
@@ -62,10 +62,10 @@ public class MapWatcherService: IDisposable
                     {
                         clearedStrikesThisReset.Add(entry.Key);
                     }
-                    if (entry.Value >= Service.ResetWatcher.LastDailyReset)
-                    {
-                        clearedStrikesThisReset.Add($"priority_{entry.Key}");
-                    }
+                    //if (entry.Value >= Service.ResetWatcher.LastDailyReset)
+                    //{
+                        //clearedStrikesThisReset.Add($"priority_{entry.Key}");
+                    //}
                     break;
             } 
         }
@@ -94,10 +94,12 @@ public class MapWatcherService: IDisposable
         _strikeName = string.Empty;
     }
 
-    /// <summary>Marks the current strike as completed (MAP_CHANGE or POPUP) and resets state. Call when leaving a strike map to a non-strike map or when entering a different strike map.</summary>
+    /// <summary>Marks the current strike as completed (MAP_CHANGE or POPUP) and resets state. Only runs for map-tracked strikes (e.g. Dragonstorm); API-tracked strikes are not updated here.</summary>
     private async Task CompleteAndResetStrikeAsync()
     {
         if (!_isOnStrikeMap || _strikeMission == null) return;
+        if (!Service.StrikeData.IsMapTracked(_strikeMission.EncounterId))
+            return;
 
         switch (Service.Settings.StrikeSettings.StrikeCompletion.Value)
         {

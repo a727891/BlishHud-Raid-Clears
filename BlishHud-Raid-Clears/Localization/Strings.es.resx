@@ -699,6 +699,18 @@
   <data name="Setting_Strike_ColText_Tooltip" xml:space="preserve">
     <value>Código de color hexadecimal (#rrggbb) para etiqueta y texto de cuadrícula</value>
   </data>
+  <data name="Setting_Strike_ColNonWeeklyBounty_Label" xml:space="preserve">
+    <value>Color de encuentro de recompensa no semanal</value>
+  </data>
+  <data name="Setting_Strike_ColNonWeeklyBounty_Tooltip" xml:space="preserve">
+    <value>Color de fondo para encuentros de strike que no serán recompensas diarias esta semana</value>
+  </data>
+  <data name="Setting_Strike_NonWeeklyBounty_Label" xml:space="preserve">
+    <value>Resaltar encuentros de recompensa no semanales</value>
+  </data>
+  <data name="Setting_Strike_NonWeeklyBounty_Tooltip" xml:space="preserve">
+    <value>Resaltar encuentros de strike que no serán recompensas diarias el resto de la semana</value>
+  </data>
   <data name="Setting_Strike_CW_Label" xml:space="preserve">
     <value>Guerra Fría</value>
   </data>
