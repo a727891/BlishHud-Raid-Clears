@@ -27,6 +27,14 @@ public class StrikeData
     [JsonProperty("priority_tomorrow")]
     public ExpansionStrikes PriorityTomorrow { get; set; } = new();
 
+    /// <summary>GW2 achievement ID for weekly raid encounters (strikes). When set, strike clears are synced from account achievement bits on API refresh.</summary>
+    [JsonProperty("weekly_achievement_id")]
+    public int WeeklyAchievementId { get; set; }
+
+    /// <summary>Strike encounter ids in achievement bit order (bit 0 = first id, bit 1 = second, etc.). Used to map achievement bits to strike ids.</summary>
+    [JsonProperty("weekly_achievement_bit_strike_ids")]
+    public List<string> WeeklyAchievementBitStrikeIds { get; set; } = new();
+
     [JsonProperty("expansions")]
     public List<ExpansionStrikes> Expansions { get; set; } = new ();
 

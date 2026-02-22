@@ -22,7 +22,7 @@ public class StrikesSettingTab : ISettingsMenuRegistrar
             new MenuItem(Strings.SettingsPanel_Raids_Heading_General),
             _ => new GenericGeneralView(Service.Settings.StrikeSettings.Generic, new List<SettingEntry>
             {
-                Service.Settings.StrikeSettings.StrikeCompletion,
+                // Service.Settings.StrikeSettings.StrikeCompletion,
                 Service.Settings.StrikeSettings.AnchorToRaidPanel
             })
         ));
@@ -46,11 +46,11 @@ public class StrikesSettingTab : ISettingsMenuRegistrar
             _ => new StrikeLabelCustomizationView()
         ));
 
-        _registeredMenuItems.Add(new MenuViewItem(
-            new MenuItem(Strings.SettingsPanel_Strikes_Heading_ManageClears),
-            _ => new StrikeClearCorrectionView()
-        ));
-        
+        // Manage Clears window hidden.
+        // _registeredMenuItems.Add(new MenuViewItem(
+        //     new MenuItem(Strings.SettingsPanel_Strikes_Heading_ManageClears),
+        //     _ => new StrikeClearCorrectionView()
+        // ));
     }
     
     public IEnumerable<MenuItem> GetSettingMenus() => 

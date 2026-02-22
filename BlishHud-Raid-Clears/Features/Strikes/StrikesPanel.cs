@@ -7,6 +7,7 @@ using Blish_HUD;
 using Blish_HUD.Controls;
 using RaidClears.Features.Strikes.Services;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System;
 
 namespace RaidClears.Features.Strikes;
@@ -29,6 +30,8 @@ public class StrikesPanel : GridPanel
         Service.ResetWatcher.DailyReset += UpdateClearsAtReset;
         Service.ResetWatcher.WeeklyReset += UpdateClearsAtReset;
 
+        Service.ApiPollingService!.ApiPollingTrigger += OnApiPollingTrigger;
+
         (this as FlowPanel).LayoutChange(Settings.Style.Layout);
         (this as GridPanel).BackgroundColorChange(Settings.Style.BgOpacity, Settings.Style.Color.Background);
 
@@ -40,6 +43,15 @@ public class StrikesPanel : GridPanel
         );
     }
 
+
+    private void OnApiPollingTrigger(object sender, bool _)
+    {
+        Task.Run(async () =>
+        {
+            await WeeklyStrikeClearsService.RefreshFromApiAsync();
+            GameService.Graphics.QueueMainThreadRender(_ => Service.MapWatcher.DispatchCurrentStrikeClears());
+        });
+    }
 
     private void UpdateClearsAtReset(object sender, DateTime reset)
     {
@@ -69,6 +81,8 @@ public class StrikesPanel : GridPanel
     protected override void DisposeControl()
     {
         base.DisposeControl();
+        if (Service.ApiPollingService != null)
+            Service.ApiPollingService.ApiPollingTrigger -= OnApiPollingTrigger;
         _mapService.CompletedStrikes -= _mapService_CompletedStrikes;
         Service.ResetWatcher.DailyReset -= UpdateClearsAtReset;
         Service.ResetWatcher.WeeklyReset -= UpdateClearsAtReset;

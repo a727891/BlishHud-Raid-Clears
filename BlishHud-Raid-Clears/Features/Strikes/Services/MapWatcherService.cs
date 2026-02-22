@@ -23,7 +23,8 @@ public class MapWatcherService: IDisposable
 
     public MapWatcherService()
     {
-        GameService.Gw2Mumble.CurrentMap.MapChanged += CurrentMap_MapChanged;
+        // Strikes clear dispatch via map changes disabled (clears from API only).
+        // GameService.Gw2Mumble.CurrentMap.MapChanged += CurrentMap_MapChanged;
 
 #if DEBUG
         Task.Delay(800).ContinueWith(_ =>
@@ -54,7 +55,7 @@ public class MapWatcherService: IDisposable
                     if(entry.Value >= Service.ResetWatcher.LastDailyReset)
                     {
                         clearedStrikesThisReset.Add(entry.Key);
-                        clearedStrikesThisReset.Add($"priority_{entry.Key}");
+                        //clearedStrikesThisReset.Add($"priority_{entry.Key}");
                     }
                     break;
                 default:
@@ -62,10 +63,10 @@ public class MapWatcherService: IDisposable
                     {
                         clearedStrikesThisReset.Add(entry.Key);
                     }
-                    if (entry.Value >= Service.ResetWatcher.LastDailyReset)
-                    {
-                        clearedStrikesThisReset.Add($"priority_{entry.Key}");
-                    }
+                    //if (entry.Value >= Service.ResetWatcher.LastDailyReset)
+                    //{
+                        //clearedStrikesThisReset.Add($"priority_{entry.Key}");
+                    //}
                     break;
             } 
         }
@@ -156,7 +157,7 @@ public class MapWatcherService: IDisposable
 
     public void Dispose()
     {
-        GameService.Gw2Mumble.CurrentMap.MapChanged -= CurrentMap_MapChanged;
+        // GameService.Gw2Mumble.CurrentMap.MapChanged -= CurrentMap_MapChanged;
         //GameService.Gw2Mumble.PlayerCharacter.IsInCombatChanged -= PlayerCharacter_IsInCombatChanged;
     }
 }
