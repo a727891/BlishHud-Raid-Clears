@@ -1,5 +1,5 @@
 {
-  "version": "2026-02-11T20:40:00-0500",
+  "version": "2026-03-23T20:40:00-0500",
   "secondsInWeek": 604800,
   "powerDamageAssetId": 993687,
   "condiDamageAssetId": 156600,
@@ -541,7 +541,8 @@
                 "es": "SH"
               },
               "mentor_achievement_id": 9133,
-              "mentor_achievement_max": 1000
+              "mentor_achievement_max": 1000,
+              "daily_bounty_achievement_id": 9146
             },
             {
               "name": "River of Souls",
