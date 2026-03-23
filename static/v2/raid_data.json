@@ -73,6 +73,7 @@
                 "es": "VG"
               },
               "mentor_achievement_id": 9105,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9126
             },
             {
@@ -117,6 +118,7 @@
                 "es": "G"
               },
               "mentor_achievement_id": 9169,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9122
             },
             {
@@ -140,6 +142,7 @@
                 "es": "S"
               },
               "mentor_achievement_id": 9140,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9185
             }
           ]
@@ -188,6 +191,7 @@
                 "es": "S"
               },
               "mentor_achievement_id": 9151,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9135
             },
             {
@@ -232,6 +236,7 @@
                 "es": "M"
               },
               "mentor_achievement_id": 9170,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9160
             }
           ]
@@ -301,6 +306,7 @@
                 "es": "KC"
               },
               "mentor_achievement_id": 9136,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9163
             },
             {
@@ -345,6 +351,7 @@
                 "es": "X"
               },
               "mentor_achievement_id": 9157,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9107
             }
           ]
@@ -393,6 +400,7 @@
                 "es": "C"
               },
               "mentor_achievement_id": 9104,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9109
             },
             {
@@ -416,6 +424,7 @@
                 "es": "MO"
               },
               "mentor_achievement_id": 9117,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9192
             },
             {
@@ -439,6 +448,7 @@
                 "es": "S"
               },
               "mentor_achievement_id": 9186,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9103
             },
             {
@@ -462,6 +472,7 @@
                 "es": "D"
               },
               "mentor_achievement_id": 9166,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9176
             }
           ]
@@ -529,7 +540,8 @@
                 "de": "SH",
                 "es": "SH"
               },
-              "mentor_achievement_id": 9133
+              "mentor_achievement_id": 9133,
+              "mentor_achievement_max": 1000
             },
             {
               "name": "River of Souls",
@@ -594,6 +606,7 @@
                 "es": "D"
               },
               "mentor_achievement_id": 9167,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9191
             }
           ]
@@ -642,6 +655,7 @@
                 "es": "CA"
               },
               "mentor_achievement_id": 9171,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9119
             },
             {
@@ -665,6 +679,7 @@
                 "es": "TL"
               },
               "mentor_achievement_id": 9100,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9162
             },
             {
@@ -688,6 +703,7 @@
                 "es": "Q1"
               },
               "mentor_achievement_id": 9113,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9201
             }
           ]
@@ -757,6 +773,7 @@
                 "es": "A"
               },
               "mentor_achievement_id": 9143,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9145
             },
             {
@@ -780,6 +797,7 @@
                 "es": "S"
               },
               "mentor_achievement_id": 9165,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9127
             },
             {
@@ -803,6 +821,7 @@
                 "es": "Q2"
               },
               "mentor_achievement_id": 9174,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9124
             }
           ]
@@ -892,6 +911,7 @@
                 "es": "D"
               },
               "mentor_achievement_id": 8469,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9137
             },
             {
@@ -915,6 +935,7 @@
                 "es": "G"
               },
               "mentor_achievement_id": 8499,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9161
             },
             {
@@ -938,6 +959,7 @@
                 "es": "U"
               },
               "mentor_achievement_id": 8462,
+              "mentor_achievement_max": 1000,
               "daily_bounty_achievement_id": 9189
             }
           ]
