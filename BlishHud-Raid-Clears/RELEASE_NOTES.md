@@ -4,6 +4,15 @@ User-facing patch notes for Clears Tracker. Newest releases first.
 
 ---
 
+## 3.7.1 (2026-03-23)
+
+### Mentor Progress
+
+- **API Errors** - Removed calls to the GW2API with invalid achivement ids
+- **Tooltip max fallback** - Raid boss mentor tooltips now show `0 / 1000` instead of `0 / ?` when there is no progress.
+
+---
+
 ## 3.7.0 (2026-02-22)
 
 ### Raid Encounters

@@ -2,6 +2,10 @@
 
 All notable changes to Clears Tracker will be documented in this file.
 
+## 3.7.1 (2026-03-23)
+* **Mentor max points from static data** – Mentor achievement `max` is now read from the static raid data (`mentor_achievement_max`) instead of downloading public achievement definitions. This fixes log warnings for invalid achievement ids.
+* **Tooltip shows max even at 0** – Raid boss mentor tooltips now display `0 / 1000` when there is no progress entry yet (instead of `0 / ?`).
+
 ## 3.7.0 (2026-02-22)
 * **Strike clears from API** – Weekly strike completion is now synced from the GW2 account achievement (Weekly Raid Encounters, ID 9125). Clears are updated on API refresh; map-change completion is disabled for API-tracked strikes so daily bounty state is not overwritten.
 * **Strikes non-weekly highlight** – Strike panel now has its own "Highlight non-weekly bounty encounters" and "Non-weekly bounty encounter color" settings (independent of raids). "Copy from Raids" in Strikes Layout syncs these values from raid settings.

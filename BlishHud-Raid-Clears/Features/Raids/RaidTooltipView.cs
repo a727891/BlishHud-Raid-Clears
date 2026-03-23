@@ -7,6 +7,7 @@ using Color = Microsoft.Xna.Framework.Color;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 using Blish_HUD;
 using RaidClears.Features.Raids.Models;
+using RaidClears.Features.Raids.Services;
 using RaidClears.Features.Shared.Models;
 using RaidClears;
 
@@ -243,7 +244,10 @@ public class RaidTooltipView : Blish_HUD.Controls.Tooltip
                 }
                 else
                 {
-                    _mentorLabel.Text = string.Format(Strings.Tooltip_MentorProgress, 0, "?");
+                    _mentorLabel.Text = string.Format(
+                        Strings.Tooltip_MentorProgress,
+                        0,
+                        MentorAchievementProgressService.DefaultMentorAchievementMax);
                     _mentorLabel.Location = _mentorIcon.Visible ? new(_mentorIcon.Right + 5, yOffset) : new(xOffset + 5, yOffset);
                     _mentorLabel.Visible = true;
                 }

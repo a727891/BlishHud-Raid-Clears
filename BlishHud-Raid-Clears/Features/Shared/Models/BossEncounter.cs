@@ -31,6 +31,10 @@ public class BossEncounter : EncounterInterface, IEncounter
     [JsonProperty("mentor_achievement_id", NullValueHandling = NullValueHandling.Ignore)]
     public int? MentorAchievementId { get; set; }
 
+    /// <summary>Optional GW2 max tier/points for the boss mentor achievement (raids).</summary>
+    [JsonProperty("mentor_achievement_max", NullValueHandling = NullValueHandling.Ignore)]
+    public int? MentorAchievementMax { get; set; }
+
     /// <summary>Optional GW2 achievement ID for the Daily Raid Bounty (raids and some strikes).</summary>
     [JsonProperty("daily_bounty_achievement_id", NullValueHandling = NullValueHandling.Ignore)]
     public int? DailyBountyAchievementId { get; set; }
