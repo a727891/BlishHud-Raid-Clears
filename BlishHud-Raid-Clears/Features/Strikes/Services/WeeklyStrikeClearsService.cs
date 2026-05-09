@@ -10,7 +10,8 @@ namespace RaidClears.Features.Strikes.Services;
 
 /// <summary>
 /// Syncs weekly strike clears from the GW2 account achievement (e.g. 9125 Weekly Raid Encounters).
-/// On API refresh, fetches the achievement bits and updates StrikePersistance; dispatch is left to the caller.
+/// When the meta completes mid-week the API may clear <c>bits</c> but set <c>done</c>; then all mapped strikes are marked cleared.
+/// On API refresh, updates StrikePersistance; dispatch is left to the caller.
 /// </summary>
 public static class WeeklyStrikeClearsService
 {
@@ -49,18 +50,29 @@ public static class WeeklyStrikeClearsService
             if (achievement == null)
                 return;
 
-            var completedBits = new HashSet<int>(achievement.Bits ?? Array.Empty<int>());
             var mapping = strikeData.WeeklyAchievementBitStrikeIds;
             var persistence = Service.StrikePersistance;
 
-            for (var i = 0; i < mapping.Count; i++)
+            if (achievement.Done)
             {
-                var strikeId = mapping[i];
-                var mission = strikeData.GetBossEncounterById(strikeId);
-                if (completedBits.Contains(i))
+                foreach (var strikeId in mapping)
+                {
+                    var mission = strikeData.GetBossEncounterById(strikeId);
                     persistence.SaveClear(account, mission);
-                else
-                    persistence.RemoveClear(account, mission);
+                }
+            }
+            else
+            {
+                var completedBits = new HashSet<int>(achievement.Bits ?? Array.Empty<int>());
+                for (var i = 0; i < mapping.Count; i++)
+                {
+                    var strikeId = mapping[i];
+                    var mission = strikeData.GetBossEncounterById(strikeId);
+                    if (completedBits.Contains(i))
+                        persistence.SaveClear(account, mission);
+                    else
+                        persistence.RemoveClear(account, mission);
+                }
             }
         }
         catch (Exception e)
