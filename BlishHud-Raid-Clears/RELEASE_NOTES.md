@@ -4,6 +4,14 @@ User-facing patch notes for Clears Tracker. Newest releases first.
 
 ---
 
+## 3.7.2 (2026-05-09)
+
+### Strike clears
+
+- **Weekly Raid Encounters** - After you finish the weekly strike meta, the game API sometimes clears the per-strike list until Monday even though the achievement shows complete. The module now treats that completed state correctly, so your strike clears stay shown instead of dropping to all uncleared.
+
+---
+
 ## 3.7.1 (2026-03-23)
 
 ### Mentor Progress

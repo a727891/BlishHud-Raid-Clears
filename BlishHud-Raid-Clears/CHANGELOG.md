@@ -2,6 +2,9 @@
 
 All notable changes to Clears Tracker will be documented in this file.
 
+## 3.7.2 (2026-05-09)
+* **`WeeklyStrikeClearsService`** – When syncing weekly strikes from achievement **9125** (Weekly Raid Encounters), check **`AccountAchievement.Done`** before interpreting **`Bits`**. After mid-week meta completion the API can return **`done: true`** with **`bits`** empty until the real weekly reset; the previous logic treated empty bits as zero progress and called **`RemoveClear`** for every **`WeeklyAchievementBitStrikeIds`** entry. **`Done`** now forces **`SaveClear`** for all mapped strikes; unchanged **`bits`**-indexed behavior when **`Done`** is false.
+
 ## 3.7.1 (2026-03-23)
 * **Mentor max points from static data** – Mentor achievement `max` is now read from the static raid data (`mentor_achievement_max`) instead of downloading public achievement definitions. This fixes log warnings for invalid achievement ids.
 * **Tooltip shows max even at 0** – Raid boss mentor tooltips now display `0 / 1000` when there is no progress entry yet (instead of `0 / ?`).
