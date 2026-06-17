@@ -1,12 +1,12 @@
 # Clears Tracker
 
-*Track your daily and weekly PvE instance clears—raids, raid encounters (strikes), fractals, and dungeons—in one overlay.*
+*Track your daily and weekly PvE instance clears-raids, raid encounters (strikes), fractals, and dungeons-in one overlay.*
 
 ---
 
 ## Overview
 
-**Clears Tracker** uses the Guild Wars 2 API to show your clear status for raids, raid encounters (strikes), fractals, and dungeons. Panels update automatically so you can see at a glance what you’ve cleared this week, and—for raids—which daily bounties you’ve completed. Layout, colors, labels, and visibility are all customizable.
+**Clears Tracker** uses the Guild Wars 2 API to show your clear status for raids, raid encounters (strikes), fractals, and dungeons. Panels update automatically so you can see at a glance what you’ve cleared this week, and-for raids-which daily bounties you’ve completed. Layout, colors, labels, and visibility are all customizable.
 
 **Requirements:** Blish HUD (v1.0.0+), GW2 API key with `account` and `progression` permissions.
 
@@ -42,7 +42,7 @@
 
 <!-- PLACEHOLDER: Daily bounties / raid panel detail -->
 ![Raid panel with daily bounties](placeholder-raid-bounties.png)
-*Image: Close-up of the Raids panel with daily bounty feature visible—e.g. wing headers, encounter boxes, some with “bounty” or completion state, and differing background colors for cleared vs uncleared vs non-weekly bounty. Optional: tooltip open on one encounter showing boss info (damage type, break bar).*
+*Image: Close-up of the Raids panel with daily bounty feature visible-e.g. wing headers, encounter boxes, some with “bounty” or completion state, and differing background colors for cleared vs uncleared vs non-weekly bounty. Optional: tooltip open on one encounter showing boss info (damage type, break bar).*
 
 <!-- PLACEHOLDER: Fractals -->
 ![Fractals panel](placeholder-fractals.png)
@@ -50,7 +50,7 @@
 
 <!-- PLACEHOLDER: Settings -->
 ![Settings](placeholder-settings.png)
-*Image: Clears Tracker settings window—e.g. Raids tab with options for layout, colors (cleared/uncleared/non-weekly bounty), highlight non-weekly bounty checkbox, label customization, visibility toggles. Enough to show depth of customization without every option.*
+*Image: Clears Tracker settings window-e.g. Raids tab with options for layout, colors (cleared/uncleared/non-weekly bounty), highlight non-weekly bounty checkbox, label customization, visibility toggles. Enough to show depth of customization without every option.*
 
 <!-- PLACEHOLDER: Corner icon -->
 ![Corner icon](placeholder-corner-icon.png)

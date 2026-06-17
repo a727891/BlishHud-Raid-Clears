@@ -56,7 +56,7 @@ public class MentorProgressPopupPanel : Panel
             Location = new Point(contentLeft, _bossNameLabel.Bottom + 2),
             AutoSizeWidth = true,
             Font = Content.DefaultFont18,
-            TextColor = new Color(218, 165, 32), // gold — bold effect via larger font
+            TextColor = new Color(218, 165, 32), // gold - bold effect via larger font
             Text = $"+{delta}"
         };
         _progressLabel = new Label
