@@ -1,5 +1,5 @@
 {
-  "cache_bust": false,
+  "cache_bust": true,
   "fractal_instabilities": "207032/2026-09-15",
   "fractal_map_data": "2026-09-15T19:10:00-0500",
   "strike_data": "2026-02-26T20:00:00-0500",
@@ -26,6 +26,6 @@
     "mask_06.png",
     "mask_07.png"
   ],
-  "motd": "3.7.0 is now live.\n\nThe orange colored raid bosses are the encounters that will not be daily bounties for the rest of the week.\nYou can disable this in the settings.",
-  "motd_id": "2026-02-21-001"
+  "motd": "Updated for Visions of Eternity's final patch.",
+  "motd_id": "2026-09-15-001"
 }
