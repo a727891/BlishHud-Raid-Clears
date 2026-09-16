@@ -451,22 +451,22 @@
           }
         },
         {
-          "id": "voe_2",
-          "name": "Voe2????",
-          "abbriviation": "VoE2",
+          "id": "nexus_of_eternity",
+          "name": "Nexus of Eternity",
+          "abbriviation": "NoE",
           "assetId": 3442796,
-          "mapIds": [-3],
+          "mapIds": [1638],
           "localizedNames": {
-            "en": null,
+            "en": "Nexus of Eternity",
             "fr": null,
             "de": null,
-            "es": null
+            "es": "Nexo de Eternidad"
           },
           "localizedAbbreviations": {
-            "en": null,
+            "en": "NoE",
             "fr": null,
             "de": null,
-            "es": null
+            "es": "NdE"
           }
         }
       ]
