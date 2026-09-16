@@ -4,7 +4,7 @@
     ["Aetherblade", "Uncategorized", "ThaumanovaReactor"],
     ["TwilightOasis", "Cliffside", "Chaos"],
     ["Deepstone", "CaptainMaiTrinBoss", "SilentSurf"],
-    ["Snowblind", "SolidOcean", "Nightmare"],
+    ["SolitaryThrone", "SolidOcean", "Nightmare"],
     ["Chaos", "Uncategorized", "UrbanBattleground"],
     ["SirensReef", "MoltenFurnace", "Deepstone"],
     ["MoltenBoss", "TwilightOasis", "UndergroundFacility"],
@@ -21,7 +21,7 @@
     [6, 28, 61],
     [10, 32, 65],
     [14, 34, 74],
-    [19, 50, 70],
+    [1, 50, 70],
     [15, 48, 60],
     [24, 35, 66],
     [21, 36, 75],
@@ -39,7 +39,7 @@
       "label": "Aetherblade Retreat",
       "short": "Aeth",
       "api": "aetherblade",
-      "scales": [14, 45, 65, 70, 93],
+      "scales": [14, 45, 65, 70, 92],
       "id": 956,
       "localizedNames": {
         "en": "Aetherblade",
@@ -65,7 +65,7 @@
       "label": "Captain Mai Trin Boss",
       "short": "Mai",
       "api": "mai_trin_boss",
-      "scales": [18, 42, 71, 95],
+      "scales": [18, 42, 71, 90],
       "id": 960,
       "localizedNames": {
         "en": "Captain Mai Trin Boss",
@@ -91,7 +91,7 @@
       "label": "Cliffside",
       "short": "Clff",
       "api": "cliffside",
-      "scales": [6, 46, 68, 94],
+      "scales": [6, 46, 68, 93],
       "id": 952,
       "localizedNames": {
         "en": "Cliffside",
@@ -143,7 +143,7 @@
       "label": "Molten Boss",
       "short": "MBoss",
       "api": "molten_boss",
-      "scales": [10, 40, 69, 90],
+      "scales": [10, 40, 69, 89],
       "id": 959,
       "localizedNames": {
         "en": "Molten Boss",
@@ -247,7 +247,7 @@
       "label": "Solid Ocean",
       "short": "S Ocn",
       "api": "solid_ocean",
-      "scales": [20, 35, 44, 60, 80],
+      "scales": [20, 35, 60, 80],
       "id": 958,
       "localizedNames": {
         "en": "Solid Ocean",
@@ -256,11 +256,24 @@
         "es": "Océano Sólido"
       }
     },
+    "SolitaryThrone": {
+      "label": "Solitary Throne",
+      "short": "Throne",
+      "api": "solitary_throne",
+      "scales": [19, 44, 64, 94],
+      "id": 1636,
+      "localizedNames": {
+        "en": "Solitary Throne",
+        "fr": "Trône solitaire",
+        "de": "Einsamer Thron",
+        "es": "Trono solitario"
+      }
+    },
     "Swampland": {
       "label": "Swampland",
       "short": "Swmp",
       "api": "swampland",
-      "scales": [5, 32, 56, 77, 89],
+      "scales": [5, 32, 56, 77],
       "id": 949,
       "localizedNames": {
         "en": "Swampland",
@@ -273,7 +286,7 @@
       "label": "Thaumanova Reactor",
       "short": "Thau",
       "api": "thaumanova_reactor",
-      "scales": [15, 34, 55, 64, 82],
+      "scales": [15, 34, 55, 82],
       "id": 957,
       "localizedNames": {
         "en": "Thaumanova Reactor",
@@ -299,7 +312,7 @@
       "label": "Uncategorized",
       "short": "Uncat",
       "api": "uncategorized",
-      "scales": [2, 36, 62, 79, 91],
+      "scales": [2, 36, 62, 79],
       "id": 947
     },
     "UndergroundFacility": {
@@ -326,7 +339,7 @@
       "label": "Volcanic",
       "short": "Vol",
       "api": "volcanic",
-      "scales": [1, 19, 28, 52, 92],
+      "scales": [1, 28, 52, 91],
       "id": 954,
       "localizedNames": {
         "en": "Volcanic",
@@ -355,7 +368,7 @@
     "16": "TwilightOasis",
     "17": "Kinfall",
     "18": "CaptainMaiTrinBoss",
-    "19": "Volcanic",
+    "19": "SolitaryThrone",
     "20": "SolidOcean",
     "21": "SilentSurf",
     "22": "Nightmare",
@@ -381,7 +394,7 @@
     "41": "TwilightOasis",
     "42": "CaptainMaiTrinBoss",
     "43": "SilentSurf",
-    "44": "SolidOcean",
+    "44": "SolitaryThrone",
     "45": "Aetherblade",
     "46": "Cliffside",
     "47": "Nightmare",
@@ -402,7 +415,7 @@
     "61": "AquaticRuins",
     "62": "Uncategorized",
     "63": "Chaos",
-    "64": "ThaumanovaReactor",
+    "64": "SolitaryThrone",
     "65": "Aetherblade",
     "66": "SilentSurf",
     "67": "Deepstone",
@@ -428,12 +441,12 @@
     "86": "Snowblind",
     "87": "TwilightOasis",
     "88": "Chaos",
-    "89": "Swampland",
-    "90": "MoltenBoss",
-    "91": "CaptainMaiTrinBoss",
-    "92": "Volcanic",
-    "93": "Aetherblade",
-    "94": "Cliffside",
+    "89": "MoltenBoss",
+    "90": "CaptainMaiTrinBoss",
+    "91": "Volcanic",
+    "92": "Aetherblade",
+    "93": "Cliffside",
+    "94": "SolitaryThrone",
     "95": "Kinfall",
     "96": "Nightmare",
     "97": "ShatteredObservatory",

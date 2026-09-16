@@ -1,7 +1,7 @@
 {
-  "cache_bust": true,
-  "fractal_instabilities": "151657/2025-06-03",
-  "fractal_map_data": "2026-01-24T20:40:00-0500",
+  "cache_bust": false,
+  "fractal_instabilities": "207032/2026-09-15",
+  "fractal_map_data": "2026-09-15T19:10:00-0500",
   "strike_data": "2026-02-26T20:00:00-0500",
   "raid_data": "2026-03-23T20:40:00-0500",
   "daily_bounties": "2026-02-27T17:08:00-0500",
